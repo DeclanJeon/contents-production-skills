@@ -1,6 +1,6 @@
 # Video-production skill routing
 
-This guide integrates the three skills in this repository with an agent's existing specialist skills. It is a routing reference, not another skill or production-state machine. Keep the agent's existing `creative-production` skill as the single entry point and cross-domain coordinator. The named external skills below are optional local dependencies; this repository does not copy or install their contents.
+This guide routes the eight bundled core skills and conditional external specialists. The bundled `creative-production` is the single content/video project coordinator. This guide is a reference, not another skill or production-state machine; external specialists and runtimes are not copied or automatically installed.
 
 ## Classify intent first
 
@@ -9,7 +9,7 @@ This guide integrates the three skills in this repository with an agent's existi
 | User intent | Primary route | Add only when needed |
 |---|---|---|
 | Text/blog/social draft or adaptation without media execution | `creative-production` → applicable writing/source/platform specialist or direct source-grounded drafting | No video package, folder selection, generated imagery, CTA, extra variants, or publication unless requested. |
-| Complete multi-stage video production, hybrid campaign, or work spanning writing, generation, 3D, editing, and delivery | Existing `creative-production` coordinator | `video-production-assets` for the requested preproduction package; `camera-spatial-design` for quantified camera/space design; `blender-previsualization` for a Blender proxy or previs artifact. |
+| Complete multi-stage video production, hybrid campaign, or work spanning writing, generation, 3D, editing, and delivery | Bundled `creative-production` coordinator | `video-production-assets` for the requested preproduction package; `camera-spatial-design` for quantified camera/space design; `blender-previsualization` for a Blender proxy or previs artifact. |
 | One explicit production asset, such as a brief, claim ledger, lighting plan, or shot list | `video-production-assets`, loading only the relevant module | `camera-spatial-design` for actual spatial/camera calculations; `blender-previsualization` only when an executable Blender previs is requested. |
 | Factual or educational video | Claim/evidence and delivery modules in `video-production-assets` when those assets are requested | `content-production-marketing` only for audience, channel, campaign, or source-derived social strategy. Do not invent a protagonist, conflict, dramatic reenactment, product pitch, or unsupported claim. |
 | Original narrative, screenplay, character, or scene work | Applicable `sw-*` craft or general video-planning specialists under `creative-production` | `synopsis-craft`, `script-craft`, and `char-design` keep their explicit story-commerce lane contracts. Load `story-pipeline` only when that format is requested. |
@@ -34,18 +34,19 @@ A standalone specialist call confirms scope/route with `creative-production` onc
 - **Publishing:** Do not post or publish an output unless the user separately requests publication and the destination's requirements are verified.
 - **Single-owner handoffs:** `creative-production` owns content/video lane selection and shared project coordination. A specialist owns its subtask, preserving existing lane-local manifests/story bibles; delegated work continues without routing back or starting another interview/approval ledger. Do not duplicate a paid shot through executors.
 
-## Existing specialist IDs
+## Bundled and external specialist IDs
 
-These names describe optional skills that may be present in the agent's local skill root; none of their skill bodies are included here:
+The bundled core is `creative-production`, `video-production-assets`, `camera-spatial-design`, `blender-previsualization`, `orchestrating-video-preproduction`, `developing-video-synopses`, `designing-video-character-sheets`, and `storyboarding-video`. Keep their complete folders in one skill root; a missing core reference is a broken installation.
+
+The following external IDs are conditional dependencies. The package manifest records activation and runtime/auth needs; an unknown upstream/version is not an automatic-install instruction. Text-only planning requires none of these:
 
 - Creative/story stages: `synopsis-craft`, `script-craft`, `sw-premise-theme`, `sw-story-structure`, `sw-character-conflict`, `sw-dialogue`, `sw-scene-craft`, `sw-format-adaptation`, `char-design`.
 - Focused content/story-commerce: `story-pipeline`, `storyboard-craft`, `content-production-marketing`, `youtube-content`.
-- Text-planning lane: `orchestrating-video-preproduction`, `developing-video-synopses`, `designing-video-character-sheets`, `storyboarding-video` (text artifacts only; no media or file side effects).
 - Prompt/model/edit/execution: `video-prompt`, `video-shotlist`, `video-model-router`, `video-critique`, `video-pipeline`, `fal-video-production`.
 - Review-image generation: `codex-imagen` is required for the image-backed preproduction branch, but its helper and OAuth setup are not bundled. Report missing installation/auth or applicable spend approval rather than silently switching providers.
 - Other rendering surfaces, when directly relevant: `comfyui`, `remotion-create`, and `remotion-render`.
 
-If a named skill is absent, continue only with a supported route and state the limitation; do not fabricate its behavior.
+If a required external specialist/runtime is absent, finish reachable requested preparation and stop before its stage with the exact missing prerequisite. A materially different route may be proposed, but is not substituted silently or reported as the requested completed result.
 
 ## Routing smoke examples
 
