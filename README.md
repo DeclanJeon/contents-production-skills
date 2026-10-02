@@ -32,7 +32,7 @@ See [`integrations/skill-routing.md`](integrations/skill-routing.md) for the int
 
 ## 🚀 Install
 
-The commands below install the three skill folders into the user skill root and preserve the package examples, QA report, and manifest under `video-production-assets/support/`. If any destination skill already exists, back it up and remove it before running the copy step; the script refuses to overwrite existing skills.
+The commands below install the three skill folders into the user skill root and preserve the package examples, QA report, and manifest under `video-production-assets/support/`. If any skill or support destination already exists, back it up and remove it before running the copy step; the script refuses to overwrite or merge with existing destinations.
 
 ```powershell
 $repo = Join-Path $env:TEMP 'video-production-skills'
@@ -41,12 +41,22 @@ $skillNames = @('video-production-assets', 'camera-spatial-design', 'blender-pre
 
 git clone https://github.com/DeclanJeon/video-production-skills.git $repo
 New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
-$existing = $skillNames | Where-Object { Test-Path (Join-Path $skillRoot $_) }
-if ($existing) { throw "Existing skill directories detected; back them up/remove them first: $($existing -join ', ')" }
-foreach ($name in $skillNames) { Copy-Item -Path (Join-Path $repo $name) -Destination $skillRoot -Recurse }
+$existingSkills = $skillNames | Where-Object { Test-Path (Join-Path $skillRoot $_) }
+if ($existingSkills) { throw "Existing skill directories detected; back them up/remove them first: $($existingSkills -join ', ')" }
 
 $support = Join-Path $skillRoot 'video-production-assets\support'
-New-Item -ItemType Directory -Force -Path $support | Out-Null
+$supportDestinations = @(
+  $support,
+  (Join-Path $support 'manifest.json'),
+  (Join-Path $support 'examples'),
+  (Join-Path $support 'qa')
+)
+$existingSupport = $supportDestinations | Where-Object { Test-Path $_ }
+if ($existingSupport) { throw "Existing package support destinations detected; back them up/remove them first: $($existingSupport -join ', ')" }
+
+foreach ($name in $skillNames) { Copy-Item -Path (Join-Path $repo $name) -Destination $skillRoot -Recurse }
+
+New-Item -ItemType Directory -Path $support | Out-Null
 Copy-Item (Join-Path $repo 'manifest.json') $support
 Copy-Item (Join-Path $repo 'examples') $support -Recurse
 Copy-Item (Join-Path $repo 'qa') $support -Recurse
