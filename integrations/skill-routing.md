@@ -22,8 +22,9 @@ Select the narrowest owner that completes the request. Content format, audience,
 
 ## Execution and approval gates
 
-- **Preproduction versus execution:** `video-production-assets` prepares assets and validates structured plans; it does not render or publish footage. Route a real render, edit, or upload request to an available executor and verify that executor before relying on it.
+- **Preproduction versus execution:** For topic-to-video and full preproduction requests, read [`preproduction-review.md`](../video-production-assets/references/preproduction-review.md) before writing files or submitting media. It requires an exact user-selected project folder, applicable artifacts, real review stills through the external `codex-imagen` skill, inspection, and a review report. The package delegates image generation; it does not render or publish footage. No sample video, moving animatic, or local/free video export bypasses the separate execution gate.
 - **Multi-stage state:** Use `project.json` for a multi-stage production contract, with stable asset IDs, claims/provenance, versions, approvals, and output status. Do not create a manifest/database for a single prompt or edit.
+- **Review versus video authorization:** Keep the video model unresolved during preproduction. User acceptance covers the reviewed artifact versions, not video production. Only a separate request to proceed opens live model/price planning; execute after explicit approval of that bounded plan. Modified inputs invalidate affected review/execution approvals. Automated judgments and successful validators do not authorize user actions.
 - **Dynamic capability:** Before selecting or calling a provider, inspect the live catalog and the exact schema for the selected endpoint and input mode. Verify duration, aspect, resolution, reference/audio/edit support, destination constraints, rights/terms, and current pricing from current authoritative sources. Unknown support means stop before submission; do not substitute a guessed model.
 - **Spend:** Show the live price and bounded scope, then obtain explicit approval before any paid submission. Creative approval, batch mode, or “handle it” alone is not spend approval. Do not expand retries beyond an approved scope.
 - **Delivery:** A storyboard, prompt, API success, or predicted result is not a generated-video deliverable. Confirm the actual output exists, inspect it with available technical and visual checks, and record unverified checks honestly.
@@ -37,6 +38,7 @@ These names describe optional skills that may be present in the agent's local sk
 - Creative/story stages: `synopsis-craft`, `script-craft`, `sw-premise-theme`, `sw-story-structure`, `sw-character-conflict`, `sw-dialogue`, `sw-scene-craft`, `sw-format-adaptation`, `char-design`.
 - Focused content/story-commerce: `story-pipeline`, `storyboard-craft`, `content-production-marketing`, `youtube-content`.
 - Prompt/model/edit/execution: `video-prompt`, `video-shotlist`, `video-model-router`, `video-critique`, `video-pipeline`, `fal-video-production`.
+- Review-image generation: `codex-imagen` is required for the image-backed preproduction branch, but its helper and OAuth setup are not bundled. Report missing installation/auth or applicable spend approval rather than silently switching providers.
 - Other rendering surfaces, when directly relevant: `comfyui`, `remotion-create`, and `remotion-render`.
 
 If a named skill is absent, continue only with a supported route and state the limitation; do not fabricate its behavior.
@@ -54,3 +56,6 @@ Use these as route checks when integrating the guide into a local skill set; non
 | “Turn this YouTube interview into Shorts and preserve the interview's claims.” | `youtube-content`; add `content-production-marketing` only if audience/channel/performance strategy is part of the brief. | Keep source fidelity; use a render executor only if rendering is requested. |
 | “Render the approved shots through Fal; I approved the live quote for these exact shots and settings.” | `fal-video-production`, after rechecking current endpoint schema and actual price for that scope. | Preserve the approved shots; no endpoint changes, extra retries, or publication beyond the approved request. |
 | “Post the finished video to my selected channel.” | The named publishing integration only after its destination/account requirements are checked. | Publication is explicit here; it is still distinct from generation and must not be inferred from a completed render. |
+| “Make a video about this topic; I have not chosen a folder.” | `creative-production` → `video-production-assets` preproduction branch. | Ask for an exact project folder before writes or media calls; source, runtime, framing, and judgment tool are project-specific. |
+| “The preproduction package looks good.” | Record acceptance for the reviewed artifact versions. | Wait for a separate video-production request; no model selection, sample render, or spend from this acceptance alone. |
+| “Only write a lighting plan in chat.” | `video-production-assets` lighting module. | No project-folder questionnaire, image generation, or full-package expansion. |

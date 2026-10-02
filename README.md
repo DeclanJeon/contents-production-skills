@@ -30,6 +30,15 @@ The camera and Blender skills share the `camera-spatial-1.0` spatial contract. T
 
 See [`integrations/skill-routing.md`](integrations/skill-routing.md) for the intent lanes and integration boundaries. The coordinator and other local specialist skills are intentionally not copied into this public package.
 
+### Topic-to-video review package
+
+For a new full video project, first choose an exact project directory. All applicable briefs, scripts, shot plans, generated review images, prompts, and QA reports stay under that root, with relative paths in `project.json`. An existing folder is resumed only explicitly; new projects do not overwrite it.
+
+Follow [`preproduction-review.md`](video-production-assets/references/preproduction-review.md). Image-backed packages use the external **`codex-imagen` skill**, which is not bundled here and needs its own installed helper, OAuth access, and applicable usage/spend approval. Missing prerequisites stop image submission; no provider substitution is automatic.
+
+Inspect the actual still images and report `review.md` for user review. Preproduction acceptance covers those versions only. A separate request to proceed opens video-model and live-price planning; actual video generation requires explicit approval of the bounded execution plan. Even a local/free sample video is gated. Changes reopen only affected approvals, and publication remains separate. Source sites, judgment tools, genre, runtime, and framing are current-project choices, not package defaults.
+
+
 ## 🚀 Install
 
 The commands below install the three skill folders into the user skill root and preserve the package examples, QA report, and manifest under `video-production-assets/support/`. If any skill or support destination already exists, back it up and remove it before running the copy step; the script refuses to overwrite or merge with existing destinations.

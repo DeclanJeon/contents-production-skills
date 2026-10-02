@@ -46,3 +46,8 @@ artifacts: id, type, version, status, dependencies(artifact id 배열), evidence
 
 ## 버전 변경과 범위
 변경된 산출물과 그 하위 인계를 stale로 표시하고 입력 버전을 갱신한 뒤 관련 항목만 재검수한다. 계획 패키지가 완성됐어도 실제 영상이 완성된 것은 아니다. 참고 후보·예산·도구 기능이 미정이면 계획에서 가정으로 남기고 실제 실행 직전에 확인한다.
+
+## 프리프로덕션 검토와 영상 실행 승인
+[프리프로덕션·검토 절차](preproduction-review.md)의 `review.md`는 `type=preproduction_review` artifact로 등록하고 검토 대상의 ID·버전을 dependencies/dependency_versions로 연결한다. 실제 사용자 수락 때만 approved와 approval 근거를 기록한다. 문서·이미지의 generated/verified 상태는 사용자 수락을 뜻하지 않는다.
+
+별도 `type=video_execution_plan` artifact는 승인된 검토 패키지 버전과 명시적 샷·모델/endpoint·실행/재시도/비용 상한을 참조한다. 실제 사용자 실행 승인 뒤에만 approved로 기록한다. 프리프로덕션 중 모델/가격 미정은 허용하지만 실행자 기본값으로 보충하지 않는다. 변경된 에셋의 종속 검토/실행 계획은 stale로 표시하고 새 버전에 이전 승인을 재사용하지 않는다. 사용자 승인과 파일 존재/구조 검사는 별개의 증거다.
