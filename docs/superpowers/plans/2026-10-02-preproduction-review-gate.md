@@ -77,8 +77,8 @@
 - [x] Run a disposable dry-run workflow exercise over: topic only/no path; exact supplied path; parent root only; colliding folder; explicit resume; single text artifact; unavailable image auth; model not selected; preproduction accepted but no video authorization; positive model judgment without user acceptance; and a changed accepted dependency. Observe planned next actions against the decision table. Do not substitute these checks for actual end-to-end media execution.
 - [x] Exercise existing validator behavior using a disposable in-memory copy of `examples/20-second-animation/project.json`: an approved artifact without approval evidence must fail; a stale artifact carrying an old dependency version must fail. Use existing schema, not new permanent tests for instructions or wording.
 - [x] Obtain a read-only final review of the changed skills and docs. Address concrete Important/Critical defects before publishing. Remove any disposable smoke artifacts.
-- [ ] Verify public changes contain no personal project path or source/judgment-specific project defaults. Commit and push the scoped skill/docs files; read back the public commit and changed skill/reference files.
-- [ ] Report exactly what was updated and verified. First-project assets, image QA and video generation remain unexecuted while that project's prerequisite is unresolved; do not claim the first package exists.
+- [x] Verify public changes contain no personal project path or source/judgment-specific project defaults. Commit and push the scoped skill/docs files; read back the public commit and changed skill/reference files.
+- [x] Report exactly what was updated and verified. First-project assets, image QA and video generation remain unexecuted while that project's prerequisite is unresolved; do not claim the first package exists.
 
 ### Observed verification
 
@@ -87,6 +87,7 @@
 - Production validator suite: 8 passed. Camera suite: 6 passed. Existing animation plan: valid. In-memory probes rejected missing approval evidence and dependency-version mismatch.
 - Installed production skill, contract, and review reference: all three SHA-256 pairs matched the source. Actual image helper smoke found a local auth profile; no image-generation request was made.
 - Independent fresh-context review identified a representative-shot scope ambiguity. The coordinator now requires that shot to be included in the approved execution plan and caps; targeted review confirmed the fix. No other Important/Critical issue was reported.
+- Published the workflow release as `50ac2c0e7882521db1c63076e8511cb92c69c4f5`; GitHub main and the published skill/reference content were read back successfully.
 
 
 ## Execution Handoff
