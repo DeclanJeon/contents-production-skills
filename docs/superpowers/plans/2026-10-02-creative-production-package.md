@@ -86,7 +86,7 @@
 - [x] Apply only installed core instructions to independent content draft, factual 15-second/3-panel plan, standalone character artifact, inherited checkpoint, missing image prerequisites, preproduction acceptance, stale input, chosen provider/partial success, rewrite-only and UI exclusion scenarios. Report actual outputs; no tool-enabled execution or paid-provider verification inferred from model probes.
 - [x] Record QA/provenance/changelog; describe real package behavior without claiming external runtimes or provider calls tested.
 - [x] Back up and explicitly replace core Codex folders; migrate matching .agents planning IDs using the explicit alias-root contract. Verify no duplicate managed IDs and existing unrelated skills remain.
-- [ ] Stage only scoped package files, commit `feat: package creative-production and portable planning skills`, push the implementation branch and verify its remote SHA. Integrate main only by the approved normal fast-forward workflow if main still points to the original base; do not force-push or include unrelated changes.
+- [x] Stage only scoped package files, commit `feat: package creative-production and portable planning skills`, push the implementation branch and verify its remote SHA. Integrate main only by the approved normal fast-forward workflow if main still points to the original base; do not force-push or include unrelated changes.
 
 ## Execution decisions
 
@@ -103,3 +103,4 @@
 - Two independent static reviews reported and re-reviewed two defects: source-support collision and non-narrative requested-stage omission. Scoped re-reviews have no findings.
 - Actual local synchronization backed up four existing Codex core folders and four planning aliases; installed all eight into one Codex root; removed the four backed-up duplicate aliases. All 364 unrelated skill entrypoints remained unchanged. Full prior managed-folder snapshots match their backups.
 - Detailed public-safe observations and unexercised provider/media/legal surfaces: [QA record](../../../qa/package-validation.json).
+- Publication confirmed: implementation commit `aa908a3fc2341e2241b05a6306a20d122d3262f3` was pushed to `feat/creative-production-package`, fast-forwarded from the original main base, and pushed to `origin/main`. Remote branch SHAs matched the local implementation commit. This completion-ledger update does not change the package implementation.
