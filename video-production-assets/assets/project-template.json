@@ -1,0 +1,20 @@
+{
+  "project_id": "",
+  "version": "0.1",
+  "target_duration_s": null,
+  "fps": 24,
+  "aspect_ratio": "16:9",
+  "scenes": [],
+  "characters": [],
+  "shots": [],
+  "claims": [],
+  "artifacts": [],
+  "schema_version": "1.1",
+  "audio_mode": "dialogue",
+  "asset_registry": [],
+  "audio_cues": [],
+  "captions": [],
+  "issues": [],
+  "delivery_spec": {},
+  "delivery_checks": []
+}

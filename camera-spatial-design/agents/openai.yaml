@@ -1,0 +1,13 @@
+interface:
+  display_name: 카메라·공간 설계
+  short_description: 샷·렌즈·위치·구도·피사체 거리·무빙을 좌표로 설계하는 스킬
+  default_prompt: $camera-spatial-design으로 장면의 카메라 위치, 거리, 렌즈, 구도와 무빙을 설계해줘.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

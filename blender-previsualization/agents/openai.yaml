@@ -1,0 +1,13 @@
+interface:
+  display_name: 블렌더 프리비즈
+  short_description: 카메라 명세를 Blender 장면·샷 미리보기·애니매틱으로 재현하는 스킬
+  default_prompt: $blender-previsualization으로 카메라 명세를 Blender 장면과 샷 프리비즈로 만들어줘.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

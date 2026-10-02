@@ -1,0 +1,11 @@
+{
+  "version": "1.2",
+  "skills": [
+    "video-production-assets",
+    "camera-spatial-design",
+    "blender-previsualization"
+  ],
+  "source_books_included": false,
+  "blender_render_included": false,
+  "examples": 4
+}
