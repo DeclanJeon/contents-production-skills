@@ -21,9 +21,9 @@ The camera and Blender skills share the `camera-spatial-1.0` spatial contract. T
 
 ## 🧭 Workflow and integration
 
-1. Use the existing `creative-production` skill as the single cross-domain coordinator when a request spans planning, model/provider choice, generation, editing, 3D, or delivery.
+1. Use the existing `creative-production` skill as the single entry point and cross-domain coordinator when a request spans planning, model/provider choice, generation, editing, 3D, or delivery. The skills in this package are scoped specialists: on a standalone call they confirm scope/route with `creative-production` once, then produce only the requested artifact; under delegation they continue without routing back or opening a second approval ledger.
 2. Classify the content goal before choosing craft: narrative, factual/educational, advertising, source-derived shortform, abstract/music, or a narrow prompt/edit request.
-3. Load only the applicable production, camera, or Blender skill. Keep existing screenplay, story-commerce, social-content, prompt, editing, and medium-specific skills as focused specialists; they are not bundled in this repository.
+3. Load only the applicable production, camera, or Blender skill. Keep existing screenplay, story-commerce, social-content, prompt, editing, and medium-specific skills as focused specialists; they are not bundled in this repository. For text-only story planning (concept → synopsis → character → storyboard), the coordinator may delegate to the separate `orchestrating-video-preproduction` skill, which returns text and generic prompts only — it creates no project folder, `project.json`, generated stills, or sample video, and hands downstream work back to `creative-production`.
 4. Treat multi-stage `project.json` plans as the canonical production contract. A single prompt, shotlist, or edit does not need a full project manifest.
 5. Check the current provider catalog, exact schema, destination requirements, and pricing before external generation. Paid submission needs explicit spend approval; publishing needs a separate request.
 6. Report a generated-video deliverable complete only after the real output exists and the applicable technical and visual checks are recorded.

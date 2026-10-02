@@ -5,6 +5,8 @@ description: "Implement a camera-spatial specification as Blender proxy scenes w
 
 # 블렌더 프리비즈
 
+`creative-production`이 프로젝트 수준 진입점·조정자다. 이 스킬은 Blender 프리비즈 산출물만 만든다. 단독 호출이면 `creative-production`으로 범위·경로를 한 번 확인한 뒤 요청된 프리비즈만 수행한다. 위임받아 실행 중이면 프로젝트 라우팅을 다시 하거나 두 번째 인터뷰·승인 원장을 열지 않고 인계된 명세만 진행한다. 실행·생성 라우팅은 `creative-production`에 맡긴다.
+
 ## 실행
 1. [공간 계약](references/spatial-contract.md)과 [실행 지침](references/blender-workflow.md)을 읽는다. 카메라 명세가 없으면 `$camera-spatial-design` 원칙으로 최소 명세를 작성한다. 지정된 기존 샷 ID와 잠긴 배치를 유지한다.
 2. `blender --version` 또는 `import bpy; print(bpy.app.version_string)`으로 실행 환경을 확인한다. 실행 환경이 없으면 명세·수치 분석·실행 인계까지만 작성하고 .blend/렌더가 생성됐다고 말하지 않는다. 무단으로 다른 앱에 전환하지 않는다.

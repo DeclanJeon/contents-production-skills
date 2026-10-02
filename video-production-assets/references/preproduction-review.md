@@ -60,7 +60,7 @@
 
 기존 [계약](contract.md)의 artifacts/approval/dependency_versions를 사용한다. `review.md`를 `type=preproduction_review` artifact로 등록해 검토한 입력 버전에 연결한다. 검토용 문서의 완료는 reviewed, 실제 사용자 수락은 approved와 `approval={by, at, evidence}`로 기록한다. 원장 안에 검토 자기 자신에 대한 순환 dependency를 만들지 않는다.
 
-사용자가 해당 버전을 수락한 뒤 **영상 제작으로 진행하라고 별도로 명시한 경우**에만 조정자가 모델/endpoint의 실시간 기능·스키마·가격을 확인해 실행 계획을 제안한다. 모델 미정인 검토 패키지를 유효하게 유지하며 실행자 기본 모델을 호출하지 않는다.
+사용자가 해당 버전을 수락한 뒤 **영상 제작으로 진행하라고 별도로 명시한 경우**에만 조정자(`creative-production`)가 모델/endpoint의 실시간 기능·스키마·가격을 확인해 실행 계획을 제안한다. 모델 미정인 검토 패키지를 유효하게 유지하며 실행자 기본 모델을 호출하지 않는다. 실행자는 조정자가 선택한 공급자의 소유자(`fal-video-production`은 Fal이 선택된 경우에만)다.
 
 `type=video_execution_plan` artifact는 승인된 검토 패키지 버전에 의존하고, 샷 범위·모델/endpoint·시간/재시도/비용 상한을 명시한다. 이 범위에 대한 실제 사용자 실행/과금 승인 근거를 기록한 뒤에만 선택된 실행자에게 인계한다. 프리프로덕션 수락·이미지 승인·검사 성공·일반적인 제작 요청은 이 승인을 대신하지 않는다. 게시도 별도 사용자 요청이다.
 

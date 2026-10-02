@@ -5,6 +5,8 @@ description: "Design shot sizes, camera positions and angles, composition, subje
 
 # 카메라·공간 설계
 
+`creative-production`이 프로젝트 수준 진입점·조정자다. 이 스킬은 카메라·공간 수치 설계라는 직접 요청 산출물만 만든다. 단독 호출이면 `creative-production`으로 범위·경로를 한 번 확인한 뒤 요청된 설계만 수행한다. 위임받아 실행 중이면 프로젝트 라우팅을 다시 하거나 두 번째 인터뷰·승인 원장을 열지 않고 지정된 샷과 명세만 진행한다.
+
 ## 실행
 1. [공통 공간 계약](references/spatial-contract.md)을 읽는다. 장면 목적, 관객이 알 정보, 인물 관계, 화면비, 장소·리그 제약을 확인한다. 도서 근거가 필요하면 [자료 지도](references/sources.md)를 읽는다.
 2. 피사체·장벽·동선을 미터 좌표로 배치한다. 인물간 거리를 실제 이야기 관계와 연결하되 가까움=친밀함 같은 보편 공식을 강제하지 않는다. 주목할 대상과 가림을 명시한다.
@@ -17,7 +19,7 @@ description: "Design shot sizes, camera positions and angles, composition, subje
 9. [설계·구도 판단](references/camera-design.md)을 적용하고 실제 프리비즈가 필요하면 `$blender-previsualization`에 같은 명세를 인계한다. 실제 화면 확인 전에는 수치 설계 완료로만 보고한다.
 
 ## 산출물
-채워진 camera_spec.json, 후보 비교표, 분석 JSON, 샷별 선택 이유·미검증 항목을 인계한다. 기존 영상 제작 원장과 ID·시간·버전을 맞춘다. 실제 촬영 가능한 리그·운영자 동선은 현장에서 재확인한다.
+채워진 camera_spec.json, 후보 비교표, 분석 JSON, 샷별 선택 이유·미검증 항목을 인계한다. 기존 영상 제작 원장과 ID·시간·버전을 맞춘다. 프리비즈 실행 요청에는 `blender-previsualization`으로 인계하고, 그 밖의 실행·생성 라우팅은 `creative-production`에 맡긴다. 실제 촬영 가능한 리그·운영자 동선은 현장에서 재확인한다.
 
 ## 선택적 수치 미리보기
 Pillow가 있으면 `python scripts/render_projection.py camera_spec.json wireframe.png`로 수학적 핀홀 와이어프레임 패널을 만들 수 있다. 실제 Blender 렌더가 아니며 가림·조명·연기는 시뮬레이션하지 않는다.
