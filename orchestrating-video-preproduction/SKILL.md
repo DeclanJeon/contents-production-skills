@@ -1,6 +1,6 @@
 ---
 name: orchestrating-video-preproduction
-version: 2.1
+version: 2.2
 description: Use for text-only video preproduction that spans multiple artifacts — a complete planning package or one idea carried from concept through synopsis, characters, and storyboard. Delegated planning lane under creative-production; returns text and generic image prompts, never media.
 ---
 
@@ -35,6 +35,7 @@ One canonical record, captured once, reused verbatim by every stage:
 | Goal | Primary purpose, any secondary purpose, the one audience takeaway/promise/question — or an explicit "unresolved" |
 | Audience | Only what was stated; no invented demographics |
 | Tone | Requested register plus explicit exclusions, tracked apart from genre and method |
+| Emotion | The target feeling the audience should leave with — an ordered journey plus a sensory/visual anchor for the central feeling — or an explicit "unresolved". Tracked apart from Tone: Tone is the register the video speaks in, Emotion is the state it moves the audience to. |
 | Format | Supplied platform, aspect ratio, runtime only; unspecified stays unspecified |
 | Message and facts | One governing message; every claim tagged as supplied/verified, derived arithmetic, interpretation, proposal, unverified, or unknown |
 | Constraints | Dialogue, CTA, ending, and content limits; delivery scope; the no-generation boundary |
@@ -46,7 +47,7 @@ Mark a material assumption at the first artifact it affects. Nothing in the spin
 
 ## Running the stages
 
-**Concept and synopsis** (`developing-video-synopses`): establish mode, audience, purpose, and a structure suited to them. A supplied confirmed synopsis is preserved, never rewritten for convenience. Factual and brand work keeps source facts, arithmetic, interpretation, proposed action, and unknowns in separate buckets. The program or brand is not automatically the hero — put the audience at center when the brief calls for it. Unsupported effects, capabilities, causes, and CTAs stay out.
+**Concept and synopsis** (`developing-video-synopses`): establish mode, audience, purpose, and a structure suited to them. When the spine's Emotion is still unresolved, settle it before the synopsis locks — offer a small set of candidate emotional journeys at one checkpoint instead of letting the synopsis silently pick a feeling — and apply [`../video-production-assets/references/16-concept-emotion-retention.md`](../video-production-assets/references/16-concept-emotion-retention.md) §2 only as an optional deepening when the brief asks for emotional or retention design; it never becomes a mandatory stage. A supplied confirmed synopsis is preserved, never rewritten for convenience. Factual and brand work keeps source facts, arithmetic, interpretation, proposed action, and unknowns in separate buckets. The program or brand is not automatically the hero — put the audience at center when the brief calls for it. Unsupported effects, capabilities, causes, and CTAs stay out.
 
 **Character sheets** (`designing-video-character-sheets`): for each relevant character, preserve role, agency, relationships, and supported change; convert stated traits into filmable behavior and stable visual anchors; keep unknown demographics, history, and motive open. Use customer-as-hero or service-as-guide framing only when the brief calls for those roles, without invented service detail or personification. When the mode needs no character, note "not applicable" internally and skip the stage — a partial request does not surface that note.
 

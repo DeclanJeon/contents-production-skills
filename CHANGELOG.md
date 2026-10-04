@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 2.2 2026-10-04
+
+- Align the text-planning lane with a 15-step agent production flow: add an Emotion field to the shared spine, an emotion checkpoint after topic selection, and an optional link to the concept/emotion/retention deepening before the synopsis locks.
+- Add a Voice profile section to character sheets with a three-route procurement table (user-supplied recording, synthesis, closest available match), demographic-label rules for voice, and handoff to the dialogue/lipsync voice selection procedure.
+- Require a total-estimate summary (N × current unit price) in paid-path approval requests under production execution §1, bound to the approved count; generation planning §6 stops submission when that summary is missing or stale.
+- Document the post-completion chain (generation QA/retry → edit/captions → finishing/platform → distribution metadata) as step D of the usage guide, placing title/keyword/thumbnail design after the content is finalized rather than at the start.
+- Add the 15-step flow-alignment implementation plan under docs/superpowers/plans.
+
 ## 2.1 2026-10-04
 
 - Add selective reference discovery/selection, evidence-scoped five-axis analysis and traceable mechanism-to-production handoffs without copied protected expression or fabricated project state.

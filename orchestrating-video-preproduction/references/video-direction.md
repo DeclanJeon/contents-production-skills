@@ -18,7 +18,7 @@ Discovery applies only to requested video topic/synopsis exploration. A supplied
 - **Synopsis options.** Only when a topic is settled, the scope includes synopsis exploration, and no synopsis exists yet: offer five genuinely different synopsis variants — different structure, angle, or promise, not five phrasings — and pause for selection. There is no automatic 5×5 batch: topic count never produces synopsis variants, and neither count authorizes any media count.
 - **Overrides.** An explicit requested count ("세 가지 주제", "two concepts") replaces the five at that stage. Explicit delegation allows selection and continuation with labeled decisions rather than pauses; it does not force unsolicited option lists into a one-pass artifact request.
 - **Evidence.** Trend or performance claims require a named source and date or are recorded as unknown. Channel history and audience metrics are never invented: use supplied channel facts, ask only for missing values that would change the recommendation, and never require marketing metrics the user did not offer.
-- **Inheritance.** Requirements approved from analyzed reference videos and an existing project style brief are inherited from the coordinator or request as-is — they constrain candidates rather than being rebuilt here. A cleared direction checkpoint does not restart discovery; a selected synopsis also settles the premise/concept it contains. Reuse those choices instead of inserting a redundant concept interview.
+- **Inheritance.** Requirements approved from analyzed reference videos and an existing project style brief are inherited from the coordinator or request as-is — they constrain candidates rather than being rebuilt here. An approved emotional journey in the spine is reused the same way: never re-asked, and never re-derived from a selected synopsis. A cleared direction checkpoint does not restart discovery; a selected synopsis also settles the premise/concept it contains. Reuse those choices instead of inserting a redundant concept interview.
 
 ## Recording choices
 
@@ -45,6 +45,7 @@ Apply only the checkpoints inside the request; each has a clear exit condition.
 | Checkpoint | Present | Exit |
 |---|---|---|
 | Topic | Five fit-justified topic candidates (or the explicit count), each with fit, evidence status, distinction, and a production constraint | Selected topic; a supplied or approved topic skips this checkpoint |
+| Emotion | Present only after the topic settles and the spine's Emotion is unresolved: a small set (max three) of distinct emotional journeys, each as an ordered feeling sequence with a one-line trade-off — not a mood word list | Selected emotional journey; a supplied or approved Emotion skips this checkpoint, and an unresolved Emotion never blocks stages that do not read it |
 | Direction | Known brief plus a small set of direction combinations, or the missing axis choices | User confirms a direction or explicitly delegates the choice |
 | Concept | A small set of distinct concepts fitting the direction, each with its hook and trade-off | Selected concept; a supplied approved concept skips this checkpoint |
 | Synopsis | Five genuinely different synopsis variants (or the explicit count), each with structure, angle, and promise | Selected synopsis; a supplied or approved synopsis skips this checkpoint |

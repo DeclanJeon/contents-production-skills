@@ -1,6 +1,6 @@
 ---
 name: designing-video-character-sheets
-version: 2.1
+version: 2.2
 description: Use to design video characters — a cast or character bible, a single character sheet, visual identity anchors, or a reusable character image-sheet prompt.
 ---
 
@@ -47,6 +47,21 @@ Every visual cue ties to a role, action, or stated trait. Each supplied key trai
 
 **고정 앵커** (identity-defining features that persist) stay separate from **장면별 변화** (temporary expression, pose, dirt, damage, costume state). State what cannot change and which variants are permitted. Internal traits never collapse into stereotyped bodies, disabilities, costumes, or ethnic markers; occupational clichés are not character purpose — a prop is a design choice, not evidence of personality. An optional prop's technical purpose or effectiveness is claimed only with supplied or verified support; describe its visible form or leave it out.
 
+## Voice profile
+
+When the brief involves dialogue, narration, or a recurring on-screen voice, the sheet carries a **text** voice profile per character — this skill designs and describes; it never generates, records, or claims an audio file.
+
+- **Profile fields:** tone, pace, placement (chest/throat/head as a design description), language or dialect **only when supplied**, and the emotional range the role needs. The no-invented-demographics rule applies here verbatim: with no supplied age or gender, do not write "30s woman" or equivalent voice labels — describe the performance (texture, rhythm, register) instead.
+- **Procurement route** — record which of the three paths applies as `supplied` / `proposed` / `unresolved`:
+
+| Route | When | Handoff |
+|---|---|---|
+| ① User-supplied voice | Recording or existing audio uploaded | Used as-is; rights/consent are the user's assertion, recorded as such |
+| ② Synthesis (TTS/cloning) | Requested or proposed for a voice with no recording | Rights/consent basis checked, then a bounded audition approval before any generation |
+| ③ Closest available match | No recording and synthesis not authorized/requested | Compare currently available voices against the profile; final pick needs the same audition approval |
+
+- All three routes hand the final selection, listening check, and voice-identity continuity to [`../video-production-assets/references/22-dialogue-lipsync.md`](../video-production-assets/references/22-dialogue-lipsync.md)'s voice selection and listening procedure — this sheet only states the profile and the chosen route.
+
 ## Sheet format
 
 Per character, unless another format is requested:
@@ -55,7 +70,8 @@ Per character, unless another format is requested:
 2. **역할·행동** — role, goal, agency, relevant relationship, supported tension or intended change.
 3. **시각 설계** — silhouette/posture, face/expression, clothing/material, palette, props, movement, with invented details labeled as proposals.
 4. **연속성 앵커** — fixed traits, allowed variants, do-not-change rules.
-5. **재사용 이미지 시트 프롬프트** — one generic prompt in the user's requested language (Korean by default, even when a downstream model accepts English). A clean character-reference layout: full-body front/side/back views and a small expression/pose row where suitable. Only established or explicitly proposed anchors appear; unspecified demographics stay uncommitted in both prompt and rules. Verify no unsupported label — "adult," "young," "middle-aged," "average build" — slipped in. Brand prompts carry no service packaging or instruction materials unless specified. Neutral background, consistent proportions, no irrelevant scenery, unsupported facts, or rendered-image claims.
+5. **보이스 프로필** — when the role speaks: the profile fields and the procurement route from the Voice profile section; "not applicable" for silent roles. Text only, no audio claim.
+6. **재사용 이미지 시트 프롬프트** — one generic prompt in the user's requested language (Korean by default, even when a downstream model accepts English). A clean character-reference layout: full-body front/side/back views and a small expression/pose row where suitable. Only established or explicitly proposed anchors appear; unspecified demographics stay uncommitted in both prompt and rules. Verify no unsupported label — "adult," "young," "middle-aged," "average build" — slipped in. Brand prompts carry no service packaging or instruction materials unless specified. Neutral background, consistent proportions, no irrelevant scenery, unsupported facts, or rendered-image claims.
 
 Several characters each get a distinct sheet plus a short relationship/contrast map; prompts keep identities separate and never merge characters into an unrequested scene illustration. One image prompt per character unless more were requested.
 
@@ -67,6 +83,7 @@ Several characters each get a distinct sheet plus a short relationship/contrast 
 - No unsupported motives, biography, demographic choices, product features, prop-effect claims, factual claims, or invented arcs?
 - Visuals specific without stereotypes or occupational shorthand?
 - Continuity anchors consistent with the spine, fixed details separated from scene variation?
+- Voice profile (when present) stated as supplied fact vs labeled proposal, with no invented demographic label, no assumed provider, and no audio-generation claim?
 - Each prompt carrying the right anchors and requested views, with no image claim?
 - The actual sheet returned rather than a completion report?
 
