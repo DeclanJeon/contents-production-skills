@@ -82,3 +82,6 @@ description: "Build source-grounded video production assets: briefs, story beats
 
 ## 카메라·공간과 Blender 연결
 카메라 높이·위치·화각·피사체 간 거리·무빙을 구체화할 때 `$camera-spatial-design`을 적용하고 샷 ID를 그대로 사용한다. 공간 프리비즈가 필요하면 `$blender-previsualization`에 camera_spec.json을 인계한다. 카메라 명세가 바뀌면 해당 샷·스토리보드·생성 프롬프트를 stale로 표시한다. 수치 설계·Blender 생성·실제 미리보기 검수를 구분한다. 기존 15개 모듈과 별도로 설치되는 두 전문 스킬이다.
+
+## 선택적 상태·인과 인계
+누적 변화·원인과 잔류 결과·시점 대응·시간 생략·결합 반응·정확한 레퍼런스 재현을 인계할 때만 [상태·인과 연속성](references/26-state-causality-continuity.md)을 읽고 해당 슬롯을 기존 산출물에 연결한다. 변화 영역/속성, 보존 조건, 후속 유지 범위와 검사 근거를 분리하며 [선택 템플릿](assets/state-transition-template.md)은 필요한 부분만 쓴다. 변화 없는 인터뷰나 정밀 매칭 없는 작업에 여섯 절차를 강제하지 않는다.

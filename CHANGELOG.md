@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add optional genre-neutral state/causality handoff slots, downstream persistence checks and cross-view visibility mapping without a new project schema or duplicate motion/physics procedures.
+- Extend edit/source-analysis artifacts with capture-time and elision evidence, normalized reference landmarks and explicitly nonunique optical reconstruction hypotheses.
+- Preserve existing core behavior: five pre-edit instruction applications already handle continuity, contact causality and N/A controls; reinforcement is an artifact/interface clarification, not measured generation-quality improvement.
+
 ## 2.3 2026-10-04
 
 - Default an unqualified storyboard request to a complete production plan; keep explicitly rough narrative panels narrow and preserve text-only/media/spend boundaries.
