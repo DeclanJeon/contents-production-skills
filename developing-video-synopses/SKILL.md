@@ -1,5 +1,6 @@
 ---
 name: developing-video-synopses
+version: 2.1
 description: Use to develop a video concept, logline, synopsis, plot outline, or story beats (콘셉트, 시놉시스, 줄거리, 비트) before production.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: orchestrating-video-preproduction
+version: 2.1
 description: Use for text-only video preproduction that spans multiple artifacts — a complete planning package or one idea carried from concept through synopsis, characters, and storyboard. Delegated planning lane under creative-production; returns text and generic image prompts, never media.
 ---
 
@@ -16,7 +17,9 @@ This lane moves a single brief through whichever planning stages were requested 
 - Mapping is direct: concept or synopsis → `developing-video-synopses`; a character sheet → `designing-video-character-sheets` without inventing a synopsis; panels → `storyboarding-video` preserving any supplied synopsis.
 - Applicability is mode-dependent: omit inapplicable characters and fictional plot elements, not explicitly requested planning artifacts. Character-free, factual and abstract briefs retain their requested concept, informational/visual synopsis, beat planning and panels without fabricating a cast or conflict.
 
-For multi-stage work, first read `references/video-direction.md` in this directory — it holds the lane's interaction modes, direction decision, choice statuses, and checkpoints. The default posture is collaborative: settle direction and concept before drafting later artifacts, and let the user review the storyboard and visual anchors before anything downstream. Only an explicitly delegated one-pass request proceeds with labeled proposals instead of pauses. When running under `creative-production`, these checkpoints feed the coordinator's shared approval flow rather than forming a second ledger.
+For multi-stage work, first read `references/video-direction.md` in this directory — it holds the lane's interaction modes, direction decision, discovery flow, choice statuses, and checkpoints. The default posture is collaborative: settle topic, direction, and concept before drafting later artifacts, and let the user review the storyboard and visual anchors before anything downstream. Only an explicitly delegated one-pass request proceeds with labeled proposals instead of pauses. When running under `creative-production`, these checkpoints feed the coordinator's shared approval flow rather than forming a second ledger.
+
+For requested topic or synopsis exploration, apply [Discovery](references/video-direction.md#discovery-topic-and-synopsis) and its fit-first recommendations, scoped counts, supplied-input skips and selection checkpoints. Concrete single-artifact requests retain their narrow scope; option counts never authorize media outputs.
 
 A checkpoint without an answer ends with the choices on the table — never with unapproved downstream artifacts. Supplied choices and existing approvals are always reused. Each specialist owns its artifact; a specialist's standalone question rules cannot override an active lane checkpoint. Regardless of mode, the lane remains text-only: no folders, no generation, no paid calls, no asset claims.
 
@@ -26,7 +29,7 @@ One canonical record, captured once, reused verbatim by every stage:
 
 | Field | Contents |
 |---|---|
-| Choices | Interaction mode; each decision's supplied/proposed/approved/unresolved status; the active checkpoint |
+| Choices | Interaction mode; each decision's supplied/proposed/approved/unresolved status — topic, direction, concept, synopsis included; the active checkpoint |
 | Direction | Genre, purpose, production method as three independent decisions |
 | Mode | Narrative, data/educational, personal/documentary, brand/business, abstract/mood, explanatory metaphor, or a justified combination |
 | Goal | Primary purpose, any secondary purpose, the one audience takeaway/promise/question — or an explicit "unresolved" |

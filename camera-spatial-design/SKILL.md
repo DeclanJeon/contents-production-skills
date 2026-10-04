@@ -1,5 +1,6 @@
 ---
 name: camera-spatial-design
+version: 2.1
 description: "Design shot sizes, camera positions and angles, composition, subject-to-subject and camera-to-subject distances, lens field of view, blocking and motivated camera paths for film, animation or AI video. Use for camera movement, shot coverage, spatial staging, angle/placement design or numerical camera specifications. Exclude camera shopping, generic book recommendations and actual Blender rendering, which belongs to blender-previsualization."
 ---
 

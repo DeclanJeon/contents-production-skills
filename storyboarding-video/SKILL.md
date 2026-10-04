@@ -1,5 +1,6 @@
 ---
 name: storyboarding-video
+version: 2.1
 description: Use to turn a synopsis, scene, visual sequence, or story beat into ordered storyboard panels, a storyboard sheet, or per-panel image prompts.
 ---
 
@@ -7,7 +8,7 @@ description: Use to turn a synopsis, scene, visual sequence, or story beat into 
 
 Convert a supplied or clearly stated story into ordered, readable panels — the storyboard itself in Korean by default, plus reusable generic image prompts. Prompts are text; no image is ever claimed to exist.
 
-The unit of work is the narrative beat, not the shot. Timed shotlists, camera-move plans, clip breakdowns, and model-specific prompts belong to `video-shotlist` and `video-prompt`; complete packages route through `creative-production` → `orchestrating-video-preproduction`.
+The unit of work is the narrative beat, not the shot. Timed shotlists, camera-move plans, clip breakdowns, and model-specific prompts belong to [generation planning](../creative-production/references/video-generation-planning.md) under `creative-production`; complete text packages route through `creative-production` → `orchestrating-video-preproduction`.
 
 `creative-production` alone coordinates projects. Standalone calls consult it once to confirm scope and route, then deliver only the requested storyboard. Work delegated by `creative-production` or `orchestrating-video-preproduction` continues on the inherited spine and approvals — no call-backs, re-routing, second interview, or second approval ledger.
 
@@ -46,7 +47,7 @@ Use the requested format; otherwise:
    - **전환·연속성** — why the next panel follows; which anchors persist or change;
    - **이미지 프롬프트** — one reusable prompt per panel.
 3. **시트 레이아웃 프롬프트** — one optional unified storyboard-sheet prompt matching the exact requested count and layout; a fixed-count template is a layout option, never a default.
-4. **핸드오프** — name `video-shotlist` only when timing, camera moves, or clip decomposition come next; `video-prompt` only when a model-specific prompt is requested.
+4. **핸드오프** — link the coordinator's generation-planning reference §4 only when timing, camera moves or clip decomposition come next, and §3 only when a model-specific prompt is requested.
 
 Prompts use the user's requested language — Korean by default, even when a downstream model accepts English. Repeat continuity-critical details in each prompt because panels may be generated separately; prompt only visible content and stable style with no unsupported scenery, text, or objects. The unified sheet prompt preserves identical character and object identities, colors, damage, ownership, and reveal order across all cells.
 
@@ -67,8 +68,8 @@ Prompts use the user's requested language — Korean by default, even when a dow
 - Reveals foreshadowed without spoiling; designated panel resolves the question?
 - Factual panels free of invented documentary-looking evidence — including anything labeled "proposal" — with unknowns still unknown?
 - Prompts in the requested language, specific enough to hold continuity, with no generation claim?
-- Timings, camera moves, and model dialects left to their downstream skills?
+- Timings, camera moves, and model dialects left to the downstream generation-planning owner?
 
 ## Handoff
 
-Timing, camera-move, or clip-decomposition requests inherit the ordered panels, stable anchors, reveal order, and unresolved continuity choices via `video-shotlist`, with the beat sequence intact. Image-to-video prompt dialects receive only approved story facts and visual anchors through `video-prompt`. Execution and provider selection route through `creative-production`, never this skill. Storyboard and continuity techniques apply within their stated scope; craft guidance is not factual evidence for the depicted subject.
+Timing, camera-move and clip-decomposition requests inherit ordered panels, stable anchors, reveal order and unresolved continuity choices through `creative-production`'s [generation-planning reference](../creative-production/references/video-generation-planning.md) §4, preserving the beat sequence. Model-specific prompts use §3 with approved story facts and visual anchors. Execution and provider selection stay with the coordinator, never this skill. Storyboard craft is not factual evidence for the depicted subject.
