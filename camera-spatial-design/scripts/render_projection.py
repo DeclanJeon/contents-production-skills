@@ -7,7 +7,7 @@ from spatial_spec import validate,sample,subject_positions,corners,project
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('spec');p.add_argument('output');args=p.parse_args()
     from PIL import Image,ImageDraw,ImageFont
-    data=json.loads(Path(args.spec).read_text());errors=validate(data)
+    data=json.loads(Path(args.spec).read_text(encoding='utf-8'));errors=validate(data)
     if errors:raise SystemExit(json.dumps(errors))
     width=360;height=round(width*data['resolution'][1]/data['resolution'][0]);header=50;rowheight=height+30
     result=Image.new('RGB',(width*3,header+rowheight*len(data['shots'])),(236,240,244));d=ImageDraw.Draw(result)

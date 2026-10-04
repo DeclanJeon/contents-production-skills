@@ -2,7 +2,7 @@
 """Blender-only adapter. Creates fresh proxy scenes; run in an isolated process."""
 import argparse,json,math,sys
 from pathlib import Path
-sys.path.insert(0,str(Path(__file__).resolve().parent))
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'camera-spatial-design'/'scripts'))
 from spatial_spec import validate,analyze,sample,subject_positions
 
 
@@ -20,17 +20,17 @@ def main():
     except ImportError:raise SystemExit('Blender bpy unavailable. Run with Blender --background --factory-startup --python, or a working bpy module.')
     from mathutils import Vector,Quaternion
     from bpy_extras.object_utils import world_to_camera_view
-    spec=json.loads(Path(args.spec).read_text());errors=validate(spec)
+    spec=json.loads(Path(args.spec).read_text(encoding='utf-8'));errors=validate(spec)
     if errors:raise SystemExit(json.dumps({'valid':False,'errors':errors},ensure_ascii=False))
     out=Path(args.output).resolve()
     if out.exists():raise SystemExit('Output already exists. Choose a new folder; nothing was overwritten.')
     out.mkdir(parents=True)
     manifest={'project_id':spec['project_id'],'blender_version':bpy.app.version_string,'engine':'CYCLES CPU','mode':args.mode,'status':'running','files':[],'scope':'box proxy previs; no final character/lighting/acting validation'}
-    def write_manifest(): (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+    def write_manifest(): (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     write_manifest()
     try:
         bpy.ops.wm.read_factory_settings(use_empty=True)
-        numerical=analyze(spec);(out/'numerical-analysis.json').write_text(json.dumps(numerical,ensure_ascii=False,indent=2)+'\n')
+        numerical=analyze(spec);(out/'numerical-analysis.json').write_text(json.dumps(numerical,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         def material(name,color):
             m=bpy.data.materials.new(name);m.diffuse_color=color;m.use_nodes=True
             node=m.node_tree.nodes.get('Principled BSDF')
@@ -110,7 +110,7 @@ def main():
         if bpy.context.window:bpy.context.window.scene=scenes[0]
         bpy.ops.wm.save_as_mainfile(filepath=str(out/'previs.blend'),check_existing=False)
         if not (out/'previs.blend').is_file():raise RuntimeError('Blend save missing')
-        (out/'blender-inspection.json').write_text(json.dumps({'scope':'proxy point projection and first ray hit, all integer frames','shots':inspections},ensure_ascii=False,indent=2)+'\n')
+        (out/'blender-inspection.json').write_text(json.dumps({'scope':'proxy point projection and first ray hit, all integer frames','shots':inspections},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         manifest['files']+=['previs.blend','numerical-analysis.json','blender-inspection.json'];manifest['status']='generated';write_manifest()
     except Exception as e:
         manifest['status']='failed';manifest['error']=str(e);write_manifest();raise

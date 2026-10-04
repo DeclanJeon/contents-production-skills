@@ -1,5 +1,6 @@
 import copy,json,math,unittest
 from pathlib import Path
+import os,subprocess,sys,tempfile
 from spatial_spec import validate,analyze,project,sample
 
 def spec():return json.loads((Path(__file__).parent.parent/'assets/camera-spec-example.json').read_text())
@@ -32,4 +33,16 @@ class SpatialTests(unittest.TestCase):
         self.assertTrue(any(w['type']=='camera_clearance_aabb_overlap' for w in r['shots'][0]['warnings']))
         p=spec();p['shots'][0]['axis']['allowed_side']='positive';r=analyze(p)
         self.assertTrue(any(w['type']=='axis_side_change' for w in r['shots'][0]['warnings']))
+    def test_cli_reads_and_writes_utf8_independent_of_locale(self):
+        with tempfile.TemporaryDirectory() as temp:
+            p=spec();p['project_id']='한국어-é'
+            source=Path(temp,'camera.json');output=Path(temp,'analysis.json')
+            source.write_text(json.dumps(p,ensure_ascii=False),encoding='utf-8')
+            env=dict(os.environ,PYTHONUTF8='0',PYTHONCOERCECLOCALE='0',LC_ALL='C')
+            result=subprocess.run([sys.executable,str(Path(__file__).with_name('spatial_spec.py')),str(source),'--out',str(output)],
+                                  env=env,capture_output=True,text=True,encoding='utf-8')
+            self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+            report=json.loads(output.read_text(encoding='utf-8'))
+            self.assertTrue(report['valid'])
+            self.assertEqual(report['project_id'],'한국어-é')
 if __name__=='__main__':unittest.main()

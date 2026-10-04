@@ -184,10 +184,10 @@ def analyze(p):
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('spec');ap.add_argument('--out');args=ap.parse_args()
-    try:result=analyze(json.loads(Path(args.spec).read_text()))
+    try:result=analyze(json.loads(Path(args.spec).read_text(encoding='utf-8')))
     except (OSError,ValueError) as e:result={'valid':False,'errors':[str(e)]}
     data=json.dumps(result,ensure_ascii=False,indent=2)
-    if args.out:Path(args.out).write_text(data+'\n')
+    if args.out:Path(args.out).write_text(data+'\n',encoding='utf-8')
     else:print(data)
     return 0 if result['valid'] else 1
 if __name__=='__main__':raise SystemExit(main())

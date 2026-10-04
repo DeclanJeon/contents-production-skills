@@ -4,7 +4,7 @@
 지원: 원근 카메라, 수평 센서 fit, 정사각 픽셀, 카메라 look-at target와 roll, 렌즈 변화, 대역 위치 이동, 기본 장애물, 샷별 독립 scenes. 미지원: 기존 .blend의 비파괴 편집, 복잡한 리그/모션캡처/스킨, 줌렌즈 호흡, 왜곡/아나모픽, 물리 시뮬레이션, 최종 음성/자막, 자동 영상 인코딩.
 
 ## 어댑터
-build_previs.py는 Blender Python(bpy)에서 실행한다. 일반 Python은 spatial_spec.py만 실행할 수 있다. Blender Python 모듈 환경은 `python scripts/build_previs.py --spec ... --output ... --mode stills`도 사용할 수 있다. 처음에 새 파일을 초기화하고 실패/출력 파일을 덮어쓰지 않으므로 독립 프로세스와 새 출력 폴더를 사용한다. 출력 경로가 기존이면 실패한다.
+build_previs.py는 Blender Python(bpy)에서 실행한다. 수치 검사 정본은 형제 스킬의 `camera-spatial-design/scripts/spatial_spec.py`이며 두 스킬을 같은 루트에 설치한다. Blender Python 모듈 환경은 `python scripts/build_previs.py --spec ... --output ... --mode stills`도 사용할 수 있다. 처음에 새 파일을 초기화하고 실패/출력 파일을 덮어쓰지 않으므로 독립 프로세스와 새 출력 폴더를 사용한다. 출력 경로가 기존이면 실패한다. JSON 명세·분석·인계 파일은 UTF-8을 사용한다.
 
 ## 카메라/타이밍
 Blender 카메라는 로컬 -Z를 정면, +Y를 위로 사용하도록 to_track_quat로 배치한다. 피사체/카메라 위치·렌즈를 모든 프레임에 베이크하고 상수 세그먼트 사이도 LINEAR 키를 기록한다. Quaternion 부호를 연속하게 맞추되 실제 렌더는 정수 프레임에서 확인한다. fps와 로컬→Blender 프레임 변환은 계약을 따른다. roll은 로컬 +Z 회전이다.
