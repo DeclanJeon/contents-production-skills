@@ -1,0 +1,7 @@
+#!/bin/sh
+# contents-production-skills managed hook
+# Sync installed skill roots from the repository after every commit.
+ROOT=$(git rev-parse --show-toplevel 2>/dev/null) || exit 0
+python "$ROOT/scripts/sync_installed.py" --quiet || \
+  echo "contents-production-skills: sync_installed failed (non-fatal)" >&2
+exit 0
