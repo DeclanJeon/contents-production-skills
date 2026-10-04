@@ -1,6 +1,6 @@
 ---
 name: higgsfield-video-replicate
-version: 0.14.0
+version: 0.15.0
 description: |
   Replicate an existing reference video into a new similar-style video:
   analyze its shots, lock a style bible and characters, regenerate every

@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 2.1
+version: 2.2
 description: "Build source-grounded video production assets: briefs, story beats, screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans, animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs, ideation, brand fit, schedules, budgets, asset registries, captions, delivery and QA. Use for complete video preproduction packages or an explicitly requested production asset from an idea, script or reference. Covers live action, animation, advertising, educational and AI-assisted video. Do not activate for generic film book recommendations, website builds, pet sprites or a standalone image/video rendering request. Does not render or publish footage by itself."
 ---
 

@@ -2,7 +2,7 @@
 name: creative-production
 description: Use for content creation or adaptation, including articles, social posts, campaigns, scripts, storyboards, audio, images, and video planning, AI-video prompt composition, model routing, generation critique, editing, QA or delivery; also hybrid 3D/web creative productions. Applies to single artifacts and full productions, not ordinary UI styling or unrelated application development.
 metadata:
-  version: "1.5.1"
+  version: "1.6.1"
 ---
 
 # Creative Production

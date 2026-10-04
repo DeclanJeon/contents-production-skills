@@ -1,6 +1,6 @@
 ---
 name: blender-previsualization
-version: 2.1
+version: 2.2
 description: "Implement a camera-spatial specification as Blender proxy scenes with subject blocking, perspective cameras, camera and subject motion, shot previews, animated PNG sequences, .blend files and geometric inspection reports. Use for Blender previs, 3D camera tests, staging verification or animatics based on a script/camera brief. Exclude beauty rendering, full character rigging, physics simulation, photorealism guarantees and other-app rendering."
 ---
 
