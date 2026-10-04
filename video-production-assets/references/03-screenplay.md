@@ -21,3 +21,6 @@
 
 ## 출력 템플릿
 `assets/03-screenplay-template.md`를 복사해 채운다.
+
+## 심화 참조
+대사별 의도·서브텍스트·입 우선순위와 청자 반응은 [대사·립싱크](22-dialogue-lipsync.md).

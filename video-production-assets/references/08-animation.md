@@ -21,3 +21,6 @@
 
 ## 출력 템플릿
 `assets/08-animation-template.md`를 복사해 채운다.
+
+## 심화 참조
+AI 생성 샷의 물리 비트 분해·접촉 우선순위·분할 트리거는 [생성 영상 QA·재시도](21-generated-video-qa-retry.md) §1, 립싱크 연동은 [대사·립싱크](22-dialogue-lipsync.md).

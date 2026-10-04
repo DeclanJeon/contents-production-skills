@@ -38,6 +38,9 @@ artifacts: id, type, version, status, dependencies(artifact id 배열), evidence
 
 ## 실제 파일과 부가 시간표
 - asset_registry: {id, kind, version, path, status, sha256}. path는 실제 파일이 있으면 프로젝트 폴더 기준 상대 경로를 권장한다. planned는 path=null을 허용한다. available/verified는 실제 경로를 갖고, 검사 명령에 base-dir가 있으면 파일 존재와 제공된 해시를 확인한다. 최종 파일에는 verified와 SHA-256이 필요하다.
+- asset_registry 선택 provenance 필드(있을 때만 채운다): entity_type(character/product/prop/location/wardrobe/look/lighting/graphic/environment), entity_id, authority(authoritative/inferred/derived), source_asset_ids, prompt, provider, model, workflow, result_asset_id. 사용자가 준 SSOT·바이블은 authoritative로 기록하고 임의로 변경하지 않는다. 확인되지 않은 provider/model을 기록하지 않는다.
+- shot.retry_budget: 최초 생성 이후 허용된 최대 재시도 수(선택, 0 이상 정수). 승인된 video_execution_plan의 상한에서 온다. 0이면 최초 1회만 허용하고 attempt의 최대값은 1+retry_budget이다. 필드 부재는 무제한 실행 허가가 아니다.
+- generation_attempts: {id, shot_id, attempt(최초=1, 이후 샷별 중복 없는 양의 정수), route, model?, changes?, observed_failures?, preserve?, result(accept/reject/conditional), result_asset_id?, failure_class?, notes?}. 실제 시도만 기록한다. accept는 available/verified인 실제 결과 에셋 ID를 참조해야 하며 planned 에셋을 성공 결과로 기록하지 않는다. 기록/구조 검사 자체가 실행 승인이나 미디어 품질 검사는 아니다.
 - audio_mode: no_audio / no_dialogue / dialogue. audio_cues: {id, start_s, end_s, layer, shot_id?, asset_id?}. 소리는 겹칠 수 있지만 전체 영상 구간을 벗어나지 않는다.
 - captions: {id, start_s, end_s, text, shot_id?}. 오디오 음소나 자막 타이밍의 의미 적합성은 실제 재생으로 검사한다.
 - issues: {id, severity: blocker/major/minor, status: open/resolved, evidence?, fix?}.
@@ -51,3 +54,5 @@ artifacts: id, type, version, status, dependencies(artifact id 배열), evidence
 [프리프로덕션·검토 절차](preproduction-review.md)의 `review.md`는 `type=preproduction_review` artifact로 등록하고 검토 대상의 ID·버전을 dependencies/dependency_versions로 연결한다. 실제 사용자 수락 때만 approved와 approval 근거를 기록한다. 문서·이미지의 generated/verified 상태는 사용자 수락을 뜻하지 않는다.
 
 별도 `type=video_execution_plan` artifact는 승인된 검토 패키지 버전과 명시적 샷·모델/endpoint·실행/재시도/비용 상한을 참조한다. 실제 사용자 실행 승인 뒤에만 approved로 기록한다. 프리프로덕션 중 모델/가격 미정은 허용하지만 실행자 기본값으로 보충하지 않는다. 변경된 에셋의 종속 검토/실행 계획은 stale로 표시하고 새 버전에 이전 승인을 재사용하지 않는다. 사용자 승인과 파일 존재/구조 검사는 별개의 증거다.
+
+프리뷰와 최종은 별도 허가다. `video_execution_plan`의 승인 범위에 프리뷰 단계가 포함되면 승인된 프리뷰 입력 버전·설정·샷/출력 수·상한을 그대로 기록하고, 프리뷰 승인만으로 최종 생성·추가 과금을 허가하지 않는다. 프리뷰 실제 출력·검수 결과·수락 근거는 연결된 artifact(result_asset_id, generated/verified, evidence)로 남기고, 승인된 최종 계획은 프리뷰 판정과 최종 승격 경로를 dependencies로 참조한다. 프리뷰와 최종 범위를 하나의 plan 버전으로 함께 승인한 경우에만 최종이 같은 승인 안에서 현재 입력 버전·조건·상한으로 진행되며, 그렇지 않으면 현재 버전의 별도 최종 승인이 필요하다. 같은 seed·입력의 재생성은 같은 동작·정체성을 보장하지 않으므로 최종본은 다시 검수한다.

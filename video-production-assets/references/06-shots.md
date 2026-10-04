@@ -28,3 +28,6 @@
 
 ## 전문 스킬 인계
 `$camera-spatial-design`으로 위치·거리·렌즈·각도·구도·전 프레임 경로를 수치화한다. 실제 3D 비교는 `$blender-previsualization`으로 수행한다. camera_spec.json의 로컬 프레임을 기존 샷의 start_s/end_s와 연결하고 total duration을 대조한다.
+
+## 심화 참조
+복잡 접촉·동작 분할은 [생성 영상 QA·재시도](21-generated-video-qa-retry.md)의 모션 절차(`../assets/motion-beat-template.md`), 군중·스펙터클은 [비주얼 모드·SSOT](20-visual-mode-ssot.md) §4(`../assets/crowd-map-template.md`).

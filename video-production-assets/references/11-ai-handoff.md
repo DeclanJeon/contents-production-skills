@@ -21,3 +21,6 @@
 
 ## 출력 템플릿
 `assets/11-ai-handoff-template.md`를 복사해 채운다.
+
+## 심화 참조
+샷별 모델 경로·비용 정책·에셋 출처 필드는 [생성 경로·비용 라우팅](24-production-execution.md), SSOT 티어·연속성 앵커는 [비주얼 모드·SSOT](20-visual-mode-ssot.md), 실패 진단·인과 재시도는 [생성 영상 QA·재시도](21-generated-video-qa-retry.md). 시도 로그는 `project.json`의 `generation_attempts`에 기록한다.

@@ -21,3 +21,6 @@
 
 ## 출력 템플릿
 `assets/02-story-template.md`를 복사해 채운다.
+
+## 심화 참조
+감정 여정·모티프·결말 재맥락화는 [콘셉트·감정·유지](16-concept-emotion-retention.md), 장르 계약·코미디는 [장르·코미디](17-genre-comedy.md), 반복 시리즈는 [시리즈·에피소드](18-episodic-series.md).

@@ -1,6 +1,10 @@
 """Contract regression tests; fixture bytes are NOT a rendered media sample."""
 import copy
 import hashlib
+import json
+import os
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -78,5 +82,68 @@ class ContractTests(unittest.TestCase):
             q=copy.deepcopy(p);q['delivery_checks'][0].update(status='unverified');self.assertTrue(validate(q,'delivery',temp))
             q=copy.deepcopy(p);q['delivery_spec']['width']=100;self.assertTrue(validate(q,'delivery',temp))
             q=copy.deepcopy(p);q['delivery_spec']['caption_mode']='sidecar';self.assertTrue(validate(q,'delivery',temp))
+    def test_generation_attempts_contract(self):
+        p=project()
+        p['shots'][0]['retry_budget']=3
+        p['asset_registry']=[{'id':'AS01','kind':'clip','version':'1','status':'available','path':'actual-output.mp4'}]
+        p['generation_attempts']=[
+            {'id':'GA01','shot_id':'SH01','attempt':1,'route':'t2v','changes':['initial'],'observed_failures':['hand mutation'],'preserve':['framing'],'result':'reject','failure_class':'motion'},
+            {'id':'GA02','shot_id':'SH01','attempt':2,'route':'t2v','changes':['simplified action'],'result':'accept','result_asset_id':'AS01'}]
+        self.assertEqual(validate(p),[])
+    def test_generation_attempts_rejections(self):
+        cases=[
+            ('bad budget',lambda p:p['shots'][0].update(retry_budget=-1)),
+            ('dup attempt',lambda p:p['generation_attempts'].append(dict(p['generation_attempts'][0],id='GA02'))),
+            ('bad result',lambda p:p['generation_attempts'][0].update(result='maybe')),
+            ('bad class',lambda p:p['generation_attempts'][0].update(failure_class='vibes')),
+            ('accept sans asset',lambda p:p['generation_attempts'][0].update(result='accept')),
+            ('missing shot',lambda p:p['generation_attempts'][0].update(shot_id='SH99')),
+            ('over budget',lambda p:(p['shots'][0].update(retry_budget=0),p['generation_attempts'][0].update(attempt=2))),
+        ]
+        for name,change in cases:
+            with self.subTest(name=name):
+                p=project()
+                p['generation_attempts']=[{'id':'GA01','shot_id':'SH01','attempt':1,'route':'t2v','changes':[],'result':'reject'}]
+                change(p);self.assertTrue(validate(p),name)
+    def test_asset_provenance_fields(self):
+        p=project()
+        p['asset_registry']=[{'id':'AS01','kind':'reference','version':'1','status':'planned','entity_type':'character','entity_id':'CH01','authority':'authoritative','source_asset_ids':[],'provider':'verified-provider','model':'verified-model','workflow':'w'}]
+        self.assertEqual(validate(p),[])
+        p['asset_registry'][0]['entity_type']='soul';self.assertTrue(validate(p))
+    def test_retry_budget_counts_retries_after_initial_attempt(self):
+        p=project()
+        p['shots'][0]['retry_budget']=0
+        p['generation_attempts']=[{'id':'GA01','shot_id':'SH01','attempt':1,'route':'t2v','result':'reject'}]
+        self.assertEqual(validate(p),[])
+        p['generation_attempts'].append({'id':'GA02','shot_id':'SH01','attempt':2,'route':'t2v','result':'reject'})
+        self.assertTrue(any('retry_budget' in e for e in validate(p)))
+        p['shots'][0]['retry_budget']=1
+        self.assertEqual(validate(p),[])
+        p['generation_attempts'].append({'id':'GA03','shot_id':'SH01','attempt':3,'route':'t2v','result':'reject'})
+        self.assertTrue(any('retry_budget' in e for e in validate(p)))
+    def test_malformed_attempt_shot_reference_returns_validation_error(self):
+        for sid in ([],{}):
+            with self.subTest(shot_id=sid):
+                p=project()
+                p['generation_attempts']=[{'id':'GA01','shot_id':sid,'attempt':1,'route':'t2v','result':'reject'}]
+                self.assertTrue(any('shots reference' in e for e in validate(p)))
+    def test_accepted_attempt_requires_available_result(self):
+        p=project()
+        p['asset_registry']=[{'id':'AS01','kind':'clip','version':'1','status':'planned'}]
+        p['generation_attempts']=[{'id':'GA01','shot_id':'SH01','attempt':1,'route':'t2v','result':'accept','result_asset_id':'AS01'}]
+        self.assertTrue(any('accepted attempt' in e for e in validate(p)))
+        p['asset_registry'][0].update(status='available',path='actual-output.mp4')
+        self.assertEqual(validate(p),[])
+    def test_cli_reads_utf8_project_independent_of_system_locale(self):
+        with tempfile.TemporaryDirectory() as temp:
+            p=project()
+            p['project_id']='한국어 제작 프로젝트'
+            path=Path(temp,'project.json')
+            path.write_text(json.dumps(p,ensure_ascii=False),encoding='utf-8')
+            env=dict(os.environ,PYTHONUTF8='0',PYTHONCOERCECLOCALE='0',LC_ALL='C')
+            result=subprocess.run([sys.executable,str(Path(__file__).with_name('validate_project.py')),str(path)],
+                                  env=env,capture_output=True,text=True,encoding='utf-8')
+            self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+            self.assertTrue(json.loads(result.stdout)['valid'])
 
 if __name__=='__main__': unittest.main()

@@ -17,3 +17,6 @@
 
 ## 템플릿
 `assets/14-production-ops-template.md`를 사용한다.
+
+## 심화 참조
+비용 정책(FREE-FIRST)·생성 경로·에셋 provenance 필드는 [생성 경로·비용 라우팅](24-production-execution.md), 재시도 상한·시도 로그는 `project.json`의 shot.retry_budget과 `generation_attempts`, 실패 진단은 [생성 영상 QA·재시도](21-generated-video-qa-retry.md).

@@ -35,7 +35,7 @@ def validate(p, profile='plan', base_dir=None):
     if number(target) and number(fps) and not on_frame(target): error('target duration is not frame aligned')
     tables = {}
     required = ('scenes', 'characters', 'shots', 'claims', 'artifacts')
-    optional = ('asset_registry', 'audio_cues', 'captions', 'issues', 'delivery_checks')
+    optional = ('asset_registry', 'audio_cues', 'captions', 'issues', 'delivery_checks', 'generation_attempts')
     for key in required + optional:
         rows = p.get(key, [] if key in optional else None)
         if not isinstance(rows, list): error(f'{key}: array required'); rows = []
@@ -72,6 +72,9 @@ def validate(p, profile='plan', base_dir=None):
         exists_ref(s.get('scene_id'), 'scenes', rid)
         refs(s, 'character_ids', 'characters', rid, required=True)
         refs(s, 'asset_ids', 'asset_registry', rid)
+        budget = s.get('retry_budget')
+        if budget is not None and (not isinstance(budget,int) or isinstance(budget,bool) or budget<0):
+            error(f'{rid}: retry_budget must be nonnegative int')
         require_text(s, ['purpose','start_state','end_state'], rid)
         a,b,d = s.get('start_s'),s.get('end_s'),s.get('source_duration_s')
         if not all(number(x) for x in (a,b,d)): error(f'{rid}: numeric times required'); continue
@@ -93,6 +96,36 @@ def validate(p, profile='plan', base_dir=None):
         if abs(a-cursor) > 1e-6: error(f'{rid}: timeline gap or overlap at {cursor:g}s')
         cursor = b
     if number(target) and abs(cursor-target) > 1e-6: error('timeline does not equal target_duration_s')
+    seen_attempts = set()
+    for rid, at in tables['generation_attempts'].items():
+        sid = at.get('shot_id')
+        exists_ref(sid, 'shots', rid)
+        num = at.get('attempt')
+        if not isinstance(num,int) or isinstance(num,bool) or num<1:
+            error(f'{rid}: attempt must be positive int'); num=None
+        elif isinstance(sid,str):
+            if (sid,num) in seen_attempts:
+                error(f'{rid}: duplicate attempt {num} for {sid}')
+            else: seen_attempts.add((sid,num))
+        require_text(at, ['route'], rid)
+        if at.get('result') not in ('accept','reject','conditional'):
+            error(f'{rid}: result must be accept/reject/conditional')
+        for k in ('changes','observed_failures','preserve'):
+            if k in at and not isinstance(at[k],list): error(f'{rid}: {k} must be an array')
+        fc = at.get('failure_class')
+        if fc is not None and fc not in ('identity','product','motion','temporal','camera','performance','composite','creative','other'):
+            error(f'{rid}: invalid failure_class')
+        result_id = at.get('result_asset_id')
+        if result_id is not None:
+            if exists_ref(result_id,'asset_registry',rid) and at.get('result') == 'accept':
+                if tables['asset_registry'][result_id].get('status') not in ('available','verified'):
+                    error(f'{rid}: accepted attempt needs an available result asset')
+        elif at.get('result') == 'accept':
+            error(f'{rid}: accepted attempt needs result_asset_id')
+        if isinstance(sid,str) and sid in tables['shots']:
+            budget = tables['shots'][sid].get('retry_budget')
+            if isinstance(budget,int) and not isinstance(budget,bool) and num is not None and num > budget+1:
+                error(f'{rid}: attempt {num} exceeds retry_budget {budget}')
     for key in ('audio_cues','captions'):
         for rid,row in tables[key].items():
             a,b = row.get('start_s'),row.get('end_s')
@@ -153,6 +186,15 @@ def validate(p, profile='plan', base_dir=None):
         require_text(asset,['kind','version'],rid)
         state=asset.get('status')
         if state not in ('planned','available','verified','stale'): error(f'{rid}: invalid asset status')
+        et = asset.get('entity_type')
+        if et is not None and et not in ('character','product','prop','location','wardrobe','look','lighting','graphic','environment'):
+            error(f'{rid}: invalid entity_type')
+        auth = asset.get('authority')
+        if auth is not None and auth not in ('authoritative','inferred','derived'):
+            error(f'{rid}: invalid authority')
+        if 'source_asset_ids' in asset and not isinstance(asset['source_asset_ids'],list):
+            error(f'{rid}: source_asset_ids must be an array')
+        if asset.get('result_asset_id') is not None: exists_ref(asset['result_asset_id'],'asset_registry',rid)
         if state in ('available','verified'):
             if not text(asset.get('path')): error(f'{rid}: available asset needs path')
             elif base is not None:
@@ -214,7 +256,7 @@ def main():
     parser.add_argument('--base-dir')
     args=parser.parse_args()
     try:
-        p=json.loads(Path(args.project).read_text())
+        p=json.loads(Path(args.project).read_text(encoding='utf-8'))
         errors=validate(p,args.profile,args.base_dir)
     except (OSError,ValueError) as e:
         print(json.dumps({'valid':False,'errors':[str(e)]},ensure_ascii=False)); return 2

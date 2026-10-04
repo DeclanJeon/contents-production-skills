@@ -20,3 +20,6 @@
 
 ## 출력 템플릿
 `assets/04-performance-template.md`를 복사해 채운다.
+
+## 심화 참조
+대사 연기 주석·립싱크 우선순위·듣는 사람 디렉팅은 [대사·립싱크](22-dialogue-lipsync.md), `../assets/performance-cue-template.md` 사용.

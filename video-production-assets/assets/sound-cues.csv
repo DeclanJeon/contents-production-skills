@@ -1,1 +1,1 @@
-sound_id,shot_id,start_s,end_s,layer,source_file,function,mix_note,status
+sound_id,shot_id,start_s,end_s,layer,source_file,source_in_s,source_out_s,gain_db,fade_in_s,fade_out_s,sync_anchor,sync_offset_s,rights_status,function,mix_note,status
