@@ -1,0 +1,21 @@
+MODEL: Flow Omni 1.1 Flash (flow.google.com)
+CLIP SETTINGS (UI): 720p, 9:16 vertical, duration 6s, x1 clip.
+IMAGE_REF: images/P07_SH04_start.png — first frame. Her RIGHT index and middle fingertips are already in light contact with her RIGHT cheek, on the viewer's left side. Preserve the actual attached pose, face, natural skin, hair and ivory robe.
+
+[Shot]
+Portrait close-up of the same adult East Asian woman at the evening vanity — warm amber key light from screen left, cool blue-hour window glow, blurred autumn leaves behind, shallow portrait depth of field.
+
+[Action — the mandatory visible event]
+Her RIGHT index and middle fingertips make ONE small gentle glide along the SAME RIGHT cheek visible in the attached frame, then lift away and her right hand lowers as she relaxes with a soft blink. Keep the hand on this same cheek; do not cross to the opposite side. Preserve skin tone, pores and facial features. At most a faint natural local sheen remains after contact, like a thin clear film catching light. No whitening, smoothing, transformation or magical glow.
+
+[Camera]
+Static portrait camera — no movement.
+
+[Timecodes — intent, not guaranteed]
+[0s-2.5s] from the existing light contact, the two fingertips glide once; [2.5s-4s] the hand separates and lowers; [4s-6s] the calm after-expression and faint local sheen remain.
+
+Optional end frame if the UI supports a last-frame attachment: images/P09_SH04_end.png (hand lowered, faint sheen on cheek).
+
+Audio intent: quiet, restrained room ambience only — no dialogue, no voiceover, no music stinger. Generate native ambience only if supported; otherwise silent.
+
+Negative: no text, no subtitles, no watermark, no extra hands or fingers, no skin whitening, no beauty-filter smoothing, no face morphing, no glow effects.

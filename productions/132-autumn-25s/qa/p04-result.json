@@ -1,0 +1,37 @@
+{
+  "request_id": "f4a901d7-ce7d-4dca-9adc-b8d3eb2af426",
+  "session_id": "f7370dc3-1203-48cd-9f83-1ed6415f9e10",
+  "endpoint": "https://chatgpt.com/backend-api/codex/responses",
+  "operation": "responses image_generation",
+  "model": "gpt-5.6-luna",
+  "image_model": "gpt-image-2.5-sunburst",
+  "image_count": 1,
+  "imageCount": 1,
+  "images": [
+    {
+      "path": "C:\\Users\\Declan\\Documents\\Projects\\contents-production-skills\\productions\\132-autumn-25s\\images\\P04_SH03_start.png",
+      "decodedPath": "C:\\Users\\Declan\\Documents\\Projects\\contents-production-skills\\productions\\132-autumn-25s\\images\\P04_SH03_start.png",
+      "bytes": 1810968,
+      "sha256": "933327c59233641231cbfc9849dded26fd31908222e06762d29f78d4c8d61dd2",
+      "call_id": "ig_0de1d669f5e49abb016ac29277d0ec87d089424f15c57f975e",
+      "status": "completed",
+      "partial": false,
+      "revised_prompt": "Use Image #1 as the identity, skin-tone, wardrobe, and evening vanity lighting reference, and Image #2 as the exact detached dropper shape reference. Create a vertical 9:16 clean realistic commercial macro photograph, hands only, no face or body visible.\n\nSHOT START: exactly one right hand of the same fictional adult East Asian woman holds the detached glass dropper upright and steady. The dropper has a matte black rounded bulb, polished gold collar, and clear glass pipette matching the reference shape. The pipette tip is about 2 cm above exactly one upturned left palm. One single clear liquid droplet clings to the pipette tip, still attached and not falling. The left palm is clean and dry. Ivory silk sleeve edge is visible at the wrist of the right hand and/or left wrist, matching the robe in Image #1.\n\nAnatomy is critical: exactly one right hand gripping the dropper and exactly one left palm underneath; correct left/right orientation, natural realistic fingers, five fingers per hand, no extra hands, no extra fingers, no fused, broken, or malformed fingers. Crop tightly to the hands and dropper.\n\nSetting: same luxurious evening vanity, warm amber key light from screen left, cool blue-hour window glow with soft blurred autumn foliage and city tones deep in the background, dark slate surface beneath, rich navy and gold palette, shallow macro depth of field, realistic skin pores and texture, polished glass and metal reflections. The dropper and droplet must be sharply in focus. One single clean frame. No text, captions, logo, watermark, collage, or grid."
+    }
+  ],
+  "seen_event_types": [
+    "response.created",
+    "response.in_progress",
+    "response.output_item.added",
+    "response.output_item.done",
+    "response.image_generation_call.in_progress",
+    "response.image_generation_call.generating",
+    "response.image_generation_call.completed",
+    "response.content_part.added",
+    "response.output_text.done",
+    "response.content_part.done",
+    "response.completed"
+  ],
+  "timed_out": false,
+  "response_metadata": null
+}

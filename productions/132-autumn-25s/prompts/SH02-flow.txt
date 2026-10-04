@@ -1,0 +1,21 @@
+MODEL: Flow Omni 1.1 Flash (flow.google.com)
+CLIP SETTINGS (UI): 720p, 9:16 vertical, duration 6s, x1 clip.
+IMAGE_REF: images/P02_SH02_start_v2.png — first frame, the verified same woman at the evening vanity. Preserve her face, hair, ivory robe and natural skin.
+
+[Shot]
+An adult East Asian woman, about 28, black hair in a neat low bun, dark eyes, natural skin with real pores, ivory silk robe — sitting at a walnut-and-slate evening vanity, warm amber key light from screen left, cool blue-hour window with blurred autumn leaves behind her.
+
+[Action]
+One single gentle motion: from the attached sideward gaze she slowly lowers her eyes and head toward the ampoule BELOW AND OUTSIDE the visible frame. Her hands remain resting naturally. Do not introduce any bottle, jar, tube or package into the image. Identity, wardrobe, skin tone and lighting remain unchanged.
+
+[Camera]
+One very gentle slow push-in toward her upper body, with no pan or second camera movement.
+
+[Timecodes — intent, not guaranteed]
+[0s-3s] she lowers her gaze slightly; [3s-6s] she holds the quiet downward gaze toward the off-screen product.
+
+Optional end frame if the UI supports a last-frame attachment: images/P03_SH02_end.png.
+
+Audio intent: quiet, restrained room ambience only — no dialogue, no voiceover. Generate native ambience only if supported; otherwise silent.
+
+Negative: no text, no subtitles, no watermark, no extra hands, no face morphing, no skin lightening or smoothing.

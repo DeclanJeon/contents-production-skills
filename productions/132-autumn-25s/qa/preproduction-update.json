@@ -1,0 +1,360 @@
+{
+  "project_id": "132-AUTUMN-25S",
+  "base_version": "1.0",
+  "version": "1.1",
+  "input_versions": {
+    "BRIEF01": "1.0",
+    "SYN01": "1.0",
+    "VIS01": "1.0",
+    "CAM01": "1.0",
+    "BOARD01": "1.0",
+    "HANDOFF01": "1.0",
+    "REVIEW01": "1.0",
+    "EXEC01": "1.0",
+    "EDIT01": "1.0",
+    "QA01": "1.0",
+    "DELIVERY01": "1.0"
+  },
+  "owner_artifact_ids": [
+    "BRIEF01",
+    "SYN01",
+    "VIS01",
+    "CAM01",
+    "BOARD01",
+    "HANDOFF01"
+  ],
+  "changes": {
+    "asset_registry": [
+      {
+        "id": "IM01",
+        "path": "images/P01_SH01_hold.png",
+        "sha256": "4561e35a4edd573889fb0c2fffcb985b362a6341783998cfa450e5af0f3d922e",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json"
+      },
+      {
+        "id": "IM02",
+        "path": "images/P02_SH02_start_v2.png",
+        "sha256": "50253add097e0e30af73db2cc0c0afaffec6865447680751a5be471e7e8eee2f",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json"
+      },
+      {
+        "id": "IM03",
+        "path": "images/P03_SH02_end.png",
+        "sha256": "0193b3ac6de0049cfce39ad6942d3821ede9f226ae99b45d1258cb570cf87eab",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json"
+      },
+      {
+        "id": "IM04",
+        "path": "images/P04_SH03_start.png",
+        "sha256": "933327c59233641231cbfc9849dded26fd31908222e06762d29f78d4c8d61dd2",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json"
+      },
+      {
+        "id": "IM05",
+        "path": "images/P05_SH03_peak.png",
+        "sha256": "668d4fcedece304c76a578cc0dc4c03817b236dfea2475fc8837b86206788b8a",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json"
+      },
+      {
+        "id": "IM06",
+        "path": "images/P06_SH03_end.png",
+        "sha256": "71fc1f34c4f8d31370cdceb2c8a98c1c46e9bab34297ea298ef12ca5677ff5a2",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json"
+      },
+      {
+        "id": "IM07",
+        "path": "images/P07_SH04_start.png",
+        "sha256": "d8ab891aeefc92eac6f371ea3fd539b34639f3998e8f21d917d9dd6dd9dd08e4",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json",
+        "version": "1.1"
+      },
+      {
+        "id": "IM08",
+        "path": "images/P08_SH04_peak.png",
+        "sha256": "ba891064675a75ab7a12d8317a5ad3fe15f8bac2f6d7c091e31a130b800d5b89",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json",
+        "version": "1.1"
+      },
+      {
+        "id": "IM09",
+        "path": "images/P09_SH04_end.png",
+        "sha256": "c8694e22de5095c631cb3a8e0612be12c6d55cc6b0b16687d648af725e19a86e",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json",
+        "version": "1.1"
+      },
+      {
+        "id": "IM10",
+        "path": "images/P10_SH05_hold.png",
+        "sha256": "d995ceceaa5591cfdd05fa5324b3e917bdcccca2c53c107589407bd9b802c87e",
+        "status": "verified",
+        "evidence": "review.md; qa/still-files.json"
+      },
+      {
+        "id": "CAMJSON01",
+        "version": "1.1",
+        "status": "available",
+        "sha256": "c5599de54a61aff8900ce5750a8cf1642a32a28f1cfda15d88d9c601d8e3c5ff"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": "BRIEF01",
+        "type": "brief",
+        "version": "1.1",
+        "status": "reviewed",
+        "dependencies": [],
+        "dependency_versions": {},
+        "asset_ids": [],
+        "path": "brief.md"
+      },
+      {
+        "id": "SYN01",
+        "type": "synopsis",
+        "version": "1.1",
+        "status": "reviewed",
+        "dependencies": [
+          "BRIEF01"
+        ],
+        "dependency_versions": {
+          "BRIEF01": "1.1"
+        },
+        "asset_ids": [],
+        "path": "synopsis.md"
+      },
+      {
+        "id": "VIS01",
+        "type": "visual_bible",
+        "version": "1.1",
+        "status": "reviewed",
+        "dependencies": [
+          "BRIEF01",
+          "SYN01"
+        ],
+        "dependency_versions": {
+          "BRIEF01": "1.1",
+          "SYN01": "1.1"
+        },
+        "asset_ids": [],
+        "path": "visual-bible.md"
+      },
+      {
+        "id": "CAM01",
+        "type": "camera_spec",
+        "version": "1.1",
+        "status": "reviewed",
+        "dependencies": [
+          "BRIEF01",
+          "SYN01",
+          "VIS01"
+        ],
+        "dependency_versions": {
+          "BRIEF01": "1.1",
+          "SYN01": "1.1",
+          "VIS01": "1.1"
+        },
+        "asset_ids": [
+          "CAMJSON01"
+        ],
+        "path": "camera_spec.json"
+      },
+      {
+        "id": "BOARD01",
+        "type": "storyboard",
+        "version": "1.1",
+        "status": "reviewed",
+        "dependencies": [
+          "BRIEF01",
+          "SYN01",
+          "VIS01",
+          "CAM01"
+        ],
+        "dependency_versions": {
+          "BRIEF01": "1.1",
+          "SYN01": "1.1",
+          "VIS01": "1.1",
+          "CAM01": "1.1"
+        },
+        "asset_ids": [
+          "IM01",
+          "IM02",
+          "IM03",
+          "IM04",
+          "IM05",
+          "IM06",
+          "IM07",
+          "IM08",
+          "IM09",
+          "IM10"
+        ],
+        "path": "storyboard.md"
+      },
+      {
+        "id": "HANDOFF01",
+        "type": "handoff",
+        "version": "1.1",
+        "status": "reviewed",
+        "dependencies": [
+          "BOARD01",
+          "CAM01"
+        ],
+        "dependency_versions": {
+          "BOARD01": "1.1",
+          "CAM01": "1.1"
+        },
+        "asset_ids": [],
+        "path": "prompts/packet-index.json"
+      },
+      {
+        "id": "REVIEW01",
+        "type": "preproduction_review",
+        "version": "1.1",
+        "status": "approved",
+        "dependencies": [
+          "BRIEF01",
+          "SYN01",
+          "VIS01",
+          "BOARD01",
+          "CAM01",
+          "HANDOFF01"
+        ],
+        "dependency_versions": {
+          "BRIEF01": "1.1",
+          "SYN01": "1.1",
+          "VIS01": "1.1",
+          "BOARD01": "1.1",
+          "CAM01": "1.1",
+          "HANDOFF01": "1.1"
+        },
+        "asset_ids": [],
+        "path": "review.md",
+        "approval": {
+          "by": "assistant under explicit user delegation",
+          "at": "2026-10-04T18:15:20.502264+00:00",
+          "evidence": "review.md: 사용자 권한과 현재 범위; execution-plan.md: 실제 권한과 범위"
+        }
+      },
+      {
+        "id": "EXEC01",
+        "type": "video_execution_plan",
+        "version": "1.1",
+        "status": "approved",
+        "dependencies": [
+          "REVIEW01"
+        ],
+        "dependency_versions": {
+          "REVIEW01": "1.1"
+        },
+        "asset_ids": [],
+        "path": "execution-plan.md",
+        "approval": {
+          "by": "assistant under explicit user delegation",
+          "at": "2026-10-04T18:15:20.502264+00:00",
+          "evidence": "review.md: 사용자 권한과 현재 범위; execution-plan.md: 실제 권한과 범위"
+        }
+      },
+      {
+        "id": "EDIT01",
+        "type": "edit_plan",
+        "version": "1.1",
+        "status": "draft",
+        "dependencies": [
+          "BOARD01"
+        ],
+        "dependency_versions": {
+          "BOARD01": "1.1"
+        },
+        "asset_ids": [],
+        "path": "edit-plan.md"
+      },
+      {
+        "id": "QA01",
+        "type": "qa_report",
+        "version": "1.1",
+        "status": "draft",
+        "dependencies": [
+          "BOARD01",
+          "EXEC01"
+        ],
+        "dependency_versions": {
+          "BOARD01": "1.1",
+          "EXEC01": "1.1"
+        },
+        "asset_ids": [],
+        "path": "qa/report.md"
+      },
+      {
+        "id": "DELIVERY01",
+        "type": "delivery",
+        "version": "1.1",
+        "status": "draft",
+        "dependencies": [
+          "EXEC01",
+          "EDIT01",
+          "QA01"
+        ],
+        "dependency_versions": {
+          "EXEC01": "1.1",
+          "EDIT01": "1.1",
+          "QA01": "1.1"
+        },
+        "asset_ids": [],
+        "path": "delivery.md"
+      }
+    ],
+    "shots": [
+      {
+        "id": "SH02",
+        "purpose": "옆을 향한 시선을 프레임 밖 화장대 제품으로 낮춤"
+      },
+      {
+        "id": "SH04",
+        "purpose": "오른손 검지·중지로 오른쪽 뺨의 기존 접촉에서 한 번 글라이드 후 분리",
+        "start_state": "오른손 두 손가락이 오른쪽 뺨(화면 왼쪽)에 가볍게 접촉",
+        "end_state": "손을 분리해 어깨 부근으로 낮춤; 피부색·모공 보존, 국부 억제된 윤기"
+      }
+    ]
+  },
+  "storyboard": {
+    "beats": [
+      {
+        "id": "B02",
+        "event": "옆을 향한 시선을 프레임 밖 화장대 제품으로 낮춰 리추얼 시작"
+      },
+      {
+        "id": "B04",
+        "event": "오른뺨에 가볍게 닿은 오른손 두 손가락의 짧은 글라이드 후 분리"
+      }
+    ],
+    "panels": [
+      {
+        "id": "P05",
+        "visual_action": "손바닥 젖은 반사/액체 결과 상태; 분리·낙하·충돌 순간은 정지 그림에서 미확인",
+        "reveals": "손바닥 액체 결과 상태",
+        "continuity": "같은 손·피펫; 끝의 작은 방울 잔존"
+      },
+      {
+        "id": "P06",
+        "visual_action": "왼손바닥에 액체 비드; 큰 매달린 팁 방울 소실, 작은 메니스커스 가능"
+      },
+      {
+        "id": "P07",
+        "visual_action": "오른손 검지·중지가 오른쪽 뺨에 이미 가벼운 접촉",
+        "reveals": "접촉 시작 상태",
+        "withholds": "글라이드와 손 분리"
+      },
+      {
+        "id": "P08",
+        "visual_action": "같은 오른뺨에서 오른손 두 손가락의 작은 글라이드 순간"
+      }
+    ]
+  }
+}

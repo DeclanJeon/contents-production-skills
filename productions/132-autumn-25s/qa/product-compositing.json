@@ -1,0 +1,82 @@
+[
+  {
+    "panel": "P01",
+    "plate": "P01_SH01_plate.png",
+    "carton": "box-side.png",
+    "bottle_crop": [
+      217,
+      100,
+      806,
+      1446
+    ],
+    "carton_crop": [
+      140,
+      110,
+      1128,
+      1140
+    ],
+    "bottle_xy": [
+      194,
+      500
+    ],
+    "bottle_size": [
+      333,
+      760
+    ],
+    "carton_xy": [
+      445,
+      730
+    ],
+    "carton_size": [
+      604,
+      630
+    ],
+    "output": "images\\P01_SH01_hold.png",
+    "sha256": "4561e35a4edd573889fb0c2fffcb985b362a6341783998cfa450e5af0f3d922e",
+    "size": [
+      1080,
+      1920
+    ],
+    "method": "original supplied RGBA, proportional resize, contact shadow; no redrawn label"
+  },
+  {
+    "panel": "P10",
+    "plate": "P10_SH05_plate-2.png",
+    "carton": "box-front.png",
+    "bottle_crop": [
+      217,
+      100,
+      806,
+      1446
+    ],
+    "carton_crop": [
+      141,
+      71,
+      1113,
+      1183
+    ],
+    "bottle_xy": [
+      164,
+      405
+    ],
+    "bottle_size": [
+      333,
+      760
+    ],
+    "carton_xy": [
+      490,
+      670
+    ],
+    "carton_size": [
+      551,
+      630
+    ],
+    "output": "images\\P10_SH05_hold.png",
+    "sha256": "d995ceceaa5591cfdd05fa5324b3e917bdcccca2c53c107589407bd9b802c87e",
+    "size": [
+      1080,
+      1920
+    ],
+    "method": "original supplied RGBA, proportional resize, contact shadow; no redrawn label"
+  }
+]

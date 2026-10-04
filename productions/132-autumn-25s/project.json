@@ -1,0 +1,1099 @@
+{
+  "schema_version": "1.1",
+  "project_id": "132-AUTUMN-25S",
+  "version": "1.2",
+  "target_duration_s": 25.0,
+  "fps": 30,
+  "aspect_ratio": "9:16",
+  "audio_mode": "no_dialogue",
+  "scenes": [
+    {
+      "id": "S01",
+      "purpose": "제품 공개 오프닝: 앰플+측면 카톤, 움직이는 실용광"
+    },
+    {
+      "id": "S02",
+      "purpose": "저녁 리추얼: 시선 선택 → 대표 방울 → 부드러운 도포"
+    },
+    {
+      "id": "S03",
+      "purpose": "제품 기억/엔드카드: 앰플+정면 카톤 홀드"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "locked_traits": [
+        "28세 가량 성인 동아시아 여성 1인",
+        "검은 머리 단정한 로우번",
+        "어두운 눈, 자연스러운 실제 피부/모공",
+        "아이보리 실크 블라우스/로브, 단정한 네크라인, 주얼리 없음",
+        "유명인 유사·나이 변화·피부 톤/형태 변형 금지",
+        "패널 P02가 얼굴 정체성 앵커"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "SH01",
+      "scene_id": "S01",
+      "character_ids": [],
+      "start_s": 0.0,
+      "end_s": 4.0,
+      "source_duration_s": 6.0,
+      "source_duration_status": "estimated",
+      "source_in_s": 0.0,
+      "playback_rate": 1,
+      "purpose": "제품 공개: PR01 병+PR03 측면 카톤, 움직이는 빛띠",
+      "start_state": "병+측면 카톤 정지 배치(빛띠 동기는 조명)",
+      "end_state": "병+측면 카톤 정지 배치(빛띠 동기는 조명)",
+      "beat_ids": [
+        "B01"
+      ],
+      "camera": {
+        "shot_size": "ECU",
+        "angle": "3/4 front, eye-level+약간 하강",
+        "framing": "병 전경 + 카톤 배경 배치",
+        "movement": "static",
+        "start": "position [0.12,-0.20,0.90] target [0.0,0.42,0.84]",
+        "end": "동일 (locked)"
+      },
+      "spatial": {
+        "mode": "numeric",
+        "artifact_id": "CAM01"
+      },
+      "vfx": {
+        "enabled": true,
+        "description": "Flow 생성 배경 움직임 위에 제공 원본 RGBA 제품을 정적으로 합성; 로고/라벨 재생성 금지"
+      },
+      "speech": [],
+      "audio_cue_ids": [],
+      "asset_ids": [
+        "PR01",
+        "PR03"
+      ],
+      "claim_ids": [
+        "CL02"
+      ],
+      "retry_budget": 0
+    },
+    {
+      "id": "SH02",
+      "scene_id": "S02",
+      "character_ids": [
+        "CH01"
+      ],
+      "start_s": 4.0,
+      "end_s": 9.0,
+      "source_duration_s": 6.0,
+      "source_duration_status": "estimated",
+      "source_in_s": 0.0,
+      "playback_rate": 1,
+      "purpose": "옆을 향한 시선을 프레임 밖 화장대 제품으로 낮춤",
+      "start_state": "CH01 화장대에 앉아 옆을 향한 시선, 제품은 프레임 밖, 손 휴식",
+      "end_state": "화장대 아래 프레임 밖 앰플을 향해 시선을 낮춤, 동일 정체성/의상",
+      "beat_ids": [
+        "B02"
+      ],
+      "camera": {
+        "shot_size": "MCU",
+        "angle": "3/4, 약간 하강",
+        "framing": "상반신과 손, 앰플은 프레임 밖",
+        "movement": "slow push-in",
+        "start": "position [0.35,-0.90,1.30] target [0.15,0.05,1.28]",
+        "end": "position [0.33,-0.80,1.29] target [0.13,0.05,1.26]"
+      },
+      "spatial": {
+        "mode": "numeric",
+        "artifact_id": "CAM01"
+      },
+      "vfx": {
+        "enabled": false,
+        "description": "미사용; 자연 조명 연기"
+      },
+      "speech": [],
+      "audio_cue_ids": [],
+      "asset_ids": [
+        "PR01"
+      ],
+      "claim_ids": [
+        "CL02"
+      ],
+      "retry_budget": 0
+    },
+    {
+      "id": "SH03",
+      "scene_id": "S02",
+      "character_ids": [
+        "CH01"
+      ],
+      "start_s": 9.0,
+      "end_s": 15.0,
+      "source_duration_s": 6.0,
+      "source_duration_status": "estimated",
+      "source_in_s": 0.0,
+      "playback_rate": 1,
+      "purpose": "대표 방울: 분리된 스포이드 끝 방울→분리·낙하→왼손바닥 접촉→젖은 자국",
+      "start_state": "피펫 끝에 투명 방울 맺힘, 왼손바닥 수신면",
+      "end_state": "손바닥에 젖은 자국, 피펫 끝 방울 없음",
+      "beat_ids": [
+        "B03"
+      ],
+      "camera": {
+        "shot_size": "insert macro",
+        "angle": "측면 3/4, 테이블 높이",
+        "framing": "손바닥·피펫 끝·2cm 갭 포함",
+        "movement": "locked",
+        "start": "position [0.16,0.10,0.97] target [0.11,0.33,0.95]",
+        "end": "동일 (locked)"
+      },
+      "spatial": {
+        "mode": "numeric",
+        "artifact_id": "CAM01"
+      },
+      "vfx": {
+        "enabled": false,
+        "description": "미사용; 물리 낙하는 실사 생성으로 처리, 마법적 부유/역행 금지"
+      },
+      "speech": [],
+      "audio_cue_ids": [],
+      "asset_ids": [
+        "PR02",
+        "HP01",
+        "HP02"
+      ],
+      "claim_ids": [
+        "CL02"
+      ],
+      "retry_budget": 0
+    },
+    {
+      "id": "SH04",
+      "scene_id": "S02",
+      "character_ids": [
+        "CH01"
+      ],
+      "start_s": 15.0,
+      "end_s": 21.0,
+      "source_duration_s": 6.0,
+      "source_duration_status": "estimated",
+      "source_in_s": 0.0,
+      "playback_rate": 1,
+      "purpose": "오른손 검지·중지로 오른쪽 뺨의 기존 접촉에서 한 번 글라이드 후 분리",
+      "start_state": "오른손 두 손가락이 오른쪽 뺨(화면 왼쪽)에 가볍게 접촉",
+      "end_state": "손을 분리해 어깨 부근으로 낮춤; 피부색·모공 보존, 국부 억제된 윤기",
+      "beat_ids": [
+        "B04"
+      ],
+      "camera": {
+        "shot_size": "portrait bust",
+        "angle": "정면 유사, 약간 좌측",
+        "framing": "뺨+손 움직임+표정 포함",
+        "movement": "static",
+        "start": "position [-0.05,-0.85,1.30] target [0.10,0.05,1.30]",
+        "end": "동일 (static)"
+      },
+      "spatial": {
+        "mode": "numeric",
+        "artifact_id": "CAM01"
+      },
+      "vfx": {
+        "enabled": false,
+        "description": "미사용; 윤기는 표면 막 효과만 허용, 변형 금지"
+      },
+      "speech": [],
+      "audio_cue_ids": [],
+      "asset_ids": [
+        "PR01"
+      ],
+      "claim_ids": [
+        "CL02"
+      ],
+      "retry_budget": 0
+    },
+    {
+      "id": "SH05",
+      "scene_id": "S03",
+      "character_ids": [],
+      "start_s": 21.0,
+      "end_s": 25.0,
+      "source_duration_s": 6.0,
+      "source_duration_status": "estimated",
+      "source_in_s": 0.0,
+      "playback_rate": 1,
+      "purpose": "엔드카드: PR01 병+PR04 정면 카톤, ≥4s 제품 가독",
+      "start_state": "병+정면 카톤 정지 배치(빛/단풍 그림자 동기는 조명)",
+      "end_state": "병+정면 카톤 정지 배치(빛/단풍 그림자 동기는 조명)",
+      "beat_ids": [
+        "B05"
+      ],
+      "camera": {
+        "shot_size": "ECU",
+        "angle": "3/4 front, SH01 미러",
+        "framing": "병 전경 + 정면 카톤",
+        "movement": "static",
+        "start": "position [0.10,-0.22,0.90] target [0.0,0.40,0.84]",
+        "end": "동일 (locked)"
+      },
+      "spatial": {
+        "mode": "numeric",
+        "artifact_id": "CAM01"
+      },
+      "vfx": {
+        "enabled": true,
+        "description": "Flow 생성 배경 움직임 위에 제공 원본 RGBA 제품을 정적으로 합성; 로고/라벨 재생성 금지"
+      },
+      "speech": [],
+      "audio_cue_ids": [],
+      "asset_ids": [
+        "PR01",
+        "PR04"
+      ],
+      "claim_ids": [
+        "CL01",
+        "CL02",
+        "CL03"
+      ],
+      "retry_budget": 0
+    }
+  ],
+  "storyboard": {
+    "synopsis_artifact_id": "SYN01",
+    "beats": [
+      {
+        "id": "B01",
+        "synopsis_locator": "p1s1",
+        "event": "제품 공개: 앰플 병+측면 카톤이 움직이는 빛띠를 받아 드러남",
+        "emotion": "조용한 발견·기대"
+      },
+      {
+        "id": "B02",
+        "synopsis_locator": "p1s2",
+        "event": "옆을 향한 시선을 프레임 밖 화장대 제품으로 낮춰 리추얼 시작",
+        "emotion": "친밀·고요"
+      },
+      {
+        "id": "B03",
+        "synopsis_locator": "p1s3",
+        "event": "분리된 스포이드의 방울이 분리·낙하·왼손바닥 접촉·젖은 자국",
+        "emotion": "섬세함·집중"
+      },
+      {
+        "id": "B04",
+        "synopsis_locator": "p1s4",
+        "event": "오른뺨에 가볍게 닿은 오른손 두 손가락의 짧은 글라이드 후 분리",
+        "emotion": "안심·만족"
+      },
+      {
+        "id": "B05",
+        "synopsis_locator": "p1s5",
+        "event": "앰플+정면 카톤 정지 공개로 제품 기억 마무리",
+        "emotion": "여운·신뢰"
+      }
+    ],
+    "panels": [
+      {
+        "id": "P01",
+        "shot_id": "SH01",
+        "frame_time_s": 0.0,
+        "role": "hold",
+        "visual_action": "병+측면 카톤이 웜 빛띠 아래 정지 공개",
+        "reveals": "제품 정체성·네이비/골드·카톤 측면",
+        "withholds": "사용 장면",
+        "continuity": "PR01/PR03 정지, 손 없음",
+        "image_asset_id": "IM01"
+      },
+      {
+        "id": "P02",
+        "shot_id": "SH02",
+        "frame_time_s": 4.0,
+        "role": "start",
+        "visual_action": "CH01이 화장대에 앉아 옆을 향한 시선",
+        "reveals": "얼굴·로우번·아이보리 의상·공간",
+        "withholds": "앰플 시선",
+        "continuity": "CH01 정체성 앵커(최초 생성, 이후 이미지 입력)",
+        "image_asset_id": "IM02"
+      },
+      {
+        "id": "P03",
+        "shot_id": "SH02",
+        "frame_time_s": 8.9666667,
+        "role": "end",
+        "visual_action": "시선이 프레임 밖 앰플을 향해 아래로 이동",
+        "reveals": "선택의 완료",
+        "withholds": "실제 사용",
+        "continuity": "동일 얼굴/의상/조명, 손은 병 미개봉",
+        "image_asset_id": "IM03"
+      },
+      {
+        "id": "P04",
+        "shot_id": "SH03",
+        "frame_time_s": 9.0,
+        "role": "start",
+        "visual_action": "피펫 끝에 투명 방울이 맺힘",
+        "reveals": "방울의 시작 상태·분리 전",
+        "withholds": "접촉 결과",
+        "continuity": "오른손=PR02 점유, 왼손바닥 수신",
+        "image_asset_id": "IM04"
+      },
+      {
+        "id": "P05",
+        "shot_id": "SH03",
+        "frame_time_s": 12.0,
+        "role": "action_peak",
+        "visual_action": "손바닥 젖은 반사/액체 결과 상태; 분리·낙하·충돌 순간은 정지 그림에서 미확인",
+        "reveals": "손바닥 액체 결과 상태",
+        "withholds": "도포",
+        "continuity": "같은 손·피펫; 끝의 작은 방울 잔존",
+        "image_asset_id": "IM05"
+      },
+      {
+        "id": "P06",
+        "shot_id": "SH03",
+        "frame_time_s": 14.9666667,
+        "role": "end",
+        "visual_action": "왼손바닥에 액체 비드; 큰 매달린 팁 방울 소실, 작은 메니스커스 가능",
+        "reveals": "잔존 결과",
+        "withholds": "도포 행동",
+        "continuity": "젖은 자국은 SH04까지 의무 유지",
+        "image_asset_id": "IM06"
+      },
+      {
+        "id": "P07",
+        "shot_id": "SH04",
+        "frame_time_s": 15.0,
+        "role": "start",
+        "visual_action": "오른손 검지·중지가 오른쪽 뺨에 이미 가벼운 접촉",
+        "reveals": "접촉 시작 상태",
+        "withholds": "글라이드와 손 분리",
+        "continuity": "동일 CH01, 피부/의상 보존",
+        "image_asset_id": "IM07"
+      },
+      {
+        "id": "P08",
+        "shot_id": "SH04",
+        "frame_time_s": 18.0,
+        "role": "action_peak",
+        "visual_action": "같은 오른뺨에서 오른손 두 손가락의 작은 글라이드 순간",
+        "reveals": "도포 동작",
+        "withholds": "손 낮춤",
+        "continuity": "국부 윤기 형성, 피부색·모공 보존",
+        "image_asset_id": "IM08"
+      },
+      {
+        "id": "P09",
+        "shot_id": "SH04",
+        "frame_time_s": 20.9666667,
+        "role": "end",
+        "visual_action": "손 낮춤, 조용한 표정",
+        "reveals": "여운·윤기 유지",
+        "withholds": "제품 클로즈",
+        "continuity": "윤기는 샷 끝까지 지속; 손바닥 가려짐=미확인",
+        "image_asset_id": "IM09"
+      },
+      {
+        "id": "P10",
+        "shot_id": "SH05",
+        "frame_time_s": 21.0,
+        "role": "hold",
+        "visual_action": "병+정면 카톤 정지 공개",
+        "reveals": "제품 기억·정면 로고",
+        "withholds": "N/A",
+        "continuity": "PR01/PR04 정지, 손 없음",
+        "image_asset_id": "IM10"
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": "CL01",
+      "statement": "제품명 132 VITA-C25.5, 15ml",
+      "kind": "fact",
+      "source": "https://132.co.kr/ 및 사용자 제공 라벨 참조",
+      "status": "verified"
+    },
+    {
+      "id": "CL02",
+      "statement": "네이비/골드 병·카톤과 투명 방울 외관은 사용자 제공 원본 이미지를 따른다",
+      "kind": "fact",
+      "source": "references/ (PR01–PR04) 및 qa/reference-intake.json",
+      "status": "verified"
+    },
+    {
+      "id": "CL03",
+      "statement": "효능 수치·임상·미백/재생 주장은 근거 없어 사용하지 않는다",
+      "kind": "inference",
+      "source": "fixed contract의 미지지 주장 배제",
+      "status": "unverified"
+    },
+    {
+      "id": "CL04",
+      "statement": "CH01의 외모·이야기는 창작 설정(픽션)",
+      "kind": "fiction",
+      "status": "fiction"
+    }
+  ],
+  "asset_registry": [
+    {
+      "id": "PR01",
+      "kind": "image",
+      "version": "1.0",
+      "path": "references/ampoule-actual.png",
+      "status": "available",
+      "sha256": "b2a83eb71c0da9252d534f0c7a0026046bf13ad86c9c62480789bbfb9ed9b127",
+      "entity_type": "product",
+      "entity_id": "132-VITA-C25.5",
+      "authority": "authoritative"
+    },
+    {
+      "id": "PR02",
+      "kind": "image",
+      "version": "1.0",
+      "path": "references/dropper-actual.png",
+      "status": "available",
+      "sha256": "71fbbf3d7051c71c940308858329fcc620d87f86a3346d6b53cae561c84f6a71",
+      "entity_type": "product",
+      "entity_id": "132-dropper",
+      "authority": "authoritative"
+    },
+    {
+      "id": "PR03",
+      "kind": "image",
+      "version": "1.0",
+      "path": "references/box-side.png",
+      "status": "available",
+      "sha256": "0b79f235a76ceda485c9524123c7ef5c4bbdca9cc6354ee2717aa5705d8cfe0d",
+      "entity_type": "product",
+      "entity_id": "132-carton",
+      "authority": "authoritative"
+    },
+    {
+      "id": "PR04",
+      "kind": "image",
+      "version": "1.0",
+      "path": "references/box-front.png",
+      "status": "available",
+      "sha256": "33a9cc08d0061a4afe630270e4edc679bf961a966cc9e5e10cce4e074efefa0a",
+      "entity_type": "product",
+      "entity_id": "132-carton",
+      "authority": "authoritative"
+    },
+    {
+      "id": "HP01",
+      "kind": "proxy",
+      "version": "1.0",
+      "path": null,
+      "status": "planned",
+      "entity_type": "prop",
+      "entity_id": "left-palm-proxy",
+      "authority": "inferred"
+    },
+    {
+      "id": "HP02",
+      "kind": "proxy",
+      "version": "1.0",
+      "path": null,
+      "status": "planned",
+      "entity_type": "prop",
+      "entity_id": "right-hand-dropper-proxy",
+      "authority": "inferred"
+    },
+    {
+      "id": "CAMJSON01",
+      "kind": "camera_spec",
+      "version": "1.1",
+      "path": "camera_spec.json",
+      "status": "available",
+      "sha256": "c5599de54a61aff8900ce5750a8cf1642a32a28f1cfda15d88d9c601d8e3c5ff"
+    },
+    {
+      "id": "IM01",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P01_SH01_hold.png",
+      "status": "verified",
+      "sha256": "4561e35a4edd573889fb0c2fffcb985b362a6341783998cfa450e5af0f3d922e",
+      "authority": "derived",
+      "source_asset_ids": [
+        "BG01",
+        "PR01",
+        "PR03"
+      ],
+      "workflow": "scripts/composite_products.py: original artwork compositing",
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "IM02",
+      "kind": "image",
+      "version": "2.0",
+      "path": "images/P02_SH02_start_v2.png",
+      "status": "verified",
+      "sha256": "50253add097e0e30af73db2cc0c0afaffec6865447680751a5be471e7e8eee2f",
+      "entity_type": "character",
+      "entity_id": "CH01",
+      "authority": "derived",
+      "source_asset_ids": [
+        "RAW02"
+      ],
+      "provider": "OpenAI Codex hosted OAuth",
+      "model": "gpt-image-2.5-sunburst",
+      "prompt": "prompts/P02-revision.txt",
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "IM03",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P03_SH02_end.png",
+      "status": "verified",
+      "sha256": "0193b3ac6de0049cfce39ad6942d3821ede9f226ae99b45d1258cb570cf87eab",
+      "provider": "OpenAI Codex hosted OAuth",
+      "model": "gpt-image-2.5-sunburst",
+      "authority": "derived",
+      "source_asset_ids": [
+        "IM02"
+      ],
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "IM04",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P04_SH03_start.png",
+      "status": "verified",
+      "sha256": "933327c59233641231cbfc9849dded26fd31908222e06762d29f78d4c8d61dd2",
+      "provider": "OpenAI Codex hosted OAuth",
+      "model": "gpt-image-2.5-sunburst",
+      "authority": "derived",
+      "source_asset_ids": [
+        "IM02",
+        "PR02"
+      ],
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "IM05",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P05_SH03_peak.png",
+      "status": "verified",
+      "sha256": "668d4fcedece304c76a578cc0dc4c03817b236dfea2475fc8837b86206788b8a",
+      "provider": "OpenAI Codex hosted OAuth",
+      "model": "gpt-image-2.5-sunburst",
+      "authority": "derived",
+      "source_asset_ids": [
+        "IM02",
+        "PR02",
+        "IM04"
+      ],
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "IM06",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P06_SH03_end.png",
+      "status": "verified",
+      "sha256": "71fc1f34c4f8d31370cdceb2c8a98c1c46e9bab34297ea298ef12ca5677ff5a2",
+      "provider": "OpenAI Codex hosted OAuth",
+      "model": "gpt-image-2.5-sunburst",
+      "authority": "derived",
+      "source_asset_ids": [
+        "IM02",
+        "PR02",
+        "IM04"
+      ],
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "IM07",
+      "kind": "image",
+      "version": "1.1",
+      "path": "images/P07_SH04_start.png",
+      "status": "verified",
+      "sha256": "d8ab891aeefc92eac6f371ea3fd539b34639f3998e8f21d917d9dd6dd9dd08e4",
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "IM08",
+      "kind": "image",
+      "version": "1.1",
+      "path": "images/P08_SH04_peak.png",
+      "status": "verified",
+      "sha256": "ba891064675a75ab7a12d8317a5ad3fe15f8bac2f6d7c091e31a130b800d5b89",
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "IM09",
+      "kind": "image",
+      "version": "1.1",
+      "path": "images/P09_SH04_end.png",
+      "status": "verified",
+      "sha256": "c8694e22de5095c631cb3a8e0612be12c6d55cc6b0b16687d648af725e19a86e",
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "IM10",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P10_SH05_hold.png",
+      "status": "verified",
+      "sha256": "d995ceceaa5591cfdd05fa5324b3e917bdcccca2c53c107589407bd9b802c87e",
+      "authority": "derived",
+      "source_asset_ids": [
+        "BG10",
+        "PR01",
+        "PR04"
+      ],
+      "workflow": "scripts/composite_products.py: original artwork compositing",
+      "evidence": "review.md; qa/still-files.json"
+    },
+    {
+      "id": "VID01",
+      "kind": "video",
+      "version": "1.0",
+      "path": null,
+      "status": "planned"
+    },
+    {
+      "id": "VID02",
+      "kind": "video",
+      "version": "1.0",
+      "path": null,
+      "status": "planned"
+    },
+    {
+      "id": "VID03",
+      "kind": "video",
+      "version": "1.0",
+      "path": null,
+      "status": "planned"
+    },
+    {
+      "id": "VID04",
+      "kind": "video",
+      "version": "1.0",
+      "path": null,
+      "status": "planned"
+    },
+    {
+      "id": "VID05",
+      "kind": "video",
+      "version": "1.0",
+      "path": null,
+      "status": "planned"
+    },
+    {
+      "id": "RAW02",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P02_SH02_start.png",
+      "status": "available",
+      "sha256": "8bf9ad8ed26151fd7c4694d6badb8b5d85d4c3373320cebb40fa00987edaf6e4",
+      "authority": "derived",
+      "source_asset_ids": [],
+      "provider": "OpenAI Codex hosted OAuth",
+      "model": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "BG01",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P01_SH01_plate.png",
+      "status": "verified",
+      "sha256": "8c8b148e7f7aade1c66020425056e4f342f2fab01cfc56c4051ebc7f49760448",
+      "authority": "derived",
+      "source_asset_ids": [
+        "PR01",
+        "PR03"
+      ],
+      "provider": "OpenAI Codex hosted OAuth",
+      "model": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "BG10",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P10_SH05_plate-2.png",
+      "status": "verified",
+      "sha256": "66dc87869db2eb106e9b4ad4f77e5147eccdd9e0256ad54a36caf581b73ac0ce",
+      "authority": "derived",
+      "source_asset_ids": [
+        "PR01",
+        "PR04"
+      ],
+      "provider": "OpenAI Codex hosted OAuth",
+      "model": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "BG10ALT",
+      "kind": "image",
+      "version": "1.0",
+      "path": "images/P10_SH05_plate-1.png",
+      "status": "available",
+      "sha256": "e968445433c4d6e218c496e3f177384d66e994e1db65231f2a44d8b725b68e44",
+      "authority": "derived",
+      "source_asset_ids": [
+        "PR01",
+        "PR04"
+      ],
+      "provider": "OpenAI Codex hosted OAuth",
+      "model": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "FSRC01",
+      "kind": "video",
+      "version": "1.0",
+      "path": "videos/SH01_actual_partial_prompt.mp4",
+      "status": "available",
+      "sha256": "a530746bc0bbbf5460e5e4ffd6b560e3e4c974d06036d742a0fb4c5489febe27",
+      "provider": "flow.google.com",
+      "model": "Omni 1.1 Flash",
+      "source_asset_ids": [
+        "BG01"
+      ],
+      "prompt": "The attached empty walnut pedestal and slate evening vanity, with warm amber light from screen left, cool blue-hour window light and blurred autumn leaves.",
+      "workflow": "UI frame mode; partial prompt caused by multiline input; rejected source, not a chosen SH01 take"
+    },
+    {
+      "id": "CAPIMG01",
+      "kind": "image",
+      "version": "1.0",
+      "path": "delivery/caption-sh05.png",
+      "status": "verified",
+      "sha256": "8aeac69c2866f67f137c24c52eea620cd18576904a46b469c6555a8a729c2bae"
+    },
+    {
+      "id": "ENDIMG01",
+      "kind": "image",
+      "version": "1.0",
+      "path": "delivery/endcard-layout.png",
+      "status": "verified",
+      "sha256": "71dd5019261da3ae06e18e95b98c950ac91db758d967c4f02d8361c0b895c5e5",
+      "source_asset_ids": [
+        "IM10",
+        "CAPIMG01"
+      ],
+      "workflow": "Pillow deterministic caption composition; still layout only"
+    }
+  ],
+  "audio_cues": [],
+  "captions": [
+    {
+      "id": "CAP01",
+      "start_s": 21.5,
+      "end_s": 25.0,
+      "text": "가을의 저녁, 빛을 담는 루틴.",
+      "shot_id": "SH05"
+    },
+    {
+      "id": "CAP02",
+      "start_s": 21.0,
+      "end_s": 25.0,
+      "text": "132 · VITA-C25.5 / 15ml ·132.co.kr",
+      "shot_id": "SH05"
+    }
+  ],
+  "generation_attempts": [
+    {
+      "id": "GEN01",
+      "shot_id": "SH01",
+      "attempt": 1,
+      "route": "flow.google.com UI",
+      "model": "Omni 1.1 Flash",
+      "result": "reject",
+      "result_asset_id": "FSRC01",
+      "failure_class": "camera",
+      "changes": [
+        "Multiline input unexpectedly submitted only scene paragraph instead of full prompt"
+      ],
+      "observed_failures": [
+        "Locked camera was not respected in source frame samples",
+        "Eleven additional unassigned partial-prompt failures are recorded in qa/flow-execution-incident.json; not legitimate shot retries"
+      ],
+      "notes": "Actual requests exceeded intended submission/concurrency controls due tool side effect. No additional generation after discovery. Not an accepted SH01."
+    }
+  ],
+  "issues": [
+    {
+      "id": "IS01",
+      "severity": "blocker",
+      "status": "open",
+      "evidence": "qa/flow-execution-incident.json; qa/flow-blocked.webp",
+      "fix": "Resolve Flow unusual-activity state through normal user UI; reconcile remaining execution bounds before further submission."
+    },
+    {
+      "id": "IS02",
+      "severity": "major",
+      "status": "open",
+      "evidence": "qa/safe-input-smoke.json; qa/flow-execution-incident.json",
+      "fix": "Multiline fill submitted on newline; reported tool defect. Single-line no-submit smoke passed, but underlying tool bug and prior control violation remain recorded."
+    }
+  ],
+  "delivery_spec": {},
+  "delivery_checks": [
+    {
+      "id": "DC01",
+      "category": "playback",
+      "status": "fail",
+      "evidence": "qa/report.md",
+      "reason": "No final video; one rejected source can play."
+    },
+    {
+      "id": "DC02",
+      "category": "timing",
+      "status": "fail",
+      "evidence": "qa/assembly-blocked.json",
+      "reason": "25s/750-frame master absent."
+    },
+    {
+      "id": "DC03",
+      "category": "visual",
+      "status": "unverified",
+      "evidence": "qa/report.md",
+      "reason": "Final master absent; still/source component checks do not establish final-video acceptance."
+    },
+    {
+      "id": "DC04",
+      "category": "audio",
+      "status": "unverified",
+      "evidence": "qa/report.md",
+      "reason": "Final master absent; still/source component checks do not establish final-video acceptance."
+    },
+    {
+      "id": "DC05",
+      "category": "captions",
+      "status": "unverified",
+      "evidence": "qa/report.md",
+      "reason": "Final master absent; still/source component checks do not establish final-video acceptance."
+    },
+    {
+      "id": "DC06",
+      "category": "continuity",
+      "status": "unverified",
+      "evidence": "qa/report.md",
+      "reason": "Final master absent; still/source component checks do not establish final-video acceptance."
+    },
+    {
+      "id": "DC07",
+      "category": "claims",
+      "status": "unverified",
+      "evidence": "qa/report.md",
+      "reason": "Final master absent; still/source component checks do not establish final-video acceptance."
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "BRIEF01",
+      "type": "brief",
+      "version": "1.1",
+      "status": "reviewed",
+      "dependencies": [],
+      "dependency_versions": {},
+      "asset_ids": [],
+      "path": "brief.md"
+    },
+    {
+      "id": "SYN01",
+      "type": "synopsis",
+      "version": "1.1",
+      "status": "reviewed",
+      "dependencies": [
+        "BRIEF01"
+      ],
+      "dependency_versions": {
+        "BRIEF01": "1.1"
+      },
+      "asset_ids": [],
+      "path": "synopsis.md"
+    },
+    {
+      "id": "VIS01",
+      "type": "visual_bible",
+      "version": "1.1",
+      "status": "reviewed",
+      "dependencies": [
+        "BRIEF01",
+        "SYN01"
+      ],
+      "dependency_versions": {
+        "BRIEF01": "1.1",
+        "SYN01": "1.1"
+      },
+      "asset_ids": [],
+      "path": "visual-bible.md"
+    },
+    {
+      "id": "CAM01",
+      "type": "camera_spec",
+      "version": "1.1",
+      "status": "reviewed",
+      "dependencies": [
+        "BRIEF01",
+        "SYN01",
+        "VIS01"
+      ],
+      "dependency_versions": {
+        "BRIEF01": "1.1",
+        "SYN01": "1.1",
+        "VIS01": "1.1"
+      },
+      "asset_ids": [
+        "CAMJSON01"
+      ],
+      "path": "camera_spec.json"
+    },
+    {
+      "id": "BOARD01",
+      "type": "storyboard",
+      "version": "1.1",
+      "status": "reviewed",
+      "dependencies": [
+        "BRIEF01",
+        "SYN01",
+        "VIS01",
+        "CAM01"
+      ],
+      "dependency_versions": {
+        "BRIEF01": "1.1",
+        "SYN01": "1.1",
+        "VIS01": "1.1",
+        "CAM01": "1.1"
+      },
+      "asset_ids": [
+        "IM01",
+        "IM02",
+        "IM03",
+        "IM04",
+        "IM05",
+        "IM06",
+        "IM07",
+        "IM08",
+        "IM09",
+        "IM10"
+      ],
+      "path": "storyboard.md"
+    },
+    {
+      "id": "HANDOFF01",
+      "type": "handoff",
+      "version": "1.2",
+      "status": "reviewed",
+      "dependencies": [
+        "BOARD01",
+        "CAM01"
+      ],
+      "dependency_versions": {
+        "BOARD01": "1.1",
+        "CAM01": "1.1"
+      },
+      "asset_ids": [],
+      "path": "prompts/packet-index.json"
+    },
+    {
+      "id": "REVIEW01",
+      "type": "preproduction_review",
+      "version": "1.2",
+      "status": "reviewed",
+      "dependencies": [
+        "BRIEF01",
+        "SYN01",
+        "VIS01",
+        "BOARD01",
+        "CAM01",
+        "HANDOFF01"
+      ],
+      "dependency_versions": {
+        "BRIEF01": "1.1",
+        "SYN01": "1.1",
+        "VIS01": "1.1",
+        "BOARD01": "1.1",
+        "CAM01": "1.1",
+        "HANDOFF01": "1.2"
+      },
+      "asset_ids": [],
+      "path": "review.md"
+    },
+    {
+      "id": "EXEC01",
+      "type": "video_execution_plan",
+      "version": "1.2",
+      "status": "draft",
+      "dependencies": [
+        "REVIEW01"
+      ],
+      "dependency_versions": {
+        "REVIEW01": "1.2"
+      },
+      "asset_ids": [],
+      "path": "execution-plan.md"
+    },
+    {
+      "id": "EDIT01",
+      "type": "edit_plan",
+      "version": "1.2",
+      "status": "reviewed",
+      "dependencies": [
+        "BOARD01"
+      ],
+      "dependency_versions": {
+        "BOARD01": "1.1"
+      },
+      "asset_ids": [
+        "CAPIMG01",
+        "ENDIMG01"
+      ],
+      "path": "edit-plan.md"
+    },
+    {
+      "id": "QA01",
+      "type": "qa_report",
+      "version": "1.2",
+      "status": "reviewed",
+      "dependencies": [
+        "BOARD01",
+        "EXEC01"
+      ],
+      "dependency_versions": {
+        "BOARD01": "1.1",
+        "EXEC01": "1.2"
+      },
+      "asset_ids": [
+        "FSRC01",
+        "ENDIMG01"
+      ],
+      "path": "qa/report.md",
+      "evidence": "qa/report.md; qa/flow-execution-incident.json"
+    },
+    {
+      "id": "DELIVERY01",
+      "type": "delivery",
+      "version": "1.2",
+      "status": "draft",
+      "dependencies": [
+        "EXEC01",
+        "EDIT01",
+        "QA01"
+      ],
+      "dependency_versions": {
+        "EXEC01": "1.2",
+        "EDIT01": "1.2",
+        "QA01": "1.2"
+      },
+      "asset_ids": [],
+      "path": "delivery.md"
+    },
+    {
+      "id": "SOURCE01",
+      "type": "generated_video",
+      "version": "1.0",
+      "status": "generated",
+      "dependencies": [],
+      "dependency_versions": {},
+      "asset_ids": [
+        "FSRC01"
+      ],
+      "evidence": "qa/flow-source-probe.json; qa/flow-execution-incident.json"
+    }
+  ]
+}

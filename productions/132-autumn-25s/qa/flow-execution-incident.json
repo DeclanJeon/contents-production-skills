@@ -1,0 +1,30 @@
+{
+  "observed_at": "2026-10-04T18:19:45.435269+00:00",
+  "project_url": "https://flow.google.com/u/1/project/b706c0a7-2fff-469a-9c72-463da944b618",
+  "model": "Omni 1.1 Flash",
+  "settings": {
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "duration_s": 6,
+    "count": 1,
+    "displayed_cost_credits": 10
+  },
+  "tool_error": "Multiline browser.fill on contenteditable dispatched submit on newline; unintended partial-prompt requests created. Additional submissions stopped.",
+  "failed_cards": 11,
+  "failed_card_billing_text": "이 생성에 대한 요금이 청구되지 않았습니다.",
+  "provider_error": "We noticed some unusual activity. Note that browser extensions that modify the page may cause issues. Please visit the Help Center for more information.",
+  "credits_before": 893,
+  "credits_after": 883,
+  "observed_credit_difference": 10,
+  "completed_sources": [
+    {
+      "path": "videos/SH01_actual_partial_prompt.mp4",
+      "sha256": "a530746bc0bbbf5460e5e4ffd6b560e3e4c974d06036d742a0fb4c5489febe27",
+      "source_ui_title": "Walnut pedestal and slate vanity",
+      "prompt": "The attached empty walnut pedestal and slate evening vanity, with warm amber light from screen left, cool blue-hour window light and blurred autumn leaves.",
+      "note": "Only this paragraph was submitted, not the full intended SH01 motion prompt. It is not the final advertisement."
+    }
+  ],
+  "additional_submit_count_after_discovery": 0,
+  "final_ad_created": false
+}

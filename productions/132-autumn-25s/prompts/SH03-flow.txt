@@ -1,0 +1,21 @@
+MODEL: Flow Omni 1.1 Flash (flow.google.com)
+CLIP SETTINGS (UI): 720p, 9:16 vertical, duration 6s, x1 clip.
+IMAGE_REF: images/P04_SH03_start.png — first frame, right hand with black/gold glass dropper above the upturned left palm, one clear drop attached to the tip. Preserve the actual visible gap; no measured centimetre claim.
+
+[Shot]
+Macro close-up of the woman's right hand holding the detached glass dropper above her upturned left palm on the evening vanity — warm amber key light from screen left, cool blue-hour glow behind, shallow depth of field.
+
+[Action — the mandatory visible event]
+Release exactly ONE clear drop from the attached tip: it detaches, briefly falls vertically across the visible gap, visibly meets the LEFT palm, then remains as a small clear wet bead. Keep the dropper hand and receiving palm steady. Do not replace the fall with a continuous liquid thread or a bead that simply appears on the palm. All fingers remain natural and unchanged. Afterward the large hanging drop is gone; a tiny static tip meniscus is acceptable but no second drop is released.
+
+[Camera]
+Locked static macro camera. No drift, zoom, pan or cut.
+
+[Timecodes — intent, not guaranteed]
+[0s-1s] establish the attached drop; [1s-2.5s] release, brief visible downward flight and palm contact; [2.5s-6s] hold the same settled liquid bead and hands. These are intent markers, not a claim that gravity takes 1.5 seconds.
+
+End frame: images/P06_SH03_end.png — a clear bead remains on the palm and the large hanging tip drop is gone; do not infer a perfectly dry tip from the still.
+
+Audio intent: quiet room ambience; a single tiny natural droplet sound is acceptable if the model produces native audio. No dialogue, no voiceover, no music stinger.
+
+Negative: no text, no subtitles, no watermark, no extra hands or fingers, no floating liquid, no reversing liquid, no glowing drop, no morphing.
