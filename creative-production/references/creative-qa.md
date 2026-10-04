@@ -19,6 +19,7 @@ Apply only the requested output's checks. Record actual evidence and unverified 
 - Probe duration, frame rate, aspect/resolution, encoding, captions and audio sync with available media tools.
 - Compose critical words, logos, prices and legal text deterministically when needed; check actual readability.
 - Check the requested delivery format and destination-specific conditions. A preview/API success is not a final encode.
+- When reference intent or project style is a requested criterion, use [production QA](../../video-production-assets/references/12-qa.md#레퍼런스-의도-대조-해당-작업만) for evidence-backed qualitative comparison and requested retrospectives.
 
 ## Blender/3D and web
 

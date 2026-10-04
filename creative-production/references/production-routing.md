@@ -12,7 +12,8 @@
 | Factual/educational video plan | Text lane and relevant production evidence modules | Verified claims and interpretation separated. No invented protagonist, causation, customer testimony or commercial objective |
 | Camera-space specification | `camera-spatial-design` | Existing numeric spatial contract and actual calculated inspection |
 | Blender proxy/previs | `blender-previsualization` | Actual proxy scene/render with available Blender runtime; not beauty rendering/final footage |
-| Image-backed full production package | `video-production-assets` review contract | Exact project folder, applicable actual artifacts/stills, inspection, user review; external `codex-imagen` required for images |
+| Video prompt, shot decomposition, model routing, generation critique, pipeline recipe | Coordinator with [video-generation-planning.md](video-generation-planning.md) + [video-prompt-dialects.json](video-prompt-dialects.json) | Planning artifact: dialect-correct prompt, per-shot requirements/route, QA verdict. Not spend or submission authorization |
+| Image-backed full production package | `video-production-assets` [review contract](../../video-production-assets/references/preproduction-review.md), default `codex-imagen` | Exact project folder, applicable actual artifacts/stills, executor restrictions in production execution §2, inspection and user review |
 
 For links to craft resources, open the corresponding sibling `SKILL.md`. A missing core skill is a broken installation, not a normal optional dependency.
 
@@ -22,17 +23,17 @@ The installed package manifest at `video-production-assets/support/manifest.json
 
 | Request | Selected specialist | Scope |
 |---|---|---|
-| Campaign strategy, conversion-led copy, marketing evidence | `content-production-marketing` | Marketing only. CTA/advertising structure follows the actual brief |
+| Campaign strategy, conversion-led copy, marketing evidence | [marketing-source-adaptation.md](marketing-source-adaptation.md); external `content-production-marketing` when installed for deeper channel workflows | Marketing only. CTA/advertising structure follows the actual brief |
 | YouTube/interview/podcast adaptation | `youtube` / `podcast` for source inspection, `youtube-content` for YouTube transformation | Preserve source context, distinguish quotation from proposal, don't infer publication |
 | Tistory/WordPress-specific content or operations | `tistory-blog` / `wordpress-blog` | Draft-only remains text-only; requested live changes use actual platform checks |
 | Explicit story-commerce | `story-pipeline` and requested `synopsis-craft`, `script-craft`, `char-design`, `storyboard-craft` | Preserve that lane's format/contracts, not universal requirements |
 | Screenplay/series or scene craft | `sw-workflow` and requested `sw-*` | Preserve story bible and stage approvals; no implied generation |
-| Single model-specific prompt, shot breakdown, model comparison or critique | `video-prompt`, `video-shotlist`, `video-model-router`, `video-critique` as applicable | Artifact/recommendation is not execution authorization. Current model facts need live evidence |
-| Technical media pipeline | `video-pipeline`, selected `comfyui` / `remotion-*` / FFmpeg surface | Design and execution are distinct; runtime checks only when used |
+| Story/visual craft depth (concept/emotion/retention, genre/comedy, series, brand/product integration, visual mode/SSOT/continuity, dialogue/lip-sync, finishing/platform fit, reference deconstruction) | `video-production-assets` references `16-concept-emotion-retention`, `17-genre-comedy`, `18-episodic-series`, `19-brand-product-integration`, `20-visual-mode-ssot`, `22-dialogue-lipsync`, `23-finishing-platform`, `25-reference-video-analysis` | Load only for the specific craft need; never a second coordinator or state ledger |
 | Selected Fal execution | `fal-video-production` | Selected provider's verified live endpoint and approved exact scope |
-| Selected Higgsfield execution | Applicable `higgsfield-*` and connected tools | Preserve actual workflow, preset, upload, rights and billing contracts |
-| Music/lyrics/voice work | `songwriting-and-ai-music` for requested writing; selected `heartmula`, `audiocraft-audio-generation` or voice tool for actual media | Text ends as text; real audio needs applicable approval, provider/runtime and listening QA |
-| Illustration/thumbnail/product creative | Requested available image craft skill plus selected image executor | Brief-specific static asset, not implied video. Required preproduction stills retain the codex-imagen boundary |
+| Selected Higgsfield video/audio execution | Applicable `higgsfield-*` and connected tools | Preserve actual workflow, upload, rights and billing contracts; image generation is excluded by production execution §2 |
+| ComfyUI/Remotion/FFmpeg runtime work | Selected installed tool surface | Design lives in the bundled generation-planning reference; runtime checks only when that branch executes |
+| Music/lyrics/voice work | `songwriting-and-ai-music` for requested writing; selected available audio executor | Voice selection/creation: [dialogue reference](../../video-production-assets/references/22-dialogue-lipsync.md); SFX-only and music sourcing/rights: [edit reference](../../video-production-assets/references/09-edit.md); translated/SRT delivery: [delivery reference](../../video-production-assets/references/15-delivery.md). Actual audio needs applicable approval and listening QA |
+| Illustration/thumbnail/product creative | Requested available image craft skill plus default `codex-imagen` | Brief-specific static asset, not implied video; apply the same image executor restrictions and live contract |
 | Ordinary UI/brand identity | Existing design/development owner, not this production pipeline | Hybrid media shares its supplied visual contract without taking over UI ownership |
 
 A generic draft does not require an optional platform or marketing skill. A requested platform operation does. If the chosen branch is unavailable, report its exact prerequisite and complete reachable preparation. Do not silently switch provider or describe a substitute as the requested completed result.
