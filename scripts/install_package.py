@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Manifest-driven installer for the video-production-skills package.
+"""Manifest-driven installer for the contents-production-skills package.
 
 Copies the skills listed in the repository ``manifest.json`` into a user
 skill root, plus the package support files (manifest, examples, QA and
