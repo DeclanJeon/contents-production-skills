@@ -1,6 +1,6 @@
 ---
 name: storyboarding-video
-version: 2.2
+version: 2.3
 description: Use to turn a synopsis, scene, visual sequence, or story beat into ordered storyboard panels, a storyboard sheet, or per-panel image prompts.
 ---
 
@@ -8,7 +8,8 @@ description: Use to turn a synopsis, scene, visual sequence, or story beat into 
 
 Convert a supplied or clearly stated story into ordered, readable panels — the storyboard itself in Korean by default, plus reusable generic image prompts. Prompts are text; no image is ever claimed to exist.
 
-The unit of work is the narrative beat, not the shot. Timed shotlists, camera-move plans, clip breakdowns, and model-specific prompts belong to [generation planning](../creative-production/references/video-generation-planning.md) under `creative-production`; complete text packages route through `creative-production` → `orchestrating-video-preproduction`.
+The core panel unit is a narrative/information beat, not a timed model clip. For **production-ready/detailed storyboards, complete storyboard sheets, or supplied production-board QA**, REQUIRED: read [the complete storyboard contract](../video-production-assets/references/storyboard-contract.md). Integrate shot/camera/spatial/VFX/speech/audio plans through its specialist owners **before the final board**; preserve one readable beat per image. A narrow narrative-panel request retains the text-only format below. Model-specific serialization and clip execution remain downstream.
+Default **storyboard/콘티** work uses that complete production contract. Use the narrow narrative-panel format only when the user explicitly asks for a panel exercise, rough narrative beats/thumbnails or image prompts alone. A supplied panel count remains exact; if that count cannot cover the approved story visibly, report the conflict and ask to revise count or story rather than silently omitting events.
 
 `creative-production` alone coordinates projects. Standalone calls consult it once to confirm scope and route, then deliver only the requested storyboard. Work delegated by `creative-production` or `orchestrating-video-preproduction` continues on the inherited spine and approvals — no call-backs, re-routing, second interview, or second approval ledger.
 
@@ -30,7 +31,7 @@ Each panel answers what the viewer learns or feels and why it follows the previo
 - A supplied reveal is foreshadowed through a visible cue but never shown early.
 - Every panel earns its place — narrative, emotional, tonal, or informational function; none exist to fill a count.
 - Dialogue, captions, and sound appear only when supplied or needed to read the beat — default to none rather than inventing lines, reactions, or factual captions; mark genuinely optional creative text separately.
-- Attention is guided through framing, point of view, and composition — not shot duration, lens specs, camera-move verbs, or clip segmentation.
+- Attention is guided through framing, point of view, and composition. In a narrow narrative-panel request, leave timings/movement to the requested next owner; a production board includes their linked technical specifications under the complete contract, without pretending a still image performs movement.
 
 ## Output format
 
@@ -40,14 +41,14 @@ Use the requested format; otherwise:
 2. **패널 표** — one ordered row per panel:
    - **패널 번호 / 기능** — the beat's purpose in the sequence;
    - **한 프레임의 행동** — the single readable action or information change;
-   - **보이는 대상·시점·구도** — subjects, viewpoint, framing, composition (never moving-camera instruction);
+   - **보이는 대상·시점·구도** — the visible framing at this instant; production boards additionally link the shot's camera-movement specification rather than describing motion as visible inside one still;
    - **보여줄 것 / 감출 것** — what is revealed now versus withheld;
    - **감정·주의 초점** — observable through pose, expression, detail, or graphic hierarchy;
    - **대사·자막·소리** — supplied or needed cue, or "없음"; no invented factual captions;
    - **전환·연속성** — why the next panel follows; which anchors persist or change;
    - **이미지 프롬프트** — one reusable prompt per panel.
 3. **시트 레이아웃 프롬프트** — one optional unified storyboard-sheet prompt matching the exact requested count and layout; a fixed-count template is a layout option, never a default.
-4. **핸드오프** — link the coordinator's generation-planning reference §4 only when timing, camera moves or clip decomposition come next, and §3 only when a model-specific prompt is requested.
+4. **핸드오프** — production boards include the contract's full beat/scene/shot/panel/character/audio mapping, image-count plan and image-only review status. Link generation-planning §4 for downstream timed model-clip decomposition and §3 for requested model-specific prompts.
 
 Prompts use the user's requested language — Korean by default, even when a downstream model accepts English. Repeat continuity-critical details in each prompt because panels may be generated separately; prompt only visible content and stable style with no unsupported scenery, text, or objects. The unified sheet prompt preserves identical character and object identities, colors, damage, ownership, and reveal order across all cells.
 
@@ -68,8 +69,8 @@ Prompts use the user's requested language — Korean by default, even when a dow
 - Reveals foreshadowed without spoiling; designated panel resolves the question?
 - Factual panels free of invented documentary-looking evidence — including anything labeled "proposal" — with unknowns still unknown?
 - Prompts in the requested language, specific enough to hold continuity, with no generation claim?
-- Timings, camera moves, and model dialects left to the downstream generation-planning owner?
+- For a production board, all applicable camera/spatial/VFX/speech/audio slots, stable indices and start/peak/end image accounting present; actual clean-image sequence reviewed without explanatory labels/audio, or explicitly unverified? For narrow panels, technical planning stays with the requested downstream owner.
 
 ## Handoff
 
-Timing, camera-move and clip-decomposition requests inherit ordered panels, stable anchors, reveal order and unresolved continuity choices through `creative-production`'s [generation-planning reference](../creative-production/references/video-generation-planning.md) §4, preserving the beat sequence. Model-specific prompts use §3 with approved story facts and visual anchors. Execution and provider selection stay with the coordinator, never this skill. Storyboard craft is not factual evidence for the depicted subject.
+Production boards follow [the complete contract](../video-production-assets/references/storyboard-contract.md) through indexed correction, clean-cut extraction and visual story review. Timing, camera and spatial specifications are inherited from their specialist owners; model-specific clip decomposition uses `creative-production`'s generation-planning §4 preserving panel IDs, beat order, reveal timing and continuity. Actual image-only review and user acceptance are separate from structure checks and execution approval. Storyboard craft is not factual evidence for the depicted subject.

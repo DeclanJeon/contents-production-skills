@@ -7,7 +7,8 @@
 | Request | Owner | Result boundary |
 |---|---|---|
 | Article/blog/social text from supplied sources | Coordinator drafts directly; requested source/platform specialist only when needed | Actual text and source/claim check; no implied video, CTA, files or publication |
-| Text video planning | `orchestrating-video-preproduction` with requested `developing-video-synopses`, `designing-video-character-sheets`, `storyboarding-video` | Concepts/synopsis, applicable character anchors and/or narrative/information panels. No actual images or footage |
+| Text video planning | `orchestrating-video-preproduction` with requested `developing-video-synopses`, `designing-video-character-sheets`, `storyboarding-video` | Concepts/synopsis, applicable character anchors and/or narrative/information panels. No actual images or footage. Production boards add the required `video-production-assets/references/storyboard-contract.md` |
+| Production/detailed storyboard, full storyboard sheet, video production package | `video-production-assets` under the required [storyboard contract](../../video-production-assets/references/storyboard-contract.md), craft owners integrated before the final board | Beat-mapped panels, timed shots with camera/spatial/VFX/speech/audio fields, KEEP/FIX/unverified review. Technical plans integrate per cut before the board is final, not as a blanket downstream pass |
 | One brief, script, shot/lighting/edit plan, claim ledger, budget or delivery checklist | `video-production-assets`, only the relevant existing module | Requested asset, not a complete production packet |
 | Factual/educational video plan | Text lane and relevant production evidence modules | Verified claims and interpretation separated. No invented protagonist, causation, customer testimony or commercial objective |
 | Camera-space specification | `camera-spatial-design` | Existing numeric spatial contract and actual calculated inspection |
@@ -40,7 +41,7 @@ A generic draft does not require an optional platform or marketing skill. A requ
 
 ## State and gates
 
-Carry source/fact status, constraints, IDs/versions, continuity, actual outputs and version-bound approval evidence through handoffs. Single text artifacts need no manifest. Multi-stage production under the existing contract uses canonical `project.json`; specialist bibles/manifests and executor adapters remain linked lane artifacts.
+Carry source/fact status, constraints, IDs/versions, continuity, actual outputs and version-bound approval evidence through handoffs. Supplied uploads, synopses, character sheets, voices and boards are reused with version/source/inspected scope recorded; unreadable items stay unverified, never reinvented. Single text artifacts need no manifest. Multi-stage production under the existing contract uses canonical `project.json`; specialist bibles/manifests and executor adapters remain linked lane artifacts.
 
 Topic-to-video or image-backed work follows sibling `video-production-assets/references/preproduction-review.md`: exact project root and actual review stills before review. Text-only work remains text. Review acceptance does not select a video model or authorize a sample. A separate proceed request opens live catalog/schema/price planning, then explicit bounded execution/spend approval permits submission. Publication remains separate. Changed inputs invalidate only affected dependent approvals.
 

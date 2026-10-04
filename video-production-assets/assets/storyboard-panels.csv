@@ -1,1 +1,1 @@
-panel_id,shot_id,frame_time_s,image_asset_id,composition,action,camera,screen_direction,sound_cue,cut_to_next
+panel_id,shot_id,scene_id,beat_ids,synopsis_locator,character_ids,audio_cue_ids,frame_time_s,role,image_asset_id,source_sheet_asset_id,crop_box,composition,visual_action,reveals,withholds,continuity,camera,vfx,speech_lipsync,cut_to_next,review_status

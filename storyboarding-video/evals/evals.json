@@ -36,6 +36,53 @@
         "Image prompts add no invented facility, staff, equipment, or records as evidence and make no image-generation claim.",
         "The output is in Korean."
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "승인된 20초 무대사 이야기: CH01이 창가에서 빨간 장갑을 발견하고 출구에서 장갑을 찾는 CH02를 알아본 뒤 다가가 돌려주고 둘이 안도한다. 창작 staging은 위임한다. 영상 제작용 상세 스토리보드를 텍스트로 설계해줘. 이미지 컷만 순서대로 놓아도 이야기가 읽혀야 한다. 생성·지출은 하지 마.",
+      "expected_output": "An indexed complete production storyboard with technical handoffs and an honest image-only review gate, not a claimed rendered result.",
+      "expectations": [
+        "Every synopsis beat/source location, scene, shot and required start/peak/end or hold panel mapped; no representative-only board presented as full coverage.",
+        "Camera size/angle/framing/movement, spatial/Blender branch, VFX, speech/lipsync and audio cues explicitly connected, including reasoned non-applicability.",
+        "Image-slot, unique-image and sheet counts distinguished; individual images carry visible states, with management labels outside clean cuts.",
+        "Image-only review compares actual read events and causal/ownership/emotional changes to synopsis, not mere panel count; actual media remains unverified.",
+        "KEEP/FIX/unverified, minimal repair/preserve/prerequisites and estimate basis provided; unsupported labor times remain unknown.",
+        "Indexed clean-cut and first/peak/end frame handoff preserves IDs and verified endpoint limits without execution or media claims."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "이 제공 콘티를 고쳐줘: 원문 B01 발견→B02 반환→B03 안도인데 이미지 P01은 발견, P02는 둘이 웃음뿐이다. 장갑 반환 접촉 컷과 캐릭터/음향 매핑이 빠져 있다. 기존 이야기와 정상 P01은 유지한다. 이미지 파일은 아직 없고 Blender도 실행 불가다. 유료 생성은 하지 마.",
+      "expected_output": "An index-specific repair plan for missing causal imagery and metadata, with exact blockers and no fabricated render.",
+      "expectations": [
+        "B02 missing visual evidence is blocker; preserves valid P01 and fixed story rather than rebuilding all panels.",
+        "Adds staged before/contact/after states for ownership transfer, with technical and character/audio links.",
+        "Lists KEEP/FIX/unverified, repair reason/method/prerequisites and grounded estimate or unknown.",
+        "Blender and actual image review stay unverified, no runtime fallback or claimed completed media.",
+        "Corrected text is not presented as accepted image-only storyboard."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "캐릭터 없는 무음 숫자 설명 영상의 상세 콘티를 설계해줘. 승인 사실은 올해 40건, 다음해 52건뿐이고 증가 원인은 모른다. 15초, 생성/저장 없이 텍스트만. 두 숫자가 순서대로 이미지에서 읽히게 해줘.",
+      "expected_output": "A full indexed factual storyboard respecting no-audio and unknown causation.",
+      "expectations": [
+        "No fictional cast, voice, music, facilities or causal claims.",
+        "Required scene/shot/beat/panel technical slots present with explicit spatial/VFX/speech/audio non-applicability where appropriate.",
+        "Approved data graphics remain visible in image-only review, while external explanatory labels/audio are hidden.",
+        "Runtime coverage and required image counts explicit; no generated media, files or paid job claimed."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "승인된 20초 무대사 이야기: CH01이 창가에서 빨간 장갑을 발견하고 출구에서 장갑을 찾는 CH02에게 다가가 돌려주고 둘이 안도한다. staging은 위임한다. 콘티를 작성해줘. 텍스트만 반환하고 실제 생성/저장/지출은 하지 마.",
+      "expected_output": "An unqualified storyboard request defaults to a complete production plan, not a narrow narrative thumbnail list.",
+      "expectations": [
+        "Returns integrated input/coverage/shot/panel/count-and-handoff/review sections with all mandatory technical slots.",
+        "The pickup, approach, contact and final possession supply causal visual coverage rather than skipping to relief.",
+        "Consistent hand/ownership/space states across ledgers, panel prompts and shot specifications; contradictions are FIX.",
+        "Keeps actual image-only quality and Blender execution unverified, distinguishes text planning from finished artwork, and invents no labor time."
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 ---
 name: higgsfield-video-replicate
-version: 0.15.0
+version: 0.16.0
 description: |
   Replicate an existing reference video into a new similar-style video:
   analyze its shots, lock a style bible and characters, regenerate every
@@ -112,6 +112,9 @@ Extract frames and audio, then write two documents: a **beat sheet** (timestamp,
 ## Phase 2 — shot prompts
 
 Write exactly N English prompts from the template in `references/prompts.md`. STYLE and CHARACTER stay verbatim across shots; each shot carries one clear action completable within its duration. With a video reference attached, the prompt describes the NEW scene and camera — never re-describes the reference's look.
+
+For a requested production/detailed storyboard, complete sheet or full preproduction package, REQUIRED: apply [the complete storyboard contract](../video-production-assets/references/storyboard-contract.md) through `creative-production` before this video-prompt phase. Carry approved synopsis beat/scene/shot/panel IDs, clean start/peak/end images, spatial/camera/VFX/speech/audio requirements and image-only review evidence into each shot. Preserve the supplied reference's inspected scope and authorized adaptation; a reference beat sheet or style match alone is not full visual-story acceptance. Keep already-approved narrow execution scoped; this pointer never authorizes images, extra clips or spend.
+
 
 ## Phase 3 — generate clips
 

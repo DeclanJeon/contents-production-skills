@@ -1,6 +1,6 @@
 ---
 name: orchestrating-video-preproduction
-version: 2.2
+version: 2.3
 description: Use for text-only video preproduction that spans multiple artifacts — a complete planning package or one idea carried from concept through synopsis, characters, and storyboard. Delegated planning lane under creative-production; returns text and generic image prompts, never media.
 ---
 
@@ -35,8 +35,8 @@ One canonical record, captured once, reused verbatim by every stage:
 | Goal | Primary purpose, any secondary purpose, the one audience takeaway/promise/question — or an explicit "unresolved" |
 | Audience | Only what was stated; no invented demographics |
 | Tone | Requested register plus explicit exclusions, tracked apart from genre and method |
-| Emotion | The target feeling the audience should leave with — an ordered journey plus a sensory/visual anchor for the central feeling — or an explicit "unresolved". Tracked apart from Tone: Tone is the register the video speaks in, Emotion is the state it moves the audience to. |
-| Format | Supplied platform, aspect ratio, runtime only; unspecified stays unspecified |
+| Emotion | The target feeling the audience should leave with — an ordered journey that may blend feelings (humor into warmth, tension into relief) plus a sensory/visual anchor for the central feeling — or an explicit "unresolved". Tracked apart from Tone: Tone is the register the video speaks in, Emotion is the state it moves the audience to. |
+| Format | Supplied platform, aspect ratio, runtime only; unspecified stays unspecified. For full productions with runtime unresolved, the Length-and-structure checkpoint picks the runtime (30s/1m/2m/5m/10m/30m/up to 1h or a stated length) and the chapter/single-film/series decision; narrow requests never acquire these forced choices |
 | Message and facts | One governing message; every claim tagged as supplied/verified, derived arithmetic, interpretation, proposal, unverified, or unknown |
 | Constraints | Dialogue, CTA, ending, and content limits; delivery scope; the no-generation boundary |
 | Characters | Supplied identities, roles, goals, relationships, approved visual invariants; unknowns left open |
@@ -51,7 +51,7 @@ Mark a material assumption at the first artifact it affects. Nothing in the spin
 
 **Character sheets** (`designing-video-character-sheets`): for each relevant character, preserve role, agency, relationships, and supported change; convert stated traits into filmable behavior and stable visual anchors; keep unknown demographics, history, and motive open. Use customer-as-hero or service-as-guide framing only when the brief calls for those roles, without invented service detail or personification. When the mode needs no character, note "not applicable" internally and skip the stage — a partial request does not surface that note.
 
-**Storyboard** (`storyboarding-video`): once the spine or supplied synopsis is stable. Panels hold one readable beat each — a visible action or information change — with reveal order and continuity anchors. Panels are not shot timings, camera moves, clip splits, or model-specific prompts.
+**Storyboard** (`storyboarding-video`): once the spine or supplied synopsis is stable. Narrative panels hold one readable beat each — a visible action or information change — with reveal order and continuity anchors; those panels are not shot timings, camera moves, clip splits, or model-specific prompts. When the request is a production/detailed storyboard or full board sheet, the required [`../video-production-assets/references/storyboard-contract.md`](../video-production-assets/references/storyboard-contract.md) applies instead: the lane still supplies stable synopsis beat IDs and anchors, and shot/camera/spatial/VFX/voice/audio owners integrate their per-cut specifications before the final board rather than after all panels are drawn. A long-form or series request decomposes whole → chapter/episode → scene → beat/shot so full coverage is preserved instead of treating a feature as one short block.
 
 ## Integrity standards
 
@@ -84,7 +84,7 @@ Before returning, test every stage against the spine:
 - Character identity, role, goal, agency, traits, and relationships are identical in synopsis, sheet, and panels.
 - Location, style, color, material, condition, possession, screen direction, and reveal order hold; every change happens inside a visible beat.
 - Each claim traces to supplied or verified material or wears its label — arithmetic, interpretation, proposal, unknown. No unsupported aggregates, future-continuity slogans, or predictions; prompts carry no smuggled evidence.
-- Scope matches the request exactly; shotlists and model-specific prompts remain downstream work.
+- Scope matches the request exactly. Production-board technical shot specifications are integrated through the complete contract before final review; model-specific clip decomposition and execution remain downstream. Narrow narrative-panel requests acquire no unrequested shotlist or media.
 
 When two explicit brief values collide, prefer the one tied most directly to the user's stated constraint and disclose the conflict rather than silently reconciling it. If the collision changes the premise and no conservative resolution exists, ask one concise question and complete every unblocked part.
 

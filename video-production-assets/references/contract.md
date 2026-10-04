@@ -56,3 +56,7 @@ artifacts: id, type, version, status, dependencies(artifact id 배열), evidence
 별도 `type=video_execution_plan` artifact는 승인된 검토 패키지 버전과 명시적 샷·모델/endpoint·실행/재시도/비용 상한을 참조한다. 실제 사용자 실행 승인 뒤에만 approved로 기록한다. 프리프로덕션 중 모델/가격 미정은 허용하지만 실행자 기본값으로 보충하지 않는다. 변경된 에셋의 종속 검토/실행 계획은 stale로 표시하고 새 버전에 이전 승인을 재사용하지 않는다. 사용자 승인과 파일 존재/구조 검사는 별개의 증거다.
 
 프리뷰와 최종은 별도 허가다. `video_execution_plan`의 승인 범위에 프리뷰 단계가 포함되면 승인된 프리뷰 입력 버전·설정·샷/출력 수·상한을 그대로 기록하고, 프리뷰 승인만으로 최종 생성·추가 과금을 허가하지 않는다. 프리뷰 실제 출력·검수 결과·수락 근거는 연결된 artifact(result_asset_id, generated/verified, evidence)로 남기고, 승인된 최종 계획은 프리뷰 판정과 최종 승격 경로를 dependencies로 참조한다. 프리뷰와 최종 범위를 하나의 plan 버전으로 함께 승인한 경우에만 최종이 같은 승인 안에서 현재 입력 버전·조건·상한으로 진행되며, 그렇지 않으면 현재 버전의 별도 최종 승인이 필요하다. 같은 seed·입력의 재생성은 같은 동작·정체성을 보장하지 않으므로 최종본은 다시 검수한다.
+
+## 선택적 상세 스토리보드 확장
+제작용/상세 콘티와 전체 보드 시트에는 [완전한 스토리보드 계약](storyboard-contract.md) §8의 `storyboard` 객체와 shot 기술 필드를 정본 `project.json`에 추가한다. 기존 schema_version=1.1 및 일반 plan/delivery 프로필은 유지한다. 별도 `validate_storyboard.py`는 전체 비트/씬/샷/패널 연결과 제작 슬롯을 검사하며 실제 이미지에는 `--require-images --base-dir`를 적용한다. 합본 crop/clean 컷은 `split_storyboard.py`의 파생 결과를 asset_registry에 등록하고 같은 ID로 연결한다. CSV/시트/분할 manifest는 조회·등록용 투영이며 별도 원장이 아니다. 의미 검수·권리·사용자 수락을 파일 검사로 대체하지 않는다.
+

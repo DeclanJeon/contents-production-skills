@@ -4,6 +4,7 @@
 입력: 각본, 룩, 장소, 인원·장비
 
 산출물: 샷 리스트, 블로킹, 스토리보드 설명, 커버리지
+제작용/상세 콘티, 전체 스토리보드 시트, 업로드한 제작 콘티의 보완이면 [완전한 스토리보드 계약](storyboard-contract.md)을 필수 적용한다. narrative panel과 shot은 다른 단위지만 카메라/공간/발화/음향/VFX를 최종 보드 인덱스에 함께 연결한다.
 
 ## 실행 절차
 1. 장면의 정보 공개 순서와 인물의 힘 관계를 먼저 정한다. 인물 위치·이동·시선·행동 축을 기록한다.
@@ -24,7 +25,7 @@
 `assets/06-shots-template.md`를 복사해 채운다.
 
 ## 실제 패널 인계
-스토리보드가 요청되면 `assets/storyboard-panels.csv`로 panel_id와 shot_id를 연결한다. 이미지가 생성됐으면 실제 image_asset_id를 원장에 등록한다. 텍스트 패널만 있으면 drawing_pending 상태를 표시한다.
+스토리보드가 요청되면 `assets/storyboard-panels.csv`를 정본 project.json의 투영으로 작성해 panel_id→shot_id→scene_id/beat_ids→원문 위치·캐릭터·audio_cue_ids를 연결한다. 실제 image_asset_id를 등록하고 텍스트 계획만 있으면 planned/drawing_pending으로 구분한다. 상세 보드는 모든 씬/샷의 시작·필요 정점·끝 패널 또는 정지 hold를 포함하고 이미지 수를 사전 계산한다. 필수 행동이 가려지거나 설명 없이 인과가 끊기면 해당 인덱스를 수정한다.
 
 ## 전문 스킬 인계
 `$camera-spatial-design`으로 위치·거리·렌즈·각도·구도·전 프레임 경로를 수치화한다. 실제 3D 비교는 `$blender-previsualization`으로 수행한다. camera_spec.json의 로컬 프레임을 기존 샷의 start_s/end_s와 연결하고 total duration을 대조한다.

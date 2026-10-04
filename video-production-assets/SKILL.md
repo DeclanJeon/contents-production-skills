@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 2.2
+version: 2.3
 description: "Build source-grounded video production assets: briefs, story beats, screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans, animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs, ideation, brand fit, schedules, budgets, asset registries, captions, delivery and QA. Use for complete video preproduction packages or an explicitly requested production asset from an idea, script or reference. Covers live action, animation, advertising, educational and AI-assisted video. Do not activate for generic film book recommendations, website builds, pet sprites or a standalone image/video rendering request. Does not render or publish footage by itself."
 ---
 
@@ -17,6 +17,7 @@ description: "Build source-grounded video production assets: briefs, story beats
 - 대규모 서사 틀은 선택 도구다. 광고·실험 영상에 특정 막 수나 영웅 여정을 강제하지 않는다.
 - AI 생성 인계는 서적의 직접 지침이 아니라 제작 원칙을 응용한 설계 확장이다.
 - 실제 영상 요청은 먼저 [프리프로덕션·검토 절차](references/preproduction-review.md)를 따른다. 검토용 이미지의 기본 실행자는 `codex-imagen`이며 실행자 선택·제한은 [생성 경로·비용 라우팅 §2](references/24-production-execution.md#2-이미지-생성-경로-정지-에셋)를 따른다. 별도 영상 실행 승인 뒤에만 영상 생성/편집 실행자로 넘긴다. 필요한 도구가 없으면 미실행 상태를 분명히 한다.
+- **제작용/상세 콘티·전체 스토리보드 시트·업로드 콘티 보완**에는 [완전한 스토리보드 계약](references/storyboard-contract.md)을 필수로 읽는다. 모든 비트/씬/샷과 카메라·공간·VFX·발화/립싱크·음향·패널을 하나의 인덱스 체인으로 통합하고 이미지 단독 스토리텔링 게이트를 적용한다. 단일 서사 패널과 실제 제작 시트의 범위를 구분한다.
 
 ## 모듈 선택
 | 요청 | 읽을 모듈 | 사용할 에셋 |
@@ -57,11 +58,12 @@ description: "Build source-grounded video production assets: briefs, story beats
 ## 전체 패키지 진행
 1. 전체 영상 패키지 또는 주제만 받은 영상 요청이면 먼저 [프리프로덕션·검토 절차](references/preproduction-review.md)로 정확한 저장 폴더와 적용 범위를 확인한다. 필요한 경우 13으로 콘셉트·근거를 선택하고, 01 브리프와 `assets/project-template.json`을 채운다.
 2. 서사에는 02, 각본이 필요하면 03을 적용한다. 주장이나 데이터가 있는 영상은 10을 함께 적용한다. 비서사 영상에 인물·갈등을 강제하지 않는다.
-3. 연기가 필요하면 04, 시각 기준은 05, 샷·블로킹은 06, 필요한 조명은 07을 작성한다.
-4. 애니메이션 계획은 08, AI 인계는 11을 적용한다. 검토 이미지가 필요한 패키지는 선택된 실제 이미지 도구로 정지 이미지를 생성·검사한다. 프리뷰 영상은 [생성 경로·비용 라우팅](references/24-production-execution.md)의 최소 충분 설계를 따르며 움직이는 샘플이나 렌더도 승인된 실행 범위 안에서만 수행한다.
-5. 14로 제작 일정·비용·에셋 원장을 작성한다. 09로 컷·사운드·길이를 설계하고, 실제 납품 요청이면 15로 자막·출력 규격을 정한다. 12로 요청한 범위를 검수한다.
+3. 연기가 필요하면 04, 시각 기준은 05, 샷·블로킹은 06, 필요한 조명은 07을 작성한다. 상세 보드는 [완전한 스토리보드 계약](references/storyboard-contract.md)으로 카메라/수치 공간·VFX·대사/나레이션/립싱크를 먼저 통합한다. 요구된 실제 공간 검증은 카메라·Blender 전문 스킬로 인계한다.
+4. 애니메이션 계획은 08, 편집·사운드·타이밍은 09, AI 인계는 11을 적용한다. 모든 비트→씬→샷→키패널을 매핑하고 필요한 이미지 슬롯/고유 이미지/시트 수를 계산한 뒤 실제 정지 이미지를 생성·등록·검사한다. 이미지 단독 전체 순서 검수를 대표 이미지나 텍스트 self-check로 대체하지 않는다.
+5. 14로 제작 일정·비용·에셋 원장을 작성하고 실제 납품 요청이면 15로 자막·출력 규격을 정한다. 12로 KEEP/FIX/미검증과 수정 사유·방식·추가 준비물·근거 있는 소요시간을 작성하고 승인 범위 안에서 수정→재검수한다. 프리뷰 영상/움직이는 렌더는 별도 승인된 실행 범위 안에서만 수행한다.
 6. 실제 산출물별 상태와 수정 의존성을 기록한다. `review.md`와 실제 파일 경로·이미지·검수 결과를 사용자에게 보고하고 검토 대기한다. 해당 버전의 프리프로덕션 수락과 별도 영상 실행 승인을 구분한다.
 7. `python scripts/validate_project.py <project.json> --profile plan`으로 ID·시간·참조를 검사한다. 실제 파일 납품은 `--profile delivery --base-dir <프로젝트폴더>`로 추가 검사한다. 이 검사는 감정·연기·미디어 디코딩·실제 영상 품질을 확인하지 않는다.
+상세 제작 보드는 `python scripts/validate_storyboard.py <project.json>`을 추가 적용하고 실제 이미지 인계는 `--require-images --base-dir <프로젝트폴더>`로 검사한다. 합본 시트는 `scripts/split_storyboard.py`로 인덱스별 clean 컷을 추출하고 전수 재열기 검수를 수행한다. 구조/파일 검사 통과는 실제 이미지의 스토리텔링 통과를 의미하지 않는다.
 
 ## 산출물 인계
 프로젝트 브리프, 채워진 해당 모듈 에셋, `project.json`, 실제 검토 이미지와 경로, 미검증/가정 목록, `review.md`와 검수 결과를 한 프로젝트 폴더 안에서 인계한다. [프리프로덕션·검토 절차](references/preproduction-review.md)의 저장·승인 계약을 따르고 원문 서적을 재배포하지 않는다. 단일 텍스트 요청은 해당 에셋만 반환한다.

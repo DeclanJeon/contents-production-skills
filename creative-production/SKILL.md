@@ -2,7 +2,7 @@
 name: creative-production
 description: Use for content creation or adaptation, including articles, social posts, campaigns, scripts, storyboards, audio, images, and video planning, AI-video prompt composition, model routing, generation critique, editing, QA or delivery; also hybrid 3D/web creative productions. Applies to single artifacts and full productions, not ordinary UI styling or unrelated application development.
 metadata:
-  version: "1.6.1"
+  version: "1.7.1"
 ---
 
 # Creative Production
@@ -11,7 +11,7 @@ Coordinate the requested content/video deliverable using one brief, relevant spe
 
 ## 1. Establish scope and the active brief
 
-Read supplied material and existing project instructions first. Preserve requested language, output, exclusions, fixed facts, continuity anchors, selected tools, and existing approvals. Separate factual evidence, derived calculations, interpretation, and creative proposals. Ask only for a missing consequential choice that tools or sources cannot answer.
+Read supplied material and existing project instructions first. Preserve requested language, output, exclusions, fixed facts, continuity anchors, selected tools, and existing approvals. Reuse supplied uploads, topic/reference URLs, synopses, character sheets, voices and storyboards with their version, source and actually-inspected scope recorded; an unreadable supplied item is unverified, never silently reinvented. Separate factual evidence, derived calculations, interpretation, and creative proposals. Ask only for a missing consequential choice that tools or sources cannot answer.
 
 For a standalone locked request, use its stated or explicitly linked brief as the input boundary. Details from earlier examples or unrelated projects are not current constraints; inherited inputs apply only when the request continues that project.
 
@@ -20,9 +20,10 @@ Use the host's available dialogue or structured question tool. Existing intervie
 ## 2. Select the narrowest lane
 
 Read [production-routing.md](references/production-routing.md) for the requested branch and dependency boundary.
+An unqualified **storyboard/콘티 request defaults to a complete production storyboard plan** under the canonical storyboard contract: all applicable technical elements and full visual-story coverage belong inside its linked output. Only an explicitly scoped narrative-panel exercise, rough beat thumbnails or image-prompts-only request uses the narrow panel lane. This default adds planning detail, not permission to generate media, spend, or invent unresolved facts.
 
 - Articles, blog/social drafts and source-based text can be written directly from the brief and evidence. Marketing rules apply only to a marketing request.
-- Text video planning uses [orchestrating-video-preproduction](../orchestrating-video-preproduction/SKILL.md) and the applicable synopsis, character or storyboard specialist. Omit characters when the project has none.
+- Text video planning uses [orchestrating-video-preproduction](../orchestrating-video-preproduction/SKILL.md) and the applicable synopsis, character or storyboard specialist. Omit characters when the project has none. A production/detailed storyboard, full storyboard sheet or video production package additionally reads the required canonical [storyboard contract](../video-production-assets/references/storyboard-contract.md): narrative panels stay one readable beat each, while the shot/camera/spatial/VFX/voice/audio owners integrate their specifications before the final board — not as a blanket pass after all boards are drawn.
 - Marketing/performance content and source-media adaptation follow bundled [marketing-source-adaptation.md](references/marketing-source-adaptation.md); an installed `content-production-marketing` adds channel-specific workflows when the request needs them.
 - AI video prompt composition, shot decomposition, model routing, clip critique and hybrid pipeline design use bundled [video-generation-planning.md](references/video-generation-planning.md) and [video-prompt-dialects.json](references/video-prompt-dialects.json). Model availability, schemas and prices are verified live at execution time; bundled dialect knowledge is not a provider catalog.
 - Reference discovery/selection, supplied-reference or archive decomposition and skill-coverage audits use [reference video analysis](../video-production-assets/references/25-reference-video-analysis.md) and its matching template. Selection precedes detailed analysis; a supplied request to analyze named sources already selects them. Analysis and audits remain read-only.
@@ -46,7 +47,7 @@ For reference-led or multi-shot work, carry only the applicable [project style b
 
 ## 4. Separate planning, review and execution
 
-For a full topic-to-video or image-backed preproduction package, read [preproduction-review.md](../video-production-assets/references/preproduction-review.md) **before project writes or media calls**. It owns exact project-directory selection, existing-folder/resume rules, applicable artifacts, actual review stills through the default `codex-imagen` route and its executor restrictions, registration, inspection and user review. An exact supplied directory is reused; a parent root still requires a selected project subdirectory. Explicit text-only planning stays in the text lane instead.
+For a full topic-to-video or image-backed preproduction package, read [preproduction-review.md](../video-production-assets/references/preproduction-review.md) **before project writes or media calls**. It owns exact project-directory selection, existing-folder/resume rules, applicable artifacts, actual review stills through the default `codex-imagen` route and its executor restrictions, registration, inspection and user review. An exact supplied directory is reused; a parent root still requires a selected project subdirectory. Explicit text-only planning stays in the text lane instead. When a full production's length is unset, resolve runtime and structure once: offer 30s/1m/2m/5m/10m/30m/up-to-1h or a stated length, plus the chapter/single-film/series decision — long-form work decomposes whole → chapter/episode → scene → shot and is never treated as one short block. A narrow single-artifact request is not forced through these choices.
 
 Keep the video model unresolved through preproduction. Acceptance covers only reviewed artifact versions. A separate request to proceed opens a live-verified, bounded video execution plan — apply the live routing workflow in [video-generation-planning.md](references/video-generation-planning.md) — and execute only after explicit approval of the plan and applicable spend. Free/local sample video, moving animatic and export also require this gate. Automated validators or judgments do not substitute for user approval.
 

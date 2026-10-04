@@ -1,6 +1,6 @@
 ---
 name: blender-previsualization
-version: 2.2
+version: 2.3
 description: "Implement a camera-spatial specification as Blender proxy scenes with subject blocking, perspective cameras, camera and subject motion, shot previews, animated PNG sequences, .blend files and geometric inspection reports. Use for Blender previs, 3D camera tests, staging verification or animatics based on a script/camera brief. Exclude beauty rendering, full character rigging, physics simulation, photorealism guarantees and other-app rendering."
 ---
 
@@ -21,3 +21,4 @@ description: "Implement a camera-spatial specification as Blender proxy scenes w
 
 ## 실행 출력
 previs.blend, 샷별 PNG(또는 전체 PNG 시퀀스), numerical-analysis.json, blender-inspection.json, manifest.json을 인계한다. 파일이 실제 존재하는 것만 generated로 기록한다. 기본 어댑터는 BBox 대역·카메라·간단한 조명을 만들며 실사 촬영의 최종 조명과 다른 기술 프리비즈다.
+상세 제작 보드에 인계할 때 [완전한 스토리보드 계약](../video-production-assets/references/storyboard-contract.md)의 scene/shot/beat/panel ID와 명세 버전을 유지한다. 필요한 정점은 무조건 샷 중앙이 아니라 실제 접촉·공개·감정 전환 프레임에서 추가 검사하고 해당 파일/프레임을 패널 ID로 연결한다. 미실행 프리비즈는 미검증/blocker이며 BBox 프리비즈 통과는 캐릭터 시트 정체성·손 리깅·실제 패널의 이야기 가독성을 보장하지 않는다.

@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## 2.3 2026-10-04
+
+- Default an unqualified storyboard request to a complete production plan; keep explicitly rough narrative panels narrow and preserve text-only/media/spend boundaries.
+- Add one shared storyboard contract linking approved synopsis/source beats, scenes, shots, characters, camera/space/Blender, VFX, dialogue/voice/lipsync, sound cues and every required panel. Return integrated specifications, exact image/sheet counts and versioned handoffs.
+- Require actual clean-image chronological review against the approved story before completion; administrative labels and audio cannot hide missing causal, ownership or emotional transitions. Structural validation and model text are not visual approval.
+- Add indexed KEEP/FIX/unverified repair with preserved normal cuts, prerequisites, grounded time estimates and reinspection. Extend source/character/voice intake, synopsis QA, technical preproduction and first/peak/end-frame handoffs in existing owners.
+- Add `validate_storyboard.py` for optional detailed-board coverage/references/timing and `split_storyboard.py` for preflighted indexed PNG extraction with ID/hash provenance. Reject missing beats/panels, invalid audio/speech links, unsafe paths/crops, duplicate file IDs and overwrite; preserve existing project schema and validation profiles.
+- Add design/work-order documents, usage/routes, behavior scenarios and QA evidence. Verification: 86 tests and 136 subtests pass; existing Windows junction tests emit two decoding warnings. Actual valid/invalid validator CLI and five-cut synthetic PNG/JPEG extraction smokes pass. No rendered-artwork, Blender or provider execution validation is claimed.
+
 ## 2.2 2026-10-04
 
 - Align the text-planning lane with a 15-step agent production flow: add an Emotion field to the shared spine, an emotion checkpoint after topic selection, and an optional link to the concept/emotion/retention deepening before the synopsis locks.

@@ -1,5 +1,5 @@
 ---
-version: 0.15.0
+version: 0.16.0
 name: higgsfield-video-explainer
 description: |
   Build a complete non-photoreal narrated explainer or story video from
@@ -177,6 +177,9 @@ Block 2
 - Spell numbers out.
 - Use a concrete tone and never say “in this video.”
 - For a topic, build from hook through payoff. For a personal story, preserve the user's details and protagonist.
+
+When this explainer is part of a full production package or the user requests a detailed storyboard/full sheet, REQUIRED: inherit `creative-production`'s [complete storyboard contract](../video-production-assets/references/storyboard-contract.md). Map all approved synopsis beats to the existing N blocks and their shot/panel IDs; integrate camera/spatial/VFX/narration timing/audio fields before final review. Preserve this lane's block format and closed-mouth narration approach rather than inventing lip-sync. Actual full clean-image story review precedes an approved storyboard-to-video handoff; text plans and style keys alone are not that review. An ordinary already-approved explainer execution does not acquire an unrequested new package.
+
 
 ## Phase 3 — write matching video prompts
 

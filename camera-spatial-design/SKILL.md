@@ -1,6 +1,6 @@
 ---
 name: camera-spatial-design
-version: 2.2
+version: 2.3
 description: "Design shot sizes, camera positions and angles, composition, subject-to-subject and camera-to-subject distances, lens field of view, blocking and motivated camera paths for film, animation or AI video. Use for camera movement, shot coverage, spatial staging, angle/placement design or numerical camera specifications. Exclude camera shopping, generic book recommendations and actual Blender rendering, which belongs to blender-previsualization."
 ---
 
@@ -21,6 +21,7 @@ description: "Design shot sizes, camera positions and angles, composition, subje
 
 ## 산출물
 채워진 camera_spec.json, 후보 비교표, 분석 JSON, 샷별 선택 이유·미검증 항목을 인계한다. 기존 영상 제작 원장과 ID·시간·버전을 맞춘다. 프리비즈 실행 요청에는 `blender-previsualization`으로 인계하고, 그 밖의 실행·생성 라우팅은 `creative-production`에 맡긴다. 실제 촬영 가능한 리그·운영자 동선은 현장에서 재확인한다.
+상세 제작 보드에서 호출되면 [완전한 스토리보드 계약](../video-production-assets/references/storyboard-contract.md)의 shot/scene/beat/panel 연결을 보존하고 선택 카메라의 크기·앵글·구도·무빙과 수치 artifact를 최종 보드에 인계한다. 시작·정점·끝 패널의 실제 프레임 위치를 camera_spec의 로컬 프레임과 대조한다. 필수 손 접촉/정보 공개가 가려지면 구도·패널 분할을 수정하도록 해당 ID로 보고한다. 수치 분석은 이미지 단독 스토리텔링 검수를 대신하지 않는다.
 
 ## 선택적 수치 미리보기
 Pillow가 있으면 `python scripts/render_projection.py camera_spec.json wireframe.png`로 수학적 핀홀 와이어프레임 패널을 만들 수 있다. 실제 Blender 렌더가 아니며 가림·조명·연기는 시뮬레이션하지 않는다.

@@ -42,9 +42,11 @@ When a local prompt corpus is configured, inspect its real layout before lookup.
 
 ## 4. Shot decomposition and hybrid pipelines
 
-Use the selected endpoint's verified duration limit and controllable action complexity to decompose the sequence. Storyboard panels are narrative/information beats, not timed model clips. Preserve their order, IDs, reveal timing and continuity anchors.
+Use the selected endpoint's verified duration limit and controllable action complexity to decompose the sequence. A **production storyboard** already includes the [complete contract](../../video-production-assets/references/storyboard-contract.md)'s integrated shot/camera/spatial/VFX/speech/audio specifications and clean-panel mapping; narrative panels still are not timed model clips. Preserve their order, IDs, reveal timing and continuity anchors.
 
-Repeat stable subject descriptors and supply approved references using documented input roles. Time-addressed beats and first/last-frame chaining are conditional techniques, not universal model features. A chained last frame must be inspected before it becomes the next reference, since it can carry an identity/contact defect forward. Return `Shot ID [start–end] — framing, action, camera, continuity anchors, prompt and applicable audio`, but omit unrequested detail for a single-prompt response. Detailed shot/camera ownership remains with the production-assets shot module.
+For each clip inherit shot/scene/beat IDs and source synopsis locator, approved board version, start/peak/end panel IDs and actual image file/asset/hash, local-to-global action intervals, canonical subject/prop states, camera/spatial versions, VFX, literal speech/voice/lipsync and audio-cue IDs. Missing required cuts or unresolved image-only story blockers stop a production-board handoff. A text-only plan may state missing files honestly; it is not a visually approved board. Verify the selected endpoint's actual support before translating timestamps, first/last-frame inputs, audio or camera controls.
+
+Repeat stable subject descriptors and supply approved references using documented input roles. Time-addressed beats and first/last-frame chaining are conditional techniques, not universal model features. A chained last frame must be inspected before it becomes the next reference, since it can carry an identity/contact defect forward. Return `Shot ID [start–end] — source beat/panel IDs, framing, local action intervals, camera, continuity anchors, prompt and applicable VFX/audio/speech/lipsync`, omitting unrequested detail for a single-prompt response. Technical shot ownership remains with the production-assets shot module; model splitting must not silently drop the intermediate contact/reveal states.
 
 **Hybrid pipeline recipes**:
 

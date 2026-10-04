@@ -1,6 +1,6 @@
 ---
 name: developing-video-synopses
-version: 2.2
+version: 2.3
 description: Use to develop a video concept, logline, synopsis, plot outline, or story beats (콘셉트, 시놉시스, 줄거리, 비트) before production.
 ---
 
@@ -20,7 +20,7 @@ Read the request as a brief and extract what is already known — never ask the 
 - format, platform, runtime, tone, constraints, and the exact deliverable requested;
 - for factual briefs, the supplied claims, their sources, and explicit unknowns.
 
-Invocation context matters. Under a multi-stage coordinator or `orchestrating-video-preproduction`, inherit its direction, interaction mode, and choice statuses and honor its active checkpoint — a synopsis request is not authorization to complete later stages, and delegated work never calls back to `creative-production` or opens another interview. Standalone calls consult `creative-production` once to confirm scope and route, then produce only the requested artifact.
+Invocation context matters. Under a multi-stage coordinator or `orchestrating-video-preproduction`, inherit its direction, interaction mode, and choice statuses and honor its active checkpoint — a synopsis request is not authorization to complete later stages, and delegated work never calls back to `creative-production` or opens another interview. Standalone calls consult `creative-production` once to confirm scope and route, then produce only the requested artifact. A supplied synopsis, uploaded draft or reference source is reused as-is with its version, source and actually-inspected scope recorded; an unreadable supplied item is unverified, never silently reinvented.
 
 Ask one concise question only when a missing answer would change the mode or central premise; otherwise proceed, label material assumptions, and leave optional details open. When coordinated, return candidate concepts for the coordinator's concept checkpoint instead of expanding an unselected option. An unspecified runtime stays unspecified — "short" is not a duration — and no deadline, platform, demographic, or evidence source is manufactured.
 
@@ -44,10 +44,12 @@ Unless another format is requested, a concept/synopsis deliverable contains:
 1. **콘셉트 브리프** — genre, purpose, production method if known, mode, audience, central promise/question, tone, format/runtime, constraints, and fact/approval status when relevant.
 2. **로그라인** — subject plus goal or question plus central resistance plus stakes or change; non-narrative work gets a one-sentence concept rather than a forced protagonist.
 3. **시놉시스** — a concise beginning-to-end account at the requested detail level showing how the situation changes, without becoming a storyboard or shot list.
-4. **비트 맵** — ordered beats, each with its purpose, the event or visible change, why the next beat follows, and what information or emotion shifts.
+4. **비트 맵** — ordered beats, each with a stable beat ID, its locator into the synopsis text (section/paragraph or line range), its purpose, the event or visible change, why the next beat follows, and what information or emotion shifts. IDs and locators survive downstream so panels, shots and reviews can trace back to the approved text.
 5. **구조 선택과 가정** — why this structure fits and only the assumptions that materially affect the output.
 
 A request scoped to a logline, premise, or beat outline returns exactly that — never inflate a small request into a production packet.
+
+Before handing off, QA the beat map itself: causal/information order, target emotion per beat, the ending, fixed facts, and whether the length/structure decision makes it producible. Repair defects found in the QA pass and recheck the repaired map once; a supplied or locked synopsis is repaired only inside the granted staging scope — repairs that would change the story are escalated as proposals, never applied silently.
 
 ## Accuracy discipline
 
