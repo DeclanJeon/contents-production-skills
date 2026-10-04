@@ -9,6 +9,8 @@
 **Tech Stack:** Markdown skills and references, existing Python validators, Node-based external `codex-imagen` skill, Git/GitHub CLI. No new package dependencies.
 
 **Spec:** `docs/superpowers/specs/2026-10-02-preproduction-review-gate-design.md`
+> Historical execution record: the path below records the original implementation. Current image defaults/restrictions and preview-to-final gates are authoritative in `video-production-assets/references/24-production-execution.md` §2/§5; the provider-neutral improvement plan is historical, not permission to override the current image policy.
+
 
 ## Global Constraints
 
