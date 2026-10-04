@@ -1,4 +1,4 @@
-# EDIT01 v1.2 — 편집 계획 (deterministic post-render assembly)
+# EDIT01 v1.3 — 편집 계획 (deterministic post-render assembly)
 
 실행 스크립트: `scripts/render_ad.py`. 정본 원장은 `project.json`이다. 이 문서는 편집 결정만 기록하며, 실제 실행 결과는 스크립트가 `qa/assembly.json`에 쓴다.
 
@@ -52,4 +52,4 @@ python scripts/render_ad.py --dry-run  # ffprobe만, ffmpeg 미실행
 
 차단 조건: `videos/SH0x.mp4` 누락, 원본 길이 < 트림, ffmpeg/ffprobe/Pillow 부재, 한글 폰트 부재 → 스크립트는 치환 없이 종료한다.
 
-현재 전체 조립은 실제 호출에서 필수 선택 영상 누락으로 종료했다(`qa/assembly-blocked.json`). `delivery/caption-sh05.png`와 `delivery/endcard-layout.png`는 실제 생성·열람한 정지 타이포그래피 자료다. 한 개의 부분 프롬프트 Flow 파일을 선택 SH01이나 5개 소스로 대체하지 않는다. 최종 25초/750프레임은 아직 검증하지 않았다.
+초기 조립은 SH01 누락으로, 정상 SH01 확보 뒤 최신 호출은 `videos/SH02.mp4` 누락으로 종료했다(`qa/assembly-after-recovery.json`). `delivery/caption-sh05.png`와 `delivery/endcard-layout.png`는 실제 생성·열람한 정지 타이포그래피 자료다. 복구된 `videos/SH01.mp4`의 공급자 워터마크 처리와 제품 영상 합성은 아직 검수하지 않았다. 부분 프롬프트 원본이나 정지 패널을 나머지 4개 소스 대신 넣지 않는다. 최종 25초/750프레임은 아직 검증하지 않았다.

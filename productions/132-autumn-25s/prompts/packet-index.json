@@ -1,16 +1,16 @@
 {
   "packet": "132-AUTUMN-25S integrated prompt packet",
-  "version": "1.2",
+  "version": "1.4",
   "status": "selected_stills_generated_video_execution_blocked",
   "notes": [
-    "Ten selected stills exist. One partial-prompt Flow source was downloaded but rejected; eleven unintended requests failed. See qa/flow-execution-incident.json.",
+    "Ten selected stills exist. A partial-prompt source was rejected; controlled full-prompt SH01 produced videos/SH01.mp4. The subsequent SH02 request failed with unusual activity; SH03-SH05 remain unsubmitted. See qa/controlled-recovery.json and qa/SH02-generation.json.",
     "P01/P10 stills use original product RGBA. Flow receives EMPTY backgrounds; original products are composited onto the moving backgrounds in post.",
     "P02_SH02_start_v2.png is the selected identity anchor used for later character panels.",
     "IMAGE_REF lines in the flow prompts label the actual first-frame attachment in the Flow UI; they are not API parameters.",
     "Timecodes express intent only; the Flow clip is a fixed 6s generation, not a timed render.",
     "Start/end slots were observed in the current Omni 1.1 Flash frame mode; attachment state is rechecked before submission.",
-    "The downloaded source has an AAC audio stream; speech/music content has not been listened to or classified. Planned final assembly is silent.",
-    "720p/9:16/6s/x1 and 10 credits per clip were observed. Automatic submission is paused after the multiline input incident and unusual-activity responses."
+    "Both downloaded sources have AAC audio; speech/music content has not been listened to or classified. Planned final assembly is silent. Recovered SH01 shows a provider watermark; final composite and full playback remain unverified.",
+    "720p/9:16/6s/x1 and 10 credits per clip were verified. Current balance 873 versus initial 893: observed delta 20 credits. No more submissions after the controlled SH02 failure."
   ],
   "image_model": "codex-imagen (gpt-image-2.5-sunburst via hosted image_generation flow)",
   "video_model": "Flow Omni 1.1 Flash at flow.google.com — 720p, 9:16, 6s, x1 clip",

@@ -1,0 +1,12 @@
+{
+  "source": "videos/SH01.mp4",
+  "ui_play_button_clicked": true,
+  "clock_wait_timed_out": true,
+  "visual_inspection": "six-frame preview; empty background and light motion observed, visible provider watermark",
+  "audio_listened": false,
+  "credit_balance_line": "Google Flow 크레딧 873개",
+  "initial_balance": 893,
+  "observed_delta": 20,
+  "provider_failure_after": "SH02",
+  "further_submissions": 0
+}

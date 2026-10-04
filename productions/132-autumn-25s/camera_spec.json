@@ -1,6 +1,6 @@
 {
   "schema_version": "camera-spatial-1.0",
-  "version": "1.1",
+  "version": "1.2",
   "artifact_id": "CAM01",
   "project_id": "132-AUTUMN-25S",
   "fps": 30,
