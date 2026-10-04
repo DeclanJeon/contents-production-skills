@@ -10,6 +10,16 @@ Shared decision contract for the text-planning lane. `orchestrating-video-prepro
 
 Use the host's available structured question or dialogue tool when one exists; otherwise present numbered choices in the user's language. Group related questions together, give each a small set of options with a short trade-off, and mark a recommended option where one is defensible — including an "unsure; recommend for me" choice when useful. Users may answer freely. Never re-ask supplied or approved values.
 
+## Discovery: topic and synopsis
+
+Discovery applies only to requested video topic/synopsis exploration. A supplied or approved topic skips topic discovery; a supplied or approved synopsis skips synopsis discovery. A concrete single synopsis, locked brief, article or other standalone artifact does not acquire an options workflow. An explicit options request keeps its requested count; five is only the unspecified discovery count.
+
+- **Topic options.** When the request has no topic and asks for options, present exactly five topic candidates unless the user explicitly delegated the choice or gave a count. Then pause for selection. Order and justify candidates by channel/audience fit and the video's purpose first — not by trend volume. Each candidate carries: the fit rationale, its evidence/proposal status, what distinguishes it from the other four, and one feasible production constraint.
+- **Synopsis options.** Only when a topic is settled, the scope includes synopsis exploration, and no synopsis exists yet: offer five genuinely different synopsis variants — different structure, angle, or promise, not five phrasings — and pause for selection. There is no automatic 5×5 batch: topic count never produces synopsis variants, and neither count authorizes any media count.
+- **Overrides.** An explicit requested count ("세 가지 주제", "two concepts") replaces the five at that stage. Explicit delegation allows selection and continuation with labeled decisions rather than pauses; it does not force unsolicited option lists into a one-pass artifact request.
+- **Evidence.** Trend or performance claims require a named source and date or are recorded as unknown. Channel history and audience metrics are never invented: use supplied channel facts, ask only for missing values that would change the recommendation, and never require marketing metrics the user did not offer.
+- **Inheritance.** Requirements approved from analyzed reference videos and an existing project style brief are inherited from the coordinator or request as-is — they constrain candidates rather than being rebuilt here. A cleared direction checkpoint does not restart discovery; a selected synopsis also settles the premise/concept it contains. Reuse those choices instead of inserting a redundant concept interview.
+
 ## Recording choices
 
 Every creative choice carries one status: **supplied** (the user stated it), **proposed** (the lane suggested it), **approved** (the user confirmed it), or **unresolved**. A recommendation is a proposal, not an approval. Record decisions once and reuse them; do not keep parallel copies that can drift. When an approved choice changes, show the downstream impact and reopen only the checkpoints it touches — an earlier creative approval never authorizes a changed scope or spend.
@@ -34,8 +44,10 @@ Apply only the checkpoints inside the request; each has a clear exit condition.
 
 | Checkpoint | Present | Exit |
 |---|---|---|
+| Topic | Five fit-justified topic candidates (or the explicit count), each with fit, evidence status, distinction, and a production constraint | Selected topic; a supplied or approved topic skips this checkpoint |
 | Direction | Known brief plus a small set of direction combinations, or the missing axis choices | User confirms a direction or explicitly delegates the choice |
 | Concept | A small set of distinct concepts fitting the direction, each with its hook and trade-off | Selected concept; a supplied approved concept skips this checkpoint |
+| Synopsis | Five genuinely different synopsis variants (or the explicit count), each with structure, angle, and promise | Selected synopsis; a supplied or approved synopsis skips this checkpoint |
 | Plan review | The requested later artifacts — storyboard and fixed visual anchors where applicable — with unresolved references visible | User accepts or revises before downstream work |
 
 Production and results gates belong to the downstream execution owner, not to this lane; a planning approval is never spend approval. Reuse existing approvals instead of stopping again at a cleared checkpoint. A partial request needs no approval to omit unrequested stages. An unanswered checkpoint ends with the choices themselves — never with downstream artifacts.
