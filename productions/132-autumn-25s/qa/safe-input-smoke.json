@@ -1,9 +1,0 @@
-{
-  "method": "collapse whitespace to a single line before browser.fill; no Generate click",
-  "composer_exact": true,
-  "failed_cards_before": 11,
-  "failed_cards_after": 11,
-  "successful_tiles_before": 1,
-  "successful_tiles_after": 1,
-  "generation_requested": false
-}
