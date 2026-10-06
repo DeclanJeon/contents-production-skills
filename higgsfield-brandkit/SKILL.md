@@ -1,5 +1,5 @@
 ---
-version: 0.16.0
+version: 0.17.0
 name: higgsfield-brandkit
 description: |
   Create and extend complete visual brand systems through the Higgsfield CLI and bundled deterministic local tooling: palettes, SVG logo marks, typography, mockups, social graphics, packaging, signage, merchandise, posters, presentation decks, and editable PPTX/PDF brandbooks. Preserves official supplied assets, persists approvals locally, and regenerates only dependent outputs. Use when: "create a brand kit", "make a visual identity", "design a logo and brandbook", "apply this logo to branded assets", "make packaging or signage", or "extend our existing branding". Chain with higgsfield-generate for general image production and Marketing Studio brand-kits when importing website metadata for ads. NOT for unbranded image generation (use higgsfield-generate), product catalog photography (use higgsfield-product-photoshoot), website implementation (use higgsfield-websites), or native Figma/Canva/PSD/AI delivery.
@@ -11,31 +11,26 @@ allowed-tools: Bash
 
 Build a coherent identity and its requested applications. Treat supplied brand facts and official assets as fixed constraints.
 
+## Scope and package gate
+
+`creative-production` is the project-level coordinator when one exists; this skill owns the brand-identity lifecycle — deterministic HTML/SVG/PPTX/PDF construction, approvals, and revision graph. Ordinary production boards do not route here. Delegated work follows `../higgsfield-generate/references/package-gate.md`: consume the explicitly selected brand/project root and assigned input IDs/versions; return the canonical join (versioned brand artifact proposal, registered asset paths/hashes, provider locators for any externally produced asset, invalidated slot/element keys, observed states, measured cost). `brandkit/state.json` is brand-domain state — never a rival production ledger; the coordinator writes `project.json`.
+
+Apply the shared gate before any paid provider operation. **Higgsfield image generation (Recraft logo marks, Seedream mockups, GPT Image text/detail passes) is ineligible in this package** — the deterministic local pipeline (previews, SVG export, brandbook build, state) stays fully eligible; a needed generated raster goes only to the explicitly authorized eligible image executor (`codex-imagen` default) with disclosed scope differences (e.g. raster mark where the preserved contract expects an SVG-capable backend). If no authorized executor exists, report that stage blocked and deliver the eligible deterministic outputs.
+
 ## Bootstrap
 
-1. Resolve `SKILL_ROOT` to this skill's installed directory and create a durable project directory:
+1. Resolve `SKILL_ROOT` to this skill's installed directory and create a durable work directory under the explicitly selected brand/project root — not blindly `${PWD}`:
 
    ```bash
-   BRANDKIT_WORKDIR="${PWD}/brandkit"
+   BRANDKIT_WORKDIR="<selected_root>/brandkit"
    BRANDKIT_STATE="${BRANDKIT_WORKDIR}/state.json"
    mkdir -p "${BRANDKIT_WORKDIR}"
    ```
 
-2. Read [prerequisites](references/prerequisites.md). Check tools before the stage that needs them. Never install system packages without the user's permission.
-3. If `higgsfield` is missing, install it only after permission:
-
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
-   ```
-
-4. If `higgsfield account status` fails with an authentication or workspace error, ask the user to run `higgsfield auth login` or select a workspace, then wait.
-5. Inspect live model contracts before paid generation:
-
-   ```bash
-   higgsfield model get recraft_v4_1 --json
-   higgsfield model get seedream_v5_pro --json
-   higgsfield model get gpt_image_2 --json
-   ```
+   When a delegated brief supplies a production root, use it; standalone work uses the directory the user points at. If prior approvals are claimed but the state file isn't at the resolved path, stop and ask — never infer.
+2. Read [prerequisites](references/prerequisites.md). Check tools before the stage that needs them. Never install system packages without the user's permission — a missing runtime is reported, and installation is a separate explicit request.
+3. If `higgsfield` is needed for an eligible operation, verify it is on `$PATH` and `higgsfield account status` succeeds; report auth/workspace failures (`higgsfield auth login` / workspace selection are user actions). Never install it automatically.
+4. Inspect live model contracts before any permitted paid generation — the recipes that name models below are craft/reference; verify before use in a context where they are eligible.
 
 ## CLI mapping
 
@@ -107,7 +102,7 @@ Render 2–3 exact palette options as deterministic HTML using [preview payloads
 
 ### 2. SVG logo marks
 
-Read [logo prompt enhancer](references/logo-prompt-enhancer.md). Produce exactly three distinct symbol-only mechanisms and one Recraft prompt for each. Write each long prompt to a file and submit separately:
+Read [logo prompt enhancer](references/logo-prompt-enhancer.md). Produce exactly three distinct symbol-only mechanisms and one logo prompt for each. Write each long prompt to a file and submit separately — the preserved Recraft recipe below is an image job: in-package it runs only through the explicitly authorized eligible image executor (disclose raster-vs-vector differences), never as a Higgsfield submission:
 
 ```bash
 higgsfield generate create recraft_v4_1 \
@@ -140,8 +135,8 @@ Interactive flows always stop for palette, logo, and typography selections. Expl
 - A generated logo depends on the palette revision used to create it. Changing that palette invalidates the generated logo and its dependents; changing typography does not invalidate the symbol mark.
 - Changing a foundation slot invalidates only downstream elements that list that slot in `required_slots`.
 - Copy the same Brand Lock values into every related generation prompt: exact hex, font roles, shape language, placement, clear space, composition, and forbidden treatments.
-- Use Recraft V4.1 vector mode only for new logo marks.
-- Use Seedream as the primary photoreal mockup generator. Use GPT Image 2 only for the controlled stage that adds readable text or exact graphic details.
+- Use a vector-capable output for new logo marks (the preserved Recraft V4.1 vector-mode recipe is the reference contract — ineligible via Higgsfield here; the authorized executor's raster output needs the disclosed-scope path and cannot masquerade as the vector mark contract).
+- The preserved convention: Seedream is the primary photoreal mockup generator and GPT Image 2 the controlled text/detail stage — image jobs, ineligible in this package; route such needed renders through the authorized eligible image executor with the same Brand Lock constraints.
 - Use local deterministic SVG/PPTX/HTML construction for exact copy and editable layouts. Do not ask an image model to fake editable files.
 - Do not promise native Figma, Canva, PSD, AI, or EPS files.
 

@@ -1,6 +1,6 @@
 ---
 name: developing-video-synopses
-version: 2.3
+version: 2.4
 description: Use to develop a video concept, logline, synopsis, plot outline, or story beats (콘셉트, 시놉시스, 줄거리, 비트) before production.
 ---
 
@@ -20,60 +20,24 @@ Read the request as a brief and extract what is already known — never ask the 
 - format, platform, runtime, tone, constraints, and the exact deliverable requested;
 - for factual briefs, the supplied claims, their sources, and explicit unknowns.
 
-Invocation context matters. Under a multi-stage coordinator or `orchestrating-video-preproduction`, inherit its direction, interaction mode, and choice statuses and honor its active checkpoint — a synopsis request is not authorization to complete later stages, and delegated work never calls back to `creative-production` or opens another interview. Standalone calls consult `creative-production` once to confirm scope and route, then produce only the requested artifact. A supplied synopsis, uploaded draft or reference source is reused as-is with its version, source and actually-inspected scope recorded; an unreadable supplied item is unverified, never silently reinvented.
-
 Ask one concise question only when a missing answer would change the mode or central premise; otherwise proceed, label material assumptions, and leave optional details open. When coordinated, return candidate concepts for the coordinator's concept checkpoint instead of expanding an unselected option. An unspecified runtime stays unspecified — "short" is not a duration — and no deadline, platform, demographic, or evidence source is manufactured.
 
-## Mode-matched shaping
+## Invocation
 
-Choose the structure that fits; no formula is universal, and familiar arcs are diagnostic aids, not checklists.
-
-- **Narrative/fiction:** establish who wants what, why now, what resists, the stakes, the attempts, and the choice or consequence that changes things. Beats connect through cause, opposition, or deliberate reveal — not "and then." Flat or non-linear shapes are valid when the brief wants them.
-- **Data/educational:** open on the audience's question and keep supplied facts, derived arithmetic, interpretation, proposed action, and unknowns apart. A workable arc is question → verified insight → context → reveal or reflection → next step; include a CTA only when requested or warranted, and never infer cause, trend, persistence, or prediction from a data change alone.
-- **Personal/documentary:** select the event for its relevance, define who narrates and whose perspective holds, and connect past to present without distorting the event or inflating the narrator's role. Never diagnose a real person.
-- **Brand/business:** put the audience or customer at center when the brief calls for it; the brand may guide without being the hero. One governing message, evidence behind claims, objections treated fairly, and no fabricated urgency, shame, or coercion.
-- **Abstract/mood/music:** build intentional progression from visual, sonic, or movement motifs while honoring stated invariants — no protagonist, plot, moral, CTA, or happy ending the user excluded.
-- **Explanatory metaphor:** name the source domain and target concept, map only their shared structure, and state where the analogy stops; a metaphor never substitutes for or distorts the factual explanation.
+Under a multi-stage coordinator or `orchestrating-video-preproduction`, inherit its direction, interaction mode, and choice statuses and honor its active checkpoint — a synopsis request is not authorization to complete later stages, and delegated work never calls back to `creative-production` or opens another interview. Stage packet intake and worker return follow the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer): reuse the packet's assigned IDs and input artifact IDs/versions as-is, and never invent or renumber existing project identity. Standalone calls consult `creative-production` once to confirm scope and route, then produce only the requested artifact. A supplied synopsis, uploaded draft or reference source is reused as-is with its version, source and actually-inspected scope recorded; an unreadable supplied item is unverified, never silently reinvented.
 
 Running inside the shared lane, `../orchestrating-video-preproduction/references/video-direction.md` supplies the direction-axis and checkpoint conventions — following them neither widens a standalone request nor overrides explicit no-CTA, factual, or ending constraints. Routing and approvals stay with `creative-production`.
 
-## Writing the artifact
+## Acceptance
 
-Unless another format is requested, a concept/synopsis deliverable contains:
+Done means the actual artifact is present — not a completion report — the beat map passed the craft guide's QA and recheck, supplied and locked material is preserved verbatim, every claim carries its fact status, and no unrequested stage, media, or execution is implied. Repairs that would change the story are proposed, never applied silently.
 
-1. **콘셉트 브리프** — genre, purpose, production method if known, mode, audience, central promise/question, tone, format/runtime, constraints, and fact/approval status when relevant.
-2. **로그라인** — subject plus goal or question plus central resistance plus stakes or change; non-narrative work gets a one-sentence concept rather than a forced protagonist.
-3. **시놉시스** — a concise beginning-to-end account at the requested detail level showing how the situation changes, without becoming a storyboard or shot list.
-4. **비트 맵** — ordered beats, each with a stable beat ID, its locator into the synopsis text (section/paragraph or line range), its purpose, the event or visible change, why the next beat follows, and what information or emotion shifts. IDs and locators survive downstream so panels, shots and reviews can trace back to the approved text.
-5. **구조 선택과 가정** — why this structure fits and only the assumptions that materially affect the output.
+## Detailed guide
 
-A request scoped to a logline, premise, or beat outline returns exactly that — never inflate a small request into a production packet.
+Before drafting, read [`references/synopsis-craft.md`](references/synopsis-craft.md) — the mode-matched structures, the artifact field list, the beat-map QA and repair pass, accuracy discipline, and the self-check. It is the one detailed guide for this stage; load it once and follow it. A request scoped to a logline, premise, or beat outline applies only the relevant part and returns exactly that — never inflate a small request into a production packet.
 
-Before handing off, QA the beat map itself: causal/information order, target emotion per beat, the ending, fixed facts, and whether the length/structure decision makes it producible. Repair defects found in the QA pass and recheck the repaired map once; a supplied or locked synopsis is repaired only inside the granted staging scope — repairs that would change the story are escalated as proposals, never applied silently.
+## Return and handoff
 
-## Accuracy discipline
-
-- Timestamps appear only when a runtime is supplied or requested; allocations are approximate, sum to the stated runtime, and imply no frame accuracy.
-- When supplied numbers shape the story, show the arithmetic; source data, calculation, interpretation, and unknown cause stay distinct.
-- A claim with no supplied source is labeled unverified or dropped. Plausible explanations, methodological claims, and a proposal's effectiveness are never written as established — avoid unsupported universal wording like "the only way." Collecting more data is not promised to explain a cause or predict an outcome unless the measurement design supports it; frame it as an optional suggestion or omit it.
-- Fiction may invent connective detail serving the premise, but fixed facts, constraints, and endings never change silently.
-
-## Self-check
-
-- Is the central question or promise clear and right for this audience?
-- Does every beat carry narrative, emotional, tonal, or informational weight?
-- Are transitions motivated by action, obstacle, choice, reveal, or deliberate formal shift?
-- Does the character or subject hold agency appropriate to the mode?
-- Does the ending answer the central question — or leave it open in a way the brief allows?
-- Do emotions surface through action, perspective, detail, or sound rather than names, and do they fit the character's concerns?
-- Can each factual claim be traced, with unknowns still unknown?
-- Are constraints — no dialogue, no CTA, non-narrative form, fixed ending — intact?
-- Is the actual artifact present rather than a completion report?
-
-Cut any beat that adds nothing; conflict is never added just to satisfy a formula.
-
-## Handoff
+Delegated returns follow the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer): report the assigned synopsis artifact ID and output version, the dependency/dependency_versions proposal naming each input artifact version used, material assumptions, the checks actually performed, and unresolved inputs — the coordinator remains sole `project.json` writer. Standalone text allocates no project or artifact IDs; the beat IDs inside the artifact are content IDs the next stage inherits, not allocated artifact identity.
 
 The next stage inherits the spine unchanged: direction decisions, mode, audience, the one promise or question, tone, runtime/format if known, fixed facts with their status, constraints, world and character anchors, and inherited interaction mode and approvals. `designing-video-character-sheets` takes characters; `storyboarding-video` takes panels; anything beyond text planning returns to `creative-production` or `orchestrating-video-preproduction` — this skill never routes execution. Creative approval is not permission to generate paid assets.
-
-Craft techniques apply only within the mode they serve: data-to-insight arcs belong to factual work, persuasion structures to briefs that warrant them, and autobiographical or clinical material is an empathy and consistency aid — never a diagnosis. No craft guidance is factual evidence.

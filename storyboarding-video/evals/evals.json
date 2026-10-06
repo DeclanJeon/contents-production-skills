@@ -3,7 +3,7 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "다음 확정된 시놉시스를 정확히 6개 패널로 스토리보드화해 주세요. 비 오는 밤, 한 학생이 늦게까지 불이 켜진 문구점 창가 진열을 따라 할머니가 잃어버린 편지를 찾습니다. 편지는 할머니가 창가 진열함 안에 끼워 둔 채 비를 피해 있었습니다.",
+      "prompt": "다음 확정된 시놉시스를 러프 서사 패널 정확히 6개로 그려 주세요 — 제작용 촬영·카메라 사양 없이 패널 연습만 필요합니다. 비 오는 밤, 한 학생이 늦게까지 불이 켜진 문구점 창가 진열을 따라 할머니가 잃어버린 편지를 찾습니다. 편지는 할머니가 창가 진열함 안에 끼워 둔 채 비를 피해 있었습니다.",
       "expected_output": "A six-panel Korean visual storyboard with one readable action per panel, motivated progression, foreshadowed discovery, and a consistent six-cell sheet prompt.",
       "expectations": [
         "Exactly six ordered panels, each centered on one readable visible action or beat.",
@@ -15,7 +15,7 @@
     },
     {
       "id": 2,
-      "prompt": "지하철역을 가로질러 초록 우산을 돌려주는 수리공 장면을 5개 패널로 스토리보드화해 주세요. 우산은 연두색이고 손잡이 끈이 닳았으며, 돌려줄 때까지 수리공의 왼손에 들려 있습니다.",
+      "prompt": "지하철역을 가로질러 초록 우산을 돌려주는 수리공 장면을 러프 서사 패널 5개로 스토리보드화해 주세요 — 제작 사양 없이 패널 연습만. 우산은 연두색이고 손잡이 끈이 닳았으며, 돌려줄 때까지 수리공의 왼손에 들려 있습니다.",
       "expected_output": "A five-panel Korean storyboard keeping the umbrella's color, worn strap, and left-hand possession until the return is depicted, without inventing explanations.",
       "expectations": [
         "Exactly five ordered panels, each with a clear narrative function.",
@@ -27,7 +27,7 @@
     },
     {
       "id": 3,
-      "prompt": "다음 제공된 테스트 수치만으로 마을 재활용 센터 홍보 영상의 4개 스토리보드 패널을 만들어 주세요. 첫해에 40톤, 둘째 해에 52톤을 수거했습니다. 수가 변한 이유를 주장하지 마세요.",
+      "prompt": "다음 제공된 테스트 수치만으로 마을 재활용 센터 홍보 영상의 러프 서사 패널 4개를 만들어 주세요 — 제작 사양 없이 패널 연습만. 첫해에 40톤, 둘째 해에 52톤을 수거했습니다. 수가 변한 이유를 주장하지 마세요.",
       "expected_output": "A four-panel Korean factual storyboard visualizing only the supplied tonnage and keeping the cause of the change unknown.",
       "expectations": [
         "Exactly four ordered panels using 40 tonnes in year one and 52 tonnes in year two accurately; any derived difference is labeled arithmetic.",

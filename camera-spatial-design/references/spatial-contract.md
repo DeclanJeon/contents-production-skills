@@ -8,7 +8,7 @@
 fps는 양의 정수다. 샷은 독립적인 로컬 frame 0..duration_frames-1, JSON 키프레임은 처음과 마지막 프레임을 포함한다. Blender에서는 프레임 +1로 변환한다. 전체 편집 타임라인은 샷 배열 순서로 이어 붙인다. 카메라 좌표·바라보는 점·렌즈·피사체 위치는 매 프레임 샘플링한다. `interpolation`은 linear 또는 smoothstep이고 smoothstep은 각 구간의 가감속이지 전체 속도 연속을 보장하지 않는다. 급변하는 구간은 더 많은 점을 추가하거나 선형 속도 구간으로 설계한다.
 
 ## JSON
-필수: schema_version=camera-spatial-1.0, project_id, fps, resolution=[width,height], subjects, obstacles, shots.
+필수: schema_version=camera-spatial-1.0, project_id, fps, resolution=[width,height], subjects, obstacles, shots. 선택: version(명세 내용 버전, schema_version과 별개), artifact_id(이 명세가 내용 버전을 제공하는 원장 artifact ID).
 subjects: id, size_m=[가로,깊이,높이], position=[x,y,z], color_rgba(선택). 대역은 직육면체이며 실제 인체·실루엣이 아니다.
 obstacles: id, size_m, position(밑면 중심). 단순 장애물만 사용한다.
 shot id는 파일 경로에도 사용하므로 ASCII 영문·숫자·밑줄·하이픈만 허용한다. 기존 ID가 다른 형식이면 원장에 대응표를 두고 안전한 파일용 ID를 사용한다.
@@ -25,3 +25,6 @@ validator는 자료형·고유 ID·유효 참조·프레임·양의 렌즈·위�
 
 ## 인계
 샷 ID와 scene_id는 기존 video-production-assets의 원장을 그대로 사용한다. 시간은 duration_frames/fps이며 shot start/end 초를 원장에 기록한다. 좌표 명세 버전을 바꾸면 프리비즈·샷 설명·AI 프롬프트를 stale로 표시한다. camera_spec.json은 좌표의 단일 원장이다. `.blend`의 수동 수정은 명세에 되돌려 반영하고 다시 생성한다.
+
+## 원장 등록·정합
+프로젝트에 등록된 명세는 원장 artifact(type camera_spec 또는 spatial_spec)에 version으로 연결한다: spec.version==artifact.version, spec.artifact_id는 그 artifact ID다. 등록 가능 여부는 `spatial_spec.reconcile_project(project, spec, artifact_id)`가 검사하며 빈 오류 목록이면 통과다. 프로젝트 ID·fps·scene_id·샷 duration_frames(≈(end_s-start_s)*fps)·subject↔character/asset 참조와 역방향(이 artifact를 참조하는 numeric 샷이 명세에 있는지)을 확인한다. 명세는 샷 부분집합이어도 되지만 이 artifact를 가리키는 프로젝트 샷은 모두 명세에 있어야 한다. 단독 명세는 version 없이 유효하지만 프로젝트에 첨부하려면 version/artifact_id가 필요하다.

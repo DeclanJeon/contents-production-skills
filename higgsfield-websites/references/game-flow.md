@@ -4,6 +4,8 @@ A game is a website whose template ships **realtime multiplayer rooms**. Same
 CLI, same repo layout, same deploy and publish; what differs is what you write
 and where the rules live.
 
+Package gate applies throughout this flow (see `../SKILL.md`): the runtime check never auto-installs; every asset/cover generation is an authorized operation inside the approved scope; image jobs run through the authorized eligible image executor in-package, video/audio/3D stay eligible provider jobs.
+
 Games used to run on a separate engine with its own `higgsfield game` commands.
 They don't any more — that engine is being retired, and its commands are gone.
 If you find a reference telling you to publish a game any other way than

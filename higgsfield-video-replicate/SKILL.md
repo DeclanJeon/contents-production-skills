@@ -1,6 +1,6 @@
 ---
 name: higgsfield-video-replicate
-version: 0.16.0
+version: 0.17.0
 description: |
   Replicate an existing reference video into a new similar-style video:
   analyze its shots, lock a style bible and characters, regenerate every
@@ -23,7 +23,11 @@ Turn one reference video into a new video with the same look, rhythm, and struct
 
 ## Scope
 
-`creative-production`, when present, is the project-level coordinator; this skill is the reference-replication pipeline specialist. If no coordinator exists (standalone), run the requested replication directly without searching for one. Delegated by a coordinator: continue without calling back — no routing interview, no second approval ledger. One replication implies no extra deliverables, variants, or publication.
+`creative-production`, when present, is the project-level coordinator; this skill is the reference-replication pipeline specialist. If no coordinator exists (standalone), run the requested replication directly without searching for one. Delegated by a coordinator: continue without calling back — no routing interview, no second approval ledger; consume the assigned input IDs/versions and return the canonical output join per `../higgsfield-generate/references/package-gate.md` (per-shot job UUIDs are provider locators mapped to canonical shot/asset IDs; a job UUID is never a `result_asset_id`). One replication implies no extra deliverables, variants, or publication.
+
+## Package gate
+
+Apply `../higgsfield-generate/references/package-gate.md` before Phase 3 and before any paid auxiliary stage: runtime check (never auto-install; missing ffmpeg is a reported blocker), eligible operation, and ONE verified aggregate quote covering all N shot clips + soundtrack + approved retries + any authorized analysis — approved before submission. Eligible here: video generation, audio generation, `brain_activity` analysis (a separate authorized operation — include it in scope or omit it). **Higgsfield image generation/editing (character sheets, branding stills, style keys, Soul renders) is ineligible in this package** — Phase 1 uses extracted reference frames, supplied stills, or the authorized eligible image executor only.
 
 ## Routing
 
@@ -36,12 +40,8 @@ Turn one reference video into a new video with the same look, rhythm, and struct
 
 ## Bootstrap
 
-1. If `higgsfield` is unavailable, install it:
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
-   ```
-2. If `higgsfield account status` fails with `Session expired` / `Not authenticated`, ask the user to run `higgsfield auth login`, then wait.
-3. Confirm contracts before the first submission:
+1. If `higgsfield` is unavailable or `higgsfield account status` fails with `Session expired` / `Not authenticated`, report the blocker — ask the user to run `higgsfield auth login`, then wait. Never install automatically; installation is a separate explicit user request. A missing local `ffmpeg` is likewise a reported Phase 5 blocker, not a silent install.
+2. Confirm contracts before the first submission:
    ```bash
    higgsfield model list --json           # candidates for the gate question
    higgsfield model get <chosen jst> --json
@@ -55,9 +55,9 @@ Turn one reference video into a new video with the same look, rhythm, and struct
 - Whether the reference's characters/branding may be reused (Hard rule 2).
 - Optional: replacement subject, product, or brand for the new version.
 
-## Ask first — model selection (mandatory)
+## Ask first — model selection
 
-Before Phase 0, ask the user which video model to generate the shots with. Never pick silently; the only exception is the user explicitly delegating the choice — then use `seedance_2_5`. Present the live candidates:
+Before Phase 0, resolve which video model generates the shots. Reuse a supplied choice: a user-named model or an approved model in the delegated brief is validated against the live schema and recorded — no question. Ask only when unresolved; the only silent path is the user explicitly delegating the choice — then use `seedance_2_5`. Present the live candidates:
 
 | Model | Video ref | Image refs | Audio ref | Resolution | Choose when |
 |---|---|---|---|---|---|
@@ -68,7 +68,7 @@ Before Phase 0, ask the user which video model to generate the shots with. Never
 
 Rules:
 
-- Table facts verified against the live schema (`higgsfield model get <jst>`); re-check when the catalog changes.
+- Table facts are historical documentation; re-check against the live schema (`higgsfield model get <jst>`) at execution.
 - The user names a model → use it. If it lacks `video_references`, explain the frame-anchor fallback and get agreement before proceeding.
 - Ask the model question alone (one question per turn); duration and aspect default to matching the reference unless the user stated them.
 - Record the chosen model for Phases 3, 5, and 6.
@@ -76,19 +76,19 @@ Rules:
 ## Hard rules
 
 1. Photoreal is allowed and expected. Do NOT apply video-explainer's non-photoreal constraint here.
-2. Style transfer, not asset theft: never recreate the reference's real people, logos, or exact on-screen text unless the user owns them. When in doubt, generate replacement branding and generic faces.
+2. Style transfer, not asset theft: never recreate the reference's real people, logos, or exact on-screen text unless the user owns them. When in doubt, use replacement branding and generic faces — produced by the authorized eligible image executor (`codex-imagen` default) or extracted/supplied stills, not a Higgsfield image job (ineligible here).
 3. One clip per shot, within the chosen model's duration range (`seedance_2_5`: 4–30s — verify others with `model get`). Split longer targets into more shots.
 4. The STYLE and CHARACTER descriptors repeat byte-identically in every shot prompt.
 5. Write all prompts in English; keep beat sheets and analysis in the user's language.
 6. When a single soundtrack covers the whole film, pass `--generate-audio false` on every clip and mix in Phase 5. Let a clip carry its own audio only when the beat needs it.
 7. Assemble in the same run — returning loose clips is a failure. Local ffmpeg IS allowed here; video-explainer's ffmpeg ban applies only to that pipeline.
-8. The model comes from the mandatory gate question. Never silently swap it — if the chosen model is unavailable or fails twice, return to the user with the live catalog (`higgsfield model list`).
+8. The model comes from the resolved gate decision (supplied or asked). Never silently swap it — if the chosen model is unavailable or fails twice, return to the user with the live catalog (`higgsfield model list`).
 
 ## Pipeline
 
 | Phase | Output | Detail |
 |---|---|---|
-| **Gate** | chosen video model (mandatory question) | Ask first above |
+| **Gate** | chosen video model (supplied or asked) | Ask first above |
 | 0 Analyze | beat sheet + style bible + extracted frames/audio | `references/analysis.md` |
 | 1 Lock assets | style donors, character sheets, replacement branding | Phase 1 below |
 | 2 Shot prompts | N English prompts sharing STYLE/CHARACTER | `references/prompts.md` |
@@ -105,9 +105,9 @@ Extract frames and audio, then write two documents: a **beat sheet** (timestamp,
 
 ## Phase 1 — lock assets
 
-- **Style donors:** 2–4 representative reference frames (composition + grade anchors). Optionally normalize the look into one generated style key.
-- **Characters:** follow `references/consistency.md` — reference frames for characters carried over, a generated multi-angle character sheet for new ones. `higgsfield-soul-id` is for a real person the user owns, and only to produce the sheet: `seedance_2_5` has no soul-id parameter (verified), so video consistency always travels as reference images.
-- **Branding:** when the reference shows a brand that cannot be reused, generate replacement packaging/logos as stills with `gpt_image_2_5`.
+- **Style donors:** 2–4 representative reference frames (composition + grade anchors). Optionally normalize the look into one style key — via the authorized eligible image executor only; a Higgsfield image key is ineligible here.
+- **Characters:** follow `references/consistency.md` — extracted reference frames for characters carried over, or a multi-angle character sheet for new ones produced by the authorized eligible image executor / supplied stills. `higgsfield-soul-id` is a separate explicitly-authorized real-person training lifecycle — never auto-invoked here; its downstream sheet renders are image jobs (ineligible in this package). `seedance_2_5` has no soul-id parameter, so video consistency always travels as reference images.
+- **Branding:** when the reference shows a brand that cannot be reused, produce replacement packaging/logos as stills via the authorized eligible image executor (the preserved `gpt_image_2_5` recipe is craft/reference only — ineligible here).
 
 ## Phase 2 — shot prompts
 
@@ -143,7 +143,7 @@ Mode guide (`seedance_2_5` verified — other models expose different modes; che
 | `video_extension` | lengthen the reference | ≥1 video reference + `extension_mode` `backward`\|`forward` |
 | `t2v` | plain generation | no reference media — never used for replication |
 
-Verified limits for `seedance_2_5`: total reference media ≤ 50 items; images including `start_image`/`end_image` ≤ 30; `start_image`/`end_image` only in `omni_reference`. Short aliases `--video` / `--image` / `--audio` also work. Record every job UUID in shot order. Shots run concurrently within this phase; re-submit only failed shots.
+Verified limits for `seedance_2_5` (historical — re-check `model get`): total reference media ≤ 50 items; images including `start_image`/`end_image` ≤ 30; `start_image`/`end_image` only in `omni_reference`. Short aliases `--video` / `--image` / `--audio` also work. Record every job UUID in shot order. **Independent shots may submit concurrently; a shot whose `--start-image` is the previous shot's last frame is dependency-ordered** — it waits for its predecessor's completed clip, frame extraction, and anchor inspection (see `references/consistency.md`). Re-submit only failed shots, inside the approved retry bound.
 
 ## Phase 4 — soundtrack
 
@@ -155,7 +155,7 @@ Normalize clips → cut in beat order → apply one shared grade → fit and mix
 
 ## Phase 6 — QC
 
-Extract a frame at every beat timestamp and compare with the reference frames for composition, grade, and character identity. Regenerate only the failing shots, each time with a changed prompt or re-anchored references (`references/consistency.md`, drift recovery). Two identical failures mean the approach must change, not the prompt. Optional finished-video score:
+Extract a frame at every beat timestamp and compare with the reference frames for composition, grade, and character identity. Regenerate only the failing shots, each time with a changed prompt or re-anchored references (`references/consistency.md`, drift recovery) and always inside the approved retry bound. Two identical failures mean the approach must change, not the prompt. Optional finished-video score — a separate authorized operation (include it in the approved scope or skip it):
 
 ```bash
 higgsfield generate create brain_activity --video ./final.mp4 --wait
@@ -163,7 +163,7 @@ higgsfield generate create brain_activity --video ./final.mp4 --wait
 
 ## Checkpoints and recovery
 
-- Before Phase 3: the gate model question was answered, plus beat sheet, style bible, N prompts, and locked assets all exist; exactly one voice-free plan for audio.
+- Before Phase 3: the model was resolved (supplied or asked), plus beat sheet, style bible, N prompts, and locked assets all exist; exactly one voice-free plan for audio; and the aggregate quote was approved at the package gate.
 - Before Phase 5: N completed video jobs with exact one-to-one shot order, no missing or duplicate UUIDs.
 - `mode 'omni_reference' requires at least one reference media item` → a media flag was dropped; re-add `--video-references`.
 - `start_image and end_image are only allowed for mode 'omni_reference'` → fix the mode, do not remove the anchors.
@@ -174,4 +174,4 @@ higgsfield generate create brain_activity --video ./final.mp4 --wait
 
 ## Deliver
 
-The final MP4 (local path or uploaded URL), exact duration, aspect, model and shot count, soundtrack source, QC notes, and a one-line comparison against the reference. Keep intermediate job IDs and loose asset URLs internal unless asked.
+The final MP4 (local path or uploaded URL), exact duration, aspect, model and shot count, soundtrack source, QC notes, and a one-line comparison against the reference. Keep intermediate job IDs and loose asset URLs internal unless asked. For delegated production work, additionally return the internal canonical join: output file path + hash, per-shot job UUID locators mapped to canonical shot IDs, chained-frame anchor provenance, observed terminal states, and measured cost.

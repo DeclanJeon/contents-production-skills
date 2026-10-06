@@ -25,7 +25,7 @@ Pass them with `--image-references` on every shot that character appears in.
 
 ### 2. Original character (new design)
 
-Generate a **character sheet** first — one image, multi-angle, with wardrobe spelled out:
+A **character sheet** — one image, multi-angle, with wardrobe spelled out — is an image-generation artifact. In this package Higgsfield image jobs are ineligible (package gate): obtain the sheet from the explicitly authorized eligible image executor (`codex-imagen` default) or a user-supplied still. Where image generation is permitted, the preserved recipe is:
 
 ```bash
 higgsfield generate create seedream_v5_pro \
@@ -33,11 +33,11 @@ higgsfield generate create seedream_v5_pro \
   --aspect_ratio 16:9 --resolution 2k --wait --json
 ```
 
-`gpt_image_2_5` is the fallback. The sheet (or its crops) becomes the `--image-references` input for all shots.
+`gpt_image_2_5` is the preserved fallback. The sheet (or its crops) becomes the `--image-references` input for all shots.
 
 ### 3. The character is a real person the user owns
 
-Train once via `higgsfield-soul-id` (5–20 photos → reference id), then use it **only** to render the cinematic character sheet with `soul_cinematic` / `text2image_soul_v2`. The sheet still feeds Seedance as plain images.
+`higgsfield-soul-id` training is a separate, explicitly-authorized lifecycle (5–20 photos → reference id) — never an implicit sub-step of replication. Even with a trained Soul, rendering the cinematic sheet via `soul_cinematic` / `text2image_soul_v2` is an image job — ineligible in this package; use a supplied sheet or the authorized eligible image executor instead. Any sheet still feeds the video model as plain reference images.
 
 ### 4. No recurring character
 
@@ -45,7 +45,7 @@ Skip this file; the video reference alone carries the look.
 
 ## Shot chaining (motion + appearance handoff)
 
-Last frame of shot N becomes the start frame of shot N+1:
+Last frame of shot N becomes the start frame of shot N+1. **This creates a hard dependency:** shot N+1 cannot be submitted until shot N's clip has completed, its last frame extracted, and the anchor inspected — chained shots run strictly in order; only shots without a chaining anchor may submit concurrently.
 
 ```bash
 # grab last frame of the previous generated clip
@@ -59,7 +59,7 @@ higgsfield generate create seedance_2_5 --mode omni_reference \
   --duration 7 ... 
 ```
 
-Also pin shot 1's `--start-image` to the reference's first beat frame when the opening composition must match exactly.
+Also pin shot 1's `--start-image` to the reference's first beat frame when the opening composition must match exactly. In delegated work, record which approved predecessor frame asset/version anchored each chained shot in the internal return.
 
 ## Wardrobe and props
 

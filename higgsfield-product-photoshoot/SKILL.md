@@ -1,5 +1,5 @@
 ---
-version: 0.16.0
+version: 0.17.0
 name: higgsfield-product-photoshoot
 description: |
   Generate brand-quality product images through Higgsfield product-photoshoot
@@ -26,118 +26,37 @@ allowed-tools: Bash
 
 Brand-image generation via the `higgsfield product-photoshoot create` command. The CLI calls a backend prompt enhancer that holds mode-specific photography vocabulary and structural templates, then submits to `gpt_image_2` and returns image URLs.
 
-`creative-production` owns content/campaign project coordination; this skill owns selected Higgsfield product-photo execution. Establish its **Single coordinator, scoped specialists** contract once on standalone content use; on delegation, execute only the assigned scope without routing back. Keep native upload/preset workflows, prerequisites, and spend approval; standalone brand/UI design keeps its design owner.
+`creative-production` owns content/campaign project coordination; this skill owns selected Higgsfield product-photo execution. Establish its **Single coordinator, scoped specialists** contract once on standalone content use; on delegation, execute only the assigned scope without routing back — consume assigned input IDs/versions and return the canonical output join per `../higgsfield-generate/references/package-gate.md` (a returned image URL or job UUID is a provider locator, never a canonical `result_asset_id`). Keep native upload/preset workflows, prerequisites, and spend approval; standalone brand/UI design keeps its design owner.
 
-## Step 0 — Bootstrap
+## Package gate and eligibility
 
-Before any other command:
+Apply `../higgsfield-generate/references/package-gate.md` before any actual run: runtime check (report missing CLI/auth — never auto-install; installation only on an explicit separate request), verified quote covering all `--count` outputs plus retries, bounded approval.
 
-1. If `higgsfield` is not on `$PATH`, install it:
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
-   ```
-2. If `higgsfield account status` fails with `Session expired` / `Not authenticated`, ask the user to run `higgsfield auth login` (interactive) and wait for confirmation.
+**In this package, `higgsfield product-photoshoot create` submits provider image jobs and is ineligible to execute** — package policy excludes Higgsfield image generation even when selected. The command contract below is preserved craft/reference; the backend's private mode-specific prompt enhancer cannot be reproduced by swapping in a generic image model. Two lawful paths:
+
+1. Report the original backend workflow as blocked in this package.
+2. Only with explicit user authorization for a narrower deliverable: run the authorized eligible image executor (`codex-imagen` default) using the mode taxonomy in `references/modes.md`, and disclose that the backend enhancer, mode-locked multi-slide systems, and photography templates are not reproduced.
+
+## Runtime check
+
+`higgsfield` on `$PATH`, `higgsfield account status` clean — else report the blocker (`higgsfield auth login` is a user action). Never install automatically.
 
 ## UX Rules
 
 1. Be concise. Print only image URLs in the final reply.
 2. Detect language, respond in it. Mode names and CLI flags stay English.
-3. Ask at most 4 short questions before submitting. Use labeled options, never open-ended.
-4. Skip questions whose answer is obvious from context (uploaded image, prior turn, brand memory).
+3. Ask at most 4 short questions before submitting — and only for materially unresolved choices. Supplied mode/count/style/use answers are reused, never re-asked.
+4. Skip questions whose answer is obvious from context (uploaded image, prior turn, brand memory, delegated brief).
 5. Never write the gpt_image_2 prompt yourself — backend assembles it.
 6. Polling is silent. Wait until URLs are ready, then deliver.
 
-## Modes
+## Modes and interview
 
-| Mode | When user wants… |
-|---|---|
-| `product_shot` | Product on neutral / studio / catalog background |
-| `lifestyle_scene` | Product in real-world environment, hands, action, atmosphere |
-| `closeup_product_with_person` | Tight crop with hands / partial face — beauty application, holding, demonstrating |
-| `moodboard_pin` | Vertical 2:3 Pinterest-native aesthetic, moodboard feel |
-| `hero_banner` | Wide-format website / email / campaign header |
-| `social_carousel` | 3–10 connected slides for IG / LinkedIn / Facebook |
-| `ad_creative_pack` | Coordinated pack of static ad variants for Meta / TikTok / Pinterest / Google Ads |
-| `virtual_model_tryout` | Product worn or used by an AI-rendered model |
-| `conceptual_product` | Surreal / CGI-style / levitating / splash / sculptural product |
-| `restyle` | Transform an existing image's aesthetic, mood, or seasonal context |
-
-## Mode selection
-
-Pick by intent, not surface keyword. When two modes could apply, prefer the more specific one.
-
-- product + neutral / clean / white / studio / catalog / Shopify → `product_shot`
-- product + scene / in use / kitchen / outdoor / cafe / gym → `lifestyle_scene`
-- hands holding / face with product / beauty application / demonstrating → `closeup_product_with_person`
-- Pinterest, pin, vertical pin → `moodboard_pin`
-- hero, banner, website header, landing page, email header, wide format → `hero_banner`
-- carousel, slide post, multi-slide, swipeable → `social_carousel`
-- ads, ad pack, paid social, Meta / TikTok / Pinterest ads → `ad_creative_pack`
-- model wearing, virtual try-on, on body, fashion shoot, lookbook → `virtual_model_tryout`
-- levitating, floating, splash, frozen motion, surreal, CGI, sculptural → `conceptual_product`
-- modify EXISTING image's aesthetic, mood, season — without changing subject → `restyle`
-
-Tie-breakers:
-- "Pinterest pin of my product on a kitchen counter" → `moodboard_pin` (Pinterest is the platform)
-- "Hero banner showing my product in use" → `hero_banner` (banner format wins)
-- "Carousel of my product in different scenes" → `social_carousel` (multi-slide wins)
-- "Closeup of person applying my serum" → `closeup_product_with_person` (specific genre wins)
-
-## Pre-generation interview
-
-Ask 3–4 short questions before submitting. Always labeled options, never open-ended. Skip a question whose answer is obvious from context.
-
-### Type A — uploaded a product photo, "make me images / photoshoots"
-
-1. How many? `[1 / 3 / 5]`
-2. What style/mood? `[Clean studio / Lifestyle / Conceptual / With a model / Other]`
-3. Where will you use them? `[Shopify / Instagram / Pinterest / Paid ads / Website hero]`
-4. Brand colors to match? (skip if obvious)
-
-### Type B — uploaded a product photo, named a use case
-
-E.g. "make ads for my product", "make a Pinterest pin", "make a hero banner". Mode is obvious. Ask only the gaps:
-
-1. How many? (if multi-output mode)
-2. What's the offer / mood / hook?
-3. Anything in particular to emphasize?
-
-### Type C — text only, no product photo
-
-1. Can you upload a product photo? (preferred — much higher fidelity)
-2. If not, describe the product — category, packaging, color, distinctive features.
-3. What style? (same options as Type A)
-4. Where will you use it?
-
-### Type D — uploaded existing image, "redo / change vibe / different version"
-
-→ `restyle`
-
-1. What aesthetic? `[Clean girl / Cottagecore / Quiet luxury / Dark academia / Y2K / Other]`
-2. Seasonal context? `[Christmas / Valentine's / Halloween / Black Friday / None]`
-3. What to preserve, what to change? (only if ambiguous)
-
-### Type E — model wearing a product (fashion, accessories)
-
-→ `virtual_model_tryout`
-
-1. Model archetype? (suggest 2–3 based on brand audience)
-2. Environment? `[Studio clean / Outdoor natural / Street style / Editorial / Home cozy]`
-3. Framing? `[Full body / Three-quarter / Waist up / Closeup on product area]`
-
-### Type F — vague request, unclear subject
-
-E.g. "make me something cool for my brand".
-
-1. What product or topic?
-2. Goal? `[Sell on a marketplace / Build awareness / Run paid ads / Update website]`
-3. Upload a reference image?
-
-After answers → return to the relevant Type A–E.
+Load `references/modes.md` before submitting: the ten modes (`product_shot`, `lifestyle_scene`, `closeup_product_with_person`, `moodboard_pin`, `hero_banner`, `social_carousel`, `ad_creative_pack`, `virtual_model_tryout`, `conceptual_product`, `restyle`), selection tie-breakers, and the Type A–F interview scripts. Pick by intent, not surface keyword; reuse every answer already supplied.
 
 ## Generation
 
-Single command. Backend assembles the final prompt and submits to `gpt_image_2`. URLs print on stdout.
+Single command. Backend assembles the final prompt and submits to `gpt_image_2`. URLs print on stdout. (Preserved contract — ineligible to submit inside this package; see eligibility above.)
 
 ```bash
 higgsfield product-photoshoot create \
@@ -214,4 +133,4 @@ Print the image URLs as a short bulleted list. No JSON, no IDs, no internal mode
 - Picking the wrong mode (e.g. `product_shot` when the user wants a Pinterest pin).
 - Calling `higgsfield generate create gpt_image_2 --prompt ...` directly instead of `higgsfield product-photoshoot create` — bypasses the prompt enhancer and produces noticeably worse output.
 - Pasting the assembled prompt back to the user — they want the URLs.
-- Using a `--mode` value not in the table above.
+- Using a `--mode` value not in the table in `references/modes.md`.

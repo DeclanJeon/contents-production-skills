@@ -42,21 +42,18 @@ whether to publish to the community feed when ready — remember that for Phase
 6). This single intake round carries the two website-specific questions worth
 asking; put both in the ONE batched round and never ask a second round.
 
-1. **Animation — MANDATORY, ALWAYS ask on every `--type website` build.** This
-   question is NEVER skipped — ask it even when the request seems to imply a
-   choice ("an animated site", "a plain static page"), even for a "simple" or
-   "quick" site, even when you think you already know the answer. The user must
-   make this call, not you. Offer exactly two options:
+1. **Animation — ask when unresolved.** Offer exactly two options:
    - **Animated (recommended)** → sets `Animation mode: animated-website` — the
      scroll-scrub camera journey (the product default; mark it Recommended).
    - **Non-animated** → sets `Animation mode: non-animated` — a well-crafted site
      with lighter/optional motion, no mandatory camera journey.
 
-   If the request already leans one way, still ask — just point the Recommended
-   marker at the implied option. Record the picked value on the brief's
-   `Animation mode` line (Phase 0). ONLY if the user is genuinely unreachable /
-   never answers do you proceed on the default (**Animated**) and say so in one
-   line — never as a shortcut to avoid asking.
+   Honor a choice the request already states without re-asking; point the
+   Recommended marker at the implied option when the request leans one way.
+   Record the picked value on the brief's `Animation mode` line (Phase 0).
+   ONLY if the user is genuinely unreachable / never answers do you proceed on
+   the default (**Animated**) and say so in one line — never as a shortcut to
+   avoid asking.
 2. **Brand constraints** — an existing brand to honor (ask for
    colors/fonts/logo/photos/links) vs. free rein ("design the brand for me").
    Whatever they don't have, you generate: the full identity kit plus the
@@ -141,8 +138,9 @@ brief first and say why.
 ### Phase 1 — Reference boards (design the page as IMAGES)
 
 Read **`references/reference-boards.md`** and execute it: ONE horizontal design
-reference image PER SECTION via `higgsfield generate create` (image models
-`gpt_image_2` / `nano_banana_pro`), one committed
+reference image PER SECTION (an image job — in-package via the authorized
+eligible image executor per the package gate; the preserved provider shape is
+`higgsfield generate create` with `gpt_image_2` / `nano_banana_pro`), one committed
 combinatorial pick (theme paradigm, background character, typography character,
 hero architecture, section system, 4 signature components, narrative spine,
 second-read moment), composition anchor VARYING per board, palette locked across

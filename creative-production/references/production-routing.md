@@ -1,48 +1,39 @@
-# Content and video lanes
+# Current-stage routing
 
-`creative-production` selects requested outputs and coordinates shared facts, continuity, dependencies and approvals. Specialists own craft or provider execution. Load only the applicable branch; direct calls consult the coordinator contract once and delegated stages never route back.
+Select the narrowest requested output. The coordinator reads this map once; workers consume their assigned packet and never reroute. No automatically running agent engine is supplied.
 
 ## Core lanes
 
-| Request | Owner | Result boundary |
+| Current request | Owner / required read | Stop boundary |
 |---|---|---|
-| Article/blog/social text from supplied sources | Coordinator drafts directly; requested source/platform specialist only when needed | Actual text and source/claim check; no implied video, CTA, files or publication |
-| Text video planning | `orchestrating-video-preproduction` with requested `developing-video-synopses`, `designing-video-character-sheets`, `storyboarding-video` | Concepts/synopsis, applicable character anchors and/or narrative/information panels. No actual images or footage. Production boards add the required `video-production-assets/references/storyboard-contract.md` |
-| Production/detailed storyboard, full storyboard sheet, video production package | `video-production-assets` under the required [storyboard contract](../../video-production-assets/references/storyboard-contract.md), craft owners integrated before the final board | Beat-mapped panels, timed shots with camera/spatial/VFX/speech/audio fields, KEEP/FIX/unverified review. Technical plans integrate per cut before the board is final, not as a blanket downstream pass |
-| One brief, script, shot/lighting/edit plan, claim ledger, budget or delivery checklist | `video-production-assets`, only the relevant existing module | Requested asset, not a complete production packet |
-| Factual/educational video plan | Text lane and relevant production evidence modules | Verified claims and interpretation separated. No invented protagonist, causation, customer testimony or commercial objective |
-| Camera-space specification | `camera-spatial-design` | Existing numeric spatial contract and actual calculated inspection |
-| Blender proxy/previs | `blender-previsualization` | Actual proxy scene/render with available Blender runtime; not beauty rendering/final footage |
-| Video prompt, shot decomposition, model routing, generation critique, pipeline recipe | Coordinator with [video-generation-planning.md](video-generation-planning.md) + [video-prompt-dialects.json](video-prompt-dialects.json) | Planning artifact: dialect-correct prompt, per-shot requirements/route, QA verdict. Not spend or submission authorization |
-| Image-backed full production package | `video-production-assets` [review contract](../../video-production-assets/references/preproduction-review.md), default `codex-imagen` | Exact project folder, applicable actual artifacts/stills, executor restrictions in production execution §2, inspection and user review |
+| Article/blog/social text | Coordinator and actual supplied evidence | Requested text; no implied CTA, video, saving or publication |
+| One synopsis/concept/beat map | `developing-video-synopses` and its stage guide | Stable beats/source locators; no automatic character/board stage |
+| One character/voice-profile sheet | `designing-video-character-sheets` and its stage guide | Existing identities, continuity and requested profile; no training/rendering |
+| Explicit multi-artifact text video planning | `orchestrating-video-preproduction`; only requested downstream workers | One inherited spine; missing owner inputs return indexed requirements to parent |
+| Ordinary or complete production storyboard | `storyboarding-video` + canonical [storyboard contract](../../video-production-assets/references/storyboard-contract.md) | All story coverage and applicable technical slots integrated; text-only keeps actual media unverified |
+| Explicit rough-panel/prompt-only exercise | `storyboarding-video` narrow guide only | Requested narrative panels; no full technical package |
+| One brief/script/shot/light/edit/claim/budget/QA/delivery asset | `video-production-assets`, one requested module/reference/template | Requested asset, not a mandatory full packet |
+| Factual/educational plan | Relevant text owner and only applicable evidence module | No invented characters/causes/testimony/commercial goal |
+| Numeric camera/blocking | `camera-spatial-design` | Locked camera reused; current project/spec reconciliation, calculated not rendered inspection |
+| Actual Blender proxy/previs | `blender-previsualization` with registered camera input and real runtime | Actual indexed files; bounded smoke is not whole-board rendering |
+| Video prompt/decomposition/model route/critique/pipeline recipe | [video-generation-planning.md](video-generation-planning.md); dialect JSON only for the selected dialect | Text planning/critique, not spend/submission permission |
+| Image-backed full package | Coordinator sequences synopsis → `designing-video-character-sheets` SSOT → eligible identity-image executor → `storyboarding-video` technical board → deterministic combined sheet under the [review contract](../../video-production-assets/references/preproduction-review.md) | Selected root; all four deliverable categories, complete-package/visual checks and user review; no skipped character/image handoff |
+| Reference selection/analysis or package audit | Production-assets reference25 and matching template | Evidence-scoped analysis; package edits only if separately requested |
 
-For links to craft resources, open the corresponding sibling `SKILL.md`. A missing core skill is a broken installation, not a normal optional dependency.
+Open only the selected sibling SKILL and its needed guide. Missing core files mean broken installation. Only an explicit matching provider/platform/deep-craft request reads [conditional lanes](production-routing-optional.md); migration maps in integrations are not startup context.
 
-## Optional specialist/execution lanes
+## Selected runtime gate
 
-The installed package manifest at `video-production-assets/support/manifest.json` lists conditional external dependencies. It is an installation/availability record, not a second production state file. Named external skills below must be present before delegating their actual specialist stage; inspect the host's real tools rather than pretending a skill invocation exists.
+Apply this gate only before an actual requested runtime/provider operation, not text planning:
 
-| Request | Selected specialist | Scope |
-|---|---|---|
-| Campaign strategy, conversion-led copy, marketing evidence | [marketing-source-adaptation.md](marketing-source-adaptation.md); external `content-production-marketing` when installed for deeper channel workflows | Marketing only. CTA/advertising structure follows the actual brief |
-| YouTube/interview/podcast adaptation | `youtube` / `podcast` for source inspection, `youtube-content` for YouTube transformation | Preserve source context, distinguish quotation from proposal, don't infer publication |
-| Tistory/WordPress-specific content or operations | `tistory-blog` / `wordpress-blog` | Draft-only remains text-only; requested live changes use actual platform checks |
-| Explicit story-commerce | `story-pipeline` and requested `synopsis-craft`, `script-craft`, `char-design`, `storyboard-craft` | Preserve that lane's format/contracts, not universal requirements |
-| Screenplay/series or scene craft | `sw-workflow` and requested `sw-*` | Preserve story bible and stage approvals; no implied generation |
-| Story/visual craft depth (concept/emotion/retention, genre/comedy, series, brand/product integration, visual mode/SSOT/continuity, dialogue/lip-sync, finishing/platform fit, reference deconstruction) | `video-production-assets` references `16-concept-emotion-retention`, `17-genre-comedy`, `18-episodic-series`, `19-brand-product-integration`, `20-visual-mode-ssot`, `22-dialogue-lipsync`, `23-finishing-platform`, `25-reference-video-analysis` | Load only for the specific craft need; never a second coordinator or state ledger |
-| Selected Fal execution | `fal-video-production` | Selected provider's verified live endpoint and approved exact scope |
-| Selected Higgsfield video/audio execution | Applicable `higgsfield-*` and connected tools | Preserve actual workflow, upload, rights and billing contracts; image generation is excluded by production execution §2 |
-| ComfyUI/Remotion/FFmpeg runtime work | Selected installed tool surface | Design lives in the bundled generation-planning reference; runtime checks only when that branch executes |
-| Music/lyrics/voice work | `songwriting-and-ai-music` for requested writing; selected available audio executor | Voice selection/creation: [dialogue reference](../../video-production-assets/references/22-dialogue-lipsync.md); SFX-only and music sourcing/rights: [edit reference](../../video-production-assets/references/09-edit.md); translated/SRT delivery: [delivery reference](../../video-production-assets/references/15-delivery.md). Actual audio needs applicable approval and listening QA |
-| Illustration/thumbnail/product creative | Requested available image craft skill plus default `codex-imagen` | Brief-specific static asset, not implied video; apply the same image executor restrictions and live contract |
-| Ordinary UI/brand identity | Existing design/development owner, not this production pipeline | Hybrid media shares its supplied visual contract without taking over UI ownership |
+1. Verify the selected runtime/auth, actual live schema/capabilities, destination and rights/consent. Report missing prerequisites; installation is separate explicit scope, never automatic.
+2. Apply [production execution](../../video-production-assets/references/24-production-execution.md): `codex-imagen` is the default still-image executor; no Higgsfield image submission/edit fallback. For Codex Imagen stills, do not check price, usage, quota, or block on unknown cost; verify only runtime/auth, supported inputs/outputs, destination, and rights.
+3. Bind image calls to current input versions, exact requested outputs/settings, and practical retry/concurrency/time/storage limits. No Codex Imagen quote, free-allowance lookup, or cost cap is required. Keep separate video-generation and other-provider approval gates.
+4. Preproduction acceptance, preview permission, final production and publication are distinct. No extra retries/batches/covers/training/analysis or live deploy inferred. Independent work may run concurrently; prior-frame dependencies and uncertain async jobs may not.
+5. Preserve secrets/source files, inspect actual outputs, register only observed results. A private backend enhancer cannot be replaced by generic generation and claimed equivalent.
 
-A generic draft does not require an optional platform or marketing skill. A requested platform operation does. If the chosen branch is unavailable, report its exact prerequisite and complete reachable preparation. Do not silently switch provider or describe a substitute as the requested completed result.
+## State and handoff
 
-## State and gates
+For an existing project, [common handoff/single writer](../../video-production-assets/references/contract.md#worker-handoff-and-single-writer) owns ID/version lookup, worker return and authorized persistence. Domain bibles/provider adapters are linked artifacts. Text-only/no-save proposals do not write a ledger; a standalone artifact does not create one.
 
-Carry source/fact status, constraints, IDs/versions, continuity, actual outputs and version-bound approval evidence through handoffs. Supplied uploads, synopses, character sheets, voices and boards are reused with version/source/inspected scope recorded; unreadable items stay unverified, never reinvented. Single text artifacts need no manifest. Multi-stage production under the existing contract uses canonical `project.json`; specialist bibles/manifests and executor adapters remain linked lane artifacts.
-
-Topic-to-video or image-backed work follows sibling `video-production-assets/references/preproduction-review.md`: exact project root and actual review stills before review. Text-only work remains text. Review acceptance does not select a video model or authorize a sample. A separate proceed request opens live catalog/schema/price planning, then explicit bounded execution/spend approval permits submission. Publication remains separate. Changed inputs invalidate only affected dependent approvals.
-
-Existing host interview/plan/design/browser/parallel-agent integrations can be reused when available. None is a mandatory framework for a locked text artifact. Check only the selected lane's tools and preserve one active approval flow.
+Image-backed/topic-to-video work reads preproduction-review before writes/media calls. Exact selected root and current user acceptance are reused; a parent directory does not silently choose a child. Tools and interview frameworks are checked only when selected, never universal prerequisites.

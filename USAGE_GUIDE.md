@@ -141,6 +141,17 @@ python video-production-assets/scripts/split_storyboard.py PROJECT/project.json 
 
 수치 카메라/블로킹은 `camera-spatial-design`, 실제 Blender 프리비즈는 `blender-previsualization`으로 인계한다. 원래 샷 ID와 공간 계약 버전을 보존한다.
 
+### 현재 단계 재개와 원장
+
+진입 총괄은 현재 산출물 소유자 하나를 고르고 필요한 guide만 읽는다. 단일 시놉/시트는 해당 워커에 바로 인계하며, 텍스트 여러 산출물을 명시했을 때만 내부 text lane이 순서를 맡는다. 승인값을 재인터뷰하지 않고 다음 단계 문서를 미리 로드하지 않는다.
+
+원장은 선택된 사용자 프로젝트의 `project.json` 하나다. `<선택한 프로젝트>/project.json --shot SH06`를 `video-production-assets/scripts/project_index.py`에 주면 관련 씬/비트/패널/인물/보이스/음향/주장/에셋·의존 버전을 읽기 전용으로 얻는다. 그 결과에 맡긴 범위·잠금값·승인 근거를 붙여 인계한다.
+
+총괄은 허가된 저장에만 `update_project.py ... --update update.json`을 사용한다. 변경 제안은 실제 project_id/base_version/새 version, input_versions, changes, 내용 레코드를 소유하는 owner_artifact_ids와 갱신된 artifact version을 갖는다. 현재 버전 재확인·후보 검사·원자 교체 후 다시 읽고 검증한다. 기존 lock/오래된 입력/폴더 밖 파일/깨진 ID는 거부한다. 이 도구는 유효한 기존 계획의 upsert이며 초기 빈 template·삭제·자동 승인·자동 실행 기능이 아니다. 저장 금지 요청은 변경 제안만 반환한다.
+
+실행 준비율은 [감사 보고서](docs/ORCHESTRATION_AUDIT.md)의 구조/계약과 실제 미디어 게이트를 나눠 본다. 문서량 감소를 모델 속도나 작품 품질 향상으로 환산하지 않는다.
+
+
 ## 5. 수정과 납품
 
 상위 각본·SSOT·제품·샷·프롬프트가 바뀌면 영향을 받는 의존성과 승인만 stale로 표시한다. 입력 버전이 달라진 실행에 예전 승인을 재사용하지 않는다. 미영향 작업은 다시 승인받지 않는다.

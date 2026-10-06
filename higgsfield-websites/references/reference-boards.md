@@ -4,11 +4,19 @@ The single highest-leverage step in the pipeline. The reference boards ARE the
 design: a generic board guarantees a generic site, and no amount of code craft
 recovers from it. Budget real effort here.
 
+Eligibility: a board is an image-generation artifact — in this package it runs
+through the explicitly authorized eligible image executor (`codex-imagen`
+default), not a Higgsfield image job (package gate; `higgsfield generate
+create <image_job_type>` shown below is the preserved contract). Whatever the
+executor, the output rule, combinatorial pick, and LOOK AT EVERY BOARD
+requirement are unchanged. If no authorized executor exists, report this phase
+blocked rather than falling back to a stock/template design.
+
 ## The output rule
 
-Generate **ONE horizontal design-reference image PER SECTION** with
-`higgsfield generate create <job_type> --prompt "…"` (strong model:
-`gpt_image_2` or `nano_banana_pro`).
+Generate **ONE horizontal design-reference image PER SECTION** (preserved CLI
+shape: `higgsfield generate create <job_type> --prompt "…"` — strong models
+documented as `gpt_image_2` / `nano_banana_pro`).
 6 sections = 6 boards. Never one tall full-page image (detail gets mushy and
 per-section composition variety dies). Aspect: 16:9 or 3:2, landscape.
 

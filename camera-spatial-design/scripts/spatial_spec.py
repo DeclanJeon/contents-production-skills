@@ -23,6 +23,9 @@ def validate(p):
     if not isinstance(fps,int) or isinstance(fps,bool) or fps<=0:errors.append('fps must be positive integer')
     r=p.get('resolution')
     if not isinstance(r,list) or len(r)!=2 or not all(isinstance(x,int) and not isinstance(x,bool) and x>0 for x in r):errors.append('resolution must be two positive integers')
+    for field in ['version','artifact_id']:
+        v=p.get(field)
+        if v is not None and (not isinstance(v,str) or not v.strip()):errors.append(field+' must be a nonempty string when present')
     tables={}
     for kind in ['subjects','obstacles','shots']:
         rows=p.get(kind)
@@ -182,9 +185,77 @@ def analyze(p):
         reports.append({'shot_id':s['id'],'duration_s':s['duration_frames']/p['fps'],'max_camera_speed_m_s':max(x['camera_speed_m_s'] for x in samples),'warnings':warnings,'samples':samples})
     return {'valid':True,'schema_version':p['schema_version'],'project_id':p['project_id'],'scope':'ideal pinhole, all integer frames, box proxies; no rendered or artistic validation','total_duration_s':sum(s['duration_frames'] for s in p['shots'])/p['fps'],'shots':reports}
 
+CAMERA_SPEC_TYPES=('camera_spec','spatial_spec')
+
+def reconcile_project(project,spec,artifact_id):
+    """Reconcile a registered camera spec against a canonical project object.
+
+    Returns a list of error strings; [] means the spec can attach to artifact_id.
+    The spec may cover a shot subset: only the spec shots and the project shots
+    that point at this artifact are joined, never the full film shot list.
+    """
+    errors=[]
+    if not isinstance(project,dict):errors.append('project must be object');project={}
+    errors.extend('spec: '+e for e in validate(spec))
+    spec=spec if isinstance(spec,dict) else {}
+    def table(key):
+        rows=project.get(key)
+        return {r['id']:r for r in rows if isinstance(r,dict) and isinstance(r.get('id'),str)} if isinstance(rows,list) else {}
+    def number(v):
+        try:return isinstance(v,(int,float)) and not isinstance(v,bool) and math.isfinite(v)
+        except OverflowError:return False
+    artifacts=table('artifacts');proj_shots=table('shots')
+    if spec.get('project_id')!=project.get('project_id'):
+        errors.append(f"project_id mismatch: spec {spec.get('project_id')} != project {project.get('project_id')}")
+    artifact=artifacts.get(artifact_id)
+    if artifact is None:errors.append(f'artifact {artifact_id} not in project artifacts')
+    elif artifact.get('type') not in CAMERA_SPEC_TYPES:errors.append(f'artifact {artifact_id} type {artifact.get("type")} is not camera_spec/spatial_spec')
+    sv=spec.get('version')
+    if sv is None:errors.append(f'spec missing version; required to attach to artifact {artifact_id}')
+    elif artifact is not None and sv!=artifact.get('version'):errors.append(f'spec version {sv} != artifact {artifact_id} version {artifact.get("version")}')
+    declared=spec.get('artifact_id')
+    if declared is not None and declared!=artifact_id:errors.append(f'spec artifact_id {declared} != registered artifact {artifact_id}')
+    if spec.get('fps') is not None and spec.get('fps')!=project.get('fps'):
+        errors.append(f"fps mismatch: spec {spec.get('fps')} != project {project.get('fps')}")
+    spec_shots={s.get('id'):s for s in spec.get('shots',[]) if isinstance(s,dict) and isinstance(s.get('id'),str)} if isinstance(spec.get('shots'),list) else {}
+    for rid,s in spec_shots.items():
+        shot=proj_shots.get(rid)
+        if shot is None:errors.append(f'{rid}: spec shot not in project shots');continue
+        if s.get('scene_id')!=shot.get('scene_id'):
+            errors.append(f'{rid}: scene_id mismatch: spec {s.get("scene_id")} != project {shot.get("scene_id")}')
+        a,b=shot.get('start_s'),shot.get('end_s');df=s.get('duration_frames')
+        if isinstance(df,int) and not isinstance(df,bool):
+            if all(number(x) for x in (a,b)) and number(project.get('fps')):
+                frames=(b-a)*project['fps']
+                if not number(frames):errors.append(f'{rid}: project shot frame product is not finite')
+                elif abs(frames-round(frames))>=1e-3:errors.append(f'{rid}: project shot duration {b-a}s is not frame aligned')
+                elif round(frames)!=df:errors.append(f'{rid}: duration_frames {df} != project shot duration {round(frames)} frames')
+            else:errors.append(f'{rid}: project shot missing start_s/end_s for duration join')
+        character_ids=shot.get('character_ids',[]);asset_ids=shot.get('asset_ids',[])
+        known={v for rows in (character_ids,asset_ids) if isinstance(rows,list) for v in rows if isinstance(v,str)}
+        subject_ids=s.get('subject_ids',[])
+        for sub in subject_ids if isinstance(subject_ids,list) else []:
+            if isinstance(sub,str) and sub not in known:errors.append(f'{rid}: subject {sub} not in shot character_ids/asset_ids')
+    for rid,shot in proj_shots.items():
+        sp=shot.get('spatial')
+        if isinstance(sp,dict) and sp.get('mode')=='numeric' and sp.get('artifact_id')==artifact_id and rid not in spec_shots:
+            errors.append(f'{rid}: numeric shot referencing {artifact_id} is missing from the spec')
+    return errors
+
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('spec');ap.add_argument('--out');args=ap.parse_args()
-    try:result=analyze(json.loads(Path(args.spec).read_text(encoding='utf-8')))
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('spec');ap.add_argument('--out')
+    ap.add_argument('--reconcile',metavar='PROJECT_JSON',help='canonical project.json this spec attaches to')
+    ap.add_argument('--artifact',help='project artifact id registering this spec (required with --reconcile)')
+    args=ap.parse_args()
+    try:
+        spec=json.loads(Path(args.spec).read_text(encoding='utf-8'))
+        if args.reconcile:
+            if not args.artifact:result={'valid':False,'errors':['--reconcile requires --artifact <artifact id>']}
+            else:
+                project=json.loads(Path(args.reconcile).read_text(encoding='utf-8'))
+                errors=reconcile_project(project,spec,args.artifact)
+                result={'valid':not errors,'errors':errors,'scope':'registered camera spec attachment; standalone geometry checked by analyze/validate only'}
+        else:result=analyze(spec)
     except (OSError,ValueError) as e:result={'valid':False,'errors':[str(e)]}
     data=json.dumps(result,ensure_ascii=False,indent=2)
     if args.out:Path(args.out).write_text(data+'\n',encoding='utf-8')

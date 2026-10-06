@@ -9,6 +9,8 @@ Higgsfield product — apps render INSIDE Higgsfield, indistinguishable from its
 own tools. There is no independent brand and no wow/marketing pipeline here:
 the craft bar is Quanta's UX-craft rules.
 
+Package gate applies throughout this flow (see `../SKILL.md`): the runtime check never auto-installs; every cover/asset generation is an authorized operation inside the approved scope; image jobs run through the authorized eligible image executor in-package, video/audio/3D stay eligible provider jobs.
+
 **Repo layout.** The project lives in **`app/`** — its own `package.json`,
 `src/`, `packages/`, `migrations/`, build config, and the deploy inputs
 (`app.manifest.json`, `wrangler.jsonc`). Run every `bun`/build command from

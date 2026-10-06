@@ -1,5 +1,5 @@
 ---
-version: 0.16.0
+version: 0.17.0
 name: higgsfield-soul-id
 description: |
   Train a Soul Character — a personalized model on a person's face that
@@ -20,22 +20,24 @@ allowed-tools: Bash
 
 Train a face-faithful identity model. Reusable across all Soul-powered generations.
 
-## Step 0 — Bootstrap
+## Scope and package gate
+
+`creative-production` is the project-level coordinator when one exists; this skill owns the Soul training lifecycle only — not image generation, character sheets, or ordinary boards (those never load this skill). Delegated work follows `../higgsfield-generate/references/package-gate.md`: reuse the supplied name/photos/variant, return the trained `reference_id` as a **provider locator mapped to the canonical character/asset ID** it serves — a `reference_id` is an identity-model locator, not an image result and not a canonical `result_asset_id`.
+
+Apply the shared gate before submitting: training is a paid-plan operation — verified cost status and bounded approval are required, and the user must own or control rights to the faces being trained. Auxiliary still renders that would consume a Soul (e.g. `--soul-id` image calls shown below) are image jobs and are ineligible in this package; they are documented for downstream use only.
+
+## Step 0 — Runtime check
 
 Before any other command:
 
-1. If `higgsfield` is not on `$PATH`, install it:
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
-   ```
-2. If `higgsfield account status` fails with `Session expired` / `Not authenticated`, ask the user to run `higgsfield auth login` (interactive) and wait for confirmation.
-3. Soul training requires a paid plan (Basic+). If `higgsfield account status` shows free plan, tell the user before submitting.
+1. Verify `higgsfield` on `$PATH` and `higgsfield account status`. Missing CLI or failed auth (`Session expired` / `Not authenticated`) is a reported blocker — ask the user to run `higgsfield auth login` (interactive) and wait. Never auto-install; installation happens only as a separate explicit user request.
+2. Soul training requires a paid plan (Basic+). If `higgsfield account status` shows free plan, tell the user before submitting.
 
 ## UX Rules
 
-1. Be concise. No raw IDs in chat. Just say "Soul ready" with a name reference.
+1. Be concise. No raw JSON dumps or unrelated IDs in chat — the returned reference ID itself is delivered as the `--soul-id` value the user needs.
 2. Detect language and respond in it. CLI flags stay English.
-3. Ask for the smallest set of inputs: name + photos. Pick a sensible model variant.
+3. Ask for the smallest set of inputs: name + photos. Reuse a supplied variant; ask only when the downstream use is unresolved.
 4. Polling is silent — training takes minutes. Don't repeat status updates.
 
 ## Workflow
@@ -55,16 +57,16 @@ Before any other command:
 5. **Wait.** `higgsfield soul-id wait <id>`. Silent. Default timeout 30m.
 6. **Deliver.** "Soul `<name>` ready. Use in generate with `--soul-id <id>`."
 
-## Use the Soul
+## Use the Soul — downstream contract (image renders ineligible in this package)
 
-Once trained, pass to `higgsfield-generate`:
+The returned `reference_id` passes to image models via `--soul-id` (sent as the model's `custom_reference_id`):
 
 ```bash
 higgsfield generate create text2image_soul_v2 --prompt "..." --soul-id <ref_id> --quality 2k --wait
 higgsfield generate create soul_cinematic --prompt "..." --soul-id <ref_id> --quality 2k --wait
 ```
 
-`--soul-id` is sent as the model's `custom_reference_id`. For a curated Soul style, list styles with `higgsfield preset list soul-v2` and pass the chosen id as `--style_id` on `text2image_soul_v2`. `--style_id` cannot be combined with `--image`.
+These are image-generation calls — craft/reference documentation only in this package (see Scope and package gate). Do not assume video-model compatibility: `seedance_*` has no soul parameter; video identity travels as reference images. For a curated Soul style, list styles with `higgsfield preset list soul-v2` and pass the chosen id as `--style_id` on `text2image_soul_v2`. `--style_id` cannot be combined with `--image`.
 
 ## Listing existing Souls
 

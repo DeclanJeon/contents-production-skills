@@ -1,6 +1,6 @@
 # Local Brandkit state routing
 
-Store approval state in the active project's `brandkit/state.json`. Drafts never enter it. The bundled script writes atomically and tracks independent logo, palette, typography, visual-axis, and downstream-element revisions.
+Store approval state in `brandkit/state.json` under the explicitly selected brand/project root resolved in `SKILL.md` — never blindly `${PWD}`. Drafts never enter it. The bundled script writes atomically and tracks independent logo, palette, typography, visual-axis, and downstream-element revisions.
 
 Use the path variables established by `SKILL.md`:
 
@@ -109,3 +109,14 @@ After explicit approval, call `approve_brandbook_element` with the exact slots u
 - Never require an unrelated missing slot.
 - Never use this state outside Brandkit.
 - Never overwrite or clear the state file without explicit user instruction.
+
+## Production join
+
+This state is **brand-domain state**, not a production ledger. When the work attaches to a production project under `creative-production`, the coordinator writes `project.json`; Brandkit only returns the internal handoff per `../../higgsfield-generate/references/package-gate.md`:
+
+- a proposed **versioned brand artifact** (Brand Lock: spelling, official assets, colors, fonts, layout/shape rules, forbidden treatments) with the slot revisions that produced it;
+- registered output assets — local file paths + hashes, or provider locators (job UUID/upload IDs/SVG URLs) mapped to the canonical assets they back — never a URL as `result_asset_id`;
+- invalidated slot/element keys and their `required_slots`, so the coordinator can stale the affected canonical dependencies;
+- approval summaries as evidence pointers — canonical `approval={by,at,evidence}` records the real user acceptance, not script recency.
+
+Standalone brand work keeps the same state mechanics and creates no production records.

@@ -1,95 +1,43 @@
 ---
 name: designing-video-character-sheets
-version: 2.3
+version: 2.4
 description: Use to design video characters — a cast or character bible, a single character sheet, visual identity anchors, or a reusable character image-sheet prompt.
 ---
 
 # Designing Video Character Sheets
 
-Produce role-aware character profiles with repeatable visual designs from a supplied story or character brief. Return the sheet itself in Korean by default; output is text and generic image prompts, with no claim or implication that an image exists.
+Produce role-aware character profiles with repeatable visual designs from a supplied story or character brief. Return the sheet itself in Korean by default. Standalone output is text plus prompt specs — with no claim or implication that an image exists; under a delegated image-backed package, one per-character Identity Sheet A image is produced by the coordinator's image executor, and this skill returns the versioned SSOT text packet and its sheet-A spec.
 
 Characters are the only scope here — not plot, not panels. A supplied synopsis and its story spine stay intact; no added scenes, endings, product claims, or manufactured arcs. Full pipelines route through `creative-production` → `orchestrating-video-preproduction`; panels belong to `storyboarding-video`.
 
-`creative-production` alone coordinates projects. Standalone calls consult it once to confirm scope and route, then deliver only the requested character work. Delegated work continues on the existing spine, IDs, versions, and approvals — no call-backs, re-routing, second interview, or second approval ledger.
-
-## Facts, proposals, unknowns
+## Inputs and invocation
 
 Extract characters, roles, relationships, goals, behavior, setting, constraints, visual requirements, and existing spine anchors. Supplied details are never re-asked. Supplied character sheets, reference images and voice notes are inspected and reused with their application scope recorded — which sections actually apply to this production — rather than rebuilt; an unreadable supplied sheet stays unverified. Persona — how the character speaks, reacts and carries itself — is captured as filmable behavior and dialogue direction so the downstream voice/speech stage inherits it consistently.
 
-- **확정 정보** for user-provided facts.
-- **디자인 제안** for optional invented visuals — kept easy to change.
-- **미정** for consequential unknowns. Template fields never justify filling an unknown name, age, gender, ethnicity, family history, diagnosis, motive, or product capability. When age, gender, ethnicity, or body type was not supplied, do not select one even as a proposal — skip labels like "adult," "young," "middle-aged," "average build" and create specificity through pose, costume, material, palette, and props.
-- One concise question is warranted only when an unresolved choice materially changes the character's role or the story; otherwise proceed with minimal labeled proposals.
-- An invented behavior, audience habit, product feature, or real-world claim is never written as fact — a trailing assumption label does not repair a claim already asserted.
+`creative-production` alone coordinates projects. Standalone calls consult it once to confirm scope and route, then deliver only the requested character work. Delegated work continues on the existing spine, IDs, versions, and approvals — no call-backs, re-routing, second interview, or second approval ledger — with stage packet intake and worker return per the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer).
 
-## Role definition
+Three labels govern every field:
 
-Specify only the fields the brief needs:
+- **확정 정보** for user-provided facts and observed source material (with its inspected scope recorded).
+- **디자인 제안** for labeled creative choices — including missing age, gender, build, and backstory — made under explicit fictional-design delegation. A full delegated fictional SSOT uses this label; it stays easy to change and is never asserted as fact.
+- **미정** for consequential unknowns. Without delegation, consequential unknowns stay open: do not select an unsupplied age, gender, ethnicity, or body type even as a proposal — skip labels like "adult," "young," "middle-aged," "average build" and create specificity through pose, costume, material, palette, and props. For real people, never invent undocumented biography, psychology, or personal facts. Irrelevant exact numbers stay unspecified. An already-approved character's supplied choices are preserved; only gaps get proposals.
 
-- **이야기 역할:** protagonist, guide, opposing force, support, audience proxy, narrator, or personified idea — matching the video's mode.
-- **목표와 행위 주도성:** what they try to do and which choices are genuinely theirs.
-- **관심/믿음과 긴장:** what matters to them plus any supported contradiction, strength/flaw tension, or practical obstacle — shown through context and behavior, not diagnosis.
-- **관계:** established relationships and who knows or can do what; no invented shared history, and a stated ability never implies exclusivity ("knows the route" ≠ "the only one who knows it").
-- **변화:** a change or deliberate non-change only where the synopsis supports it; otherwise left open rather than manufactured.
+One concise question is warranted only when an unresolved choice materially changes the character's role or the story; otherwise proceed with labeled proposals. An invented behavior, audience habit, product feature, or real-world claim is never written as fact — a trailing assumption label does not repair a claim already asserted.
 
-The profile follows the mode. Fiction may use want/obstacle/choice/consequence for clarity but never forces redemption or a positive arc. Brand and explainer work keeps the customer as hero and the service as guide when framed that way — a guide role does not authorize a mascot or personification, and a service gets no personality, features, guarantees, or emotional victory without explicit support. Unspecified service form stays abstract or undepicted: a "subscription" label establishes no cadence, delivery method, boxes, packets, labels, or instruction cards. Documentary work never fabricates biography, and a brief needing no character gets none.
+## IDs
 
-## Making traits filmable
+Every sheet gives each character a stable `character_id` (existing spine IDs first, otherwise sequential `CH01`-style IDs) used verbatim by panels, prompts, and the relationship map; under delegation, any assigned character/sheet-artifact IDs in the packet are used instead of new ones. Standalone text allocates no project or artifact IDs — `character_id` is a content ID inside the artifact, not allocated artifact identity.
 
-Every visual cue ties to a role, action, or stated trait. Each supplied key trait or contradiction earns at least one filmable behavior or pose, carried into the image prompt's expression/pose row where useful — central traits never stay as bare labels. Draw only useful signals from:
+## Detailed guide
 
-- silhouette and proportions;
-- posture, gesture, movement rhythm, signature pose;
-- facial design and a small expression range;
-- clothing, material, wear, functional details;
-- a restrained palette and its story function;
-- carried props and how they are handled.
+Before drafting, read [`references/character-craft.md`](references/character-craft.md) — role definition, filmable-trait conversion, the voice profile and its three procurement routes, the per-character sheet format, and the self-check. It is the one detailed guide for this stage.
 
-**고정 앵커** (identity-defining features that persist) stay separate from **장면별 변화** (temporary expression, pose, dirt, damage, costume state). State what cannot change and which variants are permitted. Internal traits never collapse into stereotyped bodies, disabilities, costumes, or ethnic markers; occupational clichés are not character purpose — a prop is a design choice, not evidence of personality. An optional prop's technical purpose or effectiveness is claimed only with supplied or verified support; describe its visible form or leave it out.
+When the assignment is a full canonical `CHARACTER SSOT` — a per-character SSOT inside an image-backed preproduction package, or an explicit request for the complete format — also read [`references/character-ssot-master-prompt.md`](references/character-ssot-master-prompt.md), the section 0–33 specification for identity locks, anchors, persona/psychology/backstory depth, turnaround, anti-drift, the A–D sheet prompts, prompt text, appeal review and cast differentiation. The ledger-ready layout is [`video-production-assets/assets/character-ssot-template.md`](../video-production-assets/assets/character-ssot-template.md). B/C/D sheet prompts are specs — they authorize no extra generation or spend; only Sheet A is the mandatory actual per-character image, produced by the coordinator's image executor. A glam portrait never substitutes for the actual sheet.
 
-## Voice profile
+## Acceptance
 
-When the brief involves dialogue, narration, or a recurring on-screen voice, the sheet carries a **text** voice profile per character — this skill designs and describes; it never generates, records, or claims an audio file.
+Done means each requested sheet is returned — not a completion report — with 확정 정보/디자인 제안/관찰/미정 distinguishable, continuity anchors separated from scene variants, an in-scope voice profile where the role speaks, one reusable image-sheet prompt per character, and no invented real-person facts, claims, or media. A full delegated SSOT additionally keeps all 0–33 sections with their stated counts, a persona mappable to `{role, personality, observable_behavior, speech}`, and the Sheet A identity-sheet spec.
 
-- **Profile fields:** tone, pace, placement (chest/throat/head as a design description), language or dialect **only when supplied**, and the emotional range the role needs. The no-invented-demographics rule applies here verbatim: with no supplied age or gender, do not write "30s woman" or equivalent voice labels — describe the performance (texture, rhythm, register) instead.
-- **Procurement route** — record which of the three paths applies as `supplied` / `proposed` / `unresolved`. These are alternative branches chosen by the brief and approvals, not a fallback order to walk down:
+## Return and handoff
 
-| Route | When | Handoff |
-|---|---|---|
-| ① User-supplied voice | Recording or existing audio uploaded | Inspect the actual file and record version/source/inspected scope; rights/consent are the user's assertion, recorded as such |
-| ② Synthesis (TTS/cloning) | Requested or proposed for a voice with no recording | Rights/consent basis and actual tool capability confirmed first — cloning needs the real consent evidence and an available cloning feature; then a bounded audition approval before any generation. If cloning is unavailable, do not auto-substitute: offer audition candidates from route ③ for approval instead |
-| ③ Closest available match | No recording and synthesis not authorized/requested | Compare currently available voices against the profile; final pick needs the same audition approval — never silently substituted |
-
-
-- All three routes hand the final selection, listening check, and voice-identity continuity to [`../video-production-assets/references/22-dialogue-lipsync.md`](../video-production-assets/references/22-dialogue-lipsync.md)'s voice selection and listening procedure — this sheet only states the profile and the chosen route.
-
-## Sheet format
-
-Per character, unless another format is requested:
-
-1. **확정 정보와 미정 항목** — source facts and consequential unknowns.
-2. **역할·행동** — role, goal, agency, relevant relationship, supported tension or intended change.
-3. **시각 설계** — silhouette/posture, face/expression, clothing/material, palette, props, movement, with invented details labeled as proposals.
-4. **연속성 앵커** — fixed traits, allowed variants, do-not-change rules.
-5. **보이스 프로필** — when the role speaks: the profile fields and the procurement route from the Voice profile section; "not applicable" for silent roles. Silence is respected as-is — a role or video with no dialogue gets no invented narrator. Text only, no audio claim.
-6. **재사용 이미지 시트 프롬프트** — one generic prompt in the user's requested language (Korean by default, even when a downstream model accepts English). A clean character-reference layout: full-body front/side/back views and a small expression/pose row where suitable. Only established or explicitly proposed anchors appear; unspecified demographics stay uncommitted in both prompt and rules. Verify no unsupported label — "adult," "young," "middle-aged," "average build" — slipped in. Brand prompts carry no service packaging or instruction materials unless specified. Neutral background, consistent proportions, no irrelevant scenery, unsupported facts, or rendered-image claims.
-
-Several characters each get a distinct sheet plus a short relationship/contrast map; prompts keep identities separate and never merge characters into an unrequested scene illustration. One image prompt per character unless more were requested.
-
-## Self-check
-
-- Role and agency consistent with the supplied story or audience framing?
-- Every key trait readable as a specific playable action or visible cue?
-- Fixed facts, proposals, and unresolved items clearly distinguishable?
-- No unsupported motives, biography, demographic choices, product features, prop-effect claims, factual claims, or invented arcs?
-- Visuals specific without stereotypes or occupational shorthand?
-- Continuity anchors consistent with the spine, fixed details separated from scene variation?
-- Voice profile (when present) stated as supplied fact vs labeled proposal, with no invented demographic label, no assumed provider, and no audio-generation claim?
-- Each prompt carrying the right anchors and requested views, with no image claim?
-- The actual sheet returned rather than a completion report?
-
-Trauma, abuse, illness, or diagnosis is never required for depth, and a real person's psychological history is never inferred. Autobiographical or clinical craft material is an optional empathy/consistency aid, not diagnostic authority.
-
-## Handoff
-
-Storyboard requests inherit the character's stable visual anchors, allowed variants, relationships, and unresolved design choices via `storyboarding-video`. Anything beyond text planning returns to `creative-production` or `orchestrating-video-preproduction` — execution is never routed from here. The story spine is preserved; the premise is never silently revised to justify a design choice. Craft techniques apply within their relevant scope and are never factual evidence about a character.
+Delegated returns follow the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer): report the assigned `character_sheet` artifact ID and output version, each character's `character_id` and `persona` (`{role, personality, observable_behavior, speech}` — `N/A` explained for silent roles), the dependency/dependency_versions proposal naming the supplied synopsis/sheet/voice-note artifact versions used, material assumptions, the checks actually performed, and unresolved inputs. Under an image-backed package, the return also carries each character's Sheet A prompt spec and the proposal linking the coordinator-registered `identity_sheet_asset_id` (`kind=character_identity_sheet`, `entity_type=character`, `entity_id`=character id) once the image executor produces it; this skill never produces or claims the image itself. Where the coordinator allocated them, the per-character voice profile also carries its explicit `voice_profile` artifact ID and version in the return; standalone text allocates none. Storyboard requests inherit the characters' stable visual anchors, allowed variants, relationships, and unresolved design choices via `storyboarding-video`. Anything beyond text planning returns to `creative-production` or `orchestrating-video-preproduction` — execution is never routed from here. The story spine is preserved; the premise is never silently revised to justify a design choice.

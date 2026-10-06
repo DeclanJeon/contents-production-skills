@@ -1,5 +1,5 @@
 ---
-version: 0.16.0
+version: 0.17.0
 name: higgsfield-video-explainer
 description: |
   Build a complete non-photoreal narrated explainer or story video from
@@ -23,7 +23,11 @@ Run the MCP video-explainer workflow through Higgsfield CLI. Lock one visual sty
 
 ## Scope
 
-`creative-production` is the sole project-level coordinator for content/video production; this skill is the narrated-explainer pipeline specialist. Standalone invocation: consult `creative-production` once for scope/route, then run only the requested explainer. Delegated by `creative-production`: continue without calling back — the Phase 0 style/voice choices below are this pipeline's own contract, not a new coordination interview; do not re-run routing or add a second approval ledger. A request for one explainer implies no additional deliverables or publication.
+`creative-production` is the sole project-level coordinator for content/video production; this skill is the narrated-explainer pipeline specialist. Standalone invocation: consult `creative-production` once for scope/route, then run only the requested explainer. Delegated by `creative-production`: continue without calling back — the Phase 0 style/voice choices below are this pipeline's own contract, not a new coordination interview; do not re-run routing or add a second approval ledger. Consume assigned input IDs/versions and return the canonical output join per `../higgsfield-generate/references/package-gate.md`: block→job UUID mappings are provider locators paired to canonical shot/panel/asset IDs, never `result_asset_id` values themselves. A request for one explainer implies no additional deliverables or publication.
+
+## Package gate
+
+Apply `../higgsfield-generate/references/package-gate.md` before Phase 1 and again before each submission phase: runtime check (never auto-install), eligible operation, and ONE verified aggregate quote covering the style key + all N audio jobs + all N video jobs + assembly + approved retries — submitted for bounded approval before any job runs. `seed_audio`, `gemini_omni`, `explainer_video` are eligible video/audio operations. Higgsfield **image** generation (a custom `nano_banana_2` style key) is ineligible in this package — see Phase 1 for the lawful style-key sources.
 
 Never use the monolithic `video_explainer` job in this skill.
 
@@ -33,7 +37,7 @@ Never use the monolithic `video_explainer` job in this skill.
 |---|---|
 | `get_explainer_presets` | `higgsfield preset list video-explainer --json` |
 | `resolve_explainer_preset` | `higgsfield preset resolve video-explainer <preset_id> --json` |
-| `generate_image` / `nano_banana_pro` | `higgsfield generate create nano_banana_2 ...` |
+| `generate_image` / `nano_banana_pro` | `higgsfield generate create nano_banana_2 ...` — image job: ineligible in this package, see Phase 1 |
 | `list_voices` | `higgsfield voices list --json` |
 | `generate_audio` / `seed_audio` | `higgsfield generate create seed_audio ...` |
 | `generate_video` / `gemini_omni` | `higgsfield generate create gemini_omni ...` |
@@ -44,14 +48,8 @@ Never use the monolithic `video_explainer` job in this skill.
 
 ## Bootstrap
 
-1. If `higgsfield` is unavailable, install it:
-
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
-   ```
-
-2. If `higgsfield account status` fails, ask the user to run `higgsfield auth login`, then wait.
-3. Inspect the live contracts before the first submission:
+1. If `higgsfield` is unavailable or `higgsfield account status` fails, report the blocker — ask the user to run `higgsfield auth login`, then wait. Never install automatically; installation is a separate operation only on explicit user request.
+2. Inspect the live contracts before the first submission:
 
    ```bash
    higgsfield model get nano_banana_2
@@ -62,7 +60,7 @@ Never use the monolithic `video_explainer` job in this skill.
 
 ## Phase 0 — ask first
 
-Collect choices in two separate turns, in this order. Never merge them.
+Collect choices in two separate turns, in this order. Never merge them. Reuse any choice already supplied in the request or delegated brief (a supplied preset id, style donors, voice, duration, language, character mode, aspect, subtitles counts as that choice made); ask only what is materially unresolved. Every choice belongs to the user unless they explicitly delegate it.
 
 ### Turn 1 — style only
 
@@ -74,19 +72,17 @@ higgsfield preset list video-explainer --json
 
 Show the preset names with their thumbnail/video preview URLs. Say one short line asking the user to pick a preset, describe a custom style, or attach style-reference images, then end the turn. Do not ask production questions in the same turn. Choosing a style is mandatory; never choose silently unless the user explicitly says “you choose.”
 
-Skip this turn only when the request already contains `explainer preset id: <uuid>`. Confirm that UUID exists in the live catalog and keep it for Phase 1.
+Skip this turn when the request already supplies the style: an `explainer preset id: <uuid>` (confirm the UUID exists in the live catalog and keep it for Phase 1), supplied style-donor images, or an explicit existing style image.
 
 ### Turn 2 — production settings
 
-Only after style selection, collect every unresolved setting:
+Only after style selection, collect every *unresolved* setting:
 
 - Duration: one to ten whole minutes. `N = duration_minutes × 6` fixed 10-second blocks.
-- Narration language: English by default, but still offer the choice.
-- Character: recurring mascot or faceless stylistic scenes. Always ask.
+- Narration language: English by default; ask only when unresolved.
+- Character: recurring mascot or faceless stylistic scenes. Ask when unresolved.
 - Aspect: `16:9` by default or `9:16` vertical.
-- Subtitles: off by default. Explain that subtitles cost 0.05 credit per voiced block. If enabled, make the user choose `patrick`, `caveat`, `marker`, or `anton`; never choose silently.
-
-Every choice belongs to the user unless they explicitly delegate it.
+- Subtitles: off by default. State the CURRENT per-block subtitle cost from the live contract — do not quote a remembered price. If enabled, make the user choose `patrick`, `caveat`, `marker`, or `anton`; never choose silently.
 
 ## Inputs
 
@@ -96,7 +92,7 @@ Every choice belongs to the user unless they explicitly delegate it.
 - Optional style-reference images. Use only their rendering style and color grading; never copy their people, text, logos, or objects unless requested.
 - Duration, language, character mode, aspect, and subtitle choice from Phase 0.
 
-For local style donors, pass each path with a repeated `--image`. For a web image, download it locally first or use an existing uploaded media ID.
+Local style donors and web images (downloaded or already-uploaded media IDs) feed the lawful style-key sources in Phase 1 — they are style references for whichever eligible source produces the key, never a Higgsfield image submission.
 
 ## Hard rules
 
@@ -114,7 +110,7 @@ For local style donors, pass each path with a repeated `--image`. For a web imag
 |---|---|---|
 | 0 Ask | style first; then duration, language, character, aspect, subtitles | `preset list` + user questions |
 | R Research | verified facts and sources | available research tools |
-| 1 Style key | one universal style image | `preset resolve` or `nano_banana_2` |
+| 1 Style key | one universal style image | `preset resolve` or an existing/authorized-executor image (`nano_banana_2` is craft-only here) |
 | 2 Narration | N labeled narration lines | reasoning |
 | 3 Block prompts | N labeled video prompts | reasoning |
 | 4 Voice | user selects one voice; generate N takes | `voices list` + `seed_audio` |
@@ -147,7 +143,13 @@ The preset reference controls framing. If it conflicts with the aspect requested
 
 ### Custom style or reference images
 
-Generate exactly one key image. Use the abstract swatch template from `references/prompts.md`, or its mascot variant when character mode is enabled. Repeat `--image` for every style donor:
+The pipeline needs ONE key image. Generating it with `nano_banana_2` is a Higgsfield image job — **ineligible in this package** (package gate). Lawful sources, in preference order:
+
+1. An existing image the user supplied or already has in storage — a local file, an uploaded media ID, or a previously completed image job UUID used as `STYLE_KEY_ID`. (Eligible: reusing an existing image is not an image generation.)
+2. A CMS preset resolved through `preset resolve` (above) — it imports an existing CMS image, not a new generation.
+3. A style key produced by the explicitly authorized eligible image executor (`codex-imagen` default) using the abstract-swatch or mascot template in `references/prompts.md`, then registered/passed by path or ID. Disclose it came from the authorized executor, not the provider recipe.
+
+If none of those is available, the custom-style branch is blocked — report it and let the user pick a preset or supply a style image. Do not silently submit `nano_banana_2`. In contexts where image generation IS permitted, the preserved recipe is:
 
 ```bash
 higgsfield generate create nano_banana_2 \
@@ -158,7 +160,7 @@ higgsfield generate create nano_banana_2 \
   --json
 ```
 
-Use `9:16` for vertical. Keep the completed image job UUID as `STYLE_KEY_ID`; later CLI generations can reuse a completed job UUID as an image reference.
+Use `9:16` for vertical. Whichever lawful source produced it, `STYLE_KEY_ID` is a provider media or completed-job UUID — a locator mapped to the canonical style-key asset in the internal return.
 
 ## Phase 2 — write narration
 
@@ -198,13 +200,13 @@ For mascot mode, Block 1 greets by gesture with mouth closed, the final block wa
 
 ## Phase 4 — generate every voice take first
 
-List the live voices, present the choices, and wait for the user to select one narrator:
+List the live voices, present the choices, and wait for the user to select one narrator — unless the request or delegated brief already supplies one (a `voice_id`/`type` pair or an explicit named voice): then validate it against the live list and use it, no re-asking:
 
 ```bash
 higgsfield voices list --json
 ```
 
-Keep the selected voice's exact `id` and `type` (`preset` or `element`). Never invent or auto-pick a voice unless the user explicitly delegates it.
+Keep the selected voice's exact `id` and `type` (`preset` or `element`). Never invent or auto-pick a voice unless the user explicitly delegates it. When the coordinator allocated a `voice_profile` entity for the narrator, return the selection joined to it explicitly (entity ID + provider `voice_id`/`voice_type` locator) — don't smuggle the provider ID into the canonical field.
 
 Generate one completed `seed_audio` job per narration block, always with the same voice:
 
@@ -283,7 +285,8 @@ Do not use local ffmpeg, the legacy assembly scripts, or the monolithic `video_e
 - Style drift or realism: strengthen the shared STYLE and NEGATIVE text, then regenerate only that clip.
 - Timeout: rejoin with `higgsfield generate wait <job_id> --json`; never duplicate a running job.
 - Two identical failures mean the prompt or parameters must change.
+- Every regeneration/repair stays inside the bounded approval's retry and cost scope — re-check the package gate before exceeding it.
 
 ## Deliver
 
-Return the final assembled video URL, exact duration, aspect, narration language, selected style, narrator, subtitle status, and a Sources list for researched topics. Keep intermediate job IDs and loose asset URLs internal unless requested.
+Return the final assembled video URL, exact duration, aspect, narration language, selected style, narrator, subtitle status, and a Sources list for researched topics. Keep intermediate job IDs and loose asset URLs internal unless requested. For delegated production work, additionally return the internal canonical join (per the package gate): assembled output file path/hash and job locator, block→audio_job/video_job UUID pairs, STYLE_KEY_ID locator, observed terminal states, and measured cost.

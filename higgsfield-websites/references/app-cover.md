@@ -1,10 +1,25 @@
-# App cover + OG image (3:2, Higgsfield brand style)
+# Launch cover + OG image (3:2, official lockup style)
 
-Produce launch covers that could sit NEXT TO the official Higgsfield covers
+Produce launch covers that could sit NEXT TO the official covers
 without looking like a knock-off. This is the image behind `og_image_url` and
 the marketplace card. Also use it when the user directly asks for a "cover",
 "кавер", "обложка", "OG image", "launch cover" or "thumbnail" for a product,
 model, feature or app announcement.
+
+**Branding follows the product type.** For `--type app` (Higgsfield-integrated
+products) the cover uses the Higgsfield lockup — bundled squiggle glyph +
+"Higgsfield" wordmark + `Available now at higgsfield.ai` CTA, the defaults
+described below. For `--type website` (independent-brand products) the cover
+uses the USER'S brand: `--wordmark "<user brand>"` with `--glyph <user-logo.png>`
+(or `--glyph none` for a text-only wordmark) and the user's own CTA via `--cta`
+— never the Higgsfield wordmark, squiggle, or `higgsfield.ai` CTA. Everything
+else (scene doctrine, capsule, lockup structure) is identical.
+
+Cover generation is an authorized operation inside the approved scope/budget
+(package gate) — it is not "no permission needed". The scene image and cutout
+are image jobs: in this package they run through the explicitly authorized
+eligible image executor (`codex-imagen` default), not `higgsfield generate
+create` image models — the CLI shapes below are the preserved contract.
 
 ## The one rule that makes or breaks this skill
 
@@ -40,11 +55,13 @@ Division of labor:
    empty room, never a lone subject floating on a bare seamless, never a "moody
    teal void". One person on an empty backdrop reads as AI slop even when
    bright — stage a world, not a portrait.
-2. **One structured type lockup**, left-anchored or centered: the real
-   Higgsfield wordmark (bundled squiggle glyph + "Higgsfield", drawn
+2. **One structured type lockup**, left-anchored or centered — for `--type app`:
+   the real Higgsfield wordmark (bundled squiggle glyph + "Higgsfield", drawn
    automatically by the script) → HUGE display-caps title (2 lines max; aim for
    the official scale — the title is the loudest thing on the cover) →
-   `( Available now at higgsfield.ai )` pill. NO tagline — the reference lockup
+   `( Available now at higgsfield.ai )` pill. For `--type website`: the user's
+   wordmark/glyph (`--wordmark` + `--glyph`, or text-only `--glyph none`) →
+   title → the user's CTA. NO tagline — the reference lockup
    is wordmark → title → CTA, three rows, nothing else. Tight, aligned, flat
    white. It reads as ONE unit, not scattered captions.
 3. **Text is the LAST layer — always.** The full lockup renders on top of
@@ -85,9 +102,11 @@ Decide:
   slicing a giant ribbon of film with chrome scissors in a bright studio.
   "Skill marketplace" → a tiny craftsman forging a glowing card. Never settle
   for "person looks at hologram UI".
-- **Route**: humans/lifestyle/fashion → PHOTO (a Soul model). Product/3D/
-  illustrated world, no humans → GRAPHIC (`gpt_image_2`). Default PHOTO in
-  doubt. Run `higgsfield model list` if unsure which job types are available.
+- **Route**: humans/lifestyle/fashion → PHOTO route; product/3D/
+  illustrated world, no humans → GRAPHIC route. Default PHOTO in
+  doubt. Both routes are image jobs — in-package via the authorized eligible
+  image executor (the preserved Soul/`gpt_image_2` shapes below are reference
+  contract). Run `higgsfield model list` if unsure which job types are available.
 
 ### 2. Scene prompt doctrine (both routes)
 
@@ -127,11 +146,11 @@ Hosted at `https://static.higgsfield.ai/website-builder/app-cover-generator/refs
 | `scene-cozy-ugc.jpg` | warm handheld authenticity |
 | `scene-painterly-epic.jpg` | painterly fantasy |
 
-**PHOTO route** — a Soul model (`soul_cinematic`, or a cleaner
+**PHOTO route** — preserved shape: a Soul model (`soul_cinematic`, or a cleaner
 fashion/studio Soul), `--aspect_ratio 3:2 --quality 2k --count 2`, with 1–2
-scene refs as `--image`.
+scene refs as `--image`. In-package: same brief through the authorized executor.
 
-**GRAPHIC route** — `gpt_image_2 --aspect_ratio 3:2 --quality high
+**GRAPHIC route** — preserved shape: `gpt_image_2 --aspect_ratio 3:2 --quality high
 --resolution 2k --count 2`. Same prompt doctrine; style words like "glossy 3D
 render / claymation diorama / painterly still" replace the lens block.
 
@@ -162,6 +181,10 @@ the script refuses art below 1500 px.
 Run `image_background_remover` on the winning scene and download the cutout PNG
 — it must be the SAME image, subject isolated with alpha:
 
+The cutout step is an image-edit job — in-package through the authorized
+eligible image executor (or a local deterministic cutout); the provider shape
+is preserved:
+
 ```bash
 higgsfield generate create image_background_remover \
   --image <winning_scene_url_or_id> --wait
@@ -183,6 +206,7 @@ missing; the script fetches the Inter font + wordmark glyph from the hosted
 asset base on first run and caches them):
 
 ```bash
+# --type app (defaults: Higgsfield wordmark + squiggle + higgsfield.ai CTA)
 python3 compose_cover.py \
   --art scene.png --cutout cutout.png \
   --title "DreamCut" \
@@ -191,7 +215,22 @@ python3 compose_cover.py \
   --frame-color "#D23B2E" \
   --out-cover dreamcut_cover.png --out-og dreamcut_og.png \
   --out-og-wide dreamcut_og_wide.png
+
+# --type website (user's brand: own wordmark + optional logo glyph + own CTA)
+python3 compose_cover.py \
+  --art scene.png --cutout cutout.png \
+  --title "DreamCut" \
+  --wordmark "Acme" --glyph ./acme-logo.png --cta "See it live" \
+  --title-width 0.48 \
+  --anchor left --block-x 0.07 --block-y 0.30 \
+  --frame-color "#D23B2E" \
+  --out-cover dreamcut_cover.png --out-og dreamcut_og.png \
+  --out-og-wide dreamcut_og_wide.png
 ```
+
+A website-type cover MUST NOT carry the default `Higgsfield` wordmark, the
+squiggle glyph, or `Available now at higgsfield.ai` — pass the user's
+`--wordmark`/`--glyph`/`--cta` (`--glyph none` when the user has no logo mark).
 
 **ONE typeface, hardcoded.** Inter — the title face on the reference cover —
 renders everything: wordmark, title, CTA. There is no font flag. A different
@@ -227,7 +266,9 @@ the same folder, does mine look like the intern made it?"** Concretely verify:
       breaks out of the capsule (no window amputation)
 - [ ] zero model-rendered text anywhere in the art
 - [ ] frame color from palette, correct contrast, dots visible
-- [ ] no lime, no 3D text, no squiggle, no watermarks
+- [ ] no lime, no 3D text, no model-drawn glyph, no watermarks
+- [ ] lockup matches the product type — app: Higgsfield wordmark + squiggle +
+      higgsfield.ai CTA; website: user's brand/CTA, zero Higgsfield branding
 - [ ] art ≥ 1500 px wide (script enforces)
 
 If any box fails — fix and re-run.
@@ -425,7 +466,10 @@ class Lockup:
         self.title_px = px
         self.f_title = brand_font(px, 700)
 
-        glyph_path = ensure_asset("logo/hf-glyph.png")
+        glyph_path = (a.glyph if getattr(a, "glyph", None)
+                      else ensure_asset("logo/hf-glyph.png"))
+        if a.glyph == "none":
+            glyph_path = None
         self.glyph = (Image.open(glyph_path).convert("RGBA")
                       if glyph_path and os.path.exists(glyph_path) else None)
         self.f_word = brand_font(max(16, round(px * 0.26)), 650)
@@ -656,6 +700,8 @@ def main():
                    help="longest title line as fraction of canvas width (0.35-0.62)")
     p.add_argument("--title-max-h", type=float, default=0.26)
     p.add_argument("--wordmark", default="Higgsfield", help="'' to disable")
+    p.add_argument("--glyph", default=None,
+                   help="wordmark glyph PNG path; 'none' = text-only wordmark")
     p.add_argument("--tagline", default="")
     p.add_argument("--cta", default=CTA_DEFAULT, help="'' to disable")
     p.add_argument("--anchor", choices=["left", "center"], default="left")

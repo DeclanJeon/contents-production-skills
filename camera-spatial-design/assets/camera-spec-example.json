@@ -1,5 +1,7 @@
 {
   "schema_version": "camera-spatial-1.0",
+  "version": "1.0",
+  "artifact_id": "CAM01",
   "project_id": "dialogue-distance-previs",
   "fps": 24,
   "resolution": [

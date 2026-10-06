@@ -132,7 +132,7 @@ re-rolls.
 
 ### Phase 2 — generate the film
 
-Use the Higgsfield CLI already used by the website flow.
+Use the Higgsfield CLI already used by the website flow — for eligible media: the film/legs are VIDEO jobs (eligible through the package gate). Any still/image job in this phase (entry stills, scene stills) is ineligible via Higgsfield in-package and runs through the authorized eligible image executor — or is reported blocked.
 
 #### `single-shot` (the default) — ONE film, no chain
 
@@ -169,7 +169,8 @@ Use the Higgsfield CLI already used by the website flow.
    architecture needs; do not rely on a remembered model roster or invent
    `--start-image`/`--end-image` support.
 2. For A, submit only the entry-still candidates as async
-   `higgsfield generate create <image_job_type> ...` jobs. For B, submit all
+   `<image_job_type> ...` jobs — image jobs: in-package these go through the
+   authorized eligible image executor (preserved CLI shape shown). For B, submit all
    independent scene stills up front. Reuse the locked style preamble verbatim,
    name concrete scene props, request no text/logos/watermarks, and keep the
    focal point centered.

@@ -6,6 +6,14 @@ stock, not icon fonts, not CSS approximations. One brief → one coherent
 generated visual system. Treat this phase as designing a brand asset kit, not
 "getting a hero image".
 
+Eligibility: image jobs in this kit (art-directed stills, icon sheets, cover
+scenes, cutouts, outpaints, upscales) are ineligible via Higgsfield in this
+package — they run through the explicitly authorized eligible image executor
+(`codex-imagen` default) inside the approved scope, or are reported blocked.
+Video (`seedance_2_0` loops), `multi_image_to_3d` GLB, and game audio remain
+eligible provider jobs through the package gate. The preserved job-type list
+below is the provider contract, not in-package image execution permission.
+
 Commands (all async — submit everything up front with
 `higgsfield generate create <job_type> …` WITHOUT `--wait` so each returns a
 job id, build while rendering, poll `higgsfield generate wait <id>` /

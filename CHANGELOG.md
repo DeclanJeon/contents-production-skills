@@ -5,6 +5,20 @@
 - Add optional genre-neutral state/causality handoff slots, downstream persistence checks and cross-view visibility mapping without a new project schema or duplicate motion/physics procedures.
 - Extend edit/source-analysis artifacts with capture-time and elision evidence, normalized reference landmarks and explicitly nonunique optical reconstruction hypotheses.
 - Preserve existing core behavior: five pre-edit instruction applications already handle continuity, contact causality and N/A controls; reinforcement is an artifact/interface clarification, not measured generation-quality improvement.
+- Require the full image-backed preproduction chain: synopsis Markdown, per-character persona/0–33 Character SSOT Markdown and actual seven-view Identity Sheet A, linked technical storyboard, and one actual assembled storyboard image. Preserve narrow text-only and real-person provenance rules; fill delegated fictional design gaps as labeled proposals.
+- Add strict `preproduction` completeness validation and automatic readiness gates for reviewed/approved preproduction reviews and approved execution plans. Reuse canonical schema 1.1, IDs, versioned dependencies, actual file hashes and image decoding; no second approval ledger.
+- Add deterministic Korean-caption storyboard PNG assembly with all panel indices, synopsis locators, character SSOT versions and camera specifications outside clean pixels; reject corrupt inputs, stale source hashes, escaped output and overwrites, including crop-source provenance.
+- Reconcile the rejected 132 ad to project v1.8/stale execution records and explicit missing-package/product-treatment blockers. Preserve real sources and rejected history; no provider generation or additional production spend.
+
+## 2.4 2026-10-05
+
+- Audit all 17 instruction modules and retain their specialist boundaries; use one current-stage owner, compact versioned handoffs and a coordinator-only canonical project writer.
+- Move long text-worker/provider mode/prompt doctrine and optional routing into condition-loaded guides. Main-instruction character load is measured, not claimed as model latency/quality improvement.
+- Add read-only project_index.py and guarded update_project.py for scoped IDs, stale-input rejection, explicit versioned content owners, dependency-only stale propagation, file confinement and validated atomic upserts to existing project.json.
+- Reject dangling provenance/character/claim IDs, undeclared dependency-version keys, frame overflow, wrong synopsis/voice/spatial artifact roles and execution approval without approved preproduction review. Retain stale input versions as history.
+- Reconcile registered camera JSON with project/version/scene/shot/fps/local frames and subjects; preserve subsets. Add indexed action-peak rendering and camera hash/version/scene/beat/panel output joins. Bound smoke to first-shot/frame-zero and <=320px long edge without full-spec geometry work; actual Blender remains unverified.
+- Align nine provider skills with package image exclusion, live aggregate quote/bounded approval, no auto-install, locator/canonical namespace separation, supplied-choice reuse and dependency-ordered continuity. Private image-enhancer workflows remain explicitly blocked, never fake Codex equivalents.
+- Verification: final integrated suite 118 tests +156 subtests passed with two existing Windows decoding warnings; bounded Blender helper suite 9 tests +4 subtests passed (overlapping, not additive). Eleven actual CLI scenarios cover shot/artifact lookup, save/reload/stale rejection, same-batch transitive stale propagation, camera mismatch, confinement and overflow. Three tool-free instruction scenarios are text-only evidence, not provider/media execution. Detailed readiness and limits are recorded in docs/ORCHESTRATION_AUDIT.md and QA.
 
 ## 2.3 2026-10-04
 

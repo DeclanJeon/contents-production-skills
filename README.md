@@ -6,7 +6,7 @@
 
 `creative-production`이 유일한 총괄이다. 기존 영상 제작·텍스트 기획·카메라·Blender 전문 스킬을 유지하고, 현재 적용된 콘텐츠/영상 스킬의 범용 절차와 memorable-video v6의 유효한 제작 기법은 필요한 때만 읽는 참조로 통합한다. 중복 총괄·상태 원장·28개 마이크로 스킬을 함께 설치하지 않는다.
 
-## 포함된 8개 스킬
+## 핵심 8개 스킬과 조건부 실행 모듈
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|
@@ -15,11 +15,12 @@
 | [orchestrating-video-preproduction](orchestrating-video-preproduction/SKILL.md) | 콘셉트→시놉시스→필요한 캐릭터→스토리보드의 텍스트 기획 | 총괄의 내부 레인. 텍스트만 요청하면 이미지·영상·폴더를 만들지 않는다. |
 | [developing-video-synopses](developing-video-synopses/SKILL.md) | 콘셉트·로그라인·시놉시스·비트 | 사실·서사·추상 모드에 맞춰 작성한다. |
 | [designing-video-character-sheets](designing-video-character-sheets/SKILL.md) | 캐릭터 정체성·행동·시각 앵커·연속성·범용 이미지 프롬프트 | 텍스트 시트. 등장인물이 없는 작업에는 생략한다. |
-| [storyboarding-video](storyboarding-video/SKILL.md) | 읽을 수 있는 내러티브/정보 패널과 범용 이미지 프롬프트 | 실제 이미지·샷 타이밍·모델별 실행 입력과 구분한다. |
+| [storyboarding-video](storyboarding-video/SKILL.md) | 전체 이야기·기술 슬롯을 연결한 완전한 제작 콘티; 명시적 러프 패널은 좁은 형식 | 텍스트 기획은 실제 이미지/검수/실행과 구분한다. |
 | [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | `camera-spatial-1.0` 계약. Blender 실행과 구분한다. |
 | [blender-previsualization](blender-previsualization/SKILL.md) | 실제 Blender 프록시 장면·프리비즈·공간 검사 | Blender 런타임 필요. 최종 영상 품질을 보증하지 않는다. |
 
 설치 목록의 원본은 [manifest.json](manifest.json)이다. 전문 참조는 추가 설치 스킬이 아니다.
+설치 목록은 **총 17개: 핵심 8개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
 
 ## 제작 흐름
 
@@ -32,6 +33,9 @@
 7. 실제 결과를 검사하고 요청한 형식으로 납품한다. 계획, 파일 생성, 기술/시청각 검사, 사용자 수락, 게시 상태를 따로 보고한다.
 
 단독 전문 스킬은 총괄의 범위 계약을 한 번 확인한다. 이미 위임받은 전문 스킬은 총괄로 재귀 호출하거나 인터뷰·승인 원장을 다시 만들지 않는다. 수정 시 영향을 받는 종속 에셋과 승인만 stale로 처리한다.
+원장은 `<선택한 사용자 제작 프로젝트>/project.json`이다. 저장소의 두 project.json은 예제이며 현재 운영 프로젝트 선택 기록은 아니다. 총괄만 [현재 단계 패킷/원장 작성 계약](video-production-assets/references/contract.md#worker-handoff-and-single-writer)을 적용한다. `project_index.py --shot/--artifact`는 읽기 전용 인덱스 조회, `update_project.py --update`는 유효한 기존 원장에 대한 버전 확인·upsert·종속 stale 전파·검사 후 원자 교체다. 초기 프로젝트 생성/자동 워커 실행/승인 인증기는 아니다.
+
+17개 역할, 결함과 실제 수정, 준비율·문서 로드 측정·실행 한계는 [전체 감사 보고서](docs/ORCHESTRATION_AUDIT.md)를 참조한다.
 
 레퍼런스 기반 작업은 후보 선택 → 관찰/해석/미확인 분리 → 제작 원리의 새 소재 적용 → 필요한 프로젝트 스타일 브리프 → 정성 QA로 연결한다. 주제·시놉시스 탐색을 요청한 영상에만 [탐색 계약](orchestrating-video-preproduction/references/video-direction.md#discovery-topic-and-synopsis)의 단계별 기본 5개를 적용하며, 명시 개수·확정 입력·단일 산출물은 보존한다. 회고는 요청된 프로젝트 기록/제안이다. 자동 스킬 개선·승격·브랜드 프로필 갱신과 숫자 유사도 기반 통과/재시도는 지원하지 않는다.
 
@@ -76,6 +80,15 @@ python scripts/test_install_package.py
 python video-production-assets/scripts/test_validate_project.py
 python camera-spatial-design/scripts/test_spatial_spec.py
 ```
+
+전체 이미지 기반 프리프로덕션은 시놉 MD → 캐릭터별 페르소나/SSOT MD와 실제 7뷰 인물 설계 시트 → 연결된 기술 콘티 → 전체 패널을 담은 실제 합본 이미지가 필수다. [정본 계약](video-production-assets/references/contract.md#전체-프리프로덕션-패키지)과 [Character SSOT 0–33](designing-video-character-sheets/references/character-ssot-master-prompt.md)를 따른다. 텍스트-only 요청에 이미지 생성·지출을 추가하지 않는다.
+
+```powershell
+python video-production-assets/scripts/render_storyboard_sheet.py project.json --base-dir production-root --output storyboard-sheet.png
+python video-production-assets/scripts/validate_project.py project.json --profile preproduction --base-dir production-root
+```
+
+합본 조립에는 Pillow/한글 Unicode 폰트가 필요하다. strict profile은 실제 문서·이미지 디코딩·해시·참조·현재 버전·미해결 blocker를 검사한다. `plan valid`나 생성 성공은 이 게이트 및 실제 시각 검수의 대체물이 아니다. reviewed/approved 프리프로덕션 검토 및 approved 영상 실행 계획은 완결 이미지 패키지 검사를 자동으로 요구한다.
 
 실제 실행한 패키지·설치·기획 시나리오 증거는 [qa/consolidation-validation.json](qa/consolidation-validation.json)에 둔다. 텍스트 결과 12개(현재/이전 총괄 각 6개)는 [평가 뷰어](qa/evaluation-review.html)와 [자동 분류 결과](qa/behavior-benchmark.json)에서 비교할 수 있다. 이번 표본에서 자동 분류 기준 충족 수는 양쪽 모두 15/18이며 품질 향상을 입증한 벤치마크가 아니다. 이전 릴리스 기록은 [qa/package-validation.json](qa/package-validation.json)에 보존한다. 구조 검사는 미디어 디코딩·시청·청취·사실 진위·권리·공급자의 현재 기능을 검증하지 않는다. 텍스트 평가를 실제 미디어 제작 성공으로 보고하지 않는다.
 

@@ -1,6 +1,6 @@
 # 공간 검수 인계
-project_id: {값}
-명세 버전/shot_id: {값}
+project_id / camera artifact ID: {값}
+명세 version(artifact.version)·파일 / shot_id 목록: {값}
 검사 범위: numerical / rendered / on_set
 선택 후보와 이유: {값}
 피사체간 거리/카메라 거리/광학 깊이: {분리}

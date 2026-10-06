@@ -1,5 +1,5 @@
 ---
-version: 0.16.0
+version: 0.17.0
 name: higgsfield-marketplace-cards
 description: |
   Generate marketplace product image cards through Higgsfield: compliant
@@ -18,22 +18,30 @@ allowed-tools: Bash
 
 # Marketplace Cards
 
-Create marketplace-ready product visuals with `higgsfield marketplace-cards create`.
-The CLI first calls the backend enhancer, where marketplace rules and templates are kept private, then creates `nano_banana_2` jobs and prints result URLs.
+Create marketplace-ready product visuals through `higgsfield marketplace-cards create`.
+The CLI first calls the backend enhancer, where marketplace rules and templates are kept private, then creates `nano_banana_2` jobs and prints result URLs. (Provider contract — image jobs: ineligible to submit inside this package; see eligibility below.)
 
-`creative-production` owns content/campaign project coordination; this skill owns selected Higgsfield marketplace-image execution. Establish its **Single coordinator, scoped specialists** contract once on standalone use; on delegation, execute only the assigned scope without routing back. Preserve native upload/enhancement rules and spend approval; image delivery does not imply listing publication.
+`creative-production` owns content/campaign project coordination; this skill owns selected Higgsfield marketplace-image execution. Establish its **Single coordinator, scoped specialists** contract once on standalone use; on delegation, execute only the assigned scope without routing back — consume assigned input IDs/versions and return the canonical output join per `../higgsfield-generate/references/package-gate.md` (provider job locators such as `--main-job` are not canonical asset IDs). Preserve native upload/enhancement rules and spend approval; image delivery does not imply listing publication.
 
-## Bootstrap
+## Package gate and eligibility
 
-1. If `higgsfield` is not on `$PATH`, install it by running the official installer with Bash: `curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh`.
-2. If `higgsfield account status` fails with authentication errors, ask the user to run `higgsfield auth login`.
+Apply `../higgsfield-generate/references/package-gate.md` before any actual run: runtime check (report missing CLI/auth — never auto-install; installation only on an explicit separate request), verified quote for the whole bundle, bounded approval covering every generated card plus retries.
+
+**In this package, `higgsfield marketplace-cards create` submits provider image jobs and is therefore ineligible to execute** — package policy excludes Higgsfield image generation even when selected. The command contract below is preserved as craft/reference. Two lawful paths:
+
+1. Report the original backend workflow (private compliance templates + enhancer + `nano_banana_2` jobs) as blocked in this package. Do NOT substitute a generic image model and claim the same workflow — the backend enhancer cannot be reproduced that way.
+2. Only with explicit user authorization for a narrower deliverable: produce the listing card set with the authorized eligible image executor (`codex-imagen` default) using the scope/asset-type taxonomy below, and disclose that marketplace-compliance templates and the backend enhancer are not reproduced.
+
+## Runtime check
+
+1. `higgsfield` on `$PATH` and `higgsfield account status` succeed — else report the blocker (auth: ask the user to run `higgsfield auth login`). No automatic installation.
 
 ## UX Rules
 
 1. Respond in the user's language.
-2. Ask at most one concise confirmation question before running.
+2. Ask at most one concise confirmation question before running; reuse supplied scope/asset choices, ask only unresolved ones.
 3. Prefer a product image. If the user provides only text or a URL, proceed only when the product details are clear.
-4. Do not write final image-generation prompts yourself. Backend enhancement owns that.
+4. Do not write final image-generation prompts yourself. Backend enhancement owns that (or, on the authorized-executor path, the executor's prompt contract).
 5. Final answer should contain only the ready image URLs and short labels.
 
 ## Scope Selection
@@ -65,7 +73,7 @@ Use repeated `--asset` only for custom subsets:
 
 ## Command
 
-Build and run one `higgsfield marketplace-cards create` command from the user's request.
+Build and run one `higgsfield marketplace-cards create` command from the user's request — only where this command is actually eligible (see eligibility above; in this package it documents the preserved contract, not an executable recipe).
 
 For common bundles, use `--scope <main|product-images|aplus|full-set>`, `--prompt "<short product and listing intent>"`, optional repeated `--image <path-or-upload-id>`, and optional context flags: `--product_context`, `--brand_context`, `--category`, `--visual_style`.
 
@@ -74,7 +82,7 @@ Examples to mirror when choosing arguments:
 - Product images: `higgsfield marketplace-cards create --scope product-images --prompt "sparkling peach lemonade can for marketplace listing" --image ./can.png --category "beverage"`
 - Full set: `higgsfield marketplace-cards create --scope full-set --prompt "premium skincare serum, clean clinical marketplace visual system" --image ./serum.jpg --brand_context "minimal white and sage palette"`
 - Custom subset: repeat `--asset`, for example `--asset main_image --asset infographic --asset lifestyle`.
-- Existing completed main image job: use `--main-job <completed_main_job_id>` with the requested secondary or A+ `--asset` values.
+- Existing completed main image job: use `--main-job <completed_main_job_id>` with the requested secondary or A+ `--asset` values. `--main-job` is a provider job locator — a dependency on a completed provider job, not a canonical local asset ID; record the mapping in the internal return.
 
 ## Delivery
 

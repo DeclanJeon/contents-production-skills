@@ -1,76 +1,30 @@
 ---
 name: storyboarding-video
-version: 2.3
+version: 2.4
 description: Use to turn a synopsis, scene, visual sequence, or story beat into ordered storyboard panels, a storyboard sheet, or per-panel image prompts.
 ---
 
 # Storyboarding Video
 
-Convert a supplied or clearly stated story into ordered, readable panels — the storyboard itself in Korean by default, plus reusable generic image prompts. Prompts are text; no image is ever claimed to exist.
+Convert a supplied or clearly stated story into an ordered board — by default a complete production plan in Korean, plus reusable generic image prompts. Prompts are text; no image is ever claimed to exist.
 
-The core panel unit is a narrative/information beat, not a timed model clip. For **production-ready/detailed storyboards, complete storyboard sheets, or supplied production-board QA**, REQUIRED: read [the complete storyboard contract](../video-production-assets/references/storyboard-contract.md). Integrate shot/camera/spatial/VFX/speech/audio plans through its specialist owners **before the final board**; preserve one readable beat per image. A narrow narrative-panel request retains the text-only format below. Model-specific serialization and clip execution remain downstream.
-Default **storyboard/콘티** work uses that complete production contract. Use the narrow narrative-panel format only when the user explicitly asks for a panel exercise, rough narrative beats/thumbnails or image prompts alone. A supplied panel count remains exact; if that count cannot cover the approved story visibly, report the conflict and ask to revise count or story rather than silently omitting events.
+An ordinary **storyboard/콘티** request — and always production/detailed boards, complete board sheets, or supplied production-board QA — means the complete production plan: REQUIRED, read [the complete storyboard contract](../video-production-assets/references/storyboard-contract.md), which defines the board-purpose choice, mandatory slot table, full beat→scene→shot→panel coverage, image counts, review and indexed-correction procedure. Integrate the technical specifications **before the final board**. The narrow narrative-panel format applies only when the user explicitly asks for a standalone panel exercise, rough narrative beats/thumbnails **without a production board**, or image prompts alone — then read [`references/narrative-panels.md`](references/narrative-panels.md) instead. Never read both guides for one request. Production boards may use limited thumbnail exploration for unresolved, consequential visual choices under the complete contract; this does not turn them into narrow panel exercises or authorize image generation.
 
-`creative-production` alone coordinates projects. Standalone calls consult it once to confirm scope and route, then deliver only the requested storyboard. Work delegated by `creative-production` or `orchestrating-video-preproduction` continues on the inherited spine and approvals — no call-backs, re-routing, second interview, or second approval ledger.
+Text-only means no media, files, or spend — it does not exempt technical planning: a chat-only storyboard still returns the full contract's slot table, with media-only steps (actual image generation, clean-cut inspection, Blender execution) recorded as planned/unverified rather than performed. A supplied panel count remains exact; if that count cannot cover the approved story visibly, report the conflict and ask to revise count or story rather than silently omitting events.
 
-## Anchoring the brief
+For a **full image-backed preproduction package**, the coordinator must consume synopsis Markdown/version, each cast member's persona/SSOT Markdown and actual seven-view Identity Sheet A before final panel generation. The board links those character versions and per-shot image inputs to camera/beat/scene/shot/panel indices. Individual clean panels are not the full deliverable: return one actual assembled storyboard image covering every canonical panel in order, using the contract's deterministic renderer and registered source hashes. Prompts, a portrait, a contact-sheet specification or a folder of panels cannot replace these artifacts.
 
-Extract the synopsis or brief, requested panel count, mode, characters and objects, fixed facts, constraints, unresolved causes, and existing visual anchors. Supplied information is never re-asked.
+`creative-production` alone coordinates projects. Standalone calls consult it once to confirm scope and route, then deliver only the requested storyboard. Work delegated by `creative-production` or `orchestrating-video-preproduction` continues on the inherited spine, IDs, versions, and approvals — no call-backs, re-routing, second interview, or second approval ledger — with stage packet intake and worker return per the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer).
 
-- A confirmed synopsis and its ending are locked: no added or removed events, dialogue, characters, resolution, weather, or emotional outcomes. Add only the minimal visible connective action needed to stage what was supplied, and label material staging choices as proposals — a staging choice never becomes a new obstacle, stake, or reaction that alters the stated sequence.
-- The requested panel count is exact. With none given, pick a concise count covering the supplied beats without padding.
-- Fact and interpretation stay separate. Factual or documentary panels never depict unsupplied people, equipment, places, or records as evidence; counts-and-claims input gets neutral text/number graphics and generic non-evidentiary icons rather than invented archives, staff, scanners, photo stacks, or aged records — unless supplied or explicitly requested as fiction. Unknown causes remain unknown.
-- Keep a continuity ledger: character identity, screen position, object location and ownership, color, condition, hand, direction, and other supplied invariants.
+## Missing specialist inputs
 
-## Composing each panel
+A production board needs per-shot camera/spatial, VFX, speech/lipsync, and audio specifications from their owners. When an inherited packet lacks them, this skill does not reroute, pick owners, or reopen the pipeline: return **one indexed requirement packet** to the coordinator listing each blocked slot by scene/shot/beat index, the required input, and the blocker — then resume board assembly from the owner packets the coordinator returns. Unresolved requirements stay explicitly unresolved/blocking in the slot table; the board never silently narrows to rough panels. Simple content whose slots are legitimately N/A (e.g. neutral numeric graphics) is reasoned N/A in the table, not a gap packet.
 
-Every panel carries one dominant action or one informational change readable in a single still; compound actions like "approaches, picks up, hands over" split into their distinct beats. Every ambiguity resolves to one specific staging choice — labeled a design proposal when the brief leaves it open — used identically in the panel row, its prompt, and the sheet prompt. A storyboard never contains "A or B."
+## Return and handoff
 
-Each panel answers what the viewer learns or feels and why it follows the previous one. Cause, choice, pursuit, comparison, or deliberate reveal motivate transitions; a held reaction, visual pause, or data graphic is legitimate when it serves the story.
+Every output carries stable beat/scene/shot/panel IDs the downstream stages inherit. Delegated returns follow the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer): report the assigned board-artifact ID and output version, the dependency/dependency_versions proposal naming each input artifact version used, assumptions, the checks actually performed, and unresolved inputs. Standalone text allocates no project or artifact IDs; panel/beat IDs inside the artifact are content IDs, not allocated artifact identity.
 
-- A supplied reveal is foreshadowed through a visible cue but never shown early.
-- Every panel earns its place — narrative, emotional, tonal, or informational function; none exist to fill a count.
-- Dialogue, captions, and sound appear only when supplied or needed to read the beat — default to none rather than inventing lines, reactions, or factual captions; mark genuinely optional creative text separately.
-- Attention is guided through framing, point of view, and composition. In a narrow narrative-panel request, leave timings/movement to the requested next owner; a production board includes their linked technical specifications under the complete contract, without pretending a still image performs movement.
+Production boards follow [the complete contract](../video-production-assets/references/storyboard-contract.md) through indexed correction, clean-cut extraction and visual story review. Model-specific clip decomposition uses `creative-production`'s generation-planning §4 preserving panel IDs, beat order, reveal timing and continuity; requested model-specific prompts follow its §3. Actual image-only review and user acceptance are separate from structure checks and execution approval. Storyboard craft is not factual evidence for the depicted subject.
 
-## Output format
-
-Use the requested format; otherwise:
-
-1. **연속성 앵커** — the story/visual facts these panels need, plus unresolved items affecting depiction.
-2. **패널 표** — one ordered row per panel:
-   - **패널 번호 / 기능** — the beat's purpose in the sequence;
-   - **한 프레임의 행동** — the single readable action or information change;
-   - **보이는 대상·시점·구도** — the visible framing at this instant; production boards additionally link the shot's camera-movement specification rather than describing motion as visible inside one still;
-   - **보여줄 것 / 감출 것** — what is revealed now versus withheld;
-   - **감정·주의 초점** — observable through pose, expression, detail, or graphic hierarchy;
-   - **대사·자막·소리** — supplied or needed cue, or "없음"; no invented factual captions;
-   - **전환·연속성** — why the next panel follows; which anchors persist or change;
-   - **이미지 프롬프트** — one reusable prompt per panel.
-3. **시트 레이아웃 프롬프트** — one optional unified storyboard-sheet prompt matching the exact requested count and layout; a fixed-count template is a layout option, never a default.
-4. **핸드오프** — production boards include the contract's full beat/scene/shot/panel/character/audio mapping, image-count plan and image-only review status. Link generation-planning §4 for downstream timed model-clip decomposition and §3 for requested model-specific prompts.
-
-Prompts use the user's requested language — Korean by default, even when a downstream model accepts English. Repeat continuity-critical details in each prompt because panels may be generated separately; prompt only visible content and stable style with no unsupported scenery, text, or objects. The unified sheet prompt preserves identical character and object identities, colors, damage, ownership, and reveal order across all cells.
-
-## Continuity and reveals
-
-- Supplied object color, material, wear, scale, owner/hand, and presence hold constant until an explicit panel action changes them.
-- Ownership or condition changes appear as the panel event where they happen — never switched silently between prompts.
-- Established screen direction and spatial relationships persist unless a visible transition explains the change.
-- In a mystery or search, plant the clue before the discovery panel without displaying the answer early.
-- Factual graphics label supplied numbers and derived arithmetic separately; a visual metaphor may clarify but never implies an unsupported cause, quantity, person, or event.
-
-## Self-check
-
-- Exact panel count, one dominant beat per panel?
-- Each panel follows from the prior beat with a clear function?
-- Fixed synopsis, ending, facts, and constraints preserved?
-- Props, colors, owners, condition, and direction continuous across descriptions and prompts?
-- Reveals foreshadowed without spoiling; designated panel resolves the question?
-- Factual panels free of invented documentary-looking evidence — including anything labeled "proposal" — with unknowns still unknown?
-- Prompts in the requested language, specific enough to hold continuity, with no generation claim?
-- For a production board, all applicable camera/spatial/VFX/speech/audio slots, stable indices and start/peak/end image accounting present; actual clean-image sequence reviewed without explanatory labels/audio, or explicitly unverified? For narrow panels, technical planning stays with the requested downstream owner.
-
-## Handoff
-
-Production boards follow [the complete contract](../video-production-assets/references/storyboard-contract.md) through indexed correction, clean-cut extraction and visual story review. Timing, camera and spatial specifications are inherited from their specialist owners; model-specific clip decomposition uses `creative-production`'s generation-planning §4 preserving panel IDs, beat order, reveal timing and continuity. Actual image-only review and user acceptance are separate from structure checks and execution approval. Storyboard craft is not factual evidence for the depicted subject.
+## Acceptance
+A full production board's text design is complete only when all six contract return sections and every mandatory shooting-stage technical slot are filled or reasoned N/A. An explicitly requested concept-pitch deliverable may be complete for that stage with execution-only slots marked `deferred (승인 후)`; report it as a pitch-stage board, never as a completed shooting board. Indexed unresolved requirements block completion of the stage they serve. A full image-backed package additionally requires every actual clean image and assembled board sheet, current character SSOT references, strict preproduction validation and actual visual inspection; none substitutes for user acceptance or execution approval. A narrow board is done at the exact requested panel count, one readable beat per panel, with technical planning left to the requested downstream owner.

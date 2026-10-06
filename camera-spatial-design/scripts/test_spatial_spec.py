@@ -1,7 +1,7 @@
 import copy,json,math,unittest
 from pathlib import Path
 import os,subprocess,sys,tempfile
-from spatial_spec import validate,analyze,project,sample
+from spatial_spec import validate,analyze,project,sample,reconcile_project
 
 def spec():return json.loads((Path(__file__).parent.parent/'assets/camera-spec-example.json').read_text())
 class SpatialTests(unittest.TestCase):
@@ -45,4 +45,50 @@ class SpatialTests(unittest.TestCase):
             report=json.loads(output.read_text(encoding='utf-8'))
             self.assertTrue(report['valid'])
             self.assertEqual(report['project_id'],'한국어-é')
+
+def ledger():
+    """Minimal canonical project: SH01/SH02 cover the spec's two 2s shots at 24fps."""
+    return {
+        'schema_version':'1.1','project_id':'dialogue-distance-previs','version':'0.1','fps':24,
+        'scenes':[{'id':'S01','purpose':'대화 장면'}],
+        'characters':[{'id':'CH01','locked_traits':'t'},{'id':'CH02','locked_traits':'t'}],
+        'shots':[
+            {'id':'SH01','scene_id':'S01','character_ids':['CH01','CH02'],'asset_ids':[],'start_s':0,'end_s':2,
+             'spatial':{'mode':'numeric','artifact_id':'CAM01'}},
+            {'id':'SH02','scene_id':'S01','character_ids':['CH01','CH02'],'asset_ids':[],'start_s':2,'end_s':4,
+             'spatial':{'mode':'numeric','artifact_id':'CAM01'}},
+        ],
+        'artifacts':[{'id':'CAM01','type':'camera_spec','version':'1.0','status':'reviewed'}],
+    }
+class ReconcileTests(unittest.TestCase):
+    def test_registered_spec_attaches(self):
+        self.assertEqual(reconcile_project(ledger(),spec(),'CAM01'),[])
+    def test_subset_spec_is_legitimate(self):
+        p=spec();p['shots']=[s for s in p['shots'] if s['id']=='SH01']
+        j=ledger();j['shots'][1]['spatial']={'mode':'not_applicable','reason':'간단 그래픽'}
+        self.assertEqual(reconcile_project(j,p,'CAM01'),[])
+    def test_numeric_shot_missing_from_spec(self):
+        p=spec();p['shots']=[s for s in p['shots'] if s['id']=='SH01']
+        self.assertTrue(reconcile_project(ledger(),p,'CAM01'))
+    def test_wrong_version_project_scene_fps_duration(self):
+        def change(fn):
+            j=ledger();fn(j);return reconcile_project(j,spec(),'CAM01')
+        self.assertTrue(change(lambda j:j['shots'][1].update(scene_id='S02')))
+        self.assertTrue(change(lambda j:j.update(fps=30)))
+        self.assertTrue(change(lambda j:j['shots'][0].update(end_s=3)))
+        self.assertTrue(change(lambda j:j['shots'][0].update(start_s=0.5)))
+        j=ledger();p=spec();p['version']='9.9';self.assertTrue(reconcile_project(j,p,'CAM01'))
+        p=spec();p['project_id']='other';self.assertTrue(reconcile_project(j,p,'CAM01'))
+    def test_artifact_type_id_and_declared_mismatch(self):
+        j=ledger();self.assertTrue(reconcile_project(j,spec(),'MISSING'))
+        j['artifacts'][0]['type']='storyboard';self.assertTrue(reconcile_project(j,spec(),'CAM01'))
+        j=ledger();p=spec();del p['version'];self.assertTrue(reconcile_project(j,p,'CAM01'))
+        p=spec();p['artifact_id']='OTHER';self.assertTrue(reconcile_project(j,p,'CAM01'))
+    def test_unknown_subject_reference(self):
+        j=ledger();j['shots'][0]['character_ids']=['CH01']
+        self.assertTrue(reconcile_project(j,spec(),'CAM01'))
+    def test_standalone_spec_without_version_still_validates(self):
+        p=spec();del p['version'];del p['artifact_id']
+        self.assertEqual(validate(p),[])
+        self.assertTrue(reconcile_project(ledger(),p,'CAM01'))
 if __name__=='__main__':unittest.main()

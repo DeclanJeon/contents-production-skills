@@ -1,10 +1,10 @@
 ---
-version: 0.16.0
+version: 0.17.0
 name: higgsfield-generate
 description: |
-  Generate images/videos/3D assets/audio via Higgsfield AI. Defaults:
-  GPT Image 2.5 for image/design/text, Seedance 2.5 for
-  video, Nano Banana 2 for cartoon characters, Marketing
+  Generate videos/3D assets/audio via Higgsfield AI (image
+  branches are craft/reference only under package image
+  exclusion). Defaults: Seedance 2.5 for video, Marketing
   Studio for ads, Seed Audio 1.0 for audio.
   Use when: "generate an image", "make a video", "animate
   this photo", "image-to-video", "edit/stylize/remix this
@@ -31,26 +31,26 @@ Submit jobs to any Higgsfield model. Wraps the `higgsfield` CLI. Covers generic 
 
 ## Scope
 
-`creative-production` is the sole project-level coordinator for content/video production; this skill is the Higgsfield generation executor. Standalone invocation: consult `creative-production` once for scope/route when the request is part of a larger content effort, then run only the requested generation. Delegated by `creative-production`: proceed without calling back — no recursive routing, second interview, or new approval ledger. A single generation request implies no folder selection, project manifest, thumbnail, CTA, extra variants, or publication beyond the requested artifact. Named preset slash commands and MCP tool routes keep their own contracts.
+`creative-production` is the sole project-level coordinator for content/video production; this skill is the Higgsfield generation executor. Standalone invocation: consult `creative-production` once for scope/route when the request is part of a larger content effort, then run only the requested generation. Delegated by `creative-production`: proceed without calling back — no recursive routing, second interview, or new approval ledger; consume the assigned input IDs/versions and return the canonical output join per `references/package-gate.md`. A single generation request implies no folder selection, project manifest, thumbnail, CTA, extra variants, or publication beyond the requested artifact. Named preset slash commands and MCP tool routes keep their own contracts.
 
-## Step 0 — Bootstrap
+## Package gate
+
+Before ANY actual submission, apply the shared gate in `references/package-gate.md`: runtime check (no auto-install — report missing, install only on an explicit separate request), eligible operation, verified quote, bounded approval, current input versions, reuse of supplied choices. Eligible here: video, audio, 3D, workflow, and analysis jobs on the live schema. **Higgsfield image generation/editing is excluded by package policy — image model branches are craft/reference only** (`references/image-branches.md`); a missing image goes to the explicitly authorized eligible image executor (`codex-imagen` default), never to a silent fallback.
+
+## Step 0 — Runtime check
 
 Before any other command:
 
-1. If `higgsfield` is not on `$PATH`, install it:
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
-   ```
-2. If `higgsfield account status` fails with `Session expired` / `Not authenticated`, ask the user to run `higgsfield auth login` (interactive) and wait for confirmation.
-
+1. If `higgsfield` is not on `$PATH` or `higgsfield account status` fails with `Session expired` / `Not authenticated`, report the blocker and ask the user to run `higgsfield auth login` (interactive) or — only if they explicitly request installation — the official installer in `references/package-gate.md`. Never install automatically.
+2. Inspect the live contract before submission: `higgsfield model get <jst> --json` for the chosen model, `higgsfield model list --json` when routing is uncertain.
 
 ## UX Rules
 
 1. Be concise. No raw IDs, no JSON dumps in chat. Print the media URL for generated assets, or the text summary for Virality Predictor.
-2. No internal jargon. Don't narrate "calling higgsfield cost", "polling job".
+2. No internal jargon in user-facing chat. Cost/quote mechanics still happen — silently, at the package gate.
 3. Detect the user's language from the first message and reply in it. Technical args (`--aspect_ratio 16:9`) stay English.
-4. Don't batch-ask. Pick a sane default model and ask one thing at a time only if genuinely missing.
-5. Don't pre-estimate cost or optimize for cheaper models unless the user asks. Prefer the quality default first.
+4. Don't batch-ask. Reuse every supplied choice; ask one thing at a time only for genuinely missing decisions.
+5. Prefer the quality-first default inside the approved bounded scope. Cost status and aggregate quote are resolved at the package gate BEFORE submission — never submit on unverified or unapproved cost, and never add unrequested variants for cheapness or quality.
 6. Pass `--wait` to `generate create` so the command blocks until done and prints the result URL itself. Avoid the two-step `create` → `wait` pattern.
 
 ## Discovery guardrail
@@ -73,28 +73,14 @@ If the user says "analyze this video", "score this ad", "evaluate the hook", or 
 
 1. **Pick a model.** Start with the core defaults:
 
-   - **GPT Image 2.5** → default image model for high-fidelity general generation, graphic design, UI, banners, typography, and on-image text.
+   - Image-model defaults (GPT Image 2.5, Nano Banana 2, etc.) → craft/reference only; see `references/image-branches.md` — ineligible in this package.
    - **Seedance 2.5** (`seedance_2_5`) → SOTA default video model for serious motion, cinematic clips, multi-shot work, and image-to-video. Supports 4–30s output up to 1080p; use Seedance 2.0 when native 4K is required.
-   - **Nano Banana 2** (`nano_banana_flash`) → cartoon and illustrated characters.
    - **Marketing Studio** → default for ads, UGC, product demos, unboxing, TV spots, presenter videos, and brand/product workflows.
    - **Seed Audio 1.0** → default audio model for text-to-audio, voice, sound effects, ambience, foley, and music-like audio unless the user names Sonilo/Mirelo.
 
    Only the models below are picked without being asked. Any other model is used only when the user names it or explicitly asks for what it offers (cheaper, faster, a specific look); see `references/model-catalog.md`. A model the user names stays in use for follow-ups on the same work.
 
-   **Image:**
-   - Complete brand identity, logo system, palette, typography, brandbook, packaging system, signage, or coordinated branded asset suite → use `higgsfield-brandkit` instead.
-   - YouTube thumbnail, Shorts cover, or Instagram video cover → use `higgsfield-youtube-thumbnail` instead.
-   - Brand product visual (Pinterest pin, lifestyle, hero banner, ad pack, virtual try-on) → use `higgsfield-product-photoshoot` instead. NOT this skill.
-   - Branded ad image with avatar + product (Marketing Studio shape) → Marketing Studio Image (see Marketing Studio below)
-   - Soul Character (reference id from `higgsfield-soul-id`) → Soul 2.0 for stills, Soul Cinema (`soul_cinematic`) for cinematic
-   - New original person — UGC, editorial, fashion, lifestyle → Soul 2.0
-   - Cinematic still frame → Soul Cinema (`soul_cinematic`)
-   - Character sheet, one-shot face from reference photos, or face edit on a real photo → Seedream 5.0 Pro (`seedream_v5_pro`)
-   - Locations / environments / no-people scenes → Soul Location
-   - Logo, icon, vector-like illustration, brand mark, controlled-palette graphic → Recraft V4.1 (`recraft_v4_1`, often with `--model_type vector`)
-   - Cartoon or illustrated characters, heavily textured photos → Nano Banana 2 (`nano_banana_flash`). The id `nano_banana_2` is an alias for Nano Banana Pro, not Nano Banana 2
-   - **Default for everything else → GPT Image 2.5.** Graphic design, UI, banners, typography, product concepts, editing, and high-fidelity general generation.
-   - User asks for cheaper or faster → Nano Banana 2 Lite (`nano_banana_2_lite`) for reference edits, Z Image for drafts.
+   **Image:** Higgsfield image generation/editing is ineligible in this package — the model selection craft lives in `references/image-branches.md` for routing and non-package contexts. Route specialized image requests to their owners (brandkit, youtube-thumbnail, product-photoshoot, marketplace-cards, soul-id); a missing generic image goes to the authorized eligible image executor (`codex-imagen` default) with truthful scope, never to a Higgsfield image fallback.
 
    **Video:**
    - Complete narrated explainer from a topic, story, or document → use `higgsfield-video-explainer`, not generic video generation.
@@ -111,14 +97,14 @@ If the user says "analyze this video", "score this ad", "evaluate the hook", or 
 
    **3D:**
    - A 3D asset within a playable game or game-wide asset system → use `higgsfield-websites` (game product type).
-   - Create an actual 3D mesh/model/GLB from one or more object/product reference images → Multi-Image to 3D (`multi_image_to_3d`). Pass 1–4 images with repeated `--image`; use `--should_texture true` when the asset needs texture. If the user only asks for a 3D-rendered picture, use an image model instead.
+   - Create an actual 3D mesh/model/GLB from one or more object/product reference images → Multi-Image to 3D (`multi_image_to_3d`). Pass 1–4 images with repeated `--image`; use `--should_texture true` when the asset needs texture. If the user only asks for a 3D-rendered *picture*, that's an image job — authorized eligible executor, never a Higgsfield image model.
 
    **Audio:**
    - **Default for audio generation → Seed Audio 1.0 (`seed_audio`).** Use for text-to-audio, sound effects, ambience, foley, impacts, environmental audio, voice-style generations, and music-like audio. It requires `--prompt`; use optional `--audio-references`/`--image-references` only when the user provides references.
    - Use Sonilo Music (`sonilo_music`) only when the user explicitly asks for Sonilo or you need that specialist music model. It requires `--prompt` and `--duration`, and returns audio.
    - Use Mirelo Text to Audio (`mirelo_text_to_audio`) only when the user explicitly asks for Mirelo or you need that legacy SFX model. It requires `--prompt` and `--duration`, and returns audio.
 
-   For the actual `--model` ID to pass to `higgsfield generate create`, run `higgsfield model list --json | jq` to map display names to IDs. See `references/model-catalog.md` for the full table.
+   For the actual `--model` ID to pass to `higgsfield generate create`, run `higgsfield model list --json | jq` to map display names to IDs. See `references/model-catalog.md` for the full table; image-only rows are craft/reference (ineligible here).
 
 2. **Pass media inputs straight to flags.** Media flags accept a local file path **or** a UUID. CLI auto-uploads paths and auto-detects job vs upload for UUIDs. No need to pre-upload. Each model declares accepted media roles or `*_references` params — see `references/media-inputs.md`.
 3. **Validate quickly.** If unsure of params, run `higgsfield model get <jst> --json` once and pass only what's needed. Validate the preferred model before falling back to an older one. Use schema defaults otherwise. The server returns `adjustments` for non-fatal coercions (e.g. `aspect_ratio=99:99` → closest match) and a structured error for invalid declared-param values.
@@ -148,11 +134,8 @@ Each flag accepts either a local file path (auto-uploaded) or a UUID (upload id 
 Flags pass through to model schema. Use `higgsfield model get <jst>` to discover.
 
 ```bash
-higgsfield generate create gpt_image_2_5 --prompt "neon city at dusk" --aspect_ratio 16:9 --resolution 2k --wait
-higgsfield generate create nano_banana_flash --prompt "anime character concept, expressive pose" --image ./ref.png --wait
 higgsfield generate create seedance_2_5 --prompt "camera dollies in" --mode omni_reference --start-image ./first.png --duration 12 --resolution 1080p --wait
 higgsfield generate create grok_video_v15 --prompt "cinematic handheld shot, neon rainy street" --start-image ./image.png --duration 5 --resolution 720p --wait
-higgsfield generate create text2image_soul_v2 --prompt "..." --soul-id <soul_ref_id> --quality 2k --wait
 higgsfield generate create multi_image_to_3d --image ./front.png --image ./side.png --should_texture true --wait
 higgsfield generate create seed_audio --prompt "cinematic rain ambience with distant thunder" --wait
 higgsfield generate create sonilo_music --prompt "cinematic synthwave track" --duration 12 --wait
@@ -162,119 +145,12 @@ higgsfield generate create brain_activity --video ./ad.mp4 --wait
 
 For machine-readable output (chained pipelines, agent context), add `--json`. With `--wait --json` you get the final job object array. Without `--wait`, you get the job IDs. Virality Predictor stores raw analysis and render artifacts in the job params, but the default text output should stay to scores plus Open report.
 
-Stdin prompt: `echo "..." | higgsfield generate create z_image --wait`.
+Stdin prompt: `echo "..." | higgsfield generate create <jst> --wait`.
 
-Soul image quality: for `text2image_soul_v2` and `soul_cinematic`, pass `--quality 1.5k` or `--quality 2k`. These are UI-facing tiers; the backend maps them to `720p`/`1080p` and model-specific dimensions from the selected `--aspect_ratio`. `soul_location` has no quality selector; it uses fixed dimensions per aspect ratio.
-
-Soul style presets: `text2image_soul_v2` accepts `--style_id <uuid>`; list curated styles with `higgsfield preset list soul-v2` and pass the chosen id. `--style_id` combines with `--soul-id` but not with an image reference. `soul_cinema_studio` also accepts `--style_id`.
 
 ## Marketing Studio
 
-Branded image/video gen: avatars + products + optional setup hooks/settings + ad-style modes. Use models `marketing_studio_video` and `marketing_studio_image`.
-
-### Concepts
-
-- **Avatar** — presenter face. Curated `preset` (browse `higgsfield marketing-studio avatars list`) or `custom` (uploaded photos via `higgsfield marketing-studio avatars create`). For UGC modes, an avatar is optional if the brief clearly mentions a person; the backend can create a Soul Character automatically. Pass an avatar when the user wants a specific presenter.
-- **Product** — brand item with title + reference images. Imported from URL (`higgsfield marketing-studio products fetch --url ...`) or created from uploaded images (`higgsfield marketing-studio products create`).
-- **Webproduct** — App Store / web page version. Auto-routes when fetching App Store URLs.
-- **Hook** — reusable opening angle / ad hook. Browse with `higgsfield marketing-studio hooks list`. Hook text is prepended to the user's prompt; it does not replace `--prompt`.
-- **Setting** — reusable environment / scene context. Browse with `higgsfield marketing-studio settings list`.
-- **Ad reference** — reusable inspiration video that can be bound to an avatar and/or product. Created from an uploaded video (`--video-input <upload_id>`) or a previous generation job (`--job <job_id>`). Browse with `higgsfield marketing-studio ad-references list`. See `references/marketing-ad-references.md`.
-- **Brand kit** — captures a brand's identity (name, logo, hero images, colours, fonts, tone) for reuse across image generations. Created by handing in a website URL (`higgsfield marketing-studio brand-kits fetch --url https://… --wait`). See `references/marketing-brand-kits.md`.
-- **Ad format** — presets that drives the visual structure of a generated image (`headline`, `bullet-points`, etc.). Read-only, browse with `higgsfield marketing-studio ad-formats list`. Required input for `dtc-ads generate`.
-
-### Discovery commands
-
-Use these exact list commands when the user asks what already exists:
-
-```bash
-higgsfield marketing-studio avatars list --json
-higgsfield marketing-studio products list --json
-higgsfield marketing-studio hooks list --json
-higgsfield marketing-studio settings list --json
-higgsfield marketing-studio ad-references list --json
-higgsfield marketing-studio brand-kits list --json
-higgsfield marketing-studio ad-formats list --json
-```
-
-`--hook_id` and `--setting_id` are supported by `marketing_studio_video` only; do not pass them to `marketing_studio_image`.
-
-### UX rules (additional)
-
-- One question per phase. Don't ask product+avatar+mode upfront.
-- **Two ad approaches are mutually exclusive.** Either the user gives an ad reference video (reference-driven) **or** picks hook/setting blocks (composed-from-blocks) — never both. If the user has an ad reference selected, do not offer hook/setting; if hook/setting are picked, do not offer to attach an ad reference.
-- **Ad reference source.** The only valid inputs are a local video file (uploaded via `higgsfield upload create ... --video`) or a prior video job. If the user provides anything else, ask for a local file.
-- **`dtc-ads` ad format is mandatory.** Always ask the user to pick from `ad-formats list`. There is no auto-default — both the CLI and server reject calls without `--format-id`.
-- **`dtc-ads` optional inputs.** Suggest avatars, products, and reference media when the brief calls for them; only attach what the user picks.
-
-### Workflow — quick ad video
-
-1. **Get product.**
-   - Existing product → `higgsfield marketing-studio products list --json`
-   - URL → `higgsfield marketing-studio products fetch --url <url> --wait` (polls until import done)
-   - Local images → `higgsfield upload create <photo>...` then `higgsfield marketing-studio products create --title "..." --image <id>...`
-   Capture product id. When using `--hook_id`, strongly prefer passing `--product_ids`; hooks are designed to pivot into a product and work poorly without product context.
-2. **Pick avatar if needed.**
-   - Default: `higgsfield marketing-studio avatars list` and pick a preset matching the brand voice.
-   - Custom: `higgsfield marketing-studio avatars create --name "..." --image <upload_id>`.
-   For UGC modes, you may omit `--avatars` when no specific presenter is required and the brief mentions a person; the backend can synthesize a Soul Character.
-3. **Optionally pick setup items.**
-   - Hook: `higgsfield marketing-studio hooks list --json`
-   - Setting: `higgsfield marketing-studio settings list --json`
-   Pass selected IDs as `--hook_id <hook_id>` and `--setting_id <setting_id>` for `marketing_studio_video` only. Do not copy the hook's prompt into `--prompt` unless the user explicitly wants to reinforce the same wording.
-4. **Pick mode if needed.** Default is `ugc`; `--mode` is not required just because `--hook_id` is present. Other current slugs: `ugc_how_to`, `ugc_unboxing`, `product_showcase`, `product_review`, `tv_spot`, `wild_card`, `ugc_virtual_try_on`, `virtual_try_on`. **Hook/setting are valid only for `ugc`, `ugc_how_to`, `ugc_unboxing`, `product_review`, `ugc_virtual_try_on`** — do not pass `--hook_id` / `--setting_id` with the other modes. See `references/marketing-modes.md`.
-5. **Generate (one-shot).**
-   ```bash
-   PRODUCT_IDS_JSON=$(mktemp)
-   AVATARS_JSON=$(mktemp)
-   printf '["<product_id>"]' > "$PRODUCT_IDS_JSON"
-   printf '[{"id":"<avatar_id>","type":"preset"}]' > "$AVATARS_JSON"
-
-   higgsfield generate create marketing_studio_video \
-     --prompt "..." \
-     --avatars @"$AVATARS_JSON" \
-     --product_ids @"$PRODUCT_IDS_JSON" \
-     --mode ugc \
-     --duration 15 \
-     --resolution 720p \
-     --aspect_ratio 9:16 \
-     --wait
-   ```
-   Add `--hook_id <hook_id>` and/or `--setting_id <setting_id>` when a setup hook/setting was selected.
-   `product_ids` and `avatars` are JSON arrays; pass them via `@/path/to/file.json`. Do not pass a bare UUID to `--product_ids`.
-   Resolution is `480p`, `720p`, or `1080p`. Aspect ratio is one of `auto`/`21:9`/`16:9`/`4:3`/`1:1`/`3:4`/`9:16`. `--generate-audio true` is supported here (default `false`). `--wait` blocks until done; bump `--wait-timeout 30m` for longer ad runs.
-6. **Deliver.** URL + one-line summary (mode, duration).
-
-### Click-to-Ad shortcut (URL-driven)
-
-When the user gives a product URL and wants a marketing video in one go:
-
-```bash
-# 1. Trigger fetch (returns the product id, import runs in the background)
-higgsfield marketing-studio products fetch --url https://shop.example.com/sneakers --wait
-
-# 2. Generate the marketing video against the same URL — backend reuses the entity
-higgsfield generate create marketing_studio_video \
-  --url https://shop.example.com/sneakers \
-  --mode ugc \
-  --duration 15 \
-  --aspect_ratio 9:16 \
-  --wait
-```
-
-Backend dedupes by URL, so repeated runs reuse the existing entity instead of re-fetching.
-
-### Workflow — marketing image
-
-Same as above but use `marketing_studio_image` model:
-
-```bash
-higgsfield generate create marketing_studio_image \
-  --prompt "..." \
-  --aspect_ratio 1:1 \
-  --resolution 2k \
-  --wait
-```
+Branded ad generation: avatars + products + hooks/settings + ad-style modes on `marketing_studio_video` (eligible video output). `marketing_studio_image` is an image job — ineligible in this package. Load `references/marketing-studio.md` before any Marketing Studio work: concepts (avatar/product/webproduct/hook/setting/ad reference/brand kit/ad format), discovery commands, mutual-exclusion rules, the quick-ad-video and Click-to-Ad workflows, and per-mode contract details.
 
 ## Virality Predictor video scoring
 
@@ -314,6 +190,9 @@ See `references/troubleshooting.md` for more.
 
 Load on demand:
 
+- `references/package-gate.md` — REQUIRED before any submission: runtime check, execution eligibility, bounded approval, canonical handoff join
+- `references/image-branches.md` — image model routing/taxonomy/CLI craft (ineligible in this package)
+- `references/marketing-studio.md` — Marketing Studio concepts, entities, modes, ad workflows
 - `references/model-catalog.md` — picking the right model for the task
 - `references/workflows.md` — `draw_to_video` and `reframe` workflow generation
 - `references/prompt-engineering.md` — writing prompts that work

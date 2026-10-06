@@ -1,5 +1,5 @@
 ---
-version: 0.16.0
+version: 0.17.0
 name: higgsfield-websites
 description: |
   Build, edit, and deploy full-stack websites, apps and games via the Higgsfield CLI (`higgsfield website …`). Each is a React 19 + TanStack Start SSR app in one Cloudflare Worker (D1/R2/KV/DO/Containers). THREE product types, picked via `--type` on create: `website` (standalone, no Higgsfield integration — references/website-flow.md), `app` (Sign in with Higgsfield + fnf SDK, Quanta — references/app-flow.md), `game` (realtime multiplayer rooms — references/game-flow.md). Routes to the right flow; each carries its own rules and deploy/publish gates.
@@ -97,16 +97,16 @@ are rejected — if that happens, try a close variant.
 
 ## Prerequisites
 
-1. If `higgsfield` is not on `$PATH`, install it:
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
-   ```
-2. If `higgsfield account status` reports `Session expired` / `Not authenticated`,
-   ask the user to run `higgsfield auth login` (interactive) and wait for
-   confirmation.
-3. `git` and `bun` are used locally once you clone the repo. The CLI itself
-   handles create / repo / deploy / publish / status / db / secrets —
-   and the asset generation jobs (`higgsfield generate …`, `higgsfield model …`).
+1. `higgsfield` on `$PATH` and `higgsfield account status` clean — else report the blocker and ask the user to run `higgsfield auth login` (interactive). Never auto-install; installation is a separate operation only when the user explicitly requests it.
+2. `git` and `bun` are used locally once you clone the repo; report if missing. The CLI itself handles create / repo / deploy / publish / status / db / secrets — and the asset generation jobs (`higgsfield generate …`, `higgsfield model …`).
+
+## Package gate and scope
+
+This is an explicit separate web-product lane: it loads only for a requested website/app/game build, edit, deploy, publish, or game-asset task — never for ordinary production boards or brand/UI work (those keep their own owners). Apply `../higgsfield-generate/references/package-gate.md` before any paid provider operation: runtime check, eligible operation, verified quote covering the whole asset kit + cover + film + retries, bounded approval. Every cover, board, kit asset, film leg, and analysis job is an authorized operation inside that approval — nothing is "no permission needed".
+
+**Image generation inside flows (design boards, asset-kit stills, cover scenes, storyboard) is ineligible via Higgsfield in this package** — those stages run only through the explicitly authorized eligible image executor (`codex-imagen` default), or are reported blocked; video/audio/3D jobs (scroll-scrub film, cover video, GLB, game audio) remain eligible through the gate. Flow references that show `higgsfield generate create <image_job_type>` are preserved contract, not in-package execution.
+
+For delegated production work, consume the assigned scope and return the canonical join per the shared gate: website_id/subdomain/deploy state and asset-provider locators mapped to canonical assets — never a URL as `result_asset_id`.
 
 ## Pick the path, then follow ONE flow end-to-end
 
@@ -120,13 +120,11 @@ are rejected — if that happens, try a close variant.
    type, including its own references, hard rules, editing map, and
    deploy/publish gates:
 
-For every `--type website` build the intake ALWAYS asks the user to choose
-between an **Animated (recommended)** website — a scroll-driven journey through
-a generated film (`references/scroll-scrub.md`) — and a **Non-animated** one.
-This question is mandatory: never skip it, even when the request seems to imply
-a choice. Animated is the recommended default (used only when the user is
-unreachable / doesn't answer); the flow below carries both paths and the full
-pipeline.
+For every `--type website` build the intake offers **Animated (recommended)** —
+a scroll-driven journey through a generated film (`references/scroll-scrub.md`)
+— vs **Non-animated**. Ask when the request does not state it; honor a stated
+choice without re-asking. Animated is the default only when genuinely
+unresolved/unreachable; say so in one line when defaulted.
 
 Inside the animated path the default is a **single-shot** film — ONE continuous
 ~15s take, scrubbed end to end, no seams. The multi-scene chain is opt-in and
@@ -166,9 +164,17 @@ deferred to `higgsfield website publish`. Hard rules:
 - **No "simple app" exception.** A utility tool, a timer, a one-page toy —
   they all get the generated cover. A hand-authored inline-SVG favicon is
   fine *as a favicon*; it never substitutes for the generated cover.
-- **No permission needed** for the cover image — generate it the same way you
-  write real copy. Only the optional cover VIDEO (`og_video_url`) is
-  permission-gated (video costs credits — offer, never generate unprompted).
+- **Cover generation is an authorized operation** — it runs inside the approved
+  scope/budget from the package gate like every other asset, not "no permission
+  needed". Its scene/image job follows the same eligibility rules (authorized
+  eligible image executor in-package). The optional cover VIDEO (`og_video_url`)
+  is separately permission-gated (video costs credits — offer, never generate
+  unprompted).
+- **Cover branding follows the product type.** `--type app` covers use the
+  Higgsfield lockup (app-cover.md default). `--type website` covers use the
+  USER'S brand lockup/wordmark or none — never the Higgsfield wordmark or the
+  "Available now at higgsfield.ai" CTA; the user's brand is the only brand on
+  the cover too. `references/app-cover.md` carries the flags.
 - A build presented as done with an empty cover or empty `og_title` is
   INCOMPLETE. Publishing without them is a BROKEN publish (empty `og_title`
   is invisible on the feed; empty cover is a blank card).
@@ -201,9 +207,11 @@ scarcest resource after credits:
   series of commands) instead of one micro-step per turn.
 - **Never guess paths** — the template tree is documented in the repo's
   `app/AGENTS.md` and this skill's editing map.
-- **Never download or vision-inspect your own generations.** You wrote the
-  prompt; re-viewing the result tells you nothing new. (The kit coherence
-  check, when it applies, is ONE batched pass — `references/asset-system.md`.)
+- **Visual QA is a deliberate batched pass, not a blanket ban.** Don't idle-reinspect
+  what you just generated — but DO look at the artifacts the flow marks for review:
+  every design board (Phase 1), the kit coherence pass (`references/asset-system.md`),
+  and the cover candidates before composing (`references/app-cover.md`). A prompt
+  is not evidence the output is correct.
 - **Wait on a job ONCE, when its output is the next input.** Submit everything
   that can render concurrently (film + cover), build the page while it
   renders.
@@ -218,7 +226,8 @@ user cares about:
 
 - "Setting up your site…" — not "cloning the repo" / "scaffolding the project".
 - "Saving your changes…" / "Updating the site…" — not "committing" / "pushing".
-- "Your preview is ready: <url>" — not "deployed the branch" / "the build passed".
+- "Your site is live: <url>" — not "deployed the branch" / "the build passed".
+  Every deploy IS the live public site (UX rule 4); never call it a "preview".
 - "Publishing your site…" — not "merging to main" / "pushing to production".
 
 This is about the WORDS in chat only — keep doing the real steps behind the
