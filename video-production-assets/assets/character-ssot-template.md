@@ -169,7 +169,7 @@
 | `characters[].persona` | `{role, personality, observable_behavior, speech}` — 모두 비어 있지 않은 문자열; 무언 역할의 speech는 이유가 적힌 `N/A` |
 | `characters[].ssot_artifact_id` | `type=character_sheet` artifact — 실제 SSOT Markdown 에셋을 연결하고 시놉시스 artifact·버전에 의존 |
 | `characters[].identity_sheet_asset_id` | 이미지 기반 전용 — `kind=character_identity_sheet`, `entity_type=character`, `entity_id`=character_id; 실제 Sheet A 이미지 |
-| `preproduction` | `{mode: text|image_backed, synopsis_artifact_id, storyboard_artifact_id, storyboard_sheet_artifact_id?}` |
+| `preproduction` | `{mode: text|image_backed, synopsis_artifact_id, storyboard_artifact_id, storyboard_sheet_artifact_ids, storyboard_split_asset_id}` — 합본 시트는 정렬된 artifact ID 배열(시트당 최대 8패널; 한 장도 배열), split pointer는 실제 장면·패널 추출 manifest asset |
 
 ## 생성 메타데이터 (실제 확인분만)
 - provider:

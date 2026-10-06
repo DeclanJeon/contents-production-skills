@@ -79,7 +79,7 @@
 | `characters[].persona` | `{role, personality, observable_behavior, speech}` — 모두 비어 있지 않은 문자열; 무언·해당 없음은 이유가 적힌 `N/A` |
 | `characters[].ssot_artifact_id` | `type=character_sheet` artifact — 실제 SSOT Markdown 에셋, synopsis artifact·버전에 의존 |
 | `characters[].identity_sheet_asset_id` | `mode=image_backed` 전용 — `kind=character_identity_sheet`, `entity_type=character`, `entity_id`=character_id; 인물당 실제 Sheet A 이미지 1장 |
-| `preproduction` | `{mode: text|image_backed, synopsis_artifact_id, storyboard_artifact_id, storyboard_sheet_artifact_id?}` — 루트 선언; text 모드는 실제 이미지 요구가 없고, image_backed 검토·실행은 text 모드로 우회할 수 없다 |
+| `preproduction` | `{mode: text|image_backed, synopsis_artifact_id, storyboard_artifact_id, storyboard_sheet_artifact_ids, storyboard_split_asset_id}` — 시트 artifact ID는 한 장도 이야기 순서 배열(시트당 최대 8패널), split pointer는 실제 장면/패널 추출 manifest asset. text는 이미지 요구가 없고 image_backed 검토·실행은 text로 우회하지 않는다 |
 
 추적 체인은 synopsis artifact·버전·소스 locator → `character_sheet` artifact·버전 → 단일 `character_identity_sheet` 에셋 → 샷/패널 참조 입력이다. `mode=image_backed`에서 캐릭터를 이름으로 호출하는 샷은 그 인물의 정체성 이미지 에셋을 소비한다. 실제 이미지 검수는 시트의 각 뷰와 선언 앵커를 직접 비교한다 — 프롬프트가 생성된 시트를 뜻하지 않고, 공급자 성공은 정체성 QA가 아니다.
 

@@ -1,13 +1,16 @@
-"""Additional full-package checks; shared validation owns record and file hashes.
+"""Completeness checks for full preproduction packages and sheet-derived output.
 
-No artistic, identity-similarity, rights or user-approval attestation is made.
-Standalone plans without a full package do not use this gate.
+Shared project validation owns record schemas and registered-file hashes; this
+validator joins current sheets and split manifests to canonical panels, scenes
+and their registered extracted files. It makes no artistic, identity-similarity,
+rights or user-approval attestation. Standalone plans without a full package do
+not use this gate.
 """
 import re
 from pathlib import Path
 
 
-def validate_preproduction(project, base_dir=None, *, image_backed_required=False):
+def validate_preproduction(project, base_dir=None, *, image_backed_required=False, panels_per_sheet=8):
     errors = []
     if not isinstance(project, dict):
         return ['preproduction: project must be an object']
@@ -74,7 +77,17 @@ def validate_preproduction(project, base_dir=None, *, image_backed_required=Fals
         if base is None:
             return row
         try:
-            resolved = (base / path).resolve()
+            raw = Path(path)
+            if raw.is_absolute() or '..' in raw.parts:
+                errors.append(f'preproduction {label}: unsafe project-relative path')
+                return row
+            candidate = base
+            for part in raw.parts:
+                candidate = candidate / part
+                if candidate.is_symlink() or (hasattr(candidate, 'is_junction') and candidate.is_junction()):
+                    errors.append(f'preproduction {label}: symbolic link in managed path')
+                    return row
+            resolved = candidate.resolve()
             if not resolved.is_relative_to(base) or not resolved.is_file():
                 errors.append(f'preproduction {label}: file missing or outside project root')
                 return row
@@ -110,7 +123,8 @@ def validate_preproduction(project, base_dir=None, *, image_backed_required=Fals
     if not isinstance(sb, dict) or sb.get('synopsis_artifact_id') != synopsis_id:
         errors.append('preproduction: storyboard must use the package synopsis')
     from validate_storyboard import validate_storyboard
-    errors.extend(validate_storyboard(project, base_dir, images, check_project=False))
+    errors.extend(validate_storyboard(project, base_dir, images, check_project=False,
+                                      panels_per_sheet=panels_per_sheet))
 
     for cid, character in characters.items():
         persona = character.get('persona')
@@ -142,31 +156,18 @@ def validate_preproduction(project, base_dir=None, *, image_backed_required=Fals
 
     required_review_inputs = [synopsis_id, board_id]
     if images:
-        sheet_id = package.get('storyboard_sheet_artifact_id')
-        sheet = artifact(sheet_id, 'storyboard_sheet', 'combined storyboard sheet')
-        dependency(sheet, board_id, 'combined storyboard sheet')
-        ids = sheet.get('asset_ids') if sheet is not None else None
-        if not isinstance(ids, list) or len(ids) != 1:
-            errors.append('preproduction combined storyboard sheet: exactly one actual image asset required')
+        sheet_ids = package.get('storyboard_sheet_artifact_ids')
+        if not isinstance(sheet_ids, list) or not sheet_ids \
+                or any(not isinstance(sheet_id, str) for sheet_id in sheet_ids):
+            errors.append('preproduction combined storyboard sheets: ordered sheet artifact ids required')
         else:
-            image = file_asset(ids[0], 'combined storyboard sheet', kind='storyboard_sheet', image=True)
-            panels = sb.get('panels') if isinstance(sb, dict) else None
-            if image is not None and isinstance(panels, list):
-                rows = [p for p in panels if isinstance(p, dict)]
-                if image.get('panel_ids') != [p.get('id') for p in rows]:
-                    errors.append('preproduction combined storyboard sheet: every panel must appear once in story order')
-                source_ids = [p.get('source_sheet_asset_id', p.get('image_asset_id')) for p in rows]
-                if image.get('source_asset_ids') != source_ids:
-                    errors.append('preproduction combined storyboard sheet: source mapping does not match panels')
-                expected_hashes = {sid: assets.get(sid, {}).get('sha256')
-                                   for sid in source_ids if isinstance(sid, str)}
-                if image.get('source_sha256') != expected_hashes:
-                    errors.append('preproduction combined storyboard sheet: source hashes are stale or missing')
-                for panel in rows:
-                    file_asset(panel.get('image_asset_id'), f'panel {panel.get("id")}', image=True)
-                    if panel.get('source_sheet_asset_id') is not None:
-                        file_asset(panel['source_sheet_asset_id'], f'panel {panel.get("id")} crop source', image=True)
-        required_review_inputs.append(sheet_id)
+            required_review_inputs.extend(sheet_ids)
+            for sheet_id in sheet_ids:
+                label = f'combined storyboard sheet {sheet_id}'
+                sheet_artifact = artifact(sheet_id, 'storyboard_sheet', label)
+                dependency(sheet_artifact, board_id, label)
+        from asset_gate import validate_storyboard_extractions
+        errors.extend(validate_storyboard_extractions(project, base))
 
     # Review may consume these through the sheet/board dependency chain.
     for rid, row in artifacts.items():

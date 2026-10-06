@@ -2,6 +2,8 @@
   "project_id": "",
   "version": "0.1",
   "target_duration_s": null,
+  "look_asset_id": null,
+  "preproduction": null,
   "fps": 24,
   "aspect_ratio": "16:9",
   "scenes": [],

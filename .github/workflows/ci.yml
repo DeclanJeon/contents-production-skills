@@ -15,7 +15,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install test dependencies
-        run: python -m pip install pytest
+        run: python -m pip install pytest Pillow
 
       - name: Version consistency
         run: python scripts/check_versions.py
@@ -29,7 +29,7 @@ jobs:
           print(f'json ok: {len(paths)} file(s)')"
 
       - name: Unit tests
-        run: python -m pytest scripts -q
+        run: python -m pytest -q
 
       - name: Sync dry run
         run: python scripts/sync_installed.py --dry-run --quiet

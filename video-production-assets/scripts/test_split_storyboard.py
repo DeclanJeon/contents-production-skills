@@ -212,5 +212,265 @@ class SplitTests(unittest.TestCase):
         self.assertFalse(self.out().exists())
 
 
+
+def produced_sheet(path, size, pixels, panel_ids, bounds, bands,
+                   traceability=None, source_sha256=None, index=1, count=1):
+    """Write a PNG that mimics a produced storyboard sheet: flat pixel
+    regions at recorded bounds plus the renderer's text metadata."""
+    from PIL import PngImagePlugin
+    im = Image.new('RGB', size, (0, 0, 0))
+    for color, box in pixels:
+        for x in range(box[0], box[2]):
+            for y in range(box[1], box[3]):
+                im.putpixel((x, y), color)
+    meta = PngImagePlugin.PngInfo()
+    meta.add_text('storyboard_sheet.panel_ids', ','.join(panel_ids))
+    meta.add_text('storyboard_sheet.panel_bounds',
+                  json.dumps([{'panel_id': p, 'bounds': b}
+                              for p, b in zip(panel_ids, bounds)]))
+    meta.add_text('storyboard_sheet.scene_bounds', json.dumps(bands))
+    meta.add_text('storyboard_sheet.panel_traceability',
+                  json.dumps(traceability or [{'panel_id': p} for p in panel_ids]))
+    meta.add_text('storyboard_sheet.source_sha256', json.dumps(source_sha256 or {}))
+    meta.add_text('storyboard_sheet.sheet_index', str(index))
+    meta.add_text('storyboard_sheet.sheet_count', str(count))
+    im.save(path, pnginfo=meta)
+
+
+class SheetModeTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.base = Path(self.temp.name)
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def proj(self):
+        p = project()
+        p['scenes'].append({'id': 'S02', 'purpose': 'y'})
+        p['shots'][1]['scene_id'] = 'S02'
+        sources = [('SHEET1', 'source-sheet.png', (10, 20, 30)),
+                   ('CLEAN1', 'source-clean.png', (40, 50, 60))]
+        for aid, name, color in sources:
+            Image.new('RGB', (3, 3), color).save(self.base / name)
+            path = self.base / name
+            p['asset_registry'].append({
+                'id': aid, 'kind': 'image', 'version': '1', 'status': 'available',
+                'path': name, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
+        return p
+
+    def provenance(self, p, panel_ids):
+        panels = {row['id']: row for row in p['storyboard']['panels']}
+        shots = {row['id']: row for row in p['shots']}
+        assets = {row['id']: row for row in p['asset_registry']}
+        rows, hashes = [], {}
+        for panel_id in panel_ids:
+            panel = panels[panel_id]
+            source_id = panel.get('source_sheet_asset_id') or panel.get('image_asset_id')
+            source = assets[source_id]
+            hashes[source_id] = source['sha256']
+            rows.append({'panel_id': panel_id, 'source_asset_id': source_id,
+                         'source_asset_version': source['version'],
+                         'source_sha256': source['sha256'],
+                         'shot_id': panel['shot_id'],
+                         'scene_id': shots[panel['shot_id']]['scene_id'],
+                         'asset_version_refs': panel.get('asset_version_refs', {})})
+        return rows, hashes
+
+    def out(self, name='cuts'):
+        return self.base / name
+
+    def test_extracts_clean_panels_scene_dirs_and_overviews(self):
+        p = self.proj()
+        trace, hashes = self.provenance(p, ['P01'])
+        produced_sheet(self.base / 's1.png', (20, 10),
+                       [((255, 0, 0), [2, 2, 6, 6])],
+                       ['P01'], [[2, 2, 6, 6]],
+                       [{'scene_id': 'S01', 'bounds': [1, 1, 19, 9]}],
+                       traceability=trace, source_sha256=hashes)
+        trace, hashes = self.provenance(p, ['P02'])
+        produced_sheet(self.base / 's2.png', (20, 10),
+                       [((0, 255, 0), [3, 1, 7, 5])],
+                       ['P02'], [[3, 1, 7, 5]],
+                       [{'scene_id': 'S02', 'bounds': [1, 0, 19, 8]}],
+                       traceability=trace, source_sha256=hashes, index=2, count=2)
+        manifest = split_storyboard(p, self.base, self.out(),
+                                    sheets=['s1.png', 's2.png'])
+        # Clean panel images are real recorded-bounds crops.
+        p1 = Image.open(self.out() / 'scenes/S01/panels/0001_P01.png')
+        self.assertEqual(p1.size, (4, 4))
+        self.assertEqual(p1.getpixel((0, 0)), (255, 0, 0))
+        p2 = Image.open(self.out() / 'scenes/S02/panels/0002_P02.png')
+        self.assertEqual(p2.getpixel((0, 0)), (0, 255, 0))
+        # Scene overview exists per scene and carries only its own band.
+        o1 = Image.open(self.out() / 'scenes/S01/S01.png')
+        self.assertEqual(o1.size, (18, 8))
+        colors = {c for _, c in o1.getcolors(o1.width * o1.height)}
+        self.assertIn((255, 0, 0), colors)
+        self.assertNotIn((0, 255, 0), colors)
+        # Manifest: exact paths, indices, checksums, sheet provenance.
+        e1, e2 = manifest['entries']
+        self.assertEqual(e1['file'], 'scenes/S01/panels/0001_P01.png')
+        self.assertEqual((e1['panel_id'], e1['shot_id'], e1['scene_id']),
+                         ('P01', 'SH01', 'S01'))
+        self.assertEqual(e1['bounds'], [2, 2, 6, 6])
+        self.assertEqual(e2['scene_id'], 'S02')
+        self.assertEqual(e2['sheet_path'], 's2.png')
+        self.assertEqual(e2['sheet_index'], 2)
+        self.assertEqual(e1['sha256'],
+                         hashlib.sha256((self.out() / e1['file']).read_bytes()).hexdigest())
+        scenes = {s['scene_id']: s for s in manifest['scenes']}
+        self.assertEqual(set(scenes), {'S01', 'S02'})
+        self.assertEqual(scenes['S02']['panel_ids'], ['P02'])
+        self.assertEqual([s['sheet_index'] for s in manifest['sheets']], [1, 2])
+        on_disk = json.loads((self.out() / 'split-manifest.json').read_text())
+        self.assertEqual(on_disk, manifest)
+
+    def test_missing_recorded_bounds_rejected_no_output(self):
+        Image.new('RGB', (20, 10), (0, 0, 0)).save(self.base / 'plain.png')
+        Image.new('RGB', (20, 10), (0, 0, 0)).save(self.base / 'plain2.png')
+        with self.assertRaises(ValueError):
+            split_storyboard(self.proj(), self.base, self.out(),
+                             sheets=['plain.png', 'plain2.png'])
+        self.assertFalse(self.out().exists())
+
+    def test_coverage_mismatch_rejected_no_output(self):
+        produced_sheet(self.base / 'only.png', (20, 10),
+                       [((255, 0, 0), [2, 2, 6, 6])],
+                       ['P01'], [[2, 2, 6, 6]],
+                       [{'scene_id': 'S01', 'bounds': [1, 1, 19, 9]}])
+        with self.assertRaisesRegex(ValueError, 'coverage'):
+            split_storyboard(self.proj(), self.base, self.out(),
+                             sheets=['only.png'])
+        self.assertFalse(self.out().exists())
+
+    def test_corrupt_second_sheet_leaves_no_partial_output(self):
+        produced_sheet(self.base / 'good.png', (20, 10),
+                       [((255, 0, 0), [2, 2, 6, 6])],
+                       ['P01'], [[2, 2, 6, 6]],
+                       [{'scene_id': 'S01', 'bounds': [1, 1, 19, 9]}])
+        (self.base / 'bad.png').write_bytes(b'not an image')
+        with self.assertRaises(ValueError):
+            split_storyboard(self.proj(), self.base, self.out(),
+                             sheets=['good.png', 'bad.png'])
+        self.assertFalse(self.out().exists())
+        self.assertEqual([f for f in self.base.iterdir()
+                          if f.name.startswith('.cuts')], [])
+
+    def test_existing_output_refused(self):
+        self.out().mkdir()
+        produced_sheet(self.base / 's1.png', (20, 10), [], ['P01'], [],
+                       [{'scene_id': 'S01', 'bounds': [0, 0, 1, 1]}])
+        with self.assertRaisesRegex(ValueError, 'already exists'):
+            split_storyboard(self.proj(), self.base, self.out(), sheets=['s1.png'])
+
+    def test_sheet_output_cannot_escape_project_root(self):
+        outside = self.base.parent / (self.base.name + '-escaped')
+        with self.assertRaisesRegex(ValueError, 'inside'):
+            split_storyboard(self.proj(), self.base, outside, sheets=['s1.png'])
+        self.assertFalse(outside.exists())
+
+    def test_scene_id_cannot_escape_extraction_directory(self):
+        p = self.proj()
+        p['shots'][0]['scene_id'] = '../../escape'
+        produced_sheet(self.base / 'sheet.png', (20, 10),
+                       [((255, 0, 0), [2, 2, 6, 6]), ((0, 255, 0), [10, 2, 14, 6])],
+                       ['P01', 'P02'], [[2, 2, 6, 6], [10, 2, 14, 6]],
+                       [{'scene_id': '../../escape', 'bounds': [1, 1, 7, 9]},
+                        {'scene_id': 'S02', 'bounds': [9, 1, 19, 9]}])
+        with self.assertRaisesRegex(ValueError, 'unsafe scene_id'):
+            split_storyboard(p, self.base, self.out(), sheets=['sheet.png'])
+        self.assertFalse(self.out().exists())
+
+    def test_source_version_drift_blocks_extraction(self):
+        p = self.proj()
+        p['asset_registry'].append({'id': 'SOURCE', 'version': '2', 'sha256': 'current'})
+        produced_sheet(self.base / 'sheet.png', (20, 10),
+                       [((255, 0, 0), [2, 2, 6, 6]), ((0, 255, 0), [10, 2, 14, 6])],
+                       ['P01', 'P02'], [[2, 2, 6, 6], [10, 2, 14, 6]],
+                       [{'scene_id': 'S01', 'bounds': [1, 1, 7, 9]},
+                        {'scene_id': 'S02', 'bounds': [9, 1, 19, 9]}],
+                       traceability=[{'panel_id': 'P01', 'source_asset_id': 'SOURCE',
+                                      'source_asset_version': '1'},
+                                     {'panel_id': 'P02'}])
+        with self.assertRaisesRegex(ValueError, 'changed since'):
+            split_storyboard(p, self.base, self.out(), sheets=['sheet.png'])
+        self.assertFalse(self.out().exists())
+
+    def test_wrong_canonical_source_asset_rejected_before_extraction(self):
+        p = self.proj()
+        trace, hashes = self.provenance(p, ['P02'])
+        trace[0]['panel_id'] = 'P01'
+        produced_sheet(self.base / 'wrong.png', (20, 10),
+                       [((255, 0, 0), [2, 2, 6, 6])],
+                       ['P01'], [[2, 2, 6, 6]],
+                       [{'scene_id': 'S01', 'bounds': [1, 1, 19, 9]}],
+                       traceability=trace, source_sha256=hashes)
+        with self.assertRaisesRegex(ValueError, 'source asset does not match canonical'):
+            split_storyboard(p, self.base, self.out(), sheets=['wrong.png'])
+        self.assertFalse(self.out().exists())
+
+    def test_missing_source_traceability_is_rejected_before_extraction(self):
+        p = self.proj()
+        produced_sheet(self.base / 'missing-trace.png', (20, 10),
+                       [((255, 0, 0), [2, 2, 6, 6])],
+                       ['P01'], [[2, 2, 6, 6]],
+                       [{'scene_id': 'S01', 'bounds': [1, 1, 19, 9]}])
+        with self.assertRaisesRegex(ValueError, 'source asset version/hash changed'):
+            split_storyboard(p, self.base, self.out(), sheets=['missing-trace.png'])
+        self.assertFalse(self.out().exists())
+
+    def test_forged_sheet_source_and_panel_pins_are_rejected(self):
+        cases = [
+            ('source_asset_id', 'CLEAN1', None, 'sheet source asset does not match canonical'),
+            ('source_sha256', '0' * 64, None, 'source asset version/hash changed'),
+            ('shot_id', 'SH02', None, 'shot/scene provenance does not match'),
+            ('scene_id', 'S02', None, 'shot/scene provenance does not match'),
+            ('asset_version_refs', {'CLEAN1': '2'}, {'CLEAN1': '1'},
+             'sheet asset version pins do not match canonical'),
+        ]
+        for field, value, canonical_pins, diagnostic in cases:
+            with self.subTest(field=field):
+                p = self.proj()
+                if canonical_pins is not None:
+                    p['storyboard']['panels'][0]['asset_version_refs'] = canonical_pins
+                trace, hashes = self.provenance(p, ['P01'])
+                trace[0][field] = value
+                produced_sheet(self.base / f'{field}.png', (20, 10),
+                               [((255, 0, 0), [2, 2, 6, 6])],
+                               ['P01'], [[2, 2, 6, 6]],
+                               [{'scene_id': 'S01', 'bounds': [1, 1, 19, 9]}],
+                               traceability=trace, source_sha256=hashes)
+                with self.assertRaisesRegex(ValueError, diagnostic):
+                    split_storyboard(p, self.base, self.out(), sheets=[f'{field}.png'])
+                self.assertFalse(self.out().exists())
+
+    def test_overlapping_scene_bands_are_rejected_with_disjoint_panel_bounds(self):
+        p = self.proj()
+        trace, hashes = self.provenance(p, ['P01', 'P02'])
+        produced_sheet(self.base / 'overlapping-bands.png', (14, 14),
+                       [((255, 0, 0), [2, 2, 4, 4]), ((0, 255, 0), [8, 8, 10, 10])],
+                       ['P01', 'P02'], [[2, 2, 4, 4], [8, 8, 10, 10]],
+                       [{'scene_id': 'S01', 'bounds': [1, 1, 12, 12]},
+                        {'scene_id': 'S02', 'bounds': [1, 1, 12, 12]}],
+                       traceability=trace, source_sha256=hashes)
+        with self.assertRaisesRegex(ValueError, 'bounds overlap'):
+            split_storyboard(p, self.base, self.out(), sheets=['overlapping-bands.png'])
+        self.assertFalse(self.out().exists())
+
+    def test_overlapping_panel_bounds_are_rejected_before_extraction(self):
+        p = self.proj()
+        p['shots'][1]['scene_id'] = 'S01'
+        trace, hashes = self.provenance(p, ['P01', 'P02'])
+        produced_sheet(self.base / 'overlap.png', (14, 14),
+                       [((255, 0, 0), [2, 2, 8, 8]), ((0, 255, 0), [5, 5, 10, 10])],
+                       ['P01', 'P02'], [[2, 2, 8, 8], [5, 5, 10, 10]],
+                       [{'scene_id': 'S01', 'bounds': [1, 1, 12, 12]},
+                        {'scene_id': 'S02', 'bounds': [12, 1, 14, 12]}],
+                       traceability=trace, source_sha256=hashes)
+        with self.assertRaisesRegex(ValueError, 'bounds overlap'):
+            split_storyboard(p, self.base, self.out(), sheets=['overlap.png'])
+        self.assertFalse(self.out().exists())
+
 if __name__ == '__main__':
     unittest.main()

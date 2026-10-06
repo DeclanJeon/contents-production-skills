@@ -1,6 +1,6 @@
 ---
 name: orchestrating-video-preproduction
-version: 2.4
+version: 2.5
 description: Use for text-only video preproduction that spans multiple artifacts — a complete planning package or one idea carried from concept through synopsis, characters, and storyboard. Delegated planning lane under creative-production; returns text and generic image prompts, never media.
 ---
 
@@ -33,7 +33,7 @@ A full package returns the assembled sections defined in `references/stage-execu
 
 ## Acceptance
 
-Done means the requested stages — no more, no fewer — returned as actual artifacts consistent with the spine, every supplied choice and approval reused verbatim, each claim carrying its fact status, the board's technical slots integrated or explicitly carried as the indexed requirement packet, and nothing implying generated media, files, or spend.
+Done means the requested stages — no more, no fewer — returned as actual artifacts consistent with the spine, every supplied choice and approval reused verbatim, each claim carrying its fact status, the board's technical slots integrated or explicitly carried as the indexed requirement packet, and nothing implying generated media, files, or spend. When the coordinator continues into an image-backed package, this lane's handoff requires (downstream of it): the paginated storyboard sheet set (≤8 panels per sheet, `<stem>_sNN.png` when the board paginates), mandatory `split_storyboard.py --sheet` extraction of clean panels plus per-scene overview images with `split-manifest.json`, visual inspection of the actual extracted pixels, and operation recording via `recording-production-history` (`production_history.py init/record`) per the shared storage contract — all registered back to the coordinator's ledger, never to a parallel ledger.
 
 ## Handoff
 

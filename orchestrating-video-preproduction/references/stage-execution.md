@@ -61,7 +61,7 @@ Once the applicable choices are approved — or immediately in one-pass mode —
 6. **일관성·미정 사항** — the consistency check, consequential unresolved choices, review status, and any requested handoff.
 
 Sections the user excluded or never asked for do not appear. Prompts stay in Korean unless another language was requested. No generation status, no rendered preview, no fabricated asset reference.
-For a full image-backed parent request, this return is only the textual stage packet. The coordinator continues under the canonical full-package contract: register synopsis/character SSOT versions, produce and inspect identity references, integrate the technical board, assemble one actual combined storyboard image, then run strict preproduction and visual checks. A text package is not the completed image package.
+For a full image-backed parent request, this return is only the textual stage packet. The coordinator continues under the canonical full-package contract: register synopsis/character SSOT versions, produce and inspect identity references, integrate the technical board, render the actual storyboard sheet set (v5.1: at most 8 panels per sheet; boards beyond that paginate into an ordered `<stem>_sNN.png` set whose union covers every canonical panel in story order), then extract real clean panel crops and per-scene overview images from the produced sheets via `split_storyboard.py --sheet`, and run strict preproduction and visual checks. A text package is not the completed image package.
 
 ## Final consistency pass
 

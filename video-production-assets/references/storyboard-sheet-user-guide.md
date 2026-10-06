@@ -1,6 +1,6 @@
 # 한 번에 스토리보드 시트까지 제작하기
 
-이 가이드는 한 번의 요청으로 **시놉시스부터 실제 패널 이미지와 합본 스토리보드 PNG, 검수 보고까지** 순서대로 진행하도록 요청하는 방법이다. 영상 생성·편집·게시까지 포함하지 않는다.
+이 가이드는 한 번의 요청으로 **시놉시스 → LOOK·필수 마스터 잠금 → 실제 패널·최대 8패널 시트 세트 → 장면/패널 분리 → 검수·ZIP 인계**를 진행하는 방법이다. 정확한 v5.1 게이트는 [공통 계약](contract.md#v51-프로덕션-무결성-look에셋-게이트계보provenance패키지)을 따른다. 영상 생성·편집·게시는 포함하지 않는다.
 
 ## 함께 적용할 스킬
 
@@ -8,6 +8,7 @@
 - `video-production-assets`: 이미지 기반 프리프로덕션, 기술 콘티, 원장, 실제 패널 이미지와 합본 시트의 계약·검수 담당.
 - `storyboarding-video`: synopsis에서 완전한 beat→scene→shot→panel 보드 및 시각적 패널 구성을 설계. 제작 보드는 전체 스토리보드 계약을 따른다.
 - `designing-video-character-sheets`: 인물별 페르소나·시각 SSOT와 Sheet A 프롬프트 명세 담당. 실제 이미지 실행과 검수는 조정된 이미지 실행자가 맡는다.
+- `recording-production-history`: 실제 Documents 저장 경로와 시간순 `.history` 기록. 총괄이 호출하며 별도 승인 원장을 만들지 않는다.
 
 인물이 없는 작업에는 캐릭터 스킬을 억지로 적용하지 않는다. 시놉시스, SSOT, 보드, 이미지, 검수는 같은 프로젝트 경로·ID·버전 원장을 공유한다.
 
@@ -15,7 +16,7 @@
 
 프롬프트를 보내기 전에 다음 필수 항목을 채운다.
 
-1. **저장 위치:** 새 프로젝트라면 정확한 새 폴더 경로, 기존 프로젝트라면 기존 프로젝트의 정확한 경로. 기존 프로젝트의 파일·ID·버전은 보존하고 임의로 덮어쓰지 않는다.
+1. **저장 위치:** 새 프로젝트는 실제 사용자 Documents/studio_production/<project_id>를 도구로 해결한다. 기존 프로젝트는 선택된 실제 root를 보존·재개한다. 경로를 추정하거나 파일·ID·버전을 덮어쓰지 않는다.
 2. **이야기 입력:** 주제나 원고, 관객·목표, 길이·플랫폼·화면비, 반드시 지킬 사실/사건, 금지 사항. 이미 정해진 항목은 다시 묻지 않는다.
 3. **창작 재량:** 직접 정할 중요한 선택과 제작자가 선택해도 될 범위를 구분한다. 일반적인 연출 선택을 위임하면 중간 단계마다 승인을 기다리지 않고 끝까지 진행할 수 있다.
 4. **이미지 실행 예산:** 이미지 생성을 승인할 총 상한을 정한다. 실제 견적이 상한 이내일 때만 실행하도록 명시한다. 견적을 확인할 수 없거나 상한을 넘으면 이미지 제출 전에 멈추게 한다.
@@ -27,10 +28,12 @@
 이미지 기반 전체 패키지를 요청하면 순서대로 다음을 만든다.
 
 1. 전체 사건과 원문 위치가 연결된 시놉시스 및 beat 목록.
+   - FINAL 보드 전 활성 LOOK, 적용되는 캐릭터/장소/제품·소품 마스터와 장면 상태를 공통 v5.1 계약대로 잠근다. critical 입력이 미완이면 명시적 PRELIMINARY만 허용한다.
 2. 인물이 있는 경우 기존 설정을 보존한 인물별 페르소나·SSOT 문서와 실제 7뷰 Identity Sheet A. Full SSOT 대상은 캐릭터 시트 스킬의 정본 0–33 형식, 나머지는 인물의 역할·반복 정도에 맞는 Lite SSOT/아키타입을 적용한다. 7뷰는 전신 정면·3/4·측면·후면과 얼굴 정면·3/4·측면이다. Sheet A는 동일 인물의 중립 스튜디오 기준 시트 한 장이며, 글래머 초상이나 표현/의상/액션 시트로 대체하지 않는다.
 3. 전체 beat → scene → shot → panel을 연결한 기술 콘티. 샷별 카메라·공간·VFX·발화·음향·시간 정보를 포함한다.
 4. 정본에 등록된 모든 패널의 실제 clean 이미지.
-5. 모든 패널이 이야기 순서대로 포함된 합본 스토리보드 PNG와 검수 보고서.
+5. 모든 패널을 이야기 순서대로 덮는 시트 세트(한 시트 최대 8패널), 실제 시트에서 추출한 장면/패널 이미지와 split manifest.
+6. 실제 경로·provenance·정확한 에셋 버전, 검수 보고, `.history` 기록과 등록된 파일을 담은 버전 ZIP.
 
 각 패널은 `panel_id`, `shot_id`, `beat_ids`, `visible_character_ids`, `audio_cue_ids`, `speech_ids`를 직접 연결한다. 링크는 해당 샷에 등록된 ID여야 한다. `frame_time_s`는 fps에 맞는 샘플 프레임이며, 음향·발화 구간은 반개구간 `[start_s, end_s)`으로 해석해 시작은 포함하고 끝은 포함하지 않는다. 합본 캡션은 연결 ID와 핵심 설계 정보를 표시하고, 이미지 파일에는 패널 라벨을 덧씌우지 않는다.
 
@@ -42,13 +45,13 @@
 
 ```text
 아래 조건으로 전체 이미지 기반 영상 프리프로덕션을 처음부터 끝까지 진행해줘.
-이번 요청의 최종 산출물은 전체 패널 이미지가 포함된 합본 스토리보드 시트 PNG와 검수 보고서야. 각 단계를 순서대로 수행하고 중간 단계의 설계 결과만 반환한 뒤 멈추지 마.
+최종 산출물은 전체 이야기의 읽기 가능한 스토리보드 시트 세트, 장면별/패널별 실제 추출 이미지, 검수 보고와 추적 가능한 ZIP이야. 각 단계를 순서대로 수행하고 중간 설계만 반환한 뒤 멈추지 마.
 
 ## 프로젝트
 - 작업: [새 프로젝트 생성 / 기존 프로젝트 이어서 작업]
-- 정확한 프로젝트 폴더: [절대 경로 또는 현재 프로젝트의 정확한 경로]
+- 프로젝트 폴더: [새 프로젝트면 실제 Documents/studio_production/<project_id> 자동 해결 / 기존 프로젝트의 선택된 실제 root]
 - 기존 프로젝트 파일이 있을 때: [보존·재개할 project.json 경로 또는 해당 없음]
-- 최종 파일명/위치: [예: images/storyboard-sheet-v1.png]
+- 최종 파일명/위치: [예: 04_STORYBOARDS/sheets/storyboard-v1.png; 여러 장은 _sNN; ZIP은 10_DELIVERY]
 
 ## 영상 브리프
 - 주제 또는 원고/시놉시스: [내용 또는 파일 경로]
@@ -68,7 +71,7 @@
 - 이야기에서 중요한 인물의 페르소나 깊이: [Full SSOT 요청 / 반복·중심 인물만 Full, 나머지 Lite·아키타입]
 - 허구 인물에 대한 창작 위임: [위임 범위 / 비위임 항목]
 - 실제 인물 관련 제약: [문서화된 소스만 사용 / 없음]
-- Sheet A 한 장 이외의 표현·의상·액션 이미지: [요청한 경우에만 별도 수량·범위·비용 승인 / 생성하지 않음]
+- Sheet A 이외의 표현·의상·상태 이미지: [스토리에 필수인 범위·수량과 실행 권한 / 제외한 경우 FINAL blocker로 명시]
 
 ## 결정 권한
 - 내가 고정한 사실·사건·제약은 변경하지 마.
@@ -81,19 +84,22 @@
 - 이미지 실행자: Codex Imagen 기본 경로. 다른 정지 이미지 실행자는 사용자가 명시적으로 선택한 경우에만 적용하며, 자동 대체하지 않는다.
 - Codex Imagen 정지 이미지 생성은 사용량·잔여 quota·요금제·가격·견적·비용 상한 조회나 별도 비용 승인을 요구하지 않는다. 실제 요청에 포함된 이미지 범위는 생성할 수 있다. 런타임 인증·기능·입력·출력·권리 검사는 유지한다.
 - 사용자가 별도 정지 이미지 공급자를 선택하면 그 공급자의 승인 규칙을 적용한다. 영상 생성은 별도 영상 실행·비용 승인 없이 허가되지 않는다.
-- 이미지 생성 범위: 필요한 캐릭터별 Sheet A 한 장과 정본의 모든 패널 clean 이미지; 정확한 범위 밖의 추가 에셋은 생성하지 않는다.
+- 이미지 생성 범위: 이 이야기의 v5.1 필수 마스터/장면 상태, 캐릭터별 Sheet A와 정본의 모든 패널. 공급된 잠긴 에셋은 재사용하고 범위 밖의 추가 생성은 하지 않는다. 필요한 에셋이 명시적으로 제외되면 FINAL 완료를 주장하지 않는다.
 - 이 범위는 영상 생성·편집·애니매틱·게시를 허가하지 않는다.
 
 ## 필수 순서와 품질 기준
+0. 총괄이 실제 Documents 저장 root를 초기화하거나 기존 root를 재개하고, 작업 시작 전 실제 요청·방법을 `.history`에 기록해. 중간/최종 파일이 저장되는 즉시 절대 경로를 보고하고 관측된 완료/실패/중단·재개를 구분해.
 1. 먼저 전체 시놉시스를 작성하고 원문 위치가 있는 beat 목록을 만든 뒤 사건·정보·감정 흐름을 확인해.
+1a. 원문 적응·IDs를 기준으로 활성 LOOK 바이블과 필수 마스터/장면 에셋 계획을 연결해. 실제 확인한 provenance만 기록하고 모르는 값은 UNKNOWN/NOT_EXPOSED로 남겨.
 2. 인물이 필요한 경우 `designing-video-character-sheets`를 적용해 사용자 지정 페르소나·바이블을 우선 보존하고, 입력값마다 `확정 정보/supplied`, `proposal`, `observed`, `미정/undecided` 근거를 구분해. 반복 리드 등 Full SSOT 대상은 정본 0–33 섹션을 채우고, 각 성격 특성은 관찰 가능한 행동과 강점·문제 상황으로 표현해. 비주얼 모드를 생성 전에 정해. 시놉시스에 가치 충돌이 근거 있을 때는 우선순위·경계·압박/위험/관계에 따라 판단이 바뀌는 조건을 기록하고 `상황 → 생각 → 감정 → 반응·대사 → 선택` 일관성 검사를 해. 그 검사는 이야기 결과나 장면을 새로 정하지 마. 인물당 실제 중립 7뷰 Sheet A 한 장을 생성·열어 SSOT 앵커와 대조하고, SSOT 문서 에셋을 이미지의 source provenance에 연결해. B/C/D는 프롬프트 명세일 뿐이며, 별도 이미지와 비용을 승인하지 않는 한 생성하지 마. 인물 없는 작업은 비적용으로 기록해.
+2a. 공통 v5.1 에셋 게이트를 확인하고 장소 4뷰·제품/소품·스토리 상태 등 적용되는 입력을 잠가. 마스터는 한 번 저장하고 scene derivative에 master ID/version과 scene_id를 기록해. critical 누락·미잠금·stale이면 PRELIMINARY로 명시하고 FINAL 생성은 차단해.
 3. 시놉시스와 SSOT 버전을 참조하는 기술 콘티를 만들고, 모든 beat → scene → shot → panel의 전체 커버리지를 확인해.
 4. 각 panel에 panel_id와 shot_id뿐 아니라 beat_ids, 실제 보이는 visible_character_ids, audio_cue_ids, speech_ids를 직접 기록해. 샷 단위 ID를 모든 패널에 복사해 패널별 연결을 대신하지 마. `frame_time_s`는 fps 프레임 정렬을 지키고 음향·발화 구간 `[start_s, end_s)`에 포함돼야 해. 구간 시작은 포함하고 끝은 제외해.
 5. 이야기 이해를 바꾸는 미해결 시각 선택만 필요한 범위에서 대안을 비교하고 선택 상태를 기록해. 승인된 사건 순서는 바꾸지 마.
 6. 정본의 모든 패널 이미지를 실제로 생성·등록하고, 이미지를 하나씩 열어 인물 정체성·행동·연속성·구도·읽힘을 검수해. 생성하지 못했거나 검증하지 못한 패널은 완료로 표시하지 마.
-7. 모든 canonical panel을 정본 순서로 포함하는 새 합본 PNG를 만들고, 캡션과 순서·파일·해시·패널별 traceability를 대조해. PNG의 panel_traceability metadata도 확인해.
-8. storyboard 및 strict preproduction 검증기를 실행하고, 구조 검사와 실제 시각 검수를 각각 수행해. 미해결 blocker가 있으면 완료를 주장하지 마.
-9. 마지막에 실제 산출물 경로, 패널 수, 검증 결과, 미검증/차단 항목을 보고해.
+7. 정본 순서의 전체 패널을 시트당 최대 8개, 밀도가 높으면 더 적게 나눠 생성·등록해. 모든 시트의 실제 hash/순서/traceability를 대조한 즉시 실제 시트 픽셀을 장면 overview와 clean 패널로 분리·등록하고 모두 다시 열어 검사해.
+8. storyboard 및 strict preproduction 검증기와 FINAL 패키지 게이트를 적용하고, 구조/파일 검사와 실제 시각 검수를 각각 수행해. 미해결 blocker가 있으면 완료를 주장하지 마.
+9. 등록된 실제 파일과 파생 manifest를 버전 ZIP으로 인계하고 모든 중간/최종 절대 경로, `.history` 위치, 검증 결과와 미검증/차단 항목을 보고해. 작업 완료와 프로젝트 완료는 구분하고 미완 상태를 완료로 기록하지 마.
 
 ## 완료 경계
 - 최종 상태는 “스토리보드 이미지 기반 프리프로덕션 완료, 사용자 검토 대기”야.
@@ -103,14 +109,18 @@
 
 ## 재현 가능한 렌더·검증 명령
 
-진행 순서는 **패널 이미지 완성 → `validate_storyboard.py` → PNG 렌더 → 결과를 원장에 등록 → `validate_project.py --profile preproduction`**이다. 첫 검사는 정본 보드의 구조·연결·필수 패널 파일을 렌더 전에 검사하며 합본 PNG를 검사하지 않는다. 마지막 엄격 검사는 보드 구조를 다시 확인하고 등록된 시트의 파일·패널 순서·패널 원본 매핑·해시까지 검사한다. 따라서 마지막 검사는 반드시 등록 후 실행하고, 보드나 패널 원본을 바꿨다면 렌더와 등록 및 마지막 검사를 다시 한다.
+순서는 **필수 에셋 잠금 → 패널 완성·보드 검사 → 최대 8패널 시트 세트 렌더·등록 → 실제 시트의 장면/패널 분리·등록 → strict preproduction·실제 시각 검사 → ZIP**이다. 입력이 바뀌면 영향을 받는 시트·분리 결과와 downstream 승인만 stale로 하고 해당 분기를 다시 검사한다.
 
 ```bash
 python <skill-dir>/scripts/validate_storyboard.py <project-root>/project.json --require-images --base-dir <project-root>
-python <skill-dir>/scripts/render_storyboard_sheet.py <project-root>/project.json --base-dir <project-root> --output images/storyboard-sheet-v1.png [--font <Unicode-font.ttf>]
+python <skill-dir>/scripts/render_storyboard_sheet.py <project-root>/project.json --base-dir <project-root> --output 04_STORYBOARDS/sheets/storyboard-v1.png --panels-per-sheet 4 [--font <Unicode-font.ttf>]
 ```
 
-렌더 명령 결과의 `relative_path`, `sha256`, `panel_ids`, `source_asset_ids`, `source_sha256`를 기존 `project.json`의 `storyboard_sheet` 에셋/artifact에 등록한 다음 엄격한 전체 패키지 검증을 실행한다.
+각 시트의 반환 경로/hash/index/count/panel/source 매핑을 정본에 등록한다. 반환된 모든 실제 시트를 아래처럼 순서대로 지정한다(단일 시트면 실제 단일 파일명, 여러 장이면 반환된 `_sNN` 파일명). 생성된 split manifest와 모든 장면/패널 이미지를 등록한 뒤 엄격 검사를 실행한다.
+
+```bash
+python <skill-dir>/scripts/split_storyboard.py <project-root>/project.json --base-dir <project-root> --output <project-root>/04_STORYBOARDS/extracts-v1 --sheet 04_STORYBOARDS/sheets/storyboard-v1_s01.png --sheet 04_STORYBOARDS/sheets/storyboard-v1_s02.png
+```
 
 ```bash
 python <skill-dir>/scripts/validate_project.py <project-root>/project.json --profile preproduction --base-dir <project-root>
@@ -119,10 +129,10 @@ python <skill-dir>/scripts/validate_project.py <project-root>/project.json --pro
 엄격한 검증기는 PNG 안의 텍스트 메타데이터를 직접 파싱하지 않는다. 렌더러가 반환하는 `panel_traceability`와 실제 PNG의 `storyboard_sheet.panel_traceability`를 별도로 확인한다. 아래 명령은 임베디드 JSON 배열을 출력해 정본 패널 ID·순서와 직접 대조할 수 있게 한다.
 
 ```bash
-python -c "from PIL import Image; import json; p=Image.open('<project-root>/images/storyboard-sheet-v1.png'); print(json.dumps(json.loads(p.info['storyboard_sheet.panel_traceability']), ensure_ascii=False, indent=2))"
+python -c "from PIL import Image; import json; p=Image.open('<project-root>/04_STORYBOARDS/sheets/<실제 반환된 파일명>.png'); print(json.dumps(json.loads(p.info['storyboard_sheet.panel_traceability']), ensure_ascii=False, indent=2))"
 ```
 
-검증 실패는 ID·파일·dependency·패널 연결을 고쳐 재실행한다. PNG 캡션/이미지 의미 검수는 자동 검증과 별도다. 렌더러는 최대 400개 패널, PNG 전체 120,000,000픽셀 이하, 패널별 캡션 40줄 이하로 제한된다. 그 외 레이아웃·메모리 제한으로 한 장을 만들 수 없으면 패널을 누락하거나 시트를 임의로 쪼개지 않는다. 사용자에게 정확한 blocker와 가능한 재구성 선택을 보고하고 확인을 기다린다. PNG의 `storyboard_sheet.panel_traceability` 항목은 순서가 있는 JSON 배열이며 각 항목에 `panel_id`, `scene_id`, `shot_id`, 패널별 beat/character/audio/speech ID, 실제 캡션 줄이 들어간다.
+검증 실패는 ID·파일·dependency·패널 연결을 고쳐 재실행한다. 실제 의미·시각 검수는 별도다. 렌더러는 보드 최대 400패널, 시트당 최대 8패널·64,000,000픽셀, 패널 캡션 최대 40줄을 제한한다. 정보 밀도에 맞춰 1–8개로 정상 분할하며 한 장을 유지하려고 패널을 누락하지 않는다. 제한 안에서도 렌더링 불가하면 정확한 blocker를 보고하고 승인 없는 내용 변경은 하지 않는다. 각 시트의 PNG metadata는 그 시트 패널 구간의 순서 있는 traceability 배열이다.
 
 ## 빠르게 점검할 항목
 
@@ -130,7 +140,7 @@ python -c "from PIL import Image; import json; p=Image.open('<project-root>/imag
 - 전체 이미지 세트의 실제 비용 상한을 승인했는가?
 - 각 인물의 SSOT 깊이가 역할에 맞고 입력 근거/제안/미정이 구분됐으며 결정 일관성 검사를 했는가?
 - 캐릭터별 실제 7뷰 중립 Sheet A와 패널 이미지가 별도로 생성·검수됐는가? 별도 승인 없이 표현/의상/액션 시트를 생성하지 않았는가?
-- 합본 PNG에 정본 패널이 모두 순서대로 들어갔고 실제 검수를 했는가?
+- 시트 세트가 정본 전체를 순서대로 덮고, 실제 시트에서 추출한 모든 장면/패널과 split manifest를 등록·검수했는가?
 - 사용자 수락이나 영상 실행을 완료로 잘못 표시하지 않았는가?
 
 ## 완료의 의미와 한계

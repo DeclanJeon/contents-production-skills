@@ -1,12 +1,12 @@
 # Contents Production Skills
 
-콘텐츠 제작과 영상 제작을 하나의 브리프·승인 흐름으로 조율하는 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`, 패키지 버전은 **2.0**이다.
+콘텐츠 제작과 영상 제작을 하나의 브리프·승인 흐름으로 조율하는 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`, 패키지 버전은 **2.4**이다.
 
 저장소: [DeclanJeon/contents-production-skills](https://github.com/DeclanJeon/contents-production-skills).
 
 `creative-production`이 유일한 총괄이다. 기존 영상 제작·텍스트 기획·카메라·Blender 전문 스킬을 유지하고, 현재 적용된 콘텐츠/영상 스킬의 범용 절차와 memorable-video v6의 유효한 제작 기법은 필요한 때만 읽는 참조로 통합한다. 중복 총괄·상태 원장·28개 마이크로 스킬을 함께 설치하지 않는다.
 
-## 핵심 8개 스킬과 조건부 실행 모듈
+## 핵심 9개 스킬과 조건부 실행 모듈
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|
@@ -18,9 +18,10 @@
 | [storyboarding-video](storyboarding-video/SKILL.md) | 전체 이야기·기술 슬롯을 연결한 완전한 제작 콘티; 명시적 러프 패널은 좁은 형식 | 텍스트 기획은 실제 이미지/검수/실행과 구분한다. |
 | [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | `camera-spatial-1.0` 계약. Blender 실행과 구분한다. |
 | [blender-previsualization](blender-previsualization/SKILL.md) | 실제 Blender 프록시 장면·프리비즈·공간 검사 | Blender 런타임 필요. 최종 영상 품질을 보증하지 않는다. |
+| [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
 설치 목록의 원본은 [manifest.json](manifest.json)이다. 전문 참조는 추가 설치 스킬이 아니다.
-설치 목록은 **총 17개: 핵심 8개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
+설치 목록은 **총 18개: 핵심 9개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
 
 ## 제작 흐름
 
@@ -28,11 +29,19 @@
 2. 목적과 형식에 맞는 레인만 로드한다. 원고 한 편이나 프롬프트 하나를 전체 제작으로 확대하지 않는다.
 3. 실제 원고·기획·모듈 에셋을 작성한다. 사실, 계산, 해석, 창작 제안, 미확인을 구분한다.
 4. 다단계 영상만 기존 `project.json`을 정본으로 사용한다. 시리즈 바이블·SSOT·공급자 입력은 버전이 있는 종속 에셋으로 연결한다.
-5. 이미지 기반 전체 프리프로덕션은 [검토 계약](video-production-assets/references/preproduction-review.md)에 따라 정확한 프로젝트 폴더, 실제 정지 이미지, 검사와 사용자 검토를 갖춘다.
+5. 실제 파일 제작은 사용자 Documents/studio_production/<project_id> 또는 사용자가 지정한 project root에 저장하고 `recording-production-history`를 호출한다. 이미지 기반 전체 프리프로덕션은 [검토 계약](video-production-assets/references/preproduction-review.md)에 따라 LOOK 바이블·자산 잠금 → 기술 보드 → 최대 8패널 시트 → 씬/패널별 이미지 분할 → 검사·사용자 검토를 갖춘다.
 6. 별도 영상 진행 요청 뒤 현재 도구·모델·입력 스키마·가격을 확인한다. 샷/산출물 수, 설정, 실행·재시도·비용 상한을 승인받은 뒤에만 실행한다. 무료/로컬 샘플도 실행 승인 범위에 포함한다.
 7. 실제 결과를 검사하고 요청한 형식으로 납품한다. 계획, 파일 생성, 기술/시청각 검사, 사용자 수락, 게시 상태를 따로 보고한다.
 
 단독 전문 스킬은 총괄의 범위 계약을 한 번 확인한다. 이미 위임받은 전문 스킬은 총괄로 재귀 호출하거나 인터뷰·승인 원장을 다시 만들지 않는다. 수정 시 영향을 받는 종속 에셋과 승인만 stale로 처리한다.
+
+### 제작 저장소와 히스토리
+
+Windows는 실제 Documents 알려진 폴더(리디렉션/OneDrive 포함), macOS는 `~/Documents`, Linux는 XDG Documents 설정 또는 `~/Documents`를 사용한다. 사용자명을 고정하지 않는다. 프로젝트별 중간/최종 산출물은 `studio_production/<project_id>`의 v5.1 패키지 디렉터리에 분리한다. 명시적으로 선택한 기존 프로젝트는 재사용한다.
+
+실제 작업 시작 전에 정확한 프롬프트와 방법을 `.history`에 기록하고, 작업 결과·실제 파일 경로·완료/실패/중단을 별도 시간순 Markdown으로 남긴다. 재개 시 끝나지 않은 작업을 확인하며, 중단을 생성 서비스 실패로 오인하거나 완료를 꾸며 기록하지 않는다. 산출물이 저장될 때마다 사용자에게 절대 경로와 히스토리 경로를 보고한다. 채팅-only 요청은 폴더/히스토리/미디어를 만들지 않는다.
+
+v5.1 갭 분석·책임 분리·검증 설계: [PRODUCTION_V5_1_UPGRADE.md](docs/PRODUCTION_V5_1_UPGRADE.md). 기존 전문 스킬은 각기 다른 책임을 유지하며 공통 자산 게이트와 저장 규칙만 정본 참조로 통합한다.
 원장은 `<선택한 사용자 제작 프로젝트>/project.json`이다. 저장소의 두 project.json은 예제이며 현재 운영 프로젝트 선택 기록은 아니다. 총괄만 [현재 단계 패킷/원장 작성 계약](video-production-assets/references/contract.md#worker-handoff-and-single-writer)을 적용한다. `project_index.py --shot/--artifact`는 읽기 전용 인덱스 조회, `update_project.py --update`는 유효한 기존 원장에 대한 버전 확인·upsert·종속 stale 전파·검사 후 원자 교체다. 초기 프로젝트 생성/자동 워커 실행/승인 인증기는 아니다.
 
 17개 역할, 결함과 실제 수정, 준비율·문서 로드 측정·실행 한계는 [전체 감사 보고서](docs/ORCHESTRATION_AUDIT.md)를 참조한다.
@@ -81,12 +90,14 @@ python video-production-assets/scripts/test_validate_project.py
 python camera-spatial-design/scripts/test_spatial_spec.py
 ```
 
-전체 이미지 기반 프리프로덕션은 시놉 MD → 캐릭터별 페르소나/SSOT MD와 실제 7뷰 인물 설계 시트 → 연결된 기술 콘티 → 전체 패널을 담은 실제 합본 이미지가 필수다. [정본 계약](video-production-assets/references/contract.md#전체-프리프로덕션-패키지)과 [Character SSOT 0–33](designing-video-character-sheets/references/character-ssot-master-prompt.md)를 따른다. 텍스트-only 요청에 이미지 생성·지출을 추가하지 않는다.
+전체 이미지 기반 프리프로덕션은 출처/시놉 MD → active LOOK 바이블 → 관련 잠금 Master/Scene State → 연결된 기술 콘티 → 읽을 수 있는 실제 시트들(시트당 최대 8패널) → 씬/패널 이미지 분할이 필수다. [정본 계약](video-production-assets/references/contract.md#전체-프리프로덕션-패키지)과 [Character SSOT 0–33](designing-video-character-sheets/references/character-ssot-master-prompt.md)를 따른다. FINAL 자산 게이트와 실제 검수는 별개다. 텍스트-only 요청에 이미지 생성·지출을 추가하지 않는다.
 
 ```powershell
-python video-production-assets/scripts/render_storyboard_sheet.py project.json --base-dir production-root --output storyboard-sheet.png
+python video-production-assets/scripts/render_storyboard_sheet.py project.json --base-dir production-root --output 04_STORYBOARDS/storyboard-sheet.png --panels-per-sheet 4
 python video-production-assets/scripts/validate_project.py project.json --profile preproduction --base-dir production-root
 ```
+
+생성된 모든 시트의 실제 경로를 `split_storyboard.py --sheet <path> ...`에 순서대로 전달해 씬/패널 이미지를 추출한다. `--output`은 프로젝트 내부 새 디렉터리여야 한다. 렌더러·분할 도구는 원장을 직접 변경하지 않고 실제 등록 필드를 반환하며 조정자가 이를 반영한다.
 
 합본 조립에는 Pillow/한글 Unicode 폰트가 필요하다. strict profile은 실제 문서·이미지 디코딩·해시·참조·현재 버전·미해결 blocker를 검사한다. `plan valid`나 생성 성공은 이 게이트 및 실제 시각 검수의 대체물이 아니다. reviewed/approved 프리프로덕션 검토 및 approved 영상 실행 계획은 완결 이미지 패키지 검사를 자동으로 요구한다.
 

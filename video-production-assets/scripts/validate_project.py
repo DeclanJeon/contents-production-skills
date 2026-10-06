@@ -69,6 +69,12 @@ def validate(p, profile='plan', base_dir=None):
         values = row.get(field, None if required else [])
         if not isinstance(values,list): error(f'{label}: {field} must be an array'); return
         for v in values: exists_ref(v, table, label)
+    look_id = p.get('look_asset_id')
+    if look_id is not None:
+        if not exists_ref(look_id, 'asset_registry', 'project look_asset_id'):
+            look_id = None
+        elif tables['asset_registry'][look_id].get('entity_type') not in (None, 'look'):
+            error('look_asset_id must reference a look asset')
     spans = []
     for rid, s in tables['shots'].items():
         exists_ref(s.get('scene_id'), 'scenes', rid)
@@ -160,6 +166,32 @@ def validate(p, profile='plan', base_dir=None):
         if status in ('generated','verified') and schema=='1.1':
             if not a.get('asset_ids'): error(f'{rid}: produced artifact needs asset_ids')
         refs(a,'asset_ids','asset_registry',rid)
+        finality=a.get('finality')
+        if finality is not None and finality not in ('preliminary','final'):
+            error(f'{rid}: finality must be preliminary or final')
+        required=a.get('required_asset_versions')
+        if required is not None:
+            if not isinstance(required,dict) or any(not isinstance(k,str) or not isinstance(v,str) or not v.strip() for k,v in required.items()):
+                error(f'{rid}: required_asset_versions must map asset ids to versions'); required=None
+            else:
+                for required_id,expected in required.items():
+                    target=tables['asset_registry'].get(required_id)
+                    if target is None:
+                        error(f'{rid}: required asset {required_id} is not registered')
+                    else:
+                        if target.get('version')!=expected and status!='stale':
+                            error(f'{rid}: required asset {required_id} version drift')
+                        if target.get('status')=='stale' and status!='stale':
+                            error(f'{rid}: required asset {required_id} is stale')
+        if finality=='final' and not required:
+            # v5.1: declaring finality requires a nonempty pin map; the actual
+            # FINAL production gate (verified assets, active LOOK, transitive
+            # chain, draft/stale artifact rejection) is asset_gate
+            # .check_asset_gate, invoked explicitly by the producer scope and
+            # by the preproduction/delivery profiles — not globally here, so
+            # stale-legacy final declarations and unrelated finality states do
+            # not block narrow plan validation or stale propagation.
+            error(f'{rid}: final artifact needs required_asset_versions')
         deps=a.get('dependencies',[])
         if not isinstance(deps,list): error(f'{rid}: dependencies must be an array'); deps=[]
         versions=a.get('dependency_versions',{})
@@ -217,6 +249,29 @@ def validate(p, profile='plan', base_dir=None):
             elif et == 'character': exists_ref(asset['entity_id'], 'characters', rid)
         refs(asset, 'source_asset_ids', 'asset_registry', rid)
         if asset.get('result_asset_id') is not None: exists_ref(asset['result_asset_id'],'asset_registry',rid)
+        role=asset.get('role')
+        if role is not None and role not in ('master','derivative'):
+            error(f'{rid}: asset role must be master or derivative')
+        mref=asset.get('master_asset_ref')
+        if mref is not None:
+            if role is not None and role!='derivative':
+                error(f'{rid}: master_asset_ref belongs on derivative assets')
+            if not isinstance(mref,dict) or not text(mref.get('asset_id')) or not text(mref.get('version')):
+                error(f'{rid}: master_asset_ref needs asset_id and version')
+            else:
+                if mref['asset_id']==rid: error(f'{rid}: derivative cannot reference itself as master')
+                master=tables['asset_registry'].get(mref['asset_id'])
+                if master is None:
+                    error(f'{rid}: master asset {mref["asset_id"]} is not registered')
+                else:
+                    if state!='stale' and master.get('version')!=mref.get('version'):
+                        error(f'{rid}: master version drift for {mref["asset_id"]}')
+                    if master.get('status')=='stale' and state not in ('planned','stale'):
+                        error(f'{rid}: derives from stale master {mref["asset_id"]}')
+        for field in ('prompt','provider','model','workflow','generation_mode','negative_prompt','model_version','creator','license_status','seed','resolution','aspect_ratio','created','checksum'):
+            value=asset.get(field)
+            if value is not None and not (text(value) or (field in ('seed','resolution') and number(value))):
+                error(f'{rid}: {field} must be a nonempty value or UNKNOWN/NOT_EXPOSED')
         if state in ('available','verified'):
             if not text(asset.get('path')): error(f'{rid}: available asset needs path')
             elif base is not None:
@@ -276,6 +331,11 @@ def validate(p, profile='plan', base_dir=None):
     if profile == 'preproduction' or ready_package:
         from validate_preproduction import validate_preproduction
         errors.extend(validate_preproduction(p, base_dir, image_backed_required=ready_package))
+    if profile in ('preproduction', 'delivery') or ready_package:
+        # Full-package gate: every declared-final artifact must clear the real
+        # v5.1 production gate (verified assets, active LOOK, transitive chain).
+        from asset_gate import check_asset_gate
+        errors.extend(f'asset gate: {blocker}' for blocker in check_asset_gate(p))
     return errors
 
 

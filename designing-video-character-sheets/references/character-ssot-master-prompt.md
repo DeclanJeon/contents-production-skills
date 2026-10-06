@@ -183,7 +183,7 @@ In a full image-backed package, each character's SSOT output is recorded on the 
 | `characters[].persona` | object of nonempty strings | `{role, personality, observable_behavior, speech}` — speech is `N/A`-explained for silent roles, not empty |
 | `characters[].ssot_artifact_id` | artifact `type=character_sheet` | links the actual SSOT Markdown asset; artifact depends on the synopsis artifact/version |
 | `characters[].identity_sheet_asset_id` | asset `kind=character_identity_sheet` | **image-backed only**; `entity_type=character`, `entity_id` = the character's `character_id`; points at the actual Sheet A image |
-| `preproduction` root | object | `{mode: text|image_backed, synopsis_artifact_id, storyboard_artifact_id, storyboard_sheet_artifact_id?}` |
+| `preproduction` root | object | `{mode: text|image_backed, synopsis_artifact_id, storyboard_artifact_id, storyboard_sheet_artifact_ids, storyboard_split_asset_id}` — ordered sheet artifact IDs (max 8 panels per sheet, including one-sheet arrays) and the actual scene/panel split-manifest asset |
 
 Traceability runs synopsis artifact/version/source → `character_sheet` artifact/version → the single matching `character_identity_sheet` asset → shot/panel reference input. A shot that names a character consumes that character's identity image asset in image-backed mode.
 

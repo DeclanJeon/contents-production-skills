@@ -58,6 +58,94 @@ class IndexTests(unittest.TestCase):
             with self.subTest(shots=shots, artifacts=artifacts), self.assertRaises(ValueError):
                 build_index(project(), shots, artifacts)
 
+    def test_focused_index_carries_panel_pins_master_chain_and_active_look(self):
+        p = board()
+        p['look_asset_id'] = 'LOOK'
+        p['asset_registry'].extend([
+            {'id': 'DERIV', 'kind': 'image', 'version': '2', 'status': 'available',
+             'master_asset_ref': {'asset_id': 'MASTER', 'version': '1'}},
+            {'id': 'MASTER', 'kind': 'image', 'version': '1', 'status': 'verified'},
+            {'id': 'LOOK', 'kind': 'document', 'version': '3', 'status': 'available'}])
+        next(a for a in p['asset_registry'] if a['id'] == 'IM01')[
+            'master_asset_ref'] = {'asset_id': 'DERIV', 'version': '2'}
+        p['storyboard']['panels'][0]['asset_version_refs'] = {
+            'IM01': '1', 'LOOK': '3'}
+        result = build_index(p, ['SH01'])
+        assets = {row['id'] for row in result['asset_registry']}
+        self.assertTrue({'IM01', 'IM02', 'DERIV', 'MASTER', 'LOOK'} <= assets)
+        self.assertEqual(result['project']['look_asset_id'], 'LOOK')
+        self.assertEqual({row['id'] for row in result['shots']}, {'SH01'})
+        self.assertEqual({row['id'] for row in result['storyboard']['panels']},
+                         {'P01', 'P02'})
+    def test_artifact_focused_board_index_delivers_panels_pins_master_and_look(self):
+        p = board()
+        p['look_asset_id'] = 'LOOK'
+        p['asset_registry'].extend([
+            {'id': 'IDENTITY', 'kind': 'image', 'version': '1', 'status': 'verified',
+             'master_asset_ref': {'asset_id': 'MASTER', 'version': '1'}},
+            {'id': 'MASTER', 'kind': 'image', 'version': '1', 'status': 'verified'},
+            {'id': 'LOOK', 'kind': 'document', 'version': '3', 'status': 'available'}])
+        p['storyboard']['panels'][0]['asset_version_refs'] = {'IDENTITY': '1', 'LOOK': '3'}
+        p['artifacts'].extend([
+            {'id': 'BOARD', 'type': 'storyboard', 'version': '1', 'status': 'reviewed',
+             'required_asset_versions': {'LOOK': '3'},
+             'dependencies': ['SYN'], 'dependency_versions': {'SYN': '1'}},
+            {'id': 'ALT', 'type': 'storyboard', 'version': '1', 'status': 'reviewed',
+             'dependencies': [], 'dependency_versions': {}},
+            {'id': 'AUDIO', 'type': 'audio', 'version': '1', 'status': 'reviewed',
+             'dependencies': [], 'dependency_versions': {}}])
+        p['preproduction'] = {'storyboard_artifact_id': 'BOARD'}
+        result = build_index(p, artifact_ids=['BOARD'])
+        ids = lambda key: {row['id'] for row in result[key]}
+        self.assertEqual({row['id'] for row in result['storyboard']['panels']},
+                         {'P01', 'P02', 'P03', 'P04', 'P05'})
+        self.assertTrue({'IDENTITY', 'MASTER', 'LOOK', 'IM01'} <= ids('asset_registry'))
+        self.assertEqual(result['project']['look_asset_id'], 'LOOK')
+        self.assertEqual(ids('artifacts'), {'SYN', 'BOARD'})
+        self.assertEqual(ids('shots'), set())
+        self.assertNotIn('AUDIO', ids('artifacts'))
+
+    def test_descendant_focus_reaching_board_collects_panels_pins_master_and_look(self):
+        p = board()
+        p['look_asset_id'] = 'LOOK'
+        p['asset_registry'].extend([
+            {'id': 'IDENTITY', 'kind': 'image', 'version': '1', 'status': 'verified',
+             'master_asset_ref': {'asset_id': 'MASTER', 'version': '1'}},
+            {'id': 'MASTER', 'kind': 'image', 'version': '1', 'status': 'verified'},
+            {'id': 'LOOK', 'kind': 'document', 'version': '3', 'status': 'available'}])
+        p['storyboard']['panels'][0]['asset_version_refs'] = {'IDENTITY': '1', 'LOOK': '3'}
+        p['artifacts'].extend([
+            {'id': 'BOARD', 'type': 'storyboard', 'version': '1', 'status': 'reviewed',
+             'required_asset_versions': {'LOOK': '3'},
+             'dependencies': ['SYN'], 'dependency_versions': {'SYN': '1'}},
+            {'id': 'ALT', 'type': 'storyboard', 'version': '1', 'status': 'reviewed',
+             'dependencies': [], 'dependency_versions': {}},
+            {'id': 'SHEET', 'type': 'storyboard_sheet', 'version': '1', 'status': 'reviewed',
+             'dependencies': ['BOARD'], 'dependency_versions': {'BOARD': '1'}},
+            {'id': 'GEN', 'type': 'generation_spec', 'version': '1', 'status': 'reviewed',
+             'dependencies': ['SHEET'], 'dependency_versions': {'SHEET': '1'}}])
+        p['preproduction'] = {'storyboard_artifact_id': 'BOARD'}
+        result = build_index(p, artifact_ids=['GEN'])
+        ids = lambda key: {row['id'] for row in result[key]}
+        self.assertEqual(ids('artifacts'), {'SYN', 'BOARD', 'SHEET', 'GEN'})
+        self.assertEqual({row['id'] for row in result['storyboard']['panels']},
+                         {'P01', 'P02', 'P03', 'P04', 'P05'})
+        self.assertTrue({'IDENTITY', 'MASTER', 'LOOK', 'IM01'} <= ids('asset_registry'))
+        self.assertEqual(ids('shots'), set())
+        self.assertNotIn('ALT', ids('artifacts'))
+
+    def test_noncanonical_storyboard_focus_does_not_inherit_panel_coverage(self):
+        p = board()
+        p['artifacts'].extend([
+            {'id': 'BOARD', 'type': 'storyboard', 'version': '1', 'status': 'reviewed',
+             'dependencies': ['SYN'], 'dependency_versions': {'SYN': '1'}},
+            {'id': 'ALT', 'type': 'storyboard', 'version': '1', 'status': 'reviewed',
+             'dependencies': [], 'dependency_versions': {}}])
+        p['preproduction'] = {'storyboard_artifact_id': 'BOARD'}
+        result = build_index(p, artifact_ids=['ALT'])
+        self.assertEqual(result['storyboard']['panels'], [])
+        self.assertEqual(result['artifacts'], [next(
+            a for a in p['artifacts'] if a['id'] == 'ALT')])
 
 class LedgerUpdateTests(unittest.TestCase):
     def test_version_change_stales_dependents_and_preserves_independent_approval(self):
@@ -99,6 +187,21 @@ class LedgerUpdateTests(unittest.TestCase):
         update['changes']['artifacts'] = [{'id': 'A01', 'version': '2'}]
         result, _, _ = prepare_update(p, update)
         self.assertEqual(result['shots'][0]['purpose'], 'new purpose')
+    def test_stale_named_available_asset_with_missing_file_is_rejected_without_write(self):
+        with tempfile.TemporaryDirectory() as temp:
+            p = project()
+            path = Path(temp) / 'project.json'
+            path.write_text(json.dumps(p), encoding='utf-8')
+            original = path.read_bytes()
+            update = delta(p, {
+                'asset_registry': [{'id': 'STALE_MISSING', 'kind': 'image', 'version': '1',
+                                    'status': 'available', 'path': 'missing.png'}],
+                'artifacts': [{'id': 'A01', 'version': '2'}]})
+            update['owner_artifact_ids'] = ['A01']
+            with self.assertRaisesRegex(ValueError, 'STALE_MISSING: local asset file missing'):
+                apply_update(path, update)
+            self.assertEqual(path.read_bytes(), original)
+
     def test_real_save_reload_and_invalid_candidate_preserves_bytes(self):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp, 'project.json')
@@ -138,6 +241,86 @@ class LedgerUpdateTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'changed outside'):
                     apply_update(path, delta(p))
             self.assertEqual(path.read_text(encoding='utf-8'), 'external editor contents')
+
+    def test_panel_only_asset_pin_stales_related_branch_on_guarded_update(self):
+        p = board()
+        p['asset_registry'].extend([
+            {'id': 'LOOK', 'kind': 'document', 'version': '1', 'status': 'planned'},
+            {'id': 'IDENTITY', 'kind': 'image', 'version': '1', 'status': 'planned'}])
+        p['look_asset_id'] = 'LOOK'
+        p['storyboard']['panels'][0]['asset_version_refs'] = {'IDENTITY': '1'}
+        p['artifacts'].append({
+            'id': 'BOARD', 'type': 'storyboard', 'version': '1', 'status': 'reviewed',
+            'required_asset_versions': {'LOOK': '1'}, 'dependencies': ['SYN'],
+            'dependency_versions': {'SYN': '1'}})
+        p['artifacts'].extend([
+            {'id': 'SHEET', 'type': 'storyboard_sheet', 'version': '1', 'status': 'reviewed',
+             'dependencies': ['BOARD'], 'dependency_versions': {'BOARD': '1'}},
+            {'id': 'GEN', 'type': 'generation_spec', 'version': '1', 'status': 'reviewed',
+             'dependencies': ['SHEET'], 'dependency_versions': {'SHEET': '1'}},
+            {'id': 'ANIMATIC', 'type': 'edit_plan', 'version': '1', 'status': 'reviewed',
+             'dependencies': ['GEN'], 'dependency_versions': {'GEN': '1'}},
+            {'id': 'AUDIO', 'type': 'audio', 'version': '1', 'status': 'reviewed',
+             'dependencies': [], 'dependency_versions': {}}])
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / 'project.json'
+            path.write_text(json.dumps(p), encoding='utf-8')
+            update = {'project_id': p['project_id'], 'base_version': p['version'],
+                      'version': '2', 'input_versions': {'A01': '1'},
+                      'owner_artifact_ids': ['BOARD'],
+                      'changes': {
+                          'asset_registry': [{'id': 'IDENTITY', 'version': '2'}],
+                          'artifacts': [{'id': 'BOARD', 'version': '2'}]}}
+            result = apply_update(path, update)
+            saved = json.loads(path.read_text(encoding='utf-8'))
+            rows = {row['id']: row for row in saved['artifacts']}
+            self.assertEqual(result['stale_artifact_ids'],
+                             ['ANIMATIC', 'BOARD', 'GEN', 'SHEET'])
+            self.assertEqual(rows['BOARD']['status'], 'stale')
+            self.assertEqual(rows['BOARD']['required_asset_versions'], {'LOOK': '1'})
+            self.assertEqual(rows['AUDIO']['status'], 'reviewed')
+            self.assertEqual(saved['storyboard']['panels'][0]['asset_version_refs'],
+                             {'IDENTITY': '1'})
+
+    def test_panel_drift_stales_only_canonical_board_branch(self):
+        p = board()
+        p['asset_registry'].extend([
+            {'id': 'LOOK', 'kind': 'document', 'version': '1', 'status': 'planned'},
+            {'id': 'IDENTITY', 'kind': 'image', 'version': '1', 'status': 'planned'}])
+        p['look_asset_id'] = 'LOOK'
+        p['storyboard']['panels'][0]['asset_version_refs'] = {'IDENTITY': '1'}
+        p['preproduction'] = {'storyboard_artifact_id': 'BOARD'}
+        p['artifacts'].append({
+            'id': 'BOARD', 'type': 'storyboard', 'version': '1', 'status': 'reviewed',
+            'required_asset_versions': {'LOOK': '1'}, 'dependencies': ['SYN'],
+            'dependency_versions': {'SYN': '1'}})
+        p['artifacts'].extend([
+            {'id': 'ALT', 'type': 'storyboard', 'version': '1', 'status': 'reviewed',
+             'dependencies': ['SYN'], 'dependency_versions': {'SYN': '1'}},
+            {'id': 'ALT_CHILD', 'type': 'generation_spec', 'version': '1', 'status': 'reviewed',
+             'dependencies': ['ALT'], 'dependency_versions': {'ALT': '1'}},
+            {'id': 'SHEET', 'type': 'storyboard_sheet', 'version': '1', 'status': 'reviewed',
+             'dependencies': ['BOARD'], 'dependency_versions': {'BOARD': '1'}},
+            {'id': 'AUDIO', 'type': 'audio', 'version': '1', 'status': 'reviewed',
+             'dependencies': [], 'dependency_versions': {}}])
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / 'project.json'
+            path.write_text(json.dumps(p), encoding='utf-8')
+            update = {'project_id': p['project_id'], 'base_version': p['version'],
+                      'version': '2', 'input_versions': {'A01': '1'},
+                      'owner_artifact_ids': ['A01'],
+                      'changes': {
+                          'asset_registry': [{'id': 'IDENTITY', 'version': '2'}],
+                          'artifacts': [{'id': 'A01', 'version': '2'}]}}
+            result = apply_update(path, update)
+            saved = json.loads(path.read_text(encoding='utf-8'))
+            rows = {row['id']: row for row in saved['artifacts']}
+            self.assertEqual(result['stale_artifact_ids'], ['BOARD', 'SHEET'])
+            self.assertEqual(rows['ALT']['status'], 'reviewed')
+            self.assertEqual(rows['ALT_CHILD']['status'], 'reviewed')
+            self.assertEqual(rows['AUDIO']['status'], 'reviewed')
+            self.assertEqual(saved['storyboard']['panels'][0]['asset_version_refs'],
+                             {'IDENTITY': '1'})
 
 
 if __name__ == '__main__':

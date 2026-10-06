@@ -334,7 +334,24 @@ class StoryboardContractTests(unittest.TestCase):
             with self.subTest(case=i):
                 self.assertTrue(validate_storyboard(p))
 
+    def test_invalid_selected_storyboard_id_returns_structured_diagnostic(self):
+        for selector in (['BOARD'], {'id': 'BOARD'}):
+            with self.subTest(selector=selector), tempfile.TemporaryDirectory() as temp:
+                p = board()
+                p['preproduction'] = {'storyboard_artifact_id': selector}
+                errors = validate_storyboard(p)
+                self.assertTrue(any('storyboard_artifact_id: nonempty string required' in e
+                                    for e in errors))
+                path = Path(temp, 'project.json')
+                path.write_text(json.dumps(p), encoding='utf-8')
+                result = subprocess.run([sys.executable, str(Path(__file__).with_name(
+                    'validate_storyboard.py')), str(path)], capture_output=True, text=True)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn('storyboard_artifact_id', result.stdout)
+                self.assertNotIn('Traceback', result.stderr)
+
     def test_cli_valid_board_and_missing_beat_rejection(self):
+
         with tempfile.TemporaryDirectory() as temp:
             p = board()
             path = Path(temp, 'project.json')

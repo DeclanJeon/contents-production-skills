@@ -1,0 +1,50 @@
+Production v5.1 QA remediation — final verification transcript
+Windows 10 / Python 3.12; executed from repository root.
+
+$ python -m pytest -q
+....................................................... [ 22%]
+............................................................ [ 47%]
+........................................................ [ 71%]
+................................ [ 84%]
+.....................................                                                      [100%]
+
+Warnings:
+- scripts/test_sync_installed.py::test_stale_link_is_repointed: PytestUnhandledThreadExceptionWarning, subprocess reader raised UnicodeDecodeError decoding Windows output as UTF-8 (byte 0xbf at position 215).
+- scripts/test_sync_installed.py::test_remove_link_never_deletes_target_content: PytestUnhandledThreadExceptionWarning, subprocess reader raised UnicodeDecodeError decoding Windows output as UTF-8 (byte 0xbf at position 224).
+
+240 passed, 2 warnings, 211 subtests passed in 23.41s
+
+$ python scripts/check_versions.py
+version check OK: package 2.4, 18 skill(s) consistent
+
+Initial no-write installer preflight against the working tree:
+$ python scripts/install_package.py --skills-root <fresh temp skills root> --repo-root <working tree>
+exit 2; installation preflight failed; nothing was written:
+- source skill would create support collision: video-production-assets/support/manifest.json
+- source skill would create support collision: video-production-assets/support/examples
+- source skill would create support collision: video-production-assets/support/qa
+- source skill would create support collision: video-production-assets/support/CHANGELOG.md
+The existing support cache was preserved. The successful stage used a separate clean temporary source checkout with only that duplicate cache directory omitted; source root support/manifest.json, root examples/, root qa/, root CHANGELOG.md, and all manifest-listed skill sources were included.
+
+Successful isolated staging paths:
+- Stage root: C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk
+- Clean source checkout: C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\checkout
+- Installed skills root: C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\skills
+- Installed history scripts directory: C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\skills\recording-production-history\scripts
+- Runtime project root: C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\runtime-project
+
+$ python scripts/install_package.py --skills-root C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\skills --repo-root C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\checkout
+exit 0: Installed 18 skill(s) into the isolated skills root (package version 2.4); observed installed skill count=18.
+
+$ python C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\skills\recording-production-history\scripts\production_history.py init --project-id staging-smoke --project-root C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\runtime-project
+exit 0; JSON output reported the exact selected project root and created project.json/layout.
+
+$ python C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\skills\recording-production-history\scripts\production_history.py status --project-root C:\Users\Declan\AppData\Local\Temp\production-v51-cleanstage-5j1t2tyk\runtime-project
+exit 0; {"project_root":"C:\\Users\\Declan\\AppData\\Local\\Temp\\production-v51-cleanstage-5j1t2tyk\\runtime-project","operations":{},"in_flight":[],"lifecycle":[],"event_count":0}
+
+The temporary runtime project's initial skeleton was replaced with a valid schema 1.1 plan fixture (one scene, one two-second shot, one draft plan artifact; no media/assets) before the package CLI smoke.
+
+$ python "C:/Users/Declan/AppData/Local/Temp/production-v51-cleanstage-5j1t2tyk/skills/video-production-assets/scripts/package_production.py" "C:/Users/Declan/AppData/Local/Temp/production-v51-cleanstage-5j1t2tyk/runtime-project/project.json" --base-dir "C:/Users/Declan/AppData/Local/Temp/production-v51-cleanstage-5j1t2tyk/runtime-project" --output "C:/Users/Declan/AppData/Local/Temp/production-v51-cleanstage-5j1t2tyk/runtime-package-final"
+exit 0; {"project_id":"staging-smoke","version":"1","packaged_assets":0,"skipped_assets":[],"history_entries":0,"asset_gate":"clear","package":"C:\\Users\\Declan\\AppData\\Local\\Temp\\production-v51-cleanstage-5j1t2tyk\\runtime-package-final\\staging-smoke_v1"}
+
+Result: isolated 18-skill install plus installed history init/status and package CLI runtime smoke PASS. No global installation or source-cache write/cleanup occurred.

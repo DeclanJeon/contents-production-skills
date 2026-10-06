@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-"""Assemble every canonical storyboard panel into ONE annotated PNG sheet.
+"""Assemble canonical storyboard panels into ordered annotated PNG sheets.
 
 Reads the optional storyboard extension: each panel's registered clean image
 or source-sheet crop (EXIF orientation applied, content preserved), verified
 against current file hashes, plus shot/scene/beat/character metadata, and
-writes a single output PNG whose captions live OUTSIDE the clean pixels.
-registers on the storyboard_sheet artifact/asset; this script never mutates
+writes output PNG(s) whose captions live OUTSIDE the clean pixels. v5.1 caps
+every sheet at 8 panels; boards with more panels render an ordered sheet set
+(`<stem>_sNN.png`). Each sheet records deterministic panel/scene crop bounds
+in PNG text metadata so split_storyboard can extract clean panel images and
+per-scene overview bands without guessing. The caller registers the returned
+provenance on storyboard_sheet artifacts/assets; this script never mutates
 project.json, never creates a rival manifest, and certifies structure and
 file integrity only — not image readability, identity or creative approval.
 Pillow is required; no network access or media generation happens here.
@@ -24,6 +28,7 @@ from pathlib import Path
 
 from validate_project import validate
 from validate_storyboard import validate_storyboard
+from asset_gate import check_asset_gate
 
 try:
     from PIL import Image, ImageDraw, ImageFont, ImageOps
@@ -68,9 +73,10 @@ MARGIN = 16
 FONT_SIZE = 17
 LINE_SPACING = 6
 CAPTION_MAX_LINES = 40
-MAX_COLUMNS = 3
-MAX_SHEET_PIXELS = 120_000_000   # hard memory bound (~360 MB RGB)
+MAX_COLUMNS = 4                # v5.1 grid caps at 4 columns (7–8 panels = 2x4)
+MAX_PANELS_PER_SHEET = 8       # v5.1 absolute maximum panels per sheet
 MAX_PANELS = 400
+MAX_SHEET_PIXELS = 64_000_000  # Bound decoded sheet memory before allocation.
 
 # EXIF orientations that swap width/height (transposed preview dimensions).
 _TRANSPOSED_EXIF = frozenset((5, 6, 7, 8))
@@ -107,6 +113,16 @@ def _table(project, key):
     return {row['id']: row for row in rows
             if isinstance(row, dict) and isinstance(row.get('id'), str)
             and row['id'].strip()}
+
+
+def _selected_board(project):
+    rows = _table(project, 'artifacts')
+    package = project.get('preproduction')
+    board_id = package.get('storyboard_artifact_id') if isinstance(package, dict) else None
+    if board_id in rows:
+        return rows[board_id]
+    boards = [row for row in rows.values() if row.get('type') == 'storyboard']
+    return boards[0] if len(boards) == 1 else None
 
 
 def _text(value):
@@ -393,10 +409,9 @@ def _wrap_caption(draw, lines, font, width):
 # Main entry
 # ---------------------------------------------------------------------------
 
-def render_sheet(project, base_dir, output, *, font_path=None):
-    """Render the full board to one PNG. Returns provenance for registration;
-    raises ValueError on any structural, file, font or layout failure and
-    writes nothing in that case."""
+def _preflight(project, base_dir):
+    """Validate the board and decode every panel source into render jobs.
+    Returns (jobs, base); raises ValueError."""
     if not isinstance(project, dict):
         raise ValueError('project must be an object')
     storyboard = project.get('storyboard')
@@ -406,21 +421,14 @@ def render_sheet(project, base_dir, output, *, font_path=None):
     if not panels:
         raise ValueError('storyboard.panels is empty; nothing to render')
     if len(panels) > MAX_PANELS:
-        raise ValueError(f'{len(panels)} panels exceed the {MAX_PANELS} single-sheet bound')
+        raise ValueError(f'{len(panels)} panels exceed the {MAX_PANELS} render bound')
 
     base = Path(base_dir).resolve()
-    if not isinstance(output, (str, Path)) or not str(output).strip():
-        raise ValueError('output: nonempty project-relative path required')
-    raw_output = str(output)
-    if Path(raw_output).is_absolute() or re.match(r'^[A-Za-z]:', raw_output):
-        raise ValueError('output must be a project-relative path inside --base-dir')
-    out = (base / raw_output).resolve()
-    if out != base and base not in out.parents:
-        raise ValueError('output path escapes the project base')
-    if out.exists():
-        raise ValueError(f'output already exists; refusing to overwrite: {out}')
-    if out.suffix.lower() != '.png':
-        raise ValueError('output must be a .png file')
+    board = _selected_board(project)
+    if board is not None and board.get('finality') == 'final':
+        blockers = check_asset_gate(project, artifact_ids=[board['id']])
+        if blockers:
+            raise ValueError('FINAL storyboard asset gate blocked: ' + '; '.join(blockers))
 
     # Full structural gate on a construction scratch copy: the ledger can be
     # mid-build (its completeness requirements are exactly what this sheet is
@@ -436,11 +444,6 @@ def render_sheet(project, base_dir, output, *, font_path=None):
 
     shots = _table(project, 'shots')
     assets = _table(project, 'asset_registry')
-    characters = _table(project, 'characters')
-    beats = {row['id']: row for row in
-             (storyboard.get('beats') if isinstance(storyboard.get('beats'), list) else [])
-             if isinstance(row, dict) and isinstance(row.get('id'), str)}
-    audio_cues = _table(project, 'audio_cues')
 
     errors = []
     jobs = []  # dict per panel, story order
@@ -490,24 +493,57 @@ def render_sheet(project, base_dir, output, *, font_path=None):
         raise ValueError('sheet preflight failed: ' + '; '.join(errors))
     if len(jobs) != len(panels):
         raise ValueError('sheet preflight failed: unresolved panel rows')
+    return jobs, base
 
-    font, font_resolved = resolve_font(font_path)
-    probe = Image.new('RGB', (8, 8))
-    measure = ImageDraw.Draw(probe)
 
-    # Decode sources once per unique file (EXIF applied) and prepare cell
-    # bitmaps scaled to fit the fixed image cell, aspect preserved.
-    columns = 1 if len(jobs) <= 1 else (2 if len(jobs) <= 4 else MAX_COLUMNS)
-    source_cache = {}
+def _columns(count):
+    """v5.1 grid: 1 panel 1x1; 2 -> 2x1; 3 -> 3x1; 4 -> 2x2; 5-6 -> 2x3;
+    7-8 -> 2x4. Rows additionally break at scene boundaries."""
+    if count <= 1:
+        return 1
+    if count == 2:
+        return 2
+    if count == 3:
+        return 3
+    if count == 4:
+        return 2
+    if count <= 6:
+        return 3
+    return 4
+
+
+def _output_paths(base, raw_output, sheet_count):
+    """Resolve every sheet path; all must be free before any write."""
+    paths = []
+    for i in range(1, sheet_count + 1):
+        rel = raw_output if sheet_count == 1 else (
+            str(Path(raw_output).with_name(
+                f'{Path(raw_output).stem}_s{i:02d}.png')).replace('\\', '/'))
+        candidate = base / rel
+        # lexists catches dangling symlinks; resolve catches links that point
+        # outside even when the final file does not yet exist.
+        if os.path.lexists(candidate):
+            raise ValueError(f'output already exists; refusing to overwrite: {candidate}')
+        out = candidate.resolve()
+        if out == base or base not in out.parents:
+            raise ValueError(f'output escapes project base: {candidate}')
+        paths.append(out)
+    return paths
+
+
+def _render_one(project, base, jobs, ctx, font, sheet_index, sheet_count, out):
+    """Lay out, draw and atomically write one sheet PNG; returns provenance."""
+    storyboard = project['storyboard']
+    beats = ctx['beats']
+    characters = ctx['characters']
+    audio_cues = ctx['audio_cues']
+    artifacts = ctx['artifacts']
+    measure = ctx['measure']
+    source_cache = ctx['source_cache']
+
+    # Prepare cell bitmaps scaled to fit the fixed image cell.
     for job in jobs:
-        path = job['path']
-        if path not in source_cache:
-            with Image.open(path) as im:
-                im = ImageOps.exif_transpose(im)
-                im.load()
-                source_cache[path] = im.convert('RGB') if 'A' not in im.getbands() \
-                    else im.convert('RGBA')
-        src = source_cache[path]
+        src = source_cache[job['path']]
         if job['crop'] is not None:
             src = src.crop(job['crop'])
         w, h = job['size']
@@ -518,21 +554,31 @@ def render_sheet(project, base_dir, output, *, font_path=None):
         job['bitmap'] = src if 'A' in src.getbands() else src.convert('RGB')
         job['scaled_size'] = scaled
 
-    artifacts = _table(project, 'artifacts')
-    synopsis_id = storyboard.get('synopsis_artifact_id')
+    columns = _columns(len(jobs))
+    # Rows break at scene boundaries so each row band holds exactly one scene.
+    rows = []
+    for job in jobs:
+        scene = job['shot'].get('scene_id') if job['shot'] else None
+        if not rows or len(rows[-1]['jobs']) >= columns or rows[-1]['scene'] != scene:
+            rows.append({'scene': scene, 'jobs': []})
+        rows[-1]['jobs'].append(job)
+
+    # v5.1 purity: header is production navigation, not a dashboard or audit.
+    scene_ids = list(dict.fromkeys(job['shot']['scene_id'] for job in jobs))
+    shot_ids = list(dict.fromkeys(job['panel']['shot_id'] for job in jobs))
+    board = _selected_board(project)
+    finality = 'final' if board is not None and board.get('finality') == 'final' else 'preliminary'
     header = [
         f"{_text(project.get('project_id')) or '?'} v{_text(project.get('version')) or '?'} — "
-        f'storyboard sheet · {len(jobs)} panels · source files unmodified',
-        f"synopsis {synopsis_id or '?'}@{artifacts.get(synopsis_id, {}).get('version', '?')} · "
-        f'fps {_fmt_seconds(project.get("fps")).rstrip("s")} · '
-        'index/captions outside panel cells; this sheet is not a creative approval record',
+        f'{finality.upper()} storyboard sheet {sheet_index}/{sheet_count}',
+        f'scenes {scene_ids[0]}–{scene_ids[-1]} · shots {shot_ids[0]}–{shot_ids[-1]} · '
+        f'panels {jobs[0]["panel_id"]}–{jobs[-1]["panel_id"]}',
     ]
     header_lines = _wrap_caption(measure, header, font, CAPTION_WIDTH * columns
                                  + GUTTER * (columns - 1))
     if len(header_lines) > 8:
         raise ValueError('header does not fit the sheet header band')
 
-    # Measure wrapped captions; cells expand, required rows are never clipped.
     for job in jobs:
         source_label = (
             f'{job["source_asset_id"]} via {job["file_asset_id"]} '
@@ -550,11 +596,10 @@ def render_sheet(project, base_dir, output, *, font_path=None):
 
     line_height = FONT_SIZE + LINE_SPACING
     cell_width = CELL_IMAGE_WIDTH
-    rows = [jobs[i:i + columns] for i in range(0, len(jobs), columns)]
     header_height = MARGIN + len(header_lines) * line_height + GUTTER
     row_heights = []
     for row in rows:
-        caption_lines = max(len(j['caption']) for j in row)
+        caption_lines = max(len(j['caption']) for j in row['jobs'])
         row_heights.append(CELL_IMAGE_HEIGHT + GUTTER + caption_lines * line_height)
     sheet_width = MARGIN * 2 + columns * cell_width + (columns - 1) * GUTTER
     sheet_height = header_height + sum(row_heights) + MARGIN
@@ -572,9 +617,12 @@ def render_sheet(project, base_dir, output, *, font_path=None):
         draw.text((MARGIN, y), line, font=font, fill=ink)
         y += line_height
     y += GUTTER
+
+    panel_bounds = []
+    scene_bounds = []      # ordered [{'scene_id','bounds':[l,t,r,b]}]
     for row, row_height in zip(rows, row_heights):
         x = MARGIN
-        for job in row:
+        for job in row['jobs']:
             bw, bh = job['scaled_size']
             box_x = x + (CELL_IMAGE_WIDTH - bw) // 2
             box_y = y + (CELL_IMAGE_HEIGHT - bh) // 2
@@ -582,11 +630,21 @@ def render_sheet(project, base_dir, output, *, font_path=None):
                             y + CELL_IMAGE_HEIGHT - 1], outline=(210, 210, 210))
             sheet.paste(job['bitmap'], (box_x, box_y),
                         job['bitmap'] if 'A' in job['bitmap'].getbands() else None)
+            # Recorded deterministic crop: the pasted clean image rect.
+            panel_bounds.append({'panel_id': job['panel_id'],
+                                 'bounds': [box_x, box_y, box_x + bw, box_y + bh]})
             cy = y + CELL_IMAGE_HEIGHT + GUTTER
             for i, line in enumerate(job['caption']):
                 draw.text((x, cy), line, font=font, fill=ink if i < 4 else dim)
                 cy += line_height
             x += cell_width + GUTTER
+        # Scene band: full sheet content width so bands concatenate cleanly;
+        # covers only this scene's rows (header excluded by construction).
+        band = [MARGIN, y, sheet_width - MARGIN, y + row_height]
+        if scene_bounds and scene_bounds[-1]['scene_id'] == row['scene']:
+            scene_bounds[-1]['bounds'][3] = band[3]
+        else:
+            scene_bounds.append({'scene_id': row['scene'], 'bounds': band})
         y += row_height
 
     provenance = [{
@@ -601,6 +659,10 @@ def render_sheet(project, base_dir, output, *, font_path=None):
         'panel_id': job['panel_id'],
         'scene_id': job['shot'].get('scene_id'),
         'shot_id': job['panel'].get('shot_id'),
+        'source_asset_id': job['source_asset_id'],
+        'source_asset_version': ctx['assets'][job['source_asset_id']].get('version'),
+        'source_sha256': job['source_sha256'],
+        'asset_version_refs': dict(job['panel'].get('asset_version_refs') or {}),
         'beat_ids': list(job['panel']['beat_ids']),
         'visible_character_ids': list(job['panel']['visible_character_ids']),
         'audio_cue_ids': list(job['panel']['audio_cue_ids']),
@@ -625,7 +687,13 @@ def render_sheet(project, base_dir, output, *, font_path=None):
     meta.add_text('storyboard_sheet.panel_traceability',
                   json.dumps(panel_traceability, ensure_ascii=False, separators=(',', ':')),
                   zip=True)
-    pnginfo = meta
+    meta.add_text('storyboard_sheet.sheet_index', str(sheet_index))
+    meta.add_text('storyboard_sheet.sheet_count', str(sheet_count))
+    meta.add_text('storyboard_sheet.finality', finality)
+    meta.add_text('storyboard_sheet.panel_bounds',
+                  json.dumps(panel_bounds, separators=(',', ':')))
+    meta.add_text('storyboard_sheet.scene_bounds',
+                  json.dumps(scene_bounds, separators=(',', ':')))
 
     # Atomic no-overwrite write: unique temp in the output folder + link + unlink.
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -634,7 +702,7 @@ def render_sheet(project, base_dir, output, *, font_path=None):
     temp = Path(temp_name)
     try:
         with os.fdopen(descriptor, 'wb') as f:
-            sheet.save(f, format='PNG', pnginfo=pnginfo)
+            sheet.save(f, format='PNG', pnginfo=meta)
             f.flush()
             os.fsync(f.fileno())
         try:
@@ -655,8 +723,13 @@ def render_sheet(project, base_dir, output, *, font_path=None):
         'sha256': _sha256(out),
         'width': sheet_width,
         'height': sheet_height,
-        'font': font_resolved,
+        'sheet_index': sheet_index,
+        'sheet_count': sheet_count,
+        'finality': finality,
         'panel_ids': [job['panel_id'] for job in jobs],
+        'scene_ids': [row['scene_id'] for row in scene_bounds],
+        'panel_bounds': panel_bounds,
+        'scene_bounds': scene_bounds,
         'source_asset_ids': [job['source_asset_id'] for job in jobs],
         'source_sha256': source_sha256,
         'panels': provenance,
@@ -664,18 +737,104 @@ def render_sheet(project, base_dir, output, *, font_path=None):
     }
 
 
+def _render(project, base_dir, output, *, font_path=None, single=False,
+            panels_per_sheet=MAX_PANELS_PER_SHEET):
+    """Shared driver: preflight, resolve outputs, render each sheet."""
+    if not isinstance(panels_per_sheet, int) or isinstance(panels_per_sheet, bool) \
+            or not 1 <= panels_per_sheet <= MAX_PANELS_PER_SHEET:
+        raise ValueError('panels_per_sheet must be an integer from 1 to 8')
+    jobs, base = _preflight(project, base_dir)
+
+    if not isinstance(output, (str, Path)) or not str(output).strip():
+        raise ValueError('output: nonempty project-relative path required')
+    raw_output = str(output)
+    if Path(raw_output).is_absolute() or re.match(r'^[A-Za-z]:', raw_output):
+        raise ValueError('output must be a project-relative path inside --base-dir')
+    out = (base / raw_output).resolve()
+    if out != base and base not in out.parents:
+        raise ValueError('output path escapes the project base')
+    if out.suffix.lower() != '.png':
+        raise ValueError('output must be a .png file')
+
+    chunks = [jobs[i:i + panels_per_sheet]
+              for i in range(0, len(jobs), panels_per_sheet)]
+    if single and len(chunks) > 1:
+        raise ValueError(
+            f'{len(jobs)} panels need {len(chunks)} sheets at the '
+            f'{panels_per_sheet}-panel per-sheet cap; call render_sheets '
+            'or the CLI, which paginates automatically')
+    paths = _output_paths(base, raw_output, len(chunks))
+
+    font, font_resolved = resolve_font(font_path)
+    ctx = {
+        'assets': _table(project, 'asset_registry'),
+        'characters': _table(project, 'characters'),
+        'beats': {row['id']: row for row in
+                  (project['storyboard'].get('beats')
+                   if isinstance(project['storyboard'].get('beats'), list) else [])
+                  if isinstance(row, dict) and isinstance(row.get('id'), str)},
+        'audio_cues': _table(project, 'audio_cues'),
+        'artifacts': _table(project, 'artifacts'),
+        'measure': ImageDraw.Draw(Image.new('RGB', (8, 8))),
+        'source_cache': {},
+    }
+    # Decode sources once per unique file (EXIF applied) for all sheets.
+    for job in jobs:
+        path = job['path']
+        if path not in ctx['source_cache']:
+            with Image.open(path) as im:
+                im = ImageOps.exif_transpose(im)
+                im.load()
+                ctx['source_cache'][path] = im.convert('RGB') \
+                    if 'A' not in im.getbands() else im.convert('RGBA')
+
+    sheet_count = len(chunks)
+    results = []
+    try:
+        for i, (chunk, path) in enumerate(zip(chunks, paths), 1):
+            result = _render_one(project, base, chunk, ctx, font,
+                                 i, sheet_count, path)
+            result['font'] = font_resolved
+            results.append(result)
+    except Exception:
+        for result in results:
+            Path(result['path']).unlink(missing_ok=True)
+        raise
+    return results
+
+
+def render_sheets(project, base_dir, output, *, font_path=None,
+                  panels_per_sheet=MAX_PANELS_PER_SHEET):
+    """Render the board to one or more PNG sheets (v5.1: at most 8 panels per
+    sheet, rows break at scene boundaries). Returns {'sheets': [...]};
+    raises ValueError and writes nothing on any failure."""
+    return {'sheets': _render(project, base_dir, output,
+                              font_path=font_path, single=False,
+                              panels_per_sheet=panels_per_sheet)}
+
+
+def render_sheet(project, base_dir, output, *, font_path=None):
+    """Strict single-sheet render: raises when the board needs pagination."""
+    return _render(project, base_dir, output, font_path=font_path,
+                   single=True)[0]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('project')
     parser.add_argument('--base-dir', required=True)
     parser.add_argument('--output', required=True,
-                        help='project-relative output PNG path')
+                        help='project-relative output PNG path '
+                             '(suffixed _sNN when the board paginates)')
     parser.add_argument('--font', help='explicit Korean-capable .ttf/.otf/.ttc path')
+    parser.add_argument('--panels-per-sheet', type=int, default=MAX_PANELS_PER_SHEET,
+                        help='readability-based panel limit, 1 through 8')
     args = parser.parse_args()
     try:
         project = json.loads(Path(args.project).read_text(encoding='utf-8'))
-        result = render_sheet(project, args.base_dir, args.output,
-                              font_path=args.font)
+        result = render_sheets(project, args.base_dir, args.output,
+                               font_path=args.font,
+                               panels_per_sheet=args.panels_per_sheet)
     except (OSError, ValueError, RuntimeError) as e:
         print(json.dumps({'ok': False, 'errors': [str(e)]}, ensure_ascii=False))
         return 2

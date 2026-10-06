@@ -22,6 +22,23 @@
 
 요청에 필요한 파일만 만든다. 비적용 모듈에 빈 파일을 만들지 않는다. 새 manifest나 별도 승인 데이터베이스를 만들지 않는다.
 
+### 1a. 실제 파일 저장 초기화와 제작 이력
+
+실제 산출물 파일을 만드는 제작 작업이 시작되면, 프로젝트 루트를 정한 뒤 `recording-production-history`의 도구로 저장 구조를 초기화한다:
+
+`python <skill-dir>/recording-production-history/scripts/production_history.py init --project-id <ID> [--documents <PATH> | --project-root <ROOT>]`
+
+명시적 저장 루트가 없으면 기본 루트는 실제 사용자 Documents 폴더의 `studio_production/<project-id>`다(Windows는 리디렉션된 Documents/OneDrive, macOS는 `~/Documents`, Linux는 XDG 또는 `~/Documents`). `--documents`와 `--project-root`는 동시에 지정하지 않는다. `--project-root`는 선택한 폴더를 그대로 사용하며 불필요한 하위 경로를 덧붙이지 않는다. `init`은 v5.1 패키지 디렉터리와 `.history`를 만들고 기존 `project.json`을 덮어쓰지 않는다.
+
+실제 미디어·문서 파일을 만들거나 바꾸는 작업은 시작과 종결을 `record`로 남긴다:
+
+`python <skill-dir>/recording-production-history/scripts/production_history.py record --project-root <ROOT> --operation <TEXT> --prompt-file <FILE> --status started|completed|interrupted|failed [--output <PATH> ...]`
+
+중간·최종 산출물은 `--output`으로 등록하고, 반환된 실제 절대 경로를 사용자에게 보고한다. `.history`는 감사 기록이지 승인 원장이 아니다 — `project.json`이 정본이며 승인 증거는 기존 계약이 기록한다. 작업이 중단된 뒤 재개하면 `status`로 in-flight operation을 확인하고 `resume`으로 중단을 명시한 뒤 이어간다.
+
+파일을 만들지 않는 채팅 전용 작업은 저장 초기화·이력 기록을 생략한다(chat-only는 no-save).
+
+
 ## 2. 적용 가능한 에셋 작성
 
 브리프의 주제·목적·형식·길이·제약을 추출하고 중요한 창작 방향은 사용자 선택 또는 명시적 위임으로 정한다. 해당 프로젝트의 소재 출처·판단 도구·실행 차단 조건을 기록한다. 특정 사이트, 이진 모델, 장르, 길이, 화면비를 공통 기본값으로 사용하지 않는다.
@@ -30,7 +47,7 @@
 
 레퍼런스 기반·다중 샷 제작에는 [프로젝트 스타일 브리프](01-brief.md#프로젝트별-스타일-브리프)의 필요한 항목을 기존 브리프/비주얼 바이블에 둔다. 승인된 레퍼런스 적용 요구와 스타일 버전은 뒤 단계로 그대로 인계한다.
 
-관련 모듈의 템플릿을 실제 내용으로 채운다. 인물 없는 영상에는 캐릭터를 만들지 않는다. 전체 패키지는 [필수 산출물 계약](contract.md#전체-프리프로덕션-패키지)에 따라 **시놉 MD → 인물별 페르소나·SSOT MD → 실제 한 장짜리 Identity Sheet A → 통합 기술 콘티 → 전체 합본 스토리보드 이미지 → 검수**로 진행한다. 총괄이 시놉/캐릭터/콘티 담당과 이미지 실행자를 순서대로 배정한다. ‘별도 캐릭터 시트 문구 없음’을 이유로 전체 패키지의 인물 설계를 생략하지 않는다. 사실·권리 근거와 창작 제안을 구분하고 기존 승인 자료를 보존한다.
+관련 모듈의 템플릿을 실제 내용으로 채운다. 인물 없는 영상에는 캐릭터를 만들지 않는다. 전체 패키지는 [필수 산출물 계약](contract.md#전체-프리프로덕션-패키지)에 따라 **시놉 MD → 인물별 페르소나·SSOT MD → 실제 한 장짜리 Identity Sheet A → 통합 기술 콘티 → 전체 패널을 덮는 합본 스토리보드 이미지 세트(시트당 최대 8패널) → 검수**로 진행한다. 총괄이 시놉/캐릭터/콘티 담당과 이미지 실행자를 순서대로 배정한다. ‘별도 캐릭터 시트 문구 없음’을 이유로 전체 패키지의 인물 설계를 생략하지 않는다. 사실·권리 근거와 창작 제안을 구분하고 기존 승인 자료를 보존한다.
 제작용 스토리보드는 [완전한 보드 계약](storyboard-contract.md)을 필수 적용한다. 전체 시놉 비트→씬→샷→키패널과 각 샷의 카메라/공간·VFX·대사/립싱크·사운드 큐를 이미지 생성 전에 통합한다. 제공 콘티도 같은 항목으로 QA→부족 항목 보완→재검수하며 승인된 이야기와 제공 시각 앵커를 보존한다.
 
 `project.json`의 샷·에셋 ID를 문서와 매핑한다. 영상 모델은 프리프로덕션 동안 미정으로 둘 수 있다. 모델별 문법 대신 동작·구도·시작/종료 상태·연속성 요구사항을 인계한다.
@@ -50,7 +67,7 @@ Review stills do not require video-generation approval. Video samples, moving an
 
 Other explicitly selected still-image or video providers retain their applicable provider-specific approval rules. Codex Imagen still-image calls do not require usage, quote, or cost approval.
 
-전체 clean 패널을 실제 생성/검사한 후 `render_storyboard_sheet.py <project.json> --base-dir <root> --output <새-relative.png> [--font <font.ttf>]`로 모든 컷과 외부 촬영/연결 인덱스를 **한 장의 PNG**에 조립한다. 반환된 실제 path/hash/panel_ids/source_asset_ids/source_sha256을 기존 원장에 등록한다. 합본을 열어 순서·전수 포함·인물 SSOT 링크·구도/앵글/샷·한글 캡션 가독성을 검사한다. 개별 컷/Markdown만으로 전체 합본 시트 완료라고 하지 않는다.
+전체 clean 패널을 실제 생성/검사한 후 `render_storyboard_sheet.py <project.json> --base-dir <root> --output <새-relative.png> [--font <font.ttf>]`로 모든 컷과 외부 촬영/연결 인덱스를 이야기 순서의 **시트 세트(시트당 최대 8패널)**로 조립한다. 반환된 각 시트의 실제 path/hash/panel_ids/sheet_index/sheet_count/source_asset_ids/source_sha256을 기존 원장에 등록한다. 합본을 열어 순서·전수 포함·인물 SSOT 링크·구도/앵글/샷·한글 캡션 가독성을 검사한다. 개별 컷/Markdown만으로 전체 합본 시트 완료라고 하지 않는다.
 
 ## 4. 검수하고 보고한 뒤 대기
 
@@ -59,7 +76,7 @@ Other explicitly selected still-image or video providers retain their applicable
 
 `review.md`에는 다음을 넣고 채팅에서도 경로와 주요 미리보기를 보고한다.
 
-- 정확한 프로젝트 폴더와 목표/형식; 실제 시놉 MD, 인물별 페르소나·SSOT MD/Identity Sheet A, 전체 기술 콘티 MD, 한 장짜리 통합 스토리보드 이미지의 링크·ID·버전·해시
+- 정확한 프로젝트 폴더와 목표/형식; 실제 시놉 MD, 인물별 페르소나·SSOT MD/Identity Sheet A, 전체 기술 콘티 MD, 이야기 순서 합본 스토리보드 이미지 세트의 링크·ID·버전·해시
 - 검사한 파일/버전 목록과 검사 결과·증거
 - 실제 생성된 이미지와 텍스트만 준비된 항목의 구분
 - 가정, 미검증/미정 사항, 차단 조건, 사용자에게 필요한 검토 선택

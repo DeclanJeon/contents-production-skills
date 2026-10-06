@@ -1,6 +1,6 @@
 ---
 name: designing-video-character-sheets
-version: 2.4
+version: 2.5
 description: Use to design video characters — a cast or character bible, a single character sheet, visual identity anchors, or a reusable character image-sheet prompt.
 ---
 
@@ -37,6 +37,12 @@ When the assignment is a full canonical `CHARACTER SSOT` — a per-character SSO
 ## Acceptance
 
 Done means each requested sheet is returned — not a completion report — with 확정 정보/디자인 제안/관찰/미정 distinguishable, continuity anchors separated from scene variants, an in-scope voice profile where the role speaks, one reusable image-sheet prompt per character, and no invented real-person facts, claims, or media. A full delegated SSOT additionally keeps all 0–33 sections with their stated counts, a persona mappable to `{role, personality, observable_behavior, speech}`, and the Sheet A identity-sheet spec.
+
+## v5.1 master pack and lineage
+
+A recurring production-critical character is not locked by one attractive portrait. Under an image-backed package the returned SSOT packet also marks which Character Master views the project actually needs: identity turnaround (front neutral, front 3/4, profile, rear), face identity close-up with hairline and color anchors, story-relevant expression range only, full-body proportion/scale reference, one WARDROBE ID (WD) per recurring costume, and DO-NOT-CHANGE identity locks (face shape, eye spacing, nose/mouth proportions, hair silhouette, body proportions, signature marks, age appearance). Identity references use neutral production-readable lighting and pose — no extreme lens, dramatic pose, or colored lighting as sole identity reference.
+
+Scene-specific state (wet/damaged/wardrobe-layer/props-in-hand/emotional baseline) is a **derivative** asset, never a redefined identity: it pins `master_asset_ref={asset_id, version}` of the Character Master and lives under that scene's state. A master version bump stales its derivatives until re-pinned — do not edit scene copies independently. The coordinator records `role: master|derivative` and `master_asset_ref` in `asset_registry`; the skill proposes them in its packet.
 
 ## Return and handoff
 

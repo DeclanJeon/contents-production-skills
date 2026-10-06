@@ -8,6 +8,11 @@ camera/spatial/vfx/speech/audio metadata and panels whose roles and frame times
 cover the exact shot frame range in story order. It never attests artistic,
 generated-image or approval quality; --require-images only checks registered
 status and that real files exist inside --base-dir.
+Final boards additionally require per-panel ``asset_version_refs`` pinning every
+referenced critical asset (shot ``asset_ids`` + active LOOK) to its registered
+version. ``--panels-per-sheet`` (default 8, must match the renderer) caps panel
+coverage per registered ``kind=storyboard_sheet`` asset and expects each sheet
+to carry ``panel_ids``/``sheet_index``/``sheet_count``.
 """
 import argparse
 import json
@@ -22,7 +27,7 @@ CAMERA_KEYS = ('shot_size', 'angle', 'framing', 'movement', 'start', 'end')
 PANEL_TEXT_KEYS = ('visual_action', 'reveals', 'withholds', 'continuity')
 
 
-def validate_storyboard(project, base_dir=None, require_images=False, *, check_project=True):
+def validate_storyboard(project, base_dir=None, require_images=False, *, check_project=True, panels_per_sheet=8):
     # Full-package validation reuses the board checks without recursively
     # entering the shared plan gate. Ordinary callers still validate both.
     try:
@@ -78,6 +83,20 @@ def validate_storyboard(project, base_dir=None, require_images=False, *, check_p
         error(f'storyboard: unknown artifacts reference {syn}')
     elif artifacts[syn].get('type') not in ('synopsis', 'script', 'beat_map'):
         error('storyboard: synopsis_artifact_id must reference a synopsis/script/beat_map artifact')
+    boards = [a for a in artifacts.values() if a.get('type') == 'storyboard']
+    board_artifact = None
+    if isinstance(p.get('preproduction'), dict):
+        declared = p['preproduction'].get('storyboard_artifact_id')
+        if not isinstance(declared, str) or not declared.strip():
+            error('preproduction.storyboard_artifact_id: nonempty string required')
+        elif declared in artifacts and artifacts[declared].get('type') == 'storyboard':
+            board_artifact = artifacts[declared]
+    if board_artifact is None and len(boards) == 1:
+        board_artifact = boards[0]
+    board_final = isinstance(board_artifact, dict) and board_artifact.get('finality') == 'final'
+    board_stale = isinstance(board_artifact, dict) and board_artifact.get('status') == 'stale'
+    look_id = p.get('look_asset_id')
+    look_id = look_id if isinstance(look_id, str) and look_id in assets else None
 
     beat_order = {}
     beats = sb.get('beats')
@@ -393,6 +412,31 @@ def validate_storyboard(project, base_dir=None, require_images=False, *, check_p
                 error(f'{label}: crop_box must be nonnegative ints [left,top,right,bottom] with right>left, bottom>top')
             elif isinstance(sheet, str):
                 sheet_crops.setdefault(sheet, []).append((label, cb))
+        avr = pn.get('asset_version_refs')
+        if avr is not None:
+            if not isinstance(avr, dict):
+                error(f'{label}: asset_version_refs must map asset ids to versions'); avr = {}
+            for asset_id, expected in avr.items():
+                row = assets.get(asset_id)
+                if row is None:
+                    error(f'{label}: unknown asset_version_refs entry {asset_id}')
+                else:
+                    if not isinstance(expected, str) or not expected.strip():
+                        error(f'{label}: asset_version_refs {asset_id} needs a version string')
+                    elif expected != row.get('version') and not board_stale:
+                        error(f'{label}: asset_version_refs {asset_id} version drift')
+                    if row.get('status') == 'stale' and not board_stale:
+                        error(f'{label}: references stale asset {asset_id}')
+        if board_final:
+            if not isinstance(avr, dict) or not avr:
+                error(f'{label}: final storyboard panels need asset_version_refs')
+            else:
+                required = set(shot.get('asset_ids') if isinstance(shot.get('asset_ids'), list) else [])
+                if look_id:
+                    required.add(look_id)
+                for asset_id in required:
+                    if asset_id not in avr:
+                        error(f'{label}: final storyboard panel is missing the required asset reference {asset_id}')
     for sheet, crops in sheet_crops.items():
         for i in range(len(crops)):
             for j in range(i + 1, len(crops)):
@@ -465,10 +509,12 @@ def main():
     parser.add_argument('project')
     parser.add_argument('--base-dir')
     parser.add_argument('--require-images', action='store_true')
+    parser.add_argument('--panels-per-sheet', type=int, default=8,
+                        help='max panels per storyboard_sheet asset (match the renderer setting)')
     args = parser.parse_args()
     try:
         p = json.loads(Path(args.project).read_text(encoding='utf-8'))
-        errors = validate_storyboard(p, args.base_dir, args.require_images)
+        errors = validate_storyboard(p, args.base_dir, args.require_images, panels_per_sheet=args.panels_per_sheet)
     except (OSError, ValueError) as e:
         print(json.dumps({'valid': False, 'errors': [str(e)]}, ensure_ascii=False)); return 2
     print(json.dumps({'valid': not errors, 'errors': errors,

@@ -7,6 +7,7 @@
 - **Video craft/assets:** [video-production-assets](../video-production-assets/SKILL.md), 15 selective modules plus on-demand specialist references. These references are not extra installed skills.
 - **Text planning lane:** [orchestrating-video-preproduction](../orchestrating-video-preproduction/SKILL.md) with requested synopsis, character and storyboard specialists.
 - **Spatial/runtime boundary:** [camera-spatial-design](../camera-spatial-design/SKILL.md) designs numeric space; [blender-previsualization](../blender-previsualization/SKILL.md) implements and inspects an actual proxy with the available runtime.
+- **File storage and audit mechanics:** [recording-production-history](../recording-production-history/SKILL.md), called by the coordinator for actual saved production. Owns Documents/studio_production and append-only `.history` events, never artifact approval or stage orchestration.
 
 Installed IDs come from [manifest.json](../manifest.json). No duplicate global coordinator, budget database, SSOT database or provider-manifest source of truth is added.
 
@@ -23,6 +24,7 @@ Installed IDs come from [manifest.json](../manifest.json). No duplicate global c
 | Existing generated-media critique and correction | [Canonical generation QA/retry](../video-production-assets/references/21-generated-video-qa-retry.md) | Actual observations vs supplied observations vs hypotheses; no invented viewing/listening or automatic retry. |
 | Full image-backed preproduction | [Preproduction review](../video-production-assets/references/preproduction-review.md) | Exact folder, applicable actual stills/artifacts, real inspection, version-bound user review. |
 | Production/detailed storyboard, full indexed sheet, or supplied production-board QA | REQUIRED [complete storyboard contract](../video-production-assets/references/storyboard-contract.md), existing craft/camera/Blender owners | Technical slots integrated before final board; full synopsis→scene→shot→panel→character/audio links, image-count plan, actual image-only review, indexed correction and clean-cut extraction. Narrow narrative panels stay text-only. |
+| Saved intermediate/final artifact, interrupted or resumed production | `recording-production-history` under coordinator control | Actual cross-platform Documents root, exact prompt/method/output event history and absolute path reporting; no inferred provider outcome |
 | Authorized media generation, assembly or publishing | Selected available executor/runtime | Verify live schema/auth/cost/destination; bounded execution and separately requested publication. |
 | Ordinary UI/brand implementation | Existing design/development owner | Media can share its visual contract; content orchestration does not take over app development. |
 

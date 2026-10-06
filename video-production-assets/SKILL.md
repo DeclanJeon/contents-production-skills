@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 2.6
+version: 2.7
 description: "Build source-grounded video production assets: briefs, story beats, screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans, animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs, ideation, brand fit, schedules, budgets, asset registries, captions, delivery and QA. Use for complete video preproduction packages or an explicitly requested production asset from an idea, script or reference. Covers live action, animation, advertising, educational and AI-assisted video. Do not activate for generic film book recommendations, website builds, pet sprites or a standalone image/video rendering request. Does not render or publish footage by itself."
 ---
 
@@ -19,6 +19,7 @@ description: "Build source-grounded video production assets: briefs, story beats
 - 실제 영상 요청은 먼저 [프리프로덕션·검토 절차](references/preproduction-review.md)를 따른다. 검토용 이미지의 기본 실행자는 `codex-imagen`이며 실행자 선택·제한은 [생성 경로·비용 라우팅 §2](references/24-production-execution.md#2-이미지-생성-경로-정지-에셋)를 따른다. 별도 영상 실행 승인 뒤에만 영상 생성/편집 실행자로 넘긴다. 필요한 도구가 없으면 미실행 상태를 분명히 한다.
 - **제작용/상세 콘티·전체 스토리보드 시트·업로드 콘티 보완**에는 [완전한 스토리보드 계약](references/storyboard-contract.md)을 필수로 읽는다. 일반적인 콘티·스토리보드 요청도 제작용 계획이 기본값이며, 명시적으로 단독 이야기 패널 연습·러프 썸네일·이미지 프롬프트만 요청한 경우에만 좁은 패널 형식을 쓴다. 계약에서 보드 목적·수신자·사용 단계를 구분하고, 해결되지 않은 중요한 시각 선택은 필요한 씬만 썸네일 수준으로 비교한다. `panel_id→shot_id→scene_id`와 패널별 `beat_ids`·`visible_character_ids`·`audio_cue_ids`·`speech_ids`를 직접 연결하고, 렌더러·검증기·수작업 이미지 검수를 구분한다. 단일 서사 패널과 실제 제작 시트의 범위를 구분한다. 상세 콘티에 필요한 전문가 입력(수치 공간·보이스 등)이 없으면 다시 라우팅하지 않고 인덱스별 필요 입력 패킷을 조정자에게 반환한 뒤 반환된 소유자 패킷으로 조립을 재개한다.
 - 동작 중심 콘티·스토리보드에서는 제공된 인물/제품 이미지를 정체성·디자인 reference로 사용하고 완성 장면판처럼 그대로 붙이지 않는다. 각 key panel은 장면 안의 능동 행동·제품 상호작용을 읽히는 순간으로 스테이징하며, 시점·원근·스케일·가림·광원·접촉을 일치시킨다. 정지 hold는 이야기상 의도된 hold에만 쓴다. 정확한 라벨 아트는 실제 패키지 면에 장면과 통합해 보존한다. [완전한 스토리보드 계약]의 dynamic scene integration/QA 게이트를 따른다.
+- 전체 이미지 기반 패키지와 그 다운스트림에는 [v5.1 프로덕션 무결성](references/contract.md#v51-프로덕션-무결성-look에셋-게이트계보provenance패키지)을 적용한다. 활성 LOOK을 `look_asset_id`로 잠그고, 마스터 에셋은 한 번만 등록해 씬 상태는 `master_asset_ref` 버전 핀의 derivative로 둔다. 최종 산출물은 artifact `finality: final` + `required_asset_versions`로 선언하고, 참조 에셋이 모두 `verified` 잠금·버전 일치일 때만 유효하다(`available` 파일은 잠금이 아니다) — 미잠금 입력은 `finality: preliminary`로 생성할 수 있지만 연속성 잠금 산출물이 아니다. 최종 생성·납품 전 `asset_gate.check_asset_gate`가 비어 있어야 한다. 에셋 provenance 필드는 확인된 값만 기록하고 없으면 `UNKNOWN`/`NOT_EXPOSED`를 쓴다.
 
 ## 모듈 선택
 | 요청 | 읽을 모듈 | 사용할 에셋 |
@@ -56,6 +57,7 @@ description: "Build source-grounded video production assets: briefs, story beats
 | 이미지/영상 생성 경로·최소 충분 프리뷰·최종 제작·비용·에셋 출처 | [생성 경로·비용 라우팅](references/24-production-execution.md) | `assets/video-model-routing-template.md` |
 | 레퍼런스 후보 선정 또는 단일/아카이브 영상의 샷 DNA·제작 원리·스킬 커버리지/갭 분석 | [레퍼런스 영상 분해](references/25-reference-video-analysis.md) | 단일 영상은 `assets/shot-dna-template.md`, 아카이브 비교는 `assets/archive-audit-template.md` |
 | 한 번에 시놉시스부터 전체 스토리보드 시트까지 요청·프롬프트 작성 | [스토리보드 시트 사용자 가이드](references/storyboard-sheet-user-guide.md) | 범용 복사용 프롬프트 |
+| 활성 LOOK·에셋 게이트·마스터/파생 계보·패널 버전 참조·provenance·v5.1 패키지 출력 | [v5.1 프로덕션 무결성](references/contract.md#v51-프로덕션-무결성-look에셋-게이트계보provenance패키지) | `assets/style-world-bible-template.md`, `assets/adaptation-map-template.md`, `assets/asset-gate.csv`, `assets/asset-provenance.csv`, `assets/prompt-ledger.csv`, `assets/dependency-graph.csv`, `assets/storyboard-panel-manifest.csv` |
 
 ## 전체 패키지 진행
 1. 전체 영상 패키지 또는 주제만 받은 영상 요청이면 먼저 [프리프로덕션·검토 절차](references/preproduction-review.md)로 정확한 저장 폴더와 적용 범위를 확인한다. 필요한 경우 13으로 콘셉트·근거를 선택하고, 01 브리프와 `assets/project-template.json`을 채운다.
@@ -65,13 +67,14 @@ description: "Build source-grounded video production assets: briefs, story beats
 5. 14로 제작 일정·비용·에셋 원장을 작성하고 실제 납품 요청이면 15로 자막·출력 규격을 정한다. 12로 KEEP/FIX/미검증과 수정 사유·방식·추가 준비물·근거 있는 소요시간을 작성하고 승인 범위 안에서 수정→재검수한다. 프리뷰 영상/움직이는 렌더는 별도 승인된 실행 범위 안에서만 수행한다.
 6. 실제 산출물별 상태와 수정 의존성을 기록한다. `review.md`와 실제 파일 경로·이미지·검수 결과를 사용자에게 보고하고 검토 대기한다. 해당 버전의 프리프로덕션 수락과 별도 영상 실행 승인을 구분한다.
 7. `python scripts/validate_project.py <project.json> --profile plan`으로 ID·시간·참조를 검사한다. 실제 파일 납품은 `--profile delivery --base-dir <프로젝트폴더>`로 추가 검사한다. 이 검사는 감정·연기·미디어 디코딩·실제 영상 품질을 확인하지 않는다.
-상세 제작 보드는 `python scripts/validate_storyboard.py <project.json>`을 추가 적용하고 실제 이미지 인계는 `--require-images --base-dir <프로젝트폴더>`로 검사한다. 합본 시트는 `scripts/split_storyboard.py`로 인덱스별 clean 컷을 추출하고 전수 재열기 검수를 수행한다. 구조/파일 검사 통과는 실제 이미지의 스토리텔링 통과를 의미하지 않는다.
+상세 제작 보드는 `python scripts/validate_storyboard.py <project.json>`을 추가 적용하고 실제 이미지 인계는 `--require-images --base-dir <프로젝트폴더>`로 검사한다. 최대 8패널 시트를 만든 직후 `scripts/split_storyboard.py --sheet <시트> ...`에 모든 시트를 순서대로 지정해 clean 패널·장면 overview를 분리·등록하고 전수 재열기 검수를 수행한다. 정확한 등록/완료 게이트는 [공통 패키지 계약](references/contract.md#전체-프리프로덕션-패키지)을 따른다. 구조/파일 통과는 실제 스토리텔링 품질을 증명하지 않는다.
+패키지 납품이 요청되면 `python scripts/package_production.py <project.json> --base-dir <project-root> --output <새-출력> [--zip] [--require-final]`로 v5.1 패키지 트리를 실제 등록 파일로만 조립한다(파생 매니페스트·게이트 보고·`.history` 감사 사본 포함, 기존 출력 덮어쓰기 없음). 잠금 전 패키징은 열린 게이트를 보고하며 `--require-final`은 그 경우 거부한다.
 
 ## 산출물 인계
 프로젝트 브리프, 채워진 해당 모듈 에셋, `project.json`, 실제 검토 이미지와 경로, 미검증/가정 목록, `review.md`와 검수 결과를 한 프로젝트 폴더 안에서 인계한다. [프리프로덕션·검토 절차](references/preproduction-review.md)의 저장·승인 계약을 따르고 원문 서적을 재배포하지 않는다. 위임된 작업의 반환에는 할당된 artifact/entity ID·출력 버전·dependency_versions 제안·가정·실제 검사·미해결 입력을 [워커 인계·단일 기록자](references/contract.md#worker-handoff-and-single-writer)에 따라 붙인다. 단일 텍스트 요청은 해당 에셋만 반환하고 프로젝트·artifact ID를 새로 만들지 않는다.
 
 ## 표 형식 인계
-대량 샷은 `assets/shot-list.csv`, 사운드 레이어는 `assets/sound-cues.csv`, 사실 주장은 `assets/claim-ledger.csv`의 열 구조를 사용한다. CSV는 비어 있는 작성용 헤더이며 JSON 원장과 ID를 맞춘다.
+대량 샷은 `assets/shot-list.csv`, 사운드 레이어는 `assets/sound-cues.csv`, 사실 주장은 `assets/claim-ledger.csv`, v5.1 매니페스트는 `assets/asset-gate.csv`·`assets/asset-provenance.csv`·`assets/prompt-ledger.csv`·`assets/dependency-graph.csv`·`assets/storyboard-panel-manifest.csv`의 열 구조를 사용한다. CSV는 비어 있는 작성용 헤더이며 JSON 원장과 ID를 맞춘다. 패키지 매니페스트는 `package_production.py`가 정본에서 파생하므로 수동으로 따로 수정하지 않는다.
 
 ## 요청 범위와 완료 판정
 이 패키지는 하나의 통합 스킬 안에 15개 작업 모듈이 있다. 각 모듈이 별도로 설치되는 스킬은 아니다. 단일 산출물 요청에는 필요한 모듈과 공통 계약만 읽는다.
@@ -81,6 +84,7 @@ description: "Build source-grounded video production assets: briefs, story beats
 검수 결과는 pass / pass_with_notes / needs_revision과 검사 범위를 함께 기록한다. 해당 없는 항목은 N/A와 이유, 확인할 수 없는 항목은 unverified로 남긴다. 원본 도서의 전권 핵심을 추출한 패키지라고 소개하지 않는다.
 
 추가 에셋: `assets/asset-registry.csv`, `assets/continuity-ledger.csv`, `assets/storyboard-panels.csv`, `assets/production-budget.csv`와 심화 템플릿 `assets/series-bible-template.md`, `assets/character-ssot-template.md`, `assets/product-ssot-template.md`, `assets/shot-dna-template.md`, `assets/motion-beat-template.md`, `assets/vfx-layer-stack-template.md`, `assets/crowd-map-template.md`, `assets/performance-cue-template.md`, `assets/video-model-routing-template.md`, `assets/generated-qa-report-template.md`. 생성 시도 로그와 재시도 상한은 별도 파일이 아니라 `project.json`의 `generation_attempts`와 `shot.retry_budget`에 기록한다.
+v5.1 패키지 추가 에셋: `assets/style-world-bible-template.md`, `assets/adaptation-map-template.md`, `assets/asset-gate.csv`, `assets/asset-provenance.csv`, `assets/prompt-ledger.csv`, `assets/dependency-graph.csv`, `assets/storyboard-panel-manifest.csv`.
 
 ## 카메라·공간과 Blender 연결
 카메라 높이·위치·화각·피사체 간 거리·무빙을 구체화할 때 `$camera-spatial-design`을 적용하고 샷 ID를 그대로 사용한다. 공간 프리비즈가 필요하면 `$blender-previsualization`에 camera_spec.json을 인계한다. 카메라 명세가 바뀌면 해당 샷·스토리보드·생성 프롬프트를 stale로 표시한다. 수치 설계·Blender 생성·실제 미리보기 검수를 구분한다. 기존 15개 모듈과 별도로 설치되는 두 전문 스킬이다.

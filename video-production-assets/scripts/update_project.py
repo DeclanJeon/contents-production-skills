@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Coordinator-only validated upserts to an existing canonical project.json."""
+"""Coordinator-only validated upserts; panel pins invalidate their owning storyboard branch."""
 import argparse
 import copy
 import json
@@ -45,7 +45,7 @@ def upsert(rows, changes, label):
 
 
 def prepare_update(current, delta):
-    allowed = {'project_id', 'base_version', 'version', 'input_versions', 'changes', 'storyboard', 'preproduction', 'owner_artifact_ids'}
+    allowed = {'project_id', 'base_version', 'version', 'input_versions', 'changes', 'storyboard', 'preproduction', 'owner_artifact_ids', 'project'}
     if not isinstance(delta, dict) or delta.keys() - allowed:
         raise ValueError('invalid update envelope or unsupported fields')
     if delta.get('project_id') != current.get('project_id') or delta.get('base_version') != current.get('version'):
@@ -82,9 +82,14 @@ def prepare_update(current, delta):
                 touched[f'storyboard.{key}'] = sorted(upsert(target[key], change[key], f'storyboard.{key}'))
     if 'preproduction' in delta:
         change = delta['preproduction']
-        if not isinstance(change, dict) or change.keys() - {'mode', 'synopsis_artifact_id', 'storyboard_artifact_id', 'storyboard_sheet_artifact_id'}:
+        if not isinstance(change, dict) or change.keys() - {'mode', 'synopsis_artifact_id', 'storyboard_artifact_id', 'storyboard_sheet_artifact_ids', 'storyboard_split_asset_id'}:
             raise ValueError('unsupported preproduction update')
         result.setdefault('preproduction', {}).update(change)
+    if 'project' in delta:
+        change = delta['project']
+        if not isinstance(change, dict) or change.keys() - {'look_asset_id'}:
+            raise ValueError('unsupported project field update')
+        result.update(change)
     if result == current:
         raise ValueError('update contains no record changes')
     artifacts = {row['id']: row for row in result['artifacts']}
@@ -92,7 +97,7 @@ def prepare_update(current, delta):
     def content(rows):
         return [{k: v for k, v in row.items() if k not in ('status', 'evidence', 'approval')} for row in rows]
     material_changed = any(content(current.get(key, [])) != content(result.get(key, []))
-                           for key in material_tables if key in changes) or current.get('storyboard') != result.get('storyboard') or current.get('preproduction') != result.get('preproduction')
+                           for key in material_tables if key in changes) or current.get('storyboard') != result.get('storyboard') or current.get('preproduction') != result.get('preproduction') or current.get('look_asset_id') != result.get('look_asset_id')
     owners = delta.get('owner_artifact_ids', [])
     if not isinstance(owners, list) or any(not isinstance(aid, str) or aid not in artifacts for aid in owners):
         raise ValueError('owner_artifact_ids must reference assigned artifacts')
@@ -115,7 +120,71 @@ def prepare_update(current, delta):
             pending.append(aid)
         for dependency in dependencies:
             reverse.setdefault(dependency, []).append(aid)
+    # Asset lineage: a changed or stale master stales every derivative pinning
+    # it, transitively; a required asset version drift stales pinning artifacts.
+    registry = {row['id']: row for row in result.get('asset_registry', [])
+                if isinstance(row, dict) and isinstance(row.get('id'), str)}
+    previous_assets = {row['id']: row for row in current.get('asset_registry', [])
+                       if isinstance(row, dict) and isinstance(row.get('id'), str)}
+    asset_dependents = {}
+    for rid, row in registry.items():
+        reference = row.get('master_asset_ref')
+        if isinstance(reference, dict) and isinstance(reference.get('asset_id'), str):
+            asset_dependents.setdefault(reference['asset_id'], []).append(rid)
+    asset_pending = [rid for rid, row in registry.items()
+                     if row.get('status') == 'stale'
+                     or previous_assets.get(rid, {}).get('version') != row.get('version')]
+    stale_assets = set()
+    while asset_pending:
+        rid = asset_pending.pop()
+        master = registry.get(rid)
+        for child_id in asset_dependents.get(rid, []):
+            child = registry[child_id]
+            reference = child.get('master_asset_ref', {})
+            if master is not None and (master.get('status') == 'stale'
+                                       or reference.get('version') != master.get('version')):
+                stale_assets.add(child_id)
+                if child.get('status') != 'stale':
+                    child['status'] = 'stale'
+                    asset_pending.append(child_id)
     stale = set()
+    # Panel asset_version_refs are inputs of the canonical storyboard owner
+    # only: the artifact declared by preproduction.storyboard_artifact_id, else
+    # the sole storyboard artifact — the same resolution validate_storyboard
+    # uses. Other storyboard-type artifacts drift only through their own
+    # required_asset_versions and dependency graph.
+    board_owner = None
+    preproduction = result.get('preproduction')
+    if isinstance(preproduction, dict):
+        declared = preproduction.get('storyboard_artifact_id')
+        declared_row = artifacts.get(declared) if isinstance(declared, str) else None
+        if isinstance(declared_row, dict) and declared_row.get('type') == 'storyboard':
+            board_owner = declared
+    if board_owner is None:
+        storyboard_artifacts = [aid for aid, row in artifacts.items()
+                                if isinstance(row, dict) and row.get('type') == 'storyboard']
+        if len(storyboard_artifacts) == 1:
+            board_owner = storyboard_artifacts[0]
+    storyboard_data = result.get('storyboard')
+    panel_rows = storyboard_data.get('panels') if isinstance(storyboard_data, dict) else None
+    panel_rows = panel_rows if isinstance(panel_rows, list) else []
+    for aid, row in artifacts.items():
+        required = row.get('required_asset_versions')
+        required = required if isinstance(required, dict) else {}
+        panel_drift = (aid == board_owner and
+                       any(isinstance(panel, dict) and isinstance(panel.get('asset_version_refs'), dict)
+                           and any(registry.get(asset_id, {}).get('version') != expected
+                                   or registry.get(asset_id, {}).get('status') == 'stale'
+                                   for asset_id, expected in panel['asset_version_refs'].items())
+                           for panel in panel_rows))
+        drift = panel_drift or any(registry.get(asset_id, {}).get('version') != expected
+                                   or registry.get(asset_id, {}).get('status') == 'stale'
+                                   for asset_id, expected in required.items()
+                                   if isinstance(asset_id, str))
+        if drift and row.get('status') != 'stale':
+            row['status'] = 'stale'
+            stale.add(aid)
+            pending.append(aid)
     while pending:
         aid = pending.pop()
         for child_id in reverse.get(aid, []):
@@ -126,7 +195,9 @@ def prepare_update(current, delta):
                     child['status'] = 'stale'
                     pending.append(child_id)
     result['version'] = version
+    touched['stale_asset_ids'] = sorted(stale_assets)
     return result, touched, sorted(stale)
+
 
 
 def apply_update(project_path, delta):
@@ -152,9 +223,10 @@ def apply_update(project_path, delta):
         candidate, touched, stale = prepare_update(current, delta)
         if 'storyboard' in candidate:
             from validate_storyboard import validate_storyboard
-            errors = validate_storyboard(candidate, base_dir=path.parent)
+            errors = validate_storyboard(candidate, base_dir=path.parent, check_project=False)
         else:
-            errors = validate(candidate, base_dir=path.parent)
+            errors = []
+        errors.extend(validate(candidate, base_dir=path.parent))
         if errors:
             raise ValueError('candidate rejected: ' + '; '.join(errors))
         with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=path.parent,
@@ -169,7 +241,8 @@ def apply_update(project_path, delta):
         os.replace(temporary, path)
         temporary = None
         return {'project_id': candidate['project_id'], 'version': candidate['version'],
-                'updated_ids': touched, 'stale_artifact_ids': stale, 'path': str(path)}
+                'updated_ids': touched, 'stale_artifact_ids': stale,
+                'stale_asset_ids': touched['stale_asset_ids'], 'path': str(path)}
     finally:
         if temporary is not None:
             temporary.unlink(missing_ok=True)
