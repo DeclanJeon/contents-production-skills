@@ -19,7 +19,7 @@ def validate(p, profile='plan', base_dir=None):
         for k in keys:
             if not text(row.get(k)): error(f'{label}: {k} must be a nonempty string')
     if not isinstance(p, dict): return ['project must be an object']
-    if profile not in ('plan', 'delivery'): return ['unknown validation profile']
+    if profile not in ('plan', 'preproduction', 'delivery'): return ['unknown validation profile']
     schema = p.get('schema_version', '1.0')
     if schema not in ('1.0', '1.1'): error('unsupported schema_version')
     require_text(p, ['project_id', 'version', 'aspect_ratio'], 'project')
@@ -31,7 +31,9 @@ def validate(p, profile='plan', base_dir=None):
     fps = p.get('fps')
     target = p.get('target_duration_s')
     def on_frame(v):
-        return number(v) and number(fps) and abs(v*fps-round(v*fps)) < 0.001
+        if not number(v) or not number(fps): return False
+        frame = v * fps
+        return number(frame) and abs(frame-round(frame)) < 0.001
     if number(target) and number(fps) and not on_frame(target): error('target duration is not frame aligned')
     tables = {}
     required = ('scenes', 'characters', 'shots', 'claims', 'artifacts')
@@ -72,6 +74,7 @@ def validate(p, profile='plan', base_dir=None):
         exists_ref(s.get('scene_id'), 'scenes', rid)
         refs(s, 'character_ids', 'characters', rid, required=True)
         refs(s, 'asset_ids', 'asset_registry', rid)
+        refs(s, 'claim_ids', 'claims', rid)
         budget = s.get('retry_budget')
         if budget is not None and (not isinstance(budget,int) or isinstance(budget,bool) or budget<0):
             error(f'{rid}: retry_budget must be nonnegative int')
@@ -161,13 +164,16 @@ def validate(p, profile='plan', base_dir=None):
         if not isinstance(deps,list): error(f'{rid}: dependencies must be an array'); deps=[]
         versions=a.get('dependency_versions',{})
         if not isinstance(versions,dict): error(f'{rid}: dependency_versions must be an object'); versions={}
+        for d in versions:
+            if d not in deps: error(f'{rid}: dependency version {d} is not a declared dependency')
         graph[rid]=[]
         for d in deps:
             if not exists_ref(d,'artifacts',rid): continue
             graph[rid].append(d)
             upstream=tables['artifacts'][d]
             if schema=='1.1' and d not in versions: error(f'{rid}: missing dependency version for {d}')
-            if d in versions and versions[d] != upstream.get('version'): error(f'{rid}: dependency {d} version mismatch')
+            if d in versions and versions[d] != upstream.get('version') and status != 'stale':
+                error(f'{rid}: dependency {d} version mismatch')
             if status in ('reviewed','approved','generated','verified') and upstream.get('status')=='stale':
                 error(f'{rid}: depends on stale artifact {d}')
     # Iterative cycle detection avoids recursion failures on large projects.
@@ -181,6 +187,20 @@ def validate(p, profile='plan', base_dir=None):
             indegree[d]-=1
             if indegree[d]==0: queue.append(d)
     if visited != len(graph): error('cyclic artifact dependency')
+    for rid, artifact in tables['artifacts'].items():
+        if artifact.get('type') != 'video_execution_plan' or artifact.get('status') != 'approved':
+            continue
+        pending = list(graph[rid]); seen = set(); approved_review = False
+        while pending:
+            dependency = pending.pop()
+            if dependency in seen: continue
+            seen.add(dependency)
+            row = tables['artifacts'][dependency]
+            if row.get('type') == 'preproduction_review' and row.get('status') == 'approved':
+                approved_review = True
+            pending.extend(graph[dependency])
+        if not approved_review:
+            error(f'{rid}: approved execution plan needs an approved preproduction_review dependency')
     base=Path(base_dir).resolve() if base_dir is not None else None
     for rid,asset in tables['asset_registry'].items():
         require_text(asset,['kind','version'],rid)
@@ -192,14 +212,18 @@ def validate(p, profile='plan', base_dir=None):
         auth = asset.get('authority')
         if auth is not None and auth not in ('authoritative','inferred','derived'):
             error(f'{rid}: invalid authority')
-        if 'source_asset_ids' in asset and not isinstance(asset['source_asset_ids'],list):
-            error(f'{rid}: source_asset_ids must be an array')
+        if 'entity_id' in asset:
+            if not text(asset['entity_id']): error(f'{rid}: entity_id must be a nonempty string')
+            elif et == 'character': exists_ref(asset['entity_id'], 'characters', rid)
+        refs(asset, 'source_asset_ids', 'asset_registry', rid)
         if asset.get('result_asset_id') is not None: exists_ref(asset['result_asset_id'],'asset_registry',rid)
         if state in ('available','verified'):
             if not text(asset.get('path')): error(f'{rid}: available asset needs path')
             elif base is not None:
-                path=base/asset['path']
-                if not path.is_file(): error(f'{rid}: local asset file missing')
+                path=(base/asset['path']).resolve()
+                if not path.is_relative_to(base):
+                    error(f'{rid}: local asset path escapes --base-dir')
+                elif not path.is_file(): error(f'{rid}: local asset file missing')
                 else:
                     digest=asset.get('sha256')
                     if digest is not None:
@@ -246,13 +270,19 @@ def validate(p, profile='plan', base_dir=None):
                 if category=='captions' and cm!='none': error('caption check required for captioned delivery')
                 if category=='claims' and tables['claims']: error('claim check required when claims exist')
             else: error(f'{category}: delivery check is not pass or justified N/A')
+    ready_package = any(a.get('type') == 'preproduction_review' and a.get('status') in ('reviewed', 'approved')
+                        or a.get('type') == 'video_execution_plan' and a.get('status') == 'approved'
+                        for a in tables['artifacts'].values())
+    if profile == 'preproduction' or ready_package:
+        from validate_preproduction import validate_preproduction
+        errors.extend(validate_preproduction(p, base_dir, image_backed_required=ready_package))
     return errors
 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('project')
-    parser.add_argument('--profile',choices=('plan','delivery'),default='plan')
+    parser.add_argument('--profile',choices=('plan','preproduction','delivery'),default='plan')
     parser.add_argument('--base-dir')
     args=parser.parse_args()
     try:
@@ -260,6 +290,6 @@ def main():
         errors=validate(p,args.profile,args.base_dir)
     except (OSError,ValueError) as e:
         print(json.dumps({'valid':False,'errors':[str(e)]},ensure_ascii=False)); return 2
-    print(json.dumps({'valid':not errors,'profile':args.profile,'errors':errors,'scope':'contract, timing, references and declared inspection records; no media decoding or artistic verification'},ensure_ascii=False,indent=2))
+    print(json.dumps({'valid':not errors,'profile':args.profile,'errors':errors,'scope':'contract, timing, references and declared inspection records; preproduction also checks actual package files and image decoding, not artistic or approval verification'},ensure_ascii=False,indent=2))
     return 1 if errors else 0
 if __name__=='__main__': raise SystemExit(main())

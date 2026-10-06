@@ -30,37 +30,41 @@
 
 레퍼런스 기반·다중 샷 제작에는 [프로젝트 스타일 브리프](01-brief.md#프로젝트별-스타일-브리프)의 필요한 항목을 기존 브리프/비주얼 바이블에 둔다. 승인된 레퍼런스 적용 요구와 스타일 버전은 뒤 단계로 그대로 인계한다.
 
-관련 모듈의 템플릿을 실제 내용으로 채운다. 비서사 영상에는 서사/캐릭터를 만들지 않는다. 각본/비트 → 시각 기준 → 샷·블로킹 → 편집·사운드·타이밍 순으로 해당 항목만 구체화한다. 사실·권리 근거와 창작 제안을 구분한다. 외부 미디어는 출처가 있다는 이유만으로 재사용 권한이 있다고 기록하지 않는다.
+관련 모듈의 템플릿을 실제 내용으로 채운다. 인물 없는 영상에는 캐릭터를 만들지 않는다. 전체 패키지는 [필수 산출물 계약](contract.md#전체-프리프로덕션-패키지)에 따라 **시놉 MD → 인물별 페르소나·SSOT MD → 실제 한 장짜리 Identity Sheet A → 통합 기술 콘티 → 전체 합본 스토리보드 이미지 → 검수**로 진행한다. 총괄이 시놉/캐릭터/콘티 담당과 이미지 실행자를 순서대로 배정한다. ‘별도 캐릭터 시트 문구 없음’을 이유로 전체 패키지의 인물 설계를 생략하지 않는다. 사실·권리 근거와 창작 제안을 구분하고 기존 승인 자료를 보존한다.
 제작용 스토리보드는 [완전한 보드 계약](storyboard-contract.md)을 필수 적용한다. 전체 시놉 비트→씬→샷→키패널과 각 샷의 카메라/공간·VFX·대사/립싱크·사운드 큐를 이미지 생성 전에 통합한다. 제공 콘티도 같은 항목으로 QA→부족 항목 보완→재검수하며 승인된 이야기와 제공 시각 앵커를 보존한다.
 
 `project.json`의 샷·에셋 ID를 문서와 매핑한다. 영상 모델은 프리프로덕션 동안 미정으로 둘 수 있다. 모델별 문법 대신 동작·구도·시작/종료 상태·연속성 요구사항을 인계한다.
 
 ## 3. 검토용 이미지는 Codex Imagen 기본 경로
 
-이미지 기반 패키지는 [생성 경로·비용 라우팅](24-production-execution.md) §2의 기본 실행자·제한·비용 분류를 적용한다. 공급자를 지정하지 않았으면 `codex-imagen`으로 인계하고 그 실제 지침·인증·출력·참조 입력·비용 계약을 읽는다. 실행자가 없거나 인증/출력 권한이 준비되지 않았으면 blocker를 보고한다. 다른 공급자를 자동 탐색·대체하지 않는다.
+Use `codex-imagen` by default for image-backed packages unless the user selected another executor. Read its helper, authentication, reference-input, and output instructions; do not look up Codex Imagen usage, quota, price, or quote, and do not block on unknown cost. Do not automatically search or substitute another provider.
 
-실제 호출 전에 선택 실행자의 준비 상태를 그 도구의 실제 방법(자체 스모크·인증 확인·API 점검)으로 확인한다. 인증 성공은 가격/사용량 증거가 아니다. 해당 사용량·과금 승인을 확인하고 불명확한 유료 제출은 멈춘다. 자격 증명 값을 문서·프롬프트·로그에 출력하지 않는다.
+Before the call, verify runtime/auth and technical readiness using that tool's actual smoke/auth method. Do not expose credentials. Authentication is a runtime check, not a reason to inspect usage or pricing.
 
 실제 호출 전에 이미지 수, 출력 위치, 시간/재시도 범위를 정한다. 단일 검토 이미지는 선택 실행자의 실제 출력 방식으로 `<project-root>/images/` 아래 버전이 붙은 경로에 저장하고, 관련 프롬프트/설정을 `prompts/`에 남긴다. 선택 실행자의 최신 timeout·reference·다중 이미지 규칙을 따른다. 참조 이미지는 명시적으로 연결한다. 기존 파일 경로를 재사용하지 않는다.
 
 창작 방향을 아직 수락/위임받지 않았으면 대표 **정지 이미지**로 확인한다. 위임받은 경우 요청한 세트를 생성한다. 반환된 실제 파일을 열어 의도·인물/소품·구도·연속성을 검사하고 원장에 ID·사용 샷·버전·해시·상대 경로를 기록한다. 부분 생성/미완료는 실제 받은 파일만 등록한다. 제공되지 않은 seed·가격·생성 결과를 만들지 않는다.
+For a character-backed package, the character designer first returns the synopsis-based persona, visual locks, Identity Prefix, and Sheet A prompt. Then the image executor creates and inspects one actual seven-view Identity Sheet A per character, checks all views against the anchors, and passes real source IDs/versions/hashes to panel generation. A scene portrait or prompt cannot substitute. Sheet B/C/D prompts do not authorize additional outputs; generate them only when separately requested.
 
-검토용 정지 이미지는 영상 제작 승인을 요구하지 않지만, 적용되는 이미지 생성/과금 승인 규칙은 지킨다. 영상 샘플·움직이는 animatic·시험 렌더·편집 영상 export는 정지 이미지 검토를 대신하지 않는다. 사용자에게 별도 영상 실행 승인을 받기 전에는 실행하지 않는다.
+Review stills do not require video-generation approval. Video samples, moving animatics, test renders, and edited video exports remain outside still-image review and require the separate video-execution gate.
 
-검토 이미지 외의 정지 에셋(SSOT·소품·장소·룩 프레임)과 영상 생성 경로 선택·비용 분류는 [생성 경로·비용 라우팅](24-production-execution.md)을 따른다. 설치/로그인/크레딧 표시는 지출 승인이 아니며, 무료 경로로 실행 불가하면 해당 단계를 blocker로 보고한다.
+Other explicitly selected still-image or video providers retain their applicable provider-specific approval rules. Codex Imagen still-image calls do not require usage, quote, or cost approval.
+
+전체 clean 패널을 실제 생성/검사한 후 `render_storyboard_sheet.py <project.json> --base-dir <root> --output <새-relative.png> [--font <font.ttf>]`로 모든 컷과 외부 촬영/연결 인덱스를 **한 장의 PNG**에 조립한다. 반환된 실제 path/hash/panel_ids/source_asset_ids/source_sha256을 기존 원장에 등록한다. 합본을 열어 순서·전수 포함·인물 SSOT 링크·구도/앵글/샷·한글 캡션 가독성을 검사한다. 개별 컷/Markdown만으로 전체 합본 시트 완료라고 하지 않는다.
 
 ## 4. 검수하고 보고한 뒤 대기
 
-`python <skill-dir>/scripts/validate_project.py <project-root>/project.json --profile plan --base-dir <project-root>`으로 구조·시간·등록된 파일을 검사한다. 전체 타임라인과 해당 에셋들의 경로·해시를 확인하고 실제 이미지를 연다. 이 검사는 미디어 의미/권리/사용자 승인 진위를 보장하지 않는다. 요청된 확률적 판단은 해당 도구의 실제 결과·검사 범위를 기록하고 사용자 승인과 분리한다.
+초안에는 `python <skill-dir>/scripts/validate_project.py <project-root>/project.json --profile plan --base-dir <project-root>`을 쓴다. **전체 패키지 검토 인계 전에는 `--profile preproduction`을 필수 실행**해 네 산출물 범주·실제 파일·인물 연결·합본 순서/소스 해시·필수 보드 슬롯·열린 blocker를 검사한다. 파일 누락은 검토 준비 미완료이며 draft/stale로 남긴다. 이 검사는 미디어 의미/권리/사용자 승인 진위를 보장하지 않는다.
 상세 보드는 `python <skill-dir>/scripts/validate_storyboard.py <project-root>/project.json --require-images --base-dir <project-root>`를 추가 실행한다. 그 뒤 **전체 clean 컷을 설명 라벨·음향 없이 순서대로 보아** 시놉의 사건·인과/정보·감정 변화가 실제 이미지로 읽히는지 계약 §5의 의미 검수를 수행한다. 구조 성공·패널 수 일치·대표 몇 장의 검사만으로 통과시키지 않는다. 요구된 Blender 검증이 없으면 해당 공간은 미검증이다.
 
 `review.md`에는 다음을 넣고 채팅에서도 경로와 주요 미리보기를 보고한다.
 
-- 정확한 프로젝트 폴더, 목표/형식, 브리프·각본·샷/스토리보드·이미지 링크
+- 정확한 프로젝트 폴더와 목표/형식; 실제 시놉 MD, 인물별 페르소나·SSOT MD/Identity Sheet A, 전체 기술 콘티 MD, 한 장짜리 통합 스토리보드 이미지의 링크·ID·버전·해시
 - 검사한 파일/버전 목록과 검사 결과·증거
 - 실제 생성된 이미지와 텍스트만 준비된 항목의 구분
 - 가정, 미검증/미정 사항, 차단 조건, 사용자에게 필요한 검토 선택
 - 상세 보드: 전체 beat/scene/shot/panel 매핑과 이미지 계획/실제 수, 이미지 단독 검수 근거, KEEP/FIX/미검증, 인덱스별 최소 수정·추가 준비물·근거 있는 예상 시간·재검수 결과
+- 필수 산출물 완결 검사와 실제 캐릭터 7뷰/전체 clean 컷/합본 가독성 검수의 구분; 누락·미검증 필수 항목은 준비 완료나 승인 상태로 승격하지 않음
 - 상태: **프리프로덕션 검토 대기; 영상 미생성**
 
 내용이 완성돼도 사용자 수락을 추정하지 않는다. 응답이 없으면 대기한다. 모델의 긍정 판정·validator 성공·generated/verified 상태는 사용자 승인 증거가 아니다.

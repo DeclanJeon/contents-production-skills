@@ -107,6 +107,7 @@ class ContractTests(unittest.TestCase):
                 change(p);self.assertTrue(validate(p),name)
     def test_asset_provenance_fields(self):
         p=project()
+        p['characters']=[{'id':'CH01','locked_traits':'supplied fixture identity'}]
         p['asset_registry']=[{'id':'AS01','kind':'reference','version':'1','status':'planned','entity_type':'character','entity_id':'CH01','authority':'authoritative','source_asset_ids':[],'provider':'verified-provider','model':'verified-model','workflow':'w'}]
         self.assertEqual(validate(p),[])
         p['asset_registry'][0]['entity_type']='soul';self.assertTrue(validate(p))
@@ -134,6 +135,54 @@ class ContractTests(unittest.TestCase):
         self.assertTrue(any('accepted attempt' in e for e in validate(p)))
         p['asset_registry'][0].update(status='available',path='actual-output.mp4')
         self.assertEqual(validate(p),[])
+    def test_dangling_provenance_and_claim_references(self):
+        p=project()
+        p['asset_registry']=[{'id':'AS01','kind':'reference','version':'1','status':'planned',
+                              'entity_type':'character','entity_id':'CH99','source_asset_ids':['MISSING']}]
+        p['shots'][0]['claim_ids']=['CL99']
+        errors=validate(p)
+        for fragment in ('characters reference CH99','asset_registry reference MISSING','claims reference CL99'):
+            self.assertTrue(any(fragment in e for e in errors),errors)
+    def test_dependency_versions_must_be_declared_and_stale_keeps_history(self):
+        p=project();p['artifacts'][0]['dependency_versions']={'UNKNOWN':'1'}
+        self.assertTrue(any('not a declared dependency' in e for e in validate(p)))
+        p=project()
+        p['artifacts'].append({'id':'A02','type':'board','version':'1','status':'stale',
+                               'dependencies':['A01'],'dependency_versions':{'A01':'old'}})
+        self.assertEqual(validate(p),[])
+        p['artifacts'][1]['status']='approved'
+        self.assertTrue(any('version mismatch' in e for e in validate(p)))
+    def test_large_finite_frame_product_returns_error(self):
+        p=project();p['fps']=1e308
+        self.assertTrue(any('frame aligned' in e for e in validate(p)))
+    def test_registered_file_must_stay_inside_project(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);base=root/'project';base.mkdir()
+            outside=root/'outside.bin';outside.write_bytes(b'outside fixture')
+            for path in ('../outside.bin',str(outside)):
+                with self.subTest(path=path):
+                    p=project()
+                    p['asset_registry']=[{'id':'AS01','kind':'reference','version':'1','status':'available','path':path}]
+                    self.assertTrue(any('escapes --base-dir' in e for e in validate(p,base_dir=base)))
+            inside=base/'inside.bin';inside.write_bytes(b'inside fixture')
+            p['asset_registry'][0]['path']='inside.bin'
+            self.assertEqual(validate(p,base_dir=base),[])
+    def test_execution_approval_requires_current_review_dependency(self):
+        p=project()
+        approval={'by':'fixture','at':'2026-10-18','evidence':'fixture approval only'}
+        p['artifacts'][0].update(type='video_execution_plan',status='approved',approval=approval)
+        self.assertTrue(any('approved preproduction_review' in e for e in validate(p)))
+        from test_validate_preproduction import image_package
+        with tempfile.TemporaryDirectory() as root:
+            p = image_package(root)
+            p['artifacts'].extend([
+                {'id':'REVIEW','type':'preproduction_review','version':'1','status':'approved',
+                 'approval':approval,'dependencies':['SHEET'],'dependency_versions':{'SHEET':'1'}},
+                {'id':'EXEC','type':'video_execution_plan','version':'1','status':'approved',
+                 'approval':approval,'dependencies':['REVIEW'],'dependency_versions':{'REVIEW':'1'}}])
+            self.assertEqual(validate(p, base_dir=root), [])
+            next(a for a in p['artifacts'] if a['id'] == 'REVIEW')['status'] = 'stale'
+            self.assertTrue(any('stale artifact' in e for e in validate(p, base_dir=root)))
     def test_cli_reads_utf8_project_independent_of_system_locale(self):
         with tempfile.TemporaryDirectory() as temp:
             p=project()

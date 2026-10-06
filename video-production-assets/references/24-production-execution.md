@@ -1,6 +1,6 @@
 # 생성 경로·비용 라우팅 (온디맨드 심화)
 
-모듈 11(AI 인계)과 14(제작 운영)의 심화. 이미지/영상 생성 도구 선택과 비용 통제가 필요할 때 연다. 공급자·모델·가격·기능은 실행 시점에 실제로 확인하고 이 문서에 고정된 목록을 두지 않는다. 설치됨·로그인됨·크레딧 표시됨은 지출 승인이 아니다.
+This on-demand reference covers provider routing and cost controls for media generation. Provider/model/pricing/capabilities change; verify them when a route requires it. Codex Imagen still-image generation is explicitly exempt from usage, quota, price, and quote checks; video and other providers retain their applicable gates.
 
 비용상 적격은 실행 승인이 아니다. 아래 included/free_allowance 경로도 [검토·실행 계약](preproduction-review.md)의 현재 버전 승인과 명시적 실행 범위를 따른다. 무료/로컬 샘플·애니매틱·내보내기는 게이트를 우회하지 않는다.
 
@@ -14,6 +14,7 @@
 - `free_or_included_only = true`
 
 설치된 커넥터·기존 계정·트라이얼·보이는 유료 모델을 크레딧/금전 지출 허가로 해석하지 않는다.
+**Codex Imagen still-image exception:** When Codex Imagen is selected for a requested still-image task, do not inspect usage, remaining allowance, plan, price, or quote; do not block on `unknown_cost` and do not require separate cost approval or a cost cap. This applies only to Codex Imagen still images. Runtime/authentication, supported inputs/outputs, destination, rights, and the requested output scope still apply; video and other providers remain under this section.
 
 ### 경로 티어 (이 순서로 평가)
 
@@ -49,10 +50,10 @@
 
 ### 실행자 선택과 제한
 
-1. `codex-imagen`의 현재 지침을 읽고 실제 helper·인증·참조 입력·출력 경로·사용량/비용 계약을 확인한다. 인증 성공만으로 무료 사용이나 이미지 생성을 주장하지 않는다.
-2. 기본 실행자가 없거나 인증·지원·비용 조건이 해결되지 않으면 해당 단계를 blocker로 보고한다. 다른 공급자로 자동 전환하지 않고 도달 가능한 비렌더링 작업을 완성한다.
-3. 사용자가 다른 실행자를 명시적으로 선택한 경우에만 그 경로를 평가한다. **Higgsfield 이미지 생성은 사용하지 않는다.** Higgsfield 크레딧·무료 허용량·모델 추천·전용 이미지 워크플로가 있어도 이미지 생성 제출이나 fallback을 하지 않는다.
-4. 공급자별 고정 모델명·가격·품질 순위를 만들지 않는다. 선택된 실행자의 현재 모델·입력·출력·비용 계약을 확인하고 기존 실행/과금 승인을 보존한다.
+1. Read the current `codex-imagen` helper instructions for authentication, reference inputs, output paths, and technical request behavior; skip usage/price/quota/quote checks.
+2. If the helper, authentication, supported inputs/outputs, or destination is unavailable, report that prerequisite blocker. Never substitute another provider automatically.
+3. Use another executor only when the user explicitly selects it. **Do not use Higgsfield image generation.** Credits, free allowances, model recommendations, or dedicated workflows do not override this restriction.
+4. Record only confirmed model/input/output metadata. Do not add unverified provider/model facts.
 5. 사용자가 직접 그린 로컬 도식/2D 검토본을 선택하면 생성 모델의 대체 결과로 위장하지 않는다. 실제 그림의 검사 범위와 생성 룩/질감 미검증을 구분한다.
 
 ### 에셋 요구 유형
@@ -83,7 +84,7 @@
 ### 절차
 
 1. [비주얼 모드·SSOT](20-visual-mode-ssot.md)에서 모드와 에셋 요구를 받는다.
-2. 위 기본 경로와 제한을 적용한 실행자를 비용 정책으로 분류한다.
+2. Bypass §1 cost-tier classification for `codex-imagen` stills; check only runtime/auth/capability. Apply cost classification only to another explicitly selected executor.
 3. 에셋 패밀리별 요구를 확인한다. 대체 실행자는 사용자의 명시적 선택 없이 추가하지 않는다.
 4. 정체성 핵심 에셋은 통제된 배치로 생성한다. SSOT 승인 후 공급자/모델을 함부로 바꾸지 않는다 — 바꾸면 재검증한다.
 5. 승인 후 재생산 가능하도록 provider·model·workflow 메타데이터를 `project.json`의 `asset_registry` 선택 필드에 기록한다(계약 참조). 확인되지 않은 모델명을 쓰지 않는다.

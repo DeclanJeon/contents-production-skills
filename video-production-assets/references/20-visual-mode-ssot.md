@@ -1,6 +1,6 @@
 # 비주얼 모드·SSOT 티어·연속성 (온디맨드 심화)
 
-모듈 05(시각 구조), 11(AI 인계), 14(에셋 운영)의 심화. 반복 인물/제품/세계가 여러 샷·회차·생성에 걸쳐 정체성을 유지해야 할 때 연다. 사용자가 제공한 SSOT·바이블은 authoritative로 보존하고 비어 있는 필드만 추론해 채운다.
+모듈 05(시각 구조), 11(AI 인계), 14(에셋 운영)의 심화. 반복 인물/제품/세계가 여러 샷·회차·생성에 걸쳐 정체성을 유지해야 할 때 연다. 사용자가 제공한 SSOT·바이블은 authoritative로 보존하고, 빈 필드는 명시적 창작 위임이 있을 때만 `proposal` 라벨로 채운다 — 실존 인물의 문서화되지 않은 사실은 추론으로 만들지 않는다.
 
 ## 1. 비주얼 모드 선택
 
@@ -45,6 +45,8 @@
 - Tier B — Lite SSOT: 여러 샷에 정체성이 필요한 명명된 조연·단일 회차 인물.
 - Tier C — 아키타입 엑스트라: 고유 SSOT 대신 재사용 캐스팅 카드(궁중 시녀·직장인·마을 사람·파티 손님).
 - Tier D — 군중 규칙: 개인 시트 없이 인구 구성·의상 범위·행동 군집·팔레트·배제 규칙을 정의한다.
+- Tier별 텍스트 깊이는 같이 간다: `designing-video-character-sheets`의 전체 canonical `CHARACTER SSOT`(섹션 0–33, [`designing-video-character-sheets/references/character-ssot-master-prompt.md`](../../designing-video-character-sheets/references/character-ssot-master-prompt.md))는 Tier A와 명시적 전체 SSOT 요청에 쓰고, Tier B/C는 `assets/character-ssot-template.md`의 필요 필드만 채운다.
+- **이미지 기반 전체 패키지의 필수 이미지:** 정의된 인물마다 Sheet A — 한 장의 중립 스튜디오 정체성 시트(전신 정면·3/4 전면·측면·후면 + 얼굴 정면·3/4·측면, 7뷰, 동일 인물, 중립 표정·조명, 장면 서사 없음)가 실제 파일로 필요하다. B/C/D(표정·의상·액션)는 프롬프트 스펙일 뿐 추가 생성·과금을 승인하지 않는다. 텍스트 전용/독립 작업은 파일·이미지 없이 끝난다. 글래머 초상은 실제 시트 대체가 안 된다.
 
 ### 승격 기준과 절차
 
@@ -67,6 +69,19 @@
 - 엑스트라/군중: 개별 SSOT 대신 아키타입 보드나 군중 규칙 — 배경 인물이 서사상 중요해지면 그때 승격.
 
 규칙: 배경 엑스트라마다 Full SSOT를 만들지 않는다. 반복 인물을 글래머 초상 하나에 의존하지 않는다. 정체성 앵커와 샷별 조명/포즈/스타일 참조를 분리한다. 실존 인물의 용모가 필요한데 쓸 이미지가 없으면 정체성 정확도를 주장하기 전에 필요한 입력을 요청한다.
+
+### 정본 레코드 매핑 (이미지 기반 전체 패키지)
+
+캐릭터 SSOT 출력은 정본 `project.json`에 이렇게 연결된다(조정자가 기록, 워커는 패킷으로 제안):
+
+| 정본 필드 | 내용 |
+|---|---|
+| `characters[].persona` | `{role, personality, observable_behavior, speech}` — 모두 비어 있지 않은 문자열; 무언·해당 없음은 이유가 적힌 `N/A` |
+| `characters[].ssot_artifact_id` | `type=character_sheet` artifact — 실제 SSOT Markdown 에셋, synopsis artifact·버전에 의존 |
+| `characters[].identity_sheet_asset_id` | `mode=image_backed` 전용 — `kind=character_identity_sheet`, `entity_type=character`, `entity_id`=character_id; 인물당 실제 Sheet A 이미지 1장 |
+| `preproduction` | `{mode: text|image_backed, synopsis_artifact_id, storyboard_artifact_id, storyboard_sheet_artifact_id?}` — 루트 선언; text 모드는 실제 이미지 요구가 없고, image_backed 검토·실행은 text 모드로 우회할 수 없다 |
+
+추적 체인은 synopsis artifact·버전·소스 locator → `character_sheet` artifact·버전 → 단일 `character_identity_sheet` 에셋 → 샷/패널 참조 입력이다. `mode=image_backed`에서 캐릭터를 이름으로 호출하는 샷은 그 인물의 정체성 이미지 에셋을 소비한다. 실제 이미지 검수는 시트의 각 뷰와 선언 앵커를 직접 비교한다 — 프롬프트가 생성된 시트를 뜻하지 않고, 공급자 성공은 정체성 QA가 아니다.
 
 ## 3. 캐릭터 연속성 운용
 

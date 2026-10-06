@@ -13,6 +13,7 @@ import argparse
 import json
 import math
 from pathlib import Path
+import sys
 
 from validate_project import validate
 
@@ -21,11 +22,11 @@ CAMERA_KEYS = ('shot_size', 'angle', 'framing', 'movement', 'start', 'end')
 PANEL_TEXT_KEYS = ('visual_action', 'reveals', 'withholds', 'continuity')
 
 
-def validate_storyboard(project, base_dir=None, require_images=False):
-    # The shared plan validator is robust but not hardened against every
-    # malformed type; a crash there must still surface as a validation error.
+def validate_storyboard(project, base_dir=None, require_images=False, *, check_project=True):
+    # Full-package validation reuses the board checks without recursively
+    # entering the shared plan gate. Ordinary callers still validate both.
     try:
-        errors = list(validate(project, 'plan', base_dir))
+        errors = list(validate(project, 'plan', base_dir)) if check_project else []
     except Exception as e:  # noqa: BLE001 - malformed input must not crash
         errors = [f'project: malformed data crashed plan validation: {e}']
     def error(s): errors.append(s)
@@ -75,6 +76,8 @@ def validate_storyboard(project, base_dir=None, require_images=False):
         error('storyboard: synopsis_artifact_id must be a nonempty string')
     elif syn not in artifacts:
         error(f'storyboard: unknown artifacts reference {syn}')
+    elif artifacts[syn].get('type') not in ('synopsis', 'script', 'beat_map'):
+        error('storyboard: synopsis_artifact_id must reference a synopsis/script/beat_map artifact')
 
     beat_order = {}
     beats = sb.get('beats')
@@ -135,6 +138,37 @@ def validate_storyboard(project, base_dir=None, require_images=False):
             error(f'{label}: {what} file missing under --base-dir')
 
     mode = p.get('audio_mode')
+    spatial_checked = set()
+    def check_spatial_file(label, artifact_id):
+        if base is None or artifact_id in spatial_checked:
+            return
+        spatial_checked.add(artifact_id)
+        artifact = artifacts[artifact_id]
+        asset_ids = artifact.get('asset_ids', [])
+        asset_ids = asset_ids if isinstance(asset_ids, list) else []
+        registered = [assets[v] for v in asset_ids
+                      if isinstance(v, str) and v in assets]
+        camera_files = [v for v in registered
+                        if v.get('status') in ('available', 'verified')
+                        and text(v.get('path')) and Path(v['path']).suffix.lower() == '.json']
+        if not camera_files and not require_images and artifact.get('status') in ('draft', 'reviewed', 'approved'):
+            return  # still a text plan, not evidence of completed numerical work
+        if len(camera_files) != 1:
+            error(f'{label}: numeric spatial artifact needs exactly one registered camera JSON file')
+            return
+        path = (base / camera_files[0]['path']).resolve()
+        if not path.is_relative_to(base):
+            error(f'{label}: camera JSON path escapes --base-dir')
+            return
+        try:
+            spec = json.loads(path.read_text(encoding='utf-8'))
+            spatial_scripts = str(Path(__file__).resolve().parents[2] / 'camera-spatial-design' / 'scripts')
+            if spatial_scripts not in sys.path:
+                sys.path.insert(0, spatial_scripts)
+            from spatial_spec import reconcile_project
+            errors.extend(f'{artifact_id}: {e}' for e in reconcile_project(p, spec, artifact_id))
+        except (OSError, ValueError, ImportError) as e:
+            error(f'{label}: cannot reconcile camera JSON: {e}')
     used_beats = set()
     used_scenes = set()
     first_appearance = []
@@ -169,6 +203,10 @@ def validate_storyboard(project, base_dir=None, require_images=False):
                 aid = sp.get('artifact_id')
                 if not isinstance(aid, str) or aid not in artifacts:
                     error(f'{rid}: spatial numeric mode needs a valid artifacts reference')
+                elif artifacts[aid].get('type') not in ('camera_spec', 'spatial_spec'):
+                    error(f'{rid}: spatial artifact must have type camera_spec or spatial_spec')
+                else:
+                    check_spatial_file(rid, aid)
             elif sm == 'not_applicable':
                 if not text(sp.get('reason')):
                     error(f'{rid}: spatial not_applicable needs a reason')
@@ -229,6 +267,8 @@ def validate_storyboard(project, base_dir=None, require_images=False):
             va = item.get('voice_artifact_id')
             if not isinstance(va, str) or va not in artifacts:
                 error(f'{label}: voice_artifact_id must reference an artifacts entry')
+            elif artifacts[va].get('type') not in ('voice_profile', 'voice', 'voice_recording', 'voiceover'):
+                error(f'{label}: voice_artifact_id must reference a voice artifact')
             ls = item.get('lip_sync')
             if ls not in ('required', 'not_applicable'):
                 error(f'{label}: lip_sync must be required or not_applicable')
@@ -248,6 +288,7 @@ def validate_storyboard(project, base_dir=None, require_images=False):
 
     last_key = None
     shot_panels = {}
+    panel_links_by_shot = {}
     sheet_crops = {}
     for label, pn in panel_rows:
         sid = pn.get('shot_id')
@@ -255,7 +296,66 @@ def validate_storyboard(project, base_dir=None, require_images=False):
             error(f'{label}: unknown shots reference {sid}'); continue
         shot_panels.setdefault(sid, []).append(pn)
         shot = shot_by_id[sid]
+        links = panel_links_by_shot.setdefault(
+            sid, {'beat_ids': set(), 'visible_character_ids': set(),
+                  'audio_cue_ids': set(), 'speech_ids': set()})
+
         t = pn.get('frame_time_s')
+        def panel_refs(field, available, scoped, *, required=False):
+            values = pn.get(field)
+            if not isinstance(values, list):
+                error(f'{label}: {field} must be an array')
+                return set()
+            if required and not values:
+                error(f'{label}: {field} must be a nonempty array')
+            linked = set()
+            for value in values:
+                if not isinstance(value, str):
+                    error(f'{label}: {field} entries must be strings')
+                    continue
+                if value in linked:
+                    error(f'{label}: duplicate {field} reference {value}')
+                    continue
+                linked.add(value)
+                if value not in available:
+                    error(f'{label}: unknown {field} reference {value}')
+                elif value not in scoped:
+                    error(f'{label}: {field} reference {value} is not linked to shot {sid}')
+            return linked & available & scoped
+
+        def string_set(values):
+            return {value for value in values if isinstance(value, str)}
+        shot_beats = shot.get('beat_ids') if isinstance(shot.get('beat_ids'), list) else []
+        shot_chars = shot.get('character_ids') if isinstance(shot.get('character_ids'), list) else []
+        shot_cues = shot.get('audio_cue_ids') if isinstance(shot.get('audio_cue_ids'), list) else []
+        shot_speech = shot.get('speech') if isinstance(shot.get('speech'), list) else []
+        speech_for_shot = {item.get('id') for item in shot_speech
+                           if isinstance(item, dict) and isinstance(item.get('id'), str)}
+        panel_beats = panel_refs(
+            'beat_ids', set(beat_order), string_set(shot_beats), required=True)
+        panel_characters = panel_refs(
+            'visible_character_ids', set(characters), string_set(shot_chars))
+        panel_cues = panel_refs(
+            'audio_cue_ids', set(audio), string_set(shot_cues))
+        panel_speech_ids = panel_refs(
+            'speech_ids', speech_ids | speech_for_shot, speech_for_shot)
+        links['beat_ids'].update(panel_beats)
+        links['visible_character_ids'].update(panel_characters)
+        links['audio_cue_ids'].update(panel_cues)
+        links['speech_ids'].update(panel_speech_ids)
+
+        for cue_id in panel_cues:
+            cue = audio.get(cue_id, {})
+            start, end = cue.get('start_s'), cue.get('end_s')
+            if number(t) and number(start) and number(end) and not start <= t < end:
+                error(f'{label}: audio cue {cue_id} does not overlap the panel time')
+        speech_by_id = {item['id']: item for item in shot_speech
+                        if isinstance(item, dict) and isinstance(item.get('id'), str)}
+        for speech_id in panel_speech_ids:
+            line = speech_by_id[speech_id]
+            start, end = line.get('start_s'), line.get('end_s')
+            if number(t) and number(start) and number(end) and not start <= t < end:
+                error(f'{label}: speech {speech_id} does not overlap the panel time')
         key = (shot_index.get(sid, len(shot_index)), t if number(t) else float('inf'))
         if last_key is not None and key < last_key:
             error(f'{label}: panels must follow story and frame order')
@@ -334,6 +434,19 @@ def validate_storyboard(project, base_dir=None, require_images=False):
             for r in roles[1:-1]:
                 if r != 'action_peak':
                     error(f'{rid}: intermediate panels must have role action_peak'); break
+    for sid, shot in shot_by_id.items():
+        linked = panel_links_by_shot.get(
+            sid, {'beat_ids': set(), 'audio_cue_ids': set(), 'speech_ids': set()})
+        for field in ('beat_ids', 'audio_cue_ids'):
+            values = shot.get(field) if isinstance(shot.get(field), list) else []
+            for value in values:
+                if isinstance(value, str) and value not in linked[field]:
+                    error(f'{sid}: {field} reference {value} is not linked from any panel')
+        speech = shot.get('speech') if isinstance(shot.get('speech'), list) else []
+        for item in speech:
+            if isinstance(item, dict) and isinstance(item.get('id'), str) \
+                    and item['id'] not in linked['speech_ids']:
+                error(f'{sid}: speech reference {item["id"]} is not linked from any panel')
 
     for bid in beat_order:
         if bid not in used_beats:
