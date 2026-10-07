@@ -18,6 +18,7 @@ Reuse supplied/approved choices and the active interview flow. Ask only for a co
 ## Select one current stage
 
 Use [production-routing.md](references/production-routing.md) once to select the current owner and required dependency. Read that worker and its current-stage guide only. Do not preload future craft, provider catalogs or full-pipeline checklists.
+- Whenever the user asks to discover, compare, rank, choose, recommend, or validate content topics, **REQUIRED SUB-SKILL: `topic-demand-selection`** runs before candidate selection (including upstream of synopsis/script work). Preserve supplied audience/channel scope and requested candidate count. A user-locked topic used only for drafting skips topic discovery; evaluating its audience prospects does not. Apply this trigger to short-form, long-form, social, campaigns, and other audience-facing formats.
 
 An ordinary **콘티/storyboard defaults to a complete production plan**, including the canonical full coverage and technical slots. Explicit rough-panel/prompt-only exercises stay narrow. Text-only means no media/files/spend, not omission of technical planning. Missing applicable specialist inputs return one indexed requirement packet; integrate returned specifications before finalizing the board.
 
@@ -40,7 +41,7 @@ Full image-backed preproduction follows an asset-first chain: source adaptation/
 
 Keep video-model choice unresolved during preproduction. Current-version review acceptance is not execution approval. A separate proceed request opens a live-verified bounded plan under [video-generation-planning.md](references/video-generation-planning.md); actual submission waits for explicit execution and applicable spend approval. Free/local samples, moving animatics and exports need the same gate; preview does not authorize final production unless both were explicitly covered.
 
-Apply [selected-runtime gate](references/production-routing.md#selected-runtime-gate) only to actual requested execution. Default content/review images use `codex-imagen`; Codex Imagen still-image calls do not require price, usage, quota, or cost-approval checks. The package excludes Higgsfield image submissions/fallback. Missing runtime/auth/capability is a named blocker, not permission for a silent substitution or fake equivalent result. Changed inputs invalidate affected dependent approvals, not unrelated work.
+Apply [selected-runtime gate](references/production-routing.md#selected-runtime-gate) only to actual requested execution. For every requested generated still image—including character sheets, SSOT/identity sheets, influencer sheets, portraits, boards and review images—**REQUIRED SUB-SKILL: `codex-imagen`** is the first and primary image-generation route. Read and follow that skill before any image-generation call. Do not route these requests to Higgsfield image or AI Influencer generation, or substitute another provider; if Codex Imagen is unavailable, report the exact blocker rather than silently switching providers. Codex Imagen still-image calls do not require price, usage, quota, or cost-approval checks. Missing runtime/auth/capability is a named blocker, not permission for a silent substitution or fake equivalent result. Changed inputs invalidate affected dependent approvals, not unrelated work.
 
 ## Execution and delivery
 

@@ -6,11 +6,12 @@
 
 `creative-production`이 유일한 총괄이다. 기존 영상 제작·텍스트 기획·카메라·Blender 전문 스킬을 유지하고, 현재 적용된 콘텐츠/영상 스킬의 범용 절차와 memorable-video v6의 유효한 제작 기법은 필요한 때만 읽는 참조로 통합한다. 중복 총괄·상태 원장·28개 마이크로 스킬을 함께 설치하지 않는다.
 
-## 핵심 9개 스킬과 조건부 실행 모듈
+## 핵심 10개 스킬과 조건부 실행 모듈
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|
 | [creative-production](creative-production/SKILL.md) | 원고·소셜·캠페인·이미지·오디오·영상의 요청 분류, 제작 순서, 담당, 검토와 납품 | 단일 총괄. UI 개발이나 별도 전역 DB를 소유하지 않는다. |
+| [topic-demand-selection](topic-demand-selection/SKILL.md) | 주제 선택·순위·인기/검색 수요 검증 | 주제 후보를 고르기 전에 audience-demand 근거와 사실/자료 게이트를 별도로 평가한다. |
 | [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품 | 15개 선택형 모듈과 통합 전문 참조. 실제 렌더·게시 도구와 구분한다. |
 | [orchestrating-video-preproduction](orchestrating-video-preproduction/SKILL.md) | 콘셉트→시놉시스→필요한 캐릭터→스토리보드의 텍스트 기획 | 총괄의 내부 레인. 텍스트만 요청하면 이미지·영상·폴더를 만들지 않는다. |
 | [developing-video-synopses](developing-video-synopses/SKILL.md) | 콘셉트·로그라인·시놉시스·비트 | 사실·서사·추상 모드에 맞춰 작성한다. |
@@ -21,7 +22,7 @@
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
 설치 목록의 원본은 [manifest.json](manifest.json)이다. 전문 참조는 추가 설치 스킬이 아니다.
-설치 목록은 **총 18개: 핵심 9개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
+설치 목록은 **총 19개: 핵심 10개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
 
 ## 제작 흐름
 
@@ -41,12 +42,25 @@ Windows는 실제 Documents 알려진 폴더(리디렉션/OneDrive 포함), macO
 
 실제 작업 시작 전에 정확한 프롬프트와 방법을 `.history`에 기록하고, 작업 결과·실제 파일 경로·완료/실패/중단을 별도 시간순 Markdown으로 남긴다. 재개 시 끝나지 않은 작업을 확인하며, 중단을 생성 서비스 실패로 오인하거나 완료를 꾸며 기록하지 않는다. 산출물이 저장될 때마다 사용자에게 절대 경로와 히스토리 경로를 보고한다. 채팅-only 요청은 폴더/히스토리/미디어를 만들지 않는다.
 
-v5.1 갭 분석·책임 분리·검증 설계: [PRODUCTION_V5_1_UPGRADE.md](docs/PRODUCTION_V5_1_UPGRADE.md). 기존 전문 스킬은 각기 다른 책임을 유지하며 공통 자산 게이트와 저장 규칙만 정본 참조로 통합한다.
+v5.1 설계와 구현 범위: [PRODUCTION_V5_1_UPGRADE.md](docs/PRODUCTION_V5_1_UPGRADE.md). 기존 전문 스킬은 각기 다른 책임을 유지하며 공통 자산 게이트와 저장 규칙만 정본 참조로 통합한다.
 원장은 `<선택한 사용자 제작 프로젝트>/project.json`이다. 저장소의 두 project.json은 예제이며 현재 운영 프로젝트 선택 기록은 아니다. 총괄만 [현재 단계 패킷/원장 작성 계약](video-production-assets/references/contract.md#worker-handoff-and-single-writer)을 적용한다. `project_index.py --shot/--artifact`는 읽기 전용 인덱스 조회, `update_project.py --update`는 유효한 기존 원장에 대한 버전 확인·upsert·종속 stale 전파·검사 후 원자 교체다. 초기 프로젝트 생성/자동 워커 실행/승인 인증기는 아니다.
 
-17개 역할, 결함과 실제 수정, 준비율·문서 로드 측정·실행 한계는 [전체 감사 보고서](docs/ORCHESTRATION_AUDIT.md)를 참조한다.
+Q01~Q23 구현과 검증 결과는 [작업지시서](docs/superpowers/plans/2026-10-06-production-v5-1-qa-remediation.md)와 [검증 기록](docs/evidence/production-v51-qa-remediation.md)에 정리한다.
 
 레퍼런스 기반 작업은 후보 선택 → 관찰/해석/미확인 분리 → 제작 원리의 새 소재 적용 → 필요한 프로젝트 스타일 브리프 → 정성 QA로 연결한다. 주제·시놉시스 탐색을 요청한 영상에만 [탐색 계약](orchestrating-video-preproduction/references/video-direction.md#discovery-topic-and-synopsis)의 단계별 기본 5개를 적용하며, 명시 개수·확정 입력·단일 산출물은 보존한다. 회고는 요청된 프로젝트 기록/제안이다. 자동 스킬 개선·승격·브랜드 프로필 갱신과 숫자 유사도 기반 통과/재시도는 지원하지 않는다.
+
+## Production v5.1 구현 상태
+
+**Q01~Q23 구현과 Windows CLI/API 검증을 완료했다.** 패키지 버전은 `2.4`, 프로젝트 schema는 `1.1`을 유지한다. 독립 코드 리뷰 2건은 최종 `APPROVE`다. 구현·검토 완료는 실제 미디어 생성·과금·게시·배포 승인이 아니다.
+
+공통 검증과 저장 도구는 다음 경계를 검사한다:
+
+- **FINAL 준비와 출처:** 현재 master 계보·버전, sheet 등록·순서·해시, 원본 crop과 실제 RGBA 픽셀, panel/scene 참조, 영역 중첩과 반복 scene-band 조립
+- **파일과 패키지:** 프로젝트 외부 경로·링크, 대소문자 경로 충돌, 복사 바이트 해시, ZIP 내부 참조와 다른 루트에서의 재패키징
+- **실행 이력:** 원본 prompt 바이트·해시 보존, 기록 사본의 자격증명 마스킹, 시작 순서 기준 현재 attempt, 실제 출력 확인과 초기화 중단 시 복구
+- **종속성과 인계:** 선택한 canonical storyboard와 실제 종속 분기에만 stale 전파, artifact 중심 조회에서도 panel pin과 master/LOOK 계보 수집
+
+기술 검사를 통과해도 시각·청각 품질, 사실 진위, 권리와 사용자 수락은 별도로 확인한다. Linux/macOS native 실행과 실제 공급자 생성은 이번 Windows 검증에 포함하지 않는다. 초기 실패와 수정 후 결과는 [검증 기록](docs/evidence/production-v51-qa-remediation.md)에 보존한다.
 
 ## 외부 실행 도구
 
@@ -84,11 +98,15 @@ python scripts/install_package.py --skills-root $skillRoot --replace --backup-di
 
 ## 검증
 
+전체 회귀 검증에는 `pytest`와 `Pillow`가 필요하다. 저장소 루트에서 실행한다. Windows에서는 UTF-8 모드를 명시해 UTF-8 fixture를 시스템 기본 cp949로 읽지 않도록 한다.
+
 ```powershell
-python scripts/test_install_package.py
-python video-production-assets/scripts/test_validate_project.py
-python camera-spatial-design/scripts/test_spatial_spec.py
+python -m pip install pytest Pillow
+python scripts/check_versions.py
+python -X utf8 -m pytest -q
 ```
+
+커밋 직전 전체 실행 결과는 **258 passed, 217 subtests passed**다. Windows subprocess 출력 디코딩 경고 2건이 남았으며 테스트를 건너뛰거나 오류를 억제하지 않았다. 버전 검사는 package `2.4`와 18개 스킬의 일치를 확인했다. 격리 설치본에서도 이미지 기반 FINAL 패키지 성공, 손상 입력 거부와 history lifecycle을 실행했다. [최종 검증 원본](docs/evidence/production-v51-final-verification.json)과 [설치본·독립 검증 기록](docs/evidence/production-v51-qa-remediation.md)을 참조한다.
 
 전체 이미지 기반 프리프로덕션은 출처/시놉 MD → active LOOK 바이블 → 관련 잠금 Master/Scene State → 연결된 기술 콘티 → 읽을 수 있는 실제 시트들(시트당 최대 8패널) → 씬/패널 이미지 분할이 필수다. [정본 계약](video-production-assets/references/contract.md#전체-프리프로덕션-패키지)과 [Character SSOT 0–33](designing-video-character-sheets/references/character-ssot-master-prompt.md)를 따른다. FINAL 자산 게이트와 실제 검수는 별개다. 텍스트-only 요청에 이미지 생성·지출을 추가하지 않는다.
 
@@ -105,7 +123,7 @@ python video-production-assets/scripts/validate_project.py project.json --profil
 
 ## 버전 일관성과 자동 동기화 (Junction)
 
-이 저장소가 단일 원본(SSOT)이며, 설치된 하네스는 전부 Junction으로 이 저장소를 가리킵니다. 저장소를 고치면 `~/.codex/skills`(Codex), `~/.claude/skills`(Claude Code), `~/.agents/skills`(OpenCode)가 동시에 같은 내용을 읽습니다.
+이 저장소가 스킬 소스의 정본이다. 기본 복사 설치와 선택형 링크 동기화는 별도 방식이다. 아래 `sync_installed.py`를 실행한 설치 루트만 Junction/링크로 저장소의 변경을 읽는다. 전역 설치본이나 Git 훅이 이미 설정되어 있다고 가정하지 않는다.
 
 ```powershell
 # 저장소 -> 설치 루트로 링크 (기존 실체 폴더는 백업 후 교체, 멱등)
@@ -120,8 +138,8 @@ python scripts/bump_version.py --part minor --bump-skills
 python scripts/install_hooks.py
 ```
 
-- `post-commit` / `post-merge` / `post-rewrite`: 커밋·풀·리베이스가 끝나면 설치 루트를 자동 재싱크합니다.
-- `pre-commit`: 버전 일관성이 깨지면 커밋을 차단합니다 (`git commit --no-verify`로 우회).
+- 훅을 설치하면 `post-commit` / `post-merge` / `post-rewrite`가 커밋·풀·리베이스 후 설치 루트를 재싱크한다.
+- 훅을 설치하면 `pre-commit`이 버전 불일치 시 커밋을 차단한다.
 - GitHub Actions (`.github/workflows/ci.yml`): push/PR 시 `check_versions.py`와 pytest로 검증합니다.
 - 파생 산출물 `video-production-assets/support/`는 싱크 시 재생성되며 gitignore됩니다.
 - 기존 복사본은 `~/.skills-sync-backup/<타임스탬프>/`에 백업됩니다.
