@@ -1,10 +1,19 @@
 ---
 name: camera-spatial-design
-version: 2.5
-description: "Design shot sizes, camera positions and angles, composition, subject-to-subject and camera-to-subject distances, lens field of view, blocking and motivated camera paths for film, animation or AI video. Use for camera movement, shot coverage, spatial staging, angle/placement design or numerical camera specifications. Exclude camera shopping, generic book recommendations and actual Blender rendering, which belongs to blender-previsualization."
+version: 1.0
+description: Design shot sizes, camera positions and angles, composition, subject-to-subject
+  and camera-to-subject distances, lens field of view, blocking and motivated camera
+  paths for film, animation or AI video. Use for camera movement, shot coverage, spatial
+  staging, angle/placement design or numerical camera specifications. Exclude camera
+  shopping, generic book recommendations and actual Blender rendering, which belongs
+  to blender-previsualization.
 ---
 
 # 카메라·공간 설계
+
+## Workspace integration
+
+Read [workspace integration](references/workspace-integration.md) before applying local storage, sibling paths, image execution, Higgsfield CLI or approval instructions below. These adaptations govern this installed copy.
 
 `creative-production`이 프로젝트 수준 진입점·조정자다. 이 스킬은 카메라·공간 수치 설계라는 직접 요청 산출물만 만든다. 단독 호출이면 `creative-production`으로 범위·경로를 한 번 확인한 뒤 요청된 설계만 수행한다. 위임받아 실행 중이면 프로젝트 라우팅을 다시 하거나 두 번째 인터뷰·승인 원장을 열지 않고 지정된 샷과 명세만 진행한다.
 
@@ -31,3 +40,6 @@ description: "Design shot sizes, camera positions and angles, composition, subje
 
 ## 선택적 수치 미리보기
 Pillow가 있으면 `python scripts/render_projection.py camera_spec.json wireframe.png`로 수학적 핀홀 와이어프레임 패널을 만들 수 있다. 실제 Blender 렌더가 아니며 가림·조명·연기는 시뮬레이션하지 않는다.
+
+## 무빙 타이밍·렌즈 보완
+카메라 무빙/초점/렌즈 또는 레퍼런스 기반 촬영 설계 요청에는 [무빙 타이밍·렌즈](references/motion-timing-lens.md)를 읽고 [시간표](assets/motion-timing-template.md)를 적용한다. 타이밍을 현재 camera_spec·피사체 행동·정보 공개 시점과 연결하고 스키마를 무단 확장하지 않는다. 레퍼런스 관찰은 camera-motion-reference-analysis, 생성 입력 변환은 ai-camera-control로 인계한다. 형제 스킬은 정확한 frontmatter name으로 찾는다. 프로그램은 [실행 환경](references/camera-programs.md)을 읽는다.

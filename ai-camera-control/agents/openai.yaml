@@ -1,0 +1,14 @@
+interface:
+  display_name: AI 카메라 제어
+  short_description: Translate camera plans into scoped AI video controls
+  default_prompt: Use $ai-camera-control to turn this camera plan into a video prompt
+    and control packet.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

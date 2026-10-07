@@ -1,10 +1,22 @@
 ---
 name: video-production-assets
-version: 2.7
-description: "Build source-grounded video production assets: briefs, story beats, screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans, animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs, ideation, brand fit, schedules, budgets, asset registries, captions, delivery and QA. Use for complete video preproduction packages or an explicitly requested production asset from an idea, script or reference. Covers live action, animation, advertising, educational and AI-assisted video. Do not activate for generic film book recommendations, website builds, pet sprites or a standalone image/video rendering request. Does not render or publish footage by itself."
+version: 1.0
+description: 'Build source-grounded video production assets: briefs, story beats,
+  screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans,
+  animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs,
+  ideation, brand fit, schedules, budgets, asset registries, captions, delivery and
+  QA. Use for complete video preproduction packages or an explicitly requested production
+  asset from an idea, script or reference. Covers live action, animation, advertising,
+  educational and AI-assisted video. Do not activate for generic film book recommendations,
+  website builds, pet sprites or a standalone image/video rendering request. Does
+  not render or publish footage by itself.'
 ---
 
 # 영상 제작 스킬 에셋
+
+## Workspace integration
+
+Read [workspace integration](references/workspace-integration.md) before applying local storage, sibling paths, image execution, Higgsfield CLI or approval instructions below. These adaptations govern this installed copy.
 
 ## 실행 원칙
 - `creative-production`이 프로젝트 수준 진입점·조정자다. 이 스킬이 위임받아 실행 중이면 요청된 모듈과 산출물만 수행하고 프로젝트 라우팅을 다시 하거나 두 번째 인터뷰·승인 원장을 열지 않는다. 위임된 단계 패킷의 수신과 워커 반환은 [워커 인계·단일 기록자](references/contract.md#worker-handoff-and-single-writer)를 따른다. 단독 호출이면 `creative-production`으로 범위·경로를 한 번 확인한 뒤 요청된 전문 작업만 수행한다. 텍스트 전용·단일 산출물 요청은 폴더 선택, project.json, 정지 이미지, 샘플 영상을 만들지 않는다.
@@ -91,3 +103,6 @@ v5.1 패키지 추가 에셋: `assets/style-world-bible-template.md`, `assets/ad
 
 ## 선택적 상태·인과 인계
 누적 변화·원인과 잔류 결과·시점 대응·시간 생략·결합 반응·정확한 레퍼런스 재현을 인계할 때만 [상태·인과 연속성](references/26-state-causality-continuity.md)을 읽고 해당 슬롯을 기존 산출물에 연결한다. 변화 영역/속성, 보존 조건, 후속 유지 범위와 검사 근거를 분리하며 [선택 템플릿](assets/state-transition-template.md)은 필요한 부분만 쓴다. 변화 없는 인터뷰나 정밀 매칭 없는 작업에 여섯 절차를 강제하지 않는다.
+
+## 카메라 분석·제어·검수 연결
+레퍼런스의 카메라 움직임 역분석은 camera-motion-reference-analysis, 수치 경로·타이밍·렌즈 설계는 camera-spatial-design, AI 생성 입력 변환은 ai-camera-control에 연결한다. 카메라 결과 검수에는 [무빙 QA](references/27-camera-motion-qa.md)를 적용한다. 계획·프리비즈·생성 파일·실제 재생 검사를 분리하고 스틸이나 프롬프트만으로 실제 무빙 통과를 판정하지 않는다. 스킬은 frontmatter name으로 찾는다.

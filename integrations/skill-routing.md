@@ -5,7 +5,7 @@
 - **Project coordinator:** [creative-production](../creative-production/SKILL.md). It owns scope, selected lanes, shared facts/continuity and approval handoffs.
 - **Multi-stage production state:** [project.json contract](../video-production-assets/references/contract.md). Single text artifacts need no project database.
 - **Video craft/assets:** [video-production-assets](../video-production-assets/SKILL.md), 15 selective modules plus on-demand specialist references. These references are not extra installed skills.
-- **Text planning lane:** [orchestrating-video-preproduction](../orchestrating-video-preproduction/SKILL.md) with requested synopsis, character and storyboard specialists.
+- **Camera-motion analysis and control:** [camera-motion-reference-analysis](../camera-motion-reference-analysis/SKILL.md) separates observed from inferred movement; [ai-camera-control](../ai-camera-control/SKILL.md) translates a design into provider controls without assuming text enforces exact paths.
 - **Spatial/runtime boundary:** [camera-spatial-design](../camera-spatial-design/SKILL.md) designs numeric space; [blender-previsualization](../blender-previsualization/SKILL.md) implements and inspects an actual proxy with the available runtime.
 - **File storage and audit mechanics:** [recording-production-history](../recording-production-history/SKILL.md), called by the coordinator for actual saved production. Owns Documents/studio_production and append-only `.history` events, never artifact approval or stage orchestration.
 

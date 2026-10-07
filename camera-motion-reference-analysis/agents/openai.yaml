@@ -1,0 +1,14 @@
+interface:
+  display_name: 레퍼런스 카메라 무빙 분석
+  short_description: Analyze observed camera motion, timing and uncertainty
+  default_prompt: Use $camera-motion-reference-analysis to analyze the supplied reference
+    camera movement.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

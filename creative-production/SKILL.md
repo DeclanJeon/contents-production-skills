@@ -1,11 +1,18 @@
 ---
 name: creative-production
-description: Use for content creation or adaptation, including articles, social posts, campaigns, scripts, storyboards, audio, images, and video planning, AI-video prompt composition, model routing, generation critique, editing, QA or delivery; also hybrid 3D/web creative productions. Applies to single artifacts and full productions, not ordinary UI styling or unrelated application development.
-metadata:
-  version: "1.8.1"
+version: 1.0
+description: Use for content creation or adaptation, including articles, social posts,
+  campaigns, scripts, storyboards, audio, images, and video planning, AI-video prompt
+  composition, model routing, generation critique, editing, QA or delivery; also hybrid
+  3D/web creative productions. Applies to single artifacts and full productions, not
+  ordinary UI styling or unrelated application development.
 ---
 
 # Creative Production
+
+## Workspace integration
+
+Read [workspace integration](references/workspace-integration.md) before applying local storage, sibling paths, image execution, Higgsfield CLI or approval instructions below. These adaptations govern this installed copy.
 
 One brief, one coordinator, one requested deliverable. Skills are instruction modules; use the host's actual tools/workers, not a presumed autonomous scheduler. Coordination does not enlarge the request.
 
@@ -42,6 +49,10 @@ Full image-backed preproduction follows an asset-first chain: source adaptation/
 Keep video-model choice unresolved during preproduction. Current-version review acceptance is not execution approval. A separate proceed request opens a live-verified bounded plan under [video-generation-planning.md](references/video-generation-planning.md); actual submission waits for explicit execution and applicable spend approval. Free/local samples, moving animatics and exports need the same gate; preview does not authorize final production unless both were explicitly covered.
 
 Apply [selected-runtime gate](references/production-routing.md#selected-runtime-gate) only to actual requested execution. For every requested generated still image—including character sheets, SSOT/identity sheets, influencer sheets, portraits, boards and review images—**REQUIRED SUB-SKILL: `codex-imagen`** is the first and primary image-generation route. Read and follow that skill before any image-generation call. Do not route these requests to Higgsfield image or AI Influencer generation, or substitute another provider; if Codex Imagen is unavailable, report the exact blocker rather than silently switching providers. Codex Imagen still-image calls do not require price, usage, quota, or cost-approval checks. Missing runtime/auth/capability is a named blocker, not permission for a silent substitution or fake equivalent result. Changed inputs invalidate affected dependent approvals, not unrelated work.
+
+## Camera motion lane
+
+For reference camera walking/movement analysis use `camera-motion-reference-analysis`; for path, action-relative timing and lens/focus design use `camera-spatial-design`; for model-neutral or selected-provider camera inputs use `ai-camera-control`; for actual motion quality use video-production-assets reference27. Run only the requested stage. Reuse existing source analysis and camera/shot versions. Do not require Blender for a text prompt, install runtimes automatically, equate image motion with solved metric camera motion, or claim soft prompt intent is hard camera control. Resolve siblings by their exact frontmatter names in the personal-skills checkout.
 
 ## Execution and delivery
 

@@ -14,6 +14,10 @@ Select the narrowest requested output. The coordinator reads this map once; work
 | Explicit rough-panel/prompt-only exercise | `storyboarding-video` narrow guide only | Requested narrative panels; no full technical package |
 | One brief/script/shot/light/edit/claim/budget/QA/delivery asset | `video-production-assets`, one requested module/reference/template | Requested asset, not a mandatory full packet |
 | Factual/educational plan | Relevant text owner and only applicable evidence module | No invented characters/causes/testimony/commercial goal |
+| Reference camera movement / walking analysis | `camera-motion-reference-analysis`; current source interval only | Observed vs inferred motion; no metric solve or media generation inferred |
+| Camera timing, lens/focus or subject-relative motion design | `camera-spatial-design` timing/lens guide | Preserve camera schema, action/reveal timing and actual rig limits |
+| Camera-plan to AI-video control/prompt | `ai-camera-control` | Model-neutral or live verified inputs; exact path control never inferred from text |
+| Actual camera movement / lens / reveal QA | `video-production-assets` reference27 | Playback and timed evidence, minimum fix; no automatic paid retries |
 | Numeric camera/blocking | `camera-spatial-design` | Locked camera reused; current project/spec reconciliation, calculated not rendered inspection |
 | Actual Blender proxy/previs | `blender-previsualization` with registered camera input and real runtime | Actual indexed files; bounded smoke is not whole-board rendering |
 | Video prompt/decomposition/model route/critique/pipeline recipe | [video-generation-planning.md](video-generation-planning.md); dialect JSON only for the selected dialect | Text planning/critique, not spend/submission permission |
