@@ -54,6 +54,7 @@ Repeat stable subject descriptors and supply approved references using documente
 - **Image → video two-stage**: full art direction in a strong image model, then an i2v prompt describing only motion.
 - **ComfyUI node chains**: use the installed workflow's actual nodes, model files and input contract; verify their dependencies and memory/compute needs. Duration/resolution are node controls when exposed. Local computation does not bypass execution approval or imply zero cost.
 - **V2V edit passes**: instruction models take a clip + verb (extend, replace background, restyle, remove, relight); reference-driven swaps where supported.
+- **Conditional code-motion-graphics composite**: choose this only when the brief needs exact/repeatable typography, interface graphics, beat-locked timing, or deterministic graphic animation that a generated clip cannot reliably guarantee. Keep the generative route for organic performance, imagery, and motion; use code/compositing only for the layers that benefit from exact control. For mixed work, assign ownership per layer and define the plate, matte/alpha or other separation method, occlusion order, timing source, and final compositor before generating inputs. A generated-video-only or live-action route remains valid when these needs are absent. Do not require a chroma color, application, or rendering framework; choose separation based on subject colors, edges, motion blur, and actual executor support. Verify temporal edges and the composite over the intended background.
 
 | Goal | Pipeline |
 |---|---|
@@ -62,6 +63,8 @@ Repeat stable subject descriptors and supply approved references using documente
 | Long sequence | shot decomposition + FLF2V chaining |
 | Fix/restyle existing footage | V2V edit verbs |
 | Authorized local execution | Available ComfyUI workflow after runtime/dependency checks |
+
+For outputs collected from concurrent jobs, bind each file to its actual request/job/result identifiers before registering it as an asset. Never associate results by newest-file timestamps or shared-directory scan order. If the executor exposes no reliable result binding, isolate outputs per job or serialize collection; inspect content against the requested shot before marking the existing canonical asset verified. Do not add a parallel ledger.
 
 ## 5. Generated-clip critique and iteration
 
