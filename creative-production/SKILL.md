@@ -16,6 +16,8 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 
 One brief, one coordinator, one requested deliverable. Skills are instruction modules; use the host's actual tools/workers, not a presumed autonomous scheduler. Coordination does not enlarge the request.
 
+For recurring production, multi-stage coordination, reuse of approved resources, or repeated output corrections, **REQUIRED SUB-SKILL: `ai-delegation-loop`** applies once at the coordinator even without an explicit skill request. Use its reuse, evidence and layer-repair procedure within the existing domain gates; this does not authorize skill/profile updates, media execution, or a second project ledger.
+
 ## Scope and inputs
 
 Read the current request and supplied or explicitly linked project material. Preserve language, exclusions, fixed facts, selected tools, continuity, source versions and actual approvals. Unreadable material stays unverified. Separate evidence, calculations, interpretation and proposals. Unrelated prior examples are not current constraints.
@@ -26,6 +28,7 @@ Reuse supplied/approved choices and the active interview flow. Ask only for a co
 
 Use [production-routing.md](references/production-routing.md) once to select the current owner and required dependency. Read that worker and its current-stage guide only. Do not preload future craft, provider catalogs or full-pipeline checklists.
 - Whenever the user asks to discover, compare, rank, choose, recommend, or validate content topics, **REQUIRED SUB-SKILL: `topic-demand-selection`** runs before candidate selection (including upstream of synopsis/script work). Preserve supplied audience/channel scope and requested candidate count. A user-locked topic used only for drafting skips topic discovery; evaluating its audience prospects does not. Apply this trigger to short-form, long-form, social, campaigns, and other audience-facing formats.
+- For a requested still-image video or still-only edit with narration, dialogue, music or sound, use **REQUIRED SUB-SKILL: `storytelling-with-still-images`**. New or existing still-image cuts stay image-only; use `codex-imagen` only if new stills are requested, never a video model for assembly.
 
 An ordinary **콘티/storyboard defaults to a complete production plan**, including the canonical full coverage and technical slots. Explicit rough-panel/prompt-only exercises stay narrow. Text-only means no media/files/spend, not omission of technical planning. Missing applicable specialist inputs return one indexed requirement packet; integrate returned specifications before finalizing the board.
 

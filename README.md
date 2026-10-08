@@ -6,7 +6,7 @@
 
 `creative-production`이 유일한 총괄이다. 기존 영상 제작·텍스트 기획·카메라·Blender 전문 스킬을 유지하고, 현재 적용된 콘텐츠/영상 스킬의 범용 절차와 memorable-video v6의 유효한 제작 기법은 필요한 때만 읽는 참조로 통합한다. 중복 총괄·상태 원장·28개 마이크로 스킬을 함께 설치하지 않는다.
 
-## 핵심 10개 스킬과 조건부 실행 모듈
+## 스킬 라우팅과 조건부 실행 모듈
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|
@@ -17,12 +17,13 @@
 | [developing-video-synopses](developing-video-synopses/SKILL.md) | 콘셉트·로그라인·시놉시스·비트 | 사실·서사·추상 모드에 맞춰 작성한다. |
 | [designing-video-character-sheets](designing-video-character-sheets/SKILL.md) | 캐릭터 정체성·행동·시각 앵커·연속성·범용 이미지 프롬프트 | 텍스트 시트. 등장인물이 없는 작업에는 생략한다. |
 | [storyboarding-video](storyboarding-video/SKILL.md) | 전체 이야기·기술 슬롯을 연결한 완전한 제작 콘티; 명시적 러프 패널은 좁은 형식 | 텍스트 기획은 실제 이미지/검수/실행과 구분한다. |
+| [storytelling-with-still-images](storytelling-with-still-images/SKILL.md) | 정지 이미지 전용 영상의 서사·큐 타이밍·음향·검수 계획 | 스틸만 화면 소스로 사용. 새 스틸 생성과 영상 조립을 분리한다. |
 | [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | `camera-spatial-1.0` 계약. Blender 실행과 구분한다. |
 | [blender-previsualization](blender-previsualization/SKILL.md) | 실제 Blender 프록시 장면·프리비즈·공간 검사 | Blender 런타임 필요. 최종 영상 품질을 보증하지 않는다. |
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
 설치 목록의 원본은 [manifest.json](manifest.json)이다. 전문 참조는 추가 설치 스킬이 아니다.
-설치 목록은 **총 19개: 핵심 10개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
+설치 목록은 **총 22개: 핵심 13개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
 
 ## 제작 흐름
 

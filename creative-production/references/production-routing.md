@@ -12,6 +12,7 @@ Select the narrowest requested output. The coordinator reads this map once; work
 | Explicit multi-artifact text video planning | `orchestrating-video-preproduction`; only requested downstream workers | One inherited spine; missing owner inputs return indexed requirements to parent |
 | Ordinary or complete production storyboard | `storyboarding-video` + canonical [storyboard contract](../../video-production-assets/references/storyboard-contract.md) | All story coverage and applicable technical slots integrated; text-only keeps actual media unverified |
 | Explicit rough-panel/prompt-only exercise | `storyboarding-video` narrow guide only | Requested narrative panels; no full technical package |
+| Still-image video/edit with narration or sound | `storytelling-with-still-images` | Stills remain the only picture sources; no video-generation model for assembly |
 | One brief/script/shot/light/edit/claim/budget/QA/delivery asset | `video-production-assets`, one requested module/reference/template | Requested asset, not a mandatory full packet |
 | Factual/educational plan | Relevant text owner and only applicable evidence module | No invented characters/causes/testimony/commercial goal |
 | Reference camera movement / walking analysis | `camera-motion-reference-analysis`; current source interval only | Observed vs inferred motion; no metric solve or media generation inferred |
