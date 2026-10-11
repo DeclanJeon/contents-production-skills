@@ -125,7 +125,7 @@ python scripts/check_versions.py
 python -X utf8 -m pytest -q
 ```
 
-커밋 직전 전체 실행 결과는 **258 passed, 217 subtests passed**다. Windows subprocess 출력 디코딩 경고 2건이 남았으며 테스트를 건너뛰거나 오류를 억제하지 않았다. 버전 검사는 package `2.4`와 18개 스킬의 일치를 확인했다. 격리 설치본에서도 이미지 기반 FINAL 패키지 성공, 손상 입력 거부와 history lifecycle을 실행했다. [최종 검증 원본](docs/evidence/production-v51-final-verification.json)과 [설치본·독립 검증 기록](docs/evidence/production-v51-qa-remediation.md)을 참조한다.
+커밋 직전 전체 실행 결과는 **258 passed, 217 subtests passed**다. Windows subprocess 출력 디코딩 경고 2건이 남았으며 테스트를 건너뛰거나 오류를 억제하지 않았다. 버전 검사는 package `2.5`와 23개 스킬의 일치를 확인했다. 격리 설치본에서도 이미지 기반 FINAL 패키지 성공, 손상 입력 거부와 history lifecycle을 실행했다. [최종 검증 원본](docs/evidence/production-v51-final-verification.json)과 [설치본·독립 검증 기록](docs/evidence/production-v51-qa-remediation.md)을 참조한다.
 
 전체 이미지 기반 프리프로덕션은 출처/시놉 MD → active LOOK 바이블 → 관련 잠금 Master/Scene State → 연결된 기술 콘티 → 읽을 수 있는 실제 시트들(시트당 최대 8패널) → 씬/패널 이미지 분할이 필수다. [정본 계약](video-production-assets/references/contract.md#전체-프리프로덕션-패키지)과 [Character SSOT 0–33](designing-video-character-sheets/references/character-ssot-master-prompt.md)를 따른다. FINAL 자산 게이트와 실제 검수는 별개다. 텍스트-only 요청에 이미지 생성·지출을 추가하지 않는다.
 
