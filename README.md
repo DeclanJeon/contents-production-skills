@@ -10,9 +10,9 @@
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|
-| [creative-production](creative-production/SKILL.md) | 원고·소셜·캠페인·이미지·오디오·영상의 요청 분류, 제작 순서, 담당, 검토와 납품 | 단일 총괄. UI 개발이나 별도 전역 DB를 소유하지 않는다. |
+| [creative-production](creative-production/SKILL.md) | 원고·소셜·캠페인·이미지·오디오·영상 요청 분류와 담당·검토·납품; 명시적 영화/단편 전체 제작은 라이프사이클 경로로 연결 | 단일 총괄. UI 개발이나 별도 전역 DB를 소유하지 않는다. |
 | [topic-demand-selection](topic-demand-selection/SKILL.md) | 주제 선택·순위·인기/검색 수요 검증 | 주제 후보를 고르기 전에 audience-demand 근거와 사실/자료 게이트를 별도로 평가한다. |
-| [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품 | 15개 선택형 모듈과 통합 전문 참조. 실제 렌더·게시 도구와 구분한다. |
+| [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품; 영화 제작 6단계 참조 | 15개 선택형 모듈과 통합 전문 참조. 영화 경로는 명시적 전체/단계 간 요청에만 적용하고, 실제 렌더·권리 승인·게시와 구분한다. |
 | [orchestrating-video-preproduction](orchestrating-video-preproduction/SKILL.md) | 콘셉트→시놉시스→필요한 캐릭터→스토리보드의 텍스트 기획 | 총괄의 내부 레인. 텍스트만 요청하면 이미지·영상·폴더를 만들지 않는다. |
 | [developing-video-synopses](developing-video-synopses/SKILL.md) | 콘셉트·로그라인·시놉시스·비트 | 사실·서사·추상 모드에 맞춰 작성한다. |
 | [designing-video-character-sheets](designing-video-character-sheets/SKILL.md) | 캐릭터 정체성·행동·시각 앵커·연속성·범용 이미지 프롬프트와 페르소나·음성 설계 통합 | 텍스트 SSOT. 페르소나 전문 스킬을 필수 소비하며 실제 음성 생성은 하지 않는다. |
@@ -39,6 +39,21 @@
 7. 실제 결과를 검사하고 요청한 형식으로 납품한다. 계획, 파일 생성, 기술/시청각 검사, 사용자 수락, 게시 상태를 따로 보고한다.
 
 단독 전문 스킬은 총괄의 범위 계약을 한 번 확인한다. 이미 위임받은 전문 스킬은 총괄로 재귀 호출하거나 인터뷰·승인 원장을 다시 만들지 않는다. 수정 시 영향을 받는 종속 에셋과 승인만 stale로 처리한다.
+
+### 영화 제작 라이프사이클
+
+명시적인 영화·단편·애니메이션·AI 영화의 전체 제작 또는 단계 간 인계 요청에만 적용하는 선택 경로다. 단일 로그라인·시나리오·샷·납품 요청과 비영화 작업은 해당 레인만 유지한다. 단계별 계약과 양식은 [영화 제작 라이프사이클 참조](video-production-assets/references/28-film-production-lifecycle.md)가 정본이다.
+
+| 단계 | 범위 |
+|---|---|
+| 01 Development | 아이디어·콘셉트·프레미스·테마·로그라인·스토리·플롯·시놉시스·트리트먼트 |
+| 02 Screenwriting | 캐릭터/스토리 아크·비트·시퀀스·씬·시나리오·리라이트 |
+| 03 Pre-production | 비주얼 기준·콘티·샷리스트·애니매틱/프리비즈·자원·일정·안전/권리 blocker |
+| 04 Production | 적용되는 실사 촬영/생성 기록·테이크·연속성·데일리·미디어 상태 |
+| 05 Post-production | 편집·VFX·ADR/Foley·사운드·음악·색보정·자막·마스터·QC |
+| 06 Distribution | 키아트·예고편·EPK·영화제/배급·목적지별 납품·관객 반응 |
+
+요청한 단계·산출물만 다루고, 미적용/미확인 항목은 이유와 상태를 남긴다. 기존 `project.json`·`asset_registry`·승인 계약을 재사용한다. 계획은 실제 파일·촬영·검수·출품·공개를 뜻하지 않으며 AI 영화도 모델/버전·연속성·실제 순서 QA를 구분한다.
 
 ### 제작 저장소와 히스토리
 

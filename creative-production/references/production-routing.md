@@ -15,6 +15,7 @@ Select the narrowest requested output. The coordinator reads this map once; work
 | Explicit rough-panel/prompt-only exercise | `storyboarding-video` narrow guide only | Requested narrative panels; no full technical package |
 | Still-image video/edit with narration or sound | `storytelling-with-still-images` | Stills remain the only picture sources; no video-generation model for assembly |
 | One brief/script/shot/light/edit/claim/budget/QA/delivery asset | `video-production-assets`, one requested module/reference/template | Requested asset, not a mandatory full packet |
+| Explicit film/short/AI-movie full lifecycle or current-stage handoff request | `video-production-assets` [film production lifecycle](../../video-production-assets/references/28-film-production-lifecycle.md); only the current stage's owner module per request | Optional six-phase route; single synopsis/script/shot/delivery and non-film requests keep the narrow module routing above; no parallel schema or execution approval |
 | Factual/educational plan | Relevant text owner and only applicable evidence module | No invented characters/causes/testimony/commercial goal |
 | Reference camera movement / walking analysis | `camera-motion-reference-analysis`; current source interval only | Observed vs inferred motion; no metric solve or media generation inferred |
 | Camera timing, lens/focus or subject-relative motion design | `camera-spatial-design` timing/lens guide | Preserve camera schema, action/reveal timing and actual rig limits |

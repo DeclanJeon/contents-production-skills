@@ -3,6 +3,7 @@
 project_id: {프로젝트}
 version: {버전}
 status: draft
+라이프사이클 후반 단계 추적: {영화·단편 요청이면 `film-postproduction-template.md`의 단계/컷 버전 표에 artifact ID·버전으로 연결, 아니면 N/A}
 assumptions: {가정}
 오디오 의도(audio_mode·레이어)/실행자 지원 확인: {no_audio/no_dialogue/dialogue + SFX-only·음악제외·혼합참조 여부, 실제 지원 제어/확인 시점, 미지원 시 별도 제안 상태}
 

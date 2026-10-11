@@ -3,6 +3,7 @@
 project_id: {프로젝트}
 version: {버전}
 status: draft
+라이프사이클 배급 기록: {영화·단편의 배급 단계면 `film-distribution-template.md`의 배급·제출·권리·피드백 표로 연결, 납품만 요청 시 N/A}
 
 목적지/규격 확인 날짜/근거: {값}
 영상 규격: {화면비·해상도·fps·컨테이너·코덱}

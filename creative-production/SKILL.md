@@ -3,9 +3,10 @@ name: creative-production
 version: 1.1
 description: Use for content creation or adaptation, including articles, social posts,
   campaigns, scripts, storyboards, audio, images, and video planning, AI-video prompt
-  composition, model routing, generation critique, editing, QA or delivery; also hybrid
-  3D/web creative productions. Applies to single artifacts and full productions, not
-  ordinary UI styling or unrelated application development.
+  composition, model routing, generation critique, editing, QA or delivery; for explicit
+  film/short/animation/AI-movie lifecycle coordination; also hybrid 3D/web creative
+  productions. Applies to single artifacts and full productions, not ordinary UI styling
+  or unrelated application development.
 ---
 
 # Creative Production
@@ -27,6 +28,7 @@ Reuse supplied/approved choices and the active interview flow. Ask only for a co
 ## Select one current stage
 
 Use [production-routing.md](references/production-routing.md) once to select the current owner and required dependency. Read that worker and its current-stage guide only. Do not preload future craft, provider catalogs or full-pipeline checklists.
+- For explicit whole-film/short/animation/AI-film workflows or cross-stage handoffs, use the film lifecycle row in `production-routing.md` and its `video-production-assets` reference; load only the requested current-stage owner. A single synopsis, script, shot or delivery request stays narrow.
 - Whenever the user asks to discover, compare, rank, choose, recommend, or validate content topics, **REQUIRED SUB-SKILL: `topic-demand-selection`** runs before candidate selection (including upstream of synopsis/script work). Preserve supplied audience/channel scope and requested candidate count. A user-locked topic used only for drafting skips topic discovery; evaluating its audience prospects does not. Apply this trigger to short-form, long-form, social, campaigns, and other audience-facing formats.
 - For a requested still-image video or still-only edit with narration, dialogue, music or sound, use **REQUIRED SUB-SKILL: `storytelling-with-still-images`**. New or existing still-image cuts stay image-only; use `codex-imagen` only if new stills are requested, never a video model for assembly.
 

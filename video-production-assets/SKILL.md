@@ -70,9 +70,10 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 | 레퍼런스 후보 선정 또는 단일/아카이브 영상의 샷 DNA·제작 원리·스킬 커버리지/갭 분석 | [레퍼런스 영상 분해](references/25-reference-video-analysis.md) | 단일 영상은 `assets/shot-dna-template.md`, 아카이브 비교는 `assets/archive-audit-template.md` |
 | 한 번에 시놉시스부터 전체 스토리보드 시트까지 요청·프롬프트 작성 | [스토리보드 시트 사용자 가이드](references/storyboard-sheet-user-guide.md) | 범용 복사용 프롬프트 |
 | 활성 LOOK·에셋 게이트·마스터/파생 계보·패널 버전 참조·provenance·v5.1 패키지 출력 | [v5.1 프로덕션 무결성](references/contract.md#v51-프로덕션-무결성-look에셋-게이트계보provenance패키지) | `assets/style-world-bible-template.md`, `assets/adaptation-map-template.md`, `assets/asset-gate.csv`, `assets/asset-provenance.csv`, `assets/prompt-ledger.csv`, `assets/dependency-graph.csv`, `assets/storyboard-panel-manifest.csv` |
+| 명시적 영화/단편/애니메이션/AI 영화의 기획→배급 전체 라이프사이클·단계 인계 요청 | [영화 제작 라이프사이클](references/28-film-production-lifecycle.md) | — |
 
 ## 전체 패키지 진행
-1. 전체 영상 패키지 또는 주제만 받은 영상 요청이면 먼저 [프리프로덕션·검토 절차](references/preproduction-review.md)로 정확한 저장 폴더와 적용 범위를 확인한다. 필요한 경우 13으로 콘셉트·근거를 선택하고, 01 브리프와 `assets/project-template.json`을 채운다.
+1. 전체 영상 패키지 또는 주제만 받은 영상 요청이면 먼저 [프리프로덕션·검토 절차](references/preproduction-review.md)로 정확한 저장 폴더와 적용 범위를 확인한다. **명시적 영화/단편/AI 영화의 전체 라이프사이클·단계 간 인계 요청에 한해** [영화 제작 라이프사이클](references/28-film-production-lifecycle.md)을 상위 탐색 구조로 연다 — 단일 산출물·비영화 요청에는 적용하지 않는다. 필요한 경우 13으로 콘셉트·근거를 선택하고, 01 브리프와 `assets/project-template.json`을 채운다.
 2. 서사에는 02, 각본이 필요하면 03을 적용한다. 주장이나 데이터가 있는 영상은 10을 함께 적용한다. 비서사 영상에 인물·갈등을 강제하지 않는다.
 3. 연기가 필요하면 04, 시각 기준은 05, 샷·블로킹은 06, 필요한 조명은 07을 작성한다. 상세 보드는 [완전한 스토리보드 계약](references/storyboard-contract.md)으로 카메라/수치 공간·VFX·대사/나레이션/립싱크를 먼저 통합한다. 필요한 전문가 입력이 패킷에 없으면 차단 슬롯을 씬/샷/비트 인덱스로 정리한 하나의 요구 입력 패킷을 조정자에게 반환하고, 반환된 소유자 패킷으로 보드 조립을 재개한다. 요구된 실제 공간 검증은 카메라·Blender 전문 스킬로 인계한다.
 4. 애니메이션 계획은 08, 편집·사운드·타이밍은 09, AI 인계는 11을 적용한다. 모든 비트→씬→샷→키패널을 매핑하고 필요한 이미지 슬롯/고유 이미지/시트 수를 계산한 뒤 실제 정지 이미지를 생성·등록·검사한다. 이미지 단독 전체 순서 검수를 대표 이미지나 텍스트 self-check로 대체하지 않는다.

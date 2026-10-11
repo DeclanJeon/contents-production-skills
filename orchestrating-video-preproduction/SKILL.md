@@ -19,6 +19,8 @@ Text-only forbids media, files, and spend — not technical planning: a storyboa
 - Mapping is direct: concept or synopsis → `developing-video-synopses`; a character sheet → `designing-video-character-sheets` with required `designing-character-personas` design, without inventing a synopsis; a standalone persona/acting/voice design → `designing-character-personas`; panels → `storyboarding-video` preserving any supplied synopsis.
 - Applicability is mode-dependent: omit inapplicable characters and fictional plot elements, not explicitly requested planning artifacts. Character-free, factual and abstract briefs retain their requested concept, informational/visual synopsis, beat planning and board without fabricating a cast or conflict.
 
+When a film/short/animation/AI-film request is assigned through the lifecycle route, inherit its current preproduction stage, IDs, versions and approvals. This lane owns only the assigned preproduction text artifacts; shooting, postproduction and distribution remain downstream stages and are not inferred.
+
 ## Detailed guides
 
 - **Multi-stage or package request:** read [`references/video-direction.md`](references/video-direction.md) for the interaction modes, direction decision, discovery flow, choice statuses and checkpoints, and [`references/stage-execution.md`](references/stage-execution.md) for the canonical spine fields, per-stage craft requirements, integrity standards, package assembly, and the final consistency pass. These are the two lane guides; a single-artifact call opens neither.

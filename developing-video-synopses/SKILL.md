@@ -36,6 +36,8 @@ Done means the actual artifact is present — not a completion report — the be
 
 Before drafting, read [`references/synopsis-craft.md`](references/synopsis-craft.md) — the mode-matched structures, the artifact field list, the beat-map QA and repair pass, accuracy discipline, and the self-check. It is the one detailed guide for this stage; load it once and follow it. A request scoped to a logline, premise, or beat outline applies only the relevant part and returns exactly that — never inflate a small request into a production packet.
 
+For an explicit whole-film/short lifecycle request, use the film lifecycle reference for cross-stage placement and handoff only. This skill still returns exactly the assigned narrative artifact; a logline, synopsis or beat-only request does not expand into the film package.
+
 ## Return and handoff
 
 Delegated returns follow the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer): report the assigned synopsis artifact ID and output version, the dependency/dependency_versions proposal naming each input artifact version used, material assumptions, the checks actually performed, and unresolved inputs — the coordinator remains sole `project.json` writer. Standalone text allocates no project or artifact IDs; the beat IDs inside the artifact are content IDs the next stage inherits, not allocated artifact identity.

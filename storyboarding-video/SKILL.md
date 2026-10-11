@@ -16,6 +16,8 @@ For a **full image-backed preproduction package**, the coordinator must consume 
 
 `creative-production` alone coordinates projects. Standalone calls consult it once to confirm scope and route, then deliver only the requested storyboard. Work delegated by `creative-production` or `orchestrating-video-preproduction` continues on the inherited spine, IDs, versions, and approvals — no call-backs, re-routing, second interview, or second approval ledger — with stage packet intake and worker return per the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer).
 
+For an explicit film/short/animation/AI-film lifecycle request, use the lifecycle reference only for phase placement and cross-stage handoff; the complete storyboard contract remains authoritative for board content. A storyboard request does not imply production, postproduction or distribution work.
+
 ## Missing specialist inputs
 
 A production board needs per-shot camera/spatial, VFX, speech/lipsync, and audio specifications from their owners. When an inherited packet lacks them, this skill does not reroute, pick owners, or reopen the pipeline: return **one indexed requirement packet** to the coordinator listing each blocked slot by scene/shot/beat index, the required input, and the blocker — then resume board assembly from the owner packets the coordinator returns. Unresolved requirements stay explicitly unresolved/blocking in the slot table; the board never silently narrows to rough panels. Simple content whose slots are legitimately N/A (e.g. neutral numeric graphics) is reasoned N/A in the table, not a gap packet.

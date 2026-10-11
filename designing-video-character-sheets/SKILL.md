@@ -10,6 +10,8 @@ Produce role-aware character profiles with repeatable visual designs from a supp
 
 Characters are the only scope here — not plot, not panels. A supplied synopsis and its story spine stay intact; no added scenes, endings, product claims, or manufactured arcs. Full pipelines route through `creative-production` → `orchestrating-video-preproduction`; panels belong to `storyboarding-video`.
 
+For an explicit film/short/animation/AI-film lifecycle request, this skill owns only the assigned character artifact and returns its stable IDs/version for downstream use; a standalone character-sheet request does not invoke the full film package.
+
 ## Inputs and invocation
 
 Extract characters, roles, relationships, goals, behavior, setting, constraints, visual requirements, and existing spine anchors. Supplied details are never re-asked. Supplied character sheets, reference images and voice notes are inspected and reused with their application scope recorded — which sections actually apply to this production — rather than rebuilt; an unreadable supplied sheet stays unverified. Persona — how the character speaks, reacts and carries itself — is captured as filmable behavior and dialogue direction so the downstream voice/speech stage inherits it consistently. Persona and speaking-voice design are a required part of every new or deepened sheet, not an optional add-on: see the persona specialist consumption rule under Detailed guide.
