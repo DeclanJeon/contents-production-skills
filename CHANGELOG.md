@@ -23,6 +23,14 @@
 - Add deterministic Korean-caption storyboard PNG assembly with all panel indices, synopsis locators, character SSOT versions and camera specifications outside clean pixels; reject corrupt inputs, stale source hashes, escaped output and overwrites, including crop-source provenance.
 - Reconcile the rejected 132 ad to project v1.8/stale execution records and explicit missing-package/product-treatment blockers. Preserve real sources and rejected history; no provider generation or additional production spend.
 
+## 2.5 2026-10-11
+
+- Add `designing-character-personas`: behavior-based persona, conditional MBTI/Enneagram creative lenses, expression bridge, stable Voice Identity, Speech Style and per-line Performance. Sources distinguish official theory from the inspected research abstracts; no diagnostic or type-to-voice claims.
+- Require the persona specialist in new/deepened character-sheet design and integrate it into existing SSOT sections 0–33 and compact sheets. Preserve supplied/approved identity and voice, real-person evidence, explicit no-typology and silent-role scope.
+- Link derived voice profiles to exact character SSOT versions and separate reusable voice identity direction from performance cues and actual selected/auditioned audio. Preserve schema 1.1, canonical ownership and existing generation/rights/approval gates.
+- Register 23 installable skills and update direct persona routing and usage. Package versioning is local; this update does not publish a release or generate media.
+- Verification: package version check passed for 2.5 /23 skills; the UTF-8 regression run passed 258 tests and 217 subtests with two existing Windows subprocess decoding warnings. Text smokes exercised ordinary automatic design, full ordered sections 0–33, ten persona boundary cases, MBTI-only, standalone dialogue and version-pinned voice reuse. Five matched compact comparisons distinguish the added auditory-identity/per-line-cue contract from an already behavior-aware baseline. Draft length and self-authored speech/voice contradictions were caught and revised; final gated outputs are not a claim of autonomous first-draft reliability or audio quality. See [review](qa/character-persona-voice-review.html), [final outputs](qa/character-persona-voice-final-compact.json) and [grades](qa/character-persona-voice-final-grading.json).
+
 ## 2.4 2026-10-05
 
 - Audit all 17 instruction modules and retain their specialist boundaries; use one current-stage owner, compact versioned handoffs and a coordinator-only canonical project writer.

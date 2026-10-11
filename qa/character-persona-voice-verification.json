@@ -1,0 +1,92 @@
+{
+  "package_version": "2.5",
+  "managed_skills": 23,
+  "character_sheet_skill_version": "2.6",
+  "persona_skill_version": "1.0",
+  "regression": {
+    "command": "python -X utf8 -m pytest -q",
+    "passed_tests": 258,
+    "passed_subtests": 217,
+    "warnings": 2,
+    "warning_scope": "Existing Windows subprocess output decoding; this is the actual earlier post-worker run, not a claim of a rerun after later Markdown-only refinements."
+  },
+  "version_check": "Package 2.5 /23 skills consistent.",
+  "text_smokes": {
+    "final_compact_and_reference_runs": 7,
+    "final_semantic_expectations_passed": 40,
+    "final_word_counts": {
+      "comparison-1": 883,
+      "comparison-2": 832,
+      "comparison-4": 770,
+      "comparison-5": 854,
+      "ordinary-default": 618,
+      "comparison-3": 791
+    },
+    "full_ssot_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "persona_boundary_evals": 10,
+    "other_separate_cases": [
+      "MBTI-only",
+      "standalone single-line dialogue",
+      "exact voice/character version pins"
+    ],
+    "installed_ordinary_application": {
+      "word_count": 595,
+      "passed_expectations": 5
+    },
+    "limits": "Text planning only. Updated final comparisons use measured-length and semantic-review revisions; first drafts were not uniformly compliant. No statistically controlled generation-quality/latency result or audio/image/human acceptance proof."
+  },
+  "independent_review": {
+    "persona": "MBTI-only rationale/limits finding fixed and follow-up approved.",
+    "pipeline": "Single-line dialogue overreach finding fixed and follow-up approved.",
+    "limits": "These reviews preceded later smoke-driven Markdown refinements, which were verified by text applications rather than represented as another full independent review."
+  },
+  "installation": {
+    "fresh_isolated_install": "Executed earlier; initial instruction/resource bytes matched at that revision.",
+    "actual_codex_sync": {
+      "created": 1,
+      "repointed": 22,
+      "skipped": 0,
+      "backed_up": 0
+    },
+    "current_hash_matches": 34,
+    "current_uri_registry": "Cached; new skill name unresolved until restart/refresh. Physical installed entry and exact instructions verified.",
+    "warnings": "Existing Windows cmd subprocess output decoding exceptions occurred during sync. They are not hidden; managed files were independently read and hash-compared after sync."
+  },
+  "review_artifact": "qa/character-persona-voice-review.html",
+  "release": "Local files and Codex root only. No commit/push/published release or media generation."
+}

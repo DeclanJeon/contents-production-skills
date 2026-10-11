@@ -1,0 +1,522 @@
+{
+  "updated": {
+    "ordinary-default": {
+      "expectations": [
+        {
+          "text": "Returns a compact actual character sheet for one new fictional equipment handler preserving safety and supplied Korean dialogue, not a plan or forced full 0–33 SSOT.",
+          "passed": true,
+          "quote": "**확정 정보:** 새 허구 캐릭터이며, 동료 안전을 우선하는 장비 담당자. 한국어로 대화한다.",
+          "evidence": "The delivered Korean sheet develops one character, 서윤, with role, personality, appearance, dialogue, and voice sections rather than merely proposing a workflow or imposing a full 0–33 schema. It explicitly preserves the role, safety priority, and Korean conversation specified in the prompt and stays within 700 whitespace-delimited words."
+        },
+        {
+          "text": "Persona motives, observable conditional rules/costs/exceptions and expression acting are present without an extra persona request.",
+          "passed": true,
+          "quote": "사실 확인 → 완료 표시를 보류한다. 준비가 늦어질 수 있다. 즉각적인 위험에서는 이동 우선.",
+          "evidence": "The sheet supplies safety and uncertainty-sharing motives, observable choices, costs such as delayed preparation, and an emergency exception. Its integrated table also specifies visual acting, including stopping a hand before marking completion, turning toward an exit, and sharing a record with a colleague. These details are delivered directly without requesting further persona input."
+        },
+        {
+          "text": "Typology is both as explicitly labeled creative proposals within new-character delegation, not diagnosis or type→appearance/timbre causation.",
+          "passed": true,
+          "quote": "**유형 렌즈: both — 창작 제안, 평가 결과 아님**",
+          "evidence": "Both ISTJ and Enneagram 6 are provided under an explicit creative-proposal, non-assessment label, consistent with the user's delegation of unspecified fictional settings. The output additionally states “유형은 외모·음색의 근거가 아니다.” No diagnosis or causal link from type to appearance or timbre is asserted elsewhere."
+        },
+        {
+          "text": "Speaking voice contains stable auditory identity/allowed variation, speech style, reusable identity direction and an exact-line performance cue with intent/subtext/breath/pause/stress.",
+          "passed": true,
+          "quote": "**“확인은 나중에. 먼저 나가.”** 속뜻: 지금은 네가 먼저다. 압박 높음 / 강세 ‘먼저’ / 쉼 두 문장 사이 / 호흡 짧은 들숨 / 속도 빠르되 자음 유지.",
+          "evidence": "The exact-line cue specifies subtext, stress, pause, breath, and pace; its row identifies the intent as moving a colleague out of danger. The reusable voice_identity_direction specifies midrange pitch, dry timbre, forward resonance, clear consonants, and clipped endings, maintaining timbre and articulation while permitting speed, emphasis, and breath changes. Speech Style separately defines concise questions, requests, and relationship-dependent speech register. These are textual performance directions, not evidence of audio quality."
+        },
+        {
+          "text": "No generated/listened/selected audio, approval or registered artifact ID is invented.",
+          "passed": true,
+          "quote": "**조달 상태:** `unresolved`. 녹음·합성 요청이 없어 향후 가용 음성 후보 비교 경로를 열어두되, 실제 선택·청취 승인은 하지 않았다.",
+          "evidence": "The entire output contains no claim of generated audio, listening, selected voice, approval, or registered media artifact. CH01 is a fictional character label, not a claimed registered artifact ID. The image section is only a reusable written prompt, not a claim that an image was generated or accessed."
+        }
+      ],
+      "important_issues": []
+    },
+    "comparison-3": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "CH01은 불확실성 공유로 안전을, CH02는 공개 범위 관리로 신뢰를 확보한다.",
+          "evidence": "두 시트 모두 ISTJ와 에니어그램 6을 명시한다. CH01은 동료 안전을 위해 확인 범위를 공개하고 즉각적 위험에는 점검을 중단해 이동한다. CH02는 실패 노출을 피하려 보고 순서와 범위를 통제하되 직접 위험은 공유하고 비공개·비난 없는 신뢰 관계에서는 오류를 인정한다. 장비를 보여주는 행동과 옷 가장자리를 정리하는 행동 등 관찰 가능한 차이도 제공한다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "유형은 창작 렌즈이며 외모·음색의 근거가 아니다. 나이·성별·민족·과거사·현장·방언은 **미정**.",
+          "evidence": "외형과 음성은 디자인 제안으로 분리하고 인구학적 특성은 미정으로 둔다. 전체 출력에 유형이 얼굴·성별·음색을 필연적으로 결정한다는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": true,
+          "quote": "“선명한 자음과 짧은 말끝을 유지한다. 압박에는 속도·강세만 높이고 음색은 유지한다.”",
+          "evidence": "CH01에는 중음역·건조하고 선명한 음색·앞쪽 공명·짧은 말끝을 고정 앵커로 제시한다. CH02에는 중음역·매끈하고 밀도 있는 음색·중심 공명·눌러 닫는 말끝·절 사이 정지를 제시하고 압박 변화를 강세와 쉼 길이로 제한한다. 각 상태의 수행 지시는 해당 음성 앵커를 유지한다고 명시하며 신뢰 상태의 속도 변화도 제공한다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": true,
+          "quote": "**“확인은 나중에. 먼저 나가요.”** 의도: 이동 촉구; 속뜻: 절차보다 당신; 압력: 높음; 강세: 먼저; 쉼: 마침표; 숨: 짧은 들숨; 속도: 빠르게",
+          "evidence": "인물별 Voice Identity 및 voice_identity_direction을 상태별 대사 표와 분리했다. 여섯 대사 모두 의도, 속뜻, 강세, 쉼, 숨, 속도를 제공한다. 자연 호흡이나 문장 뒤 쉼처럼 기본 수행을 지정한 항목도 명시적 지시다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "실제 음성 후보·권리·도구 지원·청취 승인은 **미정**.",
+          "evidence": "출력은 음성을 디자인 제안으로 표시하고 CH01에 녹음·합성 요청·선택 음성이 없다고, CH02에도 선택 음성이 없다고 명시한다. 전체 출력에 실제 음성 생성, 청취, 선택 또는 사용자 승인을 완료했다는 주장은 없다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "신뢰: 비공개·비난 없음 → 오류 인정·체면 손실 감수; 공개 압박에는 방어 유지",
+          "evidence": "CH01의 확인 질문, 즉각적 위험에서의 이동 촉구, 신뢰 관계에서의 공동 확인 제안은 각 상태 규칙과 존댓말 스타일에 부합한다. CH02의 보고 순서 통제와 재확인 답변은 평상시·압박의 정보 통제 규칙에 맞으며, 직접 오류를 인정하는 대사는 명시된 비공개 신뢰 조건에만 배치된다. 모든 예시 대사는 한국어이고 고정 음성 앵커와 충돌하는 음색 변경이나 무조건적 행동 모순은 없다."
+        }
+      ],
+      "important_issues": []
+    },
+    "existing-standalone": {
+      "expectations": [
+        {
+          "text": "The approved 'withdraws first to calm the other' behavior is preserved verbatim as supplied/approved.",
+          "passed": true,
+          "quote": "**승인된 행동 — supplied:** “분쟁 시 먼저 물러나 상대를 진정시킨다.”",
+          "evidence": "The supplied approved Korean wording appears verbatim and is explicitly labeled approved behavior. Later proposals retain withdrawal as the initial conflict response; the closing note gives existing approved settings priority over conflicting proposals."
+        },
+        {
+          "text": "No MBTI or Enneagram type is assigned — typology fields are undecided with the mode recorded as none/explicit-exclusion.",
+          "passed": true,
+          "quote": "**typology_mode — supplied:** `none`. 사용자 요청에 따라 유형을 부여하지 않음.",
+          "evidence": "The mode is explicitly none. The typology section also labels MBTI and Enneagram values undecided and states that they are not inferred; no specific type is assigned anywhere in the output."
+        },
+        {
+          "text": "Deepening adds observable triggers, intents, and costs consistent with the approved behavior.",
+          "passed": true,
+          "quote": "| **supplied:** 분쟁 시 먼저 물러남 → 말이 겹치고 상대가 격앙됨 | 지금 반박하면 내용보다 반응이 커진다고 판단. 대화 여지를 확보하려 함. | 먼저 거리를 두고, 상대의 말을 끊는 행동을 멈춘다. | 즉각적인 반박 기회를 포기한다. 동의로 오해받을 수 있음. 즉각적 위해 상황의 예외는 확인 필요. |",
+          "evidence": "This rule supplies a concrete trigger (overlapping speech and agitation), an intent (preserve room for dialogue), observable actions (create distance and stop interrupting), and costs (forego immediate rebuttal and risk being mistaken for agreement). Additional rules deepen later discussion and boundary-setting without replacing initial withdrawal. A possible danger exception is explicitly unresolved rather than asserted as approved."
+        },
+        {
+          "text": "No appearance or voice changes are proposed without delegation.",
+          "passed": true,
+          "quote": "**supplied:** 기존 보이스 유지. 신규 음역·음색·조음·리듬·청각 앵커 제안 없음.",
+          "evidence": "The output retains the existing voice and excludes new vocal specifications. The expression bridge expressly excludes appearance changes, and its proposed movement and dialogue choices concern conflict behavior rather than redesigned appearance or voice. No contrary changes appear elsewhere."
+        },
+        {
+          "text": "Supplied CH12 and existing A_EXIST v4 source reference survive standalone return without allocating new project/artifact IDs or claiming to open the absent source file.",
+          "passed": true,
+          "quote": "- **inspection — observed:** 이번 인라인 요약만 확인함. `A_EXIST v4` 원본 파일이나 전체 시트는 열람하지 않음.",
+          "evidence": "The title and provenance retain CH12; input_artifacts retains A_EXIST v4. The ID handling entry explicitly preserves CH12 / A_EXIST v4 and states that there are no new project/artifact IDs. The quoted inspection statement correctly limits access to the inline summary, and no external-file access is claimed elsewhere."
+        }
+      ],
+      "important_issues": []
+    },
+    "comparison-1": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "CH01은 확인을 **공유**해 안전을, CH02는 정보 범위를 **통제**해 판단권을 지킨다. 예외는 각각 즉각 위험과 신뢰받는 실패 인정이다.",
+          "evidence": "두 시트 모두 ISTJ·6 참고를 명시한다. CH01은 동료 안전과 책임 공유를 위해 공동 확인하고 즉각 위험에서는 점검 대신 대피한다. CH02는 실패 노출과 판단권 상실을 피하려 보고를 통제하지만 신뢰 상대에게는 자기 실패를 인정한다. 대상과 동료를 번갈아 보는 행동, 출구로 몸을 여는 행동, 문서판 정렬과 신뢰 시 내려놓기 등 관찰 가능한 차이도 제공한다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "유형은 검사 결과가 아닌 창작 렌즈이며 외모·음색의 근거로 사용하지 않는다. 나이·성별·체형·과거사·방언·지휘권 세부 범위는 **미정**.",
+          "evidence": "유형의 용도를 명시적으로 제한하고 성별과 체형 등을 미정으로 둔다. 별도의 시각·음성 설정은 디자인 제안으로 제시하며, 전체 출력에 유형이 얼굴·성별·음색을 필연적으로 결정한다는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": true,
+          "quote": "명료한 자음과 짧게 닫는 말끝을 유지한다. 속도·강세·호흡은 변해도 음색·조음은 바꾸지 않는다.",
+          "evidence": "CH01은 중음역·건조한 질감·앞쪽 공명과 자음＋짧은 종결을 고정한다. CH02도 중저음역·매끈한 질감·가슴 쪽 공명, 부드러운 연결＋명확한 종결어를 지정하며 쉼·속도·강세 변화는 허용하되 거친 음색으로 바꾸지 않도록 한다. 각 상태의 대사 cue가 해당 앵커를 유지한다고 명시한다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": true,
+          "quote": "**“내 판단이 틀렸어. 수정안부터 같이 보자.”** 의도 인정·협력; 속뜻 그래도 나를 배제하지 마; 압력 중간; 강세 ‘내 판단’, ‘같이’; 쉼 마침표에서 길게; 호흡 두 문장 사이 자연; 속도 느리고 분명하게.",
+          "evidence": "각 인물의 재사용 Voice Identity / voice_identity_direction 문단과 상태별 Performance cue 표가 분리되어 있다. 총 여섯 예시 대사 모두 의도, 속뜻, 강세, 쉼, 호흡, 속도를 개별적으로 제공한다. 자연 호흡이나 문장 뒤 쉼처럼 명시된 기본 지시도 포함되어 있다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "텍스트만 제공하며 이미지·오디오 생성이나 실제 음성 선택은 없다.",
+          "evidence": "전체 출력에 실제 선택·생성·청취·승인이 이루어졌다는 주장이 없다. 후보·오디션·선택 없음과 청취 승인 미정도 명시한다. 제공된 역할과 언어 요청을 확정 정보로 취급한 것은 실제 프롬프트에 근거하며, 외부 파일이나 미디어 접근을 주장하지 않는다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "**미확인 항목을 묻거나 다음 협력을 제안할 때는 질문·요청만 가능하며, 즉각 위험에서는 짧은 대피 지시가 우선한다.**",
+          "evidence": "CH01의 “잠금은 확인했어?”와 “다음엔 같이 확인하자.”는 질문·협력 제안 예외에, “확인은 나중에. 먼저 나가.”는 즉각 위험 시 대피 우선 규칙에 맞는다. CH02의 확정 정보 우선 요청과 보고 보류 지시는 범위·순서 통제 및 실패 노출 지연 규칙에 맞으며, 자기 판단의 오류를 인정하는 대사는 명시된 신뢰 조건에 해당한다. 두 인물 사이 반말도 동료 또는 둘만 있는 상황의 규칙과 양립한다. 안전 정보 즉시 공유 예외를 부정하는 대사는 없고, 고정 음성 앵커와 대사별 변주 사이에도 충돌이 없다."
+        }
+      ],
+      "important_issues": []
+    },
+    "comparison-2": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "CH01은 안전정보 공유→공동 확인, CH02는 공개 통제→자기 오류 인정으로 구별된다.",
+          "evidence": "두 인물 모두 ISTJ의 I/S/T/J 및 에니어그램 6 해석을 명시한다. CH01은 동료 안전을 위해 검증 결과를 공유하며 즉각적 위험에서는 점검보다 대피를 택한다. CH02는 실패 노출과 권한 상실을 피하려 보고를 지연하지만 명백한 인명 위험에서는 즉시 공개하고, 비난 없는 신뢰 관계에서는 오류를 인정한다. 시선 이동·열린 손·문서판을 쥐거나 내려놓는 동작으로 차이를 관찰 가능하게 제시한다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "유형은 창작 렌즈이며 외모·음색의 근거가 아니다. 나이·성별·체형·방언·과거사·최종 외형·음성은 **미정**.",
+          "evidence": "유형을 창작 렌즈로 명시하고 외모·음색의 근거가 아니라고 직접 제한한다. 의상과 음성 앵커는 디자인 제안으로 제시되며, 전체 출력에 유형이 얼굴·성별·음색을 필연적으로 결정한다는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": true,
+          "quote": "맑은 중음역, 적은 기식, 앞쪽 공명 인상. 선명한 자음·짧은 종결·고른 기본 박자를 고정한다. 상태별 속도·강세·쉼·호흡만 변주하고 음색·조음은 유지한다.",
+          "evidence": "CH01은 인용된 청각 앵커와 변주 범위를 갖는다. CH02에도 건조하고 매끈한 중저음역·중심 공명·정확한 조음·고른 모음·완결된 말끝을 고정하고 강세·쉼·호흡·속도만 변주하도록 지시한다. 두 인물 모두 음색·조음 유지 범위가 명시되어 있다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": true,
+          "quote": "**“이 연결부, 확인했어?”** 의도: 검증 요청; 속뜻: 추정을 확인으로 쓰지 않겠다; 압력: 낮음; 강세: 확인; 쉼: 연결부 뒤 짧게; 호흡: 자연; 속도: 일정.",
+          "evidence": "각 인물의 재사용 Voice Identity / voice_identity_direction은 별도 음성 정체성 항목에 있고, 실제 대사의 Performance는 상태별 표에 분리되어 있다. 여섯 대사 모두 의도·속뜻·강세·쉼·호흡·속도를 제공한다. 쉼 없음과 자연 호흡도 명시적 지시이며, 각 표 행에 고정 음성 지시와 해당 Performance를 함께 적용하도록 안내한다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "음성 조달은 둘 다 `unresolved`: 후보·도구·권리·청취 승인 미정이며 실제 선택은 없다.",
+          "evidence": "출력은 텍스트 디자인 제안이며 승인된 설정이 아니라고 명시한다. 실제 음성 선택이 없음을 직접 밝히고, 전체 출력 어디에도 음성 생성·청취·사용자 승인이나 외부 미디어 접근을 수행했다는 주장이 없다. 텍스트 규칙 대조는 음성 청취 주장과 구별된다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "평소 개인 책임 표현을 줄이지만 신뢰 속 오류 인정에서는 직접 주어를 쓴다.",
+          "evidence": "CH01의 확인 질문, 긴급 이동 요청, 공동 확인 제안은 각각 평상시·즉각적 위험·신뢰 상태 규칙에 부합한다. CH02의 결과 우선 요청과 확인 전 보고 보류는 보고 통제 동기에 부합하며, 직접 책임을 인정하는 대사는 인용된 신뢰 상태 예외로 설명된다. 보고 보류 장면에는 명백한 위험이면 즉시 공개한다는 예외가 붙어 안전 한계와 충돌하지 않는다. CH02의 준비 쉼은 기본값이며 대사별 지시가 우선한다고 명시하여 쉼 없음 지시와도 충돌하지 않는다."
+        }
+      ],
+      "important_issues": []
+    },
+    "comparison-4": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "CH01의 확인은 **위험 공유**, CH02의 확인은 **노출 범위 통제**가 목적이며, 즉각 위험에서는 모두 사람을 우선한다.",
+          "evidence": "두 시트 모두 ISTJ와 에니어그램 6을 명시한다. CH01은 점검 대상에 손을 향하고 위험 시 점검을 중단해 이탈을 요청한다. CH02는 문서판 모서리를 정렬하고 보고 범위를 통제하지만, 즉각 위험에는 실패 노출을 감수하며 신뢰 관계에서는 오류를 선공개한다. 공통 유형과 안전 예외를 유지하면서 동기와 관찰 가능한 행동을 구별한다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "유형은 창작 질문이지 검사 결과·행동 법칙이 아니며 외모·음색과 연결하지 않는다.",
+          "evidence": "유형의 비결정론적 사용을 직접 명시한다. 성별 등 인구학적 특성은 미정으로 두고, 의복과 음성은 디자인 제안으로 구분한다. 전체 출력에 유형이 얼굴·성별·음색을 필연적으로 결정한다는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": true,
+          "quote": "“맑은 중음역, 선명한 자음, 짧고 날카롭지 않은 종결, 일정한 박자와 확인 전 작은 쉼을 유지한다. 압박에서는 속도·강세만 높이고 음색·조음은 보존한다.”",
+          "evidence": "CH01은 중음역·자음·종결·박자를 고정하고 압박 시 속도와 강세만 변경한다. CH02도 매끈한 중음역, 둥근 모음, 분명한 자음, 하강 종결, 구절 박자를 고정하며 압박에서는 구절 간격, 신뢰에서는 호흡을 변경하도록 명시한다. 각 표 앞에서 모든 대사가 고정 음성 지시를 유지한다고 선언한다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": true,
+          "quote": "아래 모든 대사는 **제안**이며 고정 음성 지시를 유지한다. 마지막 열은 해당 대사의 실행 cue다.",
+          "evidence": "각 인물의 Voice Identity 지시를 상태별 대사 표와 분리한다. 여섯 대사 모두 의도와 속뜻을 기재하고, 마지막 열에 강세 대상, 쉼 위치, 호흡, 속도를 제공한다. 예를 들어 CH01 압박 대사는 이탈 의도와 절차보다 사람이라는 속뜻에 ‘먼저’ 강세, 마침표의 쉼, 짧은 들숨, 빠르고 명료한 속도를 연결한다. 자연 호흡 지시도 명시되어 있다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "녹음 미제공·합성 요청 없음. 가용 음성 비교 경로를 제안하되 실제 후보·선택·청취 승인은 **미정**이다.",
+          "evidence": "실제 음성 후보 선택이나 청취 승인이 완료되지 않았음을 명시한다. 전체 출력의 음성 설계와 대사는 제안으로 제시되며, 음성을 생성하거나 외부 미디어를 열어 청취했다는 주장도 없다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "확인된 사실이 설명에 필요하면 사실 하나 뒤 질문/요청 하나를 둔다. 단순 확인·신뢰 관계의 제안·긴급 지시는 선행 사실 없이도 말한다.",
+          "evidence": "CH01의 평상시 질문은 단순 확인, 압박 대사는 즉각 위험의 긴급 지시, 신뢰 대사는 동료에게 하는 공동 확인 제안으로 각각 명시된 예외와 존댓말/반말 규칙에 부합한다. CH02의 평상시 대사는 범위 정리와 간접 명령, 압박 대사는 수정 확인을 통한 노출 지연, 신뢰 대사는 자신의 누락 인정과 도움 요청으로 해당 동기·상태 규칙에 부합한다. CH02 신뢰 상태의 느린 전달은 늘어난 호흡과 문장 사이 호흡으로 설명되며 고정 음색이나 조음의 변경을 요구하지 않는다. 인물 간 공유 표현을 금지하는 배타적 표지도 없다."
+        }
+      ],
+      "important_issues": []
+    },
+    "comparison-5": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "둘 다 확인을 요구하지만 CH01은 위험을 **공유**, CH02는 평가 노출을 **통제**한다.",
+          "evidence": "두 시트 모두 ISTJ와 에니어그램 6의 근거·예외를 명시한다. CH01은 동료 안전을 위해 미확인을 공개하고 즉각 위험에서는 점검을 중단해 대피시키며, CH02는 실패 노출을 피하려 보고·발언 범위를 통제하되 명확한 오류 증거에서는 재검토하고 신뢰와 수정 가능성이 함께 있을 때 책임을 인정한다. 점검판을 내리고 이동 방향을 여는 행동과 보고철을 누르거나 닫는 행동도 서로 구별된다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "**확정 정보:** 허구 인물 2명, 아래 역할·동기, 한국어 대화, ISTJ·에니어그램 6 창작 렌즈. **디자인 제안:** 세부 페르소나·외형·연기·음성·예시 대사. **미정:** 나이·성별·얼굴·체형·과거사·방언. 유형은 검사 결과가 아니며 외모·음색을 결정하지 않는다.",
+          "evidence": "유형을 창작 렌즈로 한정하고 외모·음색의 결정론을 명시적으로 부정한다. 성별·얼굴 등은 미정으로 남기며 시각·음성 특성은 제안으로 표시한다. 전체 출력에도 유형 때문에 특정 얼굴·성별·음색이 필연적이라는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": true,
+          "quote": "**Voice Identity 제안 / `voice_identity_direction`:** “중음역, 건조하고 맑은 질감, 전방으로 또렷한 공명 인상. 선명한 자음·짧게 닫는 말끝·일정한 기본 리듬을 유지한다.” 압박에서는 속도·강세를 바꾸되 음색·조음은 고정한다.",
+          "evidence": "CH01은 음역·질감·공명·조음·말끝을 고정하고 압박 시 속도·강세 변화를 허용한다. CH02 역시 중음역, 매끈하고 밀도 있는 질감, 중심 공명, 명료한 자음과 닫힌 말끝을 지정하며 압박에도 거친 음색으로 바꾸지 않고 지정 경계의 짧은 쉼을 유지하도록 한다. 각 표에는 상태별 속도·강세·호흡이 있고, 두 인물 모두 각 대사가 자기 고정 음성 지시를 유지한다고 명시한다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": true,
+          "quote": "“확인은 나중에. 먼저 나가.” 의도: 대피; 속뜻: 절차보다 너; 압력: 높음; 강세: 먼저; 쉼: 마침표; 호흡: 짧은 들숨; 속도: 빠르고 명료",
+          "evidence": "각 인물의 재사용 가능한 Voice Identity 및 Speech Style은 상태별 대사 표와 별도 항목으로 제시된다. 총 여섯 예시 대사 모두 의도, 속뜻, 강세, 쉼, 호흡, 속도를 제공한다. 평상시·신뢰 상태의 자연 호흡도 명시적 지시이며, CH02는 구절 경계와 내부 쉼 금지까지 구체화한다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "실제 음성 후보·권리·도구 지원·청취 승인은 미정이다.",
+          "evidence": "서두에서 이미지·오디오 생성과 실제 음성 선택을 포함하지 않는다고 밝히고, 각 인물의 조달 항목에서도 실제 음성과 조달 경로를 미정으로 둔다. 출력 전체에 실제 음성을 선택·생성·청취했거나 사용자 승인을 받았다는 주장은 없다. 승인 필요 항목이라는 표현도 완료된 승인 주장이 아니다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "확인 전에는 질문만, 신뢰 시에는 공동 요청만, 긴급 시에는 지시만 가능하다.",
+          "evidence": "CH01의 평상시 잠금 확인 질문, 긴급 대피 지시, 신뢰 상태의 공동 확인 요청은 각각 명시된 조건에 맞으며 책임자에게 존대한다는 규칙과 동료 대상 반말도 충돌하지 않는다. CH02의 수치 확인 후 보고 제안과 압박 시 확인 범위 요청은 완결문·존대·보고 통제 규칙에 부합한다. 신뢰 대사는 오판과 수정 가능성이 확인된 조건에서 책임 주어를 분명히 하므로 실패 노출 회피의 명시된 예외에 해당한다. CH02 세 대사의 짧은 쉼은 모두 각 대사에 지정된 구절 경계에 있고 내부 쉼 금지와 충돌하지 않는다."
+        }
+      ],
+      "important_issues": []
+    }
+  },
+  "old_compact_baseline": {
+    "comparison-1": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "CH01은 “무엇이 안전한가”, CH02는 “무엇이 드러나는가”를 먼저 묻는다. 둘 다 확인을 중시하지만, CH01은 정보를 **열어 위험을 줄이고**, CH02는 정보를 **좁혀 노출을 줄인다**. 신뢰가 생겨도 이 동기 차이는 지우지 않는다.",
+          "evidence": "서두에서 두 인물에 공통으로 ISTJ·에니어그램 6을 적용한다. CH01은 실제 장비 확인과 작업 보류를 실행하며, 절차가 즉각적 위험을 키우면 사람을 먼저 보호하고 변경을 공개한다. CH02는 보고 범위를 확인하고 공개 자리에서 지시하며, 은폐가 더 큰 실패 노출을 초래할 때만 제한적으로 사실을 공개한다. 서로 다른 동기가 관찰 가능한 행동과 예외 조건으로 구체화되어 있다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "ISTJ·에니어그램 6은 **창작 렌즈이며 심리 진단이나 행동 결정 공식이 아니다.**",
+          "evidence": "외형과 음성은 각각 디자인 제안으로 표시하고 성별은 미정으로 둔다. 전체 출력에 유형이 얼굴·성별·음색을 필연적으로 결정한다는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "quote": "**디자인 제안:** 담백하고 건조한 질감, 중저역 중심, 가슴 공명이 느껴지는 안정된 발성. 중간 속도, 짧은 문장, 관찰 내용 뒤에 작은 쉼. 압박 시 음량보다 자음의 선명도가 증가한다. 신뢰할 때 문장 끝이 부드러워진다.",
+          "evidence": "CH01과 CH02에 서로 다른 질감·음역·발성 및 상태별 변화는 제시한다. 그러나 어느 청각 특성을 상태가 바뀌어도 고정해야 하는지, 동일 음성 정체성의 유지 범위는 명시하지 않는다. 각 인물의 별도 '고정 앵커'와 '허용 변주' 목록은 얼굴·복장·동작 등 시각적 연속성만 다룬다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "quote": "| 압박 | 문서 모서리를 맞춤, 답변 지연, 시선으로 주변 청자를 확인 | “그 얘기, 어디까지 공유됐습니까?” |",
+          "evidence": "일반 음성 설계와 상태별 예시 표는 분리되어 있지만, 예시 대사마다 의도·서브텍스트와 숨·멈춤·강세를 제공하지 않는다. 표의 연기는 주로 몸짓과 시선이며, 음성 설계의 일반적 쉼·속도 변화는 개별 대사에 배정되어 있지 않다. 재사용 프롬프트도 음성 정체성이 아니라 이미지 시트용이다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "**확정:** 한국어. **미정:** 방언. **조달 경로:** `unresolved` — 음성 선택·합성·오디션은 요청 범위 밖이다.",
+          "evidence": "두 인물 모두 음성 조달을 미해결로 표시하고 선택·합성·오디션을 수행했다고 주장하지 않는다. 전체 출력에 실제 청취나 사용자 승인, 외부 파일·매체 접근을 했다는 주장도 없다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "| 신뢰 관계 | 시선을 피하지 않고 한 가지 오류만 구체적으로 인정 | “그 판단은 제가 놓쳤어요. 지금 필요한 것부터 말해줘요.” |",
+          "evidence": "여섯 예시를 모두 확인했다. CH01의 평상시 재확인, 압박 시 중단 우선, 신뢰 시 확인 위임은 각 상태 규칙에 부합하며 압박에서 관찰 설명보다 중단 요청을 앞세우는 것은 명시된 변주다. CH02의 평상시 정리 지시와 압박 시 공유 범위 질문은 통제·노출 경계 동기에 맞고, 신뢰 시 한 가지 오류 인정과 요청형 발화는 제한적 공개 및 도움 요청 예외에 부합한다. 무조건적 규칙 충돌이나 배타적 발화 표지 충돌은 없다."
+        }
+      ],
+      "important_issues": [
+        "음성 질감과 상태별 변화는 있으나, 장면이 달라져도 유지할 고정 청각 특성과 동일 음성 정체성의 유지 범위가 명시되지 않았다.",
+        "예시 대사별 의도·서브텍스트 및 숨·멈춤·강세 지시가 없어 일반 음성 설계를 실제 대사 연기로 연결하는 명세가 부족하다."
+      ]
+    },
+    "comparison-2": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "두 사람 모두 **불확실성을 줄이려 하지만**, CH01은 위험 정보를 드러내고 CH02는 정보의 노출을 통제한다.",
+          "evidence": "서두에서 두 인물 모두 ISTJ·에니어그램 6을 창작 렌즈로 사용한다고 명시한다. CH01은 동료에게 위험을 떠넘기지 않으려 확인·미확인을 구분하고, 안전 확보를 위해 절차를 예외적으로 바꾼다. CH02는 실패 노출을 피하려 불리한 세부사항을 미루지만 직접적인 위해가 확인되면 중지를 선택한다. 동기, 관찰 가능한 행동, 예외 조건이 모두 구별된다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "아래의 구체적 성격·행동·외형·음성은 **디자인 제안**이며, 유형을 진단이나 행동의 필연적 원인으로 사용하지 않는다.",
+          "evidence": "유형의 용도를 창작 렌즈로 한정하고 외형·음성을 제안으로 표시한다. 성별·체형·얼굴 특징은 미정으로 남기며, 전체 출력에 유형으로 얼굴·성별·음색이 필연적으로 결정된다는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "quote": "- **변경 금지:** 재킷 색·여밈선·탭 위치, ‘답하기 전 소매 정돈’ 동작.\n- **허용 변주:** 표정, 말의 속도, 의복 상태. 얼굴·신체 정체성은 후속 확정 대상.",
+          "evidence": "두 인물의 질감·음역·발성 위치와 상황별 속도·종결 변화는 제안되어 있다. 그러나 연속성의 변경 금지 항목은 의상과 동작에 국한되며, 어떤 청각 특성을 고정하고 어느 범위까지 변형해도 동일 화자로 유지해야 하는지 명시하지 않는다. 음성 설계 제안만으로 음성 정체성의 고정 범위를 대신할 수 없다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "quote": "| 압박 | 동작과 문장을 줄인다. 목소리를 높이기보다 중지어를 선명하게 한다. | “잠깐 멈춰요. 확인 전에는 넘기지 않겠습니다.” |",
+          "evidence": "음성 디자인과 상황별 대사 표는 분리되어 있으나, 표는 포괄적인 상황 설명과 대사 방향을 제공하는 수준이다. 각 대사에 의도·서브텍스트와 숨·멈춤·강세를 연결한 연기 지시가 없다. 일부 짧은 쉼이나 중지어 강조만으로 모든 대사의 요구 항목이 충족되지는 않는다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "- **조달 경로:** `unresolved` — 실제 음성 선택·합성·오디션은 범위 밖.",
+          "evidence": "두 캐릭터 모두 동일하게 실제 음성 조달을 미해결로 표시한다. 전체 출력에 음성을 선택·생성·청취했거나 사용자 승인을 받았다는 주장이 없다. 이미지 시트 프롬프트 역시 텍스트 제안일 뿐 실제 생성 또는 접근 주장으로 제시되지 않는다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "신뢰는 성격의 역전이 아니라, CH01의 **확인 분담**과 CH02의 **미확인 사실 인정**으로 표현한다.",
+          "evidence": "CH01의 평상시 확인 상태 구분, 압박 시 작업 중지, 신뢰 시 확인 분담은 각 상태 규칙에 부합한다. CH02의 평상시 진행 결론, 압박 시 정보 통제, 신뢰 시 제한적인 실수 인정도 명시된 변주와 일치한다. 대사는 완결된 장면이 아니라 ‘대사 방향’으로 제시되며, 선언한 정보 순서를 뒤집는 사례나 무조건적인 성격 역전, 배타적인 표지 충돌은 없다."
+        }
+      ],
+      "important_issues": [
+        "음성의 질감·음역 제안은 있지만, 장면 간 유지해야 할 청각 앵커와 동일 음성 정체성의 변형 한계가 명시되지 않았다.",
+        "대사별 의도·서브텍스트 및 숨·멈춤·강세 지시가 부족해, 제시된 대사를 일관된 연기로 구현할 구체적인 지침이 충분하지 않다."
+      ]
+    },
+    "comparison-3": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "두 인물 모두 ISTJ·에니어그램 6의 ‘절차 선호, 위험 점검, 신뢰 확인’을 참고한다.",
+          "evidence": "CH01은 동료의 부상을 막기 위해 점검하며 답을 받기 전 항목을 넘기지 않는다. 즉각적인 위험에서는 절차보다 중단·분리를 우선한다. CH02는 자신의 판단 근거와 실패 공개 범위를 통제하며 보고 범위 확인과 메모 정렬을 한다. 은폐가 더 명백한 실패로 이어지거나 신뢰 상대가 제한 공유를 제안하면 불확실성을 인정한다. 공통 유형과 서로 다른 동기·행동·예외가 모두 제시되어 있다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "이는 **디자인 제안의 도구이지 진단이나 행동의 절대 법칙이 아니다.** 아래 추가 설정은 모두 디자인 제안이며 변경 가능하다.",
+          "evidence": "유형을 명시적으로 창작 도구로 한정한다. 두 인물의 성별·나이는 미정으로 남기고 시각·음성 설계는 디자인 제안으로 표시한다. 전체 출력에 유형으로 얼굴·성별·음색이 필연적으로 결정된다는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "quote": "- **음색·속도·발성:** 건조하지만 온기 있는 질감, 일정한 중간 속도. 가슴 울림을 중심으로 명료하게 발성한다.\n- **변주:** 평상시에는 설명형, 압박에서는 낮고 짧은 지시형, 신뢰 관계에서는 문장 끝이 부드러워진다.",
+          "evidence": "두 인물 모두 기본 음색·속도·발성과 상태별 변주는 제공한다. 그러나 어떤 청각 특성을 모든 상태에서 고정해야 하는지, 압박 시 속도·높이·음량 변화가 어디까지 허용되며 동일 음성으로 유지되는지 명시하지 않는다. 별도의 연속성 앵커는 재킷·배색·손동작·시선 등 시각 요소에 관한 것으로 음성 정체성 유지 범위를 보완하지 못한다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "quote": "- **대사 방향:**  \n  - 평상시: “현재 확인된 범위만 말씀해 주세요.”  \n  - 압박: “실패라고 단정하기 전에, 어디까지 확인했죠?”  \n  - 신뢰: “이 부분은 제가 놓쳤어요. 먼저 같이 확인하죠.”",
+          "evidence": "기본 보이스 설명과 상태별 예문은 구분되지만, 예문에는 상태 이름만 붙어 있다. 각 대사의 의도·서브텍스트와 숨 위치·멈춤 길이·강세 대상에 대한 실제 연기 지시가 없다. 일반적인 ‘긴 침묵’ 등의 상태 설명이나 문장부호만으로 대사별 지시를 충족하지 않는다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "- **조달 경로:** `unresolved` — 텍스트 설계만 제공하며 음성 선정·청취·합성은 하지 않는다.",
+          "evidence": "음성 제작이나 청취를 하지 않았다고 명시하며 CH02도 텍스트 프로필만 제공한다고 밝힌다. 전체 출력에 실제 음성 선택·생성·청취·사용자 승인을 받았다는 주장은 없다. 이미지 시트 프롬프트도 텍스트 제안이며 실제 이미지 생성이나 외부 자료 접근을 주장하지 않는다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "- **예외 조건:** 은폐를 지속하면 더 명백한 실패로 드러날 가능성이 높다고 판단하거나, 신뢰하는 상대가 제한된 공유를 제안하면 불확실성을 인정한다. 이를 곧바로 도덕적 개심으로 해석하지 않는다.",
+          "evidence": "CH01의 평상시 확인 요청, 압박 시 미확인 부분을 이유로 한 중단, 신뢰 시 점검 분담은 안전 우선과 상태별 규칙에 부합한다. CH02의 평상시 확인 범위 제한과 압박 시 실패 단정에 대한 반문은 정보 통제·범위 되묻기와 일치한다. 신뢰 대사의 ‘제가 놓쳤어요’는 신뢰 관계에서 한계를 인정한다는 규칙과 명시된 예외로 설명된다. 모든 예문은 한국어이며, 서로 충돌하는 독점 발화 표지는 없다."
+        }
+      ],
+      "important_issues": [
+        "음성의 기본 성격과 상태별 변주는 있지만, 장면이 달라져도 유지할 고정 청각 특성과 동일 음성 정체성의 변화 한계가 명시되지 않았다.",
+        "예문별 의도·서브텍스트와 숨·멈춤·강세 지시가 없어, 바로 재사용할 수 있는 대사 연기 설계로는 불완전하다."
+      ]
+    },
+    "comparison-4": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "두 사람 모두 확인을 요구하지만, **CH01은 위험을 공유하려 하고 CH02는 정보의 노출을 통제하려 한다.** CH01은 확인 자료를 밖으로 펼치고, CH02는 몸 가까이 모은다.",
+          "evidence": "공통 기준에서 둘 모두 ISTJ·에니어그램 6을 참고한다고 명시한다. CH01은 안전을 위해 절차보다 작업 중지를 앞세우며, CH02는 실패가 공개되거나 은폐로 통제권이 줄면 문제를 명명한다. 시선, 점검표 공개, 서류 정돈 등 관찰 가능한 행동도 서로 구별된다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "**창작 렌즈:** ISTJ·에니어그램 6은 절차 선호, 위험 대비, 신뢰 확인을 구체화하는 참고점이다. 행동을 결정하는 진단이나 고정 법칙으로 쓰지 않는다.",
+          "evidence": "외형과 음성을 수정 가능한 창작 선택으로 별도 분류하고 나이·성별 등을 미정으로 둔다. 전체 출력에 유형이 얼굴·성별·음색을 필연적으로 결정한다는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "quote": "**톤·속도:** 건조하지만 차갑지 않은 중저음역, 일정한 속도. 위험 문장 앞에는 짧은 쉼.",
+          "evidence": "CH01의 중저음역·가슴 쪽 울림과 CH02의 중음역·앞쪽 울림을 제시하고 상태별 속도·호흡 변주도 제공한다. 그러나 시각 설계와 달리 음성에서 무엇을 고정해야 하는지, 변주 중 동일 음성 정체성을 어떤 범위로 유지해야 하는지는 명시하지 않는다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "quote": "| 압박 | 움직임은 빨라져도 확인 순서는 유지. 상대가 못 들으면 정면에서 다시 말함 | “잠깐 멈춰 주세요. 이 부분은 아직 확인 전입니다.” |",
+          "evidence": "보이스 프로필과 상태별 예시 대사는 구분되어 있지만, 각 대사에 붙는 의도·서브텍스트 및 숨·멈춤·강세 지시는 없다. 위험 문장 앞의 쉼, 압박 시 호흡, 신뢰 시 ‘제가’ 유지 등 일반 지침만 있으며 대사별 연기 지시로 구체화하지 않았다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "**조달 경로:** `unresolved` — 실제 음성 선택·합성·청취는 범위 밖.",
+          "evidence": "두 인물 모두 동일하게 실제 음성 작업을 범위 밖으로 명시한다. 전체 출력에서 실제 음성 선택·생성·청취나 사용자 승인이 완료됐다는 주장은 없으며, 이미지 프롬프트도 생성 결과가 아닌 텍스트 제안이다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "| 신뢰 관계 | 서류를 내려놓고 불확실성을 제한적으로 인정 | “이 부분은 제가 놓쳤어요. 보고 전에 같이 확인해 주세요.” |",
+          "evidence": "CH01의 세 대사는 각각 확인 완료, 미확인 위험에 대한 중지 요청, 신뢰 상대에게 재확인 위임이라는 규칙에 부합한다. CH02의 평상시 지시는 보고 통제, 압박 대사는 문제 범위 축소, 신뢰 대사는 제한적 실패 인정과 보고 전 확인에 부합한다. 신뢰 상태가 인정의 조건으로 명시되어 있으므로 실패 은폐 동기와 무조건적 모순을 이루지 않는다. ‘괜찮습니다’는 덜 선호하는 표현의 비교 예이고 ‘여기까지 확인했습니다’ 역시 확인한 범위만 말하는 규칙과 일치한다."
+        }
+      ],
+      "important_issues": [
+        "음역·울림과 상태별 변주는 있으나, 상태가 바뀌어도 유지할 고정 청각 특성과 동일 음성 정체성의 유지 범위를 명시하지 않았다.",
+        "실제 예시 대사별 의도·서브텍스트 및 숨·멈춤·강세 지시가 빠져 있어, 일반 보이스 프로필을 개별 대사 연기에 적용할 구체적 안내가 부족하다."
+      ]
+    },
+    "comparison-5": {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "quote": "ISTJ·에니어그램 6은 절차 선호, 위험 경계, 신뢰 확인을 설계하는 참고 틀이다.",
+          "evidence": "공통 유형을 창작 틀로 유지하면서 CH01은 동료 안전, CH02는 실패 노출 회피를 핵심 동기로 명시한다. CH01은 확인 항목부터 말하고 질문에 손을 멈추며, 절차가 즉각적 위험을 키우면 대안을 제안한다. CH02는 정보가 누구에게 알려졌는지 먼저 확인하고, 은폐가 더 큰 공개 실패로 이어질 때 제한적으로 인정한다. 행동과 예외가 서로 구별된다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "성격이나 행동을 결정하는 진단으로 사용하지 않는다.",
+          "evidence": "유형을 참고 틀로 규정하고 외형·연기·음성은 디자인 제안으로 구분한다. 나이·성별·체형도 미정으로 명시한다. 전체 출력에 유형이 얼굴, 성별 또는 음색을 필연적으로 결정한다는 주장은 없다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "quote": "한국어. 건조하되 날카롭지 않은 질감, 일정한 중간 속도, 가슴 쪽에 안정적으로 놓이는 공명감. 압박 시 음량보다 자음의 명료도를 높이고 문장을 짧게 한다.",
+          "evidence": "CH01과 CH02 각각의 질감·속도·공명 및 압박/신뢰 상태 변화를 제안한다. 그러나 어떤 청각 특성을 고정 앵커로 유지해야 하는지, 상태 변화 중에도 동일 음성 정체성을 보존하는 범위는 명시하지 않는다. 시각 설계의 고정 앵커와 허용 변주에 해당하는 음성 연속성 규칙이 빠져 있다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "quote": "- 평상시: “확인한 건 두 항목입니다. 나머지는 아직입니다.”\n- 압박: “잠깐 멈춰 주세요. 확인하고 다시 말씀드리겠습니다.”\n- 신뢰: “내가 놓친 게 있는지 같이 봐줄래요?”",
+          "evidence": "일반 음성 설계와 상태별 샘플 대사는 구분되어 있으나, 각 대사에 별도의 연기 지시가 없다. 대사별 의도/서브텍스트, 숨 위치, 멈춤 위치, 강세를 제공하지 않는다. CH02의 신뢰 상태에 있는 일반적인 침묵 허용 설명도 대사별 지시를 대체하지 못한다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "quote": "보이스 선정과 청취 검증은 하지 않았으며, 추후 후보 오디션 승인이 필요하다.",
+          "evidence": "CH01은 선정·청취 검증을 하지 않았다고 명시하고 CH02도 선정·청취 검증 전이라고 밝힌다. 두 조달 경로는 unresolved이며 승인도 향후 필요 사항이다. 전체 출력에 실제 음성 생성, 선택, 청취 또는 사용자 승인이 이루어졌다는 주장은 없다."
+        },
+        {
+          "text": "Every sample line is consistent with its own declared persona/Speech Style/state rules; different conditions explain differences, not an unconditioned contradiction or exclusive-marker collision.",
+          "passed": true,
+          "quote": "CH01은 “무엇이 확인됐는가”, CH02는 “누가 무엇을 아는가”를 먼저 묻는다.",
+          "evidence": "CH01의 확인 범위 보고, 중단 요청, 협력적 재확인 대사는 각각 확인 중심 평상시, 짧은 압박 발화, 신뢰 시 질문 증가 규칙과 일치한다. CH02의 보고 지시, 정보 공개 범위 질문, 미해결 항목 인정도 통제 중심 평상시, 압박 시 방어, 신뢰 시 제한적 솔직함과 일치한다. 페르소나 항목에 포함된 예시 표현까지 살펴도 무조건적 모순이나 독점 표현 충돌은 없다."
+        }
+      ],
+      "important_issues": [
+        "음성의 기본 특성과 상태별 변화는 있지만 고정 청각 앵커와 동일 음성 정체성 유지 범위가 명시되지 않아, 여러 장면에서 일관된 음성 연속성을 적용하기 어렵다.",
+        "샘플 대사별 의도/서브텍스트 및 숨·멈춤·강세 지시가 없어, 재사용 음성 설계와 개별 대사 연기를 분리한 실행용 지침이 불완전하다."
+      ]
+    }
+  },
+  "length": {
+    "method": "Whitespace tokens containing at least one Unicode alphanumeric character; standalone Markdown-only separators are not words.",
+    "word_counts": {
+      "comparison-1": 883,
+      "comparison-2": 832,
+      "comparison-4": 770,
+      "comparison-5": 854,
+      "ordinary-default": 618,
+      "comparison-3": 791
+    },
+    "all_token_counts": {
+      "comparison-1": 934,
+      "comparison-2": 907,
+      "comparison-4": 865,
+      "comparison-5": 903,
+      "ordinary-default": 684,
+      "comparison-3": 856
+    }
+  },
+  "passing_quote_errors": [],
+  "comparison_limit": "Old runs are single drafts; updated final runs include actual counter and semantic-review revisions. This is contract coverage, not a controlled model-quality or latency benchmark."
+}

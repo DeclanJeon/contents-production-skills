@@ -1,6 +1,6 @@
 # Contents Production Skills
 
-콘텐츠 제작과 영상 제작을 하나의 브리프·승인 흐름으로 조율하는 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`, 패키지 버전은 **2.4**이다.
+콘텐츠 제작과 영상 제작을 하나의 브리프·승인 흐름으로 조율하는 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`, 패키지 버전은 **2.5**이다.
 
 저장소: [DeclanJeon/contents-production-skills](https://github.com/DeclanJeon/contents-production-skills).
 
@@ -15,7 +15,8 @@
 | [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품 | 15개 선택형 모듈과 통합 전문 참조. 실제 렌더·게시 도구와 구분한다. |
 | [orchestrating-video-preproduction](orchestrating-video-preproduction/SKILL.md) | 콘셉트→시놉시스→필요한 캐릭터→스토리보드의 텍스트 기획 | 총괄의 내부 레인. 텍스트만 요청하면 이미지·영상·폴더를 만들지 않는다. |
 | [developing-video-synopses](developing-video-synopses/SKILL.md) | 콘셉트·로그라인·시놉시스·비트 | 사실·서사·추상 모드에 맞춰 작성한다. |
-| [designing-video-character-sheets](designing-video-character-sheets/SKILL.md) | 캐릭터 정체성·행동·시각 앵커·연속성·범용 이미지 프롬프트 | 텍스트 시트. 등장인물이 없는 작업에는 생략한다. |
+| [designing-video-character-sheets](designing-video-character-sheets/SKILL.md) | 캐릭터 정체성·행동·시각 앵커·연속성·범용 이미지 프롬프트와 페르소나·음성 설계 통합 | 텍스트 SSOT. 페르소나 전문 스킬을 필수 소비하며 실제 음성 생성은 하지 않는다. |
+| [designing-character-personas](designing-character-personas/SKILL.md) | 동기·조건부 행동·MBTI/에니어그램 창작 렌즈와 시각 연기·Voice Identity/Speech Style/Performance 설계 | 단독 텍스트 패킷 또는 기존 캐릭터 SSOT에 통합. 실존 인물 유형 추정·검사·음성 생성은 제외한다. |
 | [storyboarding-video](storyboarding-video/SKILL.md) | 전체 이야기·기술 슬롯을 연결한 완전한 제작 콘티; 명시적 러프 패널은 좁은 형식 | 텍스트 기획은 실제 이미지/검수/실행과 구분한다. |
 | [storytelling-with-still-images](storytelling-with-still-images/SKILL.md) | 정지 이미지 전용 영상의 서사·큐 타이밍·음향·검수 계획 | 스틸만 화면 소스로 사용. 새 스틸 생성과 영상 조립을 분리한다. |
 | [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | `camera-spatial-1.0` 계약. Blender 실행과 구분한다. |
@@ -23,7 +24,9 @@
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
 설치 목록의 원본은 [manifest.json](manifest.json)이다. 전문 참조는 추가 설치 스킬이 아니다.
-설치 목록은 **총 22개: 핵심 13개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
+설치 목록은 **총 23개: 핵심 14개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
+
+캐릭터 시트를 새로 작성하거나 심화하면 페르소나·표현 연결·발화 역할의 음성 설계가 기본 포함된다. 새 허구 인물의 위임된 창작에서는 MBTI/에니어그램을 제안으로 사용할 수 있으며, 공급된 유형·승인 설정·명시적 `none`을 우선한다. 무언 역할은 음성 N/A; 실제 음성 후보·생성·청취 승인은 별도다. 구체적인 요청과 수정 경계는 [사용 가이드](USAGE_GUIDE.md#캐릭터와-시리즈)를 따른다.
 
 ## 제작 흐름
 

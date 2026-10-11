@@ -8,6 +8,8 @@ A Character SSOT is authored jointly as identity design + production usability: 
 
 Work from: topic; optional character count (default 1 when neither an existing cast nor a user count supplies one); gender; age; nationality/culture; era (modern when unspecified); genre; realism; intended use (general image / video / story); setting; visual style; audience; and any additional constraints. Under a production packet, also consume the supplied synopsis artifact/version, assigned `character_id`, and any supplied sheets, reference images or voice notes.
 
+**Persona specialist consumption.** Before drafting or deepening any SSOT, read [`../../designing-character-personas/SKILL.md`](../../designing-character-personas/SKILL.md) — it is the authority for behavior-first persona method, typology lenses, and layered voice design. Consume its packet slots rather than re-deriving method here: `persona_core`/`behavior_rules` → §13–20; `typology_lens` → §13–14 as labeled lens + rationale/limits; `expression_bridge` → §10–12; `voice_identity`/`speech_style`/`performance_cues` → §12; `provenance`/`validation`/`unresolved_requirements` → provenance classes and the return. A complete supplied sheet is reused with applicable scope recorded, not redesigned. Typology mode `none | mbti | enneagram | both`: explicit request / supplied types / exclusion win; `both` is proposed only inside explicit new-fictional-character delegation; approved, real-person, or undelegated characters get no new forced type. Type names never drive face, body, or timbre; supplied types are preserved verbatim with gaps recorded.
+
 ### Facts vs design
 
 Every value carries exactly one provenance, and the four classes are never blurred:
@@ -43,7 +45,7 @@ The output keeps this exact section order and numbering. Omit nothing; mark a se
 | 9 | Costume DNA | Fashion logic + signature outfit |
 | 10 | Expression DNA | Defined expression set |
 | 11 | Body Language | Default and state-specific behavior |
-| 12 | Voice & Speech | Vocal design; N/A if silent |
+| 12 | Voice Identity · Speech Style · Performance | Fixed vocal identity + speech style + per-line performance; N/A if silent |
 | 13 | Personality | 5–7 traits, each fully developed |
 | 14 | Psychology | Wants/fears, relevant values and conflicts, conditional decision rules, boundaries, emotions and responses |
 | 15 | Backstory | Only causally relevant history |
@@ -90,16 +92,22 @@ The output keeps this exact section order and numbering. Omit nothing; mark a se
 
 ### 10–12 — Expression, body language, voice
 
-- **10 Expression DNA:** define each of — neutral, gentle smile, genuine laugh, sad, angry, irritated, surprised, afraid, confident, embarrassed, concentrating, exhausted — as eyes / brows / mouth / jaw / muscle tension / head angle. Specific mechanics, not adjectives.
-- **11 Body Language:** default posture; standing, sitting; under tension, confidence, anger, lying, laughing; gaze behavior; walk and run; one signature habit and one unconscious action; personal-space tendency.
-- **12 Voice & Speech:** pitch, timbre, rate, pronunciation, intonation, volume, sentence length, word choice, humor style, use of silence, emotional change, repeated phrases and **forbidden** phrases; up to 3 sample lines only where they genuinely help. A silent role is explained `N/A` — never converted into a narrator or an audio-file claim.
+- **10 Expression DNA:** define each of — neutral, gentle smile, genuine laugh, sad, angry, irritated, surprised, afraid, confident, embarrassed, concentrating, exhausted — as eyes / brows / mouth / jaw / muscle tension / head angle. Specific mechanics, not adjectives. Where a persona `expression_bridge` is consumed, each core behavior rule's expression row lands here and in §11 — persona expresses through expression, gesture, and prop handling, never by re-deriving eyes/jaw/build/skin/gender/nationality from a type; locked face/body/style anchors stay locked.
+- **11 Body Language:** default posture; standing, sitting; under tension, confidence, anger, lying, laughing; gaze behavior; walk and run; one signature habit and one unconscious action; personal-space tendency. Relationship- and pressure-state variants from the persona rules land here as named states, not new identities.
+- **12 Voice Identity · Speech Style · Performance:** speaking roles carry three separated layers, mapped from the persona specialist's `voice_identity`/`speech_style`/`performance_cues` slots.
+  - *Fixed voice identity:* base pitch register, timbre/roughness/breathiness, resonance impression, articulation and sentence-ending habits, base rhythm, volume default — plus explicit **auditory anchors** (the recognizable signature a listener can check a cut against) and the **allowed-variation range** (what pressure may bend vs what must hold). Timbre grounds in brief/supplied voice/cast differentiation/labeled proposal — never auto-derived from a typology type — and no invented Hz/pitch numbers.
+  - *Speech style:* sentence length, lexicon, question/command/indirectness mix, formality/register per relationship, humor style, silence usage, intonation habits, repeated phrases and **forbidden** phrases.
+  - *Performance:* per actual line — intent, subtext, emotional pressure, stressed words, pause/breath/rate shifts; up to 3 sample lines only where they genuinely help. A pressure/trust state changes performance parameters, not the voice: state which timbre/articulation anchors hold.
+  - *Reusable direction:* a `voice_identity_direction` line carried verbatim to every speaking shot, kept separate from each utterance's `performance_cue`.
+  - *Realization reference:* named pointer to the voice-selection stage ([`../../video-production-assets/references/22-dialogue-lipsync.md`](../../video-production-assets/references/22-dialogue-lipsync.md)); the `voice_profile` derived from this sheet records the exact `character_sheet` artifact ID + version it derives from. Real voice ID/model/settings/listening outcome live in that stage's selection record — this section never reports a `proposed`/`unresolved` voice as chosen.
+  - A silent role is explained `N/A` — never converted into a narrator or an audio-file claim.
 
 ### 13–20 — Persona, psychology, life detail
 
 This block feeds the canonical `persona` record — `{role, personality, observable_behavior, speech}` — with filmable, observable content:
 
-- **13 Personality:** 5–7 behavioral traits. Each trait is developed as `trait → observable action → strength → problematic situation`, so every adjective is playable.
-- **14 Psychology:** want, need, fear, shame, regret, pride, secrets, an unacknowledged fact, and concrete responses to stress, love, anger, failure, success. When the story supports a meaningful trade-off, identify the competing values/commitments and the character-specific priority, boundary, and conditions that alter the choice under ordinary, pressure, risk, or relationship stakes. Tie these rules to observable thought, emotion, reaction, dialogue, and choice. Ground them in supplied/observed material or label them `proposal` under explicit fictional-design delegation; otherwise leave them undecided. Never manufacture trauma, diagnosis, secrets, or a moral dilemma just to deepen the profile.
+- **13 Personality:** 5–7 behavioral traits. Each trait is developed as `trait → observable action → strength → problematic situation`, so every adjective is playable. Where a typology lens applies, the consumed `typology_lens` lands here as a labeled sub-block — `mode: none|mbti|enneagram|both`, supplied-or-proposed type, the character-specific axis/motive interpretation, `design_rationale`, `limits`, and recorded exceptions — never a type stereotype table, never a test-score claim, and `none` keeps the section fully developed from behavior alone.
+- **14 Psychology:** want, need, fear, shame, regret, pride, secrets, an unacknowledged fact, and concrete responses to stress, love, anger, failure, success. When the story supports a meaningful trade-off, identify the competing values/commitments and the character-specific priority, boundary, and conditions that alter the choice under ordinary, pressure, risk, or relationship stakes. Tie these rules to observable thought, emotion, reaction, dialogue, and choice. Consume the persona packet's `persona_core` and `behavior_rules` here — each core tendency carried as `basis/trait → trigger/stakes → interpretation → intent → observable action/dialogue → choice/cost → exception condition`. Ground them in supplied/observed material or label them `proposal` under explicit fictional-design delegation; otherwise leave them undecided. Never manufacture trauma, diagnosis, secrets, or a moral dilemma just to deepen the profile.
 - **15 Backstory:** only causally relevant material — childhood, family, turning event, education, relationships, success/failure/loss, current role. No needless chronology.
 - **16 Relationships:** for each of stranger / friend / family / partner / boss / subordinate / rival / enemy / child / animal — the character's stance, adapted to the cast; mark non-applicable types rather than inventing people.
 - **17 Likes & Dislikes:** 5–10 **concrete** entries each — the specific object/food/sound/habit, not "likes nature."
@@ -107,17 +115,19 @@ This block feeds the canonical `persona` record — `{role, personality, observa
 - **19 Skills & Limitations:** rate domains as good / average / poor / learning / impossible; an impossible skill protects the design as much as a talent.
 - **20 Character Contradictions:** ≥3 genuine contradictions for a full delegated fictional design — places where the character's nature and behavior pull apart. Contradictions must be lived (shown in §10–12 behavior), not decorative.
 
+Supplied/approved behavior that conflicts with a type proposal stays preserved: record the typology gap in §13's lens block and never silently substitute a generic type archetype for the approved behavior.
+
 ### 21–24 — Visual engineering
 
 - **21 Silhouette Specification:** describe the recognition silhouette — hair mass, shoulder line, proportions, posture, outfit shape, accessory shapes. Improve distinguishability; never add random decoration for its own sake.
 - **22 Turnaround Specification:** for front, 3/4 front, side, 3/4 back, back — what each view must preserve: face geometry, nose projection, jaw and skull shape, hair volume, shoulder and body lines, clothing lengths, accessory positions.
 - **23 Proportion Reference:** head-to-total-height ratio, shoulder/leg/arm/hand/foot relationships. Use coherent stylized ratios (e.g., cartoon head ratios) when the mode is stylized — not realistic anatomy forced into a cartoon.
-- **24 Variable States:** declared changeable states — outfits, styling, makeup, expressions, wounds, season, weather, props, age, job, emotion. A variable state **cannot overwrite an immutable anchor**; each entry states what it may touch and what it must leave alone.
+- **24 Variable States:** declared changeable states — outfits, styling, makeup, expressions, wounds, season, weather, props, age, job, emotion. A variable state **cannot overwrite an immutable anchor**; each entry states what it may touch and what it must leave alone. For speaking roles, state variation also declares which §12 performance parameters may change (rate, pressure, warmth, pause patterns) and which auditory anchors are non-negotiable — pressure is a state, never a new voice.
 
 ### 25–26 — Locks and drift defenses
 
 - **25 DO NOT CHANGE:** 5–15 design-specific items — the exact features that identify this character (e.g., "the notch in the left eyebrow," not "keep him handsome").
-- **26 Anti-Drift Rules:** generation defenses — preserve face geometry, eye size and spacing, iris color, body proportions, age, cultural design elements, base colors, asymmetry and marks. Lighting is not a new hair color; a beauty filter is not a new identity.
+- **26 Anti-Drift Rules:** generation defenses — preserve face geometry, eye size and spacing, iris color, body proportions, age, cultural design elements, base colors, asymmetry and marks. Lighting is not a new hair color; a beauty filter is not a new identity. For speaking roles, add voice anti-drift: the §12 auditory anchors, pronunciation/sentence-ending habits and base rhythm hold across scenes and emotional states; an emotion tag is never a license to change timbre or accent.
 
 ### 27 — Reference character sheet prompts (A–D)
 
@@ -140,7 +150,7 @@ Every prompt embeds the §29 identity prefix and §30 negatives; only establishe
 
 - **31 Story Function:** purpose in the synopsis, the audience emotion it serves, arrival state, middle, key choice, change, final state — only to the degree the synopsis needs. The supplied spine is preserved; nothing is added to justify a design.
 - **32 Appeal Evaluation:** `Criterion | Score | Reason` over — visual distinctiveness, memorability, emotional appeal, personality depth, story potential, silhouette recognition, production consistency, originality. Score 0–10 with reasons; revise any design area under 7. Never inflate scores, and never present the self-review as artwork QA or user acceptance. Mark scope-irrelevant criteria `N/A` honestly.
-- **33 Final Character Lock Summary:** three lists — **ABSOLUTE IDENTITY** (immutable), **STABLE IDENTITY** (changes only via declared variable states), **VARIABLE** (free within the stated range). This is the summary a downstream consumer can check a frame against.
+- **33 Final Character Lock Summary:** three lists — **ABSOLUTE IDENTITY** (immutable), **STABLE IDENTITY** (changes only via declared variable states), **VARIABLE** (free within the stated range). For speaking roles, each list also covers the vocal dimension — e.g., ABSOLUTE: timbre anchors + articulation habits; STABLE: pressure-state performance range declared in §24; VARIABLE: per-line performance cues. This is the summary a downstream consumer can check a frame or a line delivery against.
 
 ## Consistency audit and identity priority
 
@@ -172,7 +182,7 @@ All other sections — anchors, expression DNA, anti-drift, prompts, lock summar
 
 ## Multi-character cast
 
-Each character gets an independent SSOT. After all individual SSOTs, append a **CAST DIFFERENTIATION MATRIX** with columns `Character | Face | Silhouette | Color | Personality | Movement | Key Anchor`, then resolve accidental overlap in face, hair, color, build, personality or silhouette. Deliberately related characters supplied by the brief (siblings, clones, uniforms) keep their supplied relationships — do not force arbitrary difference.
+Each character gets an independent SSOT. After all individual SSOTs, append a **CAST DIFFERENTIATION MATRIX** with columns `Character | Face | Silhouette | Color | Personality | Decision/Behavior | Voice | Key Anchor`, then resolve accidental overlap in face, hair, color, build, personality, judgment/decision style, or voice anchors. Deliberately related characters supplied by the brief (siblings, clones, uniforms) keep their supplied relationships — do not force arbitrary difference. Two characters with the same proposed typology type must still differ in personal motive, decision rules, exceptions, and speech/voice anchors; a type name is never the differentiator and never the shared trait.
 
 ## Canonical record mapping
 
@@ -181,6 +191,7 @@ In a full image-backed package, each character's SSOT output is recorded on the 
 | Canonical field | Type | Content |
 |---|---|---|
 | `characters[].persona` | object of nonempty strings | `{role, personality, observable_behavior, speech}` — speech is `N/A`-explained for silent roles, not empty |
+| `artifacts[]` with `type=voice_profile` | derived voice handoff artifact | §12 Voice Identity/Speech Style/Performance distilled to a text profile; `dependencies` names the `character_sheet` artifact and `dependency_versions` pins its exact version. `shots[].speech[].voice_artifact_id` references this profile when applicable. This adds no field to `characters[]`. Real chosen-voice records (voice ID/type/model/settings, rights/consent, listening result) live in the voice-selection stage — a `proposed`/`unresolved` design state never appears as selected. |
 | `characters[].ssot_artifact_id` | artifact `type=character_sheet` | links the actual SSOT Markdown asset; artifact depends on the synopsis artifact/version |
 | `characters[].identity_sheet_asset_id` | asset `kind=character_identity_sheet` | **image-backed only**; `entity_type=character`, `entity_id` = the character's `character_id`; points at the actual Sheet A image |
 | `preproduction` root | object | `{mode: text|image_backed, synopsis_artifact_id, storyboard_artifact_id, storyboard_sheet_artifact_ids, storyboard_split_asset_id}` — ordered sheet artifact IDs (max 8 panels per sheet, including one-sheet arrays) and the actual scene/panel split-manifest asset |

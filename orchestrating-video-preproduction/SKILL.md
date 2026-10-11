@@ -1,6 +1,6 @@
 ---
 name: orchestrating-video-preproduction
-version: 2.5
+version: 2.6
 description: Use for text-only video preproduction that spans multiple artifacts — a complete planning package or one idea carried from concept through synopsis, characters, and storyboard. Delegated planning lane under creative-production; returns text and generic image prompts, never media.
 ---
 
@@ -16,7 +16,7 @@ Text-only forbids media, files, and spend — not technical planning: a storyboa
 
 - **Package request:** run the applicable stages in sequence — concept/synopsis via `developing-video-synopses`, characters via `designing-video-character-sheets`, board via `storyboarding-video`. If a sibling skill is not loaded, follow its `SKILL.md` in the same-named sibling directory; that file points at the one detailed guide the stage needs — never bulk-load every downstream guide.
 - **Single-artifact request:** invoke only the matching specialist and return only that artifact. Never build the full package, never ask permission to skip unrequested stages, never treat an omitted stage as an open question.
-- Mapping is direct: concept or synopsis → `developing-video-synopses`; a character sheet → `designing-video-character-sheets` without inventing a synopsis; panels → `storyboarding-video` preserving any supplied synopsis.
+- Mapping is direct: concept or synopsis → `developing-video-synopses`; a character sheet → `designing-video-character-sheets` with required `designing-character-personas` design, without inventing a synopsis; a standalone persona/acting/voice design → `designing-character-personas`; panels → `storyboarding-video` preserving any supplied synopsis.
 - Applicability is mode-dependent: omit inapplicable characters and fictional plot elements, not explicitly requested planning artifacts. Character-free, factual and abstract briefs retain their requested concept, informational/visual synopsis, beat planning and board without fabricating a cast or conflict.
 
 ## Detailed guides

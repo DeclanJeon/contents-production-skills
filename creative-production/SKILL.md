@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 1.0
+version: 1.1
 description: Use for content creation or adaptation, including articles, social posts,
   campaigns, scripts, storyboards, audio, images, and video planning, AI-video prompt
   composition, model routing, generation critique, editing, QA or delivery; also hybrid

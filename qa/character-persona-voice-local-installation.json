@@ -1,0 +1,222 @@
+{
+  "command": "python -X utf8 scripts/sync_installed.py --root C:/Users/Declan/.codex/skills",
+  "summary": {
+    "created": 1,
+    "repointed": 22,
+    "skipped": 0,
+    "backed_up": 0
+  },
+  "installed_root": "C:\\Users\\Declan\\.codex\\skills",
+  "package_version": "2.5",
+  "managed_skill_count": 23,
+  "hash_checks": [
+    {
+      "path": "creative-production/SKILL.md",
+      "source_sha256": "682830aa93ce959c53e1096e374d32bb9823f41aa53f0fc4cf758aedf626936e",
+      "installed_sha256": "682830aa93ce959c53e1096e374d32bb9823f41aa53f0fc4cf758aedf626936e",
+      "matches": true
+    },
+    {
+      "path": "topic-demand-selection/SKILL.md",
+      "source_sha256": "a28cca99b7cde7bac3aed8fd94b0198d23b3917e7020ef69eeced90e097a64fa",
+      "installed_sha256": "a28cca99b7cde7bac3aed8fd94b0198d23b3917e7020ef69eeced90e097a64fa",
+      "matches": true
+    },
+    {
+      "path": "video-production-assets/SKILL.md",
+      "source_sha256": "46b13d4f24b3e62084646e73043f2de9d3f2e07874e2b137af6343dfe1e0c72c",
+      "installed_sha256": "46b13d4f24b3e62084646e73043f2de9d3f2e07874e2b137af6343dfe1e0c72c",
+      "matches": true
+    },
+    {
+      "path": "camera-spatial-design/SKILL.md",
+      "source_sha256": "f4a4d84083382fea271e1e52a232560f42ebe67bd14aab4f9b8b5baaa19ecac1",
+      "installed_sha256": "f4a4d84083382fea271e1e52a232560f42ebe67bd14aab4f9b8b5baaa19ecac1",
+      "matches": true
+    },
+    {
+      "path": "camera-motion-reference-analysis/SKILL.md",
+      "source_sha256": "34bdd991c878e53654b87c3f7d58c19a8fd972a6da6a3d56f51586cc9a6f65dc",
+      "installed_sha256": "34bdd991c878e53654b87c3f7d58c19a8fd972a6da6a3d56f51586cc9a6f65dc",
+      "matches": true
+    },
+    {
+      "path": "ai-camera-control/SKILL.md",
+      "source_sha256": "a8ee157bf9f6a6a398b262a15cde735183a112a8a9d0ae031913794f890c328d",
+      "installed_sha256": "a8ee157bf9f6a6a398b262a15cde735183a112a8a9d0ae031913794f890c328d",
+      "matches": true
+    },
+    {
+      "path": "blender-previsualization/SKILL.md",
+      "source_sha256": "9c1a6fea1147212df544bd2c1410844bd8678a5050715f42a484ee557603f352",
+      "installed_sha256": "9c1a6fea1147212df544bd2c1410844bd8678a5050715f42a484ee557603f352",
+      "matches": true
+    },
+    {
+      "path": "orchestrating-video-preproduction/SKILL.md",
+      "source_sha256": "1c90924cd15a1c605cf2d76e3395cba2847fca0121225abffc3442d79fa0bd15",
+      "installed_sha256": "1c90924cd15a1c605cf2d76e3395cba2847fca0121225abffc3442d79fa0bd15",
+      "matches": true
+    },
+    {
+      "path": "developing-video-synopses/SKILL.md",
+      "source_sha256": "d91e083dfbebcc17821428cb215fe95450d1718204edd7efca7444f2f801e80b",
+      "installed_sha256": "d91e083dfbebcc17821428cb215fe95450d1718204edd7efca7444f2f801e80b",
+      "matches": true
+    },
+    {
+      "path": "designing-video-character-sheets/SKILL.md",
+      "source_sha256": "c526574da0bec67f9934f79a08058c7c67ef1f04b9619fa1c75883e898b60b3b",
+      "installed_sha256": "c526574da0bec67f9934f79a08058c7c67ef1f04b9619fa1c75883e898b60b3b",
+      "matches": true
+    },
+    {
+      "path": "designing-character-personas/SKILL.md",
+      "source_sha256": "933e2b3d20403f90461ea43370cf5b92854924b4c26fac0006a6067d918e6272",
+      "installed_sha256": "933e2b3d20403f90461ea43370cf5b92854924b4c26fac0006a6067d918e6272",
+      "matches": true
+    },
+    {
+      "path": "storyboarding-video/SKILL.md",
+      "source_sha256": "5d73a85ff25d6538a78a5b8a494e38404d819897e61f2fa0d5ef8c02514b3816",
+      "installed_sha256": "5d73a85ff25d6538a78a5b8a494e38404d819897e61f2fa0d5ef8c02514b3816",
+      "matches": true
+    },
+    {
+      "path": "storytelling-with-still-images/SKILL.md",
+      "source_sha256": "3e981acda0af828cd35ac58c71838684f4de5b08091b465b166c79050cd8a626",
+      "installed_sha256": "3e981acda0af828cd35ac58c71838684f4de5b08091b465b166c79050cd8a626",
+      "matches": true
+    },
+    {
+      "path": "recording-production-history/SKILL.md",
+      "source_sha256": "89b538c25b64c03b5c24619e32c572ed37168167eb84b38f2849b432fae09063",
+      "installed_sha256": "89b538c25b64c03b5c24619e32c572ed37168167eb84b38f2849b432fae09063",
+      "matches": true
+    },
+    {
+      "path": "higgsfield-brandkit/SKILL.md",
+      "source_sha256": "903fc8a108ced43f3ceb500192266e1ce88a9f4ffafc5de437feec2ba3e6a631",
+      "installed_sha256": "903fc8a108ced43f3ceb500192266e1ce88a9f4ffafc5de437feec2ba3e6a631",
+      "matches": true
+    },
+    {
+      "path": "higgsfield-generate/SKILL.md",
+      "source_sha256": "711c771d3ec949f0a2faff6a6dcb942dc67ec1846ff2c64e29560d4417ea1330",
+      "installed_sha256": "711c771d3ec949f0a2faff6a6dcb942dc67ec1846ff2c64e29560d4417ea1330",
+      "matches": true
+    },
+    {
+      "path": "higgsfield-marketplace-cards/SKILL.md",
+      "source_sha256": "b3e34ee4f0cfc564b27970c552f94e71c88414134b63abb16951e04aee54a2ce",
+      "installed_sha256": "b3e34ee4f0cfc564b27970c552f94e71c88414134b63abb16951e04aee54a2ce",
+      "matches": true
+    },
+    {
+      "path": "higgsfield-product-photoshoot/SKILL.md",
+      "source_sha256": "010b6a036d96cbaa475dbe4c34ac3acde7940b3e28034a217ef34e6bea8f7829",
+      "installed_sha256": "010b6a036d96cbaa475dbe4c34ac3acde7940b3e28034a217ef34e6bea8f7829",
+      "matches": true
+    },
+    {
+      "path": "higgsfield-soul-id/SKILL.md",
+      "source_sha256": "ce5f99ddaafe26d7b1d622f382ab1629e992cecb70412b537f62e8693c3e7f7d",
+      "installed_sha256": "ce5f99ddaafe26d7b1d622f382ab1629e992cecb70412b537f62e8693c3e7f7d",
+      "matches": true
+    },
+    {
+      "path": "higgsfield-video-explainer/SKILL.md",
+      "source_sha256": "ea935b48a90fff23b989727b6bd60faffd9b8049167478a868a7597aec0f1a97",
+      "installed_sha256": "ea935b48a90fff23b989727b6bd60faffd9b8049167478a868a7597aec0f1a97",
+      "matches": true
+    },
+    {
+      "path": "higgsfield-video-replicate/SKILL.md",
+      "source_sha256": "8404fa833f183603687cb59a62ee1383773cf7c5066a91604317dbcb0169fa6b",
+      "installed_sha256": "8404fa833f183603687cb59a62ee1383773cf7c5066a91604317dbcb0169fa6b",
+      "matches": true
+    },
+    {
+      "path": "higgsfield-websites/SKILL.md",
+      "source_sha256": "538bedf5802491f6fbe661866efa8a3bcd75989eeeda413ed42fcd9ca45c222f",
+      "installed_sha256": "538bedf5802491f6fbe661866efa8a3bcd75989eeeda413ed42fcd9ca45c222f",
+      "matches": true
+    },
+    {
+      "path": "higgsfield-youtube-thumbnail/SKILL.md",
+      "source_sha256": "d1ba513051181c1e76839241e53432f010652883fa8fb4a3d9be572edc71113f",
+      "installed_sha256": "d1ba513051181c1e76839241e53432f010652883fa8fb4a3d9be572edc71113f",
+      "matches": true
+    },
+    {
+      "path": "designing-character-personas/assets/persona-template.md",
+      "source_sha256": "07bdf75e35152ccb56d357a99baacb9fc6b541bf5314efd42627d2ef7065a6a8",
+      "installed_sha256": "07bdf75e35152ccb56d357a99baacb9fc6b541bf5314efd42627d2ef7065a6a8",
+      "matches": true
+    },
+    {
+      "path": "designing-character-personas/evals/evals.json",
+      "source_sha256": "dd8ff6b97dcae83aa25a801f3a4b05fa13299f11a29957078b800dd82d08eb12",
+      "installed_sha256": "dd8ff6b97dcae83aa25a801f3a4b05fa13299f11a29957078b800dd82d08eb12",
+      "matches": true
+    },
+    {
+      "path": "designing-character-personas/references/enneagram-lens.md",
+      "source_sha256": "69f7e85e6d16ee7f33b3c38b73370dce57436683289607353c6de12e9ec77dc7",
+      "installed_sha256": "69f7e85e6d16ee7f33b3c38b73370dce57436683289607353c6de12e9ec77dc7",
+      "matches": true
+    },
+    {
+      "path": "designing-character-personas/references/expression-voice-bridge.md",
+      "source_sha256": "af1f2f88557faf0a5832d7cde2738459e6faf3c524ae6722c9d1990ff0d6457d",
+      "installed_sha256": "af1f2f88557faf0a5832d7cde2738459e6faf3c524ae6722c9d1990ff0d6457d",
+      "matches": true
+    },
+    {
+      "path": "designing-character-personas/references/mbti-lens.md",
+      "source_sha256": "17db66276ef9196435d575536233d0fe3c699a694a92c20455e1b5ac5301197e",
+      "installed_sha256": "17db66276ef9196435d575536233d0fe3c699a694a92c20455e1b5ac5301197e",
+      "matches": true
+    },
+    {
+      "path": "designing-character-personas/references/sources.md",
+      "source_sha256": "1378af1af2a3c9aea361ecb4ebb1fc577d3b1ddc0b91967f296ecb92f022688f",
+      "installed_sha256": "1378af1af2a3c9aea361ecb4ebb1fc577d3b1ddc0b91967f296ecb92f022688f",
+      "matches": true
+    },
+    {
+      "path": "designing-video-character-sheets/references/character-craft.md",
+      "source_sha256": "0837a5df6736a09b92691decf9064b1f4556d2355986917a5bfb3caae62c8fc3",
+      "installed_sha256": "0837a5df6736a09b92691decf9064b1f4556d2355986917a5bfb3caae62c8fc3",
+      "matches": true
+    },
+    {
+      "path": "designing-video-character-sheets/references/character-ssot-master-prompt.md",
+      "source_sha256": "673561793559e98c1d54b21976a877dc47106b23ed02b7e8d87df4ef9edd19c1",
+      "installed_sha256": "673561793559e98c1d54b21976a877dc47106b23ed02b7e8d87df4ef9edd19c1",
+      "matches": true
+    },
+    {
+      "path": "video-production-assets/assets/character-ssot-template.md",
+      "source_sha256": "5f086cdbaa7c05660e84993b8d63dc852442a4927bd199bfb5b54f0520439657",
+      "installed_sha256": "5f086cdbaa7c05660e84993b8d63dc852442a4927bd199bfb5b54f0520439657",
+      "matches": true
+    },
+    {
+      "path": "video-production-assets/references/22-dialogue-lipsync.md",
+      "source_sha256": "46474b11ec33361fe006ddabca2c31c47aef80c6e060a2c49d9b92ef1adabfd1",
+      "installed_sha256": "46474b11ec33361fe006ddabca2c31c47aef80c6e060a2c49d9b92ef1adabfd1",
+      "matches": true
+    },
+    {
+      "path": "video-production-assets/assets/performance-cue-template.md",
+      "source_sha256": "f648497ef47f4acfdb48834c55471d8212bdc6f7229113c1a55b2b6e67913668",
+      "installed_sha256": "f648497ef47f4acfdb48834c55471d8212bdc6f7229113c1a55b2b6e67913668",
+      "matches": true
+    }
+  ],
+  "installed_compact_context_byte_equal_to_tested_source": true,
+  "installed_persona_entry_readable": true,
+  "current_process_skill_uri_discovery": "Unknown skill in cached skill:// registry; filesystem entry is readable. Restart/refresh required to rescan roots; no live rediscovery claimed.",
+  "warnings": "Existing Windows cmd subprocess output decoding exceptions occurred during sync. They are not hidden; managed files were independently read and hash-compared after sync."
+}

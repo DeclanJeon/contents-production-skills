@@ -1,6 +1,6 @@
 {
   "name": "contents-production-skills",
-  "version": "2.4",
+  "version": "2.5",
   "entry_skill": "creative-production",
   "support_skill": "video-production-assets",
   "skills": [
@@ -14,6 +14,7 @@
     "orchestrating-video-preproduction",
     "developing-video-synopses",
     "designing-video-character-sheets",
+    "designing-character-personas",
     "storyboarding-video",
     "storytelling-with-still-images",
     "recording-production-history",

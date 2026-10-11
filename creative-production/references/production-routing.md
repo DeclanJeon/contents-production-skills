@@ -8,7 +8,8 @@ Select the narrowest requested output. The coordinator reads this map once; work
 |---|---|---|
 | Article/blog/social text | Coordinator and actual supplied evidence | Requested text; no implied CTA, video, saving or publication |
 | One synopsis/concept/beat map | `developing-video-synopses` and its stage guide | Stable beats/source locators; no automatic character/board stage |
-| One character/voice-profile sheet | `designing-video-character-sheets` and its stage guide | Existing identities, continuity and requested profile; no training/rendering |
+| One character/voice-profile sheet | `designing-video-character-sheets` and its stage guide; REQUIRED `designing-character-personas` for persona/voice design | One integrated character SSOT, preserved approved identity/voice, voice N/A for silent roles; no training/rendering |
+| One persona, fictional typology design, or persona-to-acting/voice direction | `designing-character-personas` | Text persona packet only; no forced full sheet, real-person typing, new SSOT database or actual audio |
 | Explicit multi-artifact text video planning | `orchestrating-video-preproduction`; only requested downstream workers | One inherited spine; missing owner inputs return indexed requirements to parent |
 | Ordinary or complete production storyboard | `storyboarding-video` + canonical [storyboard contract](../../video-production-assets/references/storyboard-contract.md) | All story coverage and applicable technical slots integrated; text-only keeps actual media unverified |
 | Explicit rough-panel/prompt-only exercise | `storyboarding-video` narrow guide only | Requested narrative panels; no full technical package |

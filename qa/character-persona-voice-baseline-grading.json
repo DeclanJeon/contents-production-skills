@@ -1,0 +1,304 @@
+{
+  "expectations": [
+    "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+    "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+    "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+    "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+    "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다."
+  ],
+  "runs": [
+    {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "evidence": "출력은 안전 우선 장비 담당자와 실패 노출을 피하는 책임자의 서로 다른 동기·조건부 행동·예외를 제시한다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "각 출력의 서두에서 두 유형을 창작 렌즈이며 진단/필연적 행동 규칙이 아니라고 명시한다. 외형/음성은 창작 제안으로 기록한다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "evidence": "보이스 음색/음역과 상황별 말투는 있지만, 음성의 고정 청각 앵커와 허용 변화/동일 화자 유지 범위가 시각 연속성과 별개인 계약으로 명시되지 않는다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "evidence": "감정별 말투와 대사 예시를 제공하나, 재사용 음성 정체성 지시와 대사별 의도/서브텍스트/숨·멈춤·강세를 분리한 실행 인계를 제공하지 않는다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "보이스 후보·선택·청취는 미정/unresolved/proposed로 표시하며 오디오 생성/청취가 있었다고 주장하지 않는다."
+        }
+      ],
+      "summary": {
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "pass_rate": 0.6
+      },
+      "grading_method": "Parent direct inspection of all five saved raw outputs; auxiliary model probabilities are not used as pass/fail truth."
+    },
+    {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "evidence": "출력은 안전 우선 장비 담당자와 실패 노출을 피하는 책임자의 서로 다른 동기·조건부 행동·예외를 제시한다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "각 출력의 서두에서 두 유형을 창작 렌즈이며 진단/필연적 행동 규칙이 아니라고 명시한다. 외형/음성은 창작 제안으로 기록한다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "evidence": "보이스 음색/음역과 상황별 말투는 있지만, 음성의 고정 청각 앵커와 허용 변화/동일 화자 유지 범위가 시각 연속성과 별개인 계약으로 명시되지 않는다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "evidence": "감정별 말투와 대사 예시를 제공하나, 재사용 음성 정체성 지시와 대사별 의도/서브텍스트/숨·멈춤·강세를 분리한 실행 인계를 제공하지 않는다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "보이스 후보·선택·청취는 미정/unresolved/proposed로 표시하며 오디오 생성/청취가 있었다고 주장하지 않는다."
+        }
+      ],
+      "summary": {
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "pass_rate": 0.6
+      },
+      "grading_method": "Parent direct inspection of all five saved raw outputs; auxiliary model probabilities are not used as pass/fail truth."
+    },
+    {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "evidence": "출력은 안전 우선 장비 담당자와 실패 노출을 피하는 책임자의 서로 다른 동기·조건부 행동·예외를 제시한다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "각 출력의 서두에서 두 유형을 창작 렌즈이며 진단/필연적 행동 규칙이 아니라고 명시한다. 외형/음성은 창작 제안으로 기록한다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "evidence": "보이스 음색/음역과 상황별 말투는 있지만, 음성의 고정 청각 앵커와 허용 변화/동일 화자 유지 범위가 시각 연속성과 별개인 계약으로 명시되지 않는다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "evidence": "감정별 말투와 대사 예시를 제공하나, 재사용 음성 정체성 지시와 대사별 의도/서브텍스트/숨·멈춤·강세를 분리한 실행 인계를 제공하지 않는다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "보이스 후보·선택·청취는 미정/unresolved/proposed로 표시하며 오디오 생성/청취가 있었다고 주장하지 않는다."
+        }
+      ],
+      "summary": {
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "pass_rate": 0.6
+      },
+      "grading_method": "Parent direct inspection of all five saved raw outputs; auxiliary model probabilities are not used as pass/fail truth."
+    },
+    {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "evidence": "출력은 안전 우선 장비 담당자와 실패 노출을 피하는 책임자의 서로 다른 동기·조건부 행동·예외를 제시한다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "각 출력의 서두에서 두 유형을 창작 렌즈이며 진단/필연적 행동 규칙이 아니라고 명시한다. 외형/음성은 창작 제안으로 기록한다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "evidence": "보이스 음색/음역과 상황별 말투는 있지만, 음성의 고정 청각 앵커와 허용 변화/동일 화자 유지 범위가 시각 연속성과 별개인 계약으로 명시되지 않는다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "evidence": "감정별 말투와 대사 예시를 제공하나, 재사용 음성 정체성 지시와 대사별 의도/서브텍스트/숨·멈춤·강세를 분리한 실행 인계를 제공하지 않는다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "보이스 후보·선택·청취는 미정/unresolved/proposed로 표시하며 오디오 생성/청취가 있었다고 주장하지 않는다."
+        }
+      ],
+      "summary": {
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "pass_rate": 0.6
+      },
+      "grading_method": "Parent direct inspection of all five saved raw outputs; auxiliary model probabilities are not used as pass/fail truth."
+    },
+    {
+      "expectations": [
+        {
+          "text": "두 인물은 공급된 같은 유형과 서로 다른 핵심 동기를 유지하며 관찰 가능한 행동·예외 조건으로 구별한다.",
+          "passed": true,
+          "evidence": "출력은 안전 우선 장비 담당자와 실패 노출을 피하는 책임자의 서로 다른 동기·조건부 행동·예외를 제시한다."
+        },
+        {
+          "text": "MBTI/에니어그램은 창작 렌즈이며 유형 때문에 얼굴·성별·음색이 필연적으로 정해진다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "각 출력의 서두에서 두 유형을 창작 렌즈이며 진단/필연적 행동 규칙이 아니라고 명시한다. 외형/음성은 창작 제안으로 기록한다."
+        },
+        {
+          "text": "발화 인물별 고정 청각 앵커와 장면에서 허용되는 변화, 동일 음성 정체성 유지 범위를 명시한다.",
+          "passed": false,
+          "evidence": "보이스 음색/음역과 상황별 말투는 있지만, 음성의 고정 청각 앵커와 허용 변화/동일 화자 유지 범위가 시각 연속성과 별개인 계약으로 명시되지 않는다."
+        },
+        {
+          "text": "재사용 가능한 음성 정체성 지시와 실제 대사별 연기 지시를 분리하고, 대사별 의도/서브텍스트와 숨·멈춤·강세를 제공한다.",
+          "passed": false,
+          "evidence": "감정별 말투와 대사 예시를 제공하나, 재사용 음성 정체성 지시와 대사별 의도/서브텍스트/숨·멈춤·강세를 분리한 실행 인계를 제공하지 않는다."
+        },
+        {
+          "text": "실제 음성 선택·생성·청취·사용자 승인이 있었다고 주장하지 않는다.",
+          "passed": true,
+          "evidence": "보이스 후보·선택·청취는 미정/unresolved/proposed로 표시하며 오디오 생성/청취가 있었다고 주장하지 않는다."
+        }
+      ],
+      "summary": {
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "pass_rate": 0.6
+      },
+      "grading_method": "Parent direct inspection of all five saved raw outputs; auxiliary model probabilities are not used as pass/fail truth."
+    }
+  ],
+  "auxiliary_judge_probabilities": {
+    "baseline-2": {
+      "e1": {
+        "type": "bool",
+        "bool": 0.71
+      },
+      "e2": {
+        "type": "bool",
+        "bool": 0.65
+      },
+      "e3": {
+        "type": "bool",
+        "bool": 0.55
+      },
+      "e4": {
+        "type": "bool",
+        "bool": 0.39
+      },
+      "e5": {
+        "type": "bool",
+        "bool": 0.58
+      }
+    },
+    "baseline-1": {
+      "e1": {
+        "type": "bool",
+        "bool": 0.61
+      },
+      "e2": {
+        "type": "bool",
+        "bool": 0.65
+      },
+      "e3": {
+        "type": "bool",
+        "bool": 0.43
+      },
+      "e4": {
+        "type": "bool",
+        "bool": 0.29
+      },
+      "e5": {
+        "type": "bool",
+        "bool": 0.51
+      }
+    },
+    "baseline-5": {
+      "e1": {
+        "type": "bool",
+        "bool": 0.65
+      },
+      "e2": {
+        "type": "bool",
+        "bool": 0.61
+      },
+      "e3": {
+        "type": "bool",
+        "bool": 0.43
+      },
+      "e4": {
+        "type": "bool",
+        "bool": 0.26
+      },
+      "e5": {
+        "type": "bool",
+        "bool": 0.52
+      }
+    },
+    "baseline-4": {
+      "e1": {
+        "type": "bool",
+        "bool": 0.64
+      },
+      "e2": {
+        "type": "bool",
+        "bool": 0.63
+      },
+      "e3": {
+        "type": "bool",
+        "bool": 0.43
+      },
+      "e4": {
+        "type": "bool",
+        "bool": 0.22
+      },
+      "e5": {
+        "type": "bool",
+        "bool": 0.46
+      }
+    },
+    "baseline-3": {
+      "e1": {
+        "type": "bool",
+        "bool": 0.69
+      },
+      "e2": {
+        "type": "bool",
+        "bool": 0.73
+      },
+      "e3": {
+        "type": "bool",
+        "bool": 0.52
+      },
+      "e4": {
+        "type": "bool",
+        "bool": 0.37
+      },
+      "e5": {
+        "type": "bool",
+        "bool": 0.67
+      }
+    }
+  },
+  "limits": "Instruction contract comparison only; no model latency, audio quality or empirical typology validation."
+}
