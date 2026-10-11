@@ -100,7 +100,7 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 v5.1 패키지 추가 에셋: `assets/style-world-bible-template.md`, `assets/adaptation-map-template.md`, `assets/asset-gate.csv`, `assets/asset-provenance.csv`, `assets/prompt-ledger.csv`, `assets/dependency-graph.csv`, `assets/storyboard-panel-manifest.csv`.
 
 ## 카메라·공간과 Blender 연결
-카메라 높이·위치·화각·피사체 간 거리·무빙을 구체화할 때 `$camera-spatial-design`을 적용하고 샷 ID를 그대로 사용한다. 공간 프리비즈가 필요하면 `$blender-previsualization`에 camera_spec.json을 인계한다. 카메라 명세가 바뀌면 해당 샷·스토리보드·생성 프롬프트를 stale로 표시한다. 수치 설계·Blender 생성·실제 미리보기 검수를 구분한다. 기존 15개 모듈과 별도로 설치되는 두 전문 스킬이다.
+장면별 카메라 이동·구도·블로킹·피사체 거리 등 3D 공간 작업에는 `$camera-spatial-design`으로 수치 명세를 만들고 `$blender-previsualization`으로 실제 Blender 장면·렌더 프레임을 반드시 생성·검수한다. `spatial_spec.py`는 입력 사전 검사이며 단독으로 3D 작업을 완료 처리하지 않는다. Blender가 없으면 설계 문서만 남기고 시각 검수는 BLOCKED/UNVERIFIED로 표시한다. 카메라 명세가 바뀌면 해당 샷·스토리보드·생성 프롬프트를 stale로 표시한다. 텍스트/2D 작업은 이 3D 실행 경로를 강제하지 않는다.
 
 ## 선택적 상태·인과 인계
 누적 변화·원인과 잔류 결과·시점 대응·시간 생략·결합 반응·정확한 레퍼런스 재현을 인계할 때만 [상태·인과 연속성](references/26-state-causality-continuity.md)을 읽고 해당 슬롯을 기존 산출물에 연결한다. 변화 영역/속성, 보존 조건, 후속 유지 범위와 검사 근거를 분리하며 [선택 템플릿](assets/state-transition-template.md)은 필요한 부분만 쓴다. 변화 없는 인터뷰나 정밀 매칭 없는 작업에 여섯 절차를 강제하지 않는다.

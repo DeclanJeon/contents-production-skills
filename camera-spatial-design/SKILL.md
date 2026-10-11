@@ -1,12 +1,10 @@
 ---
 name: camera-spatial-design
 version: 1.0
-description: Design shot sizes, camera positions and angles, composition, subject-to-subject
-  and camera-to-subject distances, lens field of view, blocking and motivated camera
-  paths for film, animation or AI video. Use for camera movement, shot coverage, spatial
-  staging, angle/placement design or numerical camera specifications. Exclude camera
-  shopping, generic book recommendations and actual Blender rendering, which belongs
-  to blender-previsualization.
+description: Design camera positions/angles, composition, lens, blocking and motivated paths
+  for film, animation or AI video. Use for camera movement, shot coverage, spatial staging
+  or numeric camera specs; every scene-specific 3D design requires Blender implementation
+  and visual inspection via blender-previsualization. Exclude Blender execution.
 ---
 
 # 카메라·공간 설계
@@ -26,10 +24,10 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 6. 화면 여백·눈높이·전경/중경/배경·가림·시선·180도 축을 확인한다. 축 변경의 관객 재정위 방법과 주목 대상 전환을 적는다.
 7. `assets/camera-spec-example.json`을 복사해 실제 장면 명세를 작성한다. 예제 좌표를 아무 장면에 그대로 적용하지 않는다. 처음/중간/끝만 보지 말고 모든 프레임에서 대상 위치와 경로를 계산한다.
 8. `python scripts/spatial_spec.py camera_spec.json --out analysis.json`으로 검사한다. warnings를 실제 샷 목적과 대조하고 의도된 크롭/축 변경은 이유를 기록한다. 경고 수를 작품의 품질 점수로 해석하지 않는다.
-9. [설계·구도 판단](references/camera-design.md)을 적용하고 실제 프리비즈가 필요하면 `$blender-previsualization`에 같은 명세를 인계한다. 실제 화면 확인 전에는 수치 설계 완료로만 보고한다.
+9. [설계·구도 판단](references/camera-design.md)을 적용하고, 장면별 3D 카메라/공간 설계는 항상 `$blender-previsualization`에 같은 명세를 인계해 실제 Blender 장면과 렌더 프레임으로 확인한다. `spatial_spec.py` 결과는 입력/사전 검사이지 3D 화면 검증 완료가 아니다. Blender가 없으면 설계 문서는 계획 상태로 반환하고 3D 검증은 BLOCKED/UNVERIFIED로 남긴다.
 
 ## 산출물
-채워진 camera_spec.json, 후보 비교표, 분석 JSON, 샷별 선택 이유·미검증 항목을 인계한다. 기존 영상 제작 원장과 ID·시간·버전을 맞춘다. 프리비즈 실행 요청에는 `blender-previsualization`으로 인계하고, 그 밖의 실행·생성 라우팅은 `creative-production`에 맡긴다. 실제 촬영 가능한 리그·운영자 동선은 현장에서 재확인한다.
+채워진 camera_spec.json, 후보 비교표, 분석 JSON, 샷별 선택 이유·미검증 항목을 인계한다. 장면별 3D 카메라/공간 요청에는 Blender의 .blend, 실제 검사 프레임, blender-inspection 및 manifest 증거도 필수다. 텍스트·2D 설계는 3D 실행으로 오인하지 않는다. Blender 런타임이 없으면 숫자 설계만 전달하고 3D 완료로 판정하지 않는다. 기존 ID·시간·버전을 유지한다.
 
 ## 장소 공간 계약 (v5.1)
 

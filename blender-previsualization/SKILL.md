@@ -1,16 +1,16 @@
 ---
 name: blender-previsualization
 version: 2.4
-description: "Implement a camera-spatial specification as Blender proxy scenes with subject blocking, perspective cameras, camera and subject motion, shot previews, animated PNG sequences, .blend files and geometric inspection reports. Use for Blender previs, 3D camera tests, staging verification or animatics based on a script/camera brief. Exclude beauty rendering, full character rigging, physics simulation, photorealism guarantees and other-app rendering."
+description: "Required Blender implementation/visual inspection for scene-specific 3D camera/spatial design (movement, blocking, composition, distances); also Blender previs and animatics. Exclude beauty rendering, full character rigging, physics simulation and other-app rendering."
 ---
 
 # 블렌더 프리비즈
 
-`creative-production`이 프로젝트 수준 진입점·조정자다. 이 스킬은 Blender 프리비즈 산출물만 만든다. 단독 호출이면 `creative-production`으로 범위·경로를 한 번 확인한 뒤 요청된 프리비즈만 수행한다. 위임받아 실행 중이면 프로젝트 라우팅을 다시 하거나 두 번째 인터뷰·승인 원장을 열지 않고 인계된 명세만 진행한다. 실행·생성 라우팅은 `creative-production`에 맡긴다.
+`creative-production`이 프로젝트 수준 진입점·조정자다. 이 스킬은 장면별 3D 카메라/공간 작업의 Blender 구현·시각 검수를 소유한다. `camera-spatial-design`의 수치 명세가 정본 입력이며 실제 장면과 화면을 생성·검사한다. 단독 호출이면 `creative-production`으로 범위·경로를 한 번 확인한 뒤 요청된 프리비즈만 수행한다. 위임받아 실행 중이면 프로젝트 라우팅을 다시 하거나 두 번째 인터뷰·승인 원장을 열지 않고 인계된 명세만 진행한다. 실행·생성 라우팅은 `creative-production`에 맡긴다.
 
 ## 실행
 1. [공통 공간 계약](../camera-spatial-design/references/spatial-contract.md)과 [Blender 실행 지침](references/blender-workflow.md)을 읽는다. 위임된 유효 명세는 그대로 구현하고 지정된 샷 ID와 잠긴 배치는 유지한다. 수치 카메라 명세가 없거나 불완전하면 카메라 설계는 이 스킬의 권한이 아니므로 예제로 채워 실행하지 말고 정확히 비는 항목을 scoped gap으로 부모에 돌려보낸다. 예제 spec은 사용자가 시도용으로 명시할 때만 쓰고 제작 카메라 근거로 보고하지 않는다.
-2. `blender --version` 또는 `import bpy; print(bpy.app.version_string)`으로 실행 환경을 확인한다. 실행 환경이 없으면 명세·수치 분석·실행 인계까지만 작성하고 .blend/렌더가 생성됐다고 말하지 않는다. 무단으로 다른 앱에 전환하지 않는다.
+2. `blender --version` 또는 `import bpy; print(bpy.app.version_string)`으로 실행 환경을 확인한다. 실행 환경이 없으면 명세·수치 분석만 계획 산출물로 반환하고 해당 3D 작업을 BLOCKED/UNVERIFIED로 표시한다. `.blend`/렌더가 생성됐다고 말하거나 다른 렌더러로 대체하지 않는다.
 3. [공통 첨부·API 근거](../camera-spatial-design/references/sources.md)를 읽고 실제 Blender 버전에서 API·엔진 지원을 확인한다. 예제는 단순 대역이며 미감·연기·심도·제품 재현을 보장하지 않는다.
 4. 형제 스킬의 `../camera-spatial-design/scripts/spatial_spec.py`로 명세를 검증하고 경고를 장면 의도와 대조한다. 스키마는 camera-spatial-1.0이며 Blender 어댑터도 이 단일 구현을 사용한다. 두 스킬은 같은 스킬 루트에 설치한다.
 5. 먼저 독립 Blender 프로세스에서 저해상도 1프레임 smoke test를 수행한다. `--mode smoke`는 첫 샷·첫 프레임만 베이크/검사/렌더하며 긴 변 320px 이하, 업스케일 없음으로 제한한다. 전체 수치 분석은 생략한 미검증 상태로 남기며 전체 명세 렌더 검수라고 보고하지 않는다. 새 장면 생성 스크립트는 현재 프로세스의 장면을 초기화하므로 사용자의 열린 프로젝트에 직접 실행하지 않는다. 출력 폴더가 존재하면 새 폴더를 사용한다.

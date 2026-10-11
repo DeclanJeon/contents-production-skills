@@ -42,7 +42,7 @@
 스토리보드가 요청되면 `assets/storyboard-panels.csv`를 정본 project.json의 투영으로 작성해 panel_id→shot_id→scene_id와 패널별 `beat_ids`/원문 위치·`visible_character_ids`·`audio_cue_ids`·`speech_ids`를 연결한다. 샷 단위 목록을 패널 목록으로 대신하지 않는다. `frame_time_s`는 패널의 기준 시각이며 연결한 음향 큐와 발화의 시간 구간에 포함돼야 한다. 실제 image_asset_id를 등록하고 텍스트 계획만 있으면 planned/drawing_pending으로 구분한다. 상세 보드는 모든 씬/샷의 시작·필요 정점·끝 패널 또는 정지 hold를 포함하고 이미지 수를 사전 계산한다. 필수 행동이 가려지거나 설명 없이 인과가 끊기면 해당 인덱스를 수정한다.
 
 ## 전문 스킬 인계
-`$camera-spatial-design`으로 위치·거리·렌즈·각도·구도·전 프레임 경로를 수치화한다. 실제 3D 비교는 `$blender-previsualization`으로 수행한다. camera_spec.json의 로컬 프레임을 기존 샷의 start_s/end_s와 연결하고 total duration을 대조한다.
+`$camera-spatial-design`으로 위치·거리·렌즈·각도·구도·전 프레임 경로를 수치화하고, 장면별 3D 카메라/공간 작업은 `$blender-previsualization`으로 실제 구현·시각 검수를 반드시 수행한다. `camera_spec.json`의 로컬 프레임을 기존 샷의 start_s/end_s와 연결하고 total duration을 대조한다. Blender 미실행 시 3D 화면 검증은 BLOCKED/UNVERIFIED다.
 
 ## 심화 참조
 복잡 접촉·동작 분할은 [생성 영상 QA·재시도](21-generated-video-qa-retry.md)의 모션 절차(`../assets/motion-beat-template.md`), 군중·스펙터클은 [비주얼 모드·SSOT](20-visual-mode-ssot.md) §4(`../assets/crowd-map-template.md`).

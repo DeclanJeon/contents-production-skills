@@ -19,8 +19,8 @@
 | [designing-character-personas](designing-character-personas/SKILL.md) | 동기·조건부 행동·MBTI/에니어그램 창작 렌즈와 시각 연기·Voice Identity/Speech Style/Performance 설계 | 단독 텍스트 패킷 또는 기존 캐릭터 SSOT에 통합. 실존 인물 유형 추정·검사·음성 생성은 제외한다. |
 | [storyboarding-video](storyboarding-video/SKILL.md) | 전체 이야기·기술 슬롯을 연결한 완전한 제작 콘티; 명시적 러프 패널은 좁은 형식 | 텍스트 기획은 실제 이미지/검수/실행과 구분한다. |
 | [storytelling-with-still-images](storytelling-with-still-images/SKILL.md) | 정지 이미지 전용 영상의 서사·큐 타이밍·음향·검수 계획 | 스틸만 화면 소스로 사용. 새 스틸 생성과 영상 조립을 분리한다. |
-| [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | `camera-spatial-1.0` 계약. Blender 실행과 구분한다. |
-| [blender-previsualization](blender-previsualization/SKILL.md) | 실제 Blender 프록시 장면·프리비즈·공간 검사 | Blender 런타임 필요. 최종 영상 품질을 보증하지 않는다. |
+| [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | 모든 장면별 3D 카메라/공간 작업은 Blender 구현·화면 검수까지 필수다. `camera-spatial-1.0`은 설계·사전 검사 계약이다. |
+| [blender-previsualization](blender-previsualization/SKILL.md) | 카메라·피사체 움직임, 구도·공간 배치의 실제 Blender 프록시·프리비즈·기하 검사 | 장면별 3D 카메라/공간 설계의 필수 구현·시각 검수 경로. Blender 런타임 필요; 최종 영상 품질을 보증하지 않는다. |
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
 설치 목록의 원본은 [manifest.json](manifest.json)이다. 전문 참조는 추가 설치 스킬이 아니다.
