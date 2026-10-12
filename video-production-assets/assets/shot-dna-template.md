@@ -6,10 +6,18 @@
 | 항목 | 값 |
 |---|---|
 | 식별자/출처 | 제목·채널·링크 또는 파일명(확인 가능한 만큼) |
+| 안정된 archive_id (아카이브 분석일 때) | 순번이 아닌 기존 source identity; 없으면 N/A |
 | 검사한 버전/구간 | 직접 검사 또는 사용자 기록의 버전·범위(미검사 구간 명시) |
 | 형식·길이·화면비·장르·관객·목적 | 관찰 또는 메타데이터로 구분 |
+| 미디어 메타데이터와 출처 | 실제 보고된 길이/크기/fps/timebase/stream 값만, 미확인 값은 N/A |
 | 분석 범위 | 측정 / 근사 / 표본 프레임만 |
+| coverage evidence | 추출·후보 수와 실제 시각검토·연속 재생·청취 수/범위를 분리; archive 분석은 `archive-audit-template.md` 참조 |
 
+| source-local locator | 요청 시각 (`requested_s`) | 실제 프레임 PTS (`source_pts_s`) | 상태 | 직접 관찰 / 미확인·한계 |
+|---|---:|---:|---|---|
+| {원본 장의 C/B/G/S.P 등 로컬 locator; 없으면 N/A} | | | OBSERVED / ESTIMATED / DETECTOR_CANDIDATE / UNKNOWN | |
+
+로컬 locator는 source의 ID legend에 따라 기록하며 프로젝트 `scene_id`/`shot_id`/`panel_id`가 아니다. PTS는 특정 sample frame의 위치이지 정확한 cut/onset이 아니다. `SH###`는 양쪽 경계를 직접 확인한 경우에만 부여한다. Unverified candidate, bracketed estimate, sample counts는 verified cut 수로 세지 않는다. Frame review ≠ continuous playback; stream metadata ≠ audio listening. Creator production description, caption, ASR는 각각 declared claim / untimed caption text / unverified hypothesis로 적고 직접 관찰이나 청취로 승격하지 않는다.
 ## 축별 분석 (해당하는 축만)
 각 축에서 **관찰**(직접 프레임·재생·청취 또는 사용자 기록; 출처 명시) / **해석·추정**(유도한 의도) / **미확인**(권리·성과·범위 밖)을 분리한다. 사용자 기록은 직접 검사 결과가 아니며 점수·합격 판정은 없다.
 

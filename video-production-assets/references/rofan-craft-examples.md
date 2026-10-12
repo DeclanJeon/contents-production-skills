@@ -9,32 +9,39 @@ Open this reference only when the brief explicitly requests a saved case or a co
 3. For a requested timed/cut/elision handoff, use the [conditional output contract](#requested-multi-owner-handoff) below; fill only active owners' fields.
 4. Adapt examples to the brief: preserve its stated actor count, starting state, posture, required props/wardrobe, and full requested duration/timeline. Example times are illustrative, not defaults: cover the entire requested interval, rebase shot-local and final times to the brief, keep cut intervals adjacent unless the brief specifies otherwise, and state any proposed hold instead of omitting unused duration or inventing new action.
 5. Keep protected expression, characters, places, dialogue, styling, props, and branded assets out of the transfer unless the user supplies rights. Transfer the generic mechanism, not expression.
-6. Plan-only fields are proposals, not evidence of generation, endpoint support, or real-media QA.
+
+### Applying a saved observation
+
+When asked to apply saved evidence, return these positive parts: **Bounded observation + locator** (name the matching saved note and its limits); **Generic mechanism** (what production principle it supports); **Mapped proposal** (apply it to the supplied brief); **Limit + observable QA** (what remains unknown and how to check the proposal). If the user asks what transfers but supplies no target scene, give fit/skip conditions and one clearly labeled hypothetical/conditional proposal tied to the mechanism—not a claim about the source or an actual target. If the user asks only about evidence or unknowns, do not force a new-scene proposal. When a prompt raises distinct source constraints from separate records, match and address each record independently; one record cannot substitute for another. If no relevant saved observation is available, say so; do not infer one from a nearby case or shared prop.
+
+When the brief includes an apparent close/ending, ending-associated title or credits, bonus/interstitial—or specifically requests file-end verification—plan separate checks for the last decoded picture and container duration using existing [09](09-edit.md)/[21](21-generated-video-qa-retry.md) owner procedures. Without the actual output file, both are `UNKNOWN`/pending; this is a planned check, not an EOS finding. Skip this branch when no ending/file-end question is in scope.
 
 ### Requested multi-owner handoff
 
 When the brief requests a timed handoff across owners, return only the applicable parts below, in this order:
 
-1. **Source → proposal:** bounded saved-source observation → generic mechanism; label new proposals separately and preserve unknowns.
+1. **Source → proposal:** for each relevant record, return **Bounded observation + locator / Generic mechanism / Mapped proposal / Limit + observable QA**. Keep source evidence, interpretation, proposal, and unknowns distinct; when the request has no target scene, give one clearly labeled conditional/hypothetical proposal only if the user asks what transfers. Address distinct source constraints independently; do not use one record as a substitute for another.
 2. **06 shot cues** (when timed phases/cues are requested): use the canonical five-column cue table; times are local to that shot.
 
 | Local time (shot seconds) | Actor phase / contact / visibility | Camera phase | Reveal / hold | Cut-out → cut-in phase |
 |---|---|---|---|---|
 | | | | | |
 
-3. **09 cut rows** (when cuts are requested): open the [09 edit template](../assets/09-edit-template.md); one row per cut. Use only needed canonical columns, with separate numeric final start/end and the actual action/cut and reaction/hold fields.
+3. **09 cut rows** (when cuts are requested): open the [09 edit template](../assets/09-edit-template.md); one row per cut. Use only needed canonical columns, with separate numeric final start/end and the actual action/cut and reaction/hold fields. Whenever a proposed cut omits an event, action portion, or intervening state/time, also return the exact six-column 09 elision row below; cut-reason prose alone does not replace it.
 
 | cut_id | shot_id/asset_id | final_start_s | final_end_s | 행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유 | reaction/settle hold final start–end s·연속성/검수 상태 |
 |---|---|---:|---:|---|---|
 | | | | | | |
 
-4. **09 elision rows** (when a state/time omission is requested): use the template's six canonical columns.
+4. **09 elision rows** (whenever a proposed cut or transition omits an intervening event, action portion, or state/time—even if the brief does not call it “elision”): use the template's six canonical columns. Skip this row for continuous action or a cut that omits no event/state/time.
 
 | cut_id | 획득 방식: 연속배속/인터벌/몽타주/의도적 생략/미확인 | 실제 경과시간·촬영 구간·간격·공백(근거 위치) | 생략 전 상태 | 생략 후 상태 | 후속 컷 유지/리셋 조건 |
 |---|---|---|---|---|---|
 | | | | | | |
 
 5. **11 handoff** (when tool support is relevant): use `도구 지원 확인`=`UNKNOWN` until the selected endpoint is checked; put the planned check in `검수 실패 위치·수정 변수`.
+
+6. **Ending/file-end QA** (only when the planned ending includes an apparent close, title/credits, bonus or interstitial, or file-end verification is requested): append two separate planned checks using existing [09](09-edit.md)/[21](21-generated-video-qa-retry.md) owner guidance: (a) inspect the last decoded picture; actual result=`UNKNOWN`/pending without the output file; (b) inspect container tail/duration; actual result=`UNKNOWN`/pending without the output file. These are planned checks, not findings. Omit this branch when no ending/file-end question is in scope.
 
 For each final event time, calculate its owning shot's local cue as `shot_local = final_event_time − owning_cut.final_start_s`. Every shot starts at local `0` and ends at its duration. Keep final-timeline ranges in 09; do not substitute them for 06 shot-local cues.
 
@@ -105,13 +112,14 @@ The catalog below covers all 57 saved IDs: C01–C12, P01–P17, O01–O10, L01�
 
 ## Additional supporting cues
 
-These three locator-backed notes add distinct applications beyond the 57-case index. They preserve saved evidence without implying fresh source review or reconstructing unavailable bodies.
+These four locator-backed notes add distinct applications beyond the 57-case index. They preserve saved evidence without implying fresh source review or reconstructing unavailable bodies.
 
 | Cue | Bounded observation → transferable mechanism | Apply / skip | Existing owner → actionable QA |
 |---|---|---|---|
 | **Rise with an insert and later state** — `0ad-seat-rise-insert-to-standing-state` | `0ad` PTS 201.067708 (3088384): a wide shows rise beginning; shoe insert appears around 212.934; a standing state follows. This is not a continuous full rise cycle. An insert can punctuate a larger action while the later state remains distinct. | Apply when an insert adds a needed local detail to a larger action; skip if it would obscure sequence or if the brief requires continuous proof of the whole rise. | [06](06-shots.md) cue/reveal and [09](09-edit.md) only for actual cuts. Check the insert's relation to the action and the later standing state; do not claim unseen transition/footwork. |
 | **Caption cue to attention and geography** — `be746-text-report-to-bedroom-attention` | `be746`: corridor caption ~64.6, pair attention ~66.4, wide ~77.534, door insert ~81.467. Caption visibility is not listened speech evidence and does not identify who operates the door. A visible text cue may connect attention and spatial reorientation. | Apply when the brief uses a visible information cue followed by attention/geography; skip speech, door action, or caption claims the brief does not support. | [06](06-shots.md) public information/blocking, [09](09-edit.md) for actual cut/layer, [10](10-evidence.md) only if a factual caption claim is made. Check caption readability and attention sequence separately; actor/speech/door operator stay unknown. |
 | **Wide-to-OTS is one edit** — `7edf-wide-to-ots-is-one-edit-not-two` | `7edf`: wide ~15.5 → OTS ~15.542 → same OTS ~15.584. The adjacent OTS samples are one held OTS state: one wide-to-OTS edit, not two cuts. Sample granularity is not an edit boundary. | Apply when assessing adjacent sampled frames or a similar edit proposal; skip cut creation from repeated frames within the same composition. | [09](09-edit.md), with [06](06-shots.md) axis/anchor if needed. Count one actual wide-to-OTS boundary and verify the OTS remains the same shot state. |
+| **Excerpt-only / incomplete or inaccessible source body → title/live-image transition** — `797-opening-title-to-live-bed` | `797`: illustrated opening title at about `0s`, then live bed image at about `0.2s`; only the opening excerpt is recoverable. The transferable mechanism is a title-to-live-image information transition, not evidence about later content. | Apply when a new brief needs this opening distinction; skip inferring subsequent events or whole-work structure. | [06](06-shots.md) if timing/blocking is needed; [09](09-edit.md) only for an actual transition/cut. Check the proposed title-to-live transition is legible; later content remains unknown. |
 
 ## Worked proposals using existing owner fields
 

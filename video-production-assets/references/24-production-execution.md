@@ -158,6 +158,12 @@ This on-demand reference covers provider routing and cost controls for media gen
 
 추론 정책: 사용자가 모든 에셋을 제공하지 않으면 주제·레퍼런스·장르·플랫폼·반복 엔티티에서 빠진 목록을 추론해 `authority=inferred`의 임시 에셋으로 둔다. 법적·사실·브랜드상 차단인 누락(정확한 로고 문구·규제 주장·정확히 일치해야 할 실존 인물 용모)은 확인한다. 그 외 명세 부족은 요청과 필요한 비교 폭에 맞는 창작 제안으로 채우고, 중요한 방향은 사용자 수락/위임에 따라 정한다 — 제안은 생성 승인이 아니다.
 
+### Source, generated, remaster, and post provenance
+
+When a supplied or creator-described work is called AI, remastered, restored, or composited, classify only what the available evidence supports: source/captured footage, generated insert, mixed live/generated composite, post-retouch/upscale, or fully generated output are different paths. A title, credit, affiliate link, or uploader description is `DECLARED_UPLOADER_CLAIM`, not a verified model use or shot-level pipeline log. Do not infer which source shot was generated, cloned, composited, or remastered without an asset/edit mapping.
+
+For a new authorized package, connect actual input IDs/versions to derivatives in the existing `asset_registry` provenance fields and versioned execution artifacts. Record declared information and evidence-backed process separately; leave unsupported stages/owners unknown. A later regeneration, cleanup, upscale, or composite does not erase the original source/derivation chain. This is provenance, not permission to reuse a reference work or a claim that any particular editing technique was used.
+
 품질 규칙: 프로필·전신·의상·소품 상호작용이 중요한데 뷰티 이미지 하나로 충분하다고 보지 않는다. seed를 정체성 제어로 의존하지 않는다. 임시 샷 조명을 정규 정체성 참조에 굽지 않는다 — 의도된 룩 일부일 때만. 정체성 참조·스타일 참조·포즈/구도 참조를 분리한다. 로고·주장·성분 사실·패키지 텍스트를 지어내지 않는다.
 
 ## 5. 최소 충분 프리뷰와 최종 제작

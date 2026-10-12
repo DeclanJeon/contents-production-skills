@@ -11,9 +11,11 @@ assumptions: {가정}
 |---|---|---|---|---|---|
 | | | | | | |
 
-| cut_id | shot_id/asset_id | source_in_s | source_out_s | playback_rate | final_start_s | final_end_s | 행동·카메라 변화/컷 이유 | transition/duration_s | sound_id·sync anchor | 연속성·검수 상태 |
+| cut_id | shot_id/asset_id | source_in_s | source_out_s | playback_rate | final_start_s | final_end_s | 행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유 | transition/duration_s | sound_id·sync anchor | reaction/settle hold final start–end s·연속성/검수 상태 |
 |---|---|---:|---:|---:|---:|---:|---|---|---|---|
 | C01 | SH01 | | | 1.0 | | | | hard_cut/0 | | |
+
+카피와 행동/세계 변화의 연결을 검수할 때 새 pseudo-field를 만들지 않는다. `cut_id`마다 별도 행을 만들고 `final_start_s`/`final_end_s`에 해당 컷의 최종 타임라인 시작·끝 초를 각각 숫자로 기록한다; 여러 컷을 `C01–C02` 하나로 합치거나 값을 `0→3.5`처럼 두 시간 범위로 바꾸지 않는다. 실제 `행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time`에 화면 사건·컷을 기록하고, 발화/음향 sync가 있으면 `sound_id·sync anchor`에 실제 근거를 연결한다. 컷·행동·카피 상태가 달라질 때만 기존 행을 나눈다; 카피나 audio cue를 브리프/제공 자료 없이 발명하지 않는다.
 
 ### 시간 압축·생략 (해당 컷만)
 | cut_id | 획득 방식: 연속배속/인터벌/몽타주/의도적 생략/미확인 | 실제 경과시간·촬영 구간·간격·공백(근거 위치) | 생략 전 상태 | 생략 후 상태 | 후속 컷 유지/리셋 조건 |

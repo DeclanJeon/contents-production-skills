@@ -25,7 +25,12 @@
 
 ### QA와 산출물
 
-발 미끄러짐·떠 있는 사물·관통·불가능한 균형·손 변형·텔레포트 소품·비일관 관성·이른 동작 리셋을 검수한다. `assets/motion-beat-template.md`로 비트 시트를 만든다.
+9. QA: 발 미끄러짐·떠 있는 사물·관통·불가능한 균형·손 변형·텔레포트 소품·비일관 관성·이른 동작 리셋을 검수한다. `assets/motion-beat-template.md`로 비트 시트를 만든다.
+### 차량 접촉 — 물리 계약이 있을 때만
+
+브리프가 물리적으로 일관된 굴림/착지를 요구할 때만 no-slip 및 지면 접촉 검사를 활성화한다. wheel radius·속도·회전 관계가 승인된 입력에 있으면 그 관계를 연속 구간에서 확인하고, 없으면 invented 수치나 정확한 구름 조건을 QA 기준으로 만들지 않는다. 스타일화·드리프트·의도적 공중부양처럼 접촉이 끊기는 구간에는 no-slip을 강제하지 않는다; 공중 구간은 contact=N/A로 두고 지지점이 돌아오는 착지부터 다시 검사한다.
+
+한 프레임의 정지/역회전 spokes는 rolling failure 증명이 아니다. 여러 연속 프레임에서 wheel/hub의 화면 위치뿐 아니라 ground texture, contact patch, 차체 높이·이동, camera tracking, shadow/reflection을 함께 비교한다. Temporal aliasing/shutter sampling이나 compositing을 대안으로 남기고, 실제 프레임 연속성에서 회전·지면 이동이 양립하지 않는 interval을 찾았을 때만 failure로 기록한다. 결과 레이어의 splash/wake/residue도 원인 위치·방향·후속 지속 또는 명시된 reset에 연결한다.
 
 ## 2. VFX·합성 수퍼비전
 

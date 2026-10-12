@@ -119,3 +119,11 @@
 8. QA: 반복 얼굴·복제 포즈·불가능한 밀도·떠 있는 사람·스케일 점프·차량 관통·일률적 시선·전경 깊이 부재.
 
 규모 단서: 알려진 크기의 사람/차량·겹침 깊이·대기 원근·변주된 반복 구조·시차·고각 공개·소리 밀도·지연 공개·전경 가림.
+
+## 5. 장면 공간 앵커와 선언된 세계 변형
+
+여러 샷이 같은 공간을 이어받거나 portal/불가능한 스케일을 사용할 때만 적용한다. 기존 location/world SSOT에 입구·문턱·landmark·방위·가구/소품 관계와 카메라 쪽 이동을 고정하고, 이동 전후 관객이 재정위할 화면 anchor를 지정한다. 컷/POV 변경·가림은 공간 이동이나 reset이 아니다. 유지되는 위치/소품은 [26 상태 인계](26-state-causality-continuity.md)에서 후속 상태로 잇는다.
+
+세계 규칙을 의도적으로 깨면 어느 shot/layer에서 바뀌고 ordinary space로 어떻게 돌아오는지 brief에 표시한다. portal 전후의 frame/eyeline, 방향, scale 단계와 복귀 view를 정한다. cut/dissolve/graphic wipe/composite를 비교하고 단순 cut이 더 명확하면 억지 morph를 하지 않는다. 경계 전 anchor→fantasy insert→회복 anchor를 storyboard/shot cue에 보이고, scale/방위 변화가 실제 평면도·서비스·장소 claim처럼 읽히지 않는지 inspect한다.
+
+수치 카메라·경로·3D geometry가 필요하면 `$camera-spatial-design`으로 넘긴다; 실제 장면 geometry가 필요할 때만 해당 3D review/runtime 절차를 따른다. 단일 reference frame에서 주소·지리·실제 건축·camera solve를 역산하지 않는다. 실행 가능한 공간/카메라 근거는 계획 텍스트와 구분한다.

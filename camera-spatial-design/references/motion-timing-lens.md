@@ -1,7 +1,7 @@
 # 카메라 무빙 타이밍과 렌즈 디렉팅
 
 ## 동기에서 시간 곡선으로
-샷마다 관객이 알아야 할 정보와 reveal/contact/emotion_peak를 먼저 정한다. 카메라 움직임을 인물의 action/reaction/hold와 함께 배치한다. 고정 샷 대안과 비교하고 잠긴 샷에는 불필요한 새 후보를 만들지 않는다.
+샷마다 관객이 알아야 할 정보와 reveal/contact/emotion_peak를 먼저 정한다. 카메라 움직임을 인물의 action/reaction/hold와 함께 배치한다. 둘 다 움직이면 동일한 shot-local seconds 또는 frames basis(FPS 명시)에 카메라 phase와 subject action을 맞춰 쓴다. 적용되는 move onset/change, reveal/contact, stop/settle, hold, cut만 cue로 남긴다; 고정 샷이나 불필요한 phase는 비워 둔다. 결과·반응 hold가 필요하면 샷 시간 안에 배정한다. 고정 샷 대안과 비교하고 잠긴 샷에는 불필요한 새 후보를 만들지 않는다.
 타이밍 테이블에 local seconds/frame basis, camera position/target, subject position/action, motion phase, information visibility, focus target을 기록한다. move_start → acceleration → cruise/track → deceleration → settle/hold가 모두 필요한 것은 아니다. 연속 추적에서 각 키프레임마다 멈추도록 easing을 넣지 않는다. 시작/끝 스틸뿐 아니라 가속 전환·공개/접촉 정점·컷 직전도 검사한다.
 
 ## 좌표와 운동
@@ -14,5 +14,12 @@ camera-spatial-1.0 경로 스키마는 유지한다. 지원되는 interpolation�
 랙 포커스는 카메라 병진이 아니라 선명도 전환이다. 누가 언제 선명해져야 하는지, 공개 전에 흐린 대상이 너무 잘 읽히지 않는지, focus pull의 시작·완료를 설계한다. 초점거리(mm), 초점 맞춘 거리(m), 피사체 거리(m)를 혼용하지 않는다. 얕은 심도로 필수 행동/제품 메시지가 가려지면 초점·조리개·거리·컷을 조정한다.
 광학 계산과 미학은 구분한다. 왜곡·호흡·실제 심도/모션블러는 카메라·렌즈 캘리브레이션 또는 해당 렌더 설정에 달려 있다. 현재 Blender BBox 프리비즈는 완전한 렌즈·포커스·물리 리그 검증기가 아니다. 지원 여부를 확인한 설정과 실제 렌더 검사만 검증으로 보고한다.
 
+## 차량 접촉·공간 연속성의 조건부 검사
+
+브리프가 일반적인 물리적 굴림을 명시적으로 요구할 때만 승인된 차량 형상과 바퀴/지면 접촉을 정하고, 같은 샷 로컬 시간축에서 회전을 차량의 이동과 대조한다. 카메라 경로는 따로 본다. 추적 카메라가 화면상 차체 이동을 상쇄해도 차량의 지면 기준 이동은 남을 수 있다. 휠 반경·속도·프레임레이트·노면 형상이 없으면 미설정/가정으로 두고 한 이미지에서 계산하지 않는다. 스타일화된 드리프트나 공중/portal 구간에서는 일반 지면 접촉/no-slip을 비활성화하고, 지지가 화면에 돌아올 때 다시 적용한다.
+
+여러 샷의 동선은 승인된 공간도 또는 새로 설계한 scene/world reference에 입구·문턱·landmark·방위·복귀 경로를 선언하고 샷별 frame/POV에 연결한다. 의도된 topology/scale break는 앞뒤의 안정된 시각 anchor가 있는 디자인 전환으로 표시한다; 실제 지리 측정이나 복원된 카메라 경로로 보고하지 않는다. geometry나 정확한 카메라 배치가 필요하면 기존 camera-spatial/Blender handoff를 따르고 실제 장면 출력을 검사한다. 텍스트 anchor는 계획 의도이지 공간 검증이 아니다.
+
 ## 인계
+
 카메라 원본 artifact_id/version, 타이밍·렌즈 companion 버전, 샷/씬/패널 ID와 의도·실제 검사·미확인을 함께 전달한다. 생성 프롬프트 변환은 ai-camera-control, 레퍼런스 역분석은 camera-motion-reference-analysis에 연결한다. 프리비즈·실행·실제 QA를 수치 설계와 분리한다.

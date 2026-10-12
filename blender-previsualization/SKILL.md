@@ -18,6 +18,7 @@ description: "Required Blender implementation/visual inspection for scene-specif
 7. 전체 프레임이 요청되면 `--mode sequence`를 사용한다. 파일은 `shot_id/frame_000001.png` 순서로 출력된다. 아직 인코딩된 영상이 아니므로 MP4 애니매틱이라고 보고하지 않는다. 편집/인코딩 도구가 있으면 샷 배열 순서와 fps로 조립하고 실제 길이를 확인한다.
 8. PNG를 실제 열어 시작/중간/끝뿐 아니라 문제 프레임을 확인한다. 몸·손·얼굴의 가림, headroom, 시선, 공간 방향, 경로를 검수한다. ray cast는 주목점 검사이며 전체 실루엣 가시성을 보장하지 않는다.
 9. 명세를 수정해 재생성하고 선택 결과를 기존 영상 제작 에셋 원장에 연결한다. `assets/previs-handoff-template.md`를 채워 generated/inspected와 미검증 항목을 분리한다.
+10. 어댑터·카메라 회전 코드를 변경하면 `python camera-spatial-design/scripts/test_spatial_spec.py`와 `python blender-previsualization/scripts/test_build_previs.py`를 실행한다. 실제 Blender가 있으면 `BLENDER_EXECUTABLE=<blender 실행 파일> python blender-previsualization/scripts/test_camera_orientation_in_blender.py` 통합 검사도 실행한다. 이는 smoke 장면의 인물 중심·머리 가시성을 확인하며 전체 프레임의 미감 검수를 대체하지 않는다.
 
 ## 실행 출력
 previs.blend, 샷별 PNG(또는 전체 PNG 시퀀스), numerical-analysis.json, blender-inspection.json, manifest.json을 인계한다. 파일이 실제 존재하는 것만 generated로 기록한다. 기본 어댑터는 BBox 대역·카메라·간단한 조명을 만들며 실사 촬영의 최종 조명과 다른 기술 프리비즈다.

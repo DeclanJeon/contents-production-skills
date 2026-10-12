@@ -7,21 +7,38 @@
 - 아카이브/경로: {경로 또는 사용자 제공 이름}
 - 요청된 범위: {폴더 전체 / 지정 영상 / 필터}
 - 발견한 영상: {개수}
-- 분석 완료 / 미분석 / 읽기 실패: {각 개수와 파일}
+- 처리 상태: {모드별 대상/완료/미검토/실패 수; 상세는 아래 coverage ledger}
 - 분석 방식과 제한: {전체 재생 / 표본 프레임 / 타임코드·구간 / 오디오 청취 여부}
 - 사용한 외부 메타데이터: {게시글 ID·캡션·날짜 등과 출처}
 
-| archive_id | 파일명 / 게시물 ID | 제공 캡션·맥락 | 길이·화면 크기·fps·스트림 메타데이터 | 실제 확인 구간 | 연결된 Shot DNA | 상태·미확인 |
+## Coverage ledger
+
+한 행은 안정된 `archive_id` 하나와 한 coverage mode 조합이다. ID는 파일의 고정 경로/식별 정보에 연결하고 정렬 순번·`#6`·`AV06`처럼 위치에서 만들지 않는다. 모든 행에 정확한 파일명과 evidence locator를 적는다. `추출/발견` 수와 실제 `검토` 수를 분리하고, 미실행·미보존은 `0`/`미실행`/`부분(첫 N)`처럼 명시한다.
+
+| archive_id (stable; not ordinal) | exact filename | coverage mode | attempted/completed or extracted → actually reviewed | exact source range / sampling | timestamp-list completeness | evidence locator | status / limits |
+|---|---|---|---|---|---|---|---|
+| {stable ID} | {full filename} | full-source decode | {files/sources attempted and completed} | {whole source duration or exact decoded range} | N/A | {decode log / metadata path} | {return status; decode is not visual review} |
+| {stable ID} | {full filename} | scene locator / timestamps | {candidates found; timestamp entries retained / candidates} | {exact PTS/ranges and locator threshold} | {complete / first N only / partial / none} | {locator manifest / log} | {locator events are candidates, not certified cuts} |
+| {stable ID} | {full filename} | still/strip extraction | {images or intervals extracted} | {exact source intervals; sample rate / frames per interval} | {timestamp source and completeness} | {image paths / extraction manifest} | {sampling limits} |
+| {stable ID} | {full filename} | manual visual review | {extracted items / items actually inspected} | {exact reviewed intervals or source ranges} | {timestamp source and completeness} | {review record / exact image locator} | {sample review is not continuous playback} |
+| {stable ID} | {full filename} | continuous playback | {sources / segments actually watched} | {exact played ranges; say full source only if watched continuously} | N/A | {playback notes / locator} | {0 / not reviewed when applicable} |
+| {stable ID} | {full filename} | audio listening | {sources / segments actually heard} | {exact listened ranges} | N/A | {listening notes / locator} | {metadata alone is not listening} |
+
+For each source, include every relevant mode—even if `0 / not reviewed`; do not infer a completed mode from another mode's success.
+Scene-locator evidence는 `DETECTOR_CANDIDATE`/timestamp hypothesis와 실제 경계 확인을 분리한다. 샘플을 요청한 `requested_s`와 추출 프레임의 실제 `source_pts_s`를 locator/evidence note에 모두 보존하고, 원본 PTS를 정확한 컷 시각으로 부르지 않는다. `C/B/G/S.P`는 영상별 분석 locator일 수 있으며 `archive_id`나 프로젝트 shot ID가 아니다. `SH###`는 경계 양쪽을 확인한 경우에만 shot/cut ID로 사용한다.
+
+
+| archive_id (stable; not ordinal) | exact filename / post ID | supplied caption/context | duration/frame size/fps/stream metadata | actual inspected ranges | linked Shot DNA | status / unknowns |
 |---|---|---|---|---|---|---|
-| AV01 | | | | | | |
+| {stable archive_id} | {exact filename} | | | | | |
 
 ## 영상별 분석
 
 각 영상은 별도 항목으로 다룬다. Shot DNA에는 샘플에서 관찰한 비트만 연결하고, 측정되지 않은 컷·구간은 만들지 않는다.
 
-| archive_id | Shot DNA/artifact 링크 | 직접 관찰한 비트·화면 텍스트 | 캡션/사용자 제공 정보 | 해석·관객 기능 | 오디오 검사 범위 | 한계·미확인 |
-|---|---|---|---|---|---|---|
-| AV01 | | | | | | |
+| archive_id (stable; not ordinal) | exact filename | Shot DNA/artifact link | directly observed beats/on-screen text | caption/user info | interpretation/audience function | audio inspection scope | limits/unknowns |
+|---|---|---|---|---|---|---|---|---|
+| {stable archive_id} | {exact filename} | | | | | | |
 
 ## 아카이브 전체 패턴과 스킬 대조
 

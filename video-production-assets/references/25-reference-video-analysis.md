@@ -20,6 +20,37 @@
 5. 참조 음원이 분리 stem인지 단일 믹스인지 구분한다. 혼합 음원만 있으면 음악과 효과음을 분리해 들었다고 표현하지 않고, 재사용 권리는 별도 미확인으로 기록한다.
 6. **표면 스타일**(의상·팔레트·질감·세트 장식)과 **구조 논리**(정보 공개 순서·스케일 변화·동작/카메라 동기·감정 전환·컷 리듬)를 분리한다. 역동성은 컷 수나 전환 효과가 아니라 실제 피사체/카메라의 시간적 변화와 그 배열로 설명한다.
 7. 발견을 재사용 가능한 제작 레시피로 변환한다. 원리는 보존하고, 사용자가 소유하거나 재사용을 허가하지 않은 캐릭터·사건·브랜드 에셋·장소·대사·특정 보호 디자인은 바꾼다. 전문 문제는 아래 경로로 라우팅한다.
+### 원본 위치·경계·분석 ID의 증거 수준
+
+아카이브 감사에서는 `archive_id`를 source의 안정된 identity로 사용하고, 원본 장·분석에서 쓰는 locator를 프로젝트의 `scene_id`, `shot_id`, `panel_id`로 승격하지 않는다. `C##`는 detector candidate/neighborhood, `B##`는 관찰 블록, `G##/SG##`는 장면 해석, `S##.P##`는 source shot 안의 action phase를 나타낼 수 있다. 숫자와 접두어만으로 종류를 추정하지 말고 해당 source의 legend를 따른다.
+
+검출 점수나 프레임 차이는 `DETECTOR_CANDIDATE`다. 후보 하나, contact sheet, 1fps/native sample, 성공한 전체 decode도 컷 경계 검증이 아니다. `SH###`는 경계 양쪽의 원본 증거로 컷을 실제 확인했을 때만 사용하고, 표본 사이의 경계는 bracketed `ESTIMATED` 또는 `UNKNOWN`으로 남긴다. Scene, shot/cut, 한 shot 안의 여러 action phase를 따로 세며 dissolve/morph/wipe가 미확정이면 transition candidate라 한다.
+
+각 locator에는 요청 시각(`requested_s`)과 실제 source frame PTS(`source_pts_s`)를 구분해 기록한다. PTS는 샘플 프레임 위치이지 정확한 cut time이나 action onset이 아니다. 같은 시각의 화면 텍스트는 `OBSERVED`로 쓸 수 있지만 실제 speech timing/부재는 청취가 필요하다. Uploader pipeline/tool credits는 `DECLARED_UPLOADER_CLAIM`; 자동 캡션은 `CAPTION_TEXT_AUTO_UNTIMED`; ASR는 `ASR_RUN / HYPOTHESIS_UNVERIFIED`; 미청취 오디오·미검사 구간은 `UNKNOWN`이다. Frame review ≠ continuous playback; stream metadata ≠ listening.
+
+새 브리프에 옮길 때는 관찰한 source locator와 새 계획의 proposed timing/IDs를 다른 열에 둔다. `assets/shot-dna-template.md`의 source scope, observed/estimated/unknown, transfer chain, reusable mechanism fields를 쓰고, 확인할 실제 생성/렌더/재생은 담당 모듈에 넘긴다. 분석은 컷 전체 인증·제작 경로/권리·효능·성과 승인이 아니다.
+
+### 제작 레시피 연계
+
+레퍼런스의 메커니즘은 새 브리프에만 적용한다. 카피→행동·콘셉트·정보 순서는 [16 콘셉트 설계](16-concept-emotion-retention.md)와 [09 편집](09-edit.md), 제품 불변 속성·반사·접촉 상태는 [19 제품 통합](19-brand-product-integration.md)·[26 상태 인계](26-state-causality-continuity.md)·[21 생성 QA](21-generated-video-qa-retry.md), 연기·공간 앵커·POV는 [04 연기](04-performance.md)·[06 샷](06-shots.md)·`$camera-spatial-design`, 주장·캡션·provenance·피니싱은 [10 근거](10-evidence.md)·[24 제작 실행](24-production-execution.md)·[23 피니싱](23-finishing-platform.md)에 연결한다. 브리프가 활성화한 분기만 열며 새 계약/템플릿을 만들지 않는다.
+
+| 계열 | 기존 오너 계약 및 분기 |
+|---|---|
+| A01 카피→행동/명제 | [16 콘셉트](16-concept-emotion-retention.md), [09 편집](09-edit.md) |
+| A02 속성→세계/재질; A03 형태·행동 대응 | [19 제품](19-brand-product-integration.md), [20 비주얼 SSOT](20-visual-mode-ssot.md), [21 합성 QA](21-generated-video-qa-retry.md) |
+| A04 재질/제품/접촉 상태 | [26 상태](26-state-causality-continuity.md), [19 제품](19-brand-product-integration.md), [21 모션 QA](21-generated-video-qa-retry.md) |
+| A05 공간/서비스 동선; A08 POV/스케일 전환/복귀 | [06 샷](06-shots.md), [카메라 공간 설계](../../camera-spatial-design/SKILL.md), [20 비주얼 SSOT](20-visual-mode-ssot.md) |
+| A06 차량/지면/접촉; A11 조명/반사 | [21 모션·합성 QA](21-generated-video-qa-retry.md), [26 상태](26-state-causality-continuity.md), [07 조명](07-lighting.md), [19 제품](19-brand-product-integration.md) |
+| A07 인물/관계/반응 | [04 연기](04-performance.md), [06 샷](06-shots.md); [17 장르·코미디](17-genre-comedy.md)는 브리프가 해당 기대·반응·마무리를 실제로 요구할 때만 |
+| A09 주장/근거/수신자; A10 선언된 제작/리마스터/후반작업; A12 인셋 위계/스케일 | [10 근거](10-evidence.md), [24 제작 실행](24-production-execution.md), [06 샷](06-shots.md), [09 편집](09-edit.md), [23 피니싱](23-finishing-platform.md) |
+
+해당 조건이 있는 경우에만 기존 오너 계약 안에서 다음 하위 레시피를 적용한다: 카피→행동 타이밍(A01b, 09), 장난감/성인 카피 재구성(A07a, 06/20), 기대 위반→목격자 반응(A08a, 04/06), POV 스케일 전환과 portal(A08b, 06/20/카메라 공간 설계), 카테고리 은유와 입증된 출처의 구분(A09a, 10), 시간 미지정 수사문과 실제 발화의 구분(A09b, 09/10), 라이프스타일 대리 표현과 장소/서비스 근거의 구분(A07b, 10/20), 후반 카테고리 개그와 아동/보호자/관객 권리 검토(A09c, 10/20), 표면·의미 대응(A12a, 19/21), 바퀴의 시간적 aliasing(A06a, 21), 지형 질감→제품 공개(A02a, 06/19), 목격자/원인 대상 반응 사다리(A07c, 04/06), 오퍼 홀드→선택적 코다→마지막 브랜드 초기화(A09d, 09/23), 선언된 스펙터클→안전한 제품 클로즈(A11b, 07/19/21). 각 레시피는 해당 브리프 조건이 성립할 때만 켠다; 조건 자체가 주장·CTA·장면·샷 수·에셋 ID·실행 승인을 새로 요구하지 않는다.
+
+### 브리프에 원리를 옮기는 산출물
+
+분석에서 제작 브리프로 실제 action/edit/state handoff가 요청되면, 위 교차표에서 활성화된 오너 절차만 열고 각 오너의 기존 템플릿 필드를 그대로 채운다. `assets/product-ssot-template.md`의 제품 필드, `assets/state-transition-template.md`의 대상·시작/끝 상태·원인 동작·후속 유지 행, `assets/motion-beat-template.md`의 모션 행, `assets/06-shots-template.md`의 shot/cue 열, `assets/09-edit-template.md`의 cut/time/cue 열, `assets/10-evidence-template.md`의 claim/source/limitation 열을 해당할 때 연결한다. 필드명을 임의로 번역·합성해 새 alias를 만들지 않으며, 조건이 없거나 입력이 미정인 행은 기존 `N/A`/미확인 표기를 사용하고 이유를 쓴다. 제안 타이밍은 shot-local cue와 final timeline 시간을 구분한다. text-only 계획은 실제 접촉·재생·청취·렌더·승인을 입증하지 않는다.
+저장된 분석의 관찰을 새 브리프에 적용할 때는 [선택형 craft 사례](rofan-craft-examples.md)를 관련 문제에서만 연다. 저장된 사례 재사용은 원본의 신규 분석을 뜻하지 않는다. 새 레퍼런스 분석 요청은 기존 분석 절차를 따른다.
+각 필드를 연결하기 전에 인용한 오너 템플릿에서 그 필드의 실제 존재와 소속을 확인한다. 한 오너의 여러 템플릿이 교차표에 함께 적혀 있어도 필드를 임의로 다른 템플릿의 소유로 돌리지 말고, 해당 템플릿 경로와 필드를 짝지어 적는다.
 
 ## 분석 축과 증거 상태
 
@@ -49,8 +80,7 @@ shot_id/근사 또는 측정 시간 · 서사 기능 · 피사체/행동의 시�
 폴더/아카이브의 전수 영상 분석 또는 포트폴리오 갭 검토는 단일 레퍼런스 분석과 구분한다. 요청된 영상 범위만 읽고, 요청이 분석이면 원본 수정·외부 업로드·생성·게시 없이 분석한다.
 
 1. 영상 파일을 전부 열거하고 사용자 제공 게시물 ID/캡션과 파일을 연결한다. 발견·요청·실제 분석한 개수를 분리하고, 열 수 없는 파일은 미분석으로 남긴다. 게시물 캡션은 영상 프레임의 관찰로 취급하지 않는다.
-2. 각 영상을 개별 항목으로 다룬다. 길이·프레임 크기·화면비·알려진 스트림 메타데이터와 실제 확인한 시각/구간을 `assets/archive-audit-template.md`에 기록한다. 의미 있는 비트는 `assets/shot-dna-template.md`에 연결한다.
-저장된 분석의 관찰을 새 브리프에 적용할 때는 [선택형 craft 사례](rofan-craft-examples.md)를 관련 문제에서만 연다. 저장된 사례 재사용은 원본의 신규 분석을 뜻하지 않는다. 새 레퍼런스 분석 요청은 기존 분석 절차를 따른다.
+2. 각 영상을 개별 항목으로 다룬다. 길이·프레임 크기·화면비·알려진 스트림 메타데이터와 실제 확인한 시각/구간을 `assets/archive-audit-template.md`에 기록한다. 아카이브 요청이면 템플릿의 source별 coverage ledger에 안정된 archive_id(순번 아님)·정확한 파일명·evidence locator와 mode별 개수·정확 구간·timestamp 완전성을 기록하고, decode/locator·추출/실제 시각검토·연속 재생·오디오 청취를 분리한다. 전체 decode나 contact sheet 확인만으로 full temporal analysis라 하지 않는다. 의미 있는 비트는 `assets/shot-dna-template.md`에 연결한다.
 3. 각 영상별 직접 관찰·사용자/게시 메타데이터·해석·미확인을 구분한다. 표본 프레임만 본 경우 전체 순서·컷 리듬·모션을 확정하지 않는다. 오디오 스트림 정보만으로 실제 대사·음악·효과음·품질을 주장하지 않는다.
 4. 영상별 분해가 끝난 뒤 반복·대조 패턴을 집계한다. 해당 패턴을 뒷받침하는 파일 수와 실제 확인 범위를 함께 적고, 조회수·유지율·전환 데이터가 없으면 성과 판단으로 확장하지 않는다.
 5. 각 갭 후보를 현재 스킬의 정확한 참조/절차와 대조해 `이미 커버`, `부분 커버`, `갭 후보`, `증거 부족`으로 분류한다. 누락된 키워드만으로 기능이 없다고 판단하지 않는다.

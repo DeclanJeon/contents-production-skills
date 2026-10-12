@@ -7,13 +7,14 @@ assumptions: {가정}
 
 ID: {shot_id}
 참조: {character/location/prop/look_id 및 실제 파일}
+시간 basis: {shot-local seconds 또는 frames + FPS}
 초기 상태: {값}
-주 행동과 구간: {값}
-카메라: {값}
+주 행동과 구간: {값; 적용 시 reveal/contact/stop/settle/hold cue}
+카메라: {확인된 도구 제어가 있으면 채택한 단일 prompt 지시; 아니면 DESIGN_PROPOSAL 후보/미확인}
 조명·룩: {값}
 끝 상태: {값}
 유지 규칙: {값}
-도구 지원 확인: {확인/미확인}
+도구 지원 확인: {미확인 시 UNKNOWN; 확인 시 지원 상태와 확인 범위}
 생성 길이/편집 길이/핸들: {초}
 검수 실패 위치·수정 변수: {값}
 
