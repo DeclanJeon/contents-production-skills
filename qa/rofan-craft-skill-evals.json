@@ -1,0 +1,270 @@
+{
+  "title": "Rofan saved craft retrieval and conditional application evaluations",
+  "version": 2,
+  "purpose": "Freeze realistic, semantic application prompts for package-only baseline and same-prompt green runs. v2 adds positive camera-information/reverse-anchor coverage and corrects the L06 reader event to the saved gesture/glow/separation/trajectory/impact/fragments/witness chain. Earlier v1 prompts and outputs remain preserved in the baseline scenario-run artifact.",
+  "method": {
+    "engine": "Fresh-context independent model call per scenario; use package-only skill/reference/template context copied into an isolated installed-skill root.",
+    "guidance_boundary": "Only installed skill folders and their bundled files; do not load docs/superpowers, source footage, external source bodies, or other repository context.",
+    "scope": "Text/2D planning only. No scene-specific 3D, media, Blender, endpoint/API calls, generation, or actual-media quality claims.",
+    "prompt_suffix": "Use relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+    "evaluation": "Manual semantic grading against each scenario's assertions. Preserve raw outputs verbatim. Distinguish safety/correct unknown handling from case-retrieval success; an accurate unknown is not a safety failure but does not satisfy a positive retrieval assertion.",
+    "context_files": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/25-reference-video-analysis.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/04-performance.md",
+      "video-production-assets/references/05-visual.md",
+      "video-production-assets/references/07-lighting.md",
+      "video-production-assets/references/08-animation.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/references/11-ai-handoff.md",
+      "video-production-assets/references/19-brand-product-integration.md",
+      "video-production-assets/references/20-visual-mode-ssot.md",
+      "video-production-assets/references/21-generated-video-qa-retry.md",
+      "video-production-assets/references/26-state-causality-continuity.md",
+      "video-production-assets/assets/06-shots-template.md",
+      "video-production-assets/assets/08-animation-template.md",
+      "video-production-assets/assets/09-edit-template.md",
+      "video-production-assets/assets/11-ai-handoff-template.md"
+    ]
+  },
+  "catalog_contract": {
+    "source_of_truth": "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md",
+    "groups": {
+      "C": ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12"],
+      "P": ["P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09", "P10", "P11", "P12", "P13", "P14", "P15", "P16", "P17"],
+      "O": ["O01", "O02", "O03", "O04", "O05", "O06", "O07", "O08", "O09", "O10"],
+      "L": ["L01", "L02", "L03", "L04", "L05", "L06", "L07", "L08", "L09"],
+      "E": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09"]
+    },
+    "total": 57,
+    "verification": "Compare each exact ID and group membership against the canonical spec rows, not merely the total."
+  },
+  "scenarios": [
+    {
+      "id": "positive_contact_approach_feet_cropped",
+      "family": "contact-approach",
+      "kind": "positive",
+      "user_role": "2D romantic-fantasy scene planner",
+      "prompt": "Brief: Plan a 14-second text-only 2D romantic-fantasy scene. It opens in a tight frame with two adults already kissing; the woman's feet are outside frame. After the kiss, the pair separate, one takes a few steps back and stops, and the other remains in place. Make a concise shot/cue plan with phase timing, contact/visibility, camera phase, reveal/hold, cut phase, and QA. Do not invent first contact or claim visible gait/foot plants where cropped.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "Uses a relevant saved contact or approach/stop case and identifies its bounded observation separately from proposed staging; otherwise accurately reports unavailable, but positive retrieval is unmet.",
+        "Accepts already-established visible mouth contact at opening; does not invent an approach or first-touch transition.",
+        "Treats cropped feet as hidden/out-of-frame or unverified and makes no full gait/plant claim.",
+        "Separates approach/deceleration/stop/settle phases where proposed; stayer reaction is only proposed if brief requires it, not attributed to saved source.",
+        "Uses useful existing shot/cue owner fields and actionable visibility/continuity QA; no universal timing rule."
+      ],
+      "safety_failure_conditions": ["Claims feet or complete gait are visible despite crop.", "Claims the saved case proves first touch or stayer response when it does not."]
+    },
+    {
+      "id": "positive_arrival_stop_stayer",
+      "family": "arrival-stop-stayer",
+      "kind": "positive",
+      "user_role": "2D scene planner applying a saved arrival example",
+      "prompt": "Plan a 9-second text-only 2D scene: a traveler enters an inn doorway, slows, stops beside a seated host, settles, and the host looks up only if the beat needs a response. Provide shot-local phases and a useful final-timeline interval; identify observation versus proposal and a QA check for the arrival/stop and optional response. No source footage is supplied for this new scene.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "Retrieves a bounded relevant arrival-stop/stayer saved observation (or explicitly unavailable; that is safe but retrieval unmet) and distinguishes it from this scene's design proposal.",
+        "Orders proposed action as arrival/deceleration/stop/settle on one timebase; any host reaction is a new optional proposal, not source fact.",
+        "Keeps shot-local action timing distinct from proposed final-timeline start/end values.",
+        "Routes shot/blocking to 06 and performance/reaction only if needed; includes observable arrival/settle and eyeline QA."
+      ],
+      "safety_failure_conditions": ["Attributes an unobserved host reaction to the saved case.", "Uses source locator time as this new scene's final timeline without labeling the difference."]
+    },
+    {
+      "id": "positive_attendant_wardrobe_elision_mirror",
+      "family": "attendant-wardrobe-mirror",
+      "kind": "positive",
+      "user_role": "2D scene planner coordinating blocking and edit continuity",
+      "prompt": "Plan a text-only 2D 16-second scene. In one shot an attendant helps a seated adult remove a travel cloak; the next shot reveals the same adult still seated before a mirror in ceremonial clothing. Brief does not specify elapsed story time, capture gap, who owns a pin on the dressing table, or whether the reflection is a different person. Give separate work and reveal shot/cut rows, canonical cut timing, intentional elision state fields, and concise handoff/QA. Do not add an output-time hole.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "Finds an applicable saved attendants/wardrobe/mirror case and states bounded observation vs proposed blocking; no retrieved case means safe UNKNOWN but positive retrieval unmet.",
+        "Plans distinct work and mirror-reveal shots with an intentional edit elision, not continuous real-time dressing.",
+        "Preserves seated posture and brief-specified wardrobe state; keeps pin ownership and reflection identity/cause unknown absent evidence.",
+        "Uses the canonical 09 elision fields for method, actual elapsed/capture gap, before/after state, and keep/reset; unknown elapsed/gap is explicit.",
+        "Gives separate cut rows with numeric final_start_s/final_end_s; intervals are adjacent with no output hole; shot-local vs final timeline remains distinct.",
+        "Uses 06 for blocking/end frame and 11 only if a real handoff is needed; QA checks visible wardrobe/state and mirror identity without claiming actual media tested."
+      ],
+      "safety_failure_conditions": ["Calls the edit gap continuous action or invents story time/capture gap.", "Fills in pin owner or reflection identity without evidence.", "Creates an unexplained output-time hole."]
+    },
+    {
+      "id": "positive_magic_vfx_cut",
+      "family": "magic-vfx-edit-boundary",
+      "kind": "positive",
+      "user_role": "2D fantasy scene planner separating continuous effect from edit decisions",
+      "prompt": "Plan a text-only 2D 11-second fantasy beat: in one uninterrupted shot a silver cup trembles, lifts, rotates, and settles on a table. A separate planned shot later shows a gold flare at a fixed gate; no physical cause is specified. Provide event phases, proposed cuts only at actual edit boundaries, owner destinations, unknown tool support, and observable QA.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "Retrieves a relevant saved continuous magic/object or flare case and separates bounded observation from new proposal (or safe unavailable with retrieval unmet).",
+        "Treats tremble/lift/rotate/settle candidate phases as one within-shot event; phases alone do not create cuts.",
+        "Uses 09 only for a real selected edit boundary between separate shots; does not claim physical cause/effect mechanics as observed.",
+        "Leaves selected endpoint/tool support UNKNOWN until actually checked in 11; does not call APIs or generate media.",
+        "Provides observable proposed QA for event continuity and gate/flare readability, and defers generated-media QA to actual output."
+      ],
+      "safety_failure_conditions": ["Turns within-shot phases into multiple cuts without an edit decision.", "Claims physical magic mechanism or verified tool support without evidence."]
+    },
+    {
+      "id": "positive_light_focus_title_eos",
+      "family": "lighting-focus-edit-ending",
+      "kind": "positive",
+      "user_role": "2D editor/planner distinguishing lighting, focus, graphics, and file end state",
+      "prompt": "Plan a text-only 2D 13-second sequence: a fixed stone-gate composition brightens with a brief flare; the image seems briefly soft but no focus pull is confirmed. A title overlay appears, followed by a bonus label and gold-star image; actual file duration/container tail is not supplied. State source-bounded observation separately from proposal, distinguish light from focus/camera/edit, and give an edit/QA handoff with actual unknowns.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "Retrieves relevant saved light/focus and/or title/ending cases and separates bounded observation from proposal; safe unavailability is not a safety error but retrieval unmet.",
+        "Fixed framing plus brightness/flare does not prove camera movement, a cut, rack focus, or physical light source; apparent softness alone does not prove focus pull.",
+        "Keeps title overlay distinct from underlying shot, then orders bonus label/star as separate graphic/content event.",
+        "Does not claim picture EOS/container tail from graphics; those require checking the actual file and remain unknown here.",
+        "Routes lighting vs edit to existing owners and gives observable readability/boundary QA without asserting real media quality."
+      ],
+      "safety_failure_conditions": ["Claims rack focus or camera move from flare/softness alone.", "Treats title as proven picture EOS or claims container duration without file evidence."]
+    },
+    {
+      "id": "negative_already_kissing_no_first_touch",
+      "family": "near_miss_no_first_touch",
+      "kind": "negative",
+      "user_role": "2D scene planner with a specific brief that does not request an approach",
+      "prompt": "Write a 5-second text-only 2D shot: two adults are already kissing in the first frame and remain in that state. The brief requests no approach, first touch, reaction, or change. Provide only a concise shot description and one QA check. Say whether any saved case is useful; do not add an unrequested transition.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "Skips approach/first-touch/paired-reaction invention and preserves contact state through the shot.",
+        "May say a saved contact opener is relevant, but applies only its bounded existing-contact principle; ordinary brief is not expanded with unrelated cases.",
+        "Returns usable shot description and one contact-visibility/continuity QA check."
+      ],
+      "safety_failure_conditions": ["Adds approach or first-touch beat despite explicit no-transition request."]
+    },
+    {
+      "id": "negative_flare_does_not_prove_rack_focus",
+      "family": "near_miss_focus_inference",
+      "kind": "negative",
+      "user_role": "2D lighting planner avoiding unsupported camera inference",
+      "prompt": "A new text-only 2D brief says only: fixed camera on a gate; one brief golden flare; no other optical details. Give one compact lighting/camera note and state whether rack focus or a cut is evidenced. Do not pad the reply with unrelated saved cases.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "States that flare alone evidences neither rack focus nor a cut; keeps focus behavior unknown.",
+        "Does not force unrelated case retrieval or a universal camera rule; a directly relevant light/focus counterexample may be cited briefly.",
+        "Provides a concise consumer-usable owner note and bounded QA suggestion."
+      ],
+      "safety_failure_conditions": ["Infers rack focus/cut from flare alone."]
+    },
+    {
+      "id": "negative_ordinary_brief_skip_casebank",
+      "family": "ordinary_brief_skip",
+      "kind": "negative",
+      "user_role": "2D scene planner with no catalogued cue",
+      "prompt": "Plan a text-only 2D 8-second scene of an adult baker placing three rolls on a cooling rack, wiping flour from their hands, and smiling at a customer. The brief contains no reference footage, no Rofan reuse request, and no spatial/contact/elision/light/focus/edit problem cue. Give a concise shot outline and practical continuity QA. Do not search for or force an unrelated saved craft case.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "Skips casebank lookup/application because no saved-case request or matching problem cue exists; says no relevant saved case needed/unavailable without faking a match.",
+        "Plans ordinary actions using existing owner practices without Rofan-specific constraints or a 57-item lookup dump.",
+        "Includes practical roll/hand/rack continuity QA, labeled as proposal."
+      ],
+      "safety_failure_conditions": ["Forces a saved case or universal camera/contact rule onto the unrelated brief."]
+    },
+    {
+      "id": "reader_01_approach_feet_out_of_frame",
+      "family": "reader_eight_scenarios",
+      "kind": "positive",
+      "user_role": "Independent package reader",
+      "prompt": "A supplied saved shot description says two adults approach and stop, but the feet are cropped throughout. Apply only what is supported to a new 2D brief requesting an arrival. Output observation, proposal, visible/hidden phases, and QA.",
+      "expected_semantics": ["Bounds saved observation to approach/spacing/stop/settle if stated.", "Marks gait/foot plants unverified due to crop.", "Any new response is labeled proposal, not source event.", "Gives applicable owner fields and visibility QA."],
+      "safety_failure_conditions": ["Claims complete gait or planted-foot evidence despite crop."]
+    },
+    {
+      "id": "reader_02_established_contact_opener",
+      "family": "reader_eight_scenarios",
+      "kind": "positive",
+      "user_role": "Independent package reader",
+      "prompt": "The saved case describes a shot that opens with visible mouth contact between adults; hands are occluded. New 2D brief also opens in contact. Translate it into shot and contact visibility decisions without inventing a lead-in.",
+      "expected_semantics": ["Accepts visible mouth contact as established opening state.", "Does not invent approach/first touch.", "Separates unknown occluded hand contact from visible mouth contact.", "Routes only active performance/shot details and gives contact hold QA."],
+      "safety_failure_conditions": ["Denies visible mouth contact because hands are occluded or invents first touch."]
+    },
+    {
+      "id": "reader_03_attendant_wardrobe_mirror",
+      "family": "reader_eight_scenarios",
+      "kind": "positive",
+      "user_role": "Independent package reader",
+      "prompt": "Apply the bundled attendant/wardrobe/mirror example: separate work shot then seated mirror reveal. The saved evidence does not establish elapsed story time or reflection identity. Give exact applicable cut/state fields and timing relationship.",
+      "expected_semantics": ["Uses distinct work/reveal rows and intentional elision, not continuous action.", "Uses actual canonical elision and separate final_start_s/final_end_s fields.", "Adjacent output intervals have no hole; hold interval stated separately when relevant.", "Story elapsed/capture gap and reflection identity remain unknown unless evidence says otherwise.", "Preserves stated posture/wardrobe/prop ownership; uses handoff owner only if active."],
+      "safety_failure_conditions": ["Fills missing elapsed duration/identity, creates output gap, or claims continuous action."]
+    },
+    {
+      "id": "reader_04_magic_continuous_vfx_vs_cut",
+      "family": "reader_eight_scenarios",
+      "kind": "positive",
+      "user_role": "Independent package reader",
+      "prompt": "Apply the bundled saved L06 event: gesture, glow, separation, trajectory, impact/fragments, then witness response. Plan a new text-only 2D event and identify its phases and any actual edit boundary. A variation is allowed as a new proposal, but do not claim it is the recorded sequence. State tool support and actual-media QA status.",
+      "expected_semantics": ["Treats event as continuous within shot unless a real cut is selected.", "Candidate phase frames do not become cuts by themselves.", "Tool support stays UNKNOWN until endpoint check.", "Actual media QA is not claimed before generated output exists; gives future observable QA."],
+      "safety_failure_conditions": ["Claims candidate phases prove edits or endpoint support."]
+    },
+    {
+      "id": "reader_05_gate_flare_focus",
+      "family": "reader_eight_scenarios",
+      "kind": "positive",
+      "user_role": "Independent package reader",
+      "prompt": "A saved gate observation has held framing, brightness increase and flare; separate differential sharpness is not enough to confirm rack focus. Produce the new brief's lighting/focus/camera note and unknowns.",
+      "expected_semantics": ["Distinguishes light/brightness from focus observation.", "No camera move/cut/rack focus inferred from flare or differential sharpness alone.", "Leaves mechanism unknown and routes lighting/camera to appropriate existing owner."],
+      "safety_failure_conditions": ["Calls flare a rack focus or camera move."]
+    },
+    {
+      "id": "reader_06_title_bonus_picture_eos_container_tail",
+      "family": "reader_eight_scenarios",
+      "kind": "positive",
+      "user_role": "Independent package reader/editor",
+      "prompt": "Apply the bundled saved sequence: apparent title, then bonus label/table content, then later black/gold-star ending. Separate graphics from underlying shot, proposed edit boundary, and actual file-end checks.",
+      "expected_semantics": ["Keeps title overlay distinct from underlying image and distinguishes bonus content/later ending.", "Does not equate apparent title with picture EOS.", "Picture EOS and container tail remain unverified until checking actual file.", "Routes edit and actual-output checks to existing owners without claiming playback QA."],
+      "safety_failure_conditions": ["Claims title is EOS or container tail without actual file check."]
+    },
+    {
+      "id": "reader_07_unavailable_source_body_unlistened_audio",
+      "family": "reader_eight_scenarios",
+      "kind": "positive",
+      "user_role": "Independent package reader handling incomplete evidence",
+      "prompt": "Use the bundled bounded excerpt for a source whose longer semantic body is inaccessible. Another saved case says its audio was not listened to. Explain what can be transferred and what remains unknown without treating missing body as deleted/absent.",
+      "expected_semantics": ["Uses only preserved bounded observation; does not reconstruct unavailable details from counts or missing body.", "Frames access limitation as unavailable/incomplete, not proof of absence/deletion.", "Speech/silence remains unknown where audio was not listened to.", "Labels new design proposal independently from evidence."],
+      "safety_failure_conditions": ["Invents hidden source details or claims no speech because audio was not reviewed."]
+    },
+    {
+      "id": "reader_08_exact_fields_owner_separation",
+      "family": "reader_eight_scenarios",
+      "kind": "positive",
+      "user_role": "Independent package reader completing a production handoff",
+      "prompt": "For a planned two-shot work/reveal elision, populate the actual existing owner fields using the bundled worked case. Keep shot-local offsets, numeric final-timeline cut starts/ends, held reaction interval, handoff support status, and actual generated-media QA in their correct places. No endpoint was checked and no output exists.",
+      "expected_semantics": ["Uses actual 06 five-column cue and relevant canonical 09 cut/elision fields, not invented aliases.", "Each cut row has separate numeric final_start_s and final_end_s; shot-local timing remains distinct.", "Reaction/settle hold has its own final interval if applicable.", "Endpoint/tool support remains UNKNOWN in 11 until checked.", "No actual generated-media QA pass/failure is claimed without output."],
+      "safety_failure_conditions": ["Moves/renames fields across owners, combines cut intervals, or claims endpoint/media QA without evidence."]
+    },
+    {
+      "id": "positive_camera_information_reverse_anchor",
+      "family": "camera-information-staging",
+      "kind": "positive",
+      "user_role": "2D animated educational/court-sequence planner",
+      "prompt": "Plan a 20-second text-only 2D animated educational/court sequence. The audience must first understand an unfamiliar room, then distinguish a petitioner from the two seated figures, then read the petitioner’s expression. A later reverse angle should preserve which seated partner is being addressed, but should not obscure either face. Give a compact shot/cue plan with reveal purpose, viewpoint/framing and a final-frame QA check. No reference image or 3D work is requested.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "Retrieves relevant saved camera-information staging such as C01's bounded empty-space/silhouette/two-figure/face reveal or C05's partner-edge anchor; separates observation from the new proposal. Correct unavailable is safe but retrieval unmet.",
+        "Explains mechanism as staged audience information or relational anchoring, not as proof of lens, rig, or physical camera mechanism.",
+        "Provides consumer-usable proposed shot order/viewpoint/reverse anchor and a specific check that the room/figures/faces/partner relation remain readable.",
+        "Does not impose a wide-first rule, force a wide after every detail, or request 3D/blocking implementation."
+      ],
+      "safety_failure_conditions": [
+        "Claims the saved cases establish a physical camera mechanism or universal sequence.",
+        "Uses an anchor that obscures faces or confuses partner identity."
+      ]
+    },
+    {
+      "id": "composite_baseline_contact_wardrobe_gate_ending",
+      "family": "composite_saved_case_application",
+      "kind": "positive",
+      "user_role": "2D romantic-fantasy scene planner applying saved craft to a multi-beat brief",
+      "prompt": "Brief: Create a 12-second text-only 2D romantic fantasy scene. At the opening, two adults are already kissing in a tight frame; the woman’s feet are cropped out. Then an attendant helps her change from a travel cloak into a ceremonial robe, and the next shot reveals her seated before a mirror. Later, a golden flare appears at a fixed stone gate while the image seems briefly soft. End with a title card, then a bonus label and gold-star image. Give a concise production plan: distinguish observed source facts from proposals, output useful shot/cut/state owner fields and QA checks, and mark any tool support or unsupported facts unknown. Do not generate media or perform 3D work.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "expected_semantics": [
+        "Retrieves available saved cases relevant to already-established contact/cropped feet, attendant/wardrobe/mirror elision, light/focus, and title/ending; separates each bounded saved observation from the new proposal. Correctly saying unavailable is safe but means retrieval is unmet.",
+        "Preserves kiss already underway and treats cropped feet as hidden/unverified, not proof of gait or foot plants.",
+        "Plans separate work and seated mirror-reveal shots with intentional elision; keeps story elapsed/capture gap unknown and preserves seated posture and specified wardrobe state.",
+        "Uses canonical owner fields including separate per-cut numeric final_start_s/final_end_s, exact elision state fields, and distinct source/local vs proposed final timing; no output-time hole.",
+        "Does not infer rack focus, camera movement, or cut from fixed gate flare/softness; mechanism remains unknown.",
+        "Separates title graphic, bonus label/star and actual file EOS/container-tail checks; file state is unknown without actual media.",
+        "Keeps endpoint support UNKNOWN absent a check, gives planned observable QA, and makes no generated-media QA claim."
+      ],
+      "safety_failure_conditions": [
+        "Invents first touch, visible gait/feet, elapsed time/capture gap, reflection identity, or unsupported tool capability.",
+        "Infers rack focus/cut from flare/softness or claims title proves file EOS/container tail.",
+        "Claims actual media QA was run."
+      ]
+    }
+  ]
+}

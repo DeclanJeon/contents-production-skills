@@ -1,0 +1,305 @@
+{
+  "fixture": {
+    "source": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\source",
+    "installed_skills": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills",
+    "source_casebank_sha256": "cae803553b5858c1d201d69868b7ace1a3210a0cc71d1150ca898e9c5e3fdd1b",
+    "global_roots_modified": false,
+    "installer_command": [
+      "python",
+      "-X",
+      "utf8",
+      "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\source\\scripts\\install_package.py",
+      "--repo-root",
+      "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\source",
+      "--skills-root",
+      "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills"
+    ],
+    "installer_exit": 0,
+    "installer_stdout": "Installed 23 skill(s) into C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills (package version 2.5).\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\creative-production\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\topic-demand-selection\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\video-production-assets\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\camera-spatial-design\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\camera-motion-reference-analysis\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\ai-camera-control\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\blender-previsualization\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\orchestrating-video-preproduction\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\developing-video-synopses\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\designing-video-character-sheets\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\designing-character-personas\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\storyboarding-video\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\storytelling-with-still-images\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\recording-production-history\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\higgsfield-brandkit\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\higgsfield-generate\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\higgsfield-marketplace-cards\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\higgsfield-product-photoshoot\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\higgsfield-soul-id\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\higgsfield-video-explainer\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\higgsfield-video-replicate\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\higgsfield-websites\n  skill: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\higgsfield-youtube-thumbnail\n  support: C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills\\video-production-assets\\support\nRestart or refresh your agent so it scans the new skill directories."
+  },
+  "structure": {
+    "source_fixture": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\source",
+    "installed_fixture": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills",
+    "casebank_sha256": "cae803553b5858c1d201d69868b7ace1a3210a0cc71d1150ca898e9c5e3fdd1b",
+    "manifest_expected_skill_count": 23,
+    "installed_manifest_skill_count": 23,
+    "manifest_set_matches_installed": true,
+    "installed_file_hashes_match_source_except_installer_generated_support": true,
+    "relative_markdown_links_checked_all_updated_skill_docs": 384,
+    "cross_skill_links_resolving_within_install_root": 9,
+    "broken_internal_links_within_install_root": [],
+    "links_escaping_installed_skills_root": [],
+    "table_counts_for_changed_and_canonical_files": {
+      "SKILL.md": 2,
+      "references/contract.md": 0,
+      "references/25-reference-video-analysis.md": 1,
+      "references/rofan-craft-examples.md": 15,
+      "references/06-shots.md": 0,
+      "references/09-edit.md": 0,
+      "assets/06-shots-template.md": 3,
+      "assets/09-edit-template.md": 3,
+      "assets/11-ai-handoff-template.md": 0
+    },
+    "table_width_errors_in_changed_and_canonical_files": [],
+    "exact_case_id_sets_by_group_vs_spec": {
+      "C": {
+        "spec": 12,
+        "bank": 12,
+        "missing": [],
+        "extra": [],
+        "duplicates_spec": 0,
+        "duplicates_bank": 0
+      },
+      "P": {
+        "spec": 17,
+        "bank": 17,
+        "missing": [],
+        "extra": [],
+        "duplicates_spec": 0,
+        "duplicates_bank": 0
+      },
+      "O": {
+        "spec": 10,
+        "bank": 10,
+        "missing": [],
+        "extra": [],
+        "duplicates_spec": 0,
+        "duplicates_bank": 0
+      },
+      "L": {
+        "spec": 9,
+        "bank": 9,
+        "missing": [],
+        "extra": [],
+        "duplicates_spec": 0,
+        "duplicates_bank": 0
+      },
+      "E": {
+        "spec": 9,
+        "bank": 9,
+        "missing": [],
+        "extra": [],
+        "duplicates_spec": 0,
+        "duplicates_bank": 0
+      }
+    },
+    "case_id_sets_exact_all_groups": true,
+    "eval_catalog_matches_spec": true,
+    "canonical_fields_and_formula_checks": {
+      "casebank_57_ids": {
+        "C": {
+          "spec": 12,
+          "bank": 12,
+          "missing": [],
+          "extra": [],
+          "duplicates_spec": 0,
+          "duplicates_bank": 0
+        },
+        "P": {
+          "spec": 17,
+          "bank": 17,
+          "missing": [],
+          "extra": [],
+          "duplicates_spec": 0,
+          "duplicates_bank": 0
+        },
+        "O": {
+          "spec": 10,
+          "bank": 10,
+          "missing": [],
+          "extra": [],
+          "duplicates_spec": 0,
+          "duplicates_bank": 0
+        },
+        "L": {
+          "spec": 9,
+          "bank": 9,
+          "missing": [],
+          "extra": [],
+          "duplicates_spec": 0,
+          "duplicates_bank": 0
+        },
+        "E": {
+          "spec": 9,
+          "bank": 9,
+          "missing": [],
+          "extra": [],
+          "duplicates_spec": 0,
+          "duplicates_bank": 0
+        }
+      },
+      "casebank_has_exact_06_cue_header": true,
+      "casebank_has_canonical_09_elision_header": true,
+      "casebank_has_active_09_cut_header": true,
+      "template06_cue_header_matches": true,
+      "template09_elision_header_matches": true,
+      "template09_cut_headers_have_separate_numeric_final_fields": true,
+      "template11_unknown_support_field": true,
+      "shot_local_formula_present": true,
+      "active_owner_output_contract_present": true
+    },
+    "nonissue_diagnostic": "A naive broad table parser flagged unchanged references/20-visual-mode-ssot.md:82; inspection shows the pipe is inside inline-code prose, not a Markdown table. Strict table-width checks above cover the changed/reference/template set. Nine relative links cross from video-production-assets into sibling installed skills and all resolve within the isolated installed skills root.",
+    "pass": true
+  },
+  "engineering_commands": [
+    {
+      "command": "python scripts/check_versions.py",
+      "exit": 0,
+      "stdout": "version check OK: package 2.5, 23 skill(s) consistent"
+    },
+    {
+      "command": "python -X utf8 -m pytest -q",
+      "exit": 0,
+      "summary": "258 passed, 1 skipped, 2 warnings, 217 subtests passed in 19.50s",
+      "stdout": ".........s........................................... [ 20%]\n............................................................ [ 43%]\n...................................................... [ 64%]\n.................................................................... [ 90%]\n........................                             [100%]\n============================== warnings summary ===============================\nscripts/test_sync_installed.py::test_stale_link_is_repointed\n  C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pytest\\threadexception.py:58: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-13 (_readerthread)\n\n  Traceback (most recent call last):\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py\", line 1075, in _bootstrap_inner\n      self.run()\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py\", line 1012, in run\n      self._target(*self._args, **self._kwargs)\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\subprocess.py\", line 1599, in _readerthread\n      buffer.append(fh.read())\n                    ^^^^^^^^^\n    File \"<frozen codecs>\", line 322, in decode\n  UnicodeDecodeError: 'utf-8' codec can't decode byte 0xbf in position 213: invalid start byte\n\n  Enable tracemalloc to get traceback where the object was allocated.\n  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.\n    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))\n\nscripts/test_sync_installed.py::test_remove_link_never_deletes_target_content\n  C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pytest\\threadexception.py:58: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-17 (_readerthread)\n\n  Traceback (most recent call last):\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py\", line 1075, in _bootstrap_inner\n      self.run()\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py\", line 1012, in run\n      self._target(*self.args, **self.kwargs)\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\subprocess.py\", line 1599, in _readerthread\n      buffer.append(fh.read())\n                    ^^^^^^^^^\n    File \"<frozen codecs>\", line 322, in decode\n  UnicodeDecodeError: 'utf-8' codec can't decode byte 0xbf in position 222: invalid start byte\n\n  Enable tracemalloc to get traceback where the object was allocated.\n  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html for more info.\n    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n258 passed, 1 skipped, 2 warnings, 217 subtests passed in 19.50s",
+      "warning_note": "Two PytestUnhandledThreadExceptionWarnings in test_sync_installed.py are UnicodeDecodeError in subprocess reader threads; actual offsets 213 and 222. Full test run exited 0. Not rerun solely to confirm."
+    }
+  ],
+  "final_behavior_run": "qa/rofan-craft-green-final-t12-run.json",
+  "active_context_probe": "qa/rofan-craft-composite-context-t12-probe.json",
+  "pass": true,
+  "changed_document_smoke": {
+    "phase": "final post-writer document-only validation including the updated test-plan status bullet",
+    "documents": [
+      "README.md",
+      "CHANGELOG.md",
+      "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md",
+      "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md",
+      "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md"
+    ],
+    "final_result": "PASS",
+    "relative_markdown_links_total": 61,
+    "relative_link_counts_by_document": {
+      "README.md": 39,
+      "CHANGELOG.md": 9,
+      "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md": 8,
+      "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md": 4,
+      "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md": 1
+    },
+    "fragment_links_total": 5,
+    "missing_targets_or_fragments": [],
+    "markdown_table_counts_by_document": {
+      "README.md": 2,
+      "CHANGELOG.md": 0,
+      "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md": 19,
+      "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md": 4,
+      "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md": 0
+    },
+    "markdown_table_count_total": 25,
+    "markdown_table_width_errors": [],
+    "required_reference_targets": {
+      "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md": true,
+      "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md": true,
+      "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md": true,
+      "qa/rofan-craft-green-final-t12-run.json": true,
+      "qa/rofan-craft-package-smoke.json": true
+    },
+    "status_consistency_check": {
+      "README.md": {
+        "has_15_pass": true,
+        "has_1_context": true,
+        "has_2_partial": true
+      },
+      "CHANGELOG.md": {
+        "has_15_pass": true,
+        "has_1_context": true,
+        "has_2_partial": true
+      },
+      "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md": {
+        "has_15_pass": true,
+        "has_1_context": true,
+        "has_2_partial": true
+      },
+      "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md": {
+        "has_15_pass": true,
+        "has_1_context": true,
+        "has_2_partial": true
+      },
+      "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md": {
+        "has_15_pass": true,
+        "has_1_context": true,
+        "has_2_partial": true
+      }
+    },
+    "pre_fix_observation": {
+      "result": "FAIL before the writer corrected the two path targets",
+      "broken_links": [
+        {
+          "document": "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md",
+          "target": "../../../implementation/2026-10-12-rofan-craft-skill-test-plan.md",
+          "resolved_missing_path": "implementation\\2026-10-12-rofan-craft-skill-test-plan.md"
+        },
+        {
+          "document": "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md",
+          "target": "../../../implementation/2026-10-12-rofan-craft-skill-test-plan.md",
+          "resolved_missing_path": "implementation\\2026-10-12-rofan-craft-skill-test-plan.md"
+        }
+      ],
+      "after_fix": "Writer confirmed these two exact test-plan targets were corrected; final smoke found zero link/fragment failures."
+    },
+    "method": "Inline Python functions.eval scanner for Markdown inline/reference links and fragment slugs plus Markdown table headers/separators/body cell widths. No persistent helper script. No pytest, version, or package installation command was rerun.",
+    "latest_read_snapshot": {
+      "documents": [
+        "README.md",
+        "CHANGELOG.md",
+        "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md",
+        "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md",
+        "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md"
+      ],
+      "relative_links": 61,
+      "link_counts": {
+        "README.md": 39,
+        "CHANGELOG.md": 9,
+        "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md": 8,
+        "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md": 4,
+        "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md": 1
+      },
+      "fragments": 5,
+      "link_issues": [],
+      "tables": {
+        "README.md": 2,
+        "CHANGELOG.md": 0,
+        "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md": 19,
+        "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md": 4,
+        "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md": 0
+      },
+      "table_count_total": 25,
+      "table_width_errors": {},
+      "required_targets": {
+        "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md": true,
+        "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md": true,
+        "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md": true,
+        "qa/rofan-craft-green-final-t12-run.json": true,
+        "qa/rofan-craft-package-smoke.json": true
+      },
+      "status_consistency": {
+        "README.md": {
+          "pass15": true,
+          "context1": true,
+          "partial2": true
+        },
+        "CHANGELOG.md": {
+          "pass15": true,
+          "context1": true,
+          "partial2": true
+        },
+        "docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md": {
+          "pass15": true,
+          "context1": true,
+          "partial2": true
+        },
+        "docs/superpowers/plans/2026-10-12-rofan-craft-skill-application.md": {
+          "pass15": true,
+          "context1": true,
+          "partial2": true
+        },
+        "docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md": {
+          "pass15": true,
+          "context1": true,
+          "partial2": true
+        }
+      },
+      "pass": true
+    }
+  }
+}

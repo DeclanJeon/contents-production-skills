@@ -67,7 +67,7 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 | 대사 연기·보이스 선택/생성·립싱크·청자 디렉팅 | [대사·립싱크](references/22-dialogue-lipsync.md) | `assets/performance-cue-template.md` |
 | 피니싱 룩·믹스·마스터 QC·플랫폼 적응 | [피니싱·플랫폼](references/23-finishing-platform.md) | — |
 | 이미지/영상 생성 경로·최소 충분 프리뷰·최종 제작·비용·에셋 출처 | [생성 경로·비용 라우팅](references/24-production-execution.md) | `assets/video-model-routing-template.md` |
-| 레퍼런스 후보 선정 또는 단일/아카이브 영상의 샷 DNA·제작 원리·스킬 커버리지/갭 분석 | [레퍼런스 영상 분해](references/25-reference-video-analysis.md) | 단일 영상은 `assets/shot-dna-template.md`, 아카이브 비교는 `assets/archive-audit-template.md` |
+| 레퍼런스 후보 선정·단일/아카이브 영상 분석·source-grounded 원리/갭 비교, 승인된 레퍼런스 구조를 새 브리프에 옮길 때, 저장 사례 재사용을 명시적으로 요청할 때, 또는 현재 brief의 구체적 문제 cue가 사례와 일치할 때(저장 사례 적용에 새 원본 분석 불필요) | [레퍼런스 영상 분해](references/25-reference-video-analysis.md) | 단일 영상은 `assets/shot-dna-template.md`, 아카이브 비교는 `assets/archive-audit-template.md`; 새 브리프에서는 그 파일이 지정한 기존 오너 절차/템플릿만 추가하고 실제 필드·ID·시간축을 그대로 사용 |
 | 한 번에 시놉시스부터 전체 스토리보드 시트까지 요청·프롬프트 작성 | [스토리보드 시트 사용자 가이드](references/storyboard-sheet-user-guide.md) | 범용 복사용 프롬프트 |
 | 활성 LOOK·에셋 게이트·마스터/파생 계보·패널 버전 참조·provenance·v5.1 패키지 출력 | [v5.1 프로덕션 무결성](references/contract.md#v51-프로덕션-무결성-look에셋-게이트계보provenance패키지) | `assets/style-world-bible-template.md`, `assets/adaptation-map-template.md`, `assets/asset-gate.csv`, `assets/asset-provenance.csv`, `assets/prompt-ledger.csv`, `assets/dependency-graph.csv`, `assets/storyboard-panel-manifest.csv` |
 | 명시적 영화/단편/애니메이션/AI 영화의 기획→배급 전체 라이프사이클·단계 인계 요청 | [영화 제작 라이프사이클](references/28-film-production-lifecycle.md) | — |

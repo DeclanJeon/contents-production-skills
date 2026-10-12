@@ -24,6 +24,8 @@
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
 설치 목록의 원본은 [manifest.json](manifest.json)이다. 전문 참조는 추가 설치 스킬이 아니다.
+
+저장 Rofan craft 사례의 57-ID 선택형 사례집과 조건부 진입은 [설계 문서](docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md) 및 [테스트 계획](docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md)에 기록되어 있다. 현재 copied-package active-owner T12 reader run은 **15 PASS / 1 PASS_WITH_CONTEXT_LIMIT / 2 PARTIAL_NOT_MET, guard failure 0**이며 all-pass가 아니다. [결과 원문](qa/rofan-craft-green-final-t12-run.json)과 미충족 항목은 적용 계획에 기록되어 있다. Structural smoke, package/version checks, and pytest completed; pytest: **258 passed, 1 skipped, 2 warnings, 217 subtests passed**. [검증 기록](qa/rofan-craft-package-smoke.json). 실제 생성·미디어 QA·자연스러움/분산 검증은 수행하지 않았다.
 설치 목록은 **총 23개: 핵심 14개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
 
 캐릭터 시트를 새로 작성하거나 심화하면 페르소나·표현 연결·발화 역할의 음성 설계가 기본 포함된다. 새 허구 인물의 위임된 창작에서는 MBTI/에니어그램을 제안으로 사용할 수 있으며, 공급된 유형·승인 설정·명시적 `none`을 우선한다. 무언 역할은 음성 N/A; 실제 음성 후보·생성·청취 승인은 별도다. 구체적인 요청과 수정 경계는 [사용 가이드](USAGE_GUIDE.md#캐릭터와-시리즈)를 따른다.

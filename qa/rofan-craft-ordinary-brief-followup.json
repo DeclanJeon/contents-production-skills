@@ -1,0 +1,19 @@
+{
+  "run_kind": "actual_ordinary_brief_file_discovery",
+  "package_root": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-stable-55mbkjjk\\skills",
+  "requested_model": "Not included in public agent payload",
+  "prompt_text": null,
+  "prompt_constraints_from_Main": "8-second baker brief, no case-keyword or reuse request, <=350-word answer (exact prompt text unavailable in the public payload).",
+  "consulted_paths": [
+    "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-stable-55mbkjjk\\skills\\video-production-assets\\SKILL.md",
+    "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-stable-55mbkjjk\\skills\\video-production-assets\\references\\contract.md",
+    "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-stable-55mbkjjk\\skills\\video-production-assets\\references\\06-shots.md",
+    "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-stable-55mbkjjk\\skills\\video-production-assets\\references\\08-animation.md"
+  ],
+  "casebank_consulted": false,
+  "raw_output": "### 8-second 2D shot outline\n*Assumption: one continuous medium-wide shot in a simple bakery interior; no dialogue.*\n\n- **0.0–2.8s:** Baker stands behind the counter, holding three rolls on a tray. They place the rolls one by one onto the cooling rack, with each hand-to-roll contact clearly visible.\n- **2.8–4.2s:** Baker sets the now-empty tray down, then wipes flour from both hands with a towel. Keep the rack and all three rolls in view.\n- **4.2–6.8s:** A customer is visible at the counter edge. The baker looks up toward them and smiles; the customer remains a distinct listener, not a second baker.\n- **6.8–8.0s:** Hold the shared composition briefly on the smile and rack, letting the final arrangement read.\n\n### Practical continuity QA\n- Count the rolls: exactly three placed on the rack; none vanish, duplicate, or shift without contact.\n- Track hand occupancy: rolls leave the tray only as they are placed; the towel appears for the wipe and stays in the baker’s hand or is visibly set aside.\n- Preserve left/right screen positions and eyelines: baker looks toward the customer, and the customer is positioned on that side of the counter.\n- Keep the placement, wipe, and smile silhouettes distinct and readable at small size; don’t hide the hand-to-roll contact behind the rack.\n- Check the action fits eight seconds without rushing the three placements; keep the final hold inside the 8.0s endpoint.",
+  "manual_grade": {
+    "trigger_behavior": "PASS for this observed ordinary brief: output stays on baker/three rolls/towel/customer and gives useful QA; it does not force an unrelated saved craft case. The actual consulted-path list does not include rofan-craft-examples.md.",
+    "limitations": "One observed ordinary brief only; not statistical evidence that no other unrelated brief triggers case lookup. This runner was on the prior T7 stable fixture, not the T9 fixture, and is not part of the 18 stateless evaluation suite."
+  }
+}

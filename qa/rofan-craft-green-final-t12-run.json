@@ -1,0 +1,483 @@
+{
+  "run_id": "green_T12_active_owner_v2",
+  "phase": "final_frozen_v2_18_scenarios_active_owner_context",
+  "fixture": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-final-t12-yaxxnwjz\\skills",
+  "casebank_sha256": "cae803553b5858c1d201d69868b7ace1a3210a0cc71d1150ca898e9c5e3fdd1b",
+  "requested_model": "default",
+  "resolved_model": "UNKNOWN",
+  "runner": "functions.eval completion; one fresh stateless completion per frozen scenario; all 18 calls started before any response was read",
+  "context_policy_version": "active-owner-v1: core SKILL+contract; casebank and only scenario-relevant existing owner references/templates for cue-matched or explicit-reuse scenarios; ordinary-brief negative has core+06+08 but omits casebank because no retrieval cue/request; composite uses the exact T12 active 9-file list",
+  "rubrics_exposed_to_model": false,
+  "assertions_or_other_prompts_exposed_to_model": false,
+  "scenario_context_files": {
+    "positive_contact_approach_feet_cropped": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/04-performance.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/assets/06-shots-template.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/assets/09-edit-template.md"
+    ],
+    "positive_arrival_stop_stayer": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/04-performance.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/assets/06-shots-template.md"
+    ],
+    "positive_attendant_wardrobe_elision_mirror": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/references/26-state-causality-continuity.md",
+      "video-production-assets/assets/06-shots-template.md",
+      "video-production-assets/assets/09-edit-template.md"
+    ],
+    "positive_magic_vfx_cut": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/references/11-ai-handoff.md",
+      "video-production-assets/references/21-generated-video-qa-retry.md",
+      "video-production-assets/assets/06-shots-template.md",
+      "video-production-assets/assets/09-edit-template.md",
+      "video-production-assets/assets/11-ai-handoff-template.md"
+    ],
+    "positive_light_focus_title_eos": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/05-visual.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/07-lighting.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/references/21-generated-video-qa-retry.md",
+      "video-production-assets/assets/09-edit-template.md"
+    ],
+    "negative_already_kissing_no_first_touch": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/04-performance.md",
+      "video-production-assets/references/06-shots.md"
+    ],
+    "negative_flare_does_not_prove_rack_focus": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/05-visual.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/07-lighting.md",
+      "video-production-assets/references/09-edit.md"
+    ],
+    "negative_ordinary_brief_skip_casebank": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/08-animation.md"
+    ],
+    "reader_01_approach_feet_out_of_frame": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/08-animation.md",
+      "video-production-assets/assets/06-shots-template.md"
+    ],
+    "reader_02_established_contact_opener": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/04-performance.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/assets/06-shots-template.md"
+    ],
+    "reader_03_attendant_wardrobe_mirror": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/references/26-state-causality-continuity.md",
+      "video-production-assets/assets/06-shots-template.md",
+      "video-production-assets/assets/09-edit-template.md"
+    ],
+    "reader_04_magic_continuous_vfx_vs_cut": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/references/11-ai-handoff.md",
+      "video-production-assets/references/21-generated-video-qa-retry.md",
+      "video-production-assets/assets/06-shots-template.md",
+      "video-production-assets/assets/09-edit-template.md",
+      "video-production-assets/assets/11-ai-handoff-template.md"
+    ],
+    "reader_05_gate_flare_focus": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/05-visual.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/07-lighting.md",
+      "video-production-assets/assets/06-shots-template.md"
+    ],
+    "reader_06_title_bonus_picture_eos_container_tail": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/references/21-generated-video-qa-retry.md",
+      "video-production-assets/assets/09-edit-template.md"
+    ],
+    "reader_07_unavailable_source_body_unlistened_audio": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/25-reference-video-analysis.md",
+      "video-production-assets/references/08-animation.md"
+    ],
+    "reader_08_exact_fields_owner_separation": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/references/11-ai-handoff.md",
+      "video-production-assets/assets/06-shots-template.md",
+      "video-production-assets/assets/09-edit-template.md",
+      "video-production-assets/assets/11-ai-handoff-template.md"
+    ],
+    "positive_camera_information_reverse_anchor": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/rofan-craft-examples.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/assets/06-shots-template.md"
+    ],
+    "composite_baseline_contact_wardrobe_gate_ending": [
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/assets/06-shots-template.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/assets/09-edit-template.md",
+      "video-production-assets/references/11-ai-handoff.md",
+      "video-production-assets/assets/11-ai-handoff-template.md",
+      "video-production-assets/references/rofan-craft-examples.md"
+    ]
+  },
+  "prompt_hashes": {
+    "positive_contact_approach_feet_cropped": "d5f1131b7f2b665da6397a13264448bd028112b9ec4018ab4c0dd5ec7360b49e",
+    "positive_arrival_stop_stayer": "804508f076682bdba85874e33d97b7bf9e09da1443cd9f6a057692abad5513ae",
+    "positive_attendant_wardrobe_elision_mirror": "37b876323ab10cc6da6e5619645be6b83bdff09c80b29ff3655147a398b89312",
+    "positive_magic_vfx_cut": "5c24a91188856473cabc3cd2dfffcd7fa9ff82d64424f9ecb24f9098772b1c21",
+    "positive_light_focus_title_eos": "4e14b03668d8e5782438985cfad632014aef51ceb0fb04b2f4e7cb96422baf01",
+    "negative_already_kissing_no_first_touch": "9eb4f5ff2187dfa137ddd7ee3b99bc3f41cb4906546309fa9e5dc80dd240799f",
+    "negative_flare_does_not_prove_rack_focus": "5455dcd53231b7026649ee4166790c04ed79e845bfc771bb7609a4383681b7ff",
+    "negative_ordinary_brief_skip_casebank": "2e8d0aa6f2752fef79395eed196060ce2b657bc01ab35c4adcf3d71dcf6fe6d5",
+    "reader_01_approach_feet_out_of_frame": "86832c9fde66b5bdbb3d07462cb7fc9e66fd5aa9a4eb671379224ba5ab7625b6",
+    "reader_02_established_contact_opener": "01946957745ce66cc917d67372eae6b2164547a2ba73abf37ec01cc31c6151de",
+    "reader_03_attendant_wardrobe_mirror": "7685e79111f60ec90bfce3b298a62fc7c082e8431ed9cd282a482e813171fcca",
+    "reader_04_magic_continuous_vfx_vs_cut": "b53b062d9afba0c01ea1891886bf1966638d532503d8bd67616dead40569920e",
+    "reader_05_gate_flare_focus": "81789cc6ddb7b331e7fcfba7b1cf07af46a95cee7c2c172cfba01e78336858a2",
+    "reader_06_title_bonus_picture_eos_container_tail": "0c9e4753ed39ab6c8a4112765f02e8fde03b309488cd309fd72d5094a90fd415",
+    "reader_07_unavailable_source_body_unlistened_audio": "f1209e134d37ce19c6d49e18c1df16d9f42b06857b3b73bbfdb56a7bb0a48353",
+    "reader_08_exact_fields_owner_separation": "ece0cd42eeb18c4d2b825e6a20e1a37ef60af862bc1500ecc8bf8ea1e60f9b1e",
+    "positive_camera_information_reverse_anchor": "0102828e5adba0c4a004c78036cf5e43d0e7cf1f1b346dde039ff6ac4e584227",
+    "composite_baseline_contact_wardrobe_gate_ending": "47194b75b16c7eb2a0bc5feb49628bf349d1ebf5a0a94983b788d6edcbfd674d"
+  },
+  "context_hashes": {
+    "positive_contact_approach_feet_cropped": {
+      "sha256": "3f13615a4adc604398e13f72d004cf578c95d51ac3cad662da8c4b299aa53e2e",
+      "bytes": 133661
+    },
+    "positive_arrival_stop_stayer": {
+      "sha256": "1b5fd861cb380733650c2a8f3d5766424850a6c54c53b1f23baa36a2ea39eba0",
+      "bytes": 111962
+    },
+    "positive_attendant_wardrobe_elision_mirror": {
+      "sha256": "7f5d3b4e37e8be4d40fe54262f536f1cd20cd4d66de511ef66baa18b831fb3c9",
+      "bytes": 140212
+    },
+    "positive_magic_vfx_cut": {
+      "sha256": "44a13d48d49dee8edccf447583df083981561616522562757bdb8ac03e861f7a",
+      "bytes": 154143
+    },
+    "positive_light_focus_title_eos": {
+      "sha256": "c3d61bc6aabb3c9d03944107c5b0033aa4e2760ffefe1168bb4b6dc47ce5497d",
+      "bytes": 149168
+    },
+    "negative_already_kissing_no_first_touch": {
+      "sha256": "d6c86a602d6030cfbf200d3625e7b3effb40e41e17301eb9aa8e77b5ba170a26",
+      "bytes": 106912
+    },
+    "negative_flare_does_not_prove_rack_focus": {
+      "sha256": "6b37eaff787a1a49e916b058ecb22dce5eb848474639d40a9e1f1c97c40cc99d",
+      "bytes": 128225
+    },
+    "negative_ordinary_brief_skip_casebank": {
+      "sha256": "3377a73108c0e96868c76231ff72ee8e7f4d0c9c50ccc3c2cd66cdfeb7293fa4",
+      "bytes": 66835
+    },
+    "reader_01_approach_feet_out_of_frame": {
+      "sha256": "e15c966af6cfe1521f497ca646f8cee5162a4713e615fcacee4f8c70ee8f3891",
+      "bytes": 112094
+    },
+    "reader_02_established_contact_opener": {
+      "sha256": "1b5fd861cb380733650c2a8f3d5766424850a6c54c53b1f23baa36a2ea39eba0",
+      "bytes": 111962
+    },
+    "reader_03_attendant_wardrobe_mirror": {
+      "sha256": "7f5d3b4e37e8be4d40fe54262f536f1cd20cd4d66de511ef66baa18b831fb3c9",
+      "bytes": 140212
+    },
+    "reader_04_magic_continuous_vfx_vs_cut": {
+      "sha256": "44a13d48d49dee8edccf447583df083981561616522562757bdb8ac03e861f7a",
+      "bytes": 154143
+    },
+    "reader_05_gate_flare_focus": {
+      "sha256": "cffbbe2c98c819f0b40809c0fbcce255b531c941735eef9fc0a3f3f56c264e63",
+      "bytes": 114204
+    },
+    "reader_06_title_bonus_picture_eos_container_tail": {
+      "sha256": "5fe8cf59af8d8680315e738c377124e40bbb47389e69d62dca48f270c9b1e4c9",
+      "bytes": 132390
+    },
+    "reader_07_unavailable_source_body_unlistened_audio": {
+      "sha256": "1f312dc241329a3d49ed3a64090a18ef074eed57f2ff6304d88ac444f67f0d20",
+      "bytes": 113195
+    },
+    "reader_08_exact_fields_owner_separation": {
+      "sha256": "0791d353a4fd205315ac518994f1bf536157e5bc38a18c3b2837bb4cf69df76a",
+      "bytes": 135828
+    },
+    "positive_camera_information_reverse_anchor": {
+      "sha256": "8832616c79a85764ce0ab0339f70482b6775b89b1f3063566250cd2dd2019f22",
+      "bytes": 109622
+    },
+    "composite_baseline_contact_wardrobe_gate_ending": {
+      "sha256": "f1e52a35fbd8842cfcf6d7049dac30ce3038f4fb9d2580718f0dbbd3e16cb98f",
+      "bytes": 135828
+    }
+  },
+  "results": {
+    "positive_contact_approach_feet_cropped": {
+      "status": "returned",
+      "raw": "## 14초 샷/큐 계획 — 텍스트 전용 2D\n\n**설계 제안:** 연속된 단일 샷으로 계획합니다. 첫 프레임부터 두 성인은 이미 입술이 맞닿아 있습니다. 키스가 끝난 뒤 한 사람이 몇 걸음 물러나 멈추고, 다른 사람은 제자리에 남습니다. 여성의 발은 프레임 밖이므로 보행 방식이나 발 디딤은 묘사·주장하지 않습니다. 아래 시간은 새 제안이며, 저장 사례의 측정값이 아닙니다.\n\n| Local time (shot seconds) | Actor phase / contact / visibility | Camera phase | Reveal / hold | Cut-out → cut-in phase |\n|---|---|---|---|---|\n| 0.0–3.0 | 두 성인은 이미 입술이 맞닿은 상태로 시작해 키스를 유지합니다. 손의 접촉은 보이는 경우에만 유지하고, 가려져 있으면 미확인으로 둡니다. 여성의 발은 프레임 밖입니다. | 타이트한 투샷을 고정합니다. | 이미 성립된 키스가 첫 프레임부터 읽힙니다. 약 2.5초부터 접촉을 풀기 시작합니다. | 단일 샷. 컷 아웃/인 없음. |\n| 3.0–4.0 | 두 사람이 입술 접촉을 끝내고 서로 떨어집니다. | 같은 구도에서 고정합니다. | 접촉 종료와 분리가 읽히게 잠시 유지합니다. | 컷 없음. |\n| 4.0–8.0 | 한 사람이 몇 걸음 뒤로 물러납니다. 다른 사람은 제자리에 남습니다. 여성의 발은 계속 프레임 밖이므로 보행·발 접촉은 **숨김/미검증**입니다. | 카메라는 고정하고 두 사람의 상대적 간격을 프레임 안에 유지합니다. | 물러나는 행동과 남아 있는 사람의 위치가 함께 보입니다. | 컷 없음. |\n| 8.0–9.0 | 물러난 사람이 멈춰 자리를 잡습니다. 남은 사람은 움직이지 않습니다. | 고정; 카메라 정착 동작은 없습니다. | 정지 상태가 읽히도록 기다립니다. | 컷 없음. |\n| 9.0–14.0 | 두 사람은 떨어진 위치를 유지합니다. 상대의 추가 행동이나 접촉은 제안하지 않습니다. | 같은 투샷을 유지합니다. | 관계와 거리의 변화가 보이는 정착 홀드. | 샷 종료; 컷 아웃/인 없음. |\n\n### 저장 사례와 신규 제안 구분\n\n- **이미 접촉한 시작 — P10:** 저장 관찰은 가까운 두 사람이 이미 입술을 맞댄 상태로 시작한다는 것입니다. 첫 접촉은 관찰되지 않습니다. 이 계획은 그 원칙을 첫 프레임에 적용하며, 새로 접근하거나 첫 키스를 만들어내지 않습니다.\n- **다가옴/정지의 제한된 동작 정보 — P01:** 저장 관찰은 접근 후 간격이 좁아지고 멈추는 모습이며, 발과 보행 전체는 보이지 않습니다. 이 장면은 **뒤로 물러나 멈추는** 새 제안입니다. 해당 방향은 사례의 관찰이 아니므로 보행 주기·발 디딤은 주장하지 않습니다.\n- 위 표의 **14초 배분과 큐 시각은 모두 새 설계 제안**입니다. 사례의 원본 시각을 이 장면의 타임라인으로 사용하지 않았습니다.\n\n### QA\n\n- 첫 프레임에서 이미 성립된 입술 접촉이 읽히는가? 첫 접촉을 새로 연출하지 않았는가?\n- 키스 종료, 분리, 물러남, 정지, 홀드가 서로 구별되는가?\n- 남아 있는 인물이 움직이지 않는 상태와 두 사람의 거리 변화가 함께 읽히는가?\n- 여성의 발이 프레임 밖인 동안 보행·발 디딤을 보였다고 암시하지 않는가?\n- 14초 전체가 시간 공백 없이 덮이는가? 실제 생성 결과는 아직 없어 QA는 **계획 기준**이며 통과 판정은 아닙니다."
+    },
+    "positive_arrival_stop_stayer": {
+      "status": "returned",
+      "raw": "## 2D shot plan — text-only proposal\n\n**Scope:** One continuous shot covering the full 9-second scene. No source footage was supplied, so the timings and staging below are **new proposals**, not observations. This is a 2D blocking plan, not a numeric 3D camera specification.\n\n| Shot | Final timeline | Framing / blocking | Shot-local phases |\n|---|---:|---|---|\n| SH01 | 0.0–9.0s | Medium-wide two-shot: doorway and threshold remain visible; host is seated beside the traveler’s arrival mark. Hold the composition so the traveler’s entrance, stop, and settle read together. No cut or camera move proposed. | **0.0–1.2:** Traveler enters through the doorway and approaches; feet/contact detail is not specified. **1.2–1.8:** Decelerates near the seated host. **1.8–2.2:** Stops beside the host. **2.2–3.0:** Settles into a stable standing position. **3.0–9.0:** Hold the arrival and shared spatial relationship. |\n\n**Optional host response:** Use only if the beat needs acknowledgment or a change in their interaction. If so, the host begins looking up at about **3.5s**, after the traveler has settled, and holds the gaze through **4.5–5.5s**; the remainder of the shot holds their resulting shared tableau. If no response is needed, the host stays seated and does not look up; hold the traveler’s settled arrival instead. This is a proposed choice, not a source-derived action.\n\n### Saved craft observations → new proposal\n\n- **P01 — approach to stop:** Saved notes describe an approach, narrowing spacing, then a stop; the feet and full gait are cropped or absent. **New proposal:** divide this scene’s approach, deceleration, stop, and settle into the timed phases above. Do not infer a particular gait or foot plant.\n- **C09 — arrival with stayer attention:** Saved notes describe one actor moving to a stop while another remains in the foreground, with attention held through the stayer. **New proposal:** keep the seated host visible as the traveler arrives; make the host’s look-up optional rather than assumed.\n- **C02 — shared-frame relationship anchor:** Saved notes describe a shared two-shot anchoring a pair’s spatial relation before closer views. **New proposal:** retain both traveler and host in the same frame to clarify “beside”; closer coverage is not required for this 9-second beat.\n\nThese are bounded saved observations, not fresh footage review or claims about this new scene.\n\n### QA checks\n\n- **Arrival / stop:** Confirm the traveler’s approach, deceleration, stop beside the seated host, and subsequent settle are visually distinct and readable; the doorway and host provide clear spatial anchors. Check the stop’s position relative to the host. Do not claim a visible foot plant if the feet are not shown.\n- **Optional response:** If included, confirm the host looks up **after** the traveler settles and that the gaze is legible. If omitted, confirm the host remains seated without an unintended look-up. The response is a staging choice, not a saved-source fact."
+    },
+    "positive_attendant_wardrobe_elision_mirror": {
+      "status": "returned",
+      "raw": "## Text-only 2D shot plan — 16 seconds\n\n**Status:** design proposal; not generated or verified.  \n**Continuity:** one adult remains seated across both shots. The attendant helps remove the travel cloak in SH01; the intervening change to ceremonial clothing is intentionally omitted. The dressing-table pin is left untouched, with ownership **unknown**. A reflected figure may be shown, but whether it is the same person is **unverified**.  \n**Timeline:** SH01 runs 0–7s; SH02 runs 7–16s. The cut is at 7s, with no output-time gap. Story-time elapsed and capture gap are unknown.\n\n### Saved craft observations → new proposals\n\n| Beat | Bounded saved observation | New proposal for this scene |\n|---|---|---|\n| Cloak removal / attendant work | **P17:** a saved case records attendants leaning in, working, withdrawing, and repositioning beside a main actor. It does not require a particular helper count. | Use exactly one attendant, as requested. Keep the adult seated; show the cloak-removal assistance, then the attendant withdraws. Do not add other dressing steps. |\n| Work-to-finished appearance | **O08:** a saved case shows selected preparation beats followed by a finished look; it is not a continuous full-dressing sequence. | Cut from the cloak-removal work to the adult already in ceremonial clothing. Treat the intervening change as an intentional elision, not continuous action. |\n| Mirror reveal | **O09:** a saved case moves from a hem detail to a mirror/reflection reveal; reflection identity is unknown in the saved observation. | Use a mirror composition to reveal the requested seated ceremonial-clothing state. Do not claim who the reflection is; keep the pin out of the action. |\n\n### 06 — Shot rows\n\n| shot_id | scene_id | beat_id | shot-local time (s or frames; FPS if frames) | 크기/카메라 위치 | 인물 블로킹 | 시선/축 | 공개 정보 | 관점·감정/구도 의도 | 대안·채택/승인 상태 | 카메라 동작 | 종료 프레임 | 핸들 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| SH01 | S01 | B01 | 0–7s | Medium two-shot; seated adult and one attendant visible. | Adult remains seated. Attendant assists with removing the travel cloak, then withdraws. Keep hands and cloak readable; do not touch the pin. | Hold a consistent adult–attendant axis. | The cloak is removed with assistance; the adult remains seated. | Make the requested work legible without implying a complete dressing process. | Single proposal; unapproved. | Locked. | Adult seated after cloak removal; attendant withdrawn; pin remains untouched. | N/A |\n| SH02 | S01 | B02 | 0–9s (final 7–16s) | Medium composition including seated adult and mirror; keep the dressing-table pin visible only if naturally in frame. | Same adult remains seated, now in ceremonial clothing. No further attendant action. | Preserve screen direction where practical; reflection correspondence is not asserted. | Reveal the ceremonial-clothing state and mirror; elapsed time and reflection identity remain unknown. | Let the new state read clearly while keeping the omitted change and reflection ambiguity explicit. | Single proposal; unapproved. | Locked. | Adult remains seated before the mirror in ceremonial clothing; no pin interaction. | N/A |\n\n### 09 — Cut rows\n\n| cut_id | shot_id/asset_id | source_in_s | source_out_s | playback_rate | final_start_s | final_end_s | 행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유 | transition/duration_s | sound_id·sync anchor | reaction/settle hold final start–end s·연속성/검수 상태 |\n|---|---|---:|---:|---:|---:|---:|---|---|---|---|---|\n| C01 | SH01 | — | — | 1.0 | 0 | 7 | Work shot: attendant assists with cloak removal and withdraws. Cut out at 7s with adult seated, cloak removed, attendant withdrawn. Cut in at SH02 local 0s: same adult seated in ceremonial clothing before mirror. Cut marks intentional omission of the clothing change; elapsed story time and capture gap are unknown. | hard_cut / 0 | N/A | SH01 settle within 6–7s; SH02 reveal/hold from 7–16s. Proposed timing; verify seated posture, wardrobe state, and pin continuity in any later execution. |\n| C02 | SH02 | — | — | 1.0 | 7 | 16 | Mirror reveal and hold; no further action or inferred cut. | hard_cut / 0 | N/A | Proposed reveal hold 8–16s; reflection identity remains unverified. |\n\n### Intentional elision — canonical state fields\n\n| cut_id | 획득 방식: 연속배속/인터벌/몽타주/의도적 생략/미확인 | 실제 경과시간·촬영 구간·간격·공백(근거 위치) | 생략 전 상태 | 생략 후 상태 | 후속 컷 유지/리셋 조건 |\n|---|---|---|---|---|---|\n| C01 | 의도적 생략 | Story-time elapsed: unknown. Capture gap: unknown / not measured. Final output shots are adjacent at 7s. | Adult seated; attendant has helped remove the travel cloak and withdrawn. | Same adult seated before a mirror in ceremonial clothing. | Preserve adult identity and seated posture. Keep the dressing-table pin untouched; ownership remains unknown. Do not assert reflection identity. |\n\n### Handoff / QA\n\n**Handoff:** Text-only 2D plan; no images or execution implied. For any later production, confirm the ceremonial wardrobe reference and mirror staging. Keep the pin’s ownership unresolved unless supplied by the brief.\n\n**QA checks:** Confirm the adult remains seated across the cut; SH01 reads as assisted cloak removal by one attendant; SH02 clearly reveals ceremonial clothing and the mirror; the pin is not handled or assigned an owner; reflection identity is not claimed. Verify the 0–16s timeline is continuous, with the cut exactly at 7s."
+    },
+    "positive_magic_vfx_cut": {
+      "status": "returned",
+      "raw": "## Text-only 2D plan — 11-second cup beat\n\n**Scope:** The uninterrupted cup shot occupies **0–11 s**. The gate flare is a **separate planned shot later**, outside this timed beat; its timing and the cut to it are unspecified. Times below are design proposals, not source measurements or generated-media results. No images, spatial measurements, or execution are implied.\n\n### Saved craft observations → new proposals\n\n- **Cup action — saved case L06:** A bounded saved observation describes a gesture/glow, cup separation, travel, impact/break, and witness response in what was treated as one within-shot event. It does **not** establish the mechanism as physical magic. The source-specific travel, breakage, and witness response do not transfer to this brief.\n  - **New proposal:** Keep the cup intact. Show a tremble, lift, rotation, and settle on the table in one continuous shot. The cause is unspecified; do not add a visible caster or explain the effect.\n- **Gate flare — saved case L03:** A bounded observation describes a gradual brightness/flare change over fixed geometry, with no cut inferred. Its physical light source and equipment are unknown.\n  - **New proposal:** In a distinct later shot, hold the gate’s geometry while a gold flare appears. The flare’s physical cause is unspecified.\n\n### 06 — shot cues\n\n**Board purpose:** Text-only shot plan.  \n**Timing basis:** Shot-local seconds.  \n**Camera/tool support:** Unchecked; directions are design proposals, not confirmed endpoint controls.\n\n| Local time (shot seconds) | Actor phase / contact / visibility | Camera phase | Reveal / hold | Cut-out → cut-in phase |\n|---|---|---|---|---|\n| 0.0–2.0 | Silver cup rests on table; table contact visible. | Locked view includes cup and enough tabletop to read contact. | Establish resting state; no hold beyond the opening state. | None; shot begins. |\n| 2.0–3.0 | Cup trembles while remaining on the table; contact remains visible. | Locked. | Reveal tremble. | None. |\n| 3.0–4.0 | Cup lifts clear of the table; gap/contact separation should be visible. | Locked. | Lift becomes legible. | None. |\n| 4.0–7.0 | Cup rotates while suspended; keep it identifiable and within frame. | Locked. | Rotation phase; no extra effect required. | None. |\n| 7.0–9.0 | Rotation slows; cup descends toward the tabletop. | Locked. | Approach to landing. | None. |\n| 9.0–10.0 | Cup contacts the table and settles; final contact should read. | Locked. | Contact, then settle. | None. |\n| 10.0–11.0 | Cup remains at rest on the table. | Locked. | End-state hold. | Shot ends after hold. |\n\n**Shot-plan fields**\n\n| shot_id | scene_id | beat_id | shot-local time (s or frames; FPS if frames) | 크기/카메라 위치 | 인물 블로킹 | 시선/축 | 공개 정보 | 관점·감정/구도 의도 | 대안·채택/승인 상태 | 카메라 동작 | 종료 프레임 | 핸들 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Proposed ID pending registration | Proposed ID pending registration | Proposed ID pending registration | 0–11 s | Fixed 2D composition; cup and tabletop contact area visible | No person specified; cup stays in view | N/A | Rest → tremble → lift → rotate → descend → table contact → settle | Make the cup’s changing state and final table contact readable without implying a cause | Single uninterrupted shot; proposed, not approved | Locked, proposed | Cup at rest on table; contact visible | No source/production handles specified |\n\n**Later gate shot — separate proposal, untimed:** Fixed gate geometry; gold flare changes in brightness while the gate framing remains fixed. No physical cause, camera move, or cut count is specified.\n\n### 09 — edit and boundary plan\n\n| cut_id | shot_id/asset_id | source_in_s | source_out_s | playback_rate | final_start_s | final_end_s | 행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유 | transition/duration_s | sound_id·sync anchor | reaction/settle hold final start–end s·연속성/검수 상태 |\n|---|---|---:|---:|---:|---:|---:|---|---|---|---|---|\n| Proposed row pending registration | Cup shot, proposed ID pending registration | — | — | — | 0 | 11 | One uninterrupted shot: tremble → lift → rotate → descend → table contact → settle. No internal edit boundary proposed. Shot-out: cup settled on table at local 11 s. | No transition specified | None specified | Proposed end hold 10–11 s; verify actual settled contact in media |\n\nThe later gate shot is outside this 11-second allocation, so no final timecode, cut row, or transition is assigned. If the cup shot is later edited directly into the gate shot, record **one cut at that actual boundary** in the 09 edit plan, with the cup’s cut-out state and the gate shot’s cut-in state. Do not treat the cup’s motion phases or the flare itself as cuts.\n\n### 11 — AI handoff slots\n\n| Shot | Initial state / main action / end state | Camera and tool support | Continuity / execution status |\n|---|---|---|---|\n| Cup shot, proposed ID pending registration | Initial: silver cup resting on table. Main action: tremble, lift clear of surface, rotate, descend, contact table, settle. End: cup at rest on table. | Locked framing is a **DESIGN_PROPOSAL**. **Tool support: UNKNOWN** until the selected endpoint is checked. | No character, caster, physical cause, or audio is specified. Text handoff only; not generated. |\n| Later gate shot, proposed ID pending registration | Initial: fixed gate view. Main action: gold flare appears/brightens over unchanged geometry. End: unspecified. | Fixed geometry is a **DESIGN_PROPOSAL**. **Tool support: UNKNOWN** until the selected endpoint is checked. | Cause and timing are unspecified. Separate planned shot; not generated. |\n\n### Observable QA — for actual media, if produced\n\n- **Cup motion:** Check that the cup visibly trembles before lifting; separates from the table; rotates while identifiable; descends; makes visible table contact; and remains settled through the planned end hold.\n- **Continuity and framing:** Check the cup remains in frame, the tabletop contact area is readable, the cup does not teleport or visibly pass through the table, and no unintended edit interrupts the shot.\n- **Gate flare:** Check the gate’s geometry stays fixed while the gold flare changes; do not infer a cause from the image alone.\n- **Edit boundary:** Confirm cuts only at actual edit boundaries in the assembled timeline. No rendered output or QA result is available now.\n\n**Unverified:** Endpoint support for the proposed camera/effect instructions; exact rendering behavior; gate-shot timing and end state; any physical cause for either effect."
+    },
+    "positive_light_focus_title_eos": {
+      "status": "returned",
+      "raw": "## Text-only 2D sequence plan — 13 seconds\n\n**Status:** Proposal only; no source footage or rendered output supplied. The sequence covers the full requested interval, **0.0–13.0s**. The timings below are proposed, not measured.  \n**Audio:** Not specified; no audio cues are proposed. This does **not** establish that the eventual file is silent.\n\n### Saved observations → new proposals\n\n| Beat | Bounded saved observation | New proposal |\n|---|---|---|\n| Fixed gate brightens; brief flare | **L03:** Saved notes describe brightness increasing over held geometry (`430`, ~65.532–76.943s) and a rising gate flare without cuts (`d31`, ~2101.599/2101.683). The notes do not establish the lighting hardware or exposure mechanism. | Keep the stone-gate composition fixed while brightness rises briefly and a flare appears. Treat this as a **light/image change**, not evidence of a camera move or edit. |\n| Briefly soft-looking image | **L05:** Saved notes describe a sharper profile with a blurred background around ~266s (`9e0`). This does not prove a rack focus. | If the proposed image briefly looks soft, describe only the visible softness. **No focus pull is confirmed**; do not direct a focus change or attribute the softness to focus, lens, or camera operation. |\n| Title overlay | **E05:** Saved notes describe titles over underlying images (`7edf`, `c749`, `a600`). Candidate frames may be one overlay rather than separate shots. | Introduce the title as a graphic over the continuing gate image. No cut is implied by the overlay. Exact title wording and design are unspecified. |\n| Bonus label and gold-star image | **E06:** Saved notes describe an apparent title, then a bonus label around ~339s, a table scene around ~342.767s, and a later ending; these are bounded notes, not a full-work reconstruction. | After the title, show a bonus label and gold-star image over the gate composition. Their exact wording, artwork, relationship, and ordering within the beat are proposed only to the extent shown in the timeline below. Do not infer that this sequence is the actual ending. |\n| File/container tail | **E07:** Saved notes distinguish last visible picture from container duration in two examples; neither gives information about this requested file. | Make no claim about the eventual file’s decoded last picture, duration metadata, black tail, or container end. Verify those from the actual exported file. |\n\n### Proposed timeline\n\n| Final time | Picture and edit proposal |\n|---|---|\n| **0.0–2.0s** | Hold the stone-gate composition. Begin a gradual brightening; keep framing and visible gate geometry fixed. |\n| **2.0–3.0s** | Brief flare over the gate, then let it subside. Do not add a cut or camera move for the flare. |\n| **3.0–4.0s** | Return to the proposed steady gate image. If a soft-looking interval is used, keep it brief and visually observable; do not represent it as a confirmed focus pull. |\n| **4.0–7.0s** | Title overlay appears and holds over the gate. Title copy, typography, and transition style are **unspecified**. |\n| **7.0–8.0s** | Clear or transition away from the title; preserve the gate image underneath unless a different treatment is approved. |\n| **8.0–10.0s** | Bonus label appears over the continuing gate image and holds. Exact label copy and artwork are **unspecified**. |\n| **10.0–13.0s** | Gold-star image appears with the bonus label, as a proposed combined end image. Hold through 13.0s. Whether the label remains, and the star’s approved design, are **unspecified**. The end of this planned picture is not evidence of the exported file’s actual picture or container end. |\n\n### Edit and QA handoff\n\n**Edit plan:** One continuing fixed gate composition, with proposed graphic overlays; no actual cut is required by the described beats. Any later edit boundary must be confirmed from the timeline or actual media—not inferred from a flare, softness, or overlay.\n\n| Final interval | Proposed edit/action and handoff |\n|---|---|\n| 0.0–3.0s | Fixed gate image; brightness change and brief flare are image/light events, not proposed cuts. |\n| 3.0–4.0s | Hold the gate image. Softness, if present, is an appearance only; focus mechanism unknown. |\n| 4.0–7.0s | Title overlay over the underlying image; overlay boundary is not a shot boundary by itself. |\n| 7.0–8.0s | Proposed title exit/transition; exact method unspecified. |\n| 8.0–10.0s | Bonus label overlay. |\n| 10.0–13.0s | Gold-star image joins the bonus-label end image; hold to planned endpoint. |\n\n**Actual unknowns and checks**\n- **Source and generation:** No source clip, frames, edit timeline, or generated output was supplied. All timings and visual treatments above are proposals.\n- **Light vs. camera/edit:** Check that gate framing and spatial anchors remain fixed through the brightening and flare. Do not infer a camera move or cut from brightness or flare.\n- **Focus:** No focus pull is confirmed. If the image looks soft, inspect the actual frames before assigning cause; keep lens, focus, and camera mechanism **unknown** unless independently evidenced.\n- **Graphics:** Confirm approved title/bonus copy and the actual gold-star artwork before final design or export. Check legibility and overlay timing in the intended output size.\n- **Endpoint:** Actual file duration, last decoded picture, black tail, and container duration are **unknown**. After export, inspect playback and the decoded final picture, then compare them with the container’s reported duration; do not substitute the planned 13.0-second timeline endpoint for those measurements.\n- **QA scope:** No media QA has been performed. These are checks for a later review, not pass results."
+    },
+    "negative_already_kissing_no_first_touch": {
+      "status": "returned",
+      "raw": "**Saved case:** P10 is relevant: its bounded observation is a close pair already in visible mouth contact at the opening; it does not show a first touch. Hands may be occluded, so their contact state is unknown.\n\n**Shot (5 seconds, text-only 2D):** Two adults are already kissing in the first frame. Hold the same composition and visible mouth contact for the full 5 seconds; no approach, first touch, reaction, or change. This is a new proposal, not a claim about the saved footage.\n\n**QA check:** Confirm mouth contact is visible from the first frame through the final frame, with no unintended change."
+    },
+    "negative_flare_does_not_prove_rack_focus": {
+      "status": "returned",
+      "raw": "**Lighting/camera note:** Hold a fixed view of the gate; introduce one brief golden flare, then return to the established image. The flare’s source and optical mechanism are unspecified.\n\n**Evidence:** No rack focus or cut is evidenced. The saved observation for L03 describes a rising gate flare over held geometry with no cuts; it does not establish a focus change or the flare’s physical cause. The fixed-camera, single-flare treatment above is the new proposal."
+    },
+    "negative_ordinary_brief_skip_casebank": {
+      "status": "returned",
+      "raw": "## Text-only 2D shot outline — 8 seconds\n\n**Setup:** One continuous medium-wide shot at the bakery counter. The adult baker, cooling rack, three rolls, and customer are visible. No dialogue or sound is specified.\n\n| Time | Beat | Bounded saved observation | New proposal |\n|---|---|---|---|\n| 0–3.5s | Baker places three rolls on the rack, one at a time. | **Unavailable:** no relevant saved observation was consulted; the brief gives no matching craft cue. | Keep the rack and all three rolls readable. Let each placement finish before the next; show exactly three rolls by the beat’s end. |\n| 3.5–5.5s | Baker withdraws their hands and wipes flour from them with a towel. | **Unavailable.** | Keep the towel separate from the rolls and rack. Show the wipe as a distinct action after placement. |\n| 5.5–8s | Baker looks to the customer and smiles. | **Unavailable.** | Make the gaze shift precede the smile; hold the smile briefly so the customer-directed greeting reads. |\n\n## Practical continuity QA\n\n- **Roll count:** Three rolls are placed; none vanish, duplicate, or move inexplicably.\n- **Prop state:** Rolls remain on the rack; towel is used only after placement and does not touch the food.\n- **Action order:** Place → wipe hands → look to customer → smile.\n- **Readability:** Keep the baker’s hands, rack, and customer-facing expression legible in the composition.\n- **Timing:** The three actions fit within eight seconds without rushing the placements or cutting off the smile.\n- **Craft-case note:** No unrelated saved case was searched for or applied."
+    },
+    "reader_01_approach_feet_out_of_frame": {
+      "status": "returned",
+      "raw": "### Observation — saved shot description\nTwo adults approach and then stop. Their feet are cropped throughout, so the description supports an approach and a stop, but **not** visible footfalls, gait details, or a planted-foot cue. It does not establish what either adult does after stopping.\n\n### Proposal — new 2D arrival\nUse one shared frame so the approach and stop read as a single arrival. Keep both adults’ upper bodies visible; let their spacing close, then settle into a clear stopped position. Treat the timing below as a **design proposal**, not a measurement or a universal walking rhythm.\n\n| Shot-local time (s) | Actor phase / contact / visibility | Camera phase | Reveal / hold | Cut-out → cut-in phase |\n|---|---|---|---|---|\n| 0.0–1.8 | Both adults approach. Feet remain cropped; footfalls and foot contact are **hidden / unverified**. | Hold a stable two-person composition. | Arrival is underway. | — |\n| 1.8–2.2 | Both decelerate and stop. Do not show or claim a specific foot plant. | Keep framing steady. | Make the stop legible through the adults’ upper-body motion and settling. | — |\n| 2.2–3.0 | Both remain stopped; any further gesture or reaction is **unspecified**. | Hold. | Brief endpoint hold; no added response assumed. | — |\n\n### QA\n- **Pass criterion:** The approach, deceleration, and stopped end state are visually distinct and readable.\n- Keep feet cropped if preserving the source limitation; do not imply visible gait, foot contact, or a particular plant.\n- Check that the shot ends with both adults stopped—not still approaching.\n- Treat any post-stop reaction, dialogue, or interaction as a separate brief decision, not as supported by the saved description."
+    },
+    "reader_02_established_contact_opener": {
+      "status": "returned",
+      "raw": "**Shot decision — proposed for the new brief, informed by saved case P10**\n\n- **Opening state:** The shot begins with the adults already in visible mouth contact. Do not add an approach, first touch, or other lead-in.\n- **Contact visibility:** Keep the mouth contact readable in the frame. Hands may remain out of frame or occluded; their contact state is **unknown** and should not be implied.\n- **Coverage:** Use a steady shared composition that preserves the pair’s relationship and the established contact. No cut or camera move is required by the brief.\n- **End state:** Maintain the specified contact through the shot unless the brief supplies a change. Duration and any later action remain unspecified.\n- **QA:** Check that mouth contact reads clearly and that framing does not accidentally suggest a first-contact beat. Do not infer hand contact, intent, or consent from the visible mouth contact alone.\n\nThe saved case is an observation of an already-contacting opener; these are proposed choices for the new brief, not claims about additional source action."
+    },
+    "reader_03_attendant_wardrobe_mirror": {
+      "status": "returned",
+      "raw": "## Source observation → proposal\n\nThe saved notes support partial preparation/work followed by a finished-wardrobe mirror reveal; they do **not** establish complete dressing, elapsed story time, or the reflection’s identity. The plan below is a new proposal, not a source measurement. It uses one attendant and keeps the main actor seated. The times are illustrative and must be rebased to the project timeline.\n\n## 06 — shot cues\n\n**W1** and **W2** are document-local labels, not production IDs. Replace them with the project’s assigned IDs.\n\n| Local time (shot seconds) | Actor phase / contact / visibility | Camera phase | Reveal / hold | Cut-out → cut-in phase |\n|---|---|---|---|---|\n| **W1 0.0–1.0** | Main actor remains seated; one attendant works at the specified shoulder. Show hands only if framed. | Medium two-person composition; keep actor and attendant readable. | Work in progress. | — |\n| **W1 1.0–2.0** | Attendant withdraws/repositions; actor remains seated. | Hold the shared frame. | Work shot settles. | **Out at W1 2.0:** attendant withdrawn, actor seated → **in at W2 0.0:** actor seated before mirror in finished wardrobe. |\n| **W2 0.0–1.0** | Actor remains seated; hem enters foreground; reflection appears. Reflection identity is unestablished unless the brief anchors it. | Frame actor and mirror in a readable relation. | Reveal hem/reflection. | Cut-in state as specified at W1 out. |\n| **W2 1.0–2.0** | Actor remains seated and regards the mirror. | Hold the mirror/actor relationship. | Finished-look/reaction hold. | — |\n\n## 09 — cut rows\n\nThe two final-timeline intervals are **adjacent**: W1 ends where W2 begins. This is a proposed edit relationship, not evidence of story-time continuity.\n\n| cut_id | shot_id/asset_id | final_start_s | final_end_s | 행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유 | reaction/settle hold final start–end s·연속성/검수 상태 |\n|---|---|---:|---:|---|---|\n| W1 | W1 | 40.0 | 42.0 | Work and attendant withdrawal. **Out at 42.0:** attendant withdrawn; actor seated. Cut omits the unshown preparation. | N/A |\n| W2 | W2 | 42.0 | 44.0 | Mirror/hem reveal. **In at 42.0:** actor seated in finished wardrobe. Reveal finished appearance after the intentional elision. | Proposed hold **43.0–44.0**; verify wardrobe, seated posture, mirror relation, and reflection continuity in actual output. |\n\n## 09 — elision/state fields\n\n| cut_id | 획득 방식: 연속배속/인터벌/몽타주/의도적 생략/미확인 | 실제 경과시간·촬영 구간·간격·공백(근거 위치) | 생략 전 상태 | 생략 후 상태 | 후속 컷 유지/리셋 조건 |\n|---|---|---|---|---|---|\n| W1→W2 (document-local label) | 의도적 생략 | **Story-time elapsed: UNKNOWN.** Capture gap: UNKNOWN / not measured. Final output cuts are adjacent at **42.0s**. | Main actor seated; the one attendant has withdrawn; work/wardrobe state is whatever the brief specifies at W1’s end. | Same actor seated before the mirror in the brief-required finished wardrobe. | Preserve actor identity, seated posture, required wardrobe, and prop ownership. State any intended change explicitly; do not infer how long dressing took or who the reflection depicts. |\n\n**Timing relationship:** W1 is local **0–2s** and occupies final **40–42s**; W2 is local **0–2s** and occupies final **42–44s**. Thus W1’s local out cue **2.0s** aligns with W2’s local in cue **0.0s** at final **42.0s**. The adjacent final cut does not establish elapsed story time or capture gap."
+    },
+    "reader_04_magic_continuous_vfx_vs_cut": {
+      "status": "returned",
+      "raw": "## L06 transfer: source observation → new proposal\n\n**Saved-source observation:** L06 records a gesture/glow, cup separation, travel, impact/break, and witness response as candidate phases of **one within-shot event**. Those phases do not establish multiple edits.\n\n**New 2D proposal:** A hand gestures toward a small suspended glass orb. A glow appears; the orb separates from the hand, travels along a clear path, strikes the floor, and breaks. A witness reacts after the impact. This is a new design—not a claim about the recorded source sequence, its object, cause, path, or effect.\n\n**Proposed shot:** one continuous 3-second shot, local time 0–3 s. The timing is illustrative, not measured.\n\n| Local time (shot seconds) | Actor phase / contact / visibility | Camera phase | Reveal / hold | Cut-out → cut-in phase |\n|---|---|---|---|---|\n| 0.0–0.5 | Hand gestures; orb remains visibly held or attached. | Locked 2D composition; hand, orb, path, and witness fit in frame. | Establish gesture and starting contact. | None planned. |\n| 0.5–1.0 | Glow appears around the orb; hand remains visible. | Hold. | Glow reveal; maintain clear silhouette. | None planned. |\n| 1.0–1.5 | Orb visibly separates from the hand. | Hold the origin and travel lane in view. | Separation is a distinct phase. | None planned. |\n| 1.5–2.0 | Orb travels along a readable, continuous path toward the floor. | No camera move proposed. | Preserve orb identity and direction. | None planned. |\n| 2.0–2.5 | Orb impacts and fragments; witness response begins after impact. | Keep impact area and witness readable. | Impact/result, then response onset. | None planned. |\n| 2.5–3.0 | Fragments settle; witness holds a readable reaction. | Hold end composition. | Proposed reaction/settle hold: 2.5–3.0 s. | Shot ends after the hold; no following shot specified. |\n\n### Edit boundary, support, and QA\n\n- **Actual edit boundary:** None established. This is a text-only plan with no footage or timeline to inspect. The phases above are action beats within one proposed shot, **not cuts**.\n- **Tool support:** `UNKNOWN`—no endpoint has been selected or checked. Camera/effect instructions are design proposals, not verified tool controls.\n- **Actual-media QA:** Not performed; no media exists to review. If generated, inspect the actual output for visible separation, continuous trajectory, impact and fragment persistence, and a distinct witness response. Check timing, continuity, and the full shot in playback."
+    },
+    "reader_05_gate_flare_focus": {
+      "status": "returned",
+      "raw": "### 조명·초점·카메라 노트 — 제안\n\n- **근거 관찰:** 저장 사례 L03은 게이트의 프레이밍이 유지되는 동안 밝기와 플레어가 점진적으로 증가한 사례다. 카메라 이동이나 컷은 확인되지 않았다. 별도 사례 L05의 서로 다른 선명도만으로는 랙 포커스를 확인할 수 없다.\n- **새 브리프 적용안:** 게이트의 구도와 공간 앵커를 고정한 채 밝기 변화를 진행한다. 플레어는 그 변화와 함께 보이게 하되, 광원·노출 변화의 물리적 원인은 미정으로 둔다. 랙 포커스나 초점 이동은 지시하지 않는다. 특정 피사체를 더 선명하게 보여야 한다면, 먼저 그 의도를 브리프에 명시하고 초점 동작은 별도 선택으로 검토한다.\n- **카메라:** 고정 프레이밍 제안. 이동·줌·컷을 추가하지 않는다. 이는 새 브리프에 대한 제안이지 관찰된 제작 방식의 단정이 아니다.\n- **조명:** 점진적인 밝기 증가와 플레어를 시각적 변화로 계획한다. 조명 기구, 노출 조정 방식, 플레어의 물리적 원인은 추정하지 않는다.\n\n### 미확인 사항\n\n- 새 브리프의 정확한 피사체, 화면 구도, 변화 시점과 지속 시간\n- 밝기 변화가 실제 광원 변화인지, 노출 변화인지, 합성 효과인지\n- 플레어의 원인과 밝기 변화와의 인과 관계\n- 초점이 실제로 변하는지, 선명도 차이가 구도·심도·후처리에서 생기는지\n- 최종 촬영/생성 방식과 도구 지원 여부\n\n실제 프레임이나 촬영 조건을 확인하기 전까지 초점 동작과 조명 메커니즘은 **미확인**으로 남긴다."
+    },
+    "reader_06_title_bonus_picture_eos_container_tail": {
+      "status": "returned",
+      "raw": "## Saved-sequence application — proposed edit plan, not a measured EDL\n\n**Source-grounded order:** an apparent title is followed by a bonus label, then table content, and later a black/gold-star ending. Saved notes place the bonus label at approximately **339s** and table content at approximately **342.767s**; these are source locators, **not proposed timeline values**. The complete sequence and exact later-ending time are not established by the saved observation.\n\n**Transfer:** treat the apparent title as an interstitial, not proof that the program has ended. Keep graphics as separate layers over their underlying picture; count an edit only where the underlying shot actually changes. The cut boundaries below are proposed pending source playback.\n\n| Proposed boundary / element | Underlying picture | Graphic layer | Edit treatment |\n|---|---|---|---|\n| Apparent title | Preserve the actual underlying shot and its duration; identity and exact end time are unknown. | Record the apparent title separately as an overlay if it is over picture; if it is on a separate card, verify that from the file. | **Do not mark final end here.** Boundary out of this beat is proposed at the observed transition to the bonus label or its underlying shot—not at the title appearing or disappearing by assumption. |\n| Bonus label | Record the picture beneath the label independently. Saved notes place the label at ~339s; whether it overlays a continuing shot or accompanies a cut is unknown. | Separate label onset, hold, and exit from picture edits. Exact wording and duration need file verification. | Proposed transition into the bonus section; confirm whether there is a real picture cut. Graphic change alone is not a cut. |\n| Table content | Record the table scene as its own underlying picture state; saved notes place it at ~342.767s. | Keep any label/title layer separate; no further graphic is established by the saved observation. | Proposed boundary into the table content, subject to playback. Do not infer a continuous shot from the label to the table scene. |\n| Later black / gold-star ending | Record the actual last picture, including whether black is a distinct shot or a transition/state within the preceding shot. | Record the gold-star graphic separately from the black picture if it is an overlay; verify its onset and duration. | Proposed final picture sequence. The exact cut into black, graphic timing, and end of visible picture are unknown until the actual file is checked. |\n\n### Edit-record fields\n\nNo project or shot IDs, source in/out points, or final-timeline times were supplied, so these remain **unassigned** rather than being invented.\n\n| cut_id | shot_id/asset_id | final_start_s | final_end_s | 행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유 | reaction/settle hold final start–end s·연속성/검수 상태 |\n|---|---|---:|---:|---|---|\n| Unassigned | Unassigned | Unknown | Unknown | Proposed transition from apparent-title beat to bonus-label beat. Verify the underlying picture boundary; title/label graphic changes alone do not establish a cut. | Unverified; hold duration unknown. |\n| Unassigned | Unassigned | Unknown | Unknown | Proposed transition from bonus-label beat to table content. Verify whether the label is over the same shot or crosses a picture cut. | Unverified; hold duration unknown. |\n| Unassigned | Unassigned | Unknown | Unknown | Proposed transition from table content to the later black/gold-star ending. Verify picture and graphic boundaries separately. | Unverified; ending hold unknown. |\n\n### Actual-file end checks — not yet performed\n\n- Inspect the actual ending in playback and frame-by-frame: identify the **last visible picture**, the start and end of black, and the gold-star graphic’s visible interval.\n- Separately inspect the media/container duration and decoded final video frame. Container tail is not, by itself, proof of the last visible picture or its exact end.\n- Check whether the apparent title is followed by bonus material in the actual file; do not infer the complete program structure from the saved partial observation.\n- Record the checked file/version and observed timecodes. Until then, final-picture timing, container tail, graphic timing, and exact edit boundaries are **unverified**.\n\n**Basis and limits:** saved cases E06 (apparent ending versus bonus/true ending), E05 (title over live image), and E07 (picture end versus container tail). This is a conditional edit proposal based on bounded saved notes, not fresh playback, a complete source reconstruction, or a verified timeline."
+    },
+    "reader_07_unavailable_source_body_unlistened_audio": {
+      "status": "returned",
+      "raw": "The saved excerpt can support **only its bounded observations and the generic mechanism explicitly drawn from them**. Transfer that mechanism conditionally to a matching scene problem, keeping the source observation separate from any new proposal and using the relevant owner’s fields and observable QA. Do not reconstruct unrecovered events, details, or causes from an ID, count, or nearby case.\n\nThe longer semantic body’s inaccessibility is a **recovery/access limit**: its contents are unknown, not established as deleted or absent. Likewise, for the saved case whose audio was not listened to, speech, silence, music, and sound effects remain unknown unless independently verified. Visual mouth movement or captions are not audio evidence.\n\nSo the safe handoff is: state the excerpt’s scope and locator; identify the transferable mechanism and when to apply or skip it; mark unrecovered content and unlistened audio as **UNKNOWN**; and label any adaptation as a proposal, not a source fact or verified result."
+    },
+    "reader_08_exact_fields_owner_separation": {
+      "status": "returned",
+      "raw": "**DESIGN_PROPOSAL — planned two-shot work/reveal elision**  \nTimes below are illustrative proposals from the bundled worked case, not measured footage or approved production timings. `W1` and `W2` are document-local labels, not registered shot IDs. Story-time elapsed and capture gap are **UNKNOWN**. No output exists, so generated-media QA is pending.\n\n### 06 — Shot plan\n\n| shot_id | scene_id | beat_id | shot-local time (s or frames; FPS if frames) | 크기/카메라 위치 | 인물 블로킹 | 시선/축 | 공개 정보 | 관점·감정/구도 의도 | 대안·채택/승인 상태 | 카메라 동작 | 종료 프레임 | 핸들 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| W1 *(document-local label)* | — | — | 0.0–2.0 s | Medium two-person composition; keep seated actor and helper readable. | Main actor remains seated. One attendant works at the specified shoulder, then withdraws/repositions; show hands only where framed. | Preserve the established axis; no eyeline change required by this proposal. | Show the work and the helper’s withdrawal; do not imply complete dressing. | Make the work and its end state legible before eliding the unshown preparation. | Proposal; not approved. | No camera move specified. | Attendant withdrawn; main actor still seated. | Not specified. |\n| W2 *(document-local label)* | — | — | 0.0–2.0 s | Mirror/hem composition; reframe only as the brief specifies. | Same actor remains seated at the mirror in the brief-required finished wardrobe. | Keep actor and mirror/reflection in a readable relation; reflection identity is not established unless the brief grounds it. | Reveal the hem/reflection, then the finished appearance. | Make the change in wardrobe state legible without claiming how or when dressing occurred. | Proposal; not approved. | No camera move specified. | Seated actor holds the finished-look composition. | Not specified. |\n\n**Shot-local cue timeline** *(each shot’s local clock starts at 0)*\n\n| Local time (shot seconds) | Actor phase / contact / visibility | Camera phase | Reveal / hold | Cut-out → cut-in phase |\n|---|---|---|---|---|\n| W1 0.0–1.0 | One attendant works at the specified shoulder; main actor stays seated. Hands visible only where framed. | Hold medium two-person composition. | Work in progress. | — |\n| W1 1.0–2.0 | Attendant withdraws/repositions; main actor stays seated. | Hold shared frame. | Work shot settles. | Cut out at local 2.0: attendant withdrawn, actor seated → W2 local 0.0: same actor seated in finished wardrobe. |\n| W2 0.0–1.0 | Actor remains seated; hem enters foreground; reflection begins. | Reframe only if specified by the brief. | Reveal hem/reflection. | Cut in at local 0.0 from W1’s seated-actor end state; wardrobe state changes across the elision. |\n| W2 1.0–2.0 | Actor remains seated and regards the mirror. | Hold mirror and actor in readable relation. | Finished-look hold: **local 1.0–2.0**. | — |\n\n### 09 — Cut plan\n\n| cut_id | shot_id/asset_id | source_in_s | source_out_s | playback_rate | final_start_s | final_end_s | 행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유 | transition/duration_s | sound_id·sync anchor | reaction/settle hold final start–end s·연속성/검수 상태 |\n|---|---|---:|---:|---:|---:|---:|---|---|---|---|\n| W1 *(document-local label)* | W1 | — | — | 1.0 | 40.0 | 42.0 | Work and withdrawal; cut out at shot-local 2.0 with attendant withdrawn and actor seated. Cut reason: intentionally omit unshown preparation. | hard_cut/0 | — | No reaction hold specified; proposed work-shot settle is shot-local 1.0–2.0. Continuity and timing unverified; no output exists. |\n| W2 *(document-local label)* | W2 | — | — | 1.0 | 42.0 | 44.0 | Mirror/hem reveal; cut in at shot-local 0.0 with actor seated in the brief-required finished wardrobe. Cut reason: disclose finished look after intentional elision. | hard_cut/0 | — | Proposed held reveal **43.0–44.0s** (W2 local 1.0–2.0); verify wardrobe, seated posture, mirror relation/reflection continuity, and unintended identity duplication in actual output. No output exists; QA not performed. |\n\n**09 — Time compression/elision**\n\n| cut_id | 획득 방식: 연속배속/인터벌/몽타주/의도적 생략/미확인 | 실제 경과시간·촬영 구간·간격·공백(근거 위치) | 생략 전 상태 | 생략 후 상태 | 후속 컷 유지/리셋 조건 |\n|---|---|---|---|---|---|\n| W1→W2 *(document-local label)* | 의도적 생략 | Story-time elapsed: **UNKNOWN**; capture gap: **UNKNOWN / not measured**. Output cuts are adjacent at final 42.0s. | Main actor seated; single attendant withdrawn; work/appearance state as specified by the brief. | Same actor seated at mirror in the brief-required finished wardrobe. | Preserve actor identity, seated posture, required wardrobe and prop ownership; explicitly specify any intended change. |\n\n### 11 — AI handoff\n\n**W1**\n- 초기 상태: Main actor seated; one attendant begins the specified work.\n- 주 행동과 구간: Local 0.0–1.0 work; 1.0–2.0 attendant withdraws/repositions.\n- 카메라: No move specified.\n- 끝 상태: Attendant withdrawn; actor remains seated.\n- 유지 규칙: Preserve actor identity and seated posture; do not imply complete dressing.\n- 도구 지원 확인: **UNKNOWN** — no endpoint checked.\n- 생성 길이/편집 길이/핸들: Proposed 2.0s shot / 2.0s final interval (40.0–42.0); handles not specified.\n- 검수 실패 위치·수정 변수: **No output exists; generated-media QA not performed.** If generated, inspect hand/helper separation, specified attendant count, withdrawal, seated posture, and continuity at the cut.\n\n**W2**\n- 초기 상태: Same actor seated; finished wardrobe as specified by the brief; mirror relation to be staged.\n- 주 행동과 구간: Local 0.0–1.0 hem/reflection reveal; 1.0–2.0 finished-look hold.\n- 카메라: No move specified; any reframing is a design proposal pending endpoint check.\n- 끝 상태: Seated actor holds the finished-look composition.\n- 유지 규칙: Preserve actor identity, seated posture, required wardrobe and prop ownership. Do not assume reflection identity unless grounded by the brief.\n- 도구 지원 확인: **UNKNOWN** — no endpoint checked.\n- 생성 길이/편집 길이/핸들: Proposed 2.0s shot / 2.0s final interval (42.0–44.0); handles not specified.\n- 검수 실패 위치·수정 변수: **No output exists; generated-media QA not performed.** If generated, inspect wardrobe state, seated posture, mirror/reflection correspondence, hem readability, and unintended identity duplication."
+    },
+    "positive_camera_information_reverse_anchor": {
+      "status": "returned",
+      "raw": "## 20-second shot/cue plan\n\n**Format:** text-only, 2D animated educational/court sequence.  \n**Assumptions:** Three characters: one petitioner and two seated figures. The petitioner addresses one seated partner; the other remains visible as a distinct figure. No dialogue or audio timing is specified. All timings below are **new design proposals**, not observations of source footage.\n\n| shot_id | scene_id | beat_id | shot-local time (s or frames; FPS if frames) | 크기/카메라 위치 | 인물 블로킹 | 시선/축 | 공개 정보 | 관점·감정/구도 의도 | 대안·채택/승인 상태 | 카메라 동작 | 종료 프레임 | 핸들 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| SH01 | S01 | B01 | 0–5s | High, wide establishing view; show room boundaries, entrance, bench/dais, and clear floor space between them. | Petitioner enters or stands at the entrance side; two figures are seated together at the far side. Keep all three small but separately readable. | Establish the room’s entrance-to-seated-figures axis. | **First: where we are and how the room is arranged.** | A calm, legible overview; simplify background detail so the three figures and major landmarks read at a glance. | Adopted proposal; no alternative required. | Slow, small push-in toward the room’s central floor space; finish before the next shot. | Room landmarks remain visible; petitioner and seated pair occupy clearly separated areas of the frame. | N/A |\n| SH02 | S01 | B02 | 5–11s | Eye-level medium-wide, favoring the seated figures while retaining the petitioner in the foreground or at frame edge. | Petitioner is upright and visibly separate from the two seated figures. The seated figures remain side by side, with a small visible gap or distinct silhouettes between them. | Keep SH01’s entrance-to-bench axis; petitioner’s body and gaze orient toward the addressed partner. | **Second: distinguish petitioner from the two seated figures and identify which partner is being addressed.** | Use scale, posture, spacing, and a clear gaze line—not overlapping silhouettes—to make the roles readable. | Adopted proposal; no alternative required. | Locked framing. | All three are distinguishable; the addressed partner is identifiable by the petitioner’s gaze and orientation; neither seated figure is mistaken for the petitioner. | N/A |\n| SH03 | S01 | B03 | 11–15s | Medium close-up of the petitioner, with a clean, readable face. | Petitioner remains oriented toward the addressed partner, who may be represented by an unobtrusive frame-edge shoulder only if it does not mask the petitioner’s face. | Preserve the established eyeline toward the same seated partner. | **Third: read the petitioner’s expression.** | Hold long enough for the expression to register; avoid decorative movement that competes with the face. | Adopted proposal; no alternative required. | Gentle push-in or locked frame; choose one in animation layout. | Petitioner’s expression and direction of gaze are legible; face unobscured. | N/A |\n| SH04 | S01 | B04 | 15–20s | Reverse angle over the petitioner’s near shoulder, framing both seated figures in a clear two-shot. | Addressed partner is the principal seated figure; the other remains separately visible. Petitioner’s shoulder may anchor the foreground only if it does not cover either seated face. | Reverse across the established axis. Keep the petitioner’s eyeline landing on the same partner identified in SH02–03. | **Confirm which seated partner is being addressed, without hiding either face.** | The foreground petitioner provides orientation; spacing and distinct head silhouettes preserve both seated faces. | Adopted proposal; no alternative required. | Locked reverse; no pan across faces. | Both seated faces are fully readable, the addressed partner is clear from eyeline and composition, and screen direction matches the established axis. | N/A |\n\n### Consequential cue timeline — proposed\n\n| Local time (shot seconds) | Actor phase / contact / visibility | Camera phase | Reveal / hold | Cut-out → cut-in phase |\n|---|---|---|---|---|\n| SH01 0–5 | Three figures are visible as separate silhouettes; no contact required. | Wide view settles on room geometry. | Room layout is the first reveal; hold the establishing composition before cutting. | SH01 out at 5s: room geography established → SH02 in at 0s: same entrance-to-seated-figures orientation. |\n| SH02 0–6 | Petitioner remains standing; both seated figures remain seated. Petitioner’s gaze settles on the addressed partner. | Locked medium-wide. | Role separation first; addressed-partner cue second. Hold once the gaze line reads. | SH02 out at 11s: gaze established → SH03 in at 0s: petitioner’s matching eyeline. |\n| SH03 0–4 | Petitioner’s expression changes or settles only as specified by the scene; no new gesture assumed. | Gentle push-in **or** locked framing; proposal remains undecided for layout. | Expression becomes the focal information; hold it clearly before cutting. | SH03 out at 15s: petitioner still looking toward addressed partner → SH04 in at 0s: same partner receives that eyeline. |\n| SH04 0–5 | Both seated figures stay visible; addressed partner remains the eyeline target. | Locked reverse angle. | Hold the two-shot long enough to confirm both identity positions and the addressed partner. | Ends on a clear two-face composition; no further cut proposed. |\n\n### Saved craft observations and transfer\n\n- **SH01 — unfamiliar room before character emphasis:** **Relevant saved observation, C01.** In the saved `fee0` case, the sequence moves from an open field to silhouette, pair/carry pose, medium, and face at recorded points around 5.005–15.382s; the bounded transferable mechanism is progressing from place to relationship to identity. The cause of the scale change is unknown. **New proposal:** use a wide room-establishing shot before closer role and expression shots. This is a new adaptation, not a reproduction of the source’s timing or staging.\n- **SH02 / SH04 — preserve relationship across reverse coverage:** **Relevant saved observations, C02 and C05.** In `7488`, a bed two-shot precedes close/reverse views, with a partner edge or window retained; in `7488`/`7edf`/`d31`, a partner’s hair, ear, or shoulder edge appears in reverse views as an eyeline anchor. **New proposal:** use gaze, separated silhouettes, and a restrained shoulder-edge anchor if needed. Unlike a universal OTS rule, the reverse is framed so **neither seated face is obscured**.\n- **SH03 — petitioner expression:** **No directly matching saved observation identified for this specific educational/court sequence.** The plan to isolate and hold the petitioner’s readable expression is a new proposal, not a claim drawn from a saved case.\n\n**Final-frame QA check (SH04):** At the intended display size, verify that both seated faces are fully visible and distinct; the petitioner’s foreground edge masks neither face; the petitioner’s eyeline still points to the same seated partner established earlier; and the reverse angle preserves the room’s screen direction. This is a planned check, not completed image or playback QA."
+    },
+    "composite_baseline_contact_wardrobe_gate_ending": {
+      "status": "returned",
+      "raw": "## 12초 텍스트 전용 2D 제작안\n\n**범위:** 새로 제안하는 장면 계획이며 실사 관찰이나 실제 영상 검수가 아닙니다. 아래 시간은 전부 **제안값**이고, 시작 포함·끝 미포함 기준으로 0–12초를 끊김 없이 채웁니다. 이미지·영상 생성과 3D 작업은 하지 않습니다. `W1` 등은 이 문서 안에서만 쓰는 제안용 표기입니다.\n\n| 제안 컷 | 최종 시간 | 화면·행동 제안 | 상태·연속성 |\n|---|---:|---|---|\n| W1 | 0–2초 | 타이트한 투샷. 두 성인은 이미 키스 중이다. 여성의 발은 프레임 밖이다. | 시작부터 접촉 상태. 첫 접촉이나 발 동작을 추가하지 않는다. |\n| W2 | 2–5초 | attendant가 여성을 도와 여행용 망토에서 의례용 로브로 갈아입히는 작업을 짧게 보여준다. 얼굴·손·의상 변화가 읽히는 구도를 제안한다. | 컷아웃: attendant가 물러남. 여성은 다음 컷에서도 앉은 자세로 유지한다. 갈아입기 전체 과정이 연속으로 보인다고 주장하지 않는다. |\n| W3 | 5–7초 | 다음 컷에서 여성이 거울 앞에 앉아 완성된 의례용 로브를 입고 있는 모습이 드러난다. 거울 속 인물과 여성의 대응이 읽히도록 배치한다. | 컷인 상태는 W2 종료와 같은 여성·앉은 자세, 의례용 로브. |\n| W4 | 7–9초 | 고정된 석조 게이트 구도에서 금빛 섬광이 나타난다. 화면은 잠시 부드럽게 보인 뒤 선명한 상태로 돌아오는 연출을 제안한다. | 게이트의 구도와 공간 앵커는 유지한다. 섬광이나 부드러워 보이는 변화만으로 컷 또는 카메라 이동을 뜻한다고 처리하지 않는다. |\n| W5 | 9–10초 | 타이틀 카드. | 화면 상태가 장면에서 타이틀로 바뀐다. |\n| W6 | 10–12초 | 보너스 라벨을 표시하고, 이어 금색 별 이미지를 보여준다. | 라벨과 별이 각각 읽히도록 순서와 화면 시간을 실제 검수한다. |\n\n### 저장 사례: 관찰과 새 제안 구분\n\n아래는 패키지에 저장된 분석의 제한된 관찰이며, 원본을 새로 재생하거나 확인한 결과가 아닙니다. 사례의 시간값을 이 장면의 타이밍으로 가져오지 않았습니다.\n\n- **W1 — P10, 이미 접촉 중인 오프닝:** 저장 관찰은 장면이 이미 보이는 입맞춤으로 시작한다는 것입니다. 첫 접촉은 관찰되지 않았고 손 상태는 가려져 있을 수 있습니다. **제안:** 요청대로 이미 키스 중인 타이트한 프레임으로 시작하고, 잘린 발이나 보이지 않는 손의 상태를 만들지 않습니다.\n- **W2–W3 — O08, 준비 동작과 이후 상태 / O09, 거울·옷자락 공개:** 저장 관찰은 준비 장면 뒤에 완성된 외모가 나타나지만, 전체 갈아입기가 연속해서 보인 것은 아니라는 것입니다. O09의 거울 속 인물 정체도 저장 관찰만으로는 확정되지 않습니다. **제안:** W2에서 도움을 받는 갈아입기 동작 일부를 보이고, W3에서 앉은 완성 상태를 별도 컷으로 드러냅니다. 거울 속 대응은 화면 설계에서 확인하고, 관찰만으로 동일 인물이라고 단정하지 않습니다.\n- **W4 — L03, 고정 구도 위 밝기·플레어 변화 / E08, 효과는 곧 컷이 아님:** 저장 관찰은 구도가 유지된 채 밝기나 플레어가 변한 사례가 있고, 블러·플레어 자체는 편집 경계의 증거가 아니라는 것입니다. **제안:** 고정 게이트 화면 위에 금빛 섬광과 짧은 부드러워 보이는 변화를 연출하되, 원인이나 기술을 특정하지 않습니다.\n- **W5–W6 — E05, 실제 영상 위 타이틀 / E06, 겉보기 끝과 후속 구분:** 저장 사례는 실제 영상 위 타이틀이 쓰일 수 있고, apparent ending 뒤에 보너스 부분이 이어질 수 있음을 보여줍니다. 다만 저장된 사례가 이 브리프의 제목·문구·정확한 끝 구성을 결정하지는 않습니다. **제안:** 별도 타이틀 카드 다음에 보너스 라벨, 금색 별 순으로 표시합니다.\n\n### 소유 필드용 컷·상태 계획\n\n**06 — 블로킹·공개·종료 상태**  \n- **W1:** 타이트한 공유 프레임, 이미 입맞춤 중. 여성의 발은 프레임 밖. 화면에 없는 접촉·동작은 미확인으로 둠.  \n- **W2:** attendant가 의상 교체를 돕는 장면. 종료 프레임은 attendant가 물러난 시점, 여성은 앉아 있음.  \n- **W3:** 거울 앞에 앉은 여성과 의례용 로브를 공개. 반사상 대응을 실제 화면에서 확인.  \n- **W4:** 고정된 석조 게이트 앵커. 금빛 섬광과 일시적 부드러움은 제안된 시각 변화이며, 카메라 이동·초점 변화의 원인·기법은 미확인.  \n- **W5–W6:** 카드의 문구·글꼴·정확한 별 아트는 제공되지 않아 미정. 보너스 라벨 다음에 별을 보여주는 순서만 제안.\n\n**09 — 컷 타임라인과 상태 전환 제안**\n\n| 제안 컷 | 최종 시작 | 최종 끝 | 컷아웃 → 컷인 / 상태·이유 |\n|---|---:|---:|---|\n| W1 | 0 | 2 | 이미 접촉 중인 키스 → attendant가 돕는 장면. 요청된 행위 전환. |\n| W2 | 2 | 5 | attendant가 물러남, 여성은 앉아 있음 → 거울 앞에 앉은 여성, 의례용 로브. 갈아입기 과정의 의도적 생략. 경과 시간은 미확인. |\n| W3 | 5 | 7 | 거울 앞의 의례용 로브 상태 → 고정 게이트의 섬광 장면. 시간·장소 연결 방식은 미확인. |\n| W4 | 7 | 9 | 게이트 화면 → 타이틀 카드. 실제 편집 경계로 제안. |\n| W5 | 9 | 10 | 타이틀 카드 → 보너스 라벨. 실제 편집 경계로 제안. |\n| W6 | 10 | 12 | 보너스 라벨 뒤 금색 별 이미지를 보여주고 끝냄. 라벨과 별 사이의 정확한 교체 방식은 미정. |\n\n**상태 인계:** W2에서 W3으로 여성의 정체성과 앉은 자세를 유지하고, 의상은 여행용 망토에서 의례용 로브로 바뀝니다. 교체 과정의 시간·방식과 W2–W3 사이 경과 시간은 미확인입니다. W4의 게이트 구도는 고정 제안이며, 별도 변화가 확인되지 않는 한 게이트의 기하를 유지합니다.\n\n### QA 체크\n\n- W1에서 이미 키스 중인 상태와 발이 프레임 밖인 구도가 읽히는가? 첫 접촉이나 발 동작을 덧붙이지 않았는가?\n- W2의 도움 동작과 W3의 거울 앞 앉은 상태가 분리되어 읽히는가? 여성의 자세·의상·반사 관계가 컷 사이에서 일치하는가?\n- W4에서 게이트 프레이밍이 유지되는 동안 섬광과 부드러워 보이는 변화가 표현되는가? 이를 임의로 컷, 카메라 이동 또는 특정 광학 효과라고 부르지 않았는가?\n- 타이틀, 보너스 라벨, 금색 별이 제안 순서대로 나타나고 각 상태가 12초 안에서 읽히는가?\n\n**미확인:** 정확한 타이틀·보너스 문구·아트워크, 캐릭터 디자인, 의상 세부, 게이트의 실제 레퍼런스, 섬광의 원인과 구현 방식, 장면 사이 경과 시간. 생성 도구의 카메라·초점·섬광 제어 지원은 확인하지 않았으며 **UNKNOWN**입니다. 이 계획은 텍스트 제안만이며 이미지·영상 생성이나 3D 검수 결과가 아닙니다."
+    }
+  },
+  "input_audit": {
+    "all_scenario_context_files_present": true,
+    "context_files_match_installed_T12_fixture": true,
+    "context_files_are_package_only": true,
+    "expected_semantics_not_in_system": true,
+    "each_call_used_same_frozen_prompt_as_eval_fixture": true,
+    "one_completion_handle_per_scenario": true,
+    "all_calls_returned": true,
+    "unique_active_context_files": 16,
+    "installed_context_files_match_T12_source_snapshot": true,
+    "casebank_present_for_positive_retrieval_scenarios": true,
+    "casebank_omitted_for_ordinary_brief_scenario_by_active_cue_policy": true,
+    "casebank_present_for_all_positive_retrieval_scenarios": true
+  },
+  "note": "This is a fresh stateless active-owner context run, not the earlier broad 18-file context run and not Main’s on-demand reader flow. Its per-scenario context differs by owner. No causal comparison or statistical improvement claim is made.",
+  "manual_semantic_grade": {
+    "grader": "Assigned QA worker; each complete raw response manually read against the frozen v2 expected_semantics and safety_failure_conditions, without source-text echo/ID matching as pass criterion.",
+    "context_policy": "Per-scenario active-owner package context; contexts/hashes are listed in this artifact.",
+    "results": {
+      "positive_contact_approach_feet_cropped": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Names P10 and P01 with bounded observations, then clearly labels 14-second staging as proposal. Starts in existing mouth contact, separates later unrequested-by-source separation/back-away/stop, treats cropped feet as hidden/unverified, and supplies cue phases and QA."
+      },
+      "positive_arrival_stop_stayer": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Uses P01/C09/C02 as bounded observations distinct from new staging. One 0–9 final shot and its local arrival/deceleration/stop/settle phases are consumer-usable; host look is optional and proposed; QA checks arrival, spatial relation, and response timing."
+      },
+      "positive_attendant_wardrobe_elision_mirror": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Uses P17/O08/O09, distinguishes source notes from proposal; keeps one attendant and seated posture, pin owner/reflection identity unknown. Has adjacent 0–7/7–16 numeric cut intervals, shot-local 0–7/0–9 values, six canonical 09 elision columns with elapsed/capture gap unknown, and actionable QA."
+      },
+      "positive_magic_vfx_cut": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Uses bounded L06 chain without claiming the cup-specific action is source footage; proposes brief cup phases as one uninterrupted shot and a separate untimed gate shot. Does not assert physical cause; endpoint support UNKNOWN; observable QA is deferred to actual media."
+      },
+      "positive_light_focus_title_eos": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Uses L03/L05/E05/E06/E07 as bounded notes, separates overlays from underlying picture, orders title→bonus→star, leaves light/focus mechanism and actual file duration/tail unknown, and gives explicit later decoded-picture/container checks without claiming they ran."
+      },
+      "negative_already_kissing_no_first_touch": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Cites only bounded P10 existing-contact observation, maintains first-frame contact for 5 seconds, adds no lead-in/reaction/change, and gives one contact QA check."
+      },
+      "negative_flare_does_not_prove_rack_focus": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Concise note cites relevant L03/L05, says flare alone shows neither rack focus nor cut, leaves mechanism unknown, and offers bounded QA; no unrelated case dump."
+      },
+      "negative_ordinary_brief_skip_casebank": {
+        "overall": "PASS_WITH_CONTEXT_LIMIT",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Plans exactly three rolls, wipe, then customer gaze/smile with practical count/prop/order QA; says no unrelated case was searched/applied and imposes no Rofan constraint. The casebank was intentionally absent from this active-owner context, so this stateless call demonstrates the no-case context policy/output, not a bank-loaded model decision; Main’s separate actual ordinary reader-flow artifact is the independent non-trigger evidence."
+      },
+      "reader_01_approach_feet_out_of_frame": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Bounds observation to approach/stop; explicitly marks feet and footfalls hidden/unverified, proposes distinct phases without unsupported gait/plant, and gives visible/stopped-state QA."
+      },
+      "reader_02_established_contact_opener": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Uses P10 bounded opening contact, preserves visible mouth contact, keeps occluded hands unknown, adds no approach/first touch, and routes to useful shot/contact QA."
+      },
+      "reader_03_attendant_wardrobe_mirror": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Uses bounded prep/mirror observations and distinct proposal; 06 cue rows use shot-local zero-based intervals; 09 cut rows have separate numeric final ranges and six canonical elision fields; adjacent final intervals, held reveal, elapsed/capture gap/reflection identity unknown; posture and one-attendant state preserved."
+      },
+      "reader_04_magic_continuous_vfx_vs_cut": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Separates saved L06 phases from a new orb proposal, keeps gesture/glow/separation/path/impact/fragments/witness within one shot, states no actual edit boundary is established, tool support UNKNOWN and actual-media QA not performed."
+      },
+      "reader_05_gate_flare_focus": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Uses bounded L03 and L05 observations; distinguishes brightness/flare from focus and camera, leaves physical source/mechanism unknown, and routes a usable fixed-frame proposal without claiming a cut or rack focus."
+      },
+      "reader_06_title_bonus_picture_eos_container_tail": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Applies bounded E06/E05/E07 evidence, distinguishes title/bonus/table/black-star picture and separate graphics, labels boundaries unverified proposals, and specifies last decoded picture versus container duration checks as future work, not performed."
+      },
+      "reader_07_unavailable_source_body_unlistened_audio": {
+        "overall": "PARTIAL_NOT_MET",
+        "retrieval_and_transfer": "PARTIAL",
+        "guard": "PASS",
+        "evidence": "Correctly treats inaccessible body as unknown/not deleted and unlistened audio as neither speech nor silence evidence, without reconstruction. However it gives only generic transfer instructions and does not identify/use the actual preserved bounded excerpt or provide a concrete scene adaptation; frozen positive application/retrieval criterion is unmet."
+      },
+      "reader_08_exact_fields_owner_separation": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Reconciled to the complete raw output: W1 and W2 each include the requested 11 owner field `도구 지원 확인` = UNKNOWN, in addition to the five-column local 06 cue rows, separate numeric 09 cut times, canonical six-column elision row, separate hold, and explicit no-output/no-QA status."
+      },
+      "positive_camera_information_reverse_anchor": {
+        "overall": "PASS",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Uses bounded C01 information-order and C02/C05 relational-anchor observations separately from four proposed shots; explains audience-information/eyeline mechanism without physical rig claim, keeps both reverse faces readable, and gives specific final-frame QA. No universal wide-first rule or 3D request."
+      },
+      "composite_baseline_contact_wardrobe_gate_ending": {
+        "overall": "PARTIAL_NOT_MET",
+        "retrieval_and_transfer": "PASS",
+        "guard": "PASS",
+        "evidence": "Retrieves P10/P17/O08/O09/L03/L05/E05/E06 and separates proposals; correct contact/cropped-feet, one attendant, seated robe continuity, fixed gate, unknown effects/tool support, and 12s coverage. The 09 cut rows use the approved six active canonical columns (not a full inactive 11-column table); the 06 Time column is explicitly final-timeline, so no false local-time error is inferred. Frozen misses: no canonical six-column 09 elision table (26 prose does not fill it), and no explicit separate actual last-picture/container-tail check. Planned QA does not claim execution."
+      }
+    },
+    "summary": {
+      "full_pass": 15,
+      "pass_with_context_limit": 1,
+      "partial_not_met": 2,
+      "safety_failures": 0
+    },
+    "interpretation": "15 full PASS, 1 PASS_WITH_CONTEXT_LIMIT (ordinary brief active context intentionally omitted the casebank; separate actual reader-flow evidence is available), 2 PARTIAL_NOT_MET, zero semantic guard failures. Overall formal suite is NOT all-pass. No causal or statistical improvement claim.",
+    "correction_audit": "After initial grade, Main re-read the complete raw reader_08 answer and identified the W1/W2 UNKNOWN handoff support fields omitted from my first read summary. Corrected this one grade from PARTIAL_NOT_MET to PASS; response unchanged and no model call repeated."
+  }
+}
