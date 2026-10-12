@@ -93,3 +93,102 @@ The README documents pytest and Pillow as requirements and specifies UTF-8 mode 
 This evaluation measures whether a reader retrieves and correctly translates documentary saved evidence into a proposed 2D production plan. It cannot establish that a model follows the plan, that generated movement/contact/wardrobe/mirror effects look natural, that timing is convincing, or that a selected endpoint can perform the task. It does not examine or reopen source videos, listen to audio, call endpoints, create images/video, run Blender, or assert a real QA failure.
 
 A future real-media naturalness/production-quality evaluation is **NOT RUN**. It requires the user's explicit approval for actual generation, use of rights-cleared approved character/location/wardrobe assets, endpoint/capability review and budget authorization through existing routes. For a controlled text/2D study, render a short arrival-and-contact shot, a multi-phase magic/event shot, and a work-to-mirror wardrobe reveal with at least three independent outputs per brief from one declared endpoint/model/version/settings; retain all rendered files and prompt/settings. Two reviewers who did not write the prompts should independently score each output on a 1–5 scale for (a) gait/approach legibility and visible-foot evidence, (b) contact-state readability and continuity, (c) event phase/hold/cut-boundary readability, and (d) wardrobe/posture/reflection continuity across the edit; mark any unsupported source claim, invented first-touch, unexplained state jump, or technical defect as a separate binary defect. Record disagreements and adjudicate against the actual video; do not infer quality from plan prose. This future procedure is a concrete proposal only: media, approvals, endpoint, budget, reviewers and results are absent here. It is **NOT RUN**. Actual-output QA remains owned by the existing QA procedure; prose and saved observations cannot substitute for inspection. **Proposed acceptance gate (design proposal, not an established fact):** any hard identity/contact/state/cut defect fails the review; for every applicable 1–5 criterion, each reviewer must score at least 4 before the output meets the proposed gate. If feet are cropped, footfall/gait evidence is **N/A or unverified**, not an automatic pass. Preserve independent scores and resolve disagreements by viewing the actual file, documenting both original scores and the adjudicated rationale. Do not claim quality improvement or a causal skill effect from this media study without a controlled paired baseline using the same prompt, endpoint/model/version, settings, and comparable resource budget; otherwise report observations descriptively.
+
+## Post-T13 skill wording microtest
+
+This is a separate, descriptive 15-call microtest of the finalized saved-case reference, not a rerun or replacement of the old-package baseline or the T12 18-scenario suite. The frozen prompts and rubric remain in `qa/rofan-craft-post-improvement-microtest-matrix.json`; raw text, prompt/context hashes, and the final casebank hash are preserved in the three per-scenario raw files below.
+
+**Setup and call status:** After the implementer’s stable signal, the casebank was independently hashed from the working-tree source and a copied package fixture, then installed into a new temporary skills root. Source and installed `rofan-craft-examples.md` both hash to `5c4cae3f345258eedd018aa4cce09eed2c313ca9ccd06d92ed9c06da4c2ea333`. The fixture copied the 23 current manifest skills and package inputs; `install_package.py` exited 0 and installed 23 skills, package version 2.5, into `C:\Users\Declan\AppData\Local\Temp\rofan-craft-post-t13-src-tkb9lg9w\skills`. No global skill root was changed. One fresh stateless `completion(prompt, model="default", system=package_only_context).wait()` call was made for each of five repetitions per prompt. The package-only active context for the composite prompt includes `21-generated-video-qa-retry.md`; rubrics, expected answers, design/spec docs, other prompts, and footage were not provided to any model call. All **15/15** calls completed; **0** are pending and none were duplicated. The resolved model was not exposed by the helper (**UNKNOWN**).
+
+| Scenario | Results | Final independent-review result |
+|---|---:|---|
+| `reader_07_unavailable_source_body_unlistened_audio` | 0 full pass, 5 partial; D797 excerpt 0/5, title-to-live hypothetical 0/5; P14 audio/access guards 5/5 | The full casebank and bounded D797 cue were present in the exact context, but all five responses missed the expected D797 opening excerpt and its concrete title-to-live hypothetical. All five preserved P14 audio/access boundaries and unknowns. |
+| `composite_baseline_contact_wardrobe_gate_ending` | 0 full pass, 5 partial; retrieval 5/5, active cut fields 5/5; canonical elision row 2/5; separate planned ending checks 0/5; guards 5/5 | Every response retrieves relevant cases, preserves the brief, and passes guards. Two contain the canonical elision row, but none meets the complete requirement including separate planned last-picture/container-duration checks; no actual inspection is claimed. |
+| `negative_ordinary_brief_skip_casebank_loaded` | 5/5 full pass | With the casebank loaded, every response correctly avoids forcing unrelated cases and gives practical continuity QA. |
+
+The initial self-grade is **superseded by the final independent review**: across all 15 completed calls, **5 full passes, 10 partial, 0 not met, and 0 safety/unknown-guard failures**. The ordinary loaded-casebank negative control passes 5/5. No calls were rerun for the correction. These are descriptive small samples, not causal or statistical evidence of improvement. The loaded-bank negative control is not compared as a paired result against T12’s bank-absent ordinary-brief call.
+
+**Raw evidence:** `qa/rofan-craft-post-t13-reader07-raw.json`, `qa/rofan-craft-post-t13-composite-raw.json`, and `qa/rofan-craft-post-t13-ordinary-loaded-raw.json`. Per-repetition manual evidence and aggregate grades: `qa/rofan-craft-post-t13-microtest-grade.json`. No T12 or baseline evidence was overwritten. Real-media generation, playback/naturalness review, 3D/Blender, and endpoint capability checks remain **NOT RUN**.
+
+## Post-T14 conditional casebank revision microtest
+
+This frozen 15-call run was an intermediate follow-up before the completed final T15 microtest recorded below. Prompts, rubrics, and context order were identical to T13, with only the casebank changed; source and installed hashes were 31785f6ed7b7a9e99e9830101ceb8bbdebad2d0da54ec45b5b30928a65f8740e. The T13 isolated root was copied, other context-file hashes verified, and the reconstructed prior system SHA matched before calls. Model selection was default, resolved identity UNKNOWN; all 15 calls completed.
+
+| Scenario | Final reviewed result |
+|---|---|
+| `reader07` | 4/5 full pass, 1 partial; safeguards 5/5. |
+| `composite` | 0/5 full pass; ending checks, retrieval/brief/guards 5/5; active cut fields 0/5; elision rows varied. |
+| `ordinary-loaded` | 5/5 full pass. |
+
+Aggregate: **9/15 full, 6 partial, 0 not met, 0 guard failures**. Composite responses exposed conflation of the cut table with the elision row and omission of active cut fields, motivating a separate corrective patch. Descriptive small sample only; no causal or statistical claim. No prompts/rubrics changed. Raw outputs: `qa/rofan-craft-t14-reader07-raw.json`, `qa/rofan-craft-t14-composite-raw.json`, `qa/rofan-craft-t14-ordinary-loaded-raw.json`; grade: `qa/rofan-craft-t14-microtest-grade.json`. Media generation/inspection and endpoint checks remain **NOT RUN**.
+
+## Post-T15 final conditional casebank microtest
+
+This is the final tested status for this conditional casebank microtest. The 15 calls used frozen prompts, rubrics, and context order, changing only the casebank against the verified T14 context. Source and installed casebank matched at SHA-256 `5f6318d827249fb41c2409478413e3d086bf963579bb3f9a7702eadf85758c25`; the unchanged context was verified, with only the casebank replaced. Model selection was `default`; resolved identity **UNKNOWN**. All 15 calls completed.
+
+| Scenario | Final reviewed result |
+|---|---|
+| `reader07` | 3/5 full pass, 2 partial; both misses gave only generic limits and omitted the matching D797 excerpt. Unknown/proposal guards passed 5/5. |
+| `composite` | 4/5 full pass, 1 partial; cut fields 5/5, canonical elision 4/5, ending checks 4/5. The partial contradicted the requested 12s with a 14s timeline and omitted elision/file-end planning, with extraneous inactive fields. |
+| `ordinary-loaded` | 5/5 full pass; no unrelated cases forced. |
+
+Aggregate: **12/15 full pass, 3 partial, 0 not met, 0 guard failures**. Results retain reader07 misses and composite variance; this descriptive sample supports no causal or statistical claim. No media generation/playback/inspection, 3D/Blender, or endpoint checks were performed (**NOT RUN**). Raw outputs: `qa/rofan-craft-t15-reader07-raw.json`, `qa/rofan-craft-t15-composite-raw.json`, `qa/rofan-craft-t15-ordinary-loaded-raw.json`; grade: `qa/rofan-craft-t15-microtest-grade.json`. Frozen prompts/rubrics were not changed.
+
+## T16 evidence-condition retrieval microtest
+
+After T15, the quick-use rule was clarified generically: evidence-only/source-access/audio questions also match evidence conditions across the supporting-cue tables and main index, keeping distinct records/locators separate. The only skill change was the existing casebank; frozen prompts, context order, and rubric were unchanged.
+
+The 15 fresh calls used isolated root `C:\Users\Declan\AppData\Local\Temp\rofan-craft-t16-final-eyxfizij\skills\video-production-assets`, copied from T15 and replacing only `rofan-craft-examples.md`. Source and installed casebank matched at SHA-256 `e76241a6cfa365ca4467ef8383f3d5b94604dac8c24185f545a91732d5212a33`; all unchanged context file hashes matched T15 metadata. Model selection was `default`; resolved identity **UNKNOWN**.
+
+| Scenario | Final reviewed result |
+|---|---|
+| `reader07` | 2/5 full pass, 3 partial; two answers identify and concretely transfer the bounded title-to-live-image excerpt; three retain safe generic unknowns but miss that positive retrieval. No unknown/proposal guard failures. |
+| `composite` | 0/5 full pass, 5 partial; 5/5 retrieve relevant observations, 2/5 use only the active six-column cut table without inactive columns, 3/5 include a canonical elision row, and 0/5 separately plan actual last-decoded-picture and container-duration checks. |
+| `ordinary-loaded` | 5/5 full pass; no unrelated case application. |
+
+Aggregate: **7/15 full pass, 8 partial, 0 not met, 0 guard failures**. The evidence-condition rule coincided with concrete excerpt retrieval in 2/5 responses; the other three remained generic. Composite compliance remains variable and was not further patched. This descriptive sample supports no causal/statistical claim. Raw outputs: `qa/rofan-craft-t16-reader07-raw.json`, `qa/rofan-craft-t16-composite-raw.json`, `qa/rofan-craft-t16-ordinary-loaded-raw.json`; per-response grade: `qa/rofan-craft-t16-microtest-grade.json`. No media generation, actual-media inspection, 3D/Blender, or endpoint checks were performed (**NOT RUN**).
+
+### Repository checks after T16
+
+Against the final casebank SHA-256 `e76241a6cfa365ca4467ef8383f3d5b94604dac8c24185f545a91732d5212a33`:
+- `python scripts/check_versions.py` — **PASS**: `version check OK: package 2.5, 23 skill(s) consistent`.
+- `python -X utf8 -m pytest -q` — **PASS**: `258 passed, 1 skipped, 2 warnings, 217 subtests passed in 28.35s`. The warnings were Windows subprocess reader-thread UTF-8 decode errors in `scripts/test_sync_installed.py::test_stale_link_is_repointed` (byte 213) and `scripts/test_sync_installed.py::test_remove_link_never_deletes_target_content` (byte 222). Skip identity was not present in the output.
+
+Fresh installation was run separately from the T16 evaluator, which reused its copied T15 root with only the casebank replaced and matching other context hashes. The initial live `--repo-root .` installer attempt found preflight collisions with generated `video-production-assets/support/{manifest.json,examples,qa,CHANGELOG.md}` and wrote nothing. The safe smoke used a clean temporary source snapshot excluding generated `video-production-assets/support/`, copying the manifest, package inputs, installer, and 23 listed skill directories, then installing into a separate empty skills root. Installer exited 0: package 2.5, 23/23 exact skill IDs; source and installed casebank SHA-256 both `e76241a6cfa365ca4467ef8383f3d5b94604dac8c24185f545a91732d5212a33`; 129 casebank links, 0 broken/escaping; 15 tables, 0 width errors. Source snapshot: `C:\Users\Declan\AppData\Local\Temp\rofan-t16-install-smoke-ty_1a58w\source`; skills root: `C:\Users\Declan\AppData\Local\Temp\rofan-t16-install-smoke-ty_1a58w\skills`. No repository files or global root changed.
+
+## T17 scoped 09 field-projection evaluation
+
+Clarified the existing 09 edit reference: full 09 handoffs still use the full template; scoped handoffs project only applicable existing sections and fields, preserve their semantics, omit inactive columns, and keep numeric `final_start_s` / `final_end_s` separate. No new schema was introduced.
+
+T17 ran the full 15-call frozen suite using the T16 installed root copied to `C:\Users\Declan\AppData\Local\Temp\rofan-craft-t17-final-p0o_wusn\skills\video-production-assets`, replacing only `references/09-edit.md`. The reader and ordinary-control system hashes match T16; the composite context differs only by `09-edit.md`. Prompts, context-file order, and rubric were unchanged. Model selection was `default`; resolved identity **UNKNOWN**.
+
+| Scenario | Final reviewed result |
+|---|---|
+| `reader07` | 3/5 full pass, 2 partial; all five preserve the access/audio unknown guards. One response identifies the excerpt and mechanism but gives no concrete mapped/hypothetical application; another remains generic. |
+| `composite` | 0/5 full pass, 5 partial; 5/5 use only the six active cut fields, 5/5 include a canonical elision row, and 0/5 separately plan both actual-picture and container-duration checks. All honor the 12-second brief and preserve the relevant source/brief boundaries. |
+| `ordinary-loaded` | 5/5 full pass; no unrelated case application. |
+
+Aggregate: **8/15 full pass, 7 partial, 0 not met, 0 guard failures**. The scoped-field clarification coincided with active-only cut tables in 5/5 composite responses, versus 2/5 in T16; this is a descriptive comparison, not a causal claim. The missing separate ending checks remain an unmet requirement and were not addressed by another rule. Raw outputs: `qa/rofan-craft-t17-reader07-raw.json`, `qa/rofan-craft-t17-composite-raw.json`, `qa/rofan-craft-t17-ordinary-loaded-raw.json`; per-response grade: `qa/rofan-craft-t17-microtest-grade.json`. No media generation, actual-media inspection, 3D/Blender, or endpoint checks were performed (**NOT RUN**).
+
+### Repository checks after T17 source change
+
+- `python scripts/check_versions.py` — **PASS**: `version check OK: package 2.5, 23 skill(s) consistent`.
+- `python -X utf8 -m pytest -q` — **PASS**: `258 passed, 1 skipped, 2 warnings, 217 subtests passed in 31.96s`. The warnings were Windows subprocess reader-thread UTF-8 decode errors in `scripts/test_sync_installed.py::test_stale_link_is_repointed` (byte 213) and `scripts/test_sync_installed.py::test_remove_link_never_deletes_target_content` (byte 222).
+
+## T18 planned file-end check evaluation
+
+Added a conditional planning requirement to `references/21-generated-video-qa-retry.md`: for plans ending with a title/credits/bonus/interstitial/apparent close, separately plan a last-decoded-picture check and a container-duration/tail check; without an output file, both actual results remain UNKNOWN/pending. No schema or unrelated-end requirement was added.
+
+T18 ran 15 fresh stateless calls with the frozen prompts, rubric, and context order. Its isolated root `C:\Users\Declan\AppData\Local\Temp\rofan-craft-t18-final-kb89sxrz\skills\video-production-assets` was copied from T17 and only `references/21-generated-video-qa-retry.md` was replaced. Reader07 and ordinary-control context/system hashes match T17 exactly; the composite context differs only in that 21 reference. The casebank and 09 reference remained unchanged. Model selection was `default`; resolved identity **UNKNOWN**. All 15 calls completed.
+
+| Scenario | Final reviewed result |
+|---|---|
+| `reader07` | 4/5 full pass, 1 partial; each retrieves the bounded excerpt and preserves access/audio limits. The partial gives the mechanism but no concrete mapped/hypothetical adaptation. |
+| `composite` | 1/5 full pass, 4 partial; active-only cut fields 1/5, canonical elision row 5/5, explicitly separate planned last-picture/container-tail checks 1/5. All preserve the 12-second brief and applicable guards. |
+| `ordinary-loaded` | 5/5 full pass; no unrelated case application. |
+
+Aggregate: **10/15 full pass, 5 partial, 0 not met, 0 guard failures**. The conditional endpoint guidance coincided with an explicit separate planned-check pair in 1/5 composite responses. A second named both actual endpoints but did not plan them as separate checks; 3/5 reported unknown/pending without both planned checks. Compared descriptively with T17, active-only cut fields were 1/5 here versus 5/5, while explicit separate ending checks were 1/5 versus 0/5; this small sample does not establish causality, and output variance remains. Per-response grades: `qa/rofan-craft-t18-microtest-grade.json`; raw outputs: `qa/rofan-craft-t18-reader07-raw.json`, `qa/rofan-craft-t18-composite-raw.json`, and `qa/rofan-craft-t18-ordinary-loaded-raw.json`. Stop prose iteration here; remaining endpoint-check misses are an observed model/contract compliance limitation. No media generation, source playback, actual-media inspection, 3D/Blender, or endpoint checks were performed (**NOT RUN**). Prompts and rubrics were not changed.
+
+### Final isolated install/link/table smoke after T18
+
+A clean temporary source snapshot excluding generated support was installed into a separate empty temporary skills root; installer exited 0 with package 2.5 and 23/23 exact skill IDs. Source and installed hashes matched: casebank `e76241a6cfa365ca4467ef8383f3d5b94604dac8c24185f545a91732d5212a33` (129 links checked, 0 errors; 15 tables, 0 errors); `09-edit` `75eebd8b3bd40fe26507319650142b82cef37b563a233e4b1718a6e31af4a8af` (11 links, 0 errors); `21-generated-video-qa-retry` `f95647cbf0ad27f51435ba0cba3df9c42e73d11bc754b56d420f10d0c99d012d` (2 links, 0 errors; 1 table, 0 errors). Source: `C:\Users\Declan\AppData\Local\Temp\rofan-t18-final-smoke-m_2w311x\source`; skills: `C:\Users\Declan\AppData\Local\Temp\rofan-t18-final-smoke-m_2w311x\skills`. No repository or global-root changes. This final smoke supersedes the T16-only smoke as current final install/link/table evidence.

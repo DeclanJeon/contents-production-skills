@@ -4,7 +4,7 @@ Open this reference only when the brief explicitly requests a saved case or a co
 
 ## Quick use
 
-1. Match the scene problem and action—not only a shared prop noun—to a saved case. If none matches, continue with the usual owner procedure without forcing a case.
+1. Match the scene problem and action—not only a shared prop noun—to a saved case. For evidence-only or source-access/audio questions, also match the evidence condition across the supporting-cue tables and main index; keep distinct records and locators separate. If none matches, continue with the usual owner procedure without forcing a case.
 2. Read that row's bounded observation, transferable mechanism, apply/skip condition, exact owner destination, and observable QA. Keep source observation, interpretation, and new proposal distinct; source timestamps are not new timeline values. Unavailable source details stay `UNKNOWN`; counts never restore missing content.
 3. For a requested timed/cut/elision handoff, use the [conditional output contract](#requested-multi-owner-handoff) below; fill only active owners' fields.
 4. Adapt examples to the brief: preserve its stated actor count, starting state, posture, required props/wardrobe, and full requested duration/timeline. Example times are illustrative, not defaults: cover the entire requested interval, rebase shot-local and final times to the brief, keep cut intervals adjacent unless the brief specifies otherwise, and state any proposed hold instead of omitting unused duration or inventing new action.
@@ -27,13 +27,13 @@ When the brief requests a timed handoff across owners, return only the applicabl
 |---|---|---|---|---|
 | | | | | |
 
-3. **09 cut rows** (when cuts are requested): open the [09 edit template](../assets/09-edit-template.md); one row per cut. Use only needed canonical columns, with separate numeric final start/end and the actual action/cut and reaction/hold fields. Whenever a proposed cut omits an event, action portion, or intervening state/time, also return the exact six-column 09 elision row below; cut-reason prose alone does not replace it.
+3. **09 cut rows** (when cuts are requested): use the [09 edit template](../assets/09-edit-template.md) and return its active six-column cut table, with one row per actual cut and all six active fields: `cut_id`, `shot_id/asset_id`, numeric `final_start_s`, numeric `final_end_s`, `행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유`, and `reaction/settle hold final start–end s·연속성/검수 상태`. Keep start and end as separate numeric cells; do not combine ranges or omit fields.
 
 | cut_id | shot_id/asset_id | final_start_s | final_end_s | 행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유 | reaction/settle hold final start–end s·연속성/검수 상태 |
 |---|---|---:|---:|---|---|
 | | | | | | |
 
-4. **09 elision rows** (whenever a proposed cut or transition omits an intervening event, action portion, or state/time—even if the brief does not call it “elision”): use the template's six canonical columns. Skip this row for continuous action or a cut that omits no event/state/time.
+4. **09 elision rows** (whenever a proposed cut or transition omits an event, action portion, or intervening state/time—even if not called “elision”): add a separate row in the exact six-column canonical elision table below. This supplements the cut table and never replaces it; cut-reason prose alone does not satisfy the elision row. Skip elision rows only when no event/action/state/time is omitted.
 
 | cut_id | 획득 방식: 연속배속/인터벌/몽타주/의도적 생략/미확인 | 실제 경과시간·촬영 구간·간격·공백(근거 위치) | 생략 전 상태 | 생략 후 상태 | 후속 컷 유지/리셋 조건 |
 |---|---|---|---|---|---|

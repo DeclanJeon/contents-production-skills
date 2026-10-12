@@ -1,0 +1,97 @@
+{
+  "status": "GRADED",
+  "gate": "Stable T13 casebank received and independently confirmed from working-tree source and isolated installed copy before execution.",
+  "method": {
+    "runner": "functions.eval completion(prompt, model='default', system=package_only_context).wait()",
+    "freshness": "One fresh stateless completion call per repetition; no prior conversation history, rubric, expected assertions, other prompts, test plan, design docs, footage, or source media in context.",
+    "model_selection": "default; record resolved model only if exposed, otherwise UNKNOWN.",
+    "repetitions": 5,
+    "evidence": "Save each exact prompt, prompt SHA-256, context file list and per-file hashes, final casebank SHA-256, raw response, response handle/metadata if exposed, and manual semantic grade. Preserve earlier baseline/T12 evidence unchanged."
+  },
+  "execution": {
+    "calls_planned": 15,
+    "calls_completed": 15,
+    "calls_pending": 0,
+    "casebank_sha256_source_and_installed": "5c4cae3f345258eedd018aa4cce09eed2c313ca9ccd06d92ed9c06da4c2ea333",
+    "raw_artifacts": [
+      "qa/rofan-craft-post-t13-reader07-raw.json",
+      "qa/rofan-craft-post-t13-composite-raw.json",
+      "qa/rofan-craft-post-t13-ordinary-loaded-raw.json"
+    ],
+    "grade_artifact": "qa/rofan-craft-post-t13-microtest-grade.json",
+    "manual_summary": {
+      "full_pass": 7,
+      "partial_not_met": 6,
+      "not_met": 2,
+      "guard_failures": 0
+    }
+  },
+
+  "scenarios": [
+    {
+      "id": "reader_07_unavailable_source_body_unlistened_audio",
+      "runs": 5,
+      "prompt": "Use the bundled bounded excerpt for a source whose longer semantic body is inaccessible. Another saved case says its audio was not listened to. Explain what can be transferred and what remains unknown without treating missing body as deleted/absent.",
+      "context_files": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/contract.md",
+        "video-production-assets/references/rofan-craft-examples.md",
+        "video-production-assets/references/25-reference-video-analysis.md",
+        "video-production-assets/references/08-animation.md"
+      ],
+      "grade_each_response": {
+        "retrieval_transfer": "Does it identify and use an actually preserved bounded observation from the supplied casebank, then give a concrete relevant transferable mechanism/adaptation and its limit? An ID or wording echo alone is not proof; generic safe caveats without applying a source observation are a transfer miss.",
+        "unknown_guard": "Does it treat inaccessible semantic body as unavailable/unknown rather than absent/deleted, and unlistened audio as unknown rather than speech/silence? No hidden source reconstruction.",
+        "proposal_boundary": "Clearly distinguishes any new scene proposal from observed source facts."
+      }
+    },
+    {
+      "id": "composite_baseline_contact_wardrobe_gate_ending",
+      "runs": 5,
+      "prompt": "Brief: Create a 12-second text-only 2D romantic fantasy scene. At the opening, two adults are already kissing in a tight frame; the woman’s feet are cropped out. Then an attendant helps her change from a travel cloak into a ceremonial robe, and the next shot reveals her seated before a mirror. Later, a golden flare appears at a fixed stone gate while the image seems briefly soft. End with a title card, then a bonus label and gold-star image. Give a concise production plan: distinguish observed source facts from proposals, output useful shot/cut/state owner fields and QA checks, and mark any tool support or unsupported facts unknown. Do not generate media or perform 3D work.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "context_files": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/assets/06-shots-template.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/assets/09-edit-template.md",
+        "video-production-assets/references/11-ai-handoff.md",
+        "video-production-assets/assets/11-ai-handoff-template.md",
+        "video-production-assets/references/21-generated-video-qa-retry.md",
+        "video-production-assets/references/rofan-craft-examples.md"
+      ],
+      "grade_each_response": {
+        "retrieval_transfer": "Relevant bounded source observations are accurately distinguished from a concrete proposed adaptation; do not pass on case-ID echo alone.",
+        "brief_fidelity_and_guards": "Retains already-underway kiss and cropped/unverified feet; one attendant; seated mirror reveal and wardrobe continuity; fixed-gate flare/softness do not imply camera/focus/cut causes; unknown tools/facts remain unknown; no actual-media QA claim; 12 seconds honored.",
+        "owner_fields": "For cut proposals, use the approved active six-column 09 cut fields. Add the canonical six-column 09 elision row only when the proposed plan actually omits an action/transition. Do not require inactive template columns or an elision row when no omission is proposed.",
+        "ending_checks": "When the proposed ending includes title/bonus/star content, include planned separate checks for the actual final picture and container tail, using relevant QA guidance; the textual plan has no media, so actual inspection results remain UNKNOWN and must not be claimed. Do not demand these checks for an unrelated plan."
+      }
+    },
+    {
+      "id": "negative_ordinary_brief_skip_casebank_loaded",
+      "runs": 5,
+      "prompt": "Plan a text-only 2D 8-second scene of an adult baker placing three rolls on a cooling rack, wiping flour from their hands, and smiling at a customer. The brief contains no reference footage, no Rofan reuse request, and no spatial/contact/elision/light/focus/edit problem cue. Give a concise shot outline and practical continuity QA. Do not search for or force an unrelated saved craft case.\n\nUse relevant saved craft cases bundled within the supplied installed skill package when available; for each chosen beat, separate the bounded saved observation from the new proposal. If no relevant saved observation can be found, say unavailable rather than inventing it.",
+      "context_files": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/references/08-animation.md",
+        "video-production-assets/references/rofan-craft-examples.md"
+      ],
+      "grade_each_response": {
+        "applicability_control": "Despite the casebank being present and the generic saved-case suffix, does it skip unrelated case retrieval/application because there is no reuse request or matching cue? Generic safe no-match is not a failure; forced case application is.",
+        "usable_plan": "Provides a concise ordinary action/continuity plan and practical roll/hand/rack checks, as proposals, without importing Rofan-specific constraints or dumping the catalog."
+      }
+    }
+  ],
+  "grading": {
+    "per_response": "Manual full-output review against only the frozen scenario expectations plus the scoped checks above. Record separate retrieval/transfer, usability/owner-field, and guard/applicability outcomes with direct response evidence.",
+    "reporting": "Report raw counts and each run's outcomes; no causal comparison or statistical improvement claim. Retain failures and variance; stop after the planned 15 calls."
+  },
+  "prior_evidence_read": {
+    "reader07": "qa/rofan-craft-green-final-t12-run.json; safe access/audio caveats passed, but it supplied only generic transfer guidance and did not apply the preserved bounded excerpt (PARTIAL_NOT_MET).",
+    "composite": "qa/rofan-craft-green-final-t12-run.json; retrieval and guards passed, but frozen rubric misses were absent canonical 09 elision row and explicit separate actual last-picture/container-tail checks (PARTIAL_NOT_MET). Its six active 09 cut fields were acceptable; no inactive columns or unrequested 06 local cue table were required.",
+    "ordinary": "qa/rofan-craft-green-final-t12-run.json used active-owner context without casebank; this new negative applicability control intentionally includes the current casebank and is not comparable to that prior call."
+  }
+}

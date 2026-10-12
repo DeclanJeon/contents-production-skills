@@ -25,7 +25,7 @@
 
 설치 목록의 원본은 [manifest.json](manifest.json)이다. 전문 참조는 추가 설치 스킬이 아니다.
 
-저장 Rofan craft 사례의 57-ID 선택형 사례집과 조건부 진입은 [설계 문서](docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md) 및 [테스트 계획](docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md)에 기록되어 있다. 현재 copied-package active-owner T12 reader run은 **15 PASS / 1 PASS_WITH_CONTEXT_LIMIT / 2 PARTIAL_NOT_MET, guard failure 0**이며 all-pass가 아니다. [결과 원문](qa/rofan-craft-green-final-t12-run.json)과 미충족 항목은 적용 계획에 기록되어 있다. Structural smoke, package/version checks, and pytest completed; pytest: **258 passed, 1 skipped, 2 warnings, 217 subtests passed**. [검증 기록](qa/rofan-craft-package-smoke.json). 실제 생성·미디어 QA·자연스러움/분산 검증은 수행하지 않았다.
+저장 Rofan craft 사례는 57개 관찰 ID를 담은 선택형 사례집(지원 cue 4개 포함)으로, 해당 브리프의 cue가 맞거나 저장 사례 재사용을 요청할 때만 적용한다. 사례별 근거·반례와 네 worked proposal은 기존 owner 절차/필드를 재사용하며, source 관찰·새 제안·실제 미디어 검수를 구분한다. 자세한 내용은 [설계 문서](docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md)와 [테스트 계획](docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md)을 참조한다. T18의 조건부 사례 적용 microtest는 **10/15 full pass, 5 partial, 0 guard failures**로 all-pass가 아니다. [T18 상세 등급](qa/rofan-craft-t18-microtest-grade.json). 실제 생성·미디어 QA·자연스러움/분산 검증은 수행하지 않았다.
 설치 목록은 **총 23개: 핵심 14개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
 
 캐릭터 시트를 새로 작성하거나 심화하면 페르소나·표현 연결·발화 역할의 음성 설계가 기본 포함된다. 새 허구 인물의 위임된 창작에서는 MBTI/에니어그램을 제안으로 사용할 수 있으며, 공급된 유형·승인 설정·명시적 `none`을 우선한다. 무언 역할은 음성 N/A; 실제 음성 후보·생성·청취 승인은 별도다. 구체적인 요청과 수정 경계는 [사용 가이드](USAGE_GUIDE.md#캐릭터와-시리즈)를 따른다.
@@ -69,6 +69,8 @@ v5.1 설계와 구현 범위: [PRODUCTION_V5_1_UPGRADE.md](docs/PRODUCTION_V5_1_
 Q01~Q23 구현과 검증 결과는 [작업지시서](docs/superpowers/plans/2026-10-06-production-v5-1-qa-remediation.md)와 [검증 기록](docs/evidence/production-v51-qa-remediation.md)에 정리한다.
 
 레퍼런스 기반 작업은 후보 선택 → 관찰/해석/미확인 분리 → 제작 원리의 새 소재 적용 → 필요한 프로젝트 스타일 브리프 → 정성 QA로 연결한다. 주제·시놉시스 탐색을 요청한 영상에만 [탐색 계약](orchestrating-video-preproduction/references/video-direction.md#discovery-topic-and-synopsis)의 단계별 기본 5개를 적용하며, 명시 개수·확정 입력·단일 산출물은 보존한다. 회고는 요청된 프로젝트 기록/제안이다. 자동 스킬 개선·승격·브랜드 프로필 갱신과 숫자 유사도 기반 통과/재시도는 지원하지 않는다.
+
+광고 레퍼런스 원리를 새 브리프로 옮길 때는 `video-production-assets/references/25-reference-video-analysis.md`의 A01–A12 교차표에서 해당하는 기존 제품·상태·모션·샷·편집·근거 오너만 연다. 각 템플릿의 실제 필드와 조건부 게이트를 재사용하며, 이는 텍스트 설계이지 매체 검수·주장 입증·권리 승인이나 CTA 의무가 아니다.
 
 ## Production v5.1 구현 상태
 

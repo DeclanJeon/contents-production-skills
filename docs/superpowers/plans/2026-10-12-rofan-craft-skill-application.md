@@ -69,7 +69,7 @@
 
 ## 신규 사례 reference 구성 결정
 
-`video-production-assets/references/rofan-craft-examples.md` is implemented as a runtime-self-contained reference. Its 57-ID index gives each row a matching problem cue, bounded observation, generic mechanism, apply/skip condition, existing owner destination and actionable QA. It does not copy the 57-row source table; source/design locators are optional provenance, and unavailable bodies are not runtime prerequisites. Four worked examples plus three concise canonical supporting cues are preserved without broadening inventory into a new schema.
+`video-production-assets/references/rofan-craft-examples.md` is implemented as a runtime-self-contained reference. Its 57-ID index gives each row a matching problem cue, bounded observation, generic mechanism, apply/skip condition, existing owner destination and actionable QA. It does not copy the 57-row source table; source/design locators are optional provenance, and unavailable bodies are not runtime prerequisites. Four worked examples plus four concise canonical supporting cues are preserved without broadening inventory into a new schema.
 
 ### 네 worked example이 보여야 하는 분기
 

@@ -1,0 +1,62 @@
+{
+  "status": "GRADED",
+  "suite": "T18 full fresh 15-call planned ending-check evaluation",
+  "frozen_prompts_and_rubrics": "qa/rofan-craft-post-improvement-microtest-matrix.json (unchanged)",
+  "raw_artifacts": [
+    "qa/rofan-craft-t18-reader07-raw.json",
+    "qa/rofan-craft-t18-composite-raw.json",
+    "qa/rofan-craft-t18-ordinary-loaded-raw.json"
+  ],
+  "verification": {
+    "casebank_source_sha256": "e76241a6cfa365ca4467ef8383f3d5b94604dac8c24185f545a91732d5212a33",
+    "casebank_installed_sha256": "e76241a6cfa365ca4467ef8383f3d5b94604dac8c24185f545a91732d5212a33",
+    "installed_09_edit_sha256": "75eebd8b3bd40fe26507319650142b82cef37b563a233e4b1718a6e31af4a8af",
+    "installed_21_qa_sha256": "f95647cbf0ad27f51435ba0cba3df9c42e73d11bc754b56d420f10d0c99d012d",
+    "isolated_installed_root": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-t18-final-kb89sxrz\\skills\\video-production-assets",
+    "procedure": "Copied the T17 installed root to a new T18 root and replaced only references/21-generated-video-qa-retry.md. Frozen prompts/rubric and context-file order were unchanged. The composite context differs from T17 only by that file; reader07 and ordinary-control context/system hashes match T17 exactly.",
+    "system_sha256": {
+      "reader07": "3aeacbaae8e332a1cf265352b913f60fa84a8124e64c6126af9063fbeb0afa00",
+      "composite": "781365c45bcbcb407e0bc8bdcb2f31c8be7ddc44b3ea6151a230c2c20fdcc544",
+      "ordinary": "e739724447fa35f373175d820913b5015bc4b8613d82e25745eb7c375d7fcfdb"
+    },
+    "calls_planned": 15,
+    "calls_completed": 15,
+    "calls_pending": 0,
+    "model_selection": "default",
+    "resolved_model": "UNKNOWN"
+  },
+  "manual_grades": {
+    "reader_07_unavailable_source_body_unlistened_audio": {
+      "runs": [
+        {"run": 1, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Identifies the bounded 797 opening transition and P14 visual hold/micro-change observation, gives a relevant transferable mechanism, and keeps inaccessible body/audio unknown."},
+        {"run": 2, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Retrieves the excerpt and gives an explicit conditional adaptation; separates new timing from source evidence and preserves audio/body limits."},
+        {"run": 3, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Identifies both bounded observations, gives a conditional title-to-live adaptation and visual-hold transfer, and does not infer inaccessible content or audio."},
+        {"run": 4, "retrieval_transfer": "PARTIAL", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PARTIAL_NOT_MET", "evidence": "Finds the excerpt and mechanism and preserves limits, but offers only that it may be useful when a new brief needs the same distinction; no concrete mapped/hypothetical adaptation, consistent with T17's strict criterion."},
+        {"run": 5, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Identifies the bounded title-to-live mechanism, relates it to a possible new opening, and keeps later source structure and unlistened audio unknown."}
+      ],
+      "summary": {"full_pass": 4, "partial_not_met": 1, "not_met": 0, "guard_failures": 0}
+    },
+    "composite_baseline_contact_wardrobe_gate_ending": {
+      "runs": [
+        {"run": 1, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS_WITH_EXTRANEOUS_INACTIVE_FIELDS", "elision_row": "PASS", "ending_checks": "NOT_MET", "overall": "PARTIAL_NOT_MET", "evidence": "Honors the brief and has a canonical separate elision row; cut table reproduces inactive template columns, and the ending is not two separately planned file-end checks."},
+        {"run": 2, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS_WITH_EXTRANEOUS_INACTIVE_FIELDS", "elision_row": "PASS", "ending_checks": "NOT_MET", "overall": "PARTIAL_NOT_MET", "evidence": "Honors the brief and includes the canonical elision row; cut table includes inactive columns, and the file-end states are only marked unknown/pending rather than separately planned."},
+        {"run": 3, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS_WITH_EXTRANEOUS_INACTIVE_FIELDS", "elision_row": "PASS", "ending_checks": "NOT_MET", "overall": "PARTIAL_NOT_MET", "evidence": "Preserves the 12-second brief/guards and canonical elision row; uses expanded cut fields and reports end checks unknown without planning the two checks separately."},
+        {"run": 4, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS", "elision_row": "PASS", "ending_checks": "PASS", "overall": "PASS", "evidence": "Uses the active scoped cut fields and separate canonical elision row; explicitly plans last-decoded-picture and container-tail checks as separate items and marks results UNKNOWN pending an actual file."},
+        {"run": 5, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS_WITH_EXTRANEOUS_INACTIVE_FIELDS", "elision_row": "PASS", "ending_checks": "NOT_MET", "overall": "PARTIAL_NOT_MET", "evidence": "Names the actual last decoded picture and container duration and marks them unknown/pending, but does not explicitly plan them as separate checks; the cut table also includes inactive template fields."}
+      ],
+      "summary": {"full_pass": 1, "partial_not_met": 4, "not_met": 0, "retrieval_pass": 5, "cut_fields_pass": 1, "elision_row_pass": 5, "ending_checks_pass": 1, "guard_failures": 0}
+    },
+    "negative_ordinary_brief_skip_casebank_loaded": {
+      "runs": [
+        {"run": 1, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Does not force an unrelated case and gives a usable three-roll, wipe, smile outline with continuity checks."},
+        {"run": 2, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Skips irrelevant craft evidence and provides a clear 8-second baker/customer plan."},
+        {"run": 3, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "No forced case application; practical staging and placement continuity are specified."},
+        {"run": 4, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Declines unrelated saved cases and gives a concise usable plan."},
+        {"run": 5, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Skips unrelated cases and includes actionable placement/towel/eyeline continuity QA."}
+      ],
+      "summary": {"full_pass": 5, "partial_not_met": 0, "not_met": 0, "forced_application_failures": 0}
+    }
+  },
+  "aggregate": {"full_pass": 10, "partial_not_met": 5, "not_met": 0, "guard_failures": 0},
+  "limitations": "Manual descriptive evaluation only; no causal or statistical claim. The new conditional endpoint requirement coincided with an explicit separate last-picture/container-tail plan in 1/5 composite responses; another names both checks but does not plan them separately, and 3/5 report unknown/pending without both plans. Cut-field projection varied despite the unchanged 09 reference (active-only in 1/5 here versus 5/5 in T17). Stop further prose iteration as requested. Model identity UNKNOWN. No media generation, source playback, actual-media inspection, 3D/Blender work, or endpoint capability checks. Frozen prompts/rubrics and prior evidence were not modified."
+}

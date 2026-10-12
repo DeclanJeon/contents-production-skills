@@ -2,7 +2,7 @@
 
 ## 상태와 목적
 
-- 상태: **기존 스킬 적용 완료; copied-package reader 결과 부분 미충족**. 저장 관찰 57개, worked proposal 4개, 지원 cue 3개를 적용했으며 실제 생성·미디어 검수는 아니다. Active-owner T12: **15 PASS / 1 PASS_WITH_CONTEXT_LIMIT / 2 PARTIAL_NOT_MET, guard failure 0**; all-pass가 아니다. 미충족은 reader07의 구체적 bounded application과 composite의 canonical elision/EOS-tail 확인이다. Engineering/structural checks 완료: version 2.5/23, pytest 258 passed/1 skipped/2 warnings/217 subtests; copied-package structure, 57 IDs, 384 links 확인. 상세는 [적용 계획](../plans/2026-10-12-rofan-craft-skill-application.md), [테스트 계획](../../implementation/2026-10-12-rofan-craft-skill-test-plan.md), [실행 결과](../../../qa/rofan-craft-green-final-t12-run.json), [package smoke](../../../qa/rofan-craft-package-smoke.json).
+- 상태: **기존 스킬 적용 완료; copied-package reader 결과 부분 미충족**. 저장 관찰 57개, worked proposal 4개, 지원 cue 4개를 적용했으며 실제 생성·미디어 검수는 아니다. Active-owner T12: **15 PASS / 1 PASS_WITH_CONTEXT_LIMIT / 2 PARTIAL_NOT_MET, guard failure 0**; all-pass가 아니다. 미충족은 reader07의 구체적 bounded application과 composite의 canonical elision/EOS-tail 확인이다. Engineering/structural checks 완료: version 2.5/23, pytest 258 passed/1 skipped/2 warnings/217 subtests; copied-package structure, 57 IDs, 384 links 확인. 상세는 [적용 계획](../plans/2026-10-12-rofan-craft-skill-application.md), [테스트 계획](../../implementation/2026-10-12-rofan-craft-skill-test-plan.md), [실행 결과](../../../qa/rofan-craft-green-final-t12-run.json), [package smoke](../../../qa/rofan-craft-package-smoke.json).
 - 목표: 저장 관찰과 해석, 새 브리프에 대한 조건부 제안을 분리하면서 아래 canonical inventory 57개 항목을 모두 보존한다. 57은 목록의 최소 커버리지이지 향후 예시나 supporting locator 수의 상한이 아니다. 기존 프로시저·템플릿·QA 경로에 필요한 사례 보강만 제안한다.
 - 적용 길이: 길이 제한 없음. 특정 30초 드라마에 한정하지 않고, 요청된 컷신·장면·콘텐츠의 실제 길이와 매체에 맞춘다.
 - 권한 경계: 승인 범위는 지정된 skill/reference와 계획·설계·README·CHANGELOG 문서 변경이다. 패키지 버전·스키마·manifest, 미디어·생성·역사 실행 및 무관한 파일은 변경하지 않았다.
@@ -58,7 +58,7 @@
 - `fee0-box-to-paper-prop-reveal`
 - `fb568-saddle-pose-change-is-not-a-full-dismount`
 
-추가 저장 locator: `0ad` seat-rise wide 201.067708 PTS 3088384에서 rise 시작, shoe insert 약 212.934, 이후 standing state; 이는 전체 연속 행동 아님. `be746` report caption은 corridor 64.6, pair attention 66.4, wide 77.534, door insert 81.467; caption 가독성은 관찰 가능하지만 실제 발화/문 조작자 증거는 아니다. `7edf` wide 15.5→OTS 15.542→15.584는 동일 OTS 상태이며 세 컷이 아니다. 이는 기존 분석 locator로서, 본 작업의 새 미디어 검수가 아니다.
+추가 저장 locator 네 건: `0ad` seat-rise wide 201.067708 PTS 3088384에서 rise 시작, shoe insert 약 212.934, 이후 standing state; 이는 전체 연속 행동 아님. `be746` report caption은 corridor 64.6, pair attention 66.4, wide 77.534, door insert 81.467; caption 가독성은 관찰 가능하지만 실제 발화/문 조작자 증거는 아니다. `7edf` wide 15.5→OTS 15.542→15.584는 동일 OTS 상태이며 세 컷이 아니다. `797`은 illustrated opening title 약 0s에서 live bed image 약 0.2s로 이어지며 opening excerpt만 복구 가능하다; 뒤이은 내용은 추론하지 않는다. 이는 기존 분석 locator로서, 본 작업의 새 미디어 검수나 전체 source 복구를 뜻하지 않는다.
 
 ## 현재 역량과 실제 보강 격차
 

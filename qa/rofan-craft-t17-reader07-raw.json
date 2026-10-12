@@ -1,0 +1,47 @@
+{
+  "id": "reader_07_unavailable_source_body_unlistened_audio",
+  "prompt": "Use the bundled bounded excerpt for a source whose longer semantic body is inaccessible. Another saved case says its audio was not listened to. Explain what can be transferred and what remains unknown without treating missing body as deleted/absent.",
+  "prompt_sha256": "f1209e134d37ce19c6d49e18c1df16d9f42b06857b3b73bbfdb56a7bb0a48353",
+  "context_files": [
+    "video-production-assets/SKILL.md",
+    "video-production-assets/references/contract.md",
+    "video-production-assets/references/rofan-craft-examples.md",
+    "video-production-assets/references/25-reference-video-analysis.md",
+    "video-production-assets/references/08-animation.md"
+  ],
+  "context_text_sha256": {
+    "video-production-assets/SKILL.md": "1359ddbfc7072f967b6634911487af5e70243d4979c48034b57033cf6c2acbc6",
+    "video-production-assets/references/contract.md": "7a7c0f2454e788d8ccd01f243a0ea5b30b8e64b0e970179b70e75376c18cd5ce",
+    "video-production-assets/references/rofan-craft-examples.md": "e76241a6cfa365ca4467ef8383f3d5b94604dac8c24185f545a91732d5212a33",
+    "video-production-assets/references/25-reference-video-analysis.md": "96e67b2f7799e805b24562d2e436223df64db32e73a00ee0aa89dd35f97a1eef",
+    "video-production-assets/references/08-animation.md": "fb835a4a7e54270c7dcdba7a75d5ce0466b7ecdd09914a1e4bcc0f0085fa9fef"
+  },
+  "system_sha256": "3aeacbaae8e332a1cf265352b913f60fa84a8124e64c6126af9063fbeb0afa00",
+  "prior_system_sha256_verified": "3aeacbaae8e332a1cf265352b913f60fa84a8124e64c6126af9063fbeb0afa00",
+  "model_selection": "default",
+  "resolved_model": "UNKNOWN",
+  "casebank_source_sha256": "e76241a6cfa365ca4467ef8383f3d5b94604dac8c24185f545a91732d5212a33",
+  "casebank_installed_sha256": "e76241a6cfa365ca4467ef8383f3d5b94604dac8c24185f545a91732d5212a33",
+  "isolated_installed_root": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-t17-final-p0o_wusn\\skills\\video-production-assets",
+  "completion_status": "all_five_completed",
+  "raw_outputs": [
+    "### What can transfer\n\n- **Excerpt-only source (`797-opening-title-to-live-bed`)**: The bounded excerpt shows an illustrated opening title at about `0s`, followed by a live bed image at about `0.2s`. The transferable principle is a **title-to-live-image information transition**. For a new piece, that can inform an opening that moves clearly from title information into a live scene. This is limited to the observed opening; it does not establish what happens later.\n- **Unlistened audio (`P14`, locator `a600`)**: The saved visual notes describe a held shot with small eye, mouth, head, or hand changes. This can inform a proposal for a **held reaction with readable micro-changes**. It cannot support claims about what the person says—or whether the audio contains speech or silence.\n\n### What remains unknown\n\n- The longer semantic body of the `797` source is inaccessible. Its later content, structure, and ending are therefore **unknown**, not evidence of absence or deletion.\n- For `P14`, the audio was not listened to. Speech, silence, music, effects, and their timing remain **unknown**; visible mouth movement alone does not resolve them.\n- These are bounded saved observations, not fresh playback or inspection. Any new timing or staging would be a proposal for the new brief, not a measurement or finding about either source.",
+    "### What can be transferred\n\nThe bounded excerpt supports only a **title-to-live-image transition**: an illustrated opening title is followed by a live-action bed image at about **0.2 seconds**. The reusable mechanism is the change in information mode—from graphic/title to live image—not any later story structure. This is a limited saved observation, not fresh playback or a complete analysis of the source. The timestamp is a locator, not a proposed timing for a new video.\n\nSeparately, the saved audio note says **audio was not listened to**. It supports no conclusion about whether that source contains speech, music, silence, or sound effects.\n\n### What remains unknown\n\nThe longer semantic body is inaccessible, so its later content, sequence, and ending are **unknown**. Inaccessibility does not mean the material was deleted, nor does it establish that later events are absent. Audio content is also unknown; a visual excerpt or other saved notes cannot fill that gap.\n\nA new video could use a title-to-live-image transition if that serves its brief, but this would be a new proposal—not evidence about the inaccessible body. Verify the proposed transition in the actual cut, and inspect or listen to the relevant audio separately if its content matters.",
+    "### Bounded observations\n\n- **`797-opening-title-to-live-bed`**: the recoverable excerpt shows an illustrated opening title at about **0s**, followed by a live-action bed image at about **0.2s**. The saved note covers only that opening transition; it does not establish what happens later.\n- **`P14` (`a600`)**: the saved visual notes describe a held shot with small changes in the eyes, mouth, head, or hand. **The audio was not listened to**, so speech, silence, and other audio content are unknown.\n\n### What can transfer\n\n- From **`797`**: a general **title-to-live-image transition** can distinguish an opening information layer from the scene that follows. For a new brief, the title and live image could be staged as two clearly legible states.\n- From **`P14`**: a **held visual composition with readable micro-changes** can sustain attention without requiring a cut. This supports a visual-hold principle only—not an audio or dialogue pattern.\n\n### What remains unknown\n\nThe inaccessible portion of `797` is **unavailable in this bounded excerpt**; its contents should not be reconstructed or treated as deleted, absent, or evidence that the source ends after the opening. For `P14`, unlistened audio provides no evidence for either speech or silence, and the visual notes cannot establish what was audible.\n\n**Conditional application:** If a new piece needs an opening distinction, it could use a brief title followed by a live scene; if it needs a reaction beat, it could hold on a face and let one small visual change carry the beat. Those are new proposals, not claims about either source’s later content or sound.",
+    "The **bounded excerpt** can support transfer of only what it records: a **title-to-live-image transition**—an illustrated opening title gives way to a live bed image at about **0.2 s**. The transferable mechanism is the distinction between an opening graphic and the first live image, not the source’s later story or overall structure. The excerpt is incomplete; it does not establish what follows.\n\nFor the separate saved case whose audio was **not listened to**, neither speech nor silence is established. Do not infer dialogue, music, sound effects, or their absence from the visual notes.\n\nThese are **access and review limits**, not evidence that the inaccessible semantic body or audio was deleted or absent. Any proposal for a new piece should be labeled as a proposal, and any claims about later content or audio should remain **unknown** unless checked against the source.",
+    "### What can be transferred\n\nThe bundled excerpt supports only its **bounded, recorded observation** and the general production mechanism it illustrates. Apply that mechanism to a new brief only where the scene problem matches; keep the new proposal distinct from what the source itself showed. Any source timecodes or cues remain locators, not timings for the new work.\n\n### What remains unknown\n\nThe longer semantic body is **inaccessible**, so its unrecovered content cannot be described or inferred. That is a limit of access, **not evidence that the material was deleted or that the events, details, or features it might contain were absent**. Do not reconstruct it from counts or nearby cases.\n\nFor the separate saved case whose audio was not listened to, **speech, silence, music, and other audible content remain unknown**. Visual observations do not resolve those audio questions.\n\nThese limits are independent: the inaccessible body does not establish anything about the separate case’s audio, and the unlistened audio does not fill gaps in the inaccessible body."
+  ],
+  "raw_output_sha256": [
+    "9006848556d647816821802d32b38cc326f3d6914247d21d06f039fd1cf9915b",
+    "3574b6bbe84c90bf6092a50531a957f11efec3dd99bab3b1531b018f77618852",
+    "481aae990e576cf38c58dd2098a7b25dd8b5d34acb9543e87a28c894404ab3b8",
+    "3f6163890adca838d5dd8ac44e639f9d09fe584406861c2376056b70a6d13c0d",
+    "0bcd5fb31124c7ef29a8bd79cbbcade9e7872061cab38e743b5be11a139eee90"
+  ],
+  "suite": "T17 full fresh 15-call 09 scoped-field handoff evaluation",
+  "calls_planned": 5,
+  "calls_completed": 5,
+  "calls_pending": 0,
+  "runner_note": "T17 used five independent fresh stateless completion(prompt, model=\"default\", system=package_context).wait() calls. Isolated root copied T16; only 09-edit.md was replaced. Reader/ordinary context files exclude 09 and their system hashes match T16.",
+  "installed_09_edit_sha256": "75eebd8b3bd40fe26507319650142b82cef37b563a233e4b1718a6e31af4a8af"
+}

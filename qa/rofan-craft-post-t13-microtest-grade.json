@@ -1,0 +1,91 @@
+{
+  "status": "GRADE_CORRECTED_AFTER_INDEPENDENT_REVIEW",
+  "method": {
+    "runner": "functions.eval completion(prompt, model='default', system=installed_package_context).wait()",
+    "model_selection": "default",
+    "resolved_model": "UNKNOWN (helper did not expose it)",
+    "scenario_calls": 15,
+    "completed": 15,
+    "pending": 0,
+    "duplicates": 0,
+    "rubrics_or_docs_in_model_context": false,
+    "grade_basis": "Manual review of each full raw output against the prepared matrix and frozen scenario semantics. Grades consider source-matched bounded observations, transferable mechanism/proposal and limits, brief fidelity, owner fields, and guards. Case-ID/string echo alone is not a pass. Actual media inspection was not requested or performed; only planned QA and UNKNOWN status were graded."
+  },
+  "package": {
+    "source_repo": "C:\\Users\\Declan\\documents\\Projects\\contents-production-skills",
+    "source_snapshot": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-post-t13-src-tkb9lg9w\\source",
+    "installed_root": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-post-t13-src-tkb9lg9w\\skills",
+    "manifest_skill_count": 23,
+    "installer_command": "python -X utf8 install_package.py --repo-root C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-post-t13-src-tkb9lg9w\\source --skills-root C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-post-t13-src-tkb9lg9w\\skills",
+    "installer_result": "exit 0; installed 23 skills, package version 2.5",
+    "casebank_source_sha256": "5c4cae3f345258eedd018aa4cce09eed2c313ca9ccd06d92ed9c06da4c2ea333",
+    "casebank_installed_sha256": "5c4cae3f345258eedd018aa4cce09eed2c313ca9ccd06d92ed9c06da4c2ea333",
+    "source_copy_hash_match": true,
+    "global_install_modified": false
+  },
+  "scenario_results": [
+    {
+      "id": "reader_07_unavailable_source_body_unlistened_audio",
+      "raw_artifact": "qa/rofan-craft-post-t13-reader07-raw.json",
+      "per_repetition": [
+        {"rep": 1, "overall": "PARTIAL_NOT_MET", "d797_excerpt_match": "NOT_MET", "title_to_live_hypothetical": "NOT_MET", "p14_audio_boundary": "PASS", "unknown_guard": "PASS", "evidence": "Names P14 and its bounded visual micro-changes and correctly leaves unlistened audio unknown, but does not identify the separate 797 opening title-to-live-bed observation or give its conditional title-to-live proposal."},
+        {"rep": 2, "overall": "PARTIAL_NOT_MET", "d797_excerpt_match": "NOT_MET", "title_to_live_hypothetical": "NOT_MET", "p14_audio_boundary": "PASS", "unknown_guard": "PASS", "evidence": "Offers generic C01/C02/C12-like mechanisms, not the requested 797 opening observation or title-to-live proposal; preserves access/audio unknowns."},
+        {"rep": 3, "overall": "PARTIAL_NOT_MET", "d797_excerpt_match": "NOT_MET", "title_to_live_hypothetical": "NOT_MET", "p14_audio_boundary": "PASS", "unknown_guard": "PASS", "evidence": "Offers a generic action/result/witness mechanism, not the requested 797 opening observation or title-to-live proposal; preserves access/audio unknowns."},
+        {"rep": 4, "overall": "PARTIAL_NOT_MET", "d797_excerpt_match": "NOT_MET", "title_to_live_hypothetical": "NOT_MET", "p14_audio_boundary": "PASS", "unknown_guard": "PASS", "evidence": "Explains source limits but gives no D797 opening observation or title-to-live proposal; preserves access/audio unknowns."},
+        {"rep": 5, "overall": "PARTIAL_NOT_MET", "d797_excerpt_match": "NOT_MET", "title_to_live_hypothetical": "NOT_MET", "p14_audio_boundary": "PASS", "unknown_guard": "PASS", "evidence": "Gives general limits/transfer guidance but no D797 opening observation or title-to-live proposal; preserves access/audio unknowns."}
+      ],
+      "summary": {"full_pass": 0, "partial_not_met": 5, "d797_excerpt_match_pass": 0, "title_to_live_hypothetical_pass": 0, "p14_audio_boundary_pass": 5, "unknown_guard_pass": 5, "guard_failures": 0}
+    },
+    {
+      "id": "composite_baseline_contact_wardrobe_gate_ending",
+      "raw_artifact": "qa/rofan-craft-post-t13-composite-raw.json",
+      "per_repetition": [
+        {"rep": 1, "overall": "PARTIAL_NOT_MET", "retrieval": "PASS", "brief_and_guard": "PASS", "active_cut_fields": "PASS", "canonical_elision_row": "NOT_MET", "planned_ending_checks": "NOT_MET", "evidence": "Elision is prose, not a canonical row; ending QA does not plan separate last-picture/container checks."},
+        {"rep": 2, "overall": "PARTIAL_NOT_MET", "retrieval": "PASS", "brief_and_guard": "PASS", "active_cut_fields": "PASS", "canonical_elision_row": "REVIEW_AGGREGATE_ONLY", "planned_ending_checks": "NOT_MET", "evidence": "Response includes an elision table; the independent review counts two of five exact canonical rows but did not map the passing repetitions. Ending checks were not accepted as separately planned."},
+        {"rep": 3, "overall": "PARTIAL_NOT_MET", "retrieval": "PASS", "brief_and_guard": "PASS", "active_cut_fields": "PASS", "canonical_elision_row": "REVIEW_AGGREGATE_ONLY", "planned_ending_checks": "NOT_MET", "evidence": "Response includes an elision table; the independent review counts two of five exact canonical rows but did not map the passing repetitions. Ending checks were not accepted as separately planned."},
+        {"rep": 4, "overall": "PARTIAL_NOT_MET", "retrieval": "PASS", "brief_and_guard": "PASS", "active_cut_fields": "PASS", "canonical_elision_row": "REVIEW_AGGREGATE_ONLY", "planned_ending_checks": "NOT_MET", "evidence": "Response includes an elision table; the independent review counts two of five exact canonical rows but did not map the passing repetitions. Ending checks were not accepted as separately planned."},
+        {"rep": 5, "overall": "PARTIAL_NOT_MET", "retrieval": "PASS", "brief_and_guard": "PASS", "active_cut_fields": "PASS", "canonical_elision_row": "REVIEW_AGGREGATE_ONLY", "planned_ending_checks": "NOT_MET", "evidence": "Response includes an elision table; the independent review counts two of five exact canonical rows but did not map the passing repetitions. Ending checks were not accepted as separately planned."}
+      ],
+      "summary": {"full_pass": 0, "partial": 5, "retrieval_pass": 5, "active_cut_fields_pass": 5, "canonical_elision_row_pass": 2, "planned_ending_checks_pass": 0, "guard_failures": 0}
+    },
+    {
+      "id": "negative_ordinary_brief_skip_casebank_loaded",
+      "raw_artifact": "qa/rofan-craft-post-t13-ordinary-loaded-raw.json",
+      "per_repetition": [
+        {"rep": 1, "overall": "PASS", "applicability": "PASS", "continuity_qa": "PASS", "evidence": "Does not force a case; provides roll count/placement, rack, wipe, and eyeline checks."},
+        {"rep": 2, "overall": "PASS", "applicability": "PASS", "continuity_qa": "PASS", "evidence": "Explicitly says no relevant case applies; preserves three-roll continuity and actionable hand/towel/customer checks."},
+        {"rep": 3, "overall": "PASS", "applicability": "PASS", "continuity_qa": "PASS", "evidence": "Marks saved observations unavailable for these beats, labels new proposal, and gives practical continuity checks."},
+        {"rep": 4, "overall": "PASS", "applicability": "PASS", "continuity_qa": "PASS", "evidence": "Says no matching case is applied; keeps the ordinary single-shot plan and checks the three rolls, wipe, and eyeline."},
+        {"rep": 5, "overall": "PASS", "applicability": "PASS", "continuity_qa": "PASS", "evidence": "Explicitly reports no matching observation and does not force the catalog; checks count, action order, towel, and customer eyeline."}
+      ],
+      "summary": {"full_pass": 5, "forced_case_applications": 0, "continuity_qa_pass": 5}
+    }
+  ],
+  "overall": {
+    "full_pass": 5,
+    "partial_not_met": 10,
+    "not_met": 0,
+    "safety_or_unknown_guard_failures": 0,
+    "interpretation": "Final independent-review result: the loaded-bank ordinary negative control passes 5/5. Reader07 passes P14 audio/access guards but misses the specifically expected 797 opening excerpt and its title-to-live-image hypothetical in all five repetitions. Composite retrieval, active cut fields, and guards pass, but no response meets the complete canonical-elision-plus-ending-check requirement. No causal or statistical improvement claim is made; this text-only test does not establish actual visual/media quality or endpoint capability."
+  },
+  "grade_correction_history": {
+    "superseded_initial_self_grade": {"full_pass": 7, "partial_not_met": 6, "not_met": 2, "reader07": "1 pass / 2 partial / 2 not met based on P14/generic mechanisms only", "composite": "1 full / 4 partial; elision rows 4/5; planned ending checks 1/5"},
+    "final_independent_review": {"reader07": "0/5 exact D797/797 excerpt plus concrete title-to-live hypothetical; P14 audio/access boundary 5/5", "composite": "0/5 complete canonical elision plus separate ending checks; canonical elision rows 2/5; ending checks 0/5", "ordinary_loaded_casebank": "5/5"},
+    "reader07_context": {
+      "full_casebank_in_exact_system": true,
+      "casebank_file": "video-production-assets/references/rofan-craft-examples.md",
+      "casebank_sha256": "5c4cae3f345258eedd018aa4cce09eed2c313ca9ccd06d92ed9c06da4c2ea333",
+      "system_sha256": "fcfaf23e396af66f80bf281381d71f71174296362f17878972a4ba4ba53c6f2d",
+      "system_byte_count": "not recorded",
+      "cue_present": "Yes. The complete installed file was read into the exact reader07 system; it contains the bounded `797-opening-title-to-live-bed` cue (illustrated title ~0s → live bed ~0.2s; only opening excerpt recoverable) and the recovery-limit note for D797. Responses did not apply that cue."
+    },
+    "reason": "Independent review clarified reader07's required D797 excerpt plus hypothetical and corrected composite structural counts. Raw responses and initial manual grade are retained here; no completion call was repeated."
+  },
+  "execution_note": "In the first reader07 orchestration cell, five completion handles were created; their synchronous wait() calls returned five completed strings, after which asyncio.gather rejected the returned strings as non-awaitables. The completed strings were recovered from the existing handles; no request was reissued. The composite and ordinary groups each ran five new, independent stateless calls. All fifteen planned calls completed exactly once; zero remain pending.",
+  "prior_artifacts_unchanged": [
+    "qa/rofan-craft-baseline-run.json",
+    "qa/rofan-craft-baseline-suite-v2-run.json",
+    "qa/rofan-craft-green-final-t12-run.json"
+  ],
+  "not_run": ["media generation", "real-media playback/inspection", "3D/Blender", "endpoint capability checks"]
+}

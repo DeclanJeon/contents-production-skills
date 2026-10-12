@@ -1,0 +1,65 @@
+{
+  "status": "GRADED",
+  "suite": "T14 final fresh 15-call casebank-only revision evaluation",
+  "frozen_prompts_and_rubrics": "qa/rofan-craft-post-improvement-microtest-matrix.json (unchanged)",
+  "raw_artifacts": [
+    "qa/rofan-craft-t14-reader07-raw.json",
+    "qa/rofan-craft-t14-composite-raw.json",
+    "qa/rofan-craft-t14-ordinary-loaded-raw.json"
+  ],
+  "verification": {
+    "requested_casebank_sha256_source": "31785f6ed7b7a9e99e9830101ceb8bbdebad2d0da54ec45b5b30928a65f8740e",
+    "requested_casebank_sha256_installed": "31785f6ed7b7a9e99e9830101ceb8bbdebad2d0da54ec45b5b30928a65f8740e",
+    "isolated_installed_root": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-t14-final\\skills\\video-production-assets",
+    "procedure": "Copied frozen T13 installed root; replaced only casebank. Unchanged per-context files match corresponding T13 SHA-256. Reconstructed old package-only system with exact recorded assembly; matched T13 system SHA before calls. T14 system payload uses same ordered files/assembly with only casebank changed.",
+    "prior_system_sha256_verified": {
+      "reader07": "fcfaf23e396af66f80bf281381d71f71174296362f17878972a4ba4ba53c6f2d",
+      "composite": "bc213e0dda56d2c4879e9edde00e4e0f421441039aaf4ce21e98f044596bbcb8",
+      "ordinary": "RECONSTRUCTED_AND_VERIFIED_AGAINST_T13_RAW"
+    },
+    "T14_system_sha256": {
+      "reader07": "1f431a67fd6f3772f4f088078c14eb81aceb9a1a589dbf9966b37834e886fc01",
+      "composite": "2f8e93d088b46b4f06b0641f33c739fcd0a8e6dbd1fc49b5c700021f52d2f95c",
+      "ordinary": "a8e2f516a90edf5ed191d6a81912d7bcb5e039eab62308b02ff4f5d1e1f86d2e"
+    },
+    "calls_planned": 15,
+    "calls_completed": 15,
+    "calls_pending": 0,
+    "model_selection": "default",
+    "resolved_model": "UNKNOWN"
+  },
+  "manual_grades": {
+    "reader_07_unavailable_source_body_unlistened_audio": {
+      "runs": [
+        {"run": 1, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Names 797-opening-title-to-live-bed, gives title-to-live transition mechanism and conditional proposal; separately scopes P14 audio unlistened."},
+        {"run": 2, "retrieval_transfer": "NOT_MET", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PARTIAL_NOT_MET", "evidence": "Generic limits and conditional transfer only; does not identify/apply the bounded 797 excerpt or give a concrete matching proposal."},
+        {"run": 3, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Identifies 797 title-to-live transition and P14 visual hold; proposes both conditionally and keeps source limits distinct."},
+        {"run": 4, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Identifies bounded 797 transition and P14 micro-change observation; applies only conditionally and marks missing content/audio unknown."},
+        {"run": 5, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Names D797 title-to-live mechanism, states locator limits and proposed conditional use, and separately preserves P14 audio unknown."}
+      ],
+      "summary": {"full_pass": 4, "partial_not_met": 1, "not_met": 0, "unknown_guard_failures": 0}
+    },
+    "composite_baseline_contact_wardrobe_gate_ending": {
+      "runs": [
+        {"run": 1, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "owner_fields": "PARTIAL_NOT_MET", "ending_checks": "PASS", "overall": "PARTIAL_NOT_MET", "evidence": "Relevant bounded cases and guards preserved; plans separate last-picture/container checks. Elision is described in cut prose, not canonical six-column row; cut table lacks separate canonical six-column active fields."},
+        {"run": 2, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "owner_fields": "PARTIAL_NOT_MET", "ending_checks": "PASS", "overall": "PARTIAL_NOT_MET", "evidence": "Retrieves applicable cases, preserves brief and unknowns, and directs separate actual-picture/container checks. Elision appears in prose only; cut table combines numeric ranges and does not supply active six-column cut fields."},
+        {"run": 3, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "owner_fields": "PARTIAL_NOT_MET", "ending_checks": "PASS", "overall": "PARTIAL_NOT_MET", "evidence": "Bounded observations/proposals and guards are sound; canonical six-column elision row is present and separate end checks planned. Cut table still does not use approved active six-column cut fields (e.g. combined range, no separate shot_id/asset_id column)."},
+        {"run": 4, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "owner_fields": "PARTIAL_NOT_MET", "ending_checks": "PASS", "overall": "PARTIAL_NOT_MET", "evidence": "Retrieval and guard requirements met; separate end checks planned. Elision is prose only and cut ranges are combined rather than the active six-column fields."},
+        {"run": 5, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "owner_fields": "PARTIAL_NOT_MET", "ending_checks": "PASS", "overall": "PARTIAL_NOT_MET", "evidence": "Retrieval/brief/guard and separate end checks met; six-column elision row included, but cut plan lacks the approved active six-column cut-row schema."}
+      ],
+      "summary": {"full_pass": 0, "partial_not_met": 5, "not_met": 0, "retrieval_pass": 5, "brief_fidelity_and_guard_pass": 5, "owner_fields_complete": 0, "ending_checks_pass": 5, "guard_failures": 0}
+    },
+    "negative_ordinary_brief_skip_casebank_loaded": {
+      "runs": [
+        {"run": 1, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "No matching saved case selected; three-roll/towel/customer plan and practical continuity QA."},
+        {"run": 2, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Explicitly says no case applies; concise action plan and roll/rack/towel/eyeline checks."},
+        {"run": 3, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Skips unrelated case and provides actionable placement, flour wipe, rack and smile continuity checks."},
+        {"run": 4, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "No unrelated saved observation imported; three-roll placement and continuity plan."},
+        {"run": 5, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "No saved cases selected, ordinary plan remains usable with specific continuity QA."}
+      ],
+      "summary": {"full_pass": 5, "partial_not_met": 0, "not_met": 0, "forced_application_failures": 0}
+    }
+  },
+  "aggregate": {"full_pass": 9, "partial_not_met": 6, "not_met": 0, "guard_failures": 0},
+  "limitations": "Manual descriptive sample only; no causal/statistical improvement claim. No media generation or actual-media inspection performed. Composite all partial because output misses active six-column 09 cut fields despite elision/ending coverage variance."
+}
