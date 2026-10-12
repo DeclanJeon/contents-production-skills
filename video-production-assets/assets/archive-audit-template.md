@@ -1,6 +1,7 @@
 # 아카이브 영상 감사
 
 > 읽기 전용 분석 산출물. 영상별 관찰은 `assets/shot-dna-template.md`에 연결하고, 이 문서는 인벤토리·범위·교차 영상 비교를 보관한다.
+For an explicit exhaustive all-source/all-shot or cross-source craft extraction, also use [`archive-craft-crosswalk-template.md`](archive-craft-crosswalk-template.md) for the relational source-occurrence→sequence/scene→shot→within-shot-event→finding→existing-owner/QA join. This crosswalk is conditional; it is not required for single-reference or ordinary archive inventory work. Missing rows and open gates remain explicit, never “zero findings.”
 
 ## 범위와 커버리지
 

@@ -1,6 +1,6 @@
 # 레퍼런스 영상 분해 (온디맨드 심화)
 
-모듈 01·05·06·09의 공통 심화. 사용자가 단일 영상·클립·광고·릴스·숏·영화 장면·시각 레퍼런스의 제작 원리를 추출해 달라고 하거나, 여러 비디오가 있는 폴더/아카이브를 전부 분석해 포트폴리오 패턴·스킬 커버리지·갭을 비교해 달라고 할 때 연다. 보호된 표현의 복제가 아니라 이전 가능한 제작 원리를 추출한다.
+모듈 01·05·06·09의 공통 심화. 사용자가 단일 영상·클립·광고·릴스·숏·영화 장면·시각 레퍼런스의 제작 원리를 추출하거나, 여러 비디오가 있는 폴더/아카이브를 분석해 교차 영상 패턴과 스킬 커버리지/갭을 비교해 달라고 할 때 연다. 명시적으로 기존 스킬에 일반 제작 방법을 이전해 달라고 한 요청도 이 경로를 따른다. 보호된 표현을 복제하는 대신, 근거가 허용하는 범위의 이전 가능한 제작 원리를 추출한다.
 
 ## 레퍼런스 발견과 선택
 
@@ -22,13 +22,15 @@
 7. 발견을 재사용 가능한 제작 레시피로 변환한다. 원리는 보존하고, 사용자가 소유하거나 재사용을 허가하지 않은 캐릭터·사건·브랜드 에셋·장소·대사·특정 보호 디자인은 바꾼다. 전문 문제는 아래 경로로 라우팅한다.
 ### 원본 위치·경계·분석 ID의 증거 수준
 
-아카이브 감사에서는 `archive_id`를 source의 안정된 identity로 사용하고, 원본 장·분석에서 쓰는 locator를 프로젝트의 `scene_id`, `shot_id`, `panel_id`로 승격하지 않는다. `C##`는 detector candidate/neighborhood, `B##`는 관찰 블록, `G##/SG##`는 장면 해석, `S##.P##`는 source shot 안의 action phase를 나타낼 수 있다. 숫자와 접두어만으로 종류를 추정하지 말고 해당 source의 legend를 따른다.
+아카이브 감사에서는 `archive_id`를 source의 안정된 identity로 사용하고, 원본 장·분석에서 쓰는 locator를 프로젝트의 `scene_id`, `shot_id`, `panel_id`로 승격하지 않는다. `C##`는 detector candidate/neighborhood, `B##`는 관찰 블록, `G##/SG##`는 장면 해석, `S##.P##`는 source shot 안의 action phase를 나타낼 수 있다. 숫자와 접두어만으로 종류를 추정하지 말고 해당 source의 legend를 따른다. 인용하는 모든 occurrence/sequence/scene/shot/event/candidate ID는 원문 그대로 전체를 쓴다—`…`, 기타 생략·잘림, 재생성 alias를 쓰지 않는다.
 
 검출 점수나 프레임 차이는 `DETECTOR_CANDIDATE`다. 후보 하나, contact sheet, 1fps/native sample, 성공한 전체 decode도 컷 경계 검증이 아니다. `SH###`는 경계 양쪽의 원본 증거로 컷을 실제 확인했을 때만 사용하고, 표본 사이의 경계는 bracketed `ESTIMATED` 또는 `UNKNOWN`으로 남긴다. Scene, shot/cut, 한 shot 안의 여러 action phase를 따로 세며 dissolve/morph/wipe가 미확정이면 transition candidate라 한다.
 
 각 locator에는 요청 시각(`requested_s`)과 실제 source frame PTS(`source_pts_s`)를 구분해 기록한다. PTS는 샘플 프레임 위치이지 정확한 cut time이나 action onset이 아니다. 같은 시각의 화면 텍스트는 `OBSERVED`로 쓸 수 있지만 실제 speech timing/부재는 청취가 필요하다. Uploader pipeline/tool credits는 `DECLARED_UPLOADER_CLAIM`; 자동 캡션은 `CAPTION_TEXT_AUTO_UNTIMED`; ASR는 `ASR_RUN / HYPOTHESIS_UNVERIFIED`; 미청취 오디오·미검사 구간은 `UNKNOWN`이다. Frame review ≠ continuous playback; stream metadata ≠ listening.
 
 새 브리프에 옮길 때는 관찰한 source locator와 새 계획의 proposed timing/IDs를 다른 열에 둔다. `assets/shot-dna-template.md`의 source scope, observed/estimated/unknown, transfer chain, reusable mechanism fields를 쓰고, 확인할 실제 생성/렌더/재생은 담당 모듈에 넘긴다. 분석은 컷 전체 인증·제작 경로/권리·효능·성과 승인이 아니다.
+
+When a bounded single-source crosswalk is produced, its existing status/coverage/gate slots MUST separately state the selected source's exact status from the current master with locator, the exact filename in the source-provenance row (never in the reusable mechanism), archive-global materialized/total and unmaterialized occurrence counts, and every current OPEN global gate by exact key/status. Resolve the current semantic index from the master's current index pointer (`source_index_ref` in the current master; follow `current_index_ref` where present), then read the index's `global_merge_gates`; 44/44 identities indexed is not gate closure. Source closure or counts alone are insufficient; unavailable values stay `UNKNOWN`/`OPEN`, not inferred. This requirement applies only when a crosswalk is produced and does not require a crosswalk for ordinary single-reference analysis.
 
 ### 제작 레시피 연계
 
@@ -85,15 +87,32 @@ shot_id/근사 또는 측정 시간 · 서사 기능 · 피사체/행동의 시�
 4. 영상별 분해가 끝난 뒤 반복·대조 패턴을 집계한다. 해당 패턴을 뒷받침하는 파일 수와 실제 확인 범위를 함께 적고, 조회수·유지율·전환 데이터가 없으면 성과 판단으로 확장하지 않는다.
 5. 각 갭 후보를 현재 스킬의 정확한 참조/절차와 대조해 `이미 커버`, `부분 커버`, `갭 후보`, `증거 부족`으로 분류한다. 누락된 키워드만으로 기능이 없다고 판단하지 않는다.
 6. 실제 갭만 수정 후보로 제안하고 기존 절차의 중복 복사를 피한다. 미확인 영상에서의 부재·캡션 불일치·권리 문제를 확정하지 않는다.
+7. 사용자가 명시적으로 **전수 all-source/all-shot 분석** 또는 **cross-source craft extraction**을 요청한 경우에만 `assets/archive-craft-crosswalk-template.md`를 REQUIRED로 작성한다. 이는 archive audit 및 shot DNA에 추가되는 관계형 join이며, 각 source occurrence→sequence/scene→shot/boundary→within-shot event→craft finding→기존 owner→target-specific observable QA를 연결하고 미완료 source rows/open gates를 명시한다. 인용 ID는 occurrence/sequence/scene/shot/event/candidate 모두 원문 그대로 전체를 쓰고, `…`·잘림·재생성 alias를 금한다. Detector candidate, confirmed hard cut, soft transition, shot boundary 및 within-shot event를 구별한다. 각 completed finding은 `assets/shot-dna-template.md`의 `이전 체인` 필드 `레퍼런스 증거(관찰+위치)`→`메커니즘`→`의도 효과(해석)`(대안 포함)→`새 브리프 제작 요구`→`정성 검증 기준`에 매핑하고, 적용 가능한 기존 receiving-owner template field(s)와 정확한 QA slot을 해당 owner 파일의 명칭 그대로 쓴다. 관련 owner 열만 포함하고 새 필드/alias를 만들지 않는다. 표기와 체인 모두 기존 템플릿과 대조하는 마지막 row-completeness check에 통과한 finding만 retrievable이다. 누락·미검토 범위는 zero findings가 아니다. 일반/단일 레퍼런스 분석에서는 이 crosswalk를 요구하지 않는다.
 
 ## 재사용 규칙 추출
 
 "정확히 이 산과 의상을 쓴다"보다 "얼굴 클로즈업에서 극와이드로 잘라 규모를 드러낸다" 같은 규칙을 우선한다. 오프닝 문법·에스컬레이션 패턴·보상 문법·마무리 문법을 구분해 추출한다.
 
-**이전 가능 메커니즘**(구조 논리·타이밍 관계·공개 순서)과 **보호 표현**(캐릭터·브랜드·특정 디자인·대사·음악)을 분리하고, 메커니즘만 사용자의 새 브리프에 구체적으로 맞춘다. 각 제안은 추적 가능한 체인으로 적는다: 레퍼런스 증거(관찰 + 위치) → 메커니즘 → 의도 효과(해석으로 표기) → 새 브리프의 제작 요구 → 정성 검증 기준. 제안 타이밍은 측정한 원본 시간과 구별해 표기하고, 실제 산출물·샷·패널 ID는 이후 담당 단계가 붙인다 — 이 분석/감사 단계에서 확정 ID를 만들지 않는다. 분석이나 템플릿은 생성·제작을 승인하지 않는다.
+**이전 가능 메커니즘**(구조 논리·타이밍 관계·공개 순서)과 **보호 표현**(캐릭터·브랜드·특정 디자인·대사·음악)을 분리하고, 메커니즘만 사용자의 새 브리프에 구체적으로 맞춘다. 각 제안은 추적 가능한 체인으로 적는다: 레퍼런스 증거(관찰 + 위치) → 메커니즘 → 의도 효과(해석으로 표기, 대안 포함) → 새 브리프의 제작 요구 → 정성 검증 기준. 아카이브 crosswalk finding은 `assets/shot-dna-template.md`의 `이전 체인` 필드명을 그대로 사용해 이 순서를 매핑하고, 적용 가능한 receiving-owner template field(s)와 정확한 QA slot도 해당 owner 파일의 실제 명칭으로 적는다; 관련 owner 열만 연결하고 새 field/alias는 만들지 않는다. 제안 타이밍은 측정한 원본 시간과 구별해 표기하고, 실제 산출물·샷·패널 ID는 이후 담당 단계가 붙인다 — 이 분석/감사 단계에서 확정 ID를 만들지 않는다. 분석이나 템플릿은 생성·제작을 승인하지 않는다.
+Each completed crosswalk handoff MUST separately name and represent all five existing Shot-DNA `이전 체인` fields—`레퍼런스 증거(관찰+위치)`, `메커니즘`, `의도 효과(해석)`, `새 브리프 제작 요구`, `정성 검증 기준`—rather than leaving any mapping implicit in a combined explanation. Use the existing handoff/template structure; add no fields or schema.
+
+06 shot-planning handoffs always name the existing target identity/time fields `shot_id`, `scene_id`, `beat_id`, and `shot-local time (s or frames; FPS if frames)`, plus every applicable existing 06 creative/QA field. For an approach/response/contact-state finding, applicable fields include `크기/카메라 위치`, `인물 블로킹`, `시선/축`, `공개 정보`, `관점·감정/구도 의도`, `대안·채택/승인 상태`, and `종료 프레임`. Apply this field mapping only when 06 is the receiving owner; for other owners, use only their applicable existing fields. Add no schema or aliases.
 
 레퍼런스 요약 · 분석 범위와 측정/근사 구분 · 샷/비트 DNA 표 · 동작·카메라·컷·소리의 타임라인 관계 · 반복 시각·청각 문법 · 숨은 제작 요구 · 이전 체인 표 · 복제하면 안 되는 요소 · 권장 하위 라우팅. 아카이브 분석은 인벤토리·영상별 관찰 범위·교차 영상 스킬 커버리지/갭 표를 함께 낸다.
 
+### 명시적 skillification 요청만 기존 오너 절차를 갱신
+
+일반 분석·요약·새 브리프 적용은 스킬 파일을 수정하지 않는다. 사용자가 기존 스킬의 명시적 skillification/update를 요청한 경우에만 다음 순서를 수행한다:
+
+1. 분석 가능한 아카이브 범위에서 반복·대조 패턴을 종합하고 관찰·해석·미확인과 coverage를 분리한다. 표본/접근 한계를 넘어서는 archive-wide 주장을 하지 않는다.
+2. 각 이전 가능 패턴마다 관련 기존 오너의 전체 절차, 실제 템플릿 필드, QA 기준을 대조한다. 이미 커버/부분 커버/갭 후보/증거 부족을 구분하고, 무관한 오너도 범위에서 닫는다.
+3. 실제로 입증된 일반 절차 또는 QA 공백만 그 패턴의 정본 오너에 최소 반영한다. 이미 있는 06/08/09/21 또는 전문 카메라 절차를 복사하지 않고, 새 스키마·중복 policy/casebank rule을 만들지 않는다. 근거가 불충분하면 변경 대신 제한을 보고한다.
+4. 저장 사례집은 선택적 provenance/evidence로 남긴다. 새 오너 절차는 추출된 원리만 말하며 사례 ID·Rofan 검색·특정 사례 선조회에 의존하지 않는다.
+
+이전 가능한 것은 추상화된 제작 메커니즘뿐이다. 줄거리/사건, 인물·관계, 장소/세트, 소품·의상·제품 디자인, 고유한 샷 배열/안무, 원본의 절대 타이밍을 복사하거나 새 정책으로 일반화하지 않는다. 새 작업의 타이밍과 장면은 새 brief와 실제 오너 절차로 설계한다.
+
+외부 source root 또는 상세 ledger가 부분적으로 접근 불가하거나 materialization이 불완전하면, 실제 읽은 manifest·ledger와 미검사 media를 구분해 기록하고 남은 bounded evidence만 평가한다. 불완전한 표본을 전수 분석으로 표현하지 않고, source-derived skill update가 근거 없으면 수행하지 않는다. Ledger를 읽었다는 사실은 영상 playback/full decode, source별 완결성, 전체 shot coverage를 뜻하지 않는다.
+
 ## 출력 형태
 
-분석·질의·텍스트 요청은 결과를 그대로 텍스트로 낸다. project.json·타임라인·폴더·미디어 자리를 만들지 않고, 스킬 파일을 쓰거나 갱신하지 않으며, 발견한 패턴으로 스킬을 자동 개선하지 않는다. 실제 제작 단계로 넘길 때만 담당 모듈이 산출물을 만든다.
+일반 분석·질의·텍스트 요청은 결과를 텍스트로 낸다. project.json·타임라인·폴더·미디어 자리를 만들지 않고, 스킬 파일을 쓰거나 갱신하지 않는다. 예외는 사용자가 기존 스킬의 skillification/update를 명시적으로 요청한 경우뿐이며, 위 절차에 따라 증거가 확인된 기존 오너 공백만 변경한다. 패턴으로 자동 개선하지 않는다. 실제 제작 단계로 넘길 때만 담당 모듈이 산출물을 만든다. 분석/템플릿은 생성·제작을 승인하지 않는다.
