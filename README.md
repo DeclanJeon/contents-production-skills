@@ -12,7 +12,7 @@
 |---|---|---|
 | [creative-production](creative-production/SKILL.md) | 원고·소셜·캠페인·이미지·오디오·영상 요청 분류와 담당·검토·납품; 명시적 영화/단편 전체 제작은 라이프사이클 경로로 연결 | 단일 총괄. UI 개발이나 별도 전역 DB를 소유하지 않는다. |
 | [topic-demand-selection](topic-demand-selection/SKILL.md) | 주제 선택·순위·인기/검색 수요 검증 | 주제 후보를 고르기 전에 audience-demand 근거와 사실/자료 게이트를 별도로 평가한다. |
-| [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품; 영화 제작 6단계 참조 | 15개 선택형 모듈과 통합 전문 참조. 영화 경로는 명시적 전체/단계 간 요청에만 적용하고, 실제 렌더·권리 승인·게시와 구분한다. |
+| [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품; 영화 제작 6단계 참조; 대사·립싱크(22)의 TTS 전 다국어 대사 현지화·각색과 기존 보이스·립싱크 | 15개 선택형 모듈과 통합 전문 참조. 영화 경로는 명시적 전체/단계 간 요청에만 적용하고, 실제 렌더·권리 승인·게시와 구분한다. |
 | [orchestrating-video-preproduction](orchestrating-video-preproduction/SKILL.md) | 콘셉트→시놉시스→필요한 캐릭터→스토리보드의 텍스트 기획 | 총괄의 내부 레인. 텍스트만 요청하면 이미지·영상·폴더를 만들지 않는다. |
 | [developing-video-synopses](developing-video-synopses/SKILL.md) | 콘셉트·로그라인·시놉시스·비트 | 사실·서사·추상 모드에 맞춰 작성한다. |
 | [designing-video-character-sheets](designing-video-character-sheets/SKILL.md) | 캐릭터 정체성·행동·시각 앵커·연속성·범용 이미지 프롬프트와 페르소나·음성 설계 통합 | 텍스트 SSOT. 페르소나 전문 스킬을 필수 소비하며 실제 음성 생성은 하지 않는다. |

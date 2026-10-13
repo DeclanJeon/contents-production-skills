@@ -1,0 +1,61 @@
+{
+  "title": "Localization adaptation baseline with dialogue/lip-sync skill loaded",
+  "run_date": "2026-10-13",
+  "method": {
+    "contexts": "Five independent stateless completion calls; each received the corresponding exact prompt from qa/rofan-localization-baseline.json and the full current content of video-production-assets/references/22-dialogue-lipsync.md.",
+    "model_selector": "default",
+    "baseline_prompt_source": "qa/rofan-localization-baseline.json",
+    "skill_loaded": "video-production-assets/references/22-dialogue-lipsync.md",
+    "notes": "Responses are verbatim. No audio was generated. Omission-only scoring uses the same six requested behavior categories: intent/register, idiom/name handling, name pronunciation where applicable, spoken-duration fit to shot, approval gating for unresolved semantic/timing tradeoffs before TTS, and accurate TTS/lip-sync readiness."
+  },
+  "cases": [
+    {
+      "id": 1,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/0/prompt",
+      "response_verbatim": "- **Localized line:** “Mandou muito bem, Jo — só que o prego mesmo ainda tá no chão.”\n- **Idiomatic/pun decision:** “Mandou muito bem” soa natural em pt-BR e mantém o elogio; “o prego mesmo” preserva a virada literal do trocadilho seco.\n- **Name pronunciation:** Jo, como no original; pronúncia aproximada em pt-BR: “Jô”.\n- **Estimated spoken duration:** cerca de 2,2–2,6 s, com uma pausa curta antes de “só que”.\n- **Semantic-versus-timing tradeoff:** A frase cabe no limite de 2,4 s se dita com ritmo ágil e pausa mínima. Para uma entrega mais pausada, seria preciso aprovar encurtar a formulação ou ampliar a janela.\n- **TTS and lip-sync:** Texto pronto para TTS e sincronização labial, sujeito à geração e à revisão do áudio final.",
+      "omissions": ["The unresolved choice between brisk delivery and an approved wording/window change is not resolved or approval-gated before declaring the text ready for TTS/lip-sync."],
+      "omission_count": 1
+    },
+    {
+      "id": 2,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/1/prompt",
+      "response_verbatim": "**Diálogo adaptado:** «Todavía no salimos del apuro, señora Woods.»\n\n**Nombre:** Mantengo *Woods* como apellido. Pronunciación sugerida para TTS en español: **«wudz»** (una sílaba, con sonido inicial similar a *w* en inglés). Si la clienta ya tiene una pronunciación establecida, debe prevalecer esa.\n\n**Modismo:** «No estamos fuera de peligro todavía» sería más literal, pero «no salimos del apuro» suena natural en este contexto y conserva la idea de que la situación aún no está resuelta. El apellido da pie a un juego de palabras con *woods* («bosques»); el español no lo conserva.\n\n**Duración:** **Ajuste estimado, no medido.** La frase tiene 9 sílabas métricas aproximadas y podría caber en una ventana de 3,0 segundos con ritmo conversacional sereno. Conviene evitar una pausa marcada antes de «señora Woods».\n\n**Compromiso:** Se pierde el juego verbal del original para priorizar una frase natural y respetuosa en español. La duración real dependerá de la voz y de la pronunciación del apellido.\n\n**TTS/lip-sync:** La adaptación y la guía de pronunciación están listas para revisión de TTS; la duración y la pronunciación aún no están verificadas con audio. **No declarar listo para sincronización labial** hasta revisar la voz generada y confirmar el ajuste dentro de la ventana.",
+      "omissions": ["Identifies the lost wordplay but does not request or require approval of that semantic tradeoff before advancing the adaptation to TTS review."],
+      "omission_count": 1
+    },
+    {
+      "id": 3,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/2/prompt",
+      "response_verbatim": "- **Localized line:** 「大げさにしないの、マヤ。」\n- **Register / idiom:** Close, casual Japanese. 「大げさにしないの」 gently nudges Maya not to make a bigger deal of it; it keeps the teasing understated rather than sounding sharply sarcastic.\n- **Pronunciation:** マヤ — *ma-ya*. The source name’s “MAY-uh” is adapted to the natural Japanese reading; it won’t reproduce the English vowel exactly.\n- **Estimated timing:** About **1.0–1.4 seconds** at an easy conversational pace, leaving a little room within the 1.8-second shot. Estimate only; no audio has been generated or measured.\n- **Semantic–timing tradeoff:** The Japanese line conveys “don’t make such a big deal of it” rather than preserving the English meal metaphor. Keeping a literal food-related idiom would sound less natural here. No additional timing tradeoff appears necessary.\n- **TTS / lip-sync readiness:** **Text and pronunciation guidance ready; audio and lip-sync unverified.** No voice or TTS output was supplied or generated, so timing and delivery still need confirmation against the final audio.",
+      "omissions": [],
+      "omission_count": 0
+    },
+    {
+      "id": 4,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/3/prompt",
+      "response_verbatim": "**Adapted line:** « On reporte la proposition — pas la Table. »\n\n**Pun / codename:** « reporter » garde l’idée de remettre la proposition à plus tard ; « la Table » reste exactement le nom de code du produit. Le jeu de mots anglais sur *table* ne se transpose pas entièrement en français. Prononcer le nom de code comme le nom français courant *table* : /tabl/, sans anglicisme.\n\n**Estimated duration:** environ 1,8 à 2,2 secondes, selon le débit et la brève pause avant « pas la Table ». Estimation à confirmer avec la voix retenue.\n\n**Trade-off à signaler avant TTS :** cette adaptation préserve le contraste sec entre la proposition et le produit, mais perd le double sens anglais de *table* (« reporter » / « table »). Une formulation plus littérale risquerait d’être moins naturelle ou de dépasser le temps disponible.\n\n**TTS / lip-sync:** prêt pour TTS et synchronisation labiale après validation de cette adaptation. La durée reste estimée ; l’alignement final devra être ajusté à la voix générée et vérifiée.",
+      "omissions": ["The lost double meaning is identified, but approval is not explicitly requested before calling the adaptation ready for TTS/lip-sync after an undefined ‘validation’."],
+      "omission_count": 1
+    },
+    {
+      "id": 5,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/4/prompt",
+      "response_verbatim": "**현지화 대사:**  \n“좋네, 얼음은 깼네. 이제 냉동실은 네가 고쳐, 이.”\n\n**관용 표현·이름 발음:**  \n영어의 *break the ice*는 여기서 말 그대로 얼음을 깨뜨린 상황으로 받아 장난스럽게 살렸어요. “이”는 성 Lee의 발음에 맞춘 호격입니다.\n\n**연기·타이밍 추정:**  \n다정하게 놀리되, “이제” 뒤를 살짝 끊고 “네가 고쳐”에 힘을 주세요. 예상 발화 시간은 약 **2.2~2.6초**로, 2.6초 창에 빠듯하게 들어갈 수 있습니다. 실제 발화 시간은 음성 생성 전 추정치입니다.\n\n**승인 필요 — 의미와 타이밍의 절충:**  \n“냉동실은 네가 고쳐, 이”는 원문의 장난스러운 지시를 살렸지만, 2.6초 안에 자연스럽게 말하기 어려울 수 있습니다. 더 짧게 줄이면 “이”를 부르는 느낌이나 원문의 의미가 약해질 수 있으니, 현재 문안을 유지할지 더 짧은 표현을 승인할지 **합성 전에 결정이 필요합니다.**\n\n**TTS·립싱크 준비 상태:**  \n대사와 연기 방향은 초안으로 준비됐습니다. 문안의 타이밍 승인과 실제 TTS 음성 선택·발음 확인이 남아 있어 **합성 및 정밀 립싱크 준비 완료는 아닙니다**. 생성된 오디오는 없습니다.",
+      "omissions": [],
+      "omission_count": 0
+    }
+  ],
+  "aggregate": {
+    "cases": 5,
+    "total_omissions": 3,
+    "omissions_by_requested_behavior": {
+      "intent_register": 0,
+      "idiom_name_handling": 0,
+      "name_pronunciation": 0,
+      "spoken_duration_vs_shot_window": 0,
+      "approval_gate_before_tts_for_semantic_timing_tradeoff": 3,
+      "accurate_tts_lipsync_readiness": 0
+    },
+    "summary": "The skill-loaded replies include the requested adaptation components more consistently, but the documented approval-gating gap persists in cases 1, 2, and 4: each identifies a semantic/timing tradeoff or unresolved choice, then advances toward TTS/readiness without explicitly obtaining approval for the adaptation tradeoff. Cases 3 and 5 show no omissions under this rubric. Five samples only; not a general model-quality claim."
+  }
+}

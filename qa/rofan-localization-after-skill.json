@@ -1,0 +1,68 @@
+{
+  "title": "Localization adaptation probes after skill update",
+  "run_date": "2026-10-13",
+  "method": {
+    "contexts": "Five independent stateless completion calls, using the same prompts from qa/rofan-localization-baseline.json and the full current content of video-production-assets/references/22-dialogue-lipsync.md in each context.",
+    "model_selector": "default",
+    "rounds": 2,
+    "no_skill_loaded_in_baseline": true,
+    "no_source_story_content_added": true,
+    "notes": "Responses are verbatim. No audio was generated. Omissions are scored only against requested behaviors: intent/register; idiom/cultural handling; name pronunciation/status; spoken duration compared with the stated shot window; approval of unresolved semantic/timing tradeoffs before TTS; truthful TTS/lip-sync readiness. Round 1 exposed unapproved suggested pronunciations, the skill was minimally clarified, and Round 2 reran the same five prompts."
+  },
+  "rubric": ["intent_register", "idiom_cultural_handling", "name_pronunciation_status", "spoken_duration_vs_actual_shot_window", "approval_gate_for_unresolved_semantic_timing_tradeoff_before_tts", "accurate_tts_lipsync_readiness"],
+  "iteration_1_summary": {
+"raw_responses_and_case_scores": "First-round verbatim outputs were superseded in this final artifact; this section retains their omission summary and exact counterexample descriptions. First post-edit round had 5 cases and 2 omissions.",
+    "observed_omissions": ["Case 2 proposed an unapproved orientative pronunciation /wuds/.", "Case 4 proposed /tabl/ despite saying there was no approved distinct pronunciation."],
+    "minimal_refinement": "Clarified in the owner skill: when pronunciation is not approved, mark it undecided and ask; do not suggest plausible phonetic candidates as recommendations or TTS instructions."
+  },
+  "cases": [
+    {
+      "id": 1,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/0/prompt",
+      "response_verbatim": "**Fala localizada:** “Você mandou bem demais, Jo — só que o prego mesmo ainda tá no chão.”\n\n**Decisão de idiom/pun:** “Mandou bem” soa natural em pt-BR e mantém o elogio; a continuação seca preserva a piada literal com o prego.\n\n**Pronúncia do nome:** Jo permanece “Jo”; pronúncia aprovada não fornecida — **a confirmar**.\n\n**Duração estimada:** cerca de 2,4–2,8 s em ritmo coloquial, incluindo a pausa cômica. A janela é de 2,4 s; pode ficar apertado sem acelerar a fala.\n\n**Trade-off para aprovação:** dá para preservar o elogio, a piada e a pausa, mas a fala pode exceder a janela. Uma versão mais curta — “Mandou bem, Jo — mas o prego tá no chão” — cabe melhor, mas perde um pouco da ênfase em “o prego mesmo”. Aprovar a versão completa ou a reduzida antes de fixar a fala para TTS.\n\n**TTS e lip-sync:** ainda não pronto para execução: falta aprovar a versão e confirmar a pronúncia de Jo. Depois disso, gerar e ouvir o áudio final antes de validar o lip-sync.",
+      "omissions": [],
+      "omission_count": 0,
+      "behavior_scores": {"intent_register":"present", "idiom_cultural_handling":"present", "name_pronunciation_status":"present; pending rather than invented", "spoken_duration_vs_actual_shot_window":"present", "approval_gate_for_unresolved_semantic_timing_tradeoff_before_tts":"present", "accurate_tts_lipsync_readiness":"present"}
+    },
+    {
+      "id": 2,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/1/prompt",
+      "response_verbatim": "**Diálogo adaptado:**  \n«Todavía no salimos del peligro, señora Woods.»\n\n**Tratamiento:** La frase conserva la idea de que el problema aún no termina, pero adapta *out of the woods* a una expresión natural en español. «Señora» mantiene el trato respetuoso. Para el apellido **Woods**, no se proporcionó una pronunciación aprobada; queda **pendiente de confirmación**, así que no especifico una pronunciación supuesta.\n\n**Duración estimada:** Aproximadamente **2.0–2.7 segundos**, con tono cálido y formal, dentro de la ventana de 3.0 segundos. Es una estimación del texto, no una medición de audio ni una verificación de sincronía.\n\n**Compromiso:** Se pierde el juego de palabras entre *woods* («bosque») y el apellido *Woods*. La adaptación prioriza el sentido y la naturalidad; no reproduce ese doble sentido.\n\n**Estado:** La duración parece viable, pero no está lista para TTS o sincronización labial: falta confirmar la pronunciación de **Woods** y aprobar la adaptación.",
+      "omissions": [],
+      "omission_count": 0,
+      "behavior_scores": {"intent_register":"present", "idiom_cultural_handling":"present", "name_pronunciation_status":"present; pending rather than invented", "spoken_duration_vs_actual_shot_window":"present", "approval_gate_for_unresolved_semantic_timing_tradeoff_before_tts":"present", "accurate_tts_lipsync_readiness":"present"}
+    },
+    {
+      "id": 3,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/2/prompt",
+      "response_verbatim": "- **현지화 대사:** 「大げさにしないの、マヤ。」  \n  가까운 친구에게 가볍게たしなめる調子で。きつい皮肉や攻撃的な響きは避け、「大げさにしないの」をさらりと言う。\n- **의도·강조:** 과장하지 말라고 부드럽게 짚어 주는 말. 「大げさに」를 살짝 강조하고, 이름은 친근하게 덧붙인다.\n- **이름·발음:** 「マヤ」。일본어 발음은 *마야*에 가깝다. 원문의 MAY-uh와 정확히 맞는 승인 발음 지침은 제공되지 않았다.\n- **예상 시간:** 약 1.2–1.6초(estimated). 1.8초 샷 안에 들어갈 것으로 예상되지만, 실제 음성 길이나 싱크는 검증되지 않았다.\n- **의미·시간 트레이드오프:** 승인 불필요. 원문의 “Don’t make a meal out of it”을 일본어에서 자연스러운 표현으로 옮겼다. 다만 직역의 비유적 표현은 살리지 않았다.\n- **TTS/립싱크 준비 상태:** 대사 문안은 검토용으로 제안 가능하나, TTS 실행 준비 완료는 아님. 이름 발음이 승인되지 않았고, 보이스·모델·실제 음성도 선택·생성·청취되지 않았다. 실제 오디오 기준의 립싱크 검증은 미실시.",
+      "omissions": [],
+      "omission_count": 0,
+      "behavior_scores": {"intent_register":"present", "idiom_cultural_handling":"present", "name_pronunciation_status":"present; pending rather than invented", "spoken_duration_vs_actual_shot_window":"present", "approval_gate_for_unresolved_semantic_timing_tradeoff_before_tts":"present; no timing conflict asserted", "accurate_tts_lipsync_readiness":"present"}
+    },
+    {
+      "id": 4,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/3/prompt",
+      "response_verbatim": "**Adapted line (fr-FR):** « On reporte la proposition — mais pas le produit Table. »\n\n**Pun and codename:** The English pun relies on *table* meaning both “postpone” and a physical table. French does not preserve that double meaning naturally in this construction, so the line makes the contrast explicit rather than forcing an awkward pun. The product codename remains exactly **Table**. Its approved French pronunciation is **unresolved**; please confirm it before TTS.\n\n**Estimated duration:** About **2.0–2.4 seconds**, depending on delivery. The 2.2-second shot is tight; this estimate is not measured or sync-verified.\n\n**Unresolved meaning-vs-timing tradeoff before TTS:** This version is clear and keeps the codename, but loses the original wordplay. A more literal attempt to retain the pun would risk sounding unnatural in French and may not fit the shot. Approval is needed on whether to prioritize clarity, as above, or pursue a more playful rewrite with a different, less literal pun.\n\n**TTS/lip-sync readiness:** **Not ready for TTS or final lip-sync** until the French adaptation and pronunciation of **Table** are approved. No audio has been generated.",
+      "omissions": [],
+      "omission_count": 0,
+      "behavior_scores": {"intent_register":"present", "idiom_cultural_handling":"present", "name_pronunciation_status":"present; unresolved rather than invented", "spoken_duration_vs_actual_shot_window":"present", "approval_gate_for_unresolved_semantic_timing_tradeoff_before_tts":"present", "accurate_tts_lipsync_readiness":"present"}
+    },
+    {
+      "id": 5,
+      "prompt_ref": "qa/rofan-localization-baseline.json#/cases/4/prompt",
+      "response_verbatim": "**현지화 대사:** “잘했네, 얼음은 깼고. 이제 냉동고나 고쳐, 이.”\n\n**관용구·이름:** 영어의 *break the ice*는 “어색함을 풀다”라는 뜻이지만, 여기서는 냉동고와 연결되는 말장난이므로 “얼음을 깨다”로 살렸습니다. 이름은 요청된 발음 지침에 따라 **이**로 표기했습니다.\n\n**예상 발화 시간:** 약 **2.0–2.4초(estimated)**. 2.6초 샷 안에 들어갈 가능성이 있지만, 실제 음성으로 측정하거나 싱크를 검증한 값은 아닙니다.\n\n**의미·타이밍 트레이드오프:** 현재 문안은 말장난과 두 번째 문장의 수리 지시를 모두 보존합니다. 창 안에 들어갈 것으로 예상되므로 승인 전에 의미를 덜어내거나 속도를 높일 필요는 없습니다.\n\n**TTS/립싱크 준비 상태:** 문안은 현지화 초안으로 준비됐습니다. TTS용 확정 대사로 잠그기 전 문안 승인이 필요하며, 보이스·실제 음성 검수는 아직 이루어지지 않았습니다. 대사에서 ‘얼음’과 ‘고쳐’를 가볍게 강조하고, “깼고” 뒤에 짧은 펀치라인 간격을 두는 방향이 적절합니다. 립싱크는 최종 음성 확정 후 맞춰야 합니다.",
+      "omissions": [],
+      "omission_count": 0,
+      "behavior_scores": {"intent_register":"present", "idiom_cultural_handling":"present", "name_pronunciation_status":"present; supplied pronunciation retained", "spoken_duration_vs_actual_shot_window":"present", "approval_gate_for_unresolved_semantic_timing_tradeoff_before_tts":"present; no compromise needed based on estimate", "accurate_tts_lipsync_readiness":"present"}
+    }
+  ],
+  "aggregate": {
+    "case_count": 5,
+    "rubric_behavior_count": 6,
+    "total_observations": 30,
+    "omissions": 0,
+    "behavior_omissions": {"intent_register":0,"idiom_cultural_handling":0,"name_pronunciation_status":0,"spoken_duration_vs_actual_shot_window":0,"approval_gate_for_unresolved_semantic_timing_tradeoff_before_tts":0,"accurate_tts_lipsync_readiness":0},
+    "summary": "In the final five-probe round, all six rubric behaviors were present in all five outputs under omission-only scoring (30/30 observations; zero omissions). Missing name pronunciations were left unresolved instead of guessed, timing remained estimated rather than measured, and unresolved tradeoffs were approval-gated before TTS. This is a five-case result for the default-model calls only, not a general model-quality claim."
+  }
+}

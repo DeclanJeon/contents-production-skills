@@ -1,0 +1,75 @@
+{
+  "title": "Localization adaptation baseline prompts",
+  "run_date": "2026-10-13",
+  "method": {
+    "contexts": "Five separate stateless completion calls, each with an independent prompt and no shared conversation history.",
+    "model_selector": "default",
+    "skill_text_loaded": false,
+    "video_production_assets_references_22_dialogue_lipsync_md_loaded": false,
+    "notes": "Responses below are verbatim model outputs. The assistant did not generate audio. Baseline judgments count omissions of requested elements only; they do not score translation quality or infer model quality generally."
+  },
+  "rubric": [
+    "localized dialogue preserving requested intent/register",
+    "idiom or wordplay handling",
+    "name preservation/pronunciation guidance where applicable",
+    "estimated spoken duration relative to stated shot window",
+    "explicitly flag any semantic-versus-timing compromise for approval before TTS",
+    "accurate TTS/lip-sync readiness status without claiming generation"
+  ],
+  "cases": [
+    {
+      "id": 1,
+      "prompt": "You are a dialogue localizer. Adapt this source dialogue into Brazilian Portuguese (pt-BR), preserving intent and informal register. Source: “You really nailed it, Jo—though the actual nail is still on the floor.” Context: dry joke after a DIY mishap; Jo is a person's name and must remain Jo. Scene window: 2.4 seconds, one shot, character on camera. Give localized line, brief idiom/pun decision, pronunciation note for names, estimated spoken duration, any semantic-versus-timing tradeoff that needs approval, then say whether it is ready for TTS and lip-sync. Do not claim to have generated audio.",
+      "response_verbatim": "**Fala localizada:** “Mandou muito bem, Jo — embora o prego mesmo ainda esteja no chão.”\n\n**Decisão de trocadilho:** Mantém o elogio irônico e explicita o prego no chão. O jogo de sentido de *nailed it* não se transfere diretamente; a piada fica no contraste seco entre “mandou muito bem” e o prego ainda caído.\n\n**Pronúncia do nome:** Jo, como no original, pronunciado “Djô”.\n\n**Duração estimada:** Cerca de 2,2–2,5 segundos, em ritmo ágil.\n\n**Trade-off semântico/tempo:** A versão preserva o sentido, mas é um pouco mais longa que o original. Para caber com folga nos 2,4 segundos, pode ser necessário acelerar levemente a fala.\n\n**Pronto para TTS e sincronização labial:** Sim, com atenção ao ritmo.",
+      "omissions": ["Does not explicitly seek approval for the proposed speed-up/semantic-timing tradeoff before marking ready for TTS/lip-sync."],
+      "omission_count": 1,
+      "requested_elements_present": ["localized dialogue and dry informal intent", "pun/idiom handling", "name pronunciation", "duration estimate compared with 2.4 s", "tradeoff identified", "TTS/lip-sync readiness without claiming generation"]
+    },
+    {
+      "id": 2,
+      "prompt": "Localize the line below into Mexican Spanish for a warm but formal customer-service scene. Keep the speaker respectful (usted), not slangy. Source: “We’re not out of the woods yet, Ms. Woods.” Ms. Woods is the customer’s surname, pronunciation should be specified for a Spanish-speaking TTS performer. Shot window 3.0 seconds; single on-camera speaker. Return adapted dialogue, explain handling of idiom/name, duration-fit assessment, and flag any meaning/timing compromise before declaring TTS/lip-sync readiness. No actual audio generation.",
+      "response_verbatim": "**Diálogo adaptado:** «Aún no estamos fuera de peligro, señora Woods».\n\n**Nombre:** «Woods» se conserva como apellido; para TTS en español, indique la pronunciación inglesa aproximada **/wʊdz/** («wudz», en una sola sílaba). «Señora» mantiene el trato formal.\n\n**Modismo:** «Not out of the woods yet» se adapta como «aún no estamos fuera de peligro», que conserva la idea de que el problema no se ha superado. Se evita la traducción literal, que podría confundirse con una referencia al apellido.\n\n**Duración:** La frase tiene 12 sílabas aproximadamente y debería caber en una ventana de 3 segundos a ritmo cálido y natural, aunque conviene comprobarla con la interpretación final.\n\n**Compromiso:** Se pierde el juego de palabras entre *woods* (“bosque”) y el apellido Woods. **Preparación:** texto listo para grabación y una primera prueba de sincronía; no se puede confirmar el ajuste labial sin revisar la imagen y la interpretación.",
+      "omissions": ["Does not state a spoken-time estimate in seconds (syllable count and a qualitative fit judgment are given).", "Identifies loss of wordplay but does not explicitly ask for approval before declaring the text ready for recording/first sync test."],
+      "omission_count": 2,
+      "requested_elements_present": ["localized dialogue with formal address", "idiom and surname handling", "pronunciation guidance", "duration-fit assessment", "meaning tradeoff identified", "does not claim actual generation and qualifies visual lip-sync readiness"]
+    },
+    {
+      "id": 3,
+      "prompt": "Adapt this line into Japanese (ja-JP) for a close-friends scene with understated teasing, not aggressive sarcasm: “Don’t make a meal out of it, Maya.” Maya is a person's name, pronounced MAY-uh in the source. The character is visible for 1.8 seconds and must finish within that shot. Provide localized line, register/idiom rationale, pronunciation guidance, estimated timing, any semantic-versus-timing tradeoff requiring approval, and TTS/lip-sync readiness status. Do not fabricate model output.",
+      "response_verbatim": "**Localized line:**  \n「大げさだよ、マヤ。」\n\n**Register / idiom:** Casual and gently teasing, suitable between close friends. It conveys “Don’t make a meal out of it” without sounding sharply sarcastic; a literal food-related expression would feel less natural here.\n\n**Pronunciation:** マヤ — *ma-ya* (two Japanese morae), approximating the source pronunciation MAY-uh.\n\n**Estimated timing:** About 0.8–1.1 seconds at a relaxed conversational pace, leaving room within the 1.8-second shot.\n\n**Semantic-versus-timing tradeoff:** No approval needed. The line preserves the understated meaning, though it expresses it as “You’re being dramatic” rather than using a direct “don’t” construction.\n\n**TTS / lip-sync readiness:** Text is ready for recording or TTS. Timing is an estimate; audio and lip-sync have not been generated or verified.",
+      "omissions": [],
+      "omission_count": 0,
+      "requested_elements_present": ["localized dialogue in requested understated casual register", "idiom handling", "name pronunciation guidance", "duration estimate relative to 1.8 s", "explicit assessment of whether tradeoff needs approval", "accurate readiness and ungenerated/unverified status"]
+    },
+    {
+      "id": 4,
+      "prompt": "Localize into French (fr-FR), preserving a dry, professional register: “We’ll table the proposal—but not the table.” It is a pun in a conference-room scene; “Table” is also the product codename and must remain exactly “Table” when referring to the product. Speaker is on screen for a 2.2-second shot. Give the adapted line, treatment of pun/codename and pronunciation, estimated duration, flag unresolved meaning-vs-timing tradeoffs before TTS, and state readiness for TTS/lip-sync. Do not say audio was generated.",
+      "response_verbatim": "**Ligne adaptée :** « On ajourne la proposition — pas Table. »\n\n**Traitement du jeu de mots et du nom de code :** « Ajourne » rend le sens de *table* au sens de « reporter » ; le jeu avec le meuble ne se transpose pas naturellement en français. **Table** conserve exactement cette graphie pour le nom de code. Prononciation française : /tabl/.\n\n**Durée estimée :** environ 2,2 secondes, à débit soutenu.\n\n**Avant TTS :** le choix d’« ajourne » privilégie le sens « reporter » ; si *table* signifie ici « mettre à l’ordre du jour », le sens devra être ajusté.\n\n**Prêt pour TTS/lip-sync :** pas encore — confirmer d’abord ce sens.",
+      "omissions": ["Does not explicitly state the character's dry, professional register in its rationale (the proposed wording is presented without register confirmation).", "Does not explicitly compare the 2.2-second estimate against the 2.2-second shot window; it reports a matching duration and flags a meaning ambiguity."],
+      "omission_count": 2,
+      "requested_elements_present": ["localized dialogue", "pun/codename handling and pronunciation", "duration estimate", "unresolved semantic question flagged before TTS", "readiness withheld pending confirmation; no generation claim"]
+    },
+    {
+      "id": 5,
+      "prompt": "Translate/adapt into Korean (ko-KR) for an older sibling teasing a younger sibling affectionately: “Great, you’ve broken the ice. Now fix the freezer.” Preserve playful intent and casual sibling register, not a literal awkward idiom. The family name Lee in the preceding scene is pronounced “이”; this line addresses “Lee” by name at the end. Shot window is 2.6 seconds, speaker visible. Return localized dialogue, idiom and name pronunciation note, estimate spoken duration against window, explicitly flag any semantic-versus-timing tradeoff that needs approval before synthesis, then give TTS/lip-sync readiness. Do not claim generated audio.",
+      "response_verbatim": "**대사:** “좋아, 분위기는 풀었네. 이제 냉동고 고쳐, 이!”\n\n**관용 표현·이름:** “분위기는 풀었네”는 *break the ice*의 장난스러운 뜻을 자연스럽게 살린 표현이에요. 끝의 “이”는 성 Lee를 **이**로 부르는 형태입니다.\n\n**예상 발화 시간:** 약 2.8~3.1초. 2.6초 창에는 다소 빠듯합니다.\n\n**승인 필요:** 의미를 온전히 살리면 창보다 조금 길 수 있어요. 2.6초에 맞추려면 말속도를 높이거나 일부 의미를 덜어야 하므로, 합성 전에 어느 쪽을 우선할지 승인이 필요합니다.\n\n**TTS/립싱크 준비:** 대사와 발음 표기는 준비됐지만, 타이밍 선택 승인 전에는 최종 합성용으로 확정되지 않았습니다.",
+      "omissions": ["Does not explicitly give a romanized or phonetic pronunciation note for the family name beyond the supplied Korean form 이."],
+      "omission_count": 1,
+      "requested_elements_present": ["localized dialogue and affectionate casual intent", "idiom handling", "name form", "duration estimate against 2.6 s", "semantic/timing tradeoff and approval requested before synthesis", "readiness correctly withheld"]
+    }
+  ],
+  "aggregate": {
+    "cases": 5,
+    "total_requested_items_scored_per_case": 6,
+    "total_omissions": 6,
+    "omissions_by_requested_item": {
+      "intent_register": 1,
+      "idiom_name_pronunciation": 1,
+      "duration_fit": 2,
+      "approval_before_tts_for_tradeoff": 2,
+      "tts_lipsync_readiness": 0
+    },
+    "case_omission_counts": [1, 2, 0, 2, 1],
+    "summary": "All five responses attempted the requested localization workflow and none falsely claimed that audio had been generated. The most recurring baseline weaknesses were explicit duration-vs-shot comparison and explicit approval gating when a tradeoff was identified (two omissions each). One response did not explicitly confirm the requested register, and one omitted an explicit phonetic rendering of a provided name pronunciation. These are observations from five prompts and this default-model run only; they are not general model-quality claims."
+  }
+}
