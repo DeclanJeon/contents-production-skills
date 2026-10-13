@@ -1,0 +1,56 @@
+{
+  "id": "reader_07_unavailable_source_body_unlistened_audio",
+  "prompt": "Use the bundled bounded excerpt for a source whose longer semantic body is inaccessible. Another saved case says its audio was not listened to. Explain what can be transferred and what remains unknown without treating missing body as deleted/absent.",
+  "prompt_sha256": "f1209e134d37ce19c6d49e18c1df16d9f42b06857b3b73bbfdb56a7bb0a48353",
+  "context_files": [
+    "video-production-assets/SKILL.md",
+    "video-production-assets/references/contract.md",
+    "video-production-assets/references/rofan-craft-examples.md",
+    "video-production-assets/references/25-reference-video-analysis.md",
+    "video-production-assets/references/08-animation.md"
+  ],
+  "context_text_sha256": {
+    "video-production-assets/SKILL.md": "1359ddbfc7072f967b6634911487af5e70243d4979c48034b57033cf6c2acbc6",
+    "video-production-assets/references/contract.md": "7a7c0f2454e788d8ccd01f243a0ea5b30b8e64b0e970179b70e75376c18cd5ce",
+    "video-production-assets/references/rofan-craft-examples.md": "130726913afbddf9643ef28cb4404be6acbccb22207e67f0680f66f5ebdcd1b8",
+    "video-production-assets/references/25-reference-video-analysis.md": "96e67b2f7799e805b24562d2e436223df64db32e73a00ee0aa89dd35f97a1eef",
+    "video-production-assets/references/08-animation.md": "fb835a4a7e54270c7dcdba7a75d5ce0466b7ecdd09914a1e4bcc0f0085fa9fef"
+  },
+  "system_sha256": "fc770b1ce1bdaf9785512fbd71fb0ab41cbe52a3183f8a3083d110f4a2eec82e",
+  "prior_system_sha256_verified": "3aeacbaae8e332a1cf265352b913f60fa84a8124e64c6126af9063fbeb0afa00",
+  "model_selection": "default",
+  "resolved_model": "UNKNOWN",
+  "casebank_source_sha256": "130726913afbddf9643ef28cb4404be6acbccb22207e67f0680f66f5ebdcd1b8",
+  "casebank_installed_sha256": "130726913afbddf9643ef28cb4404be6acbccb22207e67f0680f66f5ebdcd1b8",
+  "isolated_installed_root": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-t19-eval-clean\\skills\\video-production-assets",
+  "completion_status": "all_five_completed",
+  "raw_outputs": [
+    "### What can be transferred\n\nThe saved notes support only **bounded, locator-specific observations**—not reconstruction of the inaccessible source:\n\n- **Excerpt-only opening (`797-opening-title-to-live-bed`)**: the recoverable excerpt shows an illustrated title at about `0s`, followed by a live bed image at about `0.2s`. A transferable mechanism is a **title-to-live-image transition** when a new brief needs to distinguish its opening information from the scene that follows. This says nothing about what happens later in the source.\n- **Audio-not-listened case (`P14`, `a600`, approximately `160–177s` / `813–834s`)**: the saved visual notes describe a held shot with small eye, mouth, head, or hand changes. The transferable mechanism is a **hold in which readable micro-changes sustain attention**. The note explicitly says the audio was not listened to.\n\nThese are saved observations, not fresh playback or reinspection. A new proposal may adapt the mechanisms to a different brief, but should not present the proposal as a fact about the source.\n\n### What remains unknown\n\n- For `797`, later source content is **unrecovered/inaccessible**. Its absence from the available excerpt does **not** establish that later content was deleted or absent from the original.\n- For `P14`, speech, silence, music, effects, and any other audible content remain **unknown**. Visible mouth movement is not evidence of speech, and the saved note does not establish silence.\n- The notes do not establish broader source context, full sequence, exact cut structure, or reuse rights beyond the stated bounded observations.\n\n**Practical QA:** If adapting the title-to-live transition, check that the new title and following image are legible as separate information beats. If adapting the micro-change hold, review the new image for readable changes; assess audio only by listening to the actual audio.",
+    "### What can be transferred\n\nThe bundled bounded excerpt supports only its **specific recorded observation and locator**. For example, if the excerpt records a visible action or transition, you can reuse the general production mechanism it suggests—such as staging a reveal, clarifying geography, or separating an action from its aftermath—when that mechanism fits a new brief. Treat any new timing or staging as a **proposal**, not as a fact about the inaccessible source.\n\nFor the separate saved case whose audio was not listened to, transfer only its bounded **visual** observations. The fact that audio was not listened to does not establish either speech or silence.\n\n### What remains unknown\n\nThe inaccessible semantic body remains **unavailable**: its unrecovered contents cannot be inferred from the excerpt, a case count, or nearby records. This is a limit on access, **not evidence that the body was deleted or that its contents or events were absent**. Likewise, for the unlistened audio, speech, music, effects, and silence remain unknown unless supported by separate listening evidence.\n\nKeep the evidence, interpretation, and any new proposal separate. Don’t fill gaps by reconstructing hidden content, and check the proposed mechanism against the new brief rather than presenting it as a complete account of the source.",
+    "These are **two separate saved records**, and neither supplies a complete source account.\n\n| Record | Bounded observation | What can transfer | What remains unknown |\n|---|---|---|---|\n| **`797-opening-title-to-live-bed`** — opening excerpt only | An illustrated opening title is followed by a live-action bed image at about **0.2s**. The saved material covers only this opening transition. | The general device of moving from a title image to live imagery, when a new brief needs that distinction. | Everything beyond the recoverable opening: later content, structure, and events. The excerpt’s limit is not evidence that later material was deleted or absent. |\n| **`P14` — `a600` held-shot notes** | Notes describe small eye, mouth, head, or hand changes in held-shot intervals around **160–177s** and **813–834s**. The audio was **not listened to**. | The visual principle that subtle changes can sustain a hold, if that suits a new scene. | Whether speech, music, effects, or silence occur. Mouth movement alone cannot establish dialogue, and unlistened audio cannot establish silence. |\n\n**Transfer boundary:** use only the bounded visual mechanisms above—not unseen source events, dialogue, sound, or an inferred whole-work structure. The longer semantic body is **inaccessible/unrecovered**; that is an access limit, not evidence of absence or deletion.",
+    "## What can be transferred\n\n- **Excerpt-only transition:** The saved note for `797-opening-title-to-live-bed` reports an illustrated opening title at about `0s`, followed by a live bed image at about `0.2s`. It supports a limited, reusable mechanism: **distinguish an opening title from the live-image scene that follows**.\n- For a new brief, that could become a proposed title-to-live-image transition if the distinction serves the brief. This is a new proposal, not a claim about what happens later in the source. Check that the transition is legible.\n- **Unlistened-audio limit:** The saved note for `P14` records visible micro-changes during held shots, but says the audio was not listened to. Its transferable visual observation is limited to the hold and those visible changes. It can inform a proposal for a held reaction shot; it provides no basis for claiming dialogue or silence.\n\n## What remains unknown\n\n- For `797`, only the opening excerpt is recoverable. The source’s later content, full structure, and any ending are **unknown** from this note.\n- For `P14`, whether speech, music, effects, or silence occur is **unknown**. Visible mouth movement or image notes cannot establish what is audible.\n- These limits describe what the saved material supports—not evidence that the inaccessible material was deleted or that unobserved content or audio is absent.\n\nThese are bounded saved observations, not fresh playback or listening. Source times are locators, not verified timing for a new production.",
+    "## What can be transferred\n\nThe bounded excerpt supports **only the production mechanism it actually records**: transfer its observed structure or timing relationship into a new brief if that relationship fits. Keep the source observation, your interpretation, and any new proposal distinct. The excerpt is not evidence for events or details outside its stated scope.\n\nFor audio, the saved case explicitly says it was **not listened to**. That can support an audio-handling caution: do not infer speech, silence, music, or sound effects from that case. If audio matters to the new work, listen to the relevant source material or treat the audio plan as a new proposal.\n\n## What remains unknown\n\nThe inaccessible longer semantic body is an **access/recovery limit**, not evidence that its contents were deleted or that the events it might describe did not occur. Its unrecovered details, context, and any conclusions depending on them remain unknown. Likewise, because the other case’s audio was not listened to, its audible content and whether speech or other sounds are present remain unknown.\n\nDo not fill either gap from neighboring notes, counts, or assumptions. Any transfer should be limited to the excerpt’s documented observation, with the new brief and actual source review supplying anything further."
+  ],
+  "raw_output_sha256": [
+    "96360154db908f91562770bd2eea3b9527be7798e4db30c35b20c9f8db228d61",
+    "b3c4a5e2d7b3992187bdecfdc29631cd57c8a0f8b3bd4c0d563c65cb05de9adc",
+    "2b51d52311fead9ae656bf44baf10bf82a831e84180376b4048ac6610967b2e9",
+    "c9777688f7076b7ffa3c54617ea20123b1e1eff9531b5fc75da74a5340331b6a",
+    "a6c6287ca623c2aa272ee07325624361692ff0450d6193d41bd0e1e13d4aa0ac"
+  ],
+  "suite": "T19 fresh 15-call frozen-rubric suite",
+  "calls_planned": 5,
+  "calls_completed": 5,
+  "calls_pending": 0,
+  "runner_note": "Five independent sequential stateless completion(prompt, model=\"default\", system=package_context).wait() calls. Package context is the exact matrix context_files content joined with two LF newlines; this serialization was verified against every T17/T18 system_sha256 before calls. No prompt/rubric changes.",
+  "installed_09_edit_sha256": "f0e60126704540eb33158192dbf88fcb5409ebf2ae7a16e93d8fbad30cc46130",
+  "installed_21_qa_sha256": "5dd6b01af3b504501e09578535b1fa36a406e78f320467ee7b918f28b981a2b1",
+  "call_errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "elapsed_seconds": 27.29
+}

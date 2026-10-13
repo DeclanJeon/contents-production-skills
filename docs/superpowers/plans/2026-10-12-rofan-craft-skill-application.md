@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use `superpowers:executing-plans` or `superpowers:subagent-driven-development` to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** 저장된 Rofan craft inventory를 새 브리프에 조건부로 적용하되 이미 존재하는 owner 절차와 필드를 재사용하는 문서 변경안을 정의한다.
+**Goal:** source-grounded archive craft를 종합하고 기존 content-production owner의 실제 절차/template/QA와 비교해, 사용자가 명시적으로 요청할 때 증거로 확인된 transferable generic procedure/QA gap만 정본 owner에 최소 반영한다. Saved Rofan cases는 optional provenance/evidence다.
 
-**Architecture:** 기존 `25-reference-video-analysis.md`의 관찰→메커니즘→의도/대안→새 브리프 요구→QA 전이와 A01–A12 라우팅을 유지한다. 조건별 source-linked 사례·반례·다중 owner walkthrough를 한 선택형 reference에 두고, 필요한 경우만 기존 entry route에서 찾게 한다. 새 스키마·코디네이터·전역 규칙은 만들지 않는다.
+**Architecture:** 25 reference-analysis의 coverage/evidence flow를 유지하고, archive pattern synthesis → 각 관련 owner/template/QA 비교 → evidence-backed gap에 한해 existing owner 업데이트를 수행한다. Analysis-only는 skill files를 바꾸지 않는다; no protected-story imitation, new schema, coordinator, or duplicate casebank policy.
 
 **Tech Stack:** Markdown documentation only; existing owner references and templates. No runtime or schema changes.
 
@@ -12,17 +12,20 @@
 
 ## Global Constraints
 
-- 현재 25번 경로와 A01–A12 owner 라우팅은 이미 존재한다. 보강 대상은 누락된 craft capability가 아니라 사례 검색성·반례·오너 간 worked example이다.
+- 범위는 saved-case retrieval뿐 아니라 archive pattern synthesis와 evidence-backed transferable filmmaking procedure/QA를 existing owner에 이전하는 것까지 포함한다. 25/A01–A12는 기존 진입점이며, pattern별 owner coverage를 실제 절차/template/QA로 확인한다.
 - 57개 inventory 행은 정본에 모두 보존한다. 57은 추가 사례 수의 상한이 아니다.
 - 저장된 출처 locator와 관찰 범위를 연결한다. 외부 locator는 plain-text provenance이며 repository 상대 링크인 척하지 않는다.
 - The future installed artifact copies skill folders only. The proposed casebank must remain usable without `docs/superpowers` or the original Windows media; the canonical spec is historical design/provenance, not a runtime prerequisite. External document/source locators are optional inline-code provenance. Every mandatory internal link must resolve inside the installed skill folders.
-- 활성 brief 문제에 맞는 사례만 선택한다. wide-first, first-touch, 특정 보행 수치, 모든 컷신 30초 제한, 보편적 카메라 규칙을 만들지 않는다.
+- Source-specific plot, characters/relationships, locations/sets, props/wardrobe/designs, choreography/shot sequence, and absolute timing are not transferable policy. Do not impose wide-first, first-touch, fixed gait metrics, or universal duration rules; general craft updates require cross-domain evidence and an explicit skillification request.
 - 기존 canonical field의 이름과 소유 위치를 그대로 쓴다. alias, 프로젝트 스키마, template field, coordinator/micro-skill/새 SSOT/autopromotion은 추가하지 않는다.
 - 사례 reference는 생성 승인·실행·실제 미디어 QA 통과를 대신하지 않는다. endpoint 지원을 확인하지 않았으면 `UNKNOWN`이다.
 - Any future scene-specific 3D position, movement, composition, blocking or distance design MUST follow camera-spatial-design and include Blender implementation plus visual inspection, even if the request says “design only”. This document-only plan does none of that; never report missing runtime/blocking state as completed 3D work.
 - Catalog labels C/P/O/L/E are local row identifiers, not production/source IDs; source IDs and availability stay separate.
-- 원본 영상 경로는 `C:\Users\Declan\Documents\Resources\AI-Rofan-Drama-2026-10-11\videos\urls-batch-mp4-20261011-232345`; 재열기·신규 촬영물 분석은 하지 않는다.
+- Historical T12 snapshot only: the C: source path was not readable from that workspace at that time. The later F: access and current partial coverage are recorded in the [2026-10-13 work order](2026-10-13-rofan-archive-craft-completion.md); this historical note does not state that the media was deleted or remains inaccessible.
 - 원본 의미 JSON 중 일부는 현재 복구 불가하다: D797은 95 shot rows가 성공 기록됐으나 opening excerpt만 복구 가능, D8fba 3.4/5.08MB의 310 dense/686 events 전체 본문과 fde1 dynamic ledger 본문은 접근 불가, C9e26/Db834는 내용 본문 미복구. 이는 부재/삭제가 아니라 접근·복구 한계다. 44개 routed source 전부가 의미상 종결된 것은 아니다.
+**Scope correction after historical T20:** The initial approved scope narrowed the task to a 57-case retrieval/reference artifact and explicitly excluded universal craft synthesis. That did not fulfill the original request to analyze archive craft and transfer general filmmaking methods into the existing skill. The corrected policy is: synthesize only within documented media coverage; compare each relevant owner module/template/QA; install only a demonstrably missing generic procedure/QA in its existing owner when skillification is explicit. The casebank is optional evidence/provenance, not policy or mandatory prompt lookup. Existing T13–T20 prompts and rubrics remain frozen and do not test this broader goal.
+
+Current later evidence supersedes this historical coverage snapshot. The [2026-10-13 work order](2026-10-13-rofan-archive-craft-completion.md) and [QA register](../../../qa/rofan-archive-craft-completion-register.json) record 44/44 overview sheets and 335/335 sampled candidate windows, but no continuous playback or audio listening, no complete source-to-shot/event crosswalk, and five global gates still OPEN. Boundary evidence is 1 confirmed hard cut (ordinal 13) and 1 unresolved native bracket (ordinal 41); remaining candidates are unadjudicated. All 44 F: filenames/sizes/hashes match the identity inventory, while URL-ID→filename mapping remains unresolved. Seven owner families are already covered; current source support is insufficient to establish any new reusable owner gap. The 04/07 cues remain conditional generic design guidance, not archive-proven gaps. These evidence limits do not fulfill the original request for complete archive craft extraction.
 
 ## Review Focus
 
@@ -42,29 +45,30 @@
 
 | 경로 | 계획 변경 | 책임 |
 |---|---|---|
-| `video-production-assets/SKILL.md` | Updated existing 25 on-demand row with conditional discovery for explicit saved-case reuse or a matching active brief cue; no always-loaded craft catalog | Implemented. |
-| `video-production-assets/references/25-reference-video-analysis.md` | Added the conditional casebank pointer at “브리프에 원리를 옮기는 산출물”; preserved analysis procedure and A01–A12 | Implemented; saved-case application does not imply fresh source analysis. |
-| `video-production-assets/references/rofan-craft-examples.md` | Self-contained 57-ID problem index and four worked proposals with bounded evidence, generic mechanism, apply/skip, exact owner destination and actionable QA; internal owner links stay in installed package | Implemented; no copied source table, new schema, or runtime dependency on spec/source media. |
-| `video-production-assets/references/06-shots.md` | Added one conditional pointer after step 3 in `## 실행 절차` | Implemented; 06 remains shot/blocking owner. |
-| `video-production-assets/references/04-performance.md`, `05-visual.md`, `07-lighting.md`, `08-animation.md`, `09-edit.md`, `11-ai-handoff.md`, `19-brand-product-integration.md`, `20-visual-mode-ssot.md`, `21-generated-video-qa-retry.md`, `26-state-causality-continuity.md` | No file edits or extra pointers. Case-bank entries link to these existing owner procedures only when their active conditions apply | Unchanged; ownership preserved. |
-| `README.md`, `CHANGELOG.md`, this plan, and canonical spec | Record implementation status, testing-plan link and historical audit scope without implying broader audit or media quality | Updated. |
+| `video-production-assets/SKILL.md` | Route explicit analysis/skillification to 25; casebank is optional evidence, not a cue-triggered required lookup or policy | Updated in this correction. |
+| `video-production-assets/references/25-reference-video-analysis.md` | Add explicit user-authorized archive-pattern synthesis → owner/template/QA comparison → evidence-backed minimal update to existing owner; ordinary analysis remains read-only | Updated in this correction. |
+| `video-production-assets/references/rofan-craft-examples.md` | Retain 57 bounded records plus four supporting observations as optional provenance/evidence; no policy role or required lookup | Revised by the 2026-10-14 cleanup: automatic cue lookup, worked proposals, and action/QA recipes removed. |
+| `video-production-assets/references/06-shots.md`, `08-animation.md`, `09-edit.md`, `21-generated-video-qa-retry.md` | Keep existing movement/edit/QA ownership; add no casebook-derived camera/gait rule. The 10/14 cleanup consolidated scoped/full 09 projection, added the conditional file-end plan to 09's existing field, and made 21 an actual-output QA pointer; no template field/schema added. | Updated by 10/14 cleanup. |
+| `video-production-assets/references/04-performance.md` | Preserve concise conditional guidance for ordering visible changes during an intentional nonverbal hold, using existing behavior/tactic fields; no source story, invented interiority, or fixed timing | Generic wording is retained as optional guidance; the bounded P14 observation is provenance only, not evidence of a missing owner procedure. |
+| `video-production-assets/references/07-lighting.md` | Preserve conditional shot-local start/change/settle/hold guidance in existing fields; when cause or boundary is unverified, mark it unknown rather than claiming an in-shot event | Generic wording is retained as optional design guidance; L03 is provenance only, not evidence of a missing owner procedure. |
+| Spec, this plan, test plan, `CHANGELOG.md`, separate cross-domain smoke artifacts | Record scope gap/correction, current evidence limits, and fresh unrelated-owner smoke results | Updated; root README and unrelated user files are untouched. |
 
 **Template ownership 확인 상태:** `04-performance-template.md`, `06-shots-template.md`, `08-animation-template.md`, `09-edit-template.md`, `11-ai-handoff-template.md`, `07-lighting-template.md`, `generated-qa-report-template.md`를 직접 확인했다. 04: `scene/beat`, 인물, 목표, 장애, 상대에게 하는 행동, 숨긴 뜻, 듣기 자극, 전술 전환, 물리 과제. 06: `크기/카메라 위치`, `인물 블로킹`, `시선/축`, `공개 정보`, `관점·감정/구도 의도`, `대안·채택/승인 상태`, `카메라 동작`, `종료 프레임`, `핸들`; cue table columns `Local time (shot seconds)`, `Actor phase / contact / visibility`, `Camera phase`, `Reveal / hold`, `Cut-out → cut-in phase`. 08: `포즈/행동`, `시작 프레임`, `끝 프레임(미포함)`, `행동선/무게`, `스페이싱`, `보조 동작`, `접촉 잠금 / 필요한 발 접촉의 가시 구간 또는 hidden·미확인 제한`. 09 (`assets/09-edit-template.md`) cut columns `cut_id`, `final_start_s`, `final_end_s`, `행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유`, `reaction/settle hold final start–end s·연속성/검수 상태`; elision columns `cut_id`, `획득 방식: 연속배속/인터벌/몽타주/의도적 생략/미확인`, `실제 경과시간·촬영 구간·간격·공백(근거 위치)`, `생략 전 상태`, `생략 후 상태`, `후속 컷 유지/리셋 조건`. 11: `초기 상태`, `주 행동과 구간`, `카메라`, `조명·룩`, `끝 상태`, `유지 규칙`, `도구 지원 확인`, `생성 길이/편집 길이/핸들`, `검수 실패 위치·수정 변수`, 선택적 상태·변화·보존·후속 유지 fields. 07: scene/shot, 광원 동기, 방향/높이, 경도/확산, 색 의도, 키/필 관계, 배경 분리, 그림자 규칙, 노출 상태, 매칭 주의. Generated QA report: 실제 매체·구간·검사모드·미검증 범위, 발견 표의 타임코드/관찰/관객 영향/심각도/추정 원인/권장 경로/재검수 기준, 판정 상태. 각 필드는 해당 template에만 기록한다.
 
 
 ## 시나리오 범위
 
-**포함:** (1) 새 brief가 approach/stop/stayer 또는 foot evidence 문제를 제기, (2) 이미 진행 중인 intimate/contact beat 및 paired reaction을 특정하지 않고 설명, (3) 여러 owner에 걸친 attendants·wardrobe state elision·mirror reveal, (4) continuous magic/VFX, fixed lighting event와 focus change, title/closing boundary 등 편집 구분이 필요한 brief.
+**Included:** historical saved-case scenarios remain preserved; the corrective positive smoke uses four fresh unrelated briefs for camera-action timing, approach/stop/gait, nonverbal hold/reaction, and edit/elision, plus a negative control. It tests generic owner applicability, not source-derived archive conclusions.
 
-**제외:** 57개 사례를 각 SKILL.md에 상시 내장; 저장자료에 없는 상세 source 복원; 새 영상 읽기/재생/프레임·오디오 분석; endpoint 호출·유료 생성·현재 작업에서의 실제 3D/VFX/렌더/편집; 새 스키마/메타데이터 DB/자동 skill mutation; 모든 미래 brief에 사례 강제; 성과·권리·실제 QA를 사례에서 추론. 이 문서 제한은 미래의 scene-specific 3D 작업에 적용되는 camera-spatial-design + Blender implementation/visual-inspection 요건을 면제하지 않는다.
+**Out of scope:** copying plot/events, characters/relationships, places/sets, props/wardrobe/designs, distinctive choreography/shot order, or source-specific absolute timing; unsupported universal policies; automatic skill mutation without explicit request; generation/edit/render/Blender execution; new schemas/coordinators/IDs; claims of naturalness, performance, rights, or actual-media QA. The original source review is not possible in this workspace because its media/ledgers are inaccessible; record that limit rather than treating universal craft synthesis as a non-goal.
 
 ## 적용 흐름
 
-1. 25번의 기존 brief/analysis route를 따른다. 사용자가 새 reference analysis를 원하면 기존 분석 절차를 수행한다. 이미 저장된 inventory 사례를 적용해 달라는 brief는 fresh source inspection을 선결조건으로 삼지 않는다.
-2. brief에서 관찰된 문제 cue를 찾고 새 사례 참조의 조건별 index를 사용한다. 일치 사례가 없으면 비슷한 말을 억지 연결하지 않고 기존 owner 절차로만 진행한다.
-3. 선택 사례의 locator·접근성·관찰 vs 해석·미확인 caveat를 확인한다. 검색 가능한 요약과 복원 불가 본문을 구분하고, source content의 미확인을 재구성하지 않는다.
-4. 기존 25 chain으로 메커니즘을 brief에 이전한다: 관찰 → 메커니즘 → 의도 효과 및 대안(해석으로 명시) → brief-specific 요구 → 실제 확인 가능한 QA 기대. source timing과 새 계획 timing을 분리한다.
-5. 활성 조건에 해당하는 owner만 열고 각 기존 template의 실제 필드로 값을 넘긴다. 06/08/09/11/21 및 필요한 04/07/26 등 owner 책임을 유지한다. 적용되지 않는 분기는 비우거나 기존 N/A/미확인 convention으로 이유를 남긴다.
+1. All reference analysis follows 25's evidence/coverage route. Only an explicit skillification request enters the owner-update path; ordinary analysis/reporting is read-only.
+2. Synthesize repeated patterns within actual source coverage, then compare each relevant owner reference, template, and QA procedure. Record already-covered, partial, gap-candidate, and evidence-insufficient outcomes.
+3. Use the casebank only when a user requests a saved observation/provenance or it supplies an actually needed source locator; it is not the generic procedure or required prompt lookup. Never reconstruct inaccessible source detail.
+4. Transfer only abstract mechanism to a new brief: observation → mechanism → proposed intent/alternative → brief-specific requirement → qualitative QA. Keep observed source timing distinct from new proposal timing; do not imitate original timing.
+5. Open only the relevant existing owner and use its real template/QA fields. Install a generic addition only where evidence establishes a genuine missing procedure; do not duplicate 06/08/09/21/camera-spatial rules or invent owners/schema.
 6. plan-only 결과는 계획으로 둔다. endpoint capability는 조회 전 `UNKNOWN`; 실제 출력 없이는 generated media QA를 주장하지 않는다. 실행이 승인되고 가능할 때 기존 owner가 실제 media를 검사한다.
 
 ## 신규 사례 reference 구성 결정
@@ -92,6 +96,8 @@ Worked example minimum payload (exact owner mapping; examples are planned/docume
 
 
 ## Implementation and validation status
+**Scope-correction status:** The checklist below documents the historical 57-case/reference implementation and T12 reader exercise only; it does not establish complete archive dissection or successful universal craft migration. This correction updates the analysis/owner policy and tests positive cross-domain application. Source-level extraction remains blocked by the inaccessible media and per-video ledgers described above; do not promote casebank examples into archive-wide rules.
+
 
 - [x] **1단계 — inventory/source 증거 동기화.** canonical design의 57개 catalog row 전부를 runtime 사례집의 concise case index로 옮겼다(12 camera / 17 performance / 10 object-wardrobe / 9 light-VFX / 9 edit). 57개 적용 cue와 source scope를 유지했고 원본 source를 새로 inspection하지 않았다. **완료:** 모든 ID가 자체 bounded observation / mechanism / apply-skip / owner / QA와 함께 조회되며 미복구 source-body 제한을 표시한다.
 - [x] **2단계 — 기존 owner contract를 실제 template에 대조.** `## Template ownership 확인 상태`에 기록된 기존 field ownership을 재사용했다; worked examples use actual 06 five-column cues and 09 canonical cut/elision fields. **완료:** 새로운 alias/필드/owner 이동을 만들지 않았다.
@@ -161,4 +167,4 @@ ALL_TIMING_ARITHMETIC=PASS
 - **Reader status:** all eight entries above are saved-file-only reasoning. No footage was reopened; no audio was listened to; no endpoint, generation, runtime, or real-media QA was run.
 - Scenario run은 실제 scenario request를 보내지 않는다. reader exercise는 저장된 파일로 수작업 검토이며 생성/endpoint/미디어 검사와 별도다.
 - Fresh footage analysis와 real-media QA는 이 범위에서 수행하지 않는다. 훗날 media QA를 승인받아 수행해도 실제 파일 및 도구가 있어야 하며 부재 시 hard/soft UNKNOWN을 명확히 표시한다.
-- 문서 변경은 사용자 위임 범위 내에서 완료하되, operating/installed skill files, runtime code, versions, schemas, media/history execution 또는 destructive git operation은 다루지 않는다.
+- **Historical T12-only scope:** the earlier document-only work did not handle operating/installed skill files, runtime code, versions, schemas, media/history execution, or destructive git operations. The later approved scope correction deliberately updates the repository's content-production skill; it does not authorize runtime, version, schema, media/history, or destructive git changes.

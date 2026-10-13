@@ -51,7 +51,7 @@ When a bounded single-source crosswalk is produced, its existing status/coverage
 ### 브리프에 원리를 옮기는 산출물
 
 분석에서 제작 브리프로 실제 action/edit/state handoff가 요청되면, 위 교차표에서 활성화된 오너 절차만 열고 각 오너의 기존 템플릿 필드를 그대로 채운다. `assets/product-ssot-template.md`의 제품 필드, `assets/state-transition-template.md`의 대상·시작/끝 상태·원인 동작·후속 유지 행, `assets/motion-beat-template.md`의 모션 행, `assets/06-shots-template.md`의 shot/cue 열, `assets/09-edit-template.md`의 cut/time/cue 열, `assets/10-evidence-template.md`의 claim/source/limitation 열을 해당할 때 연결한다. 필드명을 임의로 번역·합성해 새 alias를 만들지 않으며, 조건이 없거나 입력이 미정인 행은 기존 `N/A`/미확인 표기를 사용하고 이유를 쓴다. 제안 타이밍은 shot-local cue와 final timeline 시간을 구분한다. text-only 계획은 실제 접촉·재생·청취·렌더·승인을 입증하지 않는다.
-저장된 분석의 관찰을 새 브리프에 적용할 때는 [선택형 craft 사례](rofan-craft-examples.md)를 관련 문제에서만 연다. 저장된 사례 재사용은 원본의 신규 분석을 뜻하지 않는다. 새 레퍼런스 분석 요청은 기존 분석 절차를 따른다.
+저장된 사례집은 선택적 출처 근거·provenance다. 정책·절차의 정본이나 필수 조회 경로가 아니다. 사용자가 저장 관찰 또는 그 provenance를 요청할 때 참고하며, 일반 레퍼런스 분석·새 브리프 적용은 사례집 없이 기존 분석/오너 절차로 수행한다. 사례가 없거나 출처 본문에 접근할 수 없으면 그 범위만 미확인으로 남긴다.
 각 필드를 연결하기 전에 인용한 오너 템플릿에서 그 필드의 실제 존재와 소속을 확인한다. 한 오너의 여러 템플릿이 교차표에 함께 적혀 있어도 필드를 임의로 다른 템플릿의 소유로 돌리지 말고, 해당 템플릿 경로와 필드를 짝지어 적는다.
 
 ## 분석 축과 증거 상태

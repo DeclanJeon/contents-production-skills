@@ -2,8 +2,8 @@
 
 ## 상태와 목적
 
-- 상태: **기존 스킬 적용 완료; copied-package reader 결과 부분 미충족**. 저장 관찰 57개, worked proposal 4개, 지원 cue 4개를 적용했으며 실제 생성·미디어 검수는 아니다. Active-owner T12: **15 PASS / 1 PASS_WITH_CONTEXT_LIMIT / 2 PARTIAL_NOT_MET, guard failure 0**; all-pass가 아니다. 미충족은 reader07의 구체적 bounded application과 composite의 canonical elision/EOS-tail 확인이다. Engineering/structural checks 완료: version 2.5/23, pytest 258 passed/1 skipped/2 warnings/217 subtests; copied-package structure, 57 IDs, 384 links 확인. 상세는 [적용 계획](../plans/2026-10-12-rofan-craft-skill-application.md), [테스트 계획](../../implementation/2026-10-12-rofan-craft-skill-test-plan.md), [실행 결과](../../../qa/rofan-craft-green-final-t12-run.json), [package smoke](../../../qa/rofan-craft-package-smoke.json).
-- 목표: 저장 관찰과 해석, 새 브리프에 대한 조건부 제안을 분리하면서 아래 canonical inventory 57개 항목을 모두 보존한다. 57은 목록의 최소 커버리지이지 향후 예시나 supporting locator 수의 상한이 아니다. 기존 프로시저·템플릿·QA 경로에 필요한 사례 보강만 제안한다.
+- 역사적 T12 상태: **기존 casebank 적용; copied-package reader 결과 부분 미충족**. 저장 관찰 57개, worked proposal 4개, 지원 cue 4개를 적용했으며, frozen suite는 case retrieval/output handoff만 평가했다. Active-owner T12는 15 PASS / 1 PASS_WITH_CONTEXT_LIMIT / 2 PARTIAL_NOT_MET, guard failure 0이며 all-pass가 아니다. 이는 archive-wide craft extraction/owner skillification의 완료 증거가 아니다. 이후 범위 수정과 현재 접근 한계는 아래 `승인된 범위 수정`에 기록한다. 상세 historical evidence: [적용 계획](../plans/2026-10-12-rofan-craft-skill-application.md), [테스트 계획](../../implementation/2026-10-12-rofan-craft-skill-test-plan.md).
+- 목표: 분석 가능한 영상 아카이브의 관찰·교차 영상 패턴을 기존 content-production owner 절차와 대조하고, 사용자가 명시적으로 요청한 경우 증거로 확인된 일반 제작 절차/QA 공백만 해당 실제 owner에 이전한다. 57개 saved cases는 보존된 provenance/evidence이며 정책·필수 조회 경로가 아니다. 관찰·해석·새 brief 제안을 분리한다.
 - 적용 길이: 길이 제한 없음. 특정 30초 드라마에 한정하지 않고, 요청된 컷신·장면·콘텐츠의 실제 길이와 매체에 맞춘다.
 - 권한 경계: 승인 범위는 지정된 skill/reference와 계획·설계·README·CHANGELOG 문서 변경이다. 패키지 버전·스키마·manifest, 미디어·생성·역사 실행 및 무관한 파일은 변경하지 않았다.
 
@@ -13,29 +13,33 @@
 | 결정 | 설계와 이유 |
 |---|---|
 | 단일 목록 | 아래 57개 항목이 canonical craft inventory의 유일한 정본이다. 57은 inventory coverage의 최소 기준이지 향후 supporting example 수의 상한이 아니다. 향후 예시는 목록 전체를 복사하지 않고 각 항목을 참조한다. |
-| 기존 소유권·진입 | `25-reference-video-analysis.md`가 이미 evidence→mechanism→new brief→QA와 A01–A12 owner routing을 제공하므로 entry/router로 유지한다. 저장 사례를 재사용할 때 fresh media analysis는 필요하지 않다. 새 총괄, 스키마, SSOT, 마이크로 스킬을 만들지 않는다. |
-| 사례 검색성 | 추가 가치는 새로운 기본 역량이 아니라 조건별 source-linked 예시·반례·오너 간 walkthrough·실제 QA 실패 사례의 검색성이다. |
-| 제안된 추가 파일 | `video-production-assets/references/rofan-craft-examples.md`에 indexed conditional examples, counterexamples, four worked cases를 둔다. 구현 완료; plain-code locator이면서 runtime에서 요구하지 않는 provenance다. |
-| 조건부 사용 | brief에 해당 문제/정보 목적이 있을 때만 사례를 선택한다. wide-first, first-touch, 특정 gait 수치, 모든 장면 강제 규칙은 없다. |
+| 기존 소유권·진입 | `25-reference-video-analysis.md`가 evidence→mechanism→new brief→QA와 A01–A12 owner routing을 제공하므로 분석 경로로 유지한다. 명시적 skillification에서는 교차 패턴→각 관련 owner/template/QA 비교→증거 기반 실제 공백만 기존 owner 수정 순서를 따른다. 사례집은 provenance/evidence이지 policy가 아니다. |
+| 사례집의 역할 | `video-production-assets/references/rofan-craft-examples.md`는 57개 저장 관찰과 4개 보조 관찰을 담는 선택적 provenance/evidence index다. 작업지시서와 QA/출력 절차는 포함하지 않는다. 실행 policy나 prompt lookup이 아니며 일반 owner 절차를 대신하지 않는다. |
 | 근거 계층 | 저장된 분석 관찰, 해석/인과 가설, 새 brief용 설계 제안, 실제 생성 결과 검수는 별도 상태다. 영상은 이 작업에서 새로 열거나 검사하지 않았다. |
 | 실제 검수 | 사례는 미디어 생성 승인이나 실제 QA를 대신하지 않는다. 생성 후 검수는 기존 실제 결과 QA 소유자가 수행한다. |
 
 ## 범위와 비목표
 
-**포함:** 저장된 영상 관찰을 아래 5개 군, 57개 항목으로 구조화; source locator와 접근성 제한 기록; 현재 스킬과의 겹침/증분 필요 구분; 기존 필드에 연결되는 조건부 적용 절차와 counterexample; 적용 후 문서 검증 기준.
+**포함:** 분석 가능한 archive의 source-grounded camera/action/timing/edit/performance craft pattern 종합; 5개 군 57 saved observations의 provenance/coverage 기록; 각 transferable pattern을 실제 관련 owner procedure/template/QA와 비교; 명시적 skillification 요청에 한해 증거로 확인된 일반 절차/QA 공백만 그 owner에 최소 이전; 보호 표현/미확인 범위 분리; 적용 후 문서 검증.
 
-**비목표:** 지정 범위 밖 스킬 파일 수정, 새 영상 열기·재생·프레임 추출·오디오 청취, 역사적 코드/작업 실행, 자동 승격, 생성·편집·렌더/Blender 실행, 신규 project schema/DB/조정자/ID 체계, 범용 카메라/연기/컷 규칙, 30초 전용 제한, 생성 자연스러움/프롬프트 제어 성능 입증, 유사도 점수·성과 보장.
+**비목표:** 줄거리/사건·인물/관계·장소/세트·소품·의상·고유 디자인/샷 배열·안무·원본 절대 타이밍의 모방, 근거 없는 source-wide/상시 적용 규칙, 요청 없는 skill mutation, 자동 승격, 생성·편집·렌더/Blender 실행, 신규 project schema/DB/조정자/ID 체계, 생성 자연스러움/프롬프트 제어 성능 입증, 유사도 점수·성과 보장. 사용자가 명시한 skillification 요청의 evidence-backed, source-neutral procedure/QA gap synthesis는 비목표가 아니다.
 
 ## 근거, 출처 및 신뢰 범위
 
-관찰은 저장된 과거 분석/기록에만 근거한다. 본 문서 작성 중 원본 영상은 재검사하지 않았다. 원본 영상의 위치는 외부 plain-code locator `C:\Users\Declan\Documents\Resources\AI-Rofan-Drama-2026-10-11\videos\urls-batch-mp4-20261011-232345`; 기존 semantic 자료의 위치는 sibling `videos/rofan-temporal-analysis/exhaustive/semantic`이다. 이는 로컬 경로이지 이 저장소의 링크가 아니다. source 접두사는 기존 locator를 찾기 위한 문자열이며 전체 ID, 제목, 정확한 숏/렌즈/장비 정보를 뜻하지 않는다. source 경로가 현재 접근 불가해도 저장된 bounded observations가 무효가 되는 것은 아니지만, 모든 source가 의미상 닫혔다는 뜻도 아니며 보이지 않은 세부사항을 복원하지 않는다.
+관찰·상세 근거는 기록된 분석 및 F: `AI-Rofan-Drama-2026-10-11`의 직접 확인된 source ledgers에서 온다. root와 일부 JSON metadata 안의 오래된 C: 경로는 동일 자료의 현재 F: 위치와 함께 보존된 legacy locator이며 현재 접근 불가를 뜻하지 않는다. 이번 점검에서 원본 미디어 playback/full decode는 하지 않았다. source 접두사는 locator이지 전체 ID·제목·정확한 숏/렌즈/장비 정보가 아니다. 일부 source rows와 global gates는 미완료이므로 ledger 접근을 전체 source의 의미상 종결로 취급하지 않는다.
 
-**알려진 상태:** 44개 소스가 라우팅되었으나 44개 모두 의미상 종결된 것은 아니다. 저장 B casebank에는 16개 ID가 확인되었으나 이 수는 모든 본문이 복구/검증되었음을 뜻하지 않는다. 공개 저장 로그에서 C7/D8 source ID가 복원되었다. 최종 AST의 읽기 전용 paired successful eval은 C840/D942; D797은 95 shot row를 성공적으로 작성했으나 현재 복구 가능한 내용은 opening excerpt뿐이다. D8fba는 3.4/5.08MB, dense 310/total 686 events를 성공 기록했으나 전체 본문은 접근 불가하다. fde1 dynamic ledger 전체 본문도 접근할 수 없다. C9e26 및 Db834는 내용 본문이 복구되지 않았다. 이는 현재 접근/복구 한계이며 사용자가 삭제했다는 뜻이 아니다. 개수만으로 관찰 내용을 복원하지 않는다.
+**Historical casebank-body recovery snapshot (not the current F: ledger-access status):** At that earlier recovery point, 44 sources had been routed but were not all semantically closed. Sixteen saved B casebank IDs were confirmed; this did not mean every body was recovered or verified. Public saved logs restored C7/D8 source IDs. The read-only paired successful evals were C840/D942; D797 had 95 shot rows but only its opening excerpt was then recoverable. D8fba recorded 3.4/5.08MB and dense 310/686 events, while its full body was then unavailable; the fde1 dynamic ledger body was not then accessible; C9e26 and Db834 bodies were not then recovered. These are historical casebank-body recovery limits, not a claim that the current F: root or semantic ledgers are inaccessible. Counts do not reconstruct missing observations.
 
 접근을 시도한 경로는 Windows/home/runtime aliases, 성공적으로 읽은 공개 read/write/edit 결과, 공개 eval AST literals다. 비공개 데이터나 오래된 코드를 실행하지 않았다. 증거 상태를 섞지 않는다: **관찰**은 저장 분석의 명시적 시각 설명, **추론**은 의도·인과·기법 해석, **설계 제안**은 새 작업에 적용할 제안 시각/단계, **미검증**은 현 도구·실제 영상/생성 결과 검수가 없는 상태다. 영상 개별 타이밍은 기존 분석 메모로 기록된 관찰 locator일 뿐 새 정밀 프레임 판독이 아니다.
-**과거 감사 범위 기록:** 선행 탐색의 audit inventory는 46개 entry/reference/template 파일이었다. 이 숫자는 역사적 scope count이며 46개 파일이 이번 작업에서 변경되거나 새로 감사되었다는 뜻이 아니다. 이번 craft 적용은 지정된 기존 진입 문서와 새 선택형 사례 reference만 변경한다.
+**과거 감사 범위 기록:** 선행 탐색의 audit inventory는 46개 entry/reference/template 파일이었다. 이 숫자는 역사적 scope count이며 46개 파일이 당시 작업에서 변경되거나 새로 감사되었다는 뜻이 아니다. 초기 T12 작업은 casebank 중심이었다; 이후 승인된 범위 수정은 기존 skill/owner 절차와 이 spec/plan/test 기록도 갱신했다. 어느 기록도 현재 접근 불가한 영상의 재검사나 archive-wide coverage를 주장하지 않는다.
 
 저장된 작품의 분석 관찰은 캐릭터·장소·의상·소품·구체적 표현을 재사용하거나 재현할 권리/허가를 부여하지 않는다. 새 brief에서는 사용자가 승인한 자산·캐릭터·setting을 사용하고, 여기서 이전할 것은 권리 검토를 통과한 범용 제작 메커니즘뿐이다. 원본 미디어의 접근·인용·재사용은 기존 권리/permission gate를 별도로 따른다.
+## 승인된 범위 수정 (historical T20 이후)
+
+초기 설계는 작업을 57개 saved-case 검색성·예시로 좁히고 universal craft procedure 설치를 비목표로 두었다. 이는 original intent인 archive craft 분석 후 transferable filmmaking method를 기존 content-production skill에 이전한다는 범위를 충족하지 못했다. 수정된 접근은 아카이브 패턴 종합 → 각 관련 owner/reference/template/QA와 gap 비교 → 증거가 확인된 일반 절차/QA만 정본 owner에 최소 반영이다. 사례집은 선택적 provenance/evidence로만 유지하며 policy나 필수 prompt lookup으로 쓰지 않는다. 분석만 요청된 경우에는 계속 skill files를 수정하지 않는다. 이전 대상에서 줄거리·인물·장소·소품·고유 표현과 원본의 특정 shot/timing imitation은 명시적으로 제외한다.
+
+**Historical T20-era coverage snapshot (retained as historical, not current):** Its 44-source/335-strip extraction, 6,002 detector candidates, then-reported `manual_review.json` access, semantic materialization counts, 1/44 full-source run, stale progress/lock, and unresolved semantic gates describe that snapshot only. They establish neither complete review nor prevalence and are superseded for current status by the later archive work order; T20 prompt/rubric/raw grades remain frozen.
+**Current later audit:** The [2026-10-13 work order](../plans/2026-10-13-rofan-archive-craft-completion.md) and [QA register](../../../qa/rofan-archive-craft-completion-register.json) record 44/44 overview sheets, 335/335 sampled windows, one confirmed hard cut (ordinal 13), one unresolved native bracket (ordinal 41), zero continuous playback/audio listening, no complete source-to-shot/event crosswalk, and five OPEN gates. All 44 current F: filename/size/hash tuples match the identity inventory; URL-ID→filename mapping remains unresolved. The seven-family owner comparison reports already-covered owners and insufficient source-derived support for a new reusable gap. The archive crosswalk remains a generic requirement only for explicit exhaustive or cross-source extraction; the 04/07 cues are conditional general design guidance, not archive-proven gaps.
 
 ### 확인된 B casebank locator
 

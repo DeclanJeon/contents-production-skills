@@ -1,0 +1,68 @@
+{
+  "status": "GRADED",
+  "suite": "T19 fresh 15-call frozen-rubric suite",
+  "frozen_prompts_and_rubrics": "qa/rofan-craft-post-improvement-microtest-matrix.json (unchanged)",
+  "frozen_matrix_sha256": "7b8a251e8dc84fbaa4ce7f3fe85f7aef12da017fbcb4c54297235e12e098dff0",
+  "raw_artifacts": [
+    "qa/rofan-craft-t19-reader07-raw.json",
+    "qa/rofan-craft-t19-composite-raw.json",
+    "qa/rofan-craft-t19-ordinary-loaded-raw.json"
+  ],
+  "verification": {
+    "casebank_source_sha256": "130726913afbddf9643ef28cb4404be6acbccb22207e67f0680f66f5ebdcd1b8",
+    "casebank_installed_sha256": "130726913afbddf9643ef28cb4404be6acbccb22207e67f0680f66f5ebdcd1b8",
+    "installed_09_edit_sha256": "f0e60126704540eb33158192dbf88fcb5409ebf2ae7a16e93d8fbad30cc46130",
+    "installed_21_qa_sha256": "5dd6b01af3b504501e09578535b1fa36a406e78f320467ee7b918f28b981a2b1",
+    "isolated_installed_root": "C:\\Users\\Declan\\AppData\\Local\\Temp\\rofan-craft-t19-eval-clean\\skills\\video-production-assets",
+    "procedure": "Copied the isolated T18 skill root to a distinct T19 root, then replaced only references/09-edit.md, references/rofan-craft-examples.md, and references/21-generated-video-qa-retry.md from the working tree. For each scenario, matrix context_files and order were used exactly; every installed context file hash matched its working-tree source. The reconstructed content-only system serialization joined by two LF newlines reproduced all T17 and T18 system hashes before calls. Prompts and rubric matrix were unchanged.",
+    "system_sha256": {
+      "reader07": "fc770b1ce1bdaf9785512fbd71fb0ab41cbe52a3183f8a3083d110f4a2eec82e",
+      "composite": "61602c0b6835f7e70a8583e5f21f60f506a112829b6363a0744cad4271af8ad3",
+      "ordinary": "18979af5175f1d486a6fc19b92fd624c6e7f0978359966284d198e304555c3be"
+    },
+    "prior_t18_system_sha256": {
+      "reader07": "3aeacbaae8e332a1cf265352b913f60fa84a8124e64c6126af9063fbeb0afa00",
+      "composite": "781365c45bcbcb407e0bc8bdcb2f31c8be7ddc44b3ea6151a230c2c20fdcc544",
+      "ordinary": "e739724447fa35f373175d820913b5015bc4b8613d82e25745eb7c375d7fcfdb"
+    },
+    "calls_planned": 15,
+    "calls_completed": 15,
+    "calls_pending": 0,
+    "model_selection": "default",
+    "resolved_model": "UNKNOWN"
+  },
+  "manual_grades": {
+    "reader_07_unavailable_source_body_unlistened_audio": {
+      "runs": [
+        {"run": 1, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Identifies the bounded title-to-live opening from the excerpt and the separate visual hold note; gives the transferable transition mechanism with a condition for a new piece and keeps the inaccessible body/audio unknown."},
+        {"run": 2, "retrieval_transfer": "PARTIAL", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PARTIAL_NOT_MET", "evidence": "Uses only a hypothetical generic example (for example, staging a reveal or clarifying geography) and does not identify/apply the actual bounded opening observation."},
+        {"run": 3, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Identifies the title at about 0s followed by live imagery at about 0.2s, states the conditional title-to-live distinction for a new brief, separately preserves P14's unlistened-audio boundary, and does not infer later source content."},
+        {"run": 4, "retrieval_transfer": "PASS", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PASS", "evidence": "Names the bounded opening and P14 visual note; explicitly frames a title-to-live transition as a proposal only if it serves a new brief, with source timing and audio limits kept distinct."},
+        {"run": 5, "retrieval_transfer": "PARTIAL", "unknown_guard": "PASS", "proposal_boundary": "PASS", "overall": "PARTIAL_NOT_MET", "evidence": "Preserves both unknowns and says not to infer, but describes only a generic mechanism without identifying the actual bounded excerpt or applying it."}
+      ],
+      "summary": {"full_pass": 3, "partial_not_met": 2, "not_met": 0, "unknown_guard_pass": 5}
+    },
+    "composite_baseline_contact_wardrobe_gate_ending": {
+      "runs": [
+        {"run": 1, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS", "elision_row": "NOT_MET", "ending_checks": "NOT_MET", "overall": "PARTIAL_NOT_MET", "evidence": "Uses the six active cut fields and preserves the 12-second plan/guards, but gives the wardrobe state handoff as prose rather than the canonical six-column elision row. The ending note says to verify picture and duration separately, but does not record two separate planned tasks in the existing final-cut QA field."},
+        {"run": 2, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS", "elision_row": "PASS", "ending_checks": "NOT_MET", "overall": "PARTIAL_NOT_MET", "evidence": "Uses active cut fields and a separate six-column elision row; preserves the brief and unknown guards. File-end QA only states that last-picture/container duration are UNKNOWN/pending, without two separately planned checks in the existing final-cut QA field."},
+        {"run": 3, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS", "elision_row": "PASS", "ending_checks": "NOT_MET", "overall": "PARTIAL_NOT_MET", "evidence": "Uses active cut fields and a canonical elision row; the final cut and QA state the last picture/container duration are UNKNOWN/pending, not separate planned checks in the existing final-cut QA field."},
+        {"run": 4, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS", "elision_row": "PASS", "ending_checks": "NOT_MET", "overall": "PARTIAL_NOT_MET", "evidence": "Uses active cut fields and an intentional-elision row with unknown story time; the graphics/file-end check only marks last frame and container end pending and does not list two planned actions in the existing final-cut QA field."},
+        {"run": 5, "retrieval_transfer": "PASS", "brief_fidelity_and_guards": "PASS", "cut_fields": "PASS", "elision_row": "PASS", "ending_checks": "NOT_MET", "overall": "PARTIAL_NOT_MET", "evidence": "Uses active cut fields and the canonical elision row. A QA bullet separately names last-decoded-picture and container-duration/tail checks with UNKNOWN/pending results, but these are not recorded as two planned actions in the existing final-cut QA field."}
+      ],
+      "summary": {"full_pass": 0, "partial_not_met": 5, "not_met": 0, "retrieval_pass": 5, "brief_and_guard_pass": 5, "active_cut_fields_pass": 5, "canonical_elision_row_pass": 4, "separate_final_cut_endpoint_plans_pass": 0, "guard_failures": 0}
+    },
+    "negative_ordinary_brief_skip_casebank_loaded": {
+      "runs": [
+        {"run": 1, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Skips unrelated cases and gives a usable three-roll/wipe/smile plan with placement, towel, eyeline, and continuity checks."},
+        {"run": 2, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Does not force a saved case; gives a clear three-roll, wipe, and customer-smile outline with roll-count and action-order QA."},
+        {"run": 3, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "States no relevant case was identified and supplies practical roll/contact/towel/customer continuity checks."},
+        {"run": 4, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Declines unrelated saved cases and provides a concise proposed 8-second outline with practical continuity QA."},
+        {"run": 5, "applicability_control": "PASS", "usable_plan": "PASS", "overall": "PASS", "evidence": "Reports no matching case and provides a readable action sequence plus roll-count, prop, eyeline, and continuity checks."}
+      ],
+      "summary": {"full_pass": 5, "partial_not_met": 0, "not_met": 0, "forced_application_failures": 0}
+    }
+  },
+  "aggregate": {"full_pass": 8, "partial_not_met": 7, "not_met": 0, "guard_failures": 0},
+  "limitations": "Manual descriptive scoring of the 15 frozen calls; no causal or statistical claim. Reader retrieval/transfer was 3/5, composite full passes 0/5, and ordinary loaded control 5/5. Model identity UNKNOWN. All outputs are text plans only: no source playback, media generation, actual-media inspection, 3D/Blender work, or endpoint execution was performed. The composite results do not meet the separate planned-check requirement in the existing final-cut QA field; stop prose iteration here rather than adding another rule. Frozen prompt/rubric matrix was not changed."
+}

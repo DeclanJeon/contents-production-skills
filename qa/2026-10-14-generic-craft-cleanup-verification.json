@@ -1,0 +1,338 @@
+{
+  "title": "Generic craft cleanup verification evidence",
+  "created_for": "2026-10-14",
+  "model": "openai-codex/gpt-6.1-sol",
+  "thinking_level": "medium",
+  "resolved_model_is_fallback": false,
+  "summary": "Six fresh known-model sessions: five ordinary craft applications and one explicitly source-seeking evidence request. Ending t2 is a same-session retest, not an additional independent sample. Full raw outputs are referenced in worker history transcripts rather than duplicated here.",
+  "probes": [
+    {
+      "worker_id": "generic-cleanup-motion-probe",
+      "scenario": "ordinary-06-repair-workshop",
+      "session_id": "01a135f8-bce2-7682-876b-1161ef890525",
+      "started_at": "2026-10-13T15:54:16.162Z",
+      "model": "openai-codex/gpt-6.1-sol",
+      "resolved_model_is_fallback": false,
+      "thinking_level": "medium",
+      "samples": [
+        {
+          "sample_index": 0,
+          "independent_fresh_sample": true,
+          "prompt_verbatim": "Read-only fresh skill application. Use the current repository's video-production-assets/SKILL.md and follow its relevant routes as needed. No file changes, no git operations, no tests other than answering this brief; do not read QA/plans/history. User brief: '텍스트/2D 계획만. 자전거 수리점에서 정비사 한 명이 작업대까지 다가가 멈춘 뒤 느슨한 브레이크 케이블을 발견한다. 8초 장면의 06 샷 계획과 이 장면에 해당하는 검수만 작성해줘. 카메라와 행동 타이밍은 알아볼 수 있게 해줘. 새 인물은 넣지 마.' Return the full deliverable in Korean, then exact files actually read and any unverified assumptions. Do not simulate reads. You have no prior task context.",
+          "actual_read_paths": [
+            "skill://using-superpowers",
+            "video-production-assets/SKILL.md",
+            "video-production-assets/references/workspace-integration.md",
+            "video-production-assets/references/contract.md",
+            "video-production-assets/references/06-shots.md",
+            "video-production-assets/assets/06-shots-template.md",
+            "video-production-assets/references/27-camera-motion-qa.md",
+            "video-production-assets/assets/06-shots-template.md:24-24:raw"
+          ],
+          "actual_lookup_calls": [],
+          "manual_outcome": {
+            "grade": "PASS",
+            "basis": "06 8s repair-shop plan and scene-specific QA; approach, deceleration, stop, settle and response are separated; no source/casebank route."
+          },
+          "full_output_transcript_ref": "history://generic-cleanup-motion-probe (yield 1)"
+        }
+      ]
+    },
+    {
+      "worker_id": "generic-cleanup-performance-probe",
+      "scenario": "ordinary-04-nonverbal-performance",
+      "session_id": "01a135f8-bcf5-710f-9604-107a9ef5bfed",
+      "started_at": "2026-10-13T15:54:16.181Z",
+      "model": "openai-codex/gpt-6.1-sol",
+      "resolved_model_is_fallback": false,
+      "thinking_level": "medium",
+      "samples": [
+        {
+          "sample_index": 0,
+          "independent_fresh_sample": true,
+          "prompt_verbatim": "Read-only fresh skill application. Use current repository video-production-assets/SKILL.md and relevant normal routes. No files/git/tests; don't read QA/plans/history. User brief: '영상 생성 없이 04 연기 계획만. 도서관 직원 한 명이 반납된 책에서 작은 수리 흔적을 발견하고 말없이 잠시 바라본다. 비언어 hold를 연기자가 실행할 수 있게 적어줘. 내면이나 이전 이야기는 주어지지 않았고 대사도 없다.' Return complete Korean deliverable and list actual read files plus assumptions. No simulated reads.",
+          "actual_read_paths": [
+            "skill://using-superpowers",
+            "video-production-assets/SKILL.md",
+            "video-production-assets/references/04-performance.md",
+            "video-production-assets/assets/04-performance-template.md",
+            "video-production-assets/references/contract.md",
+            "video-production-assets/references/workspace-integration.md"
+          ],
+          "actual_lookup_calls": [],
+          "manual_outcome": {
+            "grade": "PASS",
+            "basis": "Actor-executable nonverbal hold; no invented inner story or dialogue; inferred duration explicitly labeled."
+          },
+          "full_output_transcript_ref": "history://generic-cleanup-performance-probe (yield 1)"
+        }
+      ]
+    },
+    {
+      "worker_id": "generic-cleanup-lighting-probe",
+      "scenario": "ordinary-07-lighting-pair",
+      "session_id": "01a135f8-bd06-7703-9cdf-e316c0ef03f2",
+      "started_at": "2026-10-13T15:54:16.198Z",
+      "model": "openai-codex/gpt-6.1-sol",
+      "resolved_model_is_fallback": false,
+      "thinking_level": "medium",
+      "samples": [
+        {
+          "sample_index": 0,
+          "independent_fresh_sample": true,
+          "prompt_verbatim": "Read-only fresh application of current repository video-production-assets/SKILL.md, normal relevant routes. No edits/git, no QA/plans/history. User brief: '텍스트 07 조명 계획 두 건. A: 도자기 작업대의 한 샷 안에서 조명을 켜서 표면의 금을 드러낸 다음 안정된 빛을 유지하는 의도된 연출. 새 템플릿 필드 없이 작성해줘. B: 받은 영상에 밝기가 달라진 두 스틸만 있다. 샷 경계, 카메라 경로, 광원 제어 기록은 없다. 이 밝기 변화에 대해 확실히 말할 수 있는 범위도 정리해줘.' Return full deliverable Korean with actual read file paths and assumptions.",
+          "actual_read_paths": [
+            "skill://using-superpowers",
+            "video-production-assets/SKILL.md:1-240",
+            "video-production-assets/references/workspace-integration.md:1-180",
+            "video-production-assets/references/contract.md:1-190",
+            "video-production-assets/references/07-lighting.md:1-220",
+            "video-production-assets/assets/07-lighting-template.md:1-180",
+            "video-production-assets/references/sources.md:1-130",
+            "video-production-assets/references/26-state-causality-continuity.md:1-230"
+          ],
+          "actual_lookup_calls": [
+            {
+              "tool": "glob",
+              "arguments": {
+                "i": "Locating requested skill file",
+                "path": "video-production-assets/SKILL.md",
+                "hidden": true,
+                "gitignore": true,
+                "limit": 20
+              }
+            }
+          ],
+          "manual_outcome": {
+            "grade": "PASS",
+            "basis": "Intentional lighting proposal kept separate from two endpoint-only still evidence; cause/cut/camera/transition/hold remain unknown where unsupported; no new fields."
+          },
+          "full_output_transcript_ref": "history://generic-cleanup-lighting-probe (yield 1)"
+        }
+      ]
+    },
+    {
+      "worker_id": "generic-cleanup-ending-probe",
+      "scenario": "ordinary-09-endpoint-plan",
+      "session_id": "01a135f8-bd19-746e-bd54-c03c82f224a7",
+      "started_at": "2026-10-13T15:54:16.217Z",
+      "model": "openai-codex/gpt-6.1-sol",
+      "resolved_model_is_fallback": false,
+      "thinking_level": "medium",
+      "samples": [
+        {
+          "sample_index": 0,
+          "independent_fresh_sample": true,
+          "prompt_verbatim": "Read-only fresh skill application. Read current repo video-production-assets/SKILL.md and relevant normal routes. No writes/git/QA/plans/history. User brief: '실제 파일 없는 텍스트 편집 인계다. 8초 자전거 안전 교육: 첫 3초는 헬멧 끈 확인, 나머지 5초는 손으로 버클을 잠그고 완료 상태를 보여준다. 두 컷의 09 편집 인계에서 관련 필드만 작성해줘. 완성 파일의 마지막 화면과 파일 끝도 나중에 검사할 계획을 포함해줘. 검사를 했다고 쓰면 안 된다.' Return complete Korean deliverable plus actual read files and unverified assumptions.",
+          "actual_read_paths": [
+            "skill://using-superpowers",
+            "video-production-assets/SKILL.md",
+            "video-production-assets/references/09-edit.md",
+            "video-production-assets/assets/09-edit-template.md",
+            "video-production-assets/references/contract.md",
+            "video-production-assets/references/workspace-integration.md",
+            "video-production-assets/references/23-finishing-platform.md:1-63"
+          ],
+          "actual_lookup_calls": [
+            {
+              "tool": "find",
+              "arguments": {
+                "i": "Locating ending handoff guidance",
+                "query": "last visible frame file end ending inspection plan terminal frame black tail",
+                "grep_keywords": [
+                  "마지막",
+                  "파일 끝",
+                  "엔딩"
+                ],
+                "path": "video-production-assets/references"
+              }
+            }
+          ],
+          "manual_outcome": {
+            "grade": "FAIL_FIELD_PLACEMENT",
+            "basis": "Numeric 0–3 and 3–8 intervals and 6.5–8 hold were present, but last-decoded-picture and container-tail plans appeared only in next-step prose, not the final-cut QA field."
+          },
+          "full_output_transcript_ref": "history://generic-cleanup-ending-probe (yield 1)"
+        },
+        {
+          "sample_index": 1,
+          "independent_fresh_sample": false,
+          "prompt_verbatim": "Current repository 09/21 owner refs have changed. Repeat the same user brief using current skill files, reread relevant refs before answering. This is a same-session retest, not a fresh independent sample; do not imply otherwise. No edits/git/QA/plans/history. User brief unchanged: '실제 파일 없는 텍스트 편집 인계다. 8초 자전거 안전 교육: 첫 3초는 헬멧 끈 확인, 나머지 5초는 손으로 버클을 잠그고 완료 상태를 보여준다. 두 컷의 09 편집 인계에서 관련 필드만 작성해줘. 완성 파일의 마지막 화면과 파일 끝도 나중에 검사할 계획을 포함해줘. 검사를 했다고 쓰면 안 된다.' Return full deliverable and actual read paths.",
+          "actual_read_paths": [
+            "video-production-assets/SKILL.md",
+            "video-production-assets/references/09-edit.md:1-65",
+            "video-production-assets/assets/09-edit-template.md:1-30",
+            "video-production-assets/references/21-generated-video-qa-retry.md:77-160",
+            "video-production-assets/references/contract.md:1-34",
+            "video-production-assets/references/workspace-integration.md:1-11"
+          ],
+          "actual_lookup_calls": [],
+          "manual_outcome": {
+            "grade": "TARGETED_PASS_NONINDEPENDENT",
+            "basis": "Same-session t2: final-cut QA cell contains separate last-decoded-picture and container-duration/tail plans, both actual outcomes UNKNOWN/pending; numeric 0–3 and 3–8; hold 6.5–8. Not an independent sample."
+          },
+          "full_output_transcript_ref": "history://generic-cleanup-ending-probe (yield 2)"
+        }
+      ]
+    },
+    {
+      "worker_id": "generic-cleanup-product-probe",
+      "scenario": "ordinary-06-product-demo",
+      "session_id": "01a135f8-bd2e-7373-8744-44e87775f907",
+      "started_at": "2026-10-13T15:54:16.238Z",
+      "model": "openai-codex/gpt-6.1-sol",
+      "resolved_model_is_fallback": false,
+      "thinking_level": "medium",
+      "samples": [
+        {
+          "sample_index": 0,
+          "independent_fresh_sample": true,
+          "prompt_verbatim": "Read-only fresh application of current repository video-production-assets/SKILL.md. Follow relevant normal skill route, no file edits/git/QA/plans/history. User brief: '영상 생성 없이 텍스트 06 제품 데모 샷 계획. 손 한 쌍이 계량컵에서 투명 용기로 물을 붓는다. 6초 한 샷이며 눈금은 읽혀야 한다. 사람 얼굴이나 대사, 별도 서사는 필요 없다. 실제 카메라 3D 좌표나 Blender 결과를 요청하는 것은 아니다.' Return full Korean deliverable and actual files read, assumptions. No simulated reads.",
+          "actual_read_paths": [
+            "skill://using-superpowers",
+            "skill://video-production-assets",
+            "video-production-assets/SKILL.md:1-240",
+            "video-production-assets/references/06-shots.md:1-230",
+            "video-production-assets/assets/06-shots-template.md:1-220",
+            "video-production-assets/references/contract.md:1-150",
+            "video-production-assets/references/workspace-integration.md:1-160",
+            "creative-production/SKILL.md:1-170",
+            "creative-production/references/production-routing.md:1-135",
+            "video-production-assets/references/19-brand-product-integration.md:1-180"
+          ],
+          "actual_lookup_calls": [
+            {
+              "tool": "glob",
+              "arguments": {
+                "i": "Locating repository requested skill",
+                "path": "**/video-production-assets/SKILL.md",
+                "hidden": false,
+                "gitignore": false,
+                "limit": 20
+              }
+            },
+            {
+              "tool": "glob",
+              "arguments": {
+                "i": "Locating creative routing skill",
+                "path": "**/creative-production/SKILL.md",
+                "hidden": false,
+                "gitignore": false,
+                "limit": 10
+              }
+            }
+          ],
+          "manual_outcome": {
+            "grade": "PASS",
+            "basis": "Single 6s 06 product demo covers markings, pour and receiving level with relevant QA; no 3D/Blender expansion or source-bank read."
+          },
+          "full_output_transcript_ref": "history://generic-cleanup-product-probe (yield 1)"
+        }
+      ]
+    },
+    {
+      "worker_id": "generic-cleanup-evidence-probe",
+      "scenario": "explicit-source-evidence-request",
+      "session_id": "01a135f8-e256-762b-9837-81c1837e287b",
+      "started_at": "2026-10-13T15:54:25.750Z",
+      "model": "openai-codex/gpt-6.1-sol",
+      "resolved_model_is_fallback": false,
+      "thinking_level": "medium",
+      "samples": [
+        {
+          "sample_index": 0,
+          "independent_fresh_sample": true,
+          "prompt_verbatim": "Read-only fresh skill application using current repository video-production-assets/SKILL.md and relevant routes; no edits/git and do not read QA/plans/history. User brief: '저장된 로판 레퍼런스에서 발이 잘려 보여 전체 보행을 확인할 수 없는 접근/정지 관찰 한 건과, 미청취라 음성을 모르는 hold 관찰 한 건의 출처·확인 범위만 알려줘. 새 장면이나 재현안은 필요 없다. 그리고 그런 자료를 스킬화해 달라는 요청이 오면, 바로 새 규칙을 넣어도 되는지 기존 스킬 기준으로 판단하는 절차를 설명해줘. 해당 출처나 기록에 없으면 모른다고 해줘.' Return full Korean deliverable plus exact actual files read and unknowns. Do not invent source inspection or new transfer proposal.",
+          "actual_read_paths": [
+            "skill://using-superpowers",
+            "video-production-assets/SKILL.md",
+            "video-production-assets/references/25-reference-video-analysis.md",
+            "video-production-assets/references/sources.md",
+            "video-production-assets/references/contract.md:1-110",
+            "video-production-assets/references/workspace-integration.md",
+            "video-production-assets/references/rofan-craft-examples.md:1-90"
+          ],
+          "actual_lookup_calls": [
+            {
+              "tool": "glob",
+              "arguments": {
+                "i": "Finding saved example filename",
+                "path": "video-production-assets/**/rofan-craft-examples.md",
+                "hidden": true,
+                "gitignore": true,
+                "limit": 10
+              }
+            },
+            {
+              "tool": "grep",
+              "arguments": {
+                "i": "Locating requested observation records",
+                "pattern": "발|미청취|hold|접근|정지",
+                "path": "video-production-assets/references/rofan-craft-examples.md",
+                "case": false,
+                "gitignore": true,
+                "skip": 0
+              }
+            }
+          ],
+          "manual_outcome": {
+            "grade": "PASS",
+            "basis": "Explicit source request correctly reads the casebook, limits P01/P14 to bounded recorded observations, states unknowns, and does not claim media review or propose recreation."
+          },
+          "full_output_transcript_ref": "history://generic-cleanup-evidence-probe (yield 1)"
+        }
+      ]
+    }
+  ],
+  "manual_review": {
+    "method": "Read full outputs in the cited worker transcripts and actual read traces; manual brief/owner-field comparison, not regex-only grading.",
+    "findings": [
+      "Five ordinary probes read no Rofan casebank/source bank.",
+      "The explicit source-evidence probe read video-production-assets/references/rofan-craft-examples.md:1-90 only because the brief asked for saved source evidence; it did not inspect raw media.",
+      "Initial ending output remains FAIL for endpoint-check placement in the final-cut QA cell.",
+      "After the 09 owner fix, t2 places both checks in the existing final-cut QA cell, each UNKNOWN/pending: targeted PASS, same-session and non-independent.",
+      "The earlier baseline uses model UNKNOWN and remains UNGRADABLE; it was not regraded or overwritten. No paired improvement rate is claimed.",
+      "These six fresh probes are not three repeated outputs for each of the earlier frozen A/B prompts."
+    ]
+  },
+  "current_09_owner_review": {
+    "reviewer_read_paths": [
+      "video-production-assets/references/09-edit.md:1-65",
+      "video-production-assets/assets/09-edit-template.md:1-30",
+      "video-production-assets/references/21-generated-video-qa-retry.md:77-160"
+    ],
+    "finding": "09-edit.md lines 22–24 requires separate last-decoded-picture and container-duration/tail plans in the existing final-cut QA field when requested; no new field; actual results UNKNOWN/pending without output. 21 lines 78–80 assigns plan ownership to 09. Current t2 output satisfies this placement and preserves numeric 0–3/3–8 and 6.5–8 hold."
+  },
+  "structure_validation": {
+    "source": "request-audit recorded tool results; exact executed commands, not rerun for this artifact",
+    "commands": [
+      {
+        "command": "python scripts/check_versions.py",
+        "output": "version check OK: package 2.5, 23 skill(s) consistent",
+        "result": "PASS",
+        "wall_time": "0.27 seconds"
+      },
+      {
+        "command": "python -X utf8 -m pytest -q scripts/test_check_versions.py",
+        "output": ".........                                                                [100%]\n9 passed in 0.15s",
+        "result": "PASS",
+        "wall_time": "1.07 seconds"
+      }
+    ],
+    "scope": "Package/version validator and 9 targeted tests only; not a full repository test suite."
+  },
+  "raw_qa_status": {
+    "claim": "No whole-set raw T12–T20 hash invariance claim is made: no before-hash snapshot exists for the full set.",
+    "observed_status": "27 files are tracked and had no working diff vs HEAD; eight T19/T20 raw/grade artifacts are untracked and therefore cannot be compared to HEAD. No SHA list is used as proof of historical invariance."
+  },
+  "task_boundaries": {
+    "blender": "Preserved and not run: blender-previsualization/scripts/build_previs.py has the existing one-line quaternion rotation-mode change; blender-previsualization/scripts/test_camera_orientation_in_blender.py is untracked and was not executed.",
+    "ad_craft": "Preserved separately: docs/analysis/ai-ad-reference-2026-10-12/ and docs/implementation/ad-craft-recipes/ remain untracked; probes did not inspect or alter these paths."
+  },
+  "limitations": [
+    "No source video/frame decode or audio listening was performed.",
+    "No Blender test was run.",
+    "No additional model probes, CLI discovery, or tests were run for this artifact.",
+    "No paired baseline comparison or statistical improvement claim."
+  ]
+}

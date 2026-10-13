@@ -1,0 +1,110 @@
+{
+  "status": "GRADED",
+  "purpose": "Separate positive cross-domain application smoke. Does not replace, amend, or regrade frozen T13-T20 prompts/rubrics. No source archive or Rofan casebank is required for the five unrelated positive scenarios; these examples test whether existing generic owner procedures work on unrelated briefs, not whether those procedures were derived from inaccessible archive media.",
+  "results_artifact": "qa/cross-domain-craft-transfer-smoke-results.md",
+  "method": {
+    "calls_planned": 6,
+    "calls_completed": 6,
+    "freshness": "One fresh stateless completion per scenario; no conversation history, other scenario answers, grading criteria, or archive files in model context.",
+    "model_selection": "default; resolved model UNKNOWN unless exposed.",
+    "manual_grading": "Read full output against scenario-specific observable criteria. Distinguish a useful plan from evidence/observation claims. Record safety and scope errors separately.",
+    "casebank_policy": "Exclude the casebank from positive contexts. Include it only in the negative control to test that it is not forced when neither saved-case reuse nor reference analysis is requested."
+  },
+  "scenarios": [
+    {
+      "key": "camera_action_timing",
+      "prompt": "Plan a 9-second text-only 2D product film for a small hand-cranked coffee grinder: an adult turns the crank, the grounds fall into a cup, and the hand stops. Use a concise shot-local time basis to align the subject action and any motivated camera move; show when the camera begins/changes/settles only where useful. Keep the cup and grinder readable. This is a new proposal, not reference-footage analysis; do not invent lens measurements or 3D validation.",
+      "context_files": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/assets/06-shots-template.md",
+        "video-production-assets/references/27-camera-motion-qa.md"
+      ],
+      "acceptance": [
+        "Uses a shared shot-local time basis for crank/cup action and any camera phase; does not rely on final timeline time alone.",
+        "Connects the camera move to the visible action or information reveal and gives an applicable settle/hold cue, without forcing irrelevant motion phases.",
+        "Labels the plan as proposed and does not claim measured source timing, lens facts, 3D work, or actual output QA."
+      ]
+    },
+    {
+      "key": "approach_stop_gait",
+      "prompt": "Plan a 10-second text-only documentary shot of a park maintenance worker carrying a watering can along a greenhouse aisle, slowing to a stop at a plant bench and setting the can down. The lower legs are outside the frame for the first half; no source footage is supplied. Give concise 06/08 movement cues that distinguish approach, deceleration, stop, settle, and the prop-placement action. Do not claim unseen foot plants or prescribe universal gait timing.",
+      "context_files": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/assets/06-shots-template.md",
+        "video-production-assets/references/08-animation.md",
+        "video-production-assets/assets/08-animation-template.md"
+      ],
+      "acceptance": [
+        "Separates approach/deceleration/stop/settle and the can placement as proposed observable phases.",
+        "Keeps cropped foot-contact evidence unknown/unverified rather than asserting a visible plant or complete gait.",
+        "Uses existing 06/08 cue fields and does not add fixed gait metrics or a new schema."
+      ]
+    },
+    {
+      "key": "nonverbal_hold_reaction",
+      "prompt": "For a 6-second silent close shot in a coastal field station, a marine researcher notices a cracked sample vial on the desk. Direct a restrained nonverbal held beat that progresses through observable small changes instead of a frozen expression. No dialogue, internal thought, cause, or source footage is supplied. Give usable 04 performance cues and one observable QA check; label any interpretation as a proposal.",
+      "context_files": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/contract.md",
+        "video-production-assets/references/04-performance.md",
+        "video-production-assets/assets/04-performance-template.md"
+      ],
+      "acceptance": [
+        "Gives at least two ordered, observable nonverbal micro-changes across the hold as performance/action cues, rather than only an emotion label or fixed face.",
+        "Does not invent dialogue, internal state, source evidence, or a causal explanation for the cracked vial.",
+        "Uses existing 04 fields and supplies an observable QA check without introducing camera/gait rules."
+      ]
+    },
+    {
+      "key": "edit_elision",
+      "prompt": "Create a 45-second text-only 2D short about a ceramic artist testing a glazed tile: show the tile before the kiln, then cut to a later cooled result; the actual overnight wait and firing are not shown and no elapsed-time figure is supplied. Give a concise cut/elision plan in existing 09 fields that distinguishes an intentional omission from continuous action, preserves before/after state, and keeps unprovided elapsed time unknown. Do not use or imitate a reference film.",
+      "context_files": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/contract.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/assets/09-edit-template.md"
+      ],
+      "acceptance": [
+        "Records the missing kiln/wait interval as an intentional elision, not continuous real-time action.",
+        "States the relevant pre/post tile states and keeps actual elapsed time/capture gap unknown unless supplied.",
+        "Uses applicable existing cut/elision fields and respects the requested 45-second total without making a 30-second limit."
+      ]
+    },
+    {
+      "key": "lighting_within_shot_reveal",
+      "prompt": "Plan an 8-second text-only 2D museum conservation shot: a restorer examines a translucent amber glass sample on a fixed dark slate board. In one held shot, a gradual brightness/flare change should make fine etched ridges become readable while the sample, board edge, framing, and geometric anchors stay held. No source footage is supplied, and no camera move or edit is requested. Give proposed shot-local start/change/settle/hold cues and use existing 07 lighting fields (such as matching notes/shadow rule). Do not infer a fixture, exposure, focus, or equipment from appearance; add no fields or universal timing.",
+      "context_files": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/contract.md",
+        "video-production-assets/references/07-lighting.md",
+        "video-production-assets/assets/07-lighting-template.md"
+      ],
+      "acceptance": [
+        "Plans shot-local start/change/settle/hold phases while keeping framing and geometric anchors held.",
+        "States what new information becomes readable and treats the change as within-shot lighting, not camera movement or a cut absent evidence of a real change.",
+        "Uses existing 07 fields without adding schema or universal timing.",
+        "Labels the plan as proposed and does not infer fixture/equipment, exposure, or focus from appearance."
+      ]
+    },
+    {
+      "key": "negative_no_reference_or_skillification",
+      "prompt": "Plan a 7-second text-only 2D scene of a baker placing sesame crackers on a cooling rack, brushing crumbs aside, and handing one cracker to a customer. There is no reference footage, no archive request, no saved-case reuse request, and no request to edit or improve any skill. Give a concise ordinary shot/continuity plan only.",
+      "context_files": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/contract.md",
+        "video-production-assets/references/25-reference-video-analysis.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/references/rofan-craft-examples.md"
+      ],
+      "acceptance": [
+        "Provides an ordinary usable plan without retrieving, naming, or forcing Rofan cases or case IDs.",
+        "Does not recommend or perform automatic archive analysis or skill-file mutation absent explicit request.",
+        "Uses only constraints in the brief and ordinary continuity QA."
+      ]
+    }
+  ]
+}
