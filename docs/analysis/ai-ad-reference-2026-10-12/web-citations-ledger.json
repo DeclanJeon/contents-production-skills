@@ -1,0 +1,713 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://ffmpeg.org/ffmpeg-filters.html",
+      "title": "FFmpeg Filters Documentation",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "value between 0 and 1 to indicate a new scene; a low value reflects a low\nprobability for the current frame to introduce a new scene",
+          "added": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "url": "https://docs.blender.org/manual/en/latest/movie_clip/tracking/clip/sidebar/track/camera.html",
+      "title": "Camera — Blender 5.2 LTS Manual",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "But such settings as distortion coefficients and principal point are not included in the presets and",
+          "added": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "https://docs.blender.org/manual/en/latest/movie_clip/tracking/clip/toolbar/solve.html",
+      "title": "Solve — Blender 5.2 LTS Manual",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "it is impossible to determine the actual feature points in space due to a lack of information.",
+          "added": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "https://www.youtube.com/watch?v=zBcp3xItXC8",
+      "title": "2025 summer ad. AI광고 | reve | kling AI | 미드저니 | 프리미어프로 | adobe | 레트로 광고",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Just as fast as I can. [Music]",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V001.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "url": "https://www.youtube.com/watch?v=ER5P_wH0E9Q",
+      "title": "233M views in THREE DAYS - Viral AI Commercial for David Beckham's company, IM8",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "What are you willing to do to be the best? What if it all came down to a simple choice? Red or green? Red. You can feel it. Feel energized. Perform at your best. Developed by worldleading scientists, including NASA, to help you live with more vitality, energy, and longevity. Sure, you could choose green, but just because it's green doesn't mean it's good for you. This is your chance for peak performance. Whatever the task, &gt;&gt; the best choose the best.",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V002.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "url": "https://www.youtube.com/watch?v=yKufSHG5O7M",
+      "title": "@vans - Off the Wall | #AI spec ad | Google Veo 2",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[Music] you ever feel it that click when it's just you your board and the rhythm of the [Music] streets the cracks in the pavement the hum of the wheel they're part of the Ride part of a you it's the echo of your wheels in the quiet Subway tunnel the city breathing around you and that moment when you realize you're exactly where you belong about the streets that shape us through that feels like family and the stories We Leave Behind with every ride the connections and the Rhythm that keeps us moving forward this isn't just a brand it's a way of life fans off the- wall",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V003.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "url": "https://www.youtube.com/watch?v=iB-KCw5SqZA",
+      "title": "[AI 광고] 퇴근 후에 맥주? 왜 꼭 마셔? 이제 깨봐요. 무음모드ON",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "본 영상은 생성형 AI 기술을 이용하여 보건복지부와 한국건강증진개발원에서 공동으로 제작한 음주폐해예방 캠페인 광고입니다.\n\n퇴근 후에 맥주? 삼겹살에 소주?\n우리에게 이제 너무 익숙해져 버린 표현들 \n그대로 받아들이지 말고 \n이제 깨봐요. 술스라이팅 [무음모드ON] \n\n음주폐해예방 캠페인 공식 인스타그램 ▼\nhttps://www.Instagram.com/no_alcohol_mode_on/",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:100-113 (id=iB-KCw5SqZA; description L110)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "url": "https://www.youtube.com/watch?v=7dKvkS6uYQ8",
+      "title": "[AI 광고] 프러쉬 | 숨겨진 브랜드 마케팅 채널을 깨워드립니다",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "단 15초, 고객의 시선을 훔치는 마법.\n\n텍스트보다 9.5배 더 잘 기억나는 영상 컨텐츠의 압도적인 몰입감으로 당신의 공간을 가득 채워드립니다. 넘쳐나는 온라인 광고들 사이에서 나만의 독보적인 브랜드 공간을 만드세요!\n\n📩 제작 문의 : 프로필 링크 / DM / 이메일\n\n#마케팅 #영상제작 #광고 #AI마케팅 #AI광고",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:670-683 (id=7dKvkS6uYQ8; description L680)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "url": "https://www.youtube.com/watch?v=aP9_TBNPlzY",
+      "title": "[무진장 성공 기원 AI 광고제] 본선 진출작 : Chapter 1. 사나이의 비밀",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "🏆무진장 성공 기원 AI 광고제 : 무진장 연출상\n\n● 제목: Chapter 1. 사나이의 비밀\n\n영화 예고편을 연상시키는 높은 영상 완성도와 몰입감 있는 연출로 \nAI 활용의 강점을 효과적으로 보여주며, 긴장감 있는 전개와 반전 있는 \n결말을 자연스럽게 연결해 뛰어난 표현력과 완성도를 선보인 작품\n\n---------------------------------------------------------\n\n본선 진출작 5팀 영상을 확인하고,\n가장 마음에 드는 영상에 댓글로 투표하고 적립금 1,000원 받아 가세요.\n👉 바로가기: https://musinsa.onelink.me/2uua/340t94le\n\n\n🧡 무신사 무진장 26 여름 블랙프라이데이🧡 \n🗓️ 06.14(일) 19:00 - 06.24(수) 23:59\n- 무진장 바로 가기: https://musinsa.onelink.me/2uua/m7jqip6n\n- 최대 80% 할인! 역대급 무진장 5주년 혜택\n- 시그니처특가, 균일가 하루특가, 시그니처 브랜드데이, 오픈런 뽑기, 카운트업 등 다양한 이벤트",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:44-57 (id=aP9_TBNPlzY; description L54)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "url": "https://www.youtube.com/watch?v=1-sUto1tX60",
+      "title": "[무진장 성공 기원 AI 광고제] 본선 진출작 : 그냥 지나칠 수 없어, 무진장",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "🏆무진장 성공 기원 AI 광고제 : 무진장 찐팬상\n\n● 제목: 그냥 지나칠 수 없어, 무진장\n\n무신사 무진장의 핵심 혜택과 분위기를 유쾌하게 담아내며, \n브랜드에 대한 높은 이해와 애정을 재치 있게 표현\n친숙한 소재를 활용해 무신사 무진장 세일을 기다리는 고객의 \n기대감과 즐거움을 효과적으로 전달한 작품\n\n---------------------------------------------------------\n\n본선 진출작 5팀 영상을 확인하고,\n가장 마음에 드는 영상에 댓글로 투표하고 적립금 1,000원 받아 가세요.\n👉 바로가기: https://musinsa.onelink.me/2uua/340t94le\n\n\n🧡 무신사 무진장 26 여름 블랙프라이데이🧡 \n🗓️ 06.14(일) 19:00 - 06.24(수) 23:59\n- 무진장 바로 가기: https://musinsa.onelink.me/2uua/m7jqip6n\n- 최대 80% 할인! 역대급 무진장 5주년 혜택\n- 시그니처특가, 균일가 하루특가, 시그니처 브랜드데이, 오픈런 뽑기, 카운트업 등 다양한 이벤트",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:16-29 (id=1-sUto1tX60; description L26)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "url": "https://www.youtube.com/watch?v=_jVo46P5aYA",
+      "title": "[무진장 성공 기원 AI 광고제] 본선 진출작 : 산타의 반란",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "🏆무진장 성공 기원 AI 광고제 : 무진장 아이디어상\n\n● 제목: 산타의 반란\n\n한여름에 등장한 산타라는 참신한 아이디어를 중심으로 스토리를 \n매끄럽게 전개하며 높은 몰입감을 선사\n무신사 무진장이 주는 특별한 설렘과 선물 같은 혜택을 자연스럽게 \n녹여내며 설득력 있게 전달한 작품\n\n---------------------------------------------------------\n\n본선 진출작 5팀 영상을 확인하고,\n가장 마음에 드는 영상에 댓글로 투표하고 적립금 1,000원 받아 가세요.\n👉 바로가기: https://musinsa.onelink.me/2uua/340t94le\n\n\n🧡 무신사 무진장 26 여름 블랙프라이데이🧡 \n🗓️ 06.14(일) 19:00 - 06.24(수) 23:59\n- 무진장 바로 가기: https://musinsa.onelink.me/2uua/m7jqip6n\n- 최대 80% 할인! 역대급 무진장 5주년 혜택\n- 시그니처특가, 균일가 하루특가, 시그니처 브랜드데이, 오픈런 뽑기, 카운트업 등 다양한 이벤트",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:2-15 (id=_jVo46P5aYA; description L12)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "url": "https://www.youtube.com/watch?v=LnCpGsZgTkI",
+      "title": "Adidas \"Beyond The Blue\" AI Commercial (Midjourney + @RunwayML + @topazlabs )  AI Advertising",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[Music] Adidas beyond the blue",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V009.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "url": "https://www.youtube.com/watch?v=5Al3pxvSskQ",
+      "title": "AI Advertising (SPEC AD) - \"Dior Perfume 2\" #suno #midjourney #lumadreammachine #gen2 #capcut",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "The second Dior perfume ad features a captivating scene with a woman in a long, red-pink dress dancing gracefully between curtains of the same color, bathed in soft sunlight. Her elegant and alluring movements are mesmerizing. Interspersed with shots of roses and Dior perfume, the harmony is perfect. A husky female voice sings a song composed to match the Dior brand, adding to the charm. The ad beautifully showcases the sophistication and allure of Dior perfume. The combination of visuals and music enhances the luxurious and enchanting atmosphere. This ad highlights Dior's timeless elegance and seductive appeal.\n\n두 번째 디올 향수 광고는 레드핑크 컬러의 커튼 사이로 같은 색의 긴 드레스를 입고 춤추는 여인의 고혹적이면서도 우아한 모습을 담고 있습니다. 살짝 비치는 햇살 속에서 그녀의 매력적인 춤은 눈길을 사로잡습니다. 중간중간 장미꽃과 디올 향수가 조화롭게 어우러지며 나타납니다. 허스키한 여자 목소리로 부르는 디올 브랜드에 맞춰 작곡된 곡이 광고의 매력을 더합니다. 이 광고는 디올 향수의 세련미와 매혹적인 매력을 완벽하게 표현합니다. 시각과 음악의 조화가 고급스럽고 몽환적인 분위기를 한층 더합니다. 디올의 영원한 우아함과 유혹적인 매력을 강조하는 이 광고는 그 자체로 예술입니다.\n\n#midjourney for images\n#suno for music\n#luma dream machine & #gen2 for motion\n#capcut for video\n\nCopyright 2024, Chowooni (초우니) / LEE SEONG JOO all right reserved\n\n\n#aiadvertising   #aimusicvideo   #aicommercial",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:600-613 (id=5Al3pxvSskQ; description L610)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "url": "https://www.youtube.com/watch?v=L5GQdVFGMBQ",
+      "title": "AI Burger Commercial",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[Music] he",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V011.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "url": "https://www.youtube.com/watch?v=2h8hrL7ozJI",
+      "title": "AI Car Commercial | Ferrari Spec Commercial",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "#midjourneyai  #aifilmmaking #aivideo #aicommercial #aifilms #aiadvertising #advertisingagency #klingai \n\nExcited to share this AI car commercial. Developed using Gen-AI as part of the production workflow, this project blends filmic direction with emerging visual tools to prototype what a modern luxury holiday campaign could look like.\n\n#AITools #AICommercial #EmotionalAI #SunoAI #Midjourney #AIFilmmaking #GenerativeAI #DreamBig #klingai\n\n@Kling_ai @magnific_ai",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:338-351 (id=2h8hrL7ozJI; description L348)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "url": "https://www.youtube.com/watch?v=cCic6tsnSUc",
+      "title": "AI CAR COMMERCIAL",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[Music] as Twilight Hues paint the sky the open road beckons like a whisper the wheels hum in harmony with your heartbeat dreams blend with reality as Landscapes shift and blur speed and serenity entwine creating a dance of Shadows and Light in this fleeting moment one question lingers are you driving or dreaming thank you [Music]",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V013.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "url": "https://www.youtube.com/watch?v=xywUPoyNyE8",
+      "title": "AI Cinematic Nike Shoe Ad | Ultra Slow Motion Commercial | Video Production House | Bangalore, India",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Welcome to VDOfy's AI Video Channel!\n\nExperience the future of brand storytelling with premium AI-generated brand films and commercial videos. We create cinematic, high-quality video content that brings your brand to life through seamless product integration, stunning visuals, and creative possibilities that go beyond traditional production.\n\nWhether you're looking for AI avatar videos, brand commercials, product demonstrations, e-commerce marketing videos, or promotional content, we deliver TV-commercial-grade videos that capture attention and drive engagement.\n\nAt VDOfy, we transform creative concepts into visually captivating videos that make your brand unforgettable and help you stand out from the competition.\n\nDiscover how AI-powered video production can elevate your brand. Subscribe for the latest in cinematic AI video creation.\n\nLearn More:\nVisit our website for portfolio examples, pricing, and to inquire about custom video production for your brand. \n\nWebsite: https://vdofy.com/ai/\n\nWhat We Do:\nPremium AI brand films with seamless product integration, Cinematic AI avatar videos for marketing and e-commerce, Photorealistic talking head videos and commercials, AI-powered video production at scale, Custom brand storytelling in impossible settings and locations, High-quality product showcase videos, Marketing and advertising content for businesses and brands\n\n\nPerfect For: \nE-commerce brands seeking engaging product videos, Marketing agencies needing scalable video content, Corporate communications and brand awareness campaigns, Digital advertising and social media marketing, Product launches and promotional videos, Customer testimonials and case study videos, Training and educational video content",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:628-641 (id=xywUPoyNyE8; description L638)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "url": "https://www.youtube.com/watch?v=CgDFzWvH1NE",
+      "title": "Ai Generated Beer Commercial.",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Ai Generated Beer Commercial.",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:212-225 (id=CgDFzWvH1NE; description L222)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "url": "https://www.youtube.com/watch?v=lAocrBVwxLM",
+      "title": "AI Generated Car Commercial / Range Rover Velar",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Videos processed in Runway Gen 4.\n\nThis is a speculative advertisement made for creative purposes. It is not an official advertisement for Range Rover and has no affiliation with the Range Rover brand.\n\n#aivideo #aivideogenerator #runwaygen4 #runwayml #carcommercial #carcommercials #rangerovervelar #aigenerated",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:642-655 (id=lAocrBVwxLM; description L652)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "url": "https://www.youtube.com/watch?v=7AN4D3iN7BA",
+      "title": "AI Generated Car Commercial / Runway Gen 3 / LINCOLN Spec Ad",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Idea, prompting, editing & color by @JeremyHaccoun\nI generated 100% of the shots using text-to-video in Runway Gen-3 Alpha\n\nPost: replaced car logos & added a couple of sand elements (also generated with Runway).\nUpscaled to 4k with Topaz, then downscaled to 1080p for export.\n\nThis is a speculative advertisement made for creative purposes. It is not an official advertisement for Lincoln and has no affiliation with the Lincoln brand.\n\n#ai #runwayml #gen3alpha #runwaygen3 #runwaygen3alpha #aifilm #aifilmmaking #runwayml",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:156-169 (id=7AN4D3iN7BA; description L166)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "url": "https://www.youtube.com/watch?v=lyV5pQWwbRQ",
+      "title": "AI Generated Spec AD For Ferrari",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Welcome to our latest AI-driven creative journey! Inspired by Jonathan Glazer’s iconic Guinness “Surfer” ad (1999), we reimagined power for Ferrari by harnessing AI to create surreal visuals that push the boundaries of creativity.\n\nIn this ad, colossal horses leap over giant waves while a Ferrari drifts on the beach—a bold metaphor for raw power. Just like taming a wild stallion, harnessing the beast that is Ferrari isn’t for everyone. And the best part? We transformed a million-dollar CGI project into a cost-effective AI masterpiece, saving millions while redefining ad production.\n\nIf you enjoy innovative advertising and cutting-edge AI creativity, hit the like button, drop your thoughts in the comments, and subscribe for more behind-the-scenes insights!\n\n🌐 Connect With Us\n\nAugmentables\nPhone: 8879593690\nWebsite: augmentables.in\n\n🔔 Don’t forget to like, comment, and subscribe for more stories that blend history, art, and technology!\n\nAbout Us:\n\nAugmentables :-\nAugmentables is an end-to-end immersive tech service provider. We help businesses leverage Augmented and Virtual Reality technologies to create unforgettable experiences and boost their business growth.\n\n#GenerativeAI #AIAdvertising #DigitalMarketing #AdTech #CreativeAI #MarketingInnovation #AdCreatives #VisualStorytelling #AIArt #ContentCreation #DigitalArt #FutureOfAds #TechInnovation #MarketingStrategy #ModernAdvertising #Branding #MediaInnovation #NextGenMarketing #CreativeMarketing #InnovationInAds #AIforAds\n#AdRevolution #DigitalCinema #AIinAdvertising #VisualEffects #CGIInnovation #CinematicAds #MotionGraphics #TechMeetsArt #SupercarAd #FerrariExperience #DigitalStorytelling #VFXMagic #InnovativeAds #PowerfulVisuals",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:614-627 (id=lyV5pQWwbRQ; description L624)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "url": "https://www.youtube.com/watch?v=bzWOyzM3RSs",
+      "title": "AI Spec Adidas Commercial Made During Coffee Break",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Take off the fufu, take off the couches, take off the water. Take off the money phone, take off the car loan, take off the brakes and the white lines. Take off the weird ass dreams, I'mma take these steps and I'm taking off top dollar. Take off the Versace streams and the microwave means of the real world dollars. Take off your idols, take off the runway, take off the Cairo. Take off the sandal, pay five days straight, take a photo of the new elevator. Take off the wear, take off the perception, take off the capital of the iPad. Take off the long road, take off the whole show, take off the decisions of our lives.",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V019.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "url": "https://www.youtube.com/watch?v=ASYTiFiVMP4",
+      "title": "AI광고 l 웅진 씽크빅 2026년 브랜딩 캠페인",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[AI STUDIO X웅진씽크빅]\n\nAI가 정답을 알려주는 지금도,\n변하지 않는 웅진씽크빅의 공부 철학\n\n내일의 아이는 오늘의 생각으로 자랍니다\nThink Bigger than Al\n\n웅진 씽크빅\n\n\n🎬\nClient: 웅진씽크빅\nProduct : 2026년 브랜딩\nOn-Air : 2026.1\nMedia : Digital\nCreated by : AI & AI Directors\n\nAI STUDIO_DAEHONG COMMUNICATIONS\n국내최초 NON SHOOTING FILM STUDIO\n\n\n#ai #aigenerated #aistudio_d #aicommercial",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:502-515 (id=ASYTiFiVMP4; description L512)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "url": "https://www.youtube.com/watch?v=55bkwWdmzp0",
+      "title": "An unexpected AI commercial🍅",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "An unexpected AI commercial🍅",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:184-197 (id=55bkwWdmzp0; description L194)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "url": "https://www.youtube.com/watch?v=PoxI4dcSdX0",
+      "title": "AUDI „BIG BOY“ - Fake AI Commercial",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "New video — fake AUDI commercial :)  \n\nCrafted by Jérôme Lozano \n\n#AI #AIFilm #AIVideo #AICommercial #ArtificialIntelligence #GenerativeAI #Filmmaking #Cinematic #VFX #VirtualProduction #CreativeAI #FutureOfFilm #Audi #AudiCommercial #SpecCommercial #CarCommercial #Automotive #LuxuryCars #cinematicadventure",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:656-669 (id=PoxI4dcSdX0; description L666)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "url": "https://www.youtube.com/watch?v=4qtEIxhAFYg",
+      "title": "Cinematic Restaurant Commercial | AI Generated Food Advertisement",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "This project is a cinematic restaurant commercial concept created using an AI-driven production workflow.\n\nThe goal was to explore how AI tools can be used to produce high-quality food advertisements and brand promos with cinematic lighting, close-up food shots, and commercial-style storytelling.\n\nThe visuals were created using advanced AI image generation and animation tools, combined with creative direction to achieve a premium advertising look similar to traditional TV commercials.\n\nThis experiment demonstrates how AI can help businesses create restaurant promotions, product commercials, and social media marketing content without the need for expensive production setups.\n\nIf you’re looking for AI-powered promotional videos, product commercials, or brand storytelling content, feel free to connect.\n#AICommercial #FoodCommercial #AIVideo #RestaurantPromo #GenerativeAI #FoodAd",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:530-543 (id=4qtEIxhAFYg; description L540)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "url": "https://www.youtube.com/watch?v=r4kHXgt5Yko",
+      "title": "Coca & burger | Commercial, Ad 2025 | AI video",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Heat. Always [Music] delicious, always real. [Music]",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V024.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "url": "https://www.youtube.com/watch?v=ZsPgqs1HNPU",
+      "title": "Fixed the Jaguar Ad with AI",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "I fixed the new Jaguar Ad using AI 🩹😃\n\nFollow me on :\nhttps://www.instagram.com/kartikkshah\nhttps://x.com/kartiks_music\n\nThe latest Jaguar ad has received a lot of brickbats. One of the most disastrous rebranding in the history of advertising or a genius marketing strategy?\nLet me know your thoughts!\n\n#jaguar  #jaguarrebrand #jaguarcar #Jaguarlogo #news #trending",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:170-183 (id=ZsPgqs1HNPU; description L180)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "url": "https://www.youtube.com/watch?v=mewB6PS6gZE",
+      "title": "I asked AI to make an Oreo commercial",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[Music] what if the universe baked a cookie and sent it hurtling through the cosmos what if that cookie turned into a symphony of shooting stars lighting up our world and what if those Stars turned into your favorite treat falling like sweet snowflakes what if each bite could hold a universe of flavors what if we told you this isn't just a dream [Music]",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V026.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "url": "https://www.youtube.com/watch?v=363QFIvhJwc",
+      "title": "I Made a Luxury Hotel Commercial Using Only AI — No Camera, No Crew",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "There are places the world has yet to find. Where the desert holds its breath. Where the ocean asks nothing of you. Where green finds life in the most unexpected places. Begin. &gt;&gt; [music] [music]",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V027.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "url": "https://www.youtube.com/watch?v=4Rpi1ZMKy74",
+      "title": "IKEA Open it. Live it ! (Veo3 AI spec ad)",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "#AICommercial #Veo3 #AIgeneratedVideo #IKEAAd #AICreative #ikea #ai #aifilm",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:282-295 (id=4Rpi1ZMKy74; description L292)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "url": "https://www.youtube.com/watch?v=u7hYQlrYR5M",
+      "title": "KFC AI Ad – ‘Ready 2 Roll’ by David Blagojevic",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "The honey gold glaze got me feeling real sleepy. Buffalo burn got the sweat on my cheek. Dip it in ranch, let it ride, let it be. Late night cravings, yeah, I answer the call. 12 piece box, I ain't sharing at all. That crackling sound when I break it apart. One taste and yeah, go to the heart. Ready to run me. Smoking hot, straight out the pack. First bite magic, no turning back. That crunch hit hard like a bassline smack. Savory bliss, got me lost in the track. Stack up the wings, pile them up real high. Take another dip, let the flavors collide. That crispy sensation, you just can't deny. One more round, man, I'm ready to ride. It's finger licking good.",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V029.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "url": "https://www.youtube.com/watch?v=4uJFVAm59BM",
+      "title": "Lamborghini Car Commercial Made With Google Veo 3 AI (Insane)",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[Music] Heat. Heat. Heat. Heat. [Music]",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V030.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "url": "https://www.youtube.com/watch?v=EQ-YuRWRQvo",
+      "title": "Lebron James Nike Commercial - Swimming Pool ( 4K Ai Version )",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "LeBron James Nike Commercial - Swimming Pool. Advertisement aired at the beginning of the 06-07 NBA season. The song is \"Summer Madness\" by Kool & The Gang.\n\nCredits to : https://www.youtube.com/watch?v=YsoP6bjADic \nI just made the Quality a little bit better because the old one is 240p\n\nits not perfect but i tryed my best",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:296-309 (id=EQ-YuRWRQvo; description L306)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "url": "https://www.youtube.com/watch?v=77Ncpm9bG4Y",
+      "title": "Luxury Oceanfront Real Estate Ad | Cinematic AI Campaign Visuals",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Solis Maris Brand Film \n\nIn this spec ad, the architecture frames a feeling — where light, ocean air, and silence become intentional design elements. Built for luxury developments, pre-sales marketing, and brand-led real estate launches.\n\nServices featured in this project:\n• Premium brand content for developers\n• High-end cinematic real estate marketing/campaign visuals\n\nRender Rabbit is an AI content studio led by filmmakers that creates cinematic, brand-ready visuals for luxury real estate developers and hospitality brands. We use AI-assisted workflows to craft emotion-driven marketing campaigns, pre-sales visuals, and lifestyle storytelling for high-end properties.\n\n#Aicontentstudio #airealestatemarketing #ailuxury #brandstorytelling #renderrabbit",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:544-557 (id=77Ncpm9bG4Y; description L554)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "url": "https://www.youtube.com/watch?v=YnIJNhTCxDw",
+      "title": "Make It Yours - AI Fashion Commercial",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[Music] I love the way my mov the I love the way you're slowly getting close to me I love the way my I the way the Way's the",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V033.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "url": "https://www.youtube.com/watch?v=cO_-H9_MdAA",
+      "title": "McDonald's AI Commercial: A Taste of Tomorrow",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Hey @McDonalds here's how to make a commercial with AI\n\nImages: Midjourney and Magnific\nvideo: @lumalabsai  and @RunwayML \naudio: @Elevenlabs \n music: Suno and Udio\npost production: @Adobe \n \nWritten and Edited by: A human (me)\n\n#dreammachine  #commercial  #mcdonalds #runwayai  #ai  #generativeai  #aivideogenerator  #aivideoeditor #aicommercial #foodcommercials #food",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:72-85 (id=cO_-H9_MdAA; description L82)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "url": "https://www.youtube.com/watch?v=iCR1OmL-8Ys",
+      "title": "Planet Mountain Dew - AI Made TV Ad",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "foreign [Music] Wormhole closes in five minutes what planet are you guys from Planet Mountain Dew the place where all your dreams come true [Music] all right [Music] so do your toilets use Mountain Dew water no we pee in plastic bottles",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V035.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "url": "https://www.youtube.com/watch?v=Ym2OIDcXaGA",
+      "title": "Plum Delight Perfume Commercial made with AI on a smartphone.",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Credits:\n\nImages by: Midjourney\nAnimation by: @PixVerse_Official\nMusic: \"Perfumed\" by Finetune\nVideo editing by: @CapCutofficial\n\n🌟 Subscribe now and be part of my journey into the future of digital AI creativity.\n\n#AIArt #aivideoart #DigitalCreativity #Midjourney #PixVerse #CapCut",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:436-449 (id=Ym2OIDcXaGA; description L446)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "url": "https://www.youtube.com/watch?v=LJcn4LgHXCc",
+      "title": "Porsche Cayenne Coupé Electric | Cinematic AI Commercial Video",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Every journey begins with a choice. Choose electric. Choose Porsche. Formula E derived technology, now in your hands. In silence lies overwhelming power. The world doesn't stop, neither do you. Porsche Cayenne electric.",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V037.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "url": "https://www.youtube.com/watch?v=ZoEvwdlIl5M",
+      "title": "Sephora - PURE EDGE | #AI spec ad | Google Veo 2",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "A spec ad for @Sephora 's imaginary new series, PURE EDGE, created as part of a Google Veo2 test. \n\n#ai #aifilm #aiadvertising #veo2 #google",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:394-407 (id=ZoEvwdlIl5M; description L404)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "url": "https://www.youtube.com/watch?v=QS566P88VVs",
+      "title": "Spec Headphone Ad | AI Ads | Xanadu Studio",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[music] &gt;&gt; Sometimes life gets too hard. All you have to do &gt;&gt; [music] &gt;&gt; is cut out the noise. &gt;&gt; [music] [music] &gt;&gt; To silence delivered. Active noise cancellation adapts in real-time, wiping out distractions so only your music remains.",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V039.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "url": "https://www.youtube.com/watch?v=bWF2AnQtyBs",
+      "title": "The Future | Tesla Cybertruck | AI Spec Ad",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "The future doesn't wait. It doesn't ask if you're ready. It moves forward with or without you. Some fear change. Others build it stronger, faster, unbreakable. The future isn't coming. It's already here.",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V040.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "url": "https://www.youtube.com/watch?v=FYFNJZMpaes",
+      "title": "This Liquid Death Commercial Was Made by AI—And It Slaps",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "💀 Liquid Death x Google Veo 3 | AI-Generated Brilliance in a Bottle 🍔 This isn't your average ad—this is Liquid Death resurrected by generative AI. Every second of this 1:01 commercial was created using Google Veo 3, pushing the limits of machine-powered creativity and commercial storytelling.\n\n⚡ Seamless transitions, punchy visuals, and wild imagination 🎨 Creative Direction: Amir Ariely 🎛️ Color Correction: Ilan Bouni 👥 Produced by: Too Short for Modeling\n\nFrom burger-fueled chaos to corporate satire, this Veo-rendered ride is a testament to what happens when AI and irreverent genius collide.\n\n🔁 Rewatch. Share. Question reality.\n\n#LiquidDeath #GoogleVeo #AIGenerated #CreativeAI #TooShortForModeling #Veo3Magic #AICreativity",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:198-211 (id=FYFNJZMpaes; description L208)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "url": "https://www.youtube.com/watch?v=eAorx4VEiRQ",
+      "title": "TO FLOAT OR TO SWIM | NIKE - Spec Ad Made WITH AI!",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "I recently dove into the world of AI to create a Nike Waterproof spec ad. I used MidJourney V.6 for the photo generation, Runway for the video motion, and Eleven Labs for the voiceover. The possibilities with AI are mind-blowing, and it's exciting to think about how this technology can empower artists like myself to create amazing projects without needing a Hollywood budget.\n\nIt's a bit scary to see how fast AI is advancing, but I believe it's going to revolutionize the creative industry. We're on the brink of a dramatic change, and I'm here for it. Embracing AI now means we can use it to our advantage before it's too late. This is just the beginning, and I can't wait to see what's next on this new adventure. \n\nWelcome to our latest video, where we dive into the cutting-edge world of AI animation, AI film, and AI video. In this episode, we showcase three incredible examples of how we've used MidJourney AI to create mesmerizing images and then brought them to life using the innovative technology of RunwayML.\n\nFrom the initial concept to the final animation, we take you through each step of the process, highlighting the seamless integration of these AI tools. Witness the transformation of static art into dynamic motion, as we explore the endless possibilities that AI brings to the realm of digital storytelling.\n\nWhether you're a tech enthusiast, an artist looking to explore new mediums, or simply curious about the future of animation, this video is sure to inspire and amaze. Don't forget to like, comment, and subscribe for more content that pushes the boundaries of creativity and technology.\n\nAnyway this Nike Commercial Spec Ad was inspired my last trip to New York City and I hope you enjoy! \n\n#NikeSpecAd #aiinart  #midjourney  #runwayai  #elevenlabs  #artificialintellige",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:464-477 (id=eAorx4VEiRQ; description L474)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "url": "https://www.youtube.com/watch?v=xLnrdf_SKdA",
+      "title": "Travis Scott Video Ads Made with AI for Nike",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "[Music] feel nice landing welcome to the factory now hold on we've been making the sickest shoes for years and I'm here to show you look at all those shoes man you see that machine invented by Travis himself One of a Kind before your shoes went through it they was PR chocolate I bet you never seen a shoe this sweet let's go look out oh the rare cocoa Cactus where we get our chocolate from and when you look at that the first one ever going anyway check this out not that's more like it damn it damn Dennis it's third time this week bro oh what up welcome to the factory",
+          "added": "2026-10-12",
+          "locator": "evidence/provenance-original-V043.txt",
+          "evidence_class": "CAPTION_TEXT_AUTO_UNTIMED"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "url": "https://www.youtube.com/watch?v=TLxpfN23fGA",
+      "title": "Volvo - For Life // AI generated spec commercial",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Idea, prompting, post-production by me. This is a fan-made spec ad and not an official Volvo advertisement.\n\nThis is a test for trying out the RunwayML Gen-3 Alpha model for commercial purpouses.\nAll the shots are generated with RunwayML using text-to-video, some small details were retouched in AE after the edit was done (logo, license plate, or if I really liked a shot but there were two cars present, etc).\n\nAltogether I spent less than 24 hours working on this video - Gen3 is only out since 1.5 day ago - this includes generating the clips, selecting them, editing them to a coherent story, retouching and sound design.\n\nIs this a big step-up from Gen-2? Definitely! Gen-2 was a great experiment but Gen-3 is something that will change the industry. Pricing wise some people say it's expensive but I think if you go for the unlimited plan it's worth the money.\n\nI just can't wait for the feature updates including image prompting and director mode!\n\ninstagram link: https://www.instagram.com/p/C8_e6uCo8kW/\n\n#ai #runwayml #gen3alpha #runwaygen3 #runwaygen3alpha ‪@RunwayML‬  #ai #aifilm #aifilmmaking #volvo ‪@VolvoCars‬",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:128-141 (id=TLxpfN23fGA; description L138)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "url": "https://www.youtube.com/watch?v=a4SbLFW-UzI",
+      "title": "Zara AI Spec Ad",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "The future is here! 🤖🔥\n\nWe just experimented with AI to create a @zara  spec ad, and the possibilities are mind-blowing! 🤯💯\n\nWe believe that at this point it's obvious that AI video production will play a big role in the industry. \n\n#aifashion #aiart #aiad #aigenerated #midjourney #stablediffusion #magnificai #runway",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:240-253 (id=a4SbLFW-UzI; description L250)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "url": "https://www.youtube.com/watch?v=opYdtpFl3aI",
+      "title": "결혼식 웨딩 플랫폼 AI광고를 제작했습니다",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "https://open.kakao.com/o/gN0O5Vki\n영상 / 광고 / AI에 대해 함께 공부하고 공유하는 오픈채팅방입니다.\n함께 성장하실 분들 들어오세요\n\n*비즈니스 / 영상제작문의\n메일 rteat4670@naver.com\n인스타 https://www.instagram.com/woongfilm_/\n홈페이지 woongfilm.com\n\n*영상독학 패스트캠퍼스 AI광고영상 제작강의\nhttps://fastcampus.info/4gTMwm7\n쿠폰코드 - 영상독학3\n(위 코드 입력하시면 할인 받으실 수 있습니다)",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:422-435 (id=opYdtpFl3aI; description L432)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "url": "https://www.youtube.com/watch?v=StQ-K6KzoUA",
+      "title": "오설록 AI광고 제작했습니다 _ 아모레퍼시픽 공모전출품",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "https://open.kakao.com/o/ghDFgKbi\n영상 / 광고 / AI에 대해 함께 공부하고 공유하는 오픈채팅방입니다.\n함께 성장하실 분들 들어오세요\n\n*비즈니스 / 영상제작문의\n메일 rteat4670@naver.com\n인스타 https://www.instagram.com/woongfilm_/\n홈페이지 woongfilm.com\n\n*영상독학 패스트캠퍼스 AI광고영상 제작강의\nhttps://fastcampus.info/4gTMwm7\n쿠폰코드 - 영상독학3\n(위 코드 입력하시면 할인 받으실 수 있습니다)",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:254-267 (id=StQ-K6KzoUA; description L264)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "url": "https://www.youtube.com/watch?v=VfKDzZybjiA",
+      "title": "\"Floral\" by ADIDAS - AI Spec AD",
+      "accessed": "2026-10-12",
+      "quotes": [
+        {
+          "text": "Would you buy @adidas's new \"Floral\" line? \n\nAI tools used in the making of this:\n\nRunwayML\nMidjourney\nAdobe creative suite\nUpscaled by Topaz (The best upscale tool on the market)\n🙏 If you're interested in purchasing Topaz, we would be infinitely grateful if you ordered through this link to help us out.\n➜ https://topazlabs.com/ref/2509/\n\nMusic by: @megantheestallion \nThis track is what inspired the making of this ad.\n\nMegan Thee Stallion - Mamushi (feat. Yuki Chiba)\nhttps://www.youtube.com/watch?v=OdxSbc0ap-s\n\n-----------------------------------------------------------------------------------------------------------------\n#aiart #runway#runwaygen #aifilm #aiartcommunity #sora #luma #midjourney #aiartist #ai #aitools #adidas #nike",
+          "added": "2026-10-12",
+          "locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:86-99 (id=VfKDzZybjiA; description L96)",
+          "evidence_class": "UPLOADER_CACHED_DESCRIPTION_CLAIM"
+        }
+      ]
+    }
+  ]
+}

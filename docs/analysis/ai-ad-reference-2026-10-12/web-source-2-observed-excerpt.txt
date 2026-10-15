@@ -1,0 +1,2 @@
+But such settings as distortion coefficients and principal point are not included in the presets and
+The values are given in normalized image coordinates.

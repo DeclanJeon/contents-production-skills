@@ -1,0 +1,21 @@
+# Explicit UTF-8 iteration — semantic OPEN
+
+The files named `final-original-consumer-2026-10-12.md` and `final-variations-consumer-2026-10-12.md` are preserved actual outputs of the first explicit UTF-8 iteration, **not accepted final handoffs**. Their matching CLI evidence records actual fresh-context read-only execution (`gpt-6-sol`), exit 0, 198.62s and 157.58s respectively. Both use root owner guidance and original briefs, not baseline answers/design/rubric/archived expected outputs. UTF-8 was explicit in every child file-read instruction and Python environment; Korean headers are now actually used correctly rather than inferred from decoder noise.
+
+## Observed fixes and remaining failures
+
+- Original F1 now uses exact product, shot, edit, state and evidence headers, shows right-hand cap removal→tray placement before right-hand bottle ownership/one spray, and marks actual residue unverified rather than inventing skin benefit. Copy is assigned to visible bottle-settle action as a metaphor for setting haste aside; the metaphor is explicit, not a literal observed doorway claim.
+- Original H1 separates host reaction into its own SH03 and subsequent guest POV into SH04, with stimulus and reaction times. Route, landmarks, fantasy insert and recovered ordinary window are present. However SH05 says `컵의 처리 위치는 미정`; state ownership is retained only through SH04. A reachable prop-custody continuation is left undecided instead of carried until an explicit reset.
+- Original H1 edit rows merge C01–C02 and C04–C05, using arrow expressions such as `0→3.5` in `final_start_s`, not one numeric scalar for one cut. This violates actual independent-row field shape even though a human can infer the intended sequence.
+- Variation F2 SSOT explicitly says `캡/마개: rounded black, remains on`, while its action presses the atomizer and sprays the scarf. There is no cap/access state or disposition. Consumer-visible use-state incompatibility persists despite correct actual row names.
+- Variation F2 correctly preserves localized scarf state through occlusion; TALUS preserves clay through arch occlusion and distinguishes ordinary rolling from intentional locked-wheel sliding. Single sampled spoke stasis remains inconclusive. H2 retains map through exit.
+- E2 keeps request time and actual PTS distinct, detector candidate and visual block are not verified SH boundaries, unviewed cup transfer is not personally inspected, title is not extended through black tail, audio remains unheard and rights unknown.
+- Supplemental C3/S3/T3 actually activate every A01–A12 family and the 14 listed conditional refinements in the response. Examples include circle correspondence with simple-cut alternative, earlier-world packing inset, declared ingredient journey without provenance proof, conditional child/sponsor rights and audience handling (logo alone not sexual-content proof), optional coda and final brand close, spectacle return, toy/adult separation and terrain disclosure. This is an actual single application sample, not proof that every case or all output details pass.
+
+All complete outputs were manually read. Some variation handoffs use compact prose containing actual field names rather than full tables; that can be valid for scoped text outputs if values remain populated and each cut maps to one numeric final range. It cannot excuse incompatible cap state, unresolved reachable custody, or composite scalar cells. Source/package semantic status therefore remains OPEN.
+
+## Snapshot limitation
+
+Integration sent a notice of additional changes after its earlier freeze while these CLI runs were active. The exact timing of individual source reads versus those edits was not established, so these outputs cannot certify an immutable source snapshot. Next acceptance run must hash the actual changed files before and after execution and confirm identical hashes. Package checks from the prior snapshot remain true observed results but are not described as checks of the final repaired tree.
+
+All failures with excerpts were relayed to the sole root integration owner, who acknowledged targeted numeric-cut, full-custody and cap-access corrections. QA modifies only this assigned evidence directory; all failed outputs remain unchanged for audit.

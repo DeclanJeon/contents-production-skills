@@ -1,0 +1,23 @@
+# Final application assessment — structured 30-second drama cues
+
+This is an assessment of the three verbatim stateless outputs in `qa/30s-romantic-fantasy-final-application.json`, separate from raw output. The same three prompts used for the baseline were run after adding a filled DESIGN_PROPOSAL cue example and explicit conditional requirements. No archive material or reference footage was used.
+
+## Result against the requested baseline failures
+
+| Check | Evidence from final output | Result |
+|---|---|---|
+| Shared actor/camera local times | Romance output provides shot-local/final time ranges and a separate cue table pairing actor phases (approach, slow, stop, settle) with camera phases (follow, decelerate, stop/settle, lock) on A/B/C, with distinct sub-intervals. Entrance output gives shot-local 0–0.7 entry, 0.7–3.8 approach/reveal, 3.8–4.5 deceleration/stop, 4.5–5.0 settled hold, and reaction camera onset/development/settle/hold intervals. Walk output pairs actor and camera through 0–1, 1–5.5, 5.5–6.5, 6.5–7.2 and 7.2–8s. | **Demonstrated.** These are explicitly proposed times, not measured or universal values. Frame/FPS basis is not needed because seconds were chosen; no frame-accurate execution is claimed. |
+| Gait interval and contact visibility limit | Walk output identifies 0–1s as already-walking, continues the walk for 1–5.5s, and describes foot visibility/plant claims as conditional on frame readability; hidden/unclear plants remain unverified. | **Demonstrated at interval/visibility level.** It avoids invented universal step cadence and does not falsely assert foot contact. Individual footfall times are not specified, which is acceptable unless a particular contact is a required story event. |
+| Cut-out/in phase | Walk cue table states SH01 cuts out on the settled shared eyeline and SH02 starts at local 0s with matching eyeline/positions. Romance plan places a cut at final 25s between first and second reaction singles and names the corresponding outgoing/incoming gaze. Entrance plan preserves A’s entrance eyeline into B’s entrance and matches settled positions/gaze across subsequent cuts. | **Demonstrated for the key movement-to-next-shot match** in the walk scenario, with explicit time and state; reciprocal reaction coverage is also tied by eyeline. |
+| Separate reaction/hold allocation | Romance D timeline divides reaction A (22–25s), reaction B (25–28s), and shared-eyeline hold (28–30s). Entrance breaks reactions into local onset, development, settle, and hold ranges. Walk allocates a reaction shot from 21–30s. | **Demonstrated.** Reaction and final hold receive distinct proposed sub-intervals in the first two outputs; no universal hold duration is imposed. |
+| Prompt camera feasibility / chosen instruction | Outputs mark designs and controls unverified. Entrance and walk give a single proposed move per generated shot where applicable and keep alternatives conditional or design-only; no generator control is claimed. | **Demonstrated as a feasibility boundary.** Because no tool was named, none can become a verified executable camera instruction. Unresolved candidates remain proposals rather than fabricated controls. |
+
+## What changed and why
+
+The baseline omissions now lead to an actual compact cue table rather than only a prose reminder. `video-production-assets/references/06-shots.md` conditionally requires its cue rows for consequential motion and rejects prose-only “ease/settle” in place of timing. `video-production-assets/assets/06-shots-template.md` provides a filled, expressly non-observational `DESIGN_PROPOSAL` example with local time, actor contact/visibility, camera phase, hold/reveal, and cut-out→cut-in. Walking and camera-specific guidance stays conditional; no universal gait timing or project.json field was introduced. `video-production-assets/references/09-edit.md` and `assets/09-edit-template.md` require paired cut phase/state and separately allocated reaction intervals where applicable. Existing animation and AI handoff materials address foot-contact visibility limits and chosen-vs-unresolved camera instructions.
+
+These are source-neutral design proposals only. No 30-second reference-video observation or archive-derived craft finding is claimed.
+
+## Limits
+
+The three outputs are three fresh single samples, not evidence of a reliability rate or causal proof. They are textual planning probes only: no actual media generation, camera-control test, performance test, rendered contact verification, or archive analysis was performed. The story timings are proposals, not production approvals.

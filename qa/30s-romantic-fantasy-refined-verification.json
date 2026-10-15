@@ -1,0 +1,74 @@
+{
+  "scope": "Focused cue-contract cleanup and planning-only guidance. No source footage copied into QA; no archive craft observation, camera/gait naturalness, actual endpoint capability, rendered continuity, or media execution claim.",
+  "focused_cleanup_paths": [
+    "video-production-assets/references/06-shots.md",
+    "video-production-assets/assets/11-ai-handoff-template.md",
+    "video-production-assets/references/11-ai-handoff.md"
+  ],
+  "canonical_contract_owner": "video-production-assets/assets/06-shots-template.md (existing filled cue table and populated-output contract)",
+  "practical_smoke": {
+    "method": "One fresh stateless `completion(prompt, model=\"default\", system=...)` call with current 06/09/11 contract and template slots as context.",
+    "output": "qa/30s-romantic-fantasy-canonical-contract-smoke.json",
+    "manual_result": {
+      "populated_in_bounds_local_rows": true,
+      "actor_and_camera_share_local_basis": true,
+      "walk_deceleration_stop_settle": true,
+      "foot_contact_visibility_status": true,
+      "outgoing_incoming_phase_and_time_match": true,
+      "reaction_onset_and_separate_hold": true,
+      "handoff_tool_support_unknown": true,
+      "camera_direction_single_and_labeled_design_proposal": true
+    },
+    "qualification": "Text planning smoke only. Output proposes a locked camera; visible/contact cues are design statements, not observed movement or proof of natural gait."
+  },
+  "five_sample_text_microtest": "qa/30s-romantic-fantasy-refined-microtest-pointer.json",
+  "checks": [
+    {
+      "name": "package versions, relative target, full suite",
+      "command": "python scripts/check_versions.py && test -f video-production-assets/references/../../camera-spatial-design/references/motion-timing-lens.md && echo 'Added relative Markdown link target exists' && python -X utf8 -m pytest -q",
+      "exit_code": 0,
+      "wall_time_seconds": 22.78,
+      "output": "version check OK: package 2.5, 23 skill(s) consistent\nAdded relative Markdown link target exists\n.........s........................................... [ 20%]\n............................................................ [ 43%]\n...................................................... [ 64%]\n.................................................................... [ 90%]\n........................                             [100%]\n============================== warnings summary ==============================\nscripts/test_sync_installed.py::test_stale_link_is_repointed\n  C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pytest\\threadexception.py:58: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-13 (_readerthread)\n  Traceback (most recent call last):\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py\", line 1075, in _bootstrap_inner\n      self.run()\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py\", line 1012, in run\n      self._target(*self._args, **self._kwargs)\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\subprocess.py\", line 1599, in _readerthread\n      buffer.append(fh.read())\n                    ^^^^^^^^^\n    File \"<frozen codecs>\", line 322, in decode\n  UnicodeDecodeError: 'utf-8' codec can't decode byte 0xbf in position 215: invalid start byte\n\n  Enable tracemalloc to get traceback where the object was allocated.\n  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html for more info.\n    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))\n\nscripts/test_sync_installed.py::test_remove_link_never_deletes_target_content\n  C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pytest\\threadexception.py:58: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-17 (_readerthread)\n  Traceback (most recent call last):\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py\", line 1075, in _bootstrap_inner\n      self.run()\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py\", line 1012, in run\n      self._target(*self._args, **self._kwargs)\n    File \"C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\subprocess.py\", line 1599, in _readerthread\n      buffer.append(fh.read())\n                    ^^^^^^^^^\n    File \"<frozen codecs>\", line 322, in decode\n  UnicodeDecodeError: 'utf-8' codec can't decode byte 0xbf in position 224: invalid start byte\n\n  Enable tracemalloc to get traceback where the object was allocated.\n  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html for more info.\n    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n258 passed, 1 skipped, 2 warnings, 217 subtests passed in 21.92s",
+      "skipped_test": {
+        "id": "blender-previsualization/scripts/test_camera_orientation_in_blender.py::CameraOrientationTests::test_camera_points_at_subjects_in_rendered_scene",
+        "reason": "set BLENDER_EXECUTABLE or put blender on PATH",
+        "evidence": "Retained prior exact targeted skip-reason run in qa/30s-romantic-fantasy-verification.json; current full run also reported one skipped test."
+      },
+      "warnings": [
+        {
+          "identity": "scripts/test_sync_installed.py::test_stale_link_is_repointed",
+          "warning_type": "PytestUnhandledThreadExceptionWarning",
+          "detail": "Thread-13 (_readerthread) raised UnicodeDecodeError decoding UTF-8; byte 0xbf at position 215."
+        },
+        {
+          "identity": "scripts/test_sync_installed.py::test_remove_link_never_deletes_target_content",
+          "warning_type": "PytestUnhandledThreadExceptionWarning",
+          "detail": "Thread-17 (_readerthread) raised UnicodeDecodeError decoding UTF-8; byte 0xbf at position 224."
+        }
+      ]
+    },
+    {
+      "name": "targeted skip-reason confirmation (previous exact run; retained unchanged)",
+      "command": "python -X utf8 -m pytest -q -rs blender-previsualization/scripts/test_camera_orientation_in_blender.py",
+      "exit_code": 0,
+      "output": "s                                                                        [100%]\n=========================== short test summary info ===========================\nSKIPPED [1] blender-previsualization\\scripts\\test_camera_orientation_in_blender.py:14: set BLENDER_EXECUTABLE or put blender on PATH\n1 skipped in 0.37s"
+    }
+  ],
+  "collector": {
+    "process_identity": "bg_8 [bash], one already-running full-archive locator; process inspector reports running.",
+    "script": "C:/Users/Declan/Documents/Resources/AI-Rofan-Drama-2026-10-11/videos/rofan-temporal-analysis/run_temporal_locator.py",
+    "output_directory": "C:/Users/Declan/Documents/Resources/AI-Rofan-Drama-2026-10-11/videos/rofan-temporal-analysis/full-archive",
+    "latest_checkpoint": {
+      "status": "running",
+      "completed_files": 2,
+      "failed_files": 0,
+      "file_count": 44,
+      "current_file_id": "file_03",
+      "current_file_phase": "full-decode",
+      "current_source_seconds_scanned": 2398.0,
+      "current_motion_sample_count": 1200
+    },
+    "safe_resume_command_after_current_process_ends": "python -u \"C:/Users/Declan/Documents/Resources/AI-Rofan-Drama-2026-10-11/videos/rofan-temporal-analysis/run_temporal_locator.py\" --resume",
+    "resume_guard": "Do not start a second run while bg_8 is active; script defaults to the recorded source/output paths and uses run.lock. --resume skips only unchanged files already marked complete."
+  }
+}

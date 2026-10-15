@@ -1,0 +1,26 @@
+{
+  "title": "30-second romantic-fantasy planning guidance: refined text microtest",
+  "status": "Five fresh stateless planning outputs manually assessed; text-only smoke evidence, not a reliability guarantee or media/naturalness validation.",
+  "scenario": "30s vertical palace-corridor romance-fantasy: Yuna walks to Ren, stops, meets eyes, exchanges two lines, notices blood, reaches, Ren pulls back then accepts contact.",
+  "refined_guidance_outputs": "C:/Users/Declan/Documents/Resources/AI-Rofan-Drama-2026-10-11/videos/rofan-temporal-analysis/microtests/updated-guidance-refined-5.json",
+  "manual_assessment": "C:/Users/Declan/Documents/Resources/AI-Rofan-Drama-2026-10-11/videos/rofan-temporal-analysis/microtests/updated-guidance-refined-assessment.json",
+  "existing_no_guidance_control": "C:/Users/Declan/Documents/Resources/AI-Rofan-Drama-2026-10-11/videos/rofan-temporal-analysis/microtests/control-no-guidance-5.json",
+  "comparison_assessment": "C:/Users/Declan/Documents/Resources/AI-Rofan-Drama-2026-10-11/videos/rofan-temporal-analysis/microtests/assessment.json",
+  "result_out_of_5": {
+    "populated_timing_contract": 5,
+    "paired_actor_camera_timeline": 5,
+    "gait_contact_visibility": 5,
+    "cut_phase_continuity": 5,
+    "reaction_hold": 5,
+    "prompt_feasibility_with_support_status": 5
+  },
+  "control_yes_counts_out_of_5": {
+    "paired_actor_camera_timeline": 1,
+    "gait_contact_visibility": 0,
+    "cut_phase_continuity": 0,
+    "reaction_hold": 1,
+    "prompt_feasibility_with_support_status": 0
+  },
+  "fresh_practical_smoke": "qa/30s-romantic-fantasy-canonical-contract-smoke.json",
+  "scope": "No user/source footage is copied into this QA package. No archive-derived craft claim, actual camera movement, gait/contact naturalness, endpoint support, or rendered continuity claim is made. Five outputs are descriptive microtest evidence only."
+}

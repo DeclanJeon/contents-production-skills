@@ -1,0 +1,2018 @@
+{
+  "schema": "design-evidence.creator-provenance.v1",
+  "cache_date": "2026-10-12",
+  "local_scope_count": 48,
+  "unique_join_count": 48,
+  "unused_cache_ids": [
+    "O4fOphE17fk",
+    "LfSbEvROBVw"
+  ],
+  "sources": [
+    {
+      "id": "V001",
+      "archive_id": "sha256:1bc278f44480ce4cdebc58c8fe7b1b649d159c83cbd70cb6833601d05eb8ebe9",
+      "filename": "2025 summer ad. AI광고 ｜ reve ｜ kling AI ｜ 미드저니 ｜ 프리미어프로 ｜ adobe ｜ 레트로 광고.mp4",
+      "original_video_id": "zBcp3xItXC8",
+      "original_url": "https://www.youtube.com/watch?v=zBcp3xItXC8",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 362,
+      "cached_title": "2025 summer ad. AI광고 | reve | kling AI | 미드저니 | 프리미어프로 | adobe | 레트로 광고",
+      "cached_uploader_claim": "AInspire",
+      "cached_description_verbatim": "⚠️ **Disclaimer**: The following content is an AI-generated fictional concept inspired by luxury fashion aesthetics. This video is not sponsored by, affiliated with, or endorsed by Gucci or any other real-world brand. All trademarks remain the property of their respective owners.\n \n⚠️ **면책 조항**: 본 영상은 AI 기술을 활용한 가상의 창작물이며, 실제 브랜드(예: 구찌)와는 아무런 관련이 없습니다. 해당 브랜드의 이미지, 이름은 사용하지 않았으며, 영상은 창작적 실험을 위한 콘텐츠입니다.\n\nAInspire 2기 강의 신청 주소입니다!\nhttps://www.ainspire.co.kr/class/?idx=10\n\n- 강의 QnA 라이브 설명회  다시보기\nhttps://youtu.be/9sWfl0DMtzo\n\n[반드시] AInspire 유튜브 영상 중 3개에 '좋아요' 시청 소감 '댓글'을 달고 입장해주세요.\n오픈채팅방은 아래 링크에서 입장 가능합니다.\nhttps://open.kakao.com/o/gIAfY72g\n\n오픈 채팅방에 들어오셔서 공지사항을 확인해주시면\n 'AI영상제작' 무료 전자책' 과 [구찌 광고 제작 과정] AI로 실사 퀄리티 영상 만들기에 사용된\n프롬포트를 보내드립니다.\n\n오픈채팅방에 오시면  한정으로 지속적인 업데이트와\n다양한 무료 혜택, 이벤트를 지속 기획하고 있습니다.\n프로필 링크를 통해서도 입장하실 수 있습니다.\n\n2025 summer ad. AI광고 | reve | kling AI | 미드저니 | 프리미어프로 | adobe | AI영상제작\nAI를 활용해 만든 가상 프로젝트입니다.\n\nreve 이미지로 제작 후 kling으로 모션을 넣었습니다.\n다음 콘텐츠는 이 영상 제작 과정에 대한 풀버전을 올릴게요!\n\n구독! 좋아요! 댓글! 부탁드립니다 :)",
+      "production_music_genre_claim_excerpts": [
+        "⚠️ **Disclaimer**: The following content is an AI-generated fictional concept inspired by luxury fashion aesthetics. This video is not sponsored by, affiliated with, or endorsed by Gucci or any other real-world brand. All trademarks remain the property of their respective owners.",
+        "AInspire 2기 강의 신청 주소입니다!",
+        "https://www.ainspire.co.kr/class/?idx=10",
+        "[반드시] AInspire 유튜브 영상 중 3개에 '좋아요' 시청 소감 '댓글'을 달고 입장해주세요.",
+        "2025 summer ad. AI광고 | reve | kling AI | 미드저니 | 프리미어프로 | adobe | AI영상제작",
+        "reve 이미지로 제작 후 kling으로 모션을 넣었습니다."
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V001.txt",
+        "caption_text": "Just as fast as I can. [Music]",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 25,
+      "cache_object_line_bounds": [
+        352,
+        365
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:352-365 (id=zBcp3xItXC8; description L362)"
+    },
+    {
+      "id": "V002",
+      "archive_id": "sha256:5a1cdbdc8b831cc3cb63a7a9cde5260e6ef3bea5e138ad45b263b0f6c734e8a9",
+      "filename": "233M views in THREE DAYS - Viral AI Commercial for David Beckham's company, IM8.mp4",
+      "original_video_id": "ER5P_wH0E9Q",
+      "original_url": "https://www.youtube.com/watch?v=ER5P_wH0E9Q",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 376,
+      "cached_title": "233M views in THREE DAYS - Viral AI Commercial for David Beckham's company, IM8",
+      "cached_uploader_claim": "PJ Ace",
+      "cached_description_verbatim": "Our AI ad for David Beckham's company, IM8, just got 40 million views ONE DAY on IG.\n\nCheck out the process for how we made an AI twin of Aryna Sabalenka (#1 tennis player in the world) and then aired it in Times Square for the US Open.\n\nFull prompts and process below 👇🧵\n\nConcept: \n\nIM8 came to us with a wild idea. They wanted their version of Neo’s “Choice” scene in the Matrix, but centered on their pro-athlete brand ambassador, Aryna.\n\nNate Dern crafted a fantastic script, and our director @TheoDudley created a comprehensive treatment to bring it to life.\n\nImage Creation:\n\nWe then created a Figma board so we could collaborate with our Digital DPs, @bygen and @joshtep. Theo created a shotlist, references for each scene and then Bygen and Josh uploaded those images as style references in Midjourney and then worked with Gemini to create prompts for each shot. \n\nPrompt:\n\nAn extreme close-up of a woman resembling Aryna Sabalenka, framed tightly from mid-forehead to just above the upper lip. Her eyes are cast slightly downward with a calm, contemplative intensity. The lighting is stark and cold but we don't see it's source--icy blue and softly diffused. Cool tones brush across her skin, revealing every pore and lash with subtle clarity. She looks straight at the camera. Her features are strong yet serene, the reflections in her irises hinting at a cold, metallic space beyond. The frame feels atmospheric, cinematic, and intimate--like a pivotal moment in a high-budget sci-fi film.\n\n–\n\nDigital Twin:\n\nAryna wasn’t able to film in person, so we used Ideogram to create the digital twin. We uploaded a shot of her and then prompted her to drink IM8.\n\nWe also cloned her voice at the end using Elevenlabs to get her to say the final line, “The best choose the best”.\n\n–\n\nAnimation\n\nTh",
+      "production_music_genre_claim_excerpts": [
+        "Check out the process for how we made an AI twin of Aryna Sabalenka (#1 tennis player in the world) and then aired it in Times Square for the US Open.",
+        "We then created a Figma board so we could collaborate with our Digital DPs, @bygen and @joshtep. Theo created a shotlist, references for each scene and then Bygen and Josh uploaded those images as style references in Midjourney and then worked with Gemini to create prompts for each shot. ",
+        "We also cloned her voice at the end using Elevenlabs to get her to say the final line, “The best choose the best”."
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V002.txt",
+        "caption_text": "What are you willing to do to be the best? What if it all came down to a simple choice? Red or green? Red. You can feel it. Feel energized. Perform at your best. Developed by worldleading scientists, including NASA, to help you live with more vitality, energy, and longevity. Sure, you could choose green, but just because it's green doesn't mean it's good for you. This is your chance for peak performance. Whatever the task, &gt;&gt; the best choose the best.",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 26,
+      "cache_object_line_bounds": [
+        366,
+        379
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:366-379 (id=ER5P_wH0E9Q; description L376)"
+    },
+    {
+      "id": "V003",
+      "archive_id": "sha256:3d59ee745d61d24da66c10ae909b941750af1dcf5249ecf39f2d288f8d20efc1",
+      "filename": "@vans - Off the Wall ｜ #AI spec ad ｜ Google Veo 2.mp4",
+      "original_video_id": "yKufSHG5O7M",
+      "original_url": "https://www.youtube.com/watch?v=yKufSHG5O7M",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 568,
+      "cached_title": "@vans - Off the Wall | #AI spec ad | Google Veo 2",
+      "cached_uploader_claim": "Çağlasın Yılmaz",
+      "cached_description_verbatim": "Spec ad for @vans created with AI.\n\n#VANS #AI #GoogleVeo2 #veo2",
+      "production_music_genre_claim_excerpts": [
+        "Spec ad for @vans created with AI.",
+        "#VANS #AI #GoogleVeo2 #veo2"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V003.txt",
+        "caption_text": "[Music] you ever feel it that click when it's just you your board and the rhythm of the [Music] streets the cracks in the pavement the hum of the wheel they're part of the Ride part of a you it's the echo of your wheels in the quiet Subway tunnel the city breathing around you and that moment when you realize you're exactly where you belong about the streets that shape us through that feels like family and the stories We Leave Behind with every ride the connections and the Rhythm that keeps us moving forward this isn't just a brand it's a way of life fans off the- wall",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 41,
+      "cache_object_line_bounds": [
+        558,
+        571
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:558-571 (id=yKufSHG5O7M; description L568)"
+    },
+    {
+      "id": "V004",
+      "archive_id": "sha256:615efa3e3cf35da80fd11b1994899952df0ba8f0bdd853e229a834d316e766a7",
+      "filename": "[AI 광고] 퇴근 후에 맥주？ 왜 꼭 마셔？ 이제 깨봐요. 무음모드ON.mp4",
+      "original_video_id": "iB-KCw5SqZA",
+      "original_url": "https://www.youtube.com/watch?v=iB-KCw5SqZA",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 110,
+      "cached_title": "[AI 광고] 퇴근 후에 맥주? 왜 꼭 마셔? 이제 깨봐요. 무음모드ON",
+      "cached_uploader_claim": "tvN D ENT",
+      "cached_description_verbatim": "본 영상은 생성형 AI 기술을 이용하여 보건복지부와 한국건강증진개발원에서 공동으로 제작한 음주폐해예방 캠페인 광고입니다.\n\n퇴근 후에 맥주? 삼겹살에 소주?\n우리에게 이제 너무 익숙해져 버린 표현들 \n그대로 받아들이지 말고 \n이제 깨봐요. 술스라이팅 [무음모드ON] \n\n음주폐해예방 캠페인 공식 인스타그램 ▼\nhttps://www.Instagram.com/no_alcohol_mode_on/",
+      "production_music_genre_claim_excerpts": [],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V004.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 7,
+      "cache_object_line_bounds": [
+        100,
+        113
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:100-113 (id=iB-KCw5SqZA; description L110)"
+    },
+    {
+      "id": "V005",
+      "archive_id": "sha256:fe96e5a3856406a31eead915c23712e3c59539558ea403765ce3f13bcacf1f27",
+      "filename": "[AI 광고] 프러쉬 ｜ 숨겨진 브랜드 마케팅 채널을 깨워드립니다.mp4",
+      "original_video_id": "7dKvkS6uYQ8",
+      "original_url": "https://www.youtube.com/watch?v=7dKvkS6uYQ8",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 680,
+      "cached_title": "[AI 광고] 프러쉬 | 숨겨진 브랜드 마케팅 채널을 깨워드립니다",
+      "cached_uploader_claim": "FRUSH STUDIO 프러쉬 스튜디오",
+      "cached_description_verbatim": "단 15초, 고객의 시선을 훔치는 마법.\n\n텍스트보다 9.5배 더 잘 기억나는 영상 컨텐츠의 압도적인 몰입감으로 당신의 공간을 가득 채워드립니다. 넘쳐나는 온라인 광고들 사이에서 나만의 독보적인 브랜드 공간을 만드세요!\n\n📩 제작 문의 : 프로필 링크 / DM / 이메일\n\n#마케팅 #영상제작 #광고 #AI마케팅 #AI광고",
+      "production_music_genre_claim_excerpts": [
+        "텍스트보다 9.5배 더 잘 기억나는 영상 컨텐츠의 압도적인 몰입감으로 당신의 공간을 가득 채워드립니다. 넘쳐나는 온라인 광고들 사이에서 나만의 독보적인 브랜드 공간을 만드세요!"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V005.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 49,
+      "cache_object_line_bounds": [
+        670,
+        683
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:670-683 (id=7dKvkS6uYQ8; description L680)"
+    },
+    {
+      "id": "V006",
+      "archive_id": "sha256:55414e13a0648b802e504da91bb594fe953c1a8d5ed1baa08a1e4918b505fa89",
+      "filename": "[무진장 성공 기원 AI 광고제] 본선 진출작 ： Chapter 1. 사나이의 비밀.mp4",
+      "original_video_id": "aP9_TBNPlzY",
+      "original_url": "https://www.youtube.com/watch?v=aP9_TBNPlzY",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 54,
+      "cached_title": "[무진장 성공 기원 AI 광고제] 본선 진출작 : Chapter 1. 사나이의 비밀",
+      "cached_uploader_claim": "MUSINSA AD",
+      "cached_description_verbatim": "🏆무진장 성공 기원 AI 광고제 : 무진장 연출상\n\n● 제목: Chapter 1. 사나이의 비밀\n\n영화 예고편을 연상시키는 높은 영상 완성도와 몰입감 있는 연출로 \nAI 활용의 강점을 효과적으로 보여주며, 긴장감 있는 전개와 반전 있는 \n결말을 자연스럽게 연결해 뛰어난 표현력과 완성도를 선보인 작품\n\n---------------------------------------------------------\n\n본선 진출작 5팀 영상을 확인하고,\n가장 마음에 드는 영상에 댓글로 투표하고 적립금 1,000원 받아 가세요.\n👉 바로가기: https://musinsa.onelink.me/2uua/340t94le\n\n\n🧡 무신사 무진장 26 여름 블랙프라이데이🧡 \n🗓️ 06.14(일) 19:00 - 06.24(수) 23:59\n- 무진장 바로 가기: https://musinsa.onelink.me/2uua/m7jqip6n\n- 최대 80% 할인! 역대급 무진장 5주년 혜택\n- 시그니처특가, 균일가 하루특가, 시그니처 브랜드데이, 오픈런 뽑기, 카운트업 등 다양한 이벤트",
+      "production_music_genre_claim_excerpts": [
+        "영화 예고편을 연상시키는 높은 영상 완성도와 몰입감 있는 연출로 ",
+        "AI 활용의 강점을 효과적으로 보여주며, 긴장감 있는 전개와 반전 있는 "
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V006.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 3,
+      "cache_object_line_bounds": [
+        44,
+        57
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:44-57 (id=aP9_TBNPlzY; description L54)"
+    },
+    {
+      "id": "V007",
+      "archive_id": "sha256:f71e79b9090c19a256fb5d48a0fa6d5c21016c65428b104ecf330d41fe8cf18d",
+      "filename": "[무진장 성공 기원 AI 광고제] 본선 진출작 ： 그냥 지나칠 수 없어, 무진장.mp4",
+      "original_video_id": "1-sUto1tX60",
+      "original_url": "https://www.youtube.com/watch?v=1-sUto1tX60",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 26,
+      "cached_title": "[무진장 성공 기원 AI 광고제] 본선 진출작 : 그냥 지나칠 수 없어, 무진장",
+      "cached_uploader_claim": "MUSINSA AD",
+      "cached_description_verbatim": "🏆무진장 성공 기원 AI 광고제 : 무진장 찐팬상\n\n● 제목: 그냥 지나칠 수 없어, 무진장\n\n무신사 무진장의 핵심 혜택과 분위기를 유쾌하게 담아내며, \n브랜드에 대한 높은 이해와 애정을 재치 있게 표현\n친숙한 소재를 활용해 무신사 무진장 세일을 기다리는 고객의 \n기대감과 즐거움을 효과적으로 전달한 작품\n\n---------------------------------------------------------\n\n본선 진출작 5팀 영상을 확인하고,\n가장 마음에 드는 영상에 댓글로 투표하고 적립금 1,000원 받아 가세요.\n👉 바로가기: https://musinsa.onelink.me/2uua/340t94le\n\n\n🧡 무신사 무진장 26 여름 블랙프라이데이🧡 \n🗓️ 06.14(일) 19:00 - 06.24(수) 23:59\n- 무진장 바로 가기: https://musinsa.onelink.me/2uua/m7jqip6n\n- 최대 80% 할인! 역대급 무진장 5주년 혜택\n- 시그니처특가, 균일가 하루특가, 시그니처 브랜드데이, 오픈런 뽑기, 카운트업 등 다양한 이벤트",
+      "production_music_genre_claim_excerpts": [
+        "기대감과 즐거움을 효과적으로 전달한 작품"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V007.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 1,
+      "cache_object_line_bounds": [
+        16,
+        29
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:16-29 (id=1-sUto1tX60; description L26)"
+    },
+    {
+      "id": "V008",
+      "archive_id": "sha256:7eff5c7f4e48ab600f31f0bead477220d0baa476536d6c0de8b609f86c6244bc",
+      "filename": "[무진장 성공 기원 AI 광고제] 본선 진출작 ： 산타의 반란.mp4",
+      "original_video_id": "_jVo46P5aYA",
+      "original_url": "https://www.youtube.com/watch?v=_jVo46P5aYA",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 12,
+      "cached_title": "[무진장 성공 기원 AI 광고제] 본선 진출작 : 산타의 반란",
+      "cached_uploader_claim": "MUSINSA AD",
+      "cached_description_verbatim": "🏆무진장 성공 기원 AI 광고제 : 무진장 아이디어상\n\n● 제목: 산타의 반란\n\n한여름에 등장한 산타라는 참신한 아이디어를 중심으로 스토리를 \n매끄럽게 전개하며 높은 몰입감을 선사\n무신사 무진장이 주는 특별한 설렘과 선물 같은 혜택을 자연스럽게 \n녹여내며 설득력 있게 전달한 작품\n\n---------------------------------------------------------\n\n본선 진출작 5팀 영상을 확인하고,\n가장 마음에 드는 영상에 댓글로 투표하고 적립금 1,000원 받아 가세요.\n👉 바로가기: https://musinsa.onelink.me/2uua/340t94le\n\n\n🧡 무신사 무진장 26 여름 블랙프라이데이🧡 \n🗓️ 06.14(일) 19:00 - 06.24(수) 23:59\n- 무진장 바로 가기: https://musinsa.onelink.me/2uua/m7jqip6n\n- 최대 80% 할인! 역대급 무진장 5주년 혜택\n- 시그니처특가, 균일가 하루특가, 시그니처 브랜드데이, 오픈런 뽑기, 카운트업 등 다양한 이벤트",
+      "production_music_genre_claim_excerpts": [
+        "한여름에 등장한 산타라는 참신한 아이디어를 중심으로 스토리를 "
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V008.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 0,
+      "cache_object_line_bounds": [
+        2,
+        15
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:2-15 (id=_jVo46P5aYA; description L12)"
+    },
+    {
+      "id": "V009",
+      "archive_id": "sha256:87ffc0abac3928af9b179213ddd2a9c453e6cf0df2c17b292741bd4562787d34",
+      "filename": "Adidas ＂Beyond The Blue＂ AI Commercial (Midjourney + @RunwayML + @topazlabs )  AI Advertising.mp4",
+      "original_video_id": "LnCpGsZgTkI",
+      "original_url": "https://www.youtube.com/watch?v=LnCpGsZgTkI",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 236,
+      "cached_title": "Adidas \"Beyond The Blue\" AI Commercial (Midjourney + @RunwayML + @topazlabs )  AI Advertising",
+      "cached_uploader_claim": "BOMAN Studios",
+      "cached_description_verbatim": "Adidas' \"Beyond the Blue\" is a fictional and conceptual piece of AI advertising done with the sole purpose of experimentation, education, and testing the boundaries of visual generative AI and the interplay of Art Direction, Visual Design & AI.\n\nMade with an end-to-end AI pipeline featuring Midjourney (text to image) and Runway (image to video) and later upscaled with Topaz Labs to a crisp 4K and 60 FPS. \n\nArt Direction & Editing done by yours truly. \n\nEdited in After Effects with AE Juice: https://aejuice.com/?ref=billy-boman \nand Mr Horse Plugins:  https://www.misterhorse.com?a_aid=billy\nCreative Upscaling with Leonardo AI: https://app.leonardo.ai/?via=billy-boman\nAll Shots Upscaled to 4K with Topaz Video AI: https://topazlabs.com/ref/2424/\n\nSynopsis:\n\n\"In the vast tapestry of existence, life paints its strokes in shades of blue — a canvas woven with trials and tribulations, a symphony of challenges that echo through our very essence. Welcome to \"Beyond the Blue,\" where the soul finds solace in the dance between shadows and light.\"\n\nCheck out more at www.creativeaistudio.design \nDribbble: https://dribbble.com/BillyBoman\n\n#aigeneratedcarcommercial #midjourney #runwayml #aiadvertising #creativetechnology\n#futureofadvertising #aiart #aiillustration #aigeneratedcontent #aigeneratedimages #artificialintelligence #artificial #generativeai #midjourneyai  #midjourneyv6 #midjourney6 #car #carmarketing #caradvertising #aicars #aiartwork",
+      "production_music_genre_claim_excerpts": [
+        "Adidas' \"Beyond the Blue\" is a fictional and conceptual piece of AI advertising done with the sole purpose of experimentation, education, and testing the boundaries of visual generative AI and the interplay of Art Direction, Visual Design & AI.",
+        "Made with an end-to-end AI pipeline featuring Midjourney (text to image) and Runway (image to video) and later upscaled with Topaz Labs to a crisp 4K and 60 FPS. ",
+        "All Shots Upscaled to 4K with Topaz Video AI: https://topazlabs.com/ref/2424/",
+        "Check out more at www.creativeaistudio.design ",
+        "#aigeneratedcarcommercial #midjourney #runwayml #aiadvertising #creativetechnology",
+        "#futureofadvertising #aiart #aiillustration #aigeneratedcontent #aigeneratedimages #artificialintelligence #artificial #generativeai #midjourneyai  #midjourneyv6 #midjourney6 #car #carmarketing #caradvertising #aicars #aiartwork"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V009.txt",
+        "caption_text": "[Music] Adidas beyond the blue",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 16,
+      "cache_object_line_bounds": [
+        226,
+        239
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:226-239 (id=LnCpGsZgTkI; description L236)"
+    },
+    {
+      "id": "V010",
+      "archive_id": "sha256:2583c66f9f3f987ef3bcac29c2fbb53786cc0109995f6192316d66bc5e0edf06",
+      "filename": "AI Advertising (SPEC AD) - ＂Dior Perfume 2＂ #suno #midjourney #lumadreammachine #gen2 #capcut.mp4",
+      "original_video_id": "5Al3pxvSskQ",
+      "original_url": "https://www.youtube.com/watch?v=5Al3pxvSskQ",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 610,
+      "cached_title": "AI Advertising (SPEC AD) - \"Dior Perfume 2\" #suno #midjourney #lumadreammachine #gen2 #capcut",
+      "cached_uploader_claim": "초우니AI(AI크리에이팅연구소)",
+      "cached_description_verbatim": "The second Dior perfume ad features a captivating scene with a woman in a long, red-pink dress dancing gracefully between curtains of the same color, bathed in soft sunlight. Her elegant and alluring movements are mesmerizing. Interspersed with shots of roses and Dior perfume, the harmony is perfect. A husky female voice sings a song composed to match the Dior brand, adding to the charm. The ad beautifully showcases the sophistication and allure of Dior perfume. The combination of visuals and music enhances the luxurious and enchanting atmosphere. This ad highlights Dior's timeless elegance and seductive appeal.\n\n두 번째 디올 향수 광고는 레드핑크 컬러의 커튼 사이로 같은 색의 긴 드레스를 입고 춤추는 여인의 고혹적이면서도 우아한 모습을 담고 있습니다. 살짝 비치는 햇살 속에서 그녀의 매력적인 춤은 눈길을 사로잡습니다. 중간중간 장미꽃과 디올 향수가 조화롭게 어우러지며 나타납니다. 허스키한 여자 목소리로 부르는 디올 브랜드에 맞춰 작곡된 곡이 광고의 매력을 더합니다. 이 광고는 디올 향수의 세련미와 매혹적인 매력을 완벽하게 표현합니다. 시각과 음악의 조화가 고급스럽고 몽환적인 분위기를 한층 더합니다. 디올의 영원한 우아함과 유혹적인 매력을 강조하는 이 광고는 그 자체로 예술입니다.\n\n#midjourney for images\n#suno for music\n#luma dream machine & #gen2 for motion\n#capcut for video\n\nCopyright 2024, Chowooni (초우니) / LEE SEONG JOO all right reserved\n\n\n#aiadvertising   #aimusicvideo   #aicommercial",
+      "production_music_genre_claim_excerpts": [
+        "The second Dior perfume ad features a captivating scene with a woman in a long, red-pink dress dancing gracefully between curtains of the same color, bathed in soft sunlight. Her elegant and alluring movements are mesmerizing. Interspersed with shots of roses and Dior perfume, the harmony is perfect. A husky female voice sings a song composed to match the Dior brand, adding to the charm. The ad beautifully showcases the sophistication and allure of Dior perfume. The combination of visuals and music enhances the luxurious and enchanting atmosphere. This ad highlights Dior's timeless elegance and seductive appeal.",
+        "#midjourney for images",
+        "#suno for music",
+        "#capcut for video",
+        "#aiadvertising   #aimusicvideo   #aicommercial"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V010.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 44,
+      "cache_object_line_bounds": [
+        600,
+        613
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:600-613 (id=5Al3pxvSskQ; description L610)"
+    },
+    {
+      "id": "V011",
+      "archive_id": "sha256:4af63b66c65c6f19ba70325f09ff84454daac8b46b00a5f517bdb2f3b3b700f2",
+      "filename": "AI Burger Commercial.mp4",
+      "original_video_id": "L5GQdVFGMBQ",
+      "original_url": "https://www.youtube.com/watch?v=L5GQdVFGMBQ",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 278,
+      "cached_title": "AI Burger Commercial",
+      "cached_uploader_claim": "Matan Cohen-Grumi",
+      "cached_description_verbatim": "Created by Matan Cohen-Grumi using 100% AI Generated Content.",
+      "production_music_genre_claim_excerpts": [
+        "Created by Matan Cohen-Grumi using 100% AI Generated Content."
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V011.txt",
+        "caption_text": "[Music] he",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 19,
+      "cache_object_line_bounds": [
+        268,
+        281
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:268-281 (id=L5GQdVFGMBQ; description L278)"
+    },
+    {
+      "id": "V012",
+      "archive_id": "sha256:983da61eca66b747639b2ea79bb8b8cc44d7d67e57bb76b19e1c6e22e50218ce",
+      "filename": "AI Car Commercial ｜ Ferrari Spec Commercial.mp4",
+      "original_video_id": "2h8hrL7ozJI",
+      "original_url": "https://www.youtube.com/watch?v=2h8hrL7ozJI",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 348,
+      "cached_title": "AI Car Commercial | Ferrari Spec Commercial",
+      "cached_uploader_claim": "Adverto",
+      "cached_description_verbatim": "#midjourneyai  #aifilmmaking #aivideo #aicommercial #aifilms #aiadvertising #advertisingagency #klingai \n\nExcited to share this AI car commercial. Developed using Gen-AI as part of the production workflow, this project blends filmic direction with emerging visual tools to prototype what a modern luxury holiday campaign could look like.\n\n#AITools #AICommercial #EmotionalAI #SunoAI #Midjourney #AIFilmmaking #GenerativeAI #DreamBig #klingai\n\n@Kling_ai @magnific_ai",
+      "production_music_genre_claim_excerpts": [
+        "#midjourneyai  #aifilmmaking #aivideo #aicommercial #aifilms #aiadvertising #advertisingagency #klingai ",
+        "Excited to share this AI car commercial. Developed using Gen-AI as part of the production workflow, this project blends filmic direction with emerging visual tools to prototype what a modern luxury holiday campaign could look like.",
+        "#AITools #AICommercial #EmotionalAI #SunoAI #Midjourney #AIFilmmaking #GenerativeAI #DreamBig #klingai",
+        "@Kling_ai @magnific_ai"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V012.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 24,
+      "cache_object_line_bounds": [
+        338,
+        351
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:338-351 (id=2h8hrL7ozJI; description L348)"
+    },
+    {
+      "id": "V013",
+      "archive_id": "sha256:e6ed52639d425cf5522540f4b86942757c92a9fcfff12c10760564fc7ed60c48",
+      "filename": "AI CAR COMMERCIAL.mp4",
+      "original_video_id": "cCic6tsnSUc",
+      "original_url": "https://www.youtube.com/watch?v=cCic6tsnSUc",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 124,
+      "cached_title": "AI CAR COMMERCIAL",
+      "cached_uploader_claim": "Maheux",
+      "cached_description_verbatim": "https://www.instagram.com/jeremiahmayhew/\n\nSee latest: https://youtu.be/hJ9oLg4P1b4 \n\nThe world of AI has been nothing short of mind-blowing. Every day, I see new and innovative applications of this technology, and the potential seems to be growing exponentially. It’s truly incredible to imagine what the future holds.\n\nWith AI advancing at such a rapid pace, individuals like myself and small teams now have the opportunity to iterate and experiment like never before. The possibilities are endless.\n\nI’ve seen the pizza and beer commercials created with AI but I hadn’t yet seen a car commercial so I made this experiment, narrated by the one and only “Prince”   \n\nThe beauty of AI lies in its ability to revolutionize the way we approach everything, enabling us to create faster than ever before. As we continue to push the boundaries of what’s possible, I can’t help but feel inspired by this incredible technology and dream like never before.\n\n@runwayapp\n#generativeart\n#creativecoding\n#aiart\n#artificialintelligence\n#machinelearning\n#creativeai\n#neuralnetworks\n#digitalart\n#dataviz\n#codeart\n#proceduralart\n#computationalart\n#digitalpainting\n#deepdream\n#glitchart\n#digitaldrawing\n#algorithmicart\n#fractalart\n#artandtechnology\n#artandscience",
+      "production_music_genre_claim_excerpts": [
+        "I’ve seen the pizza and beer commercials created with AI but I hadn’t yet seen a car commercial so I made this experiment, narrated by the one and only “Prince”   ",
+        "The beauty of AI lies in its ability to revolutionize the way we approach everything, enabling us to create faster than ever before. As we continue to push the boundaries of what’s possible, I can’t help but feel inspired by this incredible technology and dream like never before.",
+        "@runwayapp"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V013.txt",
+        "caption_text": "[Music] as Twilight Hues paint the sky the open road beckons like a whisper the wheels hum in harmony with your heartbeat dreams blend with reality as Landscapes shift and blur speed and serenity entwine creating a dance of Shadows and Light in this fleeting moment one question lingers are you driving or dreaming thank you [Music]",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 8,
+      "cache_object_line_bounds": [
+        114,
+        127
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:114-127 (id=cCic6tsnSUc; description L124)"
+    },
+    {
+      "id": "V014",
+      "archive_id": "sha256:e5898e76b194c1c6dc2ba442a48cd1a9b1025adf567b8865f61022b316a03ec3",
+      "filename": "AI Cinematic Nike Shoe Ad ｜ Ultra Slow Motion Commercial ｜ Video Production House ｜ Bangalore, India.mp4",
+      "original_video_id": "xywUPoyNyE8",
+      "original_url": "https://www.youtube.com/watch?v=xywUPoyNyE8",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 638,
+      "cached_title": "AI Cinematic Nike Shoe Ad | Ultra Slow Motion Commercial | Video Production House | Bangalore, India",
+      "cached_uploader_claim": "Being CreAItive",
+      "cached_description_verbatim": "Welcome to VDOfy's AI Video Channel!\n\nExperience the future of brand storytelling with premium AI-generated brand films and commercial videos. We create cinematic, high-quality video content that brings your brand to life through seamless product integration, stunning visuals, and creative possibilities that go beyond traditional production.\n\nWhether you're looking for AI avatar videos, brand commercials, product demonstrations, e-commerce marketing videos, or promotional content, we deliver TV-commercial-grade videos that capture attention and drive engagement.\n\nAt VDOfy, we transform creative concepts into visually captivating videos that make your brand unforgettable and help you stand out from the competition.\n\nDiscover how AI-powered video production can elevate your brand. Subscribe for the latest in cinematic AI video creation.\n\nLearn More:\nVisit our website for portfolio examples, pricing, and to inquire about custom video production for your brand. \n\nWebsite: https://vdofy.com/ai/\n\nWhat We Do:\nPremium AI brand films with seamless product integration, Cinematic AI avatar videos for marketing and e-commerce, Photorealistic talking head videos and commercials, AI-powered video production at scale, Custom brand storytelling in impossible settings and locations, High-quality product showcase videos, Marketing and advertising content for businesses and brands\n\n\nPerfect For: \nE-commerce brands seeking engaging product videos, Marketing agencies needing scalable video content, Corporate communications and brand awareness campaigns, Digital advertising and social media marketing, Product launches and promotional videos, Customer testimonials and case study videos, Training and educational video content",
+      "production_music_genre_claim_excerpts": [
+        "Experience the future of brand storytelling with premium AI-generated brand films and commercial videos. We create cinematic, high-quality video content that brings your brand to life through seamless product integration, stunning visuals, and creative possibilities that go beyond traditional production."
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V014.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 46,
+      "cache_object_line_bounds": [
+        628,
+        641
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:628-641 (id=xywUPoyNyE8; description L638)"
+    },
+    {
+      "id": "V015",
+      "archive_id": "sha256:55779e3f6e2745ea1cfa4aefae399a8c1e8035f05d3c012d7fb106045cc12984",
+      "filename": "Ai Generated Beer Commercial..mp4",
+      "original_video_id": "CgDFzWvH1NE",
+      "original_url": "https://www.youtube.com/watch?v=CgDFzWvH1NE",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 222,
+      "cached_title": "Ai Generated Beer Commercial.",
+      "cached_uploader_claim": "Deeperfakes",
+      "cached_description_verbatim": "",
+      "production_music_genre_claim_excerpts": [],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V015.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 15,
+      "cache_object_line_bounds": [
+        212,
+        225
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:212-225 (id=CgDFzWvH1NE; description L222)"
+    },
+    {
+      "id": "V016",
+      "archive_id": "sha256:f7706c46a4b6f2c730cb10e59ad2a5eaf1ec5c9252d010e265a40e812bf64248",
+      "filename": "AI Generated Car Commercial ⧸ Range Rover Velar.mp4",
+      "original_video_id": "lAocrBVwxLM",
+      "original_url": "https://www.youtube.com/watch?v=lAocrBVwxLM",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 652,
+      "cached_title": "AI Generated Car Commercial / Range Rover Velar",
+      "cached_uploader_claim": "Unhindered",
+      "cached_description_verbatim": "Videos processed in Runway Gen 4.\n\nThis is a speculative advertisement made for creative purposes. It is not an official advertisement for Range Rover and has no affiliation with the Range Rover brand.\n\n#aivideo #aivideogenerator #runwaygen4 #runwayml #carcommercial #carcommercials #rangerovervelar #aigenerated",
+      "production_music_genre_claim_excerpts": [
+        "Videos processed in Runway Gen 4.",
+        "This is a speculative advertisement made for creative purposes. It is not an official advertisement for Range Rover and has no affiliation with the Range Rover brand.",
+        "#aivideo #aivideogenerator #runwaygen4 #runwayml #carcommercial #carcommercials #rangerovervelar #aigenerated"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V016.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 47,
+      "cache_object_line_bounds": [
+        642,
+        655
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:642-655 (id=lAocrBVwxLM; description L652)"
+    },
+    {
+      "id": "V017",
+      "archive_id": "sha256:411761baababb46025a040abf28c11fc274ebce66daf815cc165c4ac0648f09c",
+      "filename": "AI Generated Car Commercial ⧸ Runway Gen 3 ⧸ LINCOLN Spec Ad.mp4",
+      "original_video_id": "7AN4D3iN7BA",
+      "original_url": "https://www.youtube.com/watch?v=7AN4D3iN7BA",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 166,
+      "cached_title": "AI Generated Car Commercial / Runway Gen 3 / LINCOLN Spec Ad",
+      "cached_uploader_claim": "Jeremy Haccoun",
+      "cached_description_verbatim": "Idea, prompting, editing & color by @JeremyHaccoun\nI generated 100% of the shots using text-to-video in Runway Gen-3 Alpha\n\nPost: replaced car logos & added a couple of sand elements (also generated with Runway).\nUpscaled to 4k with Topaz, then downscaled to 1080p for export.\n\nThis is a speculative advertisement made for creative purposes. It is not an official advertisement for Lincoln and has no affiliation with the Lincoln brand.\n\n#ai #runwayml #gen3alpha #runwaygen3 #runwaygen3alpha #aifilm #aifilmmaking #runwayml",
+      "production_music_genre_claim_excerpts": [
+        "I generated 100% of the shots using text-to-video in Runway Gen-3 Alpha",
+        "Post: replaced car logos & added a couple of sand elements (also generated with Runway).",
+        "Upscaled to 4k with Topaz, then downscaled to 1080p for export.",
+        "This is a speculative advertisement made for creative purposes. It is not an official advertisement for Lincoln and has no affiliation with the Lincoln brand.",
+        "#ai #runwayml #gen3alpha #runwaygen3 #runwaygen3alpha #aifilm #aifilmmaking #runwayml"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V017.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 11,
+      "cache_object_line_bounds": [
+        156,
+        169
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:156-169 (id=7AN4D3iN7BA; description L166)"
+    },
+    {
+      "id": "V018",
+      "archive_id": "sha256:3cf1b8fd6e70441abe7bd008eb486e9fe01bbc27d962a881f3d19d091ed28b4e",
+      "filename": "AI Generated Spec AD For Ferrari.mp4",
+      "original_video_id": "lyV5pQWwbRQ",
+      "original_url": "https://www.youtube.com/watch?v=lyV5pQWwbRQ",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 624,
+      "cached_title": "AI Generated Spec AD For Ferrari",
+      "cached_uploader_claim": "Augmentables",
+      "cached_description_verbatim": "Welcome to our latest AI-driven creative journey! Inspired by Jonathan Glazer’s iconic Guinness “Surfer” ad (1999), we reimagined power for Ferrari by harnessing AI to create surreal visuals that push the boundaries of creativity.\n\nIn this ad, colossal horses leap over giant waves while a Ferrari drifts on the beach—a bold metaphor for raw power. Just like taming a wild stallion, harnessing the beast that is Ferrari isn’t for everyone. And the best part? We transformed a million-dollar CGI project into a cost-effective AI masterpiece, saving millions while redefining ad production.\n\nIf you enjoy innovative advertising and cutting-edge AI creativity, hit the like button, drop your thoughts in the comments, and subscribe for more behind-the-scenes insights!\n\n🌐 Connect With Us\n\nAugmentables\nPhone: 8879593690\nWebsite: augmentables.in\n\n🔔 Don’t forget to like, comment, and subscribe for more stories that blend history, art, and technology!\n\nAbout Us:\n\nAugmentables :-\nAugmentables is an end-to-end immersive tech service provider. We help businesses leverage Augmented and Virtual Reality technologies to create unforgettable experiences and boost their business growth.\n\n#GenerativeAI #AIAdvertising #DigitalMarketing #AdTech #CreativeAI #MarketingInnovation #AdCreatives #VisualStorytelling #AIArt #ContentCreation #DigitalArt #FutureOfAds #TechInnovation #MarketingStrategy #ModernAdvertising #Branding #MediaInnovation #NextGenMarketing #CreativeMarketing #InnovationInAds #AIforAds\n#AdRevolution #DigitalCinema #AIinAdvertising #VisualEffects #CGIInnovation #CinematicAds #MotionGraphics #TechMeetsArt #SupercarAd #FerrariExperience #DigitalStorytelling #VFXMagic #InnovativeAds #PowerfulVisuals",
+      "production_music_genre_claim_excerpts": [
+        "Welcome to our latest AI-driven creative journey! Inspired by Jonathan Glazer’s iconic Guinness “Surfer” ad (1999), we reimagined power for Ferrari by harnessing AI to create surreal visuals that push the boundaries of creativity."
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V018.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 45,
+      "cache_object_line_bounds": [
+        614,
+        627
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:614-627 (id=lyV5pQWwbRQ; description L624)"
+    },
+    {
+      "id": "V019",
+      "archive_id": "sha256:6ca2fd31aefefc27dcf4a8d685495146a6577e6edde87ed9595bc55f1d3a887d",
+      "filename": "AI Spec Adidas Commercial Made During Coffee Break.mp4",
+      "original_video_id": "bzWOyzM3RSs",
+      "original_url": "https://www.youtube.com/watch?v=bzWOyzM3RSs",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 334,
+      "cached_title": "AI Spec Adidas Commercial Made During Coffee Break",
+      "cached_uploader_claim": "Director Dave Clark",
+      "cached_description_verbatim": "",
+      "production_music_genre_claim_excerpts": [],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V019.txt",
+        "caption_text": "Take off the fufu, take off the couches, take off the water. Take off the money phone, take off the car loan, take off the brakes and the white lines. Take off the weird ass dreams, I'mma take these steps and I'm taking off top dollar. Take off the Versace streams and the microwave means of the real world dollars. Take off your idols, take off the runway, take off the Cairo. Take off the sandal, pay five days straight, take a photo of the new elevator. Take off the wear, take off the perception, take off the capital of the iPad. Take off the long road, take off the whole show, take off the decisions of our lives.",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 23,
+      "cache_object_line_bounds": [
+        324,
+        337
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:324-337 (id=bzWOyzM3RSs; description L334)"
+    },
+    {
+      "id": "V020",
+      "archive_id": "sha256:cfd6135bdf5d66a871910b458ee29487743eb95c1add0b35ecc2f94fe4b196ed",
+      "filename": "AI광고 l 웅진 씽크빅 2026년 브랜딩 캠페인.mp4",
+      "original_video_id": "ASYTiFiVMP4",
+      "original_url": "https://www.youtube.com/watch?v=ASYTiFiVMP4",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 512,
+      "cached_title": "AI광고 l 웅진 씽크빅 2026년 브랜딩 캠페인",
+      "cached_uploader_claim": "AI STUDIO_D",
+      "cached_description_verbatim": "[AI STUDIO X웅진씽크빅]\n\nAI가 정답을 알려주는 지금도,\n변하지 않는 웅진씽크빅의 공부 철학\n\n내일의 아이는 오늘의 생각으로 자랍니다\nThink Bigger than Al\n\n웅진 씽크빅\n\n\n🎬\nClient: 웅진씽크빅\nProduct : 2026년 브랜딩\nOn-Air : 2026.1\nMedia : Digital\nCreated by : AI & AI Directors\n\nAI STUDIO_DAEHONG COMMUNICATIONS\n국내최초 NON SHOOTING FILM STUDIO\n\n\n#ai #aigenerated #aistudio_d #aicommercial",
+      "production_music_genre_claim_excerpts": [
+        "[AI STUDIO X웅진씽크빅]",
+        "AI STUDIO_DAEHONG COMMUNICATIONS",
+        "국내최초 NON SHOOTING FILM STUDIO",
+        "#ai #aigenerated #aistudio_d #aicommercial"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V020.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 37,
+      "cache_object_line_bounds": [
+        502,
+        515
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:502-515 (id=ASYTiFiVMP4; description L512)"
+    },
+    {
+      "id": "V021",
+      "archive_id": "sha256:8884c5d5311da908f9ffd47c807d865f423966025e472c275846f65949f412a8",
+      "filename": "An unexpected AI commercial🍅.mp4",
+      "original_video_id": "55bkwWdmzp0",
+      "original_url": "https://www.youtube.com/watch?v=55bkwWdmzp0",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 194,
+      "cached_title": "An unexpected AI commercial🍅",
+      "cached_uploader_claim": "Haggar shoval",
+      "cached_description_verbatim": "",
+      "production_music_genre_claim_excerpts": [],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V021.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 13,
+      "cache_object_line_bounds": [
+        184,
+        197
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:184-197 (id=55bkwWdmzp0; description L194)"
+    },
+    {
+      "id": "V022",
+      "archive_id": "sha256:9b7ce790c82d26ed2c2f2614ab124df11af8591687b64014d17117b5450982e1",
+      "filename": "AUDI „BIG BOY“ - Fake AI Commercial.mp4",
+      "original_video_id": "PoxI4dcSdX0",
+      "original_url": "https://www.youtube.com/watch?v=PoxI4dcSdX0",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 666,
+      "cached_title": "AUDI „BIG BOY“ - Fake AI Commercial",
+      "cached_uploader_claim": "Jérôme Lozano - Filmmaker",
+      "cached_description_verbatim": "New video — fake AUDI commercial :)  \n\nCrafted by Jérôme Lozano \n\n#AI #AIFilm #AIVideo #AICommercial #ArtificialIntelligence #GenerativeAI #Filmmaking #Cinematic #VFX #VirtualProduction #CreativeAI #FutureOfFilm #Audi #AudiCommercial #SpecCommercial #CarCommercial #Automotive #LuxuryCars #cinematicadventure",
+      "production_music_genre_claim_excerpts": [
+        "#AI #AIFilm #AIVideo #AICommercial #ArtificialIntelligence #GenerativeAI #Filmmaking #Cinematic #VFX #VirtualProduction #CreativeAI #FutureOfFilm #Audi #AudiCommercial #SpecCommercial #CarCommercial #Automotive #LuxuryCars #cinematicadventure"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V022.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 48,
+      "cache_object_line_bounds": [
+        656,
+        669
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:656-669 (id=PoxI4dcSdX0; description L666)"
+    },
+    {
+      "id": "V023",
+      "archive_id": "sha256:50ed67841fec1725dabfc6d5c0a1ad6395816ada8e95efc980c2ec37ee62dca3",
+      "filename": "Cinematic Restaurant Commercial ｜ AI Generated Food Advertisement.mp4",
+      "original_video_id": "4qtEIxhAFYg",
+      "original_url": "https://www.youtube.com/watch?v=4qtEIxhAFYg",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 540,
+      "cached_title": "Cinematic Restaurant Commercial | AI Generated Food Advertisement",
+      "cached_uploader_claim": "Shahrukh AI Art",
+      "cached_description_verbatim": "This project is a cinematic restaurant commercial concept created using an AI-driven production workflow.\n\nThe goal was to explore how AI tools can be used to produce high-quality food advertisements and brand promos with cinematic lighting, close-up food shots, and commercial-style storytelling.\n\nThe visuals were created using advanced AI image generation and animation tools, combined with creative direction to achieve a premium advertising look similar to traditional TV commercials.\n\nThis experiment demonstrates how AI can help businesses create restaurant promotions, product commercials, and social media marketing content without the need for expensive production setups.\n\nIf you’re looking for AI-powered promotional videos, product commercials, or brand storytelling content, feel free to connect.\n#AICommercial #FoodCommercial #AIVideo #RestaurantPromo #GenerativeAI #FoodAd",
+      "production_music_genre_claim_excerpts": [
+        "The goal was to explore how AI tools can be used to produce high-quality food advertisements and brand promos with cinematic lighting, close-up food shots, and commercial-style storytelling.",
+        "The visuals were created using advanced AI image generation and animation tools, combined with creative direction to achieve a premium advertising look similar to traditional TV commercials."
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V023.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 39,
+      "cache_object_line_bounds": [
+        530,
+        543
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:530-543 (id=4qtEIxhAFYg; description L540)"
+    },
+    {
+      "id": "V024",
+      "archive_id": "sha256:d885ecc971fe882761b82c1886b1fbd7b14cafee03862c0b9c897868b7b7e86d",
+      "filename": "Coca & burger ｜ Commercial, Ad 2025 ｜ AI video.mp4",
+      "original_video_id": "r4kHXgt5Yko",
+      "original_url": "https://www.youtube.com/watch?v=r4kHXgt5Yko",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 526,
+      "cached_title": "Coca & burger | Commercial, Ad 2025 | AI video",
+      "cached_uploader_claim": "Shchi",
+      "cached_description_verbatim": "Fast food, shot like fine art: a juicy burger, sizzling wings, perfect fries, and ice-cold cola.\nEvery frame drips with flavor — the camera practically licks the food.\nStarring: hunger and visual pleasure.\n\nCreate high-quality AI videos for your business using the latest in artificial intelligence.\nWe specialize in commercial videos, 3D animation, and photorealistic effects — all powered by AI.\nDiscover how AI can transform your content at https://shchiprod.ru/.\nUse advanced AI tools for powerful and efficient video production.",
+      "production_music_genre_claim_excerpts": [
+        "We specialize in commercial videos, 3D animation, and photorealistic effects — all powered by AI.",
+        "Use advanced AI tools for powerful and efficient video production."
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V024.txt",
+        "caption_text": "Heat. Always [Music] delicious, always real. [Music]",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 38,
+      "cache_object_line_bounds": [
+        516,
+        529
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:516-529 (id=r4kHXgt5Yko; description L526)"
+    },
+    {
+      "id": "V025",
+      "archive_id": "sha256:4a0ea9134b74c974ca4d65c2a81c6151e822fe88677ec9ebc025f2de53f194ff",
+      "filename": "Fixed the Jaguar Ad with AI.mp4",
+      "original_video_id": "ZsPgqs1HNPU",
+      "original_url": "https://www.youtube.com/watch?v=ZsPgqs1HNPU",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 180,
+      "cached_title": "Fixed the Jaguar Ad with AI",
+      "cached_uploader_claim": "Kartik Shah",
+      "cached_description_verbatim": "I fixed the new Jaguar Ad using AI 🩹😃\n\nFollow me on :\nhttps://www.instagram.com/kartikkshah\nhttps://x.com/kartiks_music\n\nThe latest Jaguar ad has received a lot of brickbats. One of the most disastrous rebranding in the history of advertising or a genius marketing strategy?\nLet me know your thoughts!\n\n#jaguar  #jaguarrebrand #jaguarcar #Jaguarlogo #news #trending",
+      "production_music_genre_claim_excerpts": [
+        "https://x.com/kartiks_music"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V025.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 12,
+      "cache_object_line_bounds": [
+        170,
+        183
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:170-183 (id=ZsPgqs1HNPU; description L180)"
+    },
+    {
+      "id": "V026",
+      "archive_id": "sha256:25b434ecec39683314faec15a0e0df964fd27c7863b0b45a9ddc127e64e5cff6",
+      "filename": "I asked AI to make an Oreo commercial.mp4",
+      "original_video_id": "mewB6PS6gZE",
+      "original_url": "https://www.youtube.com/watch?v=mewB6PS6gZE",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 68,
+      "cached_title": "I asked AI to make an Oreo commercial",
+      "cached_uploader_claim": "Niccyan",
+      "cached_description_verbatim": "What if the universe baked a cookie?\n\nMusic: We’re Finally Landing  Home",
+      "production_music_genre_claim_excerpts": [
+        "Music: We’re Finally Landing  Home"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V026.txt",
+        "caption_text": "[Music] what if the universe baked a cookie and sent it hurtling through the cosmos what if that cookie turned into a symphony of shooting stars lighting up our world and what if those Stars turned into your favorite treat falling like sweet snowflakes what if each bite could hold a universe of flavors what if we told you this isn't just a dream [Music]",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 4,
+      "cache_object_line_bounds": [
+        58,
+        71
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:58-71 (id=mewB6PS6gZE; description L68)"
+    },
+    {
+      "id": "V027",
+      "archive_id": "sha256:c35f122fa35f268b0d2fb4a93dd15ca3762ae799bb735ea6bf9627db4fa87bf0",
+      "filename": "I Made a Luxury Hotel Commercial Using Only AI — No Camera, No Crew.mp4",
+      "original_video_id": "363QFIvhJwc",
+      "original_url": "https://www.youtube.com/watch?v=363QFIvhJwc",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 390,
+      "cached_title": "I Made a Luxury Hotel Commercial Using Only AI — No Camera, No Crew",
+      "cached_uploader_claim": "DIN FILMS",
+      "cached_description_verbatim": "No camera. No location. No model on set.\n\nI created a full luxury hotel promo using nothing but AI —\ndesert dunes, ocean, oasis, and a fictional resort that doesn't exist.\n\nTools used:\n- Higgsfield Cinema Studio (image generation)\n- Seedance 2.0 (video animation)\n- DaVinci Resolve (editing & color grading)\n\nFull workflow breakdown coming soon.\n\n#ai #aivideo #higgsfield #seedance2 \n\n▼ Higgsfield\nhttps://higgsfield.ai/\n\n《MY OFFICIAL Luts》\nhttps://dinfilms.com/din-powergrade-2023\n\n《Music》\nArtlist : https://artlist.io/artlist-70446?artlist_aid=DINFILMS_1112&utm_source=affiliate_p&utm_medium=DINFILMS_1112&utm_campaign=DINFILMS_1112\n\n\n\n《MY OFFICIAL WEBSITE》\nhttps://dinfilms.com/\n\n\n《FOLLOW ME》\nhttps://www.instagram.com/din_films/\nhttps://twitter.com/din_films\n\n\n\n\n《My Gear (Amazon Links) 》\n・Sony A7S3 : https://amzn.to/47hLon2\n・DJI Mavic 3 Cine : https://amzn.to/3uJmD3J\n・DJI RS3 Pro : https ://amzn.to/3uKamfq\n・Hollyland Mars M1 : https://amzn.to/47cDQlb\n・NiSi ND Filter : https://amzn.to/3s4CTIR\n・Sennheiser MKE600 : https://amzn.to/4aaYy6d\n・RODE VideoMic Pro+ : https://amzn.to/3hbUmZv\n\n\n\n《WORK》\nyuya.harada070626@gmail.com",
+      "production_music_genre_claim_excerpts": [
+        "desert dunes, ocean, oasis, and a fictional resort that doesn't exist.",
+        "Tools used:",
+        "- Higgsfield Cinema Studio (image generation)",
+        "- Seedance 2.0 (video animation)",
+        "#ai #aivideo #higgsfield #seedance2 ",
+        "《MY OFFICIAL Luts》",
+        "《Music》",
+        "《MY OFFICIAL WEBSITE》"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V027.txt",
+        "caption_text": "There are places the world has yet to find. Where the desert holds its breath. Where the ocean asks nothing of you. Where green finds life in the most unexpected places. Begin. &gt;&gt; [music] [music]",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 27,
+      "cache_object_line_bounds": [
+        380,
+        393
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:380-393 (id=363QFIvhJwc; description L390)"
+    },
+    {
+      "id": "V028",
+      "archive_id": "sha256:b51f609a1f131fd0c360a5704befcd8bd5459ca3335aa21699539b7d46df90ce",
+      "filename": "IKEA Open it. Live it ! (Veo3 AI spec ad).mp4",
+      "original_video_id": "4Rpi1ZMKy74",
+      "original_url": "https://www.youtube.com/watch?v=4Rpi1ZMKy74",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 292,
+      "cached_title": "IKEA Open it. Live it ! (Veo3 AI spec ad)",
+      "cached_uploader_claim": "Eric jung",
+      "cached_description_verbatim": "#AICommercial #Veo3 #AIgeneratedVideo #IKEAAd #AICreative #ikea #ai #aifilm",
+      "production_music_genre_claim_excerpts": [
+        "#AICommercial #Veo3 #AIgeneratedVideo #IKEAAd #AICreative #ikea #ai #aifilm"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V028.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 20,
+      "cache_object_line_bounds": [
+        282,
+        295
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:282-295 (id=4Rpi1ZMKy74; description L292)"
+    },
+    {
+      "id": "V029",
+      "archive_id": "sha256:978377039cbc8168b985513eadc4c42920fb7dc42c23a09010957fd99dadc16d",
+      "filename": "KFC AI Ad – ‘Ready 2 Roll’ by David Blagojevic.mp4",
+      "original_video_id": "u7hYQlrYR5M",
+      "original_url": "https://www.youtube.com/watch?v=u7hYQlrYR5M",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 320,
+      "cached_title": "KFC AI Ad – ‘Ready 2 Roll’ by David Blagojevic",
+      "cached_uploader_claim": "Krishna Pasi",
+      "cached_description_verbatim": "This experimental AI-generated ad reimagines KFC’s signature style using cutting-edge AI tools: Runway, Pika, Kling AI, Google DeepMind Veo2, Luma AI, OpenAI Sora, upscaled with Topaz Labs and music generated with Suno\n\nNo live-action footage—just pure AI-driven creativity!\n\nWhile not an official KFC ad, it showcases the future of AI in commercial filmmaking. Would you believe this was made without a single real shot?",
+      "production_music_genre_claim_excerpts": [
+        "This experimental AI-generated ad reimagines KFC’s signature style using cutting-edge AI tools: Runway, Pika, Kling AI, Google DeepMind Veo2, Luma AI, OpenAI Sora, upscaled with Topaz Labs and music generated with Suno",
+        "While not an official KFC ad, it showcases the future of AI in commercial filmmaking. Would you believe this was made without a single real shot?"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V029.txt",
+        "caption_text": "The honey gold glaze got me feeling real sleepy. Buffalo burn got the sweat on my cheek. Dip it in ranch, let it ride, let it be. Late night cravings, yeah, I answer the call. 12 piece box, I ain't sharing at all. That crackling sound when I break it apart. One taste and yeah, go to the heart. Ready to run me. Smoking hot, straight out the pack. First bite magic, no turning back. That crunch hit hard like a bassline smack. Savory bliss, got me lost in the track. Stack up the wings, pile them up real high. Take another dip, let the flavors collide. That crispy sensation, you just can't deny. One more round, man, I'm ready to ride. It's finger licking good.",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 22,
+      "cache_object_line_bounds": [
+        310,
+        323
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:310-323 (id=u7hYQlrYR5M; description L320)"
+    },
+    {
+      "id": "V030",
+      "archive_id": "sha256:5676c1bdbfab78ccc7a28f4ce7901dd207c608cb018c33db180f8bd1260f37e4",
+      "filename": "Lamborghini Car Commercial Made With Google Veo 3 AI (Insane).mp4",
+      "original_video_id": "4uJFVAm59BM",
+      "original_url": "https://www.youtube.com/watch?v=4uJFVAm59BM",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 582,
+      "cached_title": "Lamborghini Car Commercial Made With Google Veo 3 AI (Insane)",
+      "cached_uploader_claim": "Pixel Lab",
+      "cached_description_verbatim": "AI Footage Created with Google Veo 3 AI Video Generation Model.\n\nSubscribe for more:\nhttps://www.youtube.com/@Pixel_Lab_TV\n\nAI Technology, Google VEO 3, AI News, AI Tech, Tech News, AI Tech, Veo 3, AI Video Generation, Cars, Lamborghini",
+      "production_music_genre_claim_excerpts": [
+        "AI Footage Created with Google Veo 3 AI Video Generation Model.",
+        "AI Technology, Google VEO 3, AI News, AI Tech, Tech News, AI Tech, Veo 3, AI Video Generation, Cars, Lamborghini"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V030.txt",
+        "caption_text": "[Music] Heat. Heat. Heat. Heat. [Music]",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 42,
+      "cache_object_line_bounds": [
+        572,
+        585
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:572-585 (id=4uJFVAm59BM; description L582)"
+    },
+    {
+      "id": "V031",
+      "archive_id": "sha256:0cc355b8dffc387e5eabe529360dbbdae2415b063d1e8aa6e8caaf078cea01d6",
+      "filename": "Lebron James Nike Commercial - Swimming Pool ( 4K Ai Version ).mp4",
+      "original_video_id": "EQ-YuRWRQvo",
+      "original_url": "https://www.youtube.com/watch?v=EQ-YuRWRQvo",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 306,
+      "cached_title": "Lebron James Nike Commercial - Swimming Pool ( 4K Ai Version )",
+      "cached_uploader_claim": "Unity",
+      "cached_description_verbatim": "LeBron James Nike Commercial - Swimming Pool. Advertisement aired at the beginning of the 06-07 NBA season. The song is \"Summer Madness\" by Kool & The Gang.\n\nCredits to : https://www.youtube.com/watch?v=YsoP6bjADic \nI just made the Quality a little bit better because the old one is 240p\n\nits not perfect but i tryed my best",
+      "production_music_genre_claim_excerpts": [
+        "I just made the Quality a little bit better because the old one is 240p"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V031.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 21,
+      "cache_object_line_bounds": [
+        296,
+        309
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:296-309 (id=EQ-YuRWRQvo; description L306)"
+    },
+    {
+      "id": "V032",
+      "archive_id": "sha256:d800bfdf9bc28a2d66d214bb76aa94fef02429445620c9e8403bb8374760a73a",
+      "filename": "Luxury Oceanfront Real Estate Ad ｜ Cinematic AI Campaign Visuals.mp4",
+      "original_video_id": "77Ncpm9bG4Y",
+      "original_url": "https://www.youtube.com/watch?v=77Ncpm9bG4Y",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 554,
+      "cached_title": "Luxury Oceanfront Real Estate Ad | Cinematic AI Campaign Visuals",
+      "cached_uploader_claim": "Render Rabbit AI Content Studio",
+      "cached_description_verbatim": "Solis Maris Brand Film \n\nIn this spec ad, the architecture frames a feeling — where light, ocean air, and silence become intentional design elements. Built for luxury developments, pre-sales marketing, and brand-led real estate launches.\n\nServices featured in this project:\n• Premium brand content for developers\n• High-end cinematic real estate marketing/campaign visuals\n\nRender Rabbit is an AI content studio led by filmmakers that creates cinematic, brand-ready visuals for luxury real estate developers and hospitality brands. We use AI-assisted workflows to craft emotion-driven marketing campaigns, pre-sales visuals, and lifestyle storytelling for high-end properties.\n\n#Aicontentstudio #airealestatemarketing #ailuxury #brandstorytelling #renderrabbit",
+      "production_music_genre_claim_excerpts": [
+        "In this spec ad, the architecture frames a feeling — where light, ocean air, and silence become intentional design elements. Built for luxury developments, pre-sales marketing, and brand-led real estate launches.",
+        "Render Rabbit is an AI content studio led by filmmakers that creates cinematic, brand-ready visuals for luxury real estate developers and hospitality brands. We use AI-assisted workflows to craft emotion-driven marketing campaigns, pre-sales visuals, and lifestyle storytelling for high-end properties.",
+        "#Aicontentstudio #airealestatemarketing #ailuxury #brandstorytelling #renderrabbit"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V032.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 40,
+      "cache_object_line_bounds": [
+        544,
+        557
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:544-557 (id=77Ncpm9bG4Y; description L554)"
+    },
+    {
+      "id": "V033",
+      "archive_id": "sha256:edf26d8bb738c159145d47b8bbcdd86147200bcd27302b573bc32a847eb03504",
+      "filename": "Make It Yours - AI Fashion Commercial.mp4",
+      "original_video_id": "YnIJNhTCxDw",
+      "original_url": "https://www.youtube.com/watch?v=YnIJNhTCxDw",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 460,
+      "cached_title": "Make It Yours - AI Fashion Commercial",
+      "cached_uploader_claim": "Çağlasın Yılmaz",
+      "cached_description_verbatim": "I delved into the new exciting update of Runway 2, and the results are incredibly promising!  Ad that showcases the potential for AI to revolutionize the commercial industry. From stunning visuals to new creative possibilities, this is a sneak peek into the future of AI-powered style and creativity.",
+      "production_music_genre_claim_excerpts": [
+        "I delved into the new exciting update of Runway 2, and the results are incredibly promising!  Ad that showcases the potential for AI to revolutionize the commercial industry. From stunning visuals to new creative possibilities, this is a sneak peek into the future of AI-powered style and creativity."
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V033.txt",
+        "caption_text": "[Music] I love the way my mov the I love the way you're slowly getting close to me I love the way my I the way the Way's the",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 32,
+      "cache_object_line_bounds": [
+        450,
+        463
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:450-463 (id=YnIJNhTCxDw; description L460)"
+    },
+    {
+      "id": "V034",
+      "archive_id": "sha256:d37df01766f126d07e7c3a989cdb7396c211bcb0289ab81742b9f1f1e50ef255",
+      "filename": "McDonald's AI Commercial： A Taste of Tomorrow.mp4",
+      "original_video_id": "cO_-H9_MdAA",
+      "original_url": "https://www.youtube.com/watch?v=cO_-H9_MdAA",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 82,
+      "cached_title": "McDonald's AI Commercial: A Taste of Tomorrow",
+      "cached_uploader_claim": "MetaPuppet",
+      "cached_description_verbatim": "Hey @McDonalds here's how to make a commercial with AI\n\nImages: Midjourney and Magnific\nvideo: @lumalabsai  and @RunwayML \naudio: @Elevenlabs \n music: Suno and Udio\npost production: @Adobe \n \nWritten and Edited by: A human (me)\n\n#dreammachine  #commercial  #mcdonalds #runwayai  #ai  #generativeai  #aivideogenerator  #aivideoeditor #aicommercial #foodcommercials #food",
+      "production_music_genre_claim_excerpts": [
+        "Images: Midjourney and Magnific",
+        "video: @lumalabsai  and @RunwayML ",
+        "audio: @Elevenlabs ",
+        " music: Suno and Udio",
+        "post production: @Adobe ",
+        "#dreammachine  #commercial  #mcdonalds #runwayai  #ai  #generativeai  #aivideogenerator  #aivideoeditor #aicommercial #foodcommercials #food"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V034.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 5,
+      "cache_object_line_bounds": [
+        72,
+        85
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:72-85 (id=cO_-H9_MdAA; description L82)"
+    },
+    {
+      "id": "V035",
+      "archive_id": "sha256:4039766c6e46308a8156ffb8c84381bb2b63f459237257e818278ea2fe732fda",
+      "filename": "Planet Mountain Dew - AI Made TV Ad.mp4",
+      "original_video_id": "iCR1OmL-8Ys",
+      "original_url": "https://www.youtube.com/watch?v=iCR1OmL-8Ys",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 40,
+      "cached_title": "Planet Mountain Dew - AI Made TV Ad",
+      "cached_uploader_claim": "Dankchungus",
+      "cached_description_verbatim": "Watch out for yellow bottles\n\nPut vid requests in the comments\n\nMerch: https://dankchungus.printify.me/products\n\nFace stuff by D-ID\nVoices by Eleven Labs\nBeat by https://www.youtube.com/@KaiserBeatz\n\n#ai #aiart #balenciaga #midjourney #bigchungus #large #gaming #progamer #mountaindew #elevenlabs #planet #space #scifi #green #highfashion #plumbing #toilet #lamborghini #gucci #versace #plasticbottle",
+      "production_music_genre_claim_excerpts": [
+        "Face stuff by D-ID",
+        "Voices by Eleven Labs",
+        "Beat by https://www.youtube.com/@KaiserBeatz",
+        "#ai #aiart #balenciaga #midjourney #bigchungus #large #gaming #progamer #mountaindew #elevenlabs #planet #space #scifi #green #highfashion #plumbing #toilet #lamborghini #gucci #versace #plasticbottle"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V035.txt",
+        "caption_text": "foreign [Music] Wormhole closes in five minutes what planet are you guys from Planet Mountain Dew the place where all your dreams come true [Music] all right [Music] so do your toilets use Mountain Dew water no we pee in plastic bottles",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 2,
+      "cache_object_line_bounds": [
+        30,
+        43
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:30-43 (id=iCR1OmL-8Ys; description L40)"
+    },
+    {
+      "id": "V036",
+      "archive_id": "sha256:472107fda5d8ad9583a354127f870b3d23b11cd3f546e9413401d483e095aa72",
+      "filename": "Plum Delight Perfume Commercial made with AI on a smartphone..mp4",
+      "original_video_id": "Ym2OIDcXaGA",
+      "original_url": "https://www.youtube.com/watch?v=Ym2OIDcXaGA",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 446,
+      "cached_title": "Plum Delight Perfume Commercial made with AI on a smartphone.",
+      "cached_uploader_claim": "Michael Heina",
+      "cached_description_verbatim": "Credits:\n\nImages by: Midjourney\nAnimation by: @PixVerse_Official\nMusic: \"Perfumed\" by Finetune\nVideo editing by: @CapCutofficial\n\n🌟 Subscribe now and be part of my journey into the future of digital AI creativity.\n\n#AIArt #aivideoart #DigitalCreativity #Midjourney #PixVerse #CapCut",
+      "production_music_genre_claim_excerpts": [
+        "Images by: Midjourney",
+        "Animation by: @PixVerse_Official",
+        "Music: \"Perfumed\" by Finetune",
+        "Video editing by: @CapCutofficial",
+        "#AIArt #aivideoart #DigitalCreativity #Midjourney #PixVerse #CapCut"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V036.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 31,
+      "cache_object_line_bounds": [
+        436,
+        449
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:436-449 (id=Ym2OIDcXaGA; description L446)"
+    },
+    {
+      "id": "V037",
+      "archive_id": "sha256:3a4fa5da93a1daf37f1246ce4953afb362fdd606f250033f1ddd104cd2c4a5d5",
+      "filename": "Porsche Cayenne Coupé Electric ｜ Cinematic AI Commercial Video.mp4",
+      "original_video_id": "LJcn4LgHXCc",
+      "original_url": "https://www.youtube.com/watch?v=LJcn4LgHXCc",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 498,
+      "cached_title": "Porsche Cayenne Coupé Electric | Cinematic AI Commercial Video",
+      "cached_uploader_claim": "DIN FILMS",
+      "cached_description_verbatim": "This video made by Seedance 2.0 and kling 3.0, Higgsfield\n\nOver the past few months, I've been exploring and researching new methods of video production. This video is the result of that research — everything you see was generated entirely by AI. The locations, the model, none of it exists in the real world. Every single element was created by artificial intelligence. What do you think? AI has advanced to a remarkably practical level, and the day it's widely used in commercial video production may not be far off. If you'd like to know how this was made, please leave a comment and hit the like button!\n\n#ai #aivideo #higgsfield #seedance2 #klingai #porsche #cayennecoupe \n\n\n \n僕はここ数ヶ月新たな映像制作の方法を探って研究していました。この動画はその研究結果であり全てAIで生成されています。ロケーションもモデルもこの世のには存在しません。全てAIによって生成されたものです。いかがでしょうか？かなり実用レベルにAIは発達してきおり、こうやってコマーシャルビデオとかで使われる日は近いかもしれません。この動画の作り方を知りたい人はコメントといいねお願いします！\n\n《MY OFFICIAL Luts》\nhttps://dinfilms.com/din-powergrade-2023\n\n《Music》\nArtlist : https://artlist.io/artlist-70446?artlist_aid=DINFILMS_1112&utm_source=affiliate_p&utm_medium=DINFILMS_1112&utm_campaign=DINFILMS_1112\n\n\n\n《MY OFFICIAL WEBSITE》\nhttps://dinfilms.com/\n\n\n《FOLLOW ME》\nhttps://www.instagram.com/din_films/\nhttps://twitter.com/din_films\n\n\n\n\n《My Gear (Amazon Links) 》\n・Sony A7S3 : https://amzn.to/47hLon2\n・DJI Mavic 3 Cine : https://amzn.to/3uJmD3J\n・DJI RS3 Pro : https ://amzn.to/3uKamfq\n・Hollyland Mars M1 : https://amzn.to/47cDQlb\n・NiSi ND Filter : https://amzn.to/3s4CTIR\n・Sennheiser MKE600 : https://amzn.to/4aaYy6d\n・RODE VideoMic Pro+ : https://amzn.to/3hbUmZv\n\n\n\n《WORK》\nyuya.harada070626@gmail.com",
+      "production_music_genre_claim_excerpts": [
+        "This video made by Seedance 2.0 and kling 3.0, Higgsfield",
+        "Over the past few months, I've been exploring and researching new methods of video production. This video is the result of that research — everything you see was generated entirely by AI. The locations, the model, none of it exists in the real world. Every single element was created by artificial intelligence. What do you think? AI has advanced to a remarkably practical level, and the day it's widely used in commercial video production may not be far off. If you'd like to know how this was made, please leave a comment and hit the like button!",
+        "#ai #aivideo #higgsfield #seedance2 #klingai #porsche #cayennecoupe ",
+        "《MY OFFICIAL Luts》",
+        "《Music》",
+        "《MY OFFICIAL WEBSITE》"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V037.txt",
+        "caption_text": "Every journey begins with a choice. Choose electric. Choose Porsche. Formula E derived technology, now in your hands. In silence lies overwhelming power. The world doesn't stop, neither do you. Porsche Cayenne electric.",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 36,
+      "cache_object_line_bounds": [
+        488,
+        501
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:488-501 (id=LJcn4LgHXCc; description L498)"
+    },
+    {
+      "id": "V038",
+      "archive_id": "sha256:3b871d25cb3a47e428a680b16f53b8d9e06bd4be07440975c4c8f763f435859e",
+      "filename": "Sephora - PURE EDGE ｜ #AI spec ad ｜ Google Veo 2.mp4",
+      "original_video_id": "ZoEvwdlIl5M",
+      "original_url": "https://www.youtube.com/watch?v=ZoEvwdlIl5M",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 404,
+      "cached_title": "Sephora - PURE EDGE | #AI spec ad | Google Veo 2",
+      "cached_uploader_claim": "Çağlasın Yılmaz",
+      "cached_description_verbatim": "A spec ad for @Sephora 's imaginary new series, PURE EDGE, created as part of a Google Veo2 test. \n\n#ai #aifilm #aiadvertising #veo2 #google",
+      "production_music_genre_claim_excerpts": [
+        "A spec ad for @Sephora 's imaginary new series, PURE EDGE, created as part of a Google Veo2 test. ",
+        "#ai #aifilm #aiadvertising #veo2 #google"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V038.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 28,
+      "cache_object_line_bounds": [
+        394,
+        407
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:394-407 (id=ZoEvwdlIl5M; description L404)"
+    },
+    {
+      "id": "V039",
+      "archive_id": "sha256:12f56e9bfbd4daa145553f98f18633ec6550d06bcf0156f3212b39fcf4a897ba",
+      "filename": "Spec Headphone Ad ｜ AI Ads ｜ Xanadu Studio.mp4",
+      "original_video_id": "QS566P88VVs",
+      "original_url": "https://www.youtube.com/watch?v=QS566P88VVs",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 152,
+      "cached_title": "Spec Headphone Ad | AI Ads | Xanadu Studio",
+      "cached_uploader_claim": "Xanadu Studio",
+      "cached_description_verbatim": "He steps into the studio and the world feels loud.\nExpectations. Distractions. Doubt.\n\nThen he puts on the headphones.\n\nThe noise fades.\nThe music takes over.\nAnd in that quiet focus, something shifts.\n\nWhat follows isn’t just a performance — it’s release, rhythm, and joy.\nThe room responds. The energy changes.\nMusic does what it always has: it cuts through everything else.\n\nThis film is a spec ad for a fictitious brand, created entirely using AI at Xanadu's AI Studio.\n\nWe built this to move beyond flashy AI clips and demonstrate production-grade AI filmmaking, where the usual failure points are deliberately solved:\n\n• Consistent characters and faces across shots\n• Natural, real-world motion (no floatiness or visual artifacts)\n• Stable environments with spatial and shot continuity\n• Believable lighting, materials, and shadows\n• Cinematic composition and pacing suitable for long-form narratives\n\nThe same workflows extend seamlessly across ads, micro-dramas, and longer narrative formats — enabling brands and studios to create more content, faster, and at a fraction of traditional production costs.\n\nThis is not a finished destination — it’s proof of what’s now possible.",
+      "production_music_genre_claim_excerpts": [
+        "He steps into the studio and the world feels loud.",
+        "The music takes over.",
+        "Music does what it always has: it cuts through everything else.",
+        "This film is a spec ad for a fictitious brand, created entirely using AI at Xanadu's AI Studio.",
+        "• Consistent characters and faces across shots",
+        "The same workflows extend seamlessly across ads, micro-dramas, and longer narrative formats — enabling brands and studios to create more content, faster, and at a fraction of traditional production costs."
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V039.txt",
+        "caption_text": "[music] &gt;&gt; Sometimes life gets too hard. All you have to do &gt;&gt; [music] &gt;&gt; is cut out the noise. &gt;&gt; [music] [music] &gt;&gt; To silence delivered. Active noise cancellation adapts in real-time, wiping out distractions so only your music remains.",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 10,
+      "cache_object_line_bounds": [
+        142,
+        155
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:142-155 (id=QS566P88VVs; description L152)"
+    },
+    {
+      "id": "V040",
+      "archive_id": "sha256:ab437ae5fad0bc413cfe16dc9fbd5d9428094f12228f7a654280b1285bb555d5",
+      "filename": "The Future ｜ Tesla Cybertruck ｜ AI Spec Ad.mp4",
+      "original_video_id": "bWF2AnQtyBs",
+      "original_url": "https://www.youtube.com/watch?v=bWF2AnQtyBs",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 596,
+      "cached_title": "The Future | Tesla Cybertruck | AI Spec Ad",
+      "cached_uploader_claim": "Dime Labs",
+      "cached_description_verbatim": "Some fear change. Others build it.\n-\n-\nThis one’s been a long time coming 🤘🏻\nEver since buying my Cybertruck back in January 2025, I knew I wanted to make a spec with it. Back in March, I wrote this script, storyboarded the entire thing, and tucked it away until I had the time to do it justice.\n\nSo when @InVideoOfficial  reached out and asked if I’d be down to put their platform through the wringer, it felt like the perfect moment to finally bring this idea to life.\n\nThis project took just under two weeks and easily over 1000 generations to complete 🫠\nEasily one of the most patience-testing things I’ve made yet… but I’m stoked to finally see this concept come to life.\n\nThis isn’t just about a truck, it’s about the future of creation itself.\n\nBe on the lookout for some BTS content from this project 👀\n\n🛠️TOOLS USED🛠️\nAI PLATFORM: @InVideoOfficial  \nPhoto Gen: Nano Banana 🍌\nUpscaler: @magnific.ai\nVideo Gen: @Kling_ai  2.5, @Hailuoai_MiniMax  2.3, Veo 3.1\nMusic: @themusicbed \nVoice: @Elevenlabs \nSFX: @ocularsounds \nColor: @Dehancer \nEdit: @Adobe  Premiere Pro\n\nTRY INVIDEO TODAY\nhttps://invideo.io/i/KARSTEN116\n\nFREE 14 DAY FREE TRIAL TO MUSICBED\nhttps://fm.pxf.io/karsten-freetrial\n-\n-\n#invideo #invideoai #ai #aivideo #aiart #tesla #cybertruck #teslacybertruck #ev #kling #klingai #nanobanana #hailuo #hailuoai #musicbed #aifilmmaking #aifilm #iceland #iceland🇮🇸 #elon #elonmusk @tesla",
+      "production_music_genre_claim_excerpts": [
+        "Ever since buying my Cybertruck back in January 2025, I knew I wanted to make a spec with it. Back in March, I wrote this script, storyboarded the entire thing, and tucked it away until I had the time to do it justice.",
+        "So when @InVideoOfficial  reached out and asked if I’d be down to put their platform through the wringer, it felt like the perfect moment to finally bring this idea to life.",
+        "Easily one of the most patience-testing things I’ve made yet… but I’m stoked to finally see this concept come to life.",
+        "🛠️TOOLS USED🛠️",
+        "AI PLATFORM: @InVideoOfficial  ",
+        "Video Gen: @Kling_ai  2.5, @Hailuoai_MiniMax  2.3, Veo 3.1",
+        "Music: @themusicbed ",
+        "Voice: @Elevenlabs ",
+        "Edit: @Adobe  Premiere Pro",
+        "FREE 14 DAY FREE TRIAL TO MUSICBED",
+        "#invideo #invideoai #ai #aivideo #aiart #tesla #cybertruck #teslacybertruck #ev #kling #klingai #nanobanana #hailuo #hailuoai #musicbed #aifilmmaking #aifilm #iceland #iceland🇮🇸 #elon #elonmusk @tesla"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V040.txt",
+        "caption_text": "The future doesn't wait. It doesn't ask if you're ready. It moves forward with or without you. Some fear change. Others build it stronger, faster, unbreakable. The future isn't coming. It's already here.",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 43,
+      "cache_object_line_bounds": [
+        586,
+        599
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:586-599 (id=bWF2AnQtyBs; description L596)"
+    },
+    {
+      "id": "V041",
+      "archive_id": "sha256:6c21cb4399bc8bc959028d387d566c7845bc226de30d94d84021042347b43c0a",
+      "filename": "This Liquid Death Commercial Was Made by AI—And It Slaps.mp4",
+      "original_video_id": "FYFNJZMpaes",
+      "original_url": "https://www.youtube.com/watch?v=FYFNJZMpaes",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 208,
+      "cached_title": "This Liquid Death Commercial Was Made by AI—And It Slaps",
+      "cached_uploader_claim": "MeatingAI",
+      "cached_description_verbatim": "💀 Liquid Death x Google Veo 3 | AI-Generated Brilliance in a Bottle 🍔 This isn't your average ad—this is Liquid Death resurrected by generative AI. Every second of this 1:01 commercial was created using Google Veo 3, pushing the limits of machine-powered creativity and commercial storytelling.\n\n⚡ Seamless transitions, punchy visuals, and wild imagination 🎨 Creative Direction: Amir Ariely 🎛️ Color Correction: Ilan Bouni 👥 Produced by: Too Short for Modeling\n\nFrom burger-fueled chaos to corporate satire, this Veo-rendered ride is a testament to what happens when AI and irreverent genius collide.\n\n🔁 Rewatch. Share. Question reality.\n\n#LiquidDeath #GoogleVeo #AIGenerated #CreativeAI #TooShortForModeling #Veo3Magic #AICreativity",
+      "production_music_genre_claim_excerpts": [
+        "💀 Liquid Death x Google Veo 3 | AI-Generated Brilliance in a Bottle 🍔 This isn't your average ad—this is Liquid Death resurrected by generative AI. Every second of this 1:01 commercial was created using Google Veo 3, pushing the limits of machine-powered creativity and commercial storytelling.",
+        "From burger-fueled chaos to corporate satire, this Veo-rendered ride is a testament to what happens when AI and irreverent genius collide.",
+        "#LiquidDeath #GoogleVeo #AIGenerated #CreativeAI #TooShortForModeling #Veo3Magic #AICreativity"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V041.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 14,
+      "cache_object_line_bounds": [
+        198,
+        211
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:198-211 (id=FYFNJZMpaes; description L208)"
+    },
+    {
+      "id": "V042",
+      "archive_id": "sha256:efb5daac295e192c730161110c427ffa17887b11e99e8e3e912ec8638ffb7df7",
+      "filename": "TO FLOAT OR TO SWIM ｜ NIKE - Spec Ad Made WITH AI!.mp4",
+      "original_video_id": "eAorx4VEiRQ",
+      "original_url": "https://www.youtube.com/watch?v=eAorx4VEiRQ",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 474,
+      "cached_title": "TO FLOAT OR TO SWIM | NIKE - Spec Ad Made WITH AI!",
+      "cached_uploader_claim": "Bright Sky Studios",
+      "cached_description_verbatim": "I recently dove into the world of AI to create a Nike Waterproof spec ad. I used MidJourney V.6 for the photo generation, Runway for the video motion, and Eleven Labs for the voiceover. The possibilities with AI are mind-blowing, and it's exciting to think about how this technology can empower artists like myself to create amazing projects without needing a Hollywood budget.\n\nIt's a bit scary to see how fast AI is advancing, but I believe it's going to revolutionize the creative industry. We're on the brink of a dramatic change, and I'm here for it. Embracing AI now means we can use it to our advantage before it's too late. This is just the beginning, and I can't wait to see what's next on this new adventure. \n\nWelcome to our latest video, where we dive into the cutting-edge world of AI animation, AI film, and AI video. In this episode, we showcase three incredible examples of how we've used MidJourney AI to create mesmerizing images and then brought them to life using the innovative technology of RunwayML.\n\nFrom the initial concept to the final animation, we take you through each step of the process, highlighting the seamless integration of these AI tools. Witness the transformation of static art into dynamic motion, as we explore the endless possibilities that AI brings to the realm of digital storytelling.\n\nWhether you're a tech enthusiast, an artist looking to explore new mediums, or simply curious about the future of animation, this video is sure to inspire and amaze. Don't forget to like, comment, and subscribe for more content that pushes the boundaries of creativity and technology.\n\nAnyway this Nike Commercial Spec Ad was inspired my last trip to New York City and I hope you enjoy! \n\n#NikeSpecAd #aiinart  #midjourney  #runwayai  #elevenlabs  #artificialintellige",
+      "production_music_genre_claim_excerpts": [
+        "I recently dove into the world of AI to create a Nike Waterproof spec ad. I used MidJourney V.6 for the photo generation, Runway for the video motion, and Eleven Labs for the voiceover. The possibilities with AI are mind-blowing, and it's exciting to think about how this technology can empower artists like myself to create amazing projects without needing a Hollywood budget.",
+        "Welcome to our latest video, where we dive into the cutting-edge world of AI animation, AI film, and AI video. In this episode, we showcase three incredible examples of how we've used MidJourney AI to create mesmerizing images and then brought them to life using the innovative technology of RunwayML.",
+        "From the initial concept to the final animation, we take you through each step of the process, highlighting the seamless integration of these AI tools. Witness the transformation of static art into dynamic motion, as we explore the endless possibilities that AI brings to the realm of digital storytelling.",
+        "Whether you're a tech enthusiast, an artist looking to explore new mediums, or simply curious about the future of animation, this video is sure to inspire and amaze. Don't forget to like, comment, and subscribe for more content that pushes the boundaries of creativity and technology.",
+        "Anyway this Nike Commercial Spec Ad was inspired my last trip to New York City and I hope you enjoy! ",
+        "#NikeSpecAd #aiinart  #midjourney  #runwayai  #elevenlabs  #artificialintellige"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V042.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 33,
+      "cache_object_line_bounds": [
+        464,
+        477
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:464-477 (id=eAorx4VEiRQ; description L474)"
+    },
+    {
+      "id": "V043",
+      "archive_id": "sha256:428e66d8b88db87fc813ba1d0278185bacc8712702d380c42f1d6e2594a723e3",
+      "filename": "Travis Scott Video Ads Made with AI for Nike.mp4",
+      "original_video_id": "xLnrdf_SKdA",
+      "original_url": "https://www.youtube.com/watch?v=xLnrdf_SKdA",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 418,
+      "cached_title": "Travis Scott Video Ads Made with AI for Nike",
+      "cached_uploader_claim": "Mejor llama a Javier",
+      "cached_description_verbatim": "Read the full news here: https://mejorllamaavier.medium.com/travis-scott-revolutionizes-advertising-with-ai-generated-ads-for-nike-2a5eb993901a\nLee el artículo en Español aquí: https://mejorllamaajavier.substack.com/p/travis-scott-revoluciona-la-publicidad",
+      "production_music_genre_claim_excerpts": [
+        "Read the full news here: https://mejorllamaavier.medium.com/travis-scott-revolutionizes-advertising-with-ai-generated-ads-for-nike-2a5eb993901a"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_TEXT_AUTO_UNTIMED",
+        "raw_evidence": "evidence/provenance-original-V043.txt",
+        "caption_text": "[Music] feel nice landing welcome to the factory now hold on we've been making the sickest shoes for years and I'm here to show you look at all those shoes man you see that machine invented by Travis himself One of a Kind before your shoes went through it they was PR chocolate I bet you never seen a shoe this sweet let's go look out oh the rare cocoa Cactus where we get our chocolate from and when you look at that the first one ever going anyway check this out not that's more like it damn it damn Dennis it's third time this week bro oh what up welcome to the factory",
+        "timing": "UNTIMED",
+        "auto_generated": true,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 29,
+      "cache_object_line_bounds": [
+        408,
+        421
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:408-421 (id=xLnrdf_SKdA; description L418)"
+    },
+    {
+      "id": "V044",
+      "archive_id": "sha256:58a85e3f5493a50745e82f7ee641ed396825d321e66f2df3b5bfa53b8a28d5df",
+      "filename": "Volvo - For Life ⧸⧸ AI generated spec commercial.mp4",
+      "original_video_id": "TLxpfN23fGA",
+      "original_url": "https://www.youtube.com/watch?v=TLxpfN23fGA",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 138,
+      "cached_title": "Volvo - For Life // AI generated spec commercial",
+      "cached_uploader_claim": "László Gaál ",
+      "cached_description_verbatim": "Idea, prompting, post-production by me. This is a fan-made spec ad and not an official Volvo advertisement.\n\nThis is a test for trying out the RunwayML Gen-3 Alpha model for commercial purpouses.\nAll the shots are generated with RunwayML using text-to-video, some small details were retouched in AE after the edit was done (logo, license plate, or if I really liked a shot but there were two cars present, etc).\n\nAltogether I spent less than 24 hours working on this video - Gen3 is only out since 1.5 day ago - this includes generating the clips, selecting them, editing them to a coherent story, retouching and sound design.\n\nIs this a big step-up from Gen-2? Definitely! Gen-2 was a great experiment but Gen-3 is something that will change the industry. Pricing wise some people say it's expensive but I think if you go for the unlimited plan it's worth the money.\n\nI just can't wait for the feature updates including image prompting and director mode!\n\ninstagram link: https://www.instagram.com/p/C8_e6uCo8kW/\n\n#ai #runwayml #gen3alpha #runwaygen3 #runwaygen3alpha ‪@RunwayML‬  #ai #aifilm #aifilmmaking #volvo ‪@VolvoCars‬",
+      "production_music_genre_claim_excerpts": [
+        "Idea, prompting, post-production by me. This is a fan-made spec ad and not an official Volvo advertisement.",
+        "This is a test for trying out the RunwayML Gen-3 Alpha model for commercial purpouses.",
+        "All the shots are generated with RunwayML using text-to-video, some small details were retouched in AE after the edit was done (logo, license plate, or if I really liked a shot but there were two cars present, etc).",
+        "#ai #runwayml #gen3alpha #runwaygen3 #runwaygen3alpha ‪@RunwayML‬  #ai #aifilm #aifilmmaking #volvo ‪@VolvoCars‬"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V044.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 9,
+      "cache_object_line_bounds": [
+        128,
+        141
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:128-141 (id=TLxpfN23fGA; description L138)"
+    },
+    {
+      "id": "V045",
+      "archive_id": "sha256:06d7c4dd6452e65e2576d1655256f3ea4b8ae69c539adab901806818318e8da1",
+      "filename": "Zara AI Spec Ad.mp4",
+      "original_video_id": "a4SbLFW-UzI",
+      "original_url": "https://www.youtube.com/watch?v=a4SbLFW-UzI",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 250,
+      "cached_title": "Zara AI Spec Ad",
+      "cached_uploader_claim": "The Dor Brothers",
+      "cached_description_verbatim": "The future is here! 🤖🔥\n\nWe just experimented with AI to create a @zara  spec ad, and the possibilities are mind-blowing! 🤯💯\n\nWe believe that at this point it's obvious that AI video production will play a big role in the industry. \n\n#aifashion #aiart #aiad #aigenerated #midjourney #stablediffusion #magnificai #runway",
+      "production_music_genre_claim_excerpts": [
+        "We just experimented with AI to create a @zara  spec ad, and the possibilities are mind-blowing! 🤯💯",
+        "#aifashion #aiart #aiad #aigenerated #midjourney #stablediffusion #magnificai #runway"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V045.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 17,
+      "cache_object_line_bounds": [
+        240,
+        253
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:240-253 (id=a4SbLFW-UzI; description L250)"
+    },
+    {
+      "id": "V046",
+      "archive_id": "sha256:95dcba96aef25c6cf3d4e7197ed15aa4202f2d60ab93655fb19655c170d3cd12",
+      "filename": "결혼식 웨딩 플랫폼 AI광고를 제작했습니다.mp4",
+      "original_video_id": "opYdtpFl3aI",
+      "original_url": "https://www.youtube.com/watch?v=opYdtpFl3aI",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 432,
+      "cached_title": "결혼식 웨딩 플랫폼 AI광고를 제작했습니다",
+      "cached_uploader_claim": "영상독학",
+      "cached_description_verbatim": "https://open.kakao.com/o/gN0O5Vki\n영상 / 광고 / AI에 대해 함께 공부하고 공유하는 오픈채팅방입니다.\n함께 성장하실 분들 들어오세요\n\n*비즈니스 / 영상제작문의\n메일 rteat4670@naver.com\n인스타 https://www.instagram.com/woongfilm_/\n홈페이지 woongfilm.com\n\n*영상독학 패스트캠퍼스 AI광고영상 제작강의\nhttps://fastcampus.info/4gTMwm7\n쿠폰코드 - 영상독학3\n(위 코드 입력하시면 할인 받으실 수 있습니다)",
+      "production_music_genre_claim_excerpts": [],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V046.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 30,
+      "cache_object_line_bounds": [
+        422,
+        435
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:422-435 (id=opYdtpFl3aI; description L432)"
+    },
+    {
+      "id": "V047",
+      "archive_id": "sha256:03fd7549cac2a33f16339cda539b76ed4fac994c3bf3f3a79a6000c6f3d008b0",
+      "filename": "오설록 AI광고 제작했습니다 _ 아모레퍼시픽 공모전출품.mp4",
+      "original_video_id": "StQ-K6KzoUA",
+      "original_url": "https://www.youtube.com/watch?v=StQ-K6KzoUA",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 264,
+      "cached_title": "오설록 AI광고 제작했습니다 _ 아모레퍼시픽 공모전출품",
+      "cached_uploader_claim": "영상독학",
+      "cached_description_verbatim": "https://open.kakao.com/o/ghDFgKbi\n영상 / 광고 / AI에 대해 함께 공부하고 공유하는 오픈채팅방입니다.\n함께 성장하실 분들 들어오세요\n\n*비즈니스 / 영상제작문의\n메일 rteat4670@naver.com\n인스타 https://www.instagram.com/woongfilm_/\n홈페이지 woongfilm.com\n\n*영상독학 패스트캠퍼스 AI광고영상 제작강의\nhttps://fastcampus.info/4gTMwm7\n쿠폰코드 - 영상독학3\n(위 코드 입력하시면 할인 받으실 수 있습니다)",
+      "production_music_genre_claim_excerpts": [],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V047.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 18,
+      "cache_object_line_bounds": [
+        254,
+        267
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:254-267 (id=StQ-K6KzoUA; description L264)"
+    },
+    {
+      "id": "V048",
+      "archive_id": "sha256:45d7ca847d384b532a9e5b0d2f3a0bd1fcc0a164d6bc155a630f44cd0592b348",
+      "filename": "＂Floral＂ by ADIDAS - AI Spec AD.mp4",
+      "original_video_id": "VfKDzZybjiA",
+      "original_url": "https://www.youtube.com/watch?v=VfKDzZybjiA",
+      "join_method": "unique NFKC casefold alphanumeric title (extension removed)",
+      "join_candidates": 1,
+      "cached_at": "2026-10-12",
+      "cache_path": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12\\public_metadata.json",
+      "cache_description_line": 96,
+      "cached_title": "\"Floral\" by ADIDAS - AI Spec AD",
+      "cached_uploader_claim": "RabbitHole",
+      "cached_description_verbatim": "Would you buy @adidas's new \"Floral\" line? \n\nAI tools used in the making of this:\n\nRunwayML\nMidjourney\nAdobe creative suite\nUpscaled by Topaz (The best upscale tool on the market)\n🙏 If you're interested in purchasing Topaz, we would be infinitely grateful if you ordered through this link to help us out.\n➜ https://topazlabs.com/ref/2509/\n\nMusic by: @megantheestallion \nThis track is what inspired the making of this ad.\n\nMegan Thee Stallion - Mamushi (feat. Yuki Chiba)\nhttps://www.youtube.com/watch?v=OdxSbc0ap-s\n\n-----------------------------------------------------------------------------------------------------------------\n#aiart #runway#runwaygen #aifilm #aiartcommunity #sora #luma #midjourney #aiartist #ai #aitools #adidas #nike",
+      "production_music_genre_claim_excerpts": [
+        "AI tools used in the making of this:",
+        "RunwayML",
+        "Midjourney",
+        "Adobe creative suite",
+        "Upscaled by Topaz (The best upscale tool on the market)",
+        "🙏 If you're interested in purchasing Topaz, we would be infinitely grateful if you ordered through this link to help us out.",
+        "➜ https://topazlabs.com/ref/2509/",
+        "Music by: @megantheestallion ",
+        "This track is what inspired the making of this ad.",
+        "#aiart #runway#runwaygen #aifilm #aiartcommunity #sora #luma #midjourney #aiartist #ai #aitools #adidas #nike"
+      ],
+      "original_url_attempt": {
+        "access_date": "2026-10-12",
+        "method": "functions.read / youtube",
+        "status": "CAPTION_UNAVAILABLE_READER",
+        "raw_evidence": "evidence/provenance-original-V048.txt",
+        "caption_text": null,
+        "timing": "UNTIMED",
+        "auto_generated": false,
+        "listening": false
+      },
+      "limitations": [
+        "uploader identity/process not independently authenticated",
+        "caption words may be mistranscribed lyrics or hallucinations",
+        "untimed captions do not certify VO onsets or sonic texture",
+        "cache description can be truncated; preserved as cached"
+      ],
+      "cache_object_index": 6,
+      "cache_object_line_bounds": [
+        86,
+        99
+      ],
+      "cache_locator": "C:\\Users\\Declan\\Documents\\Resources\\ai_ad_references_2026-10-12/public_metadata.json:86-99 (id=VfKDzZybjiA; description L96)"
+    }
+  ]
+}

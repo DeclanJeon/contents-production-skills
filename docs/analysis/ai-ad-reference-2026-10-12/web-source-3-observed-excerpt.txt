@@ -1,0 +1,2 @@
+it is impossible to determine the actual feature points in space due to a lack of information.
+But you still have to know approximate initial values –

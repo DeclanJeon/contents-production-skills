@@ -1,0 +1,30 @@
+{
+  "method": "Manually inspect actual fresh-context outputs against existing consumer field contracts and conditional behavior. Record observed result, exact response excerpt/location, and limits; no regex-only success criterion or numerical improvement claim.",
+  "comparison": {
+    "baseline": "Same original three briefs, current baseline captured before implementation",
+    "updated": "Same original three briefs, fresh context after integration snapshot",
+    "variation": "Independent F2/H2/V2/E2 briefs, no baseline responses or approved design supplied to consumer"
+  },
+  "criteria": [
+    {"id":"copy_action","observable":"An original line is mapped to a concrete event or explicitly chosen metaphor and onset/settle/read/exit relationship, not text merely pasted over unrelated beauty shots."},
+    {"id":"canonical_owner_fields","observable":"Requested product/state/motion/shot/edit/evidence handoffs populate named existing template rows or columns with internally consistent IDs and complete relevant object states through the requested sequence. Each final cut has its own row with scalar numeric `final_start_s` and `final_end_s`; no multi-cut range expression or invented paraphrase/pseudo-field substitutes for an owner slot. N/A is conditionally justified."},
+    {"id":"product_world","observable":"Selected attributes map to world/material/body while exact product identity is preserved and returned to legible hero; no efficacy inference."},
+    {"id":"match_choice","observable":"Where matching or transition is used, identify source/destination anchors and compare cut/dissolve/morph/mask alternatives rather than require fancy effect."},
+    {"id":"contact_state","observable":"Approach/contact/change/release/settle/residue and actor ownership have existing state/motion slots; interval evidence remains unverified without media."},
+    {"id":"inherited_state","observable":"Occlusion does not end an inherited residue obligation; reappearance and explicit reset/decay condition are recorded."},
+    {"id":"spatial_path","observable":"Entry/path/threshold/landmark/amenity use/return are coherent and fictional layout is not promoted to measured floorplan or real offer."},
+    {"id":"performance","observable":"Playable actor target/partner/stimulus/reaction/tactic or consequence is separated from face-based satisfaction/personality assertions."},
+    {"id":"pov_scale","observable":"Observer anchor, view changes/cuts versus phases, impossible-scale cue and orientation/ordinary topology recovery are explicit."},
+    {"id":"vehicle_conditions","observable":"No-slip only applies to the declared supported rolling condition; fantasy levitation and intentional locked-wheel sliding are not automatically failed against rolling constraints."},
+    {"id":"vehicle_aliasing","observable":"Still-only spoke reversal/stasis is not enough for failure; compare multi-frame body/ground/camera/contact/shadow/reflection/wheel evidence with aliasing alternatives."},
+    {"id":"reflection_type","observable":"Light/highlight and reflection masking/foreground occlusion preserve label and exact artwork; selected read window is observable and not random bloom repair."},
+    {"id":"persuasion_cta","observable":"Claim/proof/meaning/read hierarchy is explicit, unrequested CTA is N/A with reason, required offer/CTA would retain its own reading/legal hold."},
+    {"id":"pipeline_evidence","observable":"Uploader declaration/remaster/generated insert/post and direct observed evidence are not conflated; actual model/rights metadata is not invented."},
+    {"id":"sensory_hierarchy","observable":"Main/secondary view or inset/scale disclosure has eye-trace/read hierarchy and does not erase continuous narrative or imply all panels are same time/world."},
+    {"id":"source_locators","observable":"Request time and actual PTS remain separate; candidate/block/scene/shot/action identities differ; no verified SH or exact boundary from unresolved candidate."},
+    {"id":"audio_claim_rights","observable":"Untimed auto captions/unheard VO/ASR and creator metadata are not heard sync, true claims, reuse rights or approval."},
+    {"id":"actual_media_gate","observable":"Plans remain draft/unverified; no real media quality pass, rendered output, final package, approval or sensory verification is fabricated."},
+    {"id":"clean_cutover","observable":"All 12 recipe families resolve through existing owner refs, templates and skill pointers; no competing global ledger, forced enum or obligatory CTA/cut-count/3D route."}
+  ],
+  "reporting": "Separate fully observed, partial, contradicted, not exercised and unavailable outcomes. A text plan success is not final-video success. Package test output does not decide semantic craft, lawfulness or actual audiovisual quality. Do not imply five-repetition/causal improvement evidence from single samples."
+}

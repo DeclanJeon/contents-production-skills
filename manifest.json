@@ -1,6 +1,6 @@
 {
   "name": "contents-production-skills",
-  "version": "2.5",
+  "version": "2.7",
   "entry_skill": "creative-production",
   "support_skill": "video-production-assets",
   "skills": [
@@ -26,7 +26,8 @@
     "higgsfield-video-explainer",
     "higgsfield-video-replicate",
     "higgsfield-websites",
-    "higgsfield-youtube-thumbnail"
+    "higgsfield-youtube-thumbnail",
+    "community-shorts-stills-pipeline"
   ],
   "source_books_included": false,
   "blender_render_included": false,

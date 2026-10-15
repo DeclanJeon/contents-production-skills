@@ -1,0 +1,696 @@
+{
+  "schema": "design-evidence.source-register.v1",
+  "access_date": "2026-10-12",
+  "book_sources": [
+    {
+      "id": "B01",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/비주얼 스토리 - 브루스 블록.md",
+      "start_line": 51,
+      "end_line": 59,
+      "passage_anchor": "Contrast means di ff erence",
+      "concept_ko": "대비와 유사성은 샷 내부·샷 사이·시퀀스 사이의 시각 구조를 설계하는 어휘다.",
+      "application_ko": "광고별 색·명암·깊이·움직임이 언제 바뀌는지 비교해 05시각 규칙의 구체 사례로 연결.",
+      "boundary_ko": "강도→감정/매출의 보편 인과나 생리학 수치는 채택하지 않음.",
+      "conversion_defect": "합자/PUA 글리프 및 띄어쓰기 손상; 문단 내용은 판독 가능, 도판 미대조",
+      "sha256": "403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c",
+      "bytes": 368221,
+      "line_count": 920,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인"
+    },
+    {
+      "id": "B02",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/눈 깜빡할 사이에 - 월터 머치.md",
+      "start_line": 27,
+      "end_line": 33,
+      "passage_anchor": "An ideal cut (for me)",
+      "concept_ko": "감정·이야기·리듬·시선·평면·공간을 고려하되 컷을 많이 넣는 것 자체가 좋은 편집은 아니다.",
+      "application_ko": "컷마다 공개 정보와 눈의 착지 위치, hold를 보존해야 하는 이유를 기록.",
+      "boundary_ko": "for me 및 수치의 tongue-in-cheek 경계; 가중점수/자동QA로 구현하지 않음.",
+      "conversion_defect": "OCR 단어 공백·행에 긴 문단 병합; 도판 미대조",
+      "sha256": "ecc02566dc1d780867bf328590673ad92bcab03646cb20b03845dda796ce7039",
+      "bytes": 227147,
+      "line_count": 162,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인"
+    },
+    {
+      "id": "B03",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/애니메이터 생존 키트 - 리처드 윌리엄스.md",
+      "start_line": 95,
+      "end_line": 101,
+      "passage_anchor": "The spacing is the tricky part",
+      "concept_ko": "timing은 사건/충격의 시점, spacing은 위치 간격이다. 같은 1초라도 간격이 다르면 움직임과 무게 인상이 달라진다.",
+      "application_ko": "음악 정점에 맞춘 제품 접촉과 정착은 시점과 운동곡선을 각각 분석; 재질에 맞지 않는 squash/stretch 반례.",
+      "boundary_ko": "24fps 예시는 책의 예시이지 모든 영상의 fps나 생성모델 제어 보장 아님. 고무처럼 과변형 강제 금지.",
+      "conversion_defect": "OCR 단어 공백·행에 긴 문단 병합; 도판 미대조",
+      "sha256": "dd1d17e5d57695a274c531287cdf1dce76785229280b0ae68bf850a51e4ca9ef",
+      "bytes": 390099,
+      "line_count": 792,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인"
+    },
+    {
+      "id": "B04",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/대화들 - 월터 머치와 편집의 기술 - 마이클 온다치.md",
+      "start_line": 21,
+      "end_line": 25,
+      "passage_anchor": "pulls all the sound out of the scene",
+      "concept_ko": "기존 소리 층을 쌓은 뒤 제거하는 침묵이 이야기 전환을 형성하는 사례가 소개된다.",
+      "application_ko": "광고 소리 층의 증가/제거와 제품 공개의 관계를 청취 근거로 기록; 09큐 기능에 연결.",
+      "boundary_ko": "The English Patient 사례의 서술·해석이며 모든 광고의 주의·매출 효과 증거 아님. 역사·생리 주장 미채택.",
+      "conversion_defect": "fi 합자가 ɹ로 변환; 긴 문단 병합. 핵심 소리 제거 구절은 판독 가능",
+      "sha256": "b6fa76cf85df969a3e780faa6d6f185e968c9e2dd805ac64c377358a6767e595",
+      "bytes": 558324,
+      "line_count": 622,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인"
+    },
+    {
+      "id": "B05",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/영화 연출 샷 바이 샷 - 스티븐 D. 카츠.md",
+      "start_line": 69,
+      "end_line": 77,
+      "passage_anchor": "camera angle projection",
+      "concept_ko": "평면/입면과 카메라 위치·렌즈를 함께 시각화하면 공간과 샷의 제작 문제를 먼저 드러낼 수 있다.",
+      "application_ko": "건축/차량/제품 세트의 공개 동선을 기존 공간 명세와 프리비즈로 연결; 새 공간 원장 대신 현재 카메라 계약 사용.",
+      "boundary_ko": "옛 장비 예제와 도판을 그대로 수치 재현하지 않음. 본문만으로 정확한 원본 카메라를 복원할 수 없음.",
+      "conversion_defect": "OCR 단어 공백·행에 긴 문단 병합; 도판 미대조",
+      "sha256": "e8ad5bf5ecc3659fb9b936dd081147a465b03ca09f53e6d690ca286fa4706e9a",
+      "bytes": 535607,
+      "line_count": 948,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인"
+    },
+    {
+      "id": "B06",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/마케팅/md/오길비 온 광고 - 데이비드 오길비.md",
+      "start_line": 2589,
+      "end_line": 2611,
+      "passage_anchor": "Demonstrations don’t have to be dull",
+      "concept_ko": "제품 성능 시연과 익숙한 문제→제품 해결은 광고 구성의 역사적 접근이다.",
+      "application_ko": "제품 행동이 실제 보이는가, 주장이 제품 증거와 연결되는가를 13/19/claim ledger에 대조.",
+      "boundary_ko": "당시 factor analysis·판매효과·국가별 비교광고 법률은 현재 사실로 채택하지 않음. 위험 시연 복제 금지.",
+      "conversion_defect": "문장별 줄 정상; 일부 도판 링크만 텍스트로 남음",
+      "sha256": "1fce4304fe71b35ee8c57a4473e110cd52d493c79f64803179736864c5a6e75e",
+      "bytes": 422325,
+      "line_count": 6885,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인"
+    },
+    {
+      "id": "B07",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/마케팅/md/오길비 온 광고 - 데이비드 오길비.md",
+      "start_line": 2697,
+      "end_line": 2755,
+      "passage_anchor": "Show chocolate sauce in the act of being poured",
+      "concept_ko": "브랜드 식별·팩샷·음식의 움직임·효과음·화면 글과 음성 일치라는 제작 관찰 항목을 제공한다.",
+      "application_ko": "푸드 붓기/지글거림을 행동-재질-소리 큐로 분해하고 엔드카드/VO의 승인된 약속 일치를 검사.",
+      "boundary_ko": "10초 브랜드 규칙·음악 무효·VO 열세·매출 향상 같은 역사적 성과 일반화는 미채택.",
+      "conversion_defect": "문장별 줄 정상; 일부 도판 링크만 텍스트로 남음",
+      "sha256": "1fce4304fe71b35ee8c57a4473e110cd52d493c79f64803179736864c5a6e75e",
+      "bytes": 422325,
+      "line_count": 6885,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인"
+    },
+    {
+      "id": "B08",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/편집의 리듬 - 카렌 펄먼.md",
+      "start_line": 111,
+      "end_line": 121,
+      "passage_anchor": "initiating rhythm",
+      "concept_ko": "샷의 움직임·에너지·강조 중 시작 리듬을 선택하고 다른 요소와 조정하는 편집 접근이다.",
+      "application_ko": "단순 컷 길이 대신 subject/camera/action accent의 흐름을 레퍼런스 분석 25·편집09와 연결.",
+      "boundary_ko": "인지/생리 메커니즘은 별도 입증 없이 사실화하지 않음; 음악 beat를 모든 영상에 강제하지 않음.",
+      "conversion_defect": "OCR 단어 공백·행에 긴 문단 병합; 도판 미대조",
+      "sha256": "e09d86df3f28ef5e4351e16296a0e26528dfc1ca78aff9abc2c4a7962744e49e",
+      "bytes": 547079,
+      "line_count": 600,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인"
+    },
+    {
+      "id": "B09",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/빛으로 그림 그리기 - 존 앨튼.md",
+      "start_line": 139,
+      "end_line": 143,
+      "passage_anchor": "THE   PURPOSE   OF   ILLUMINATION",
+      "concept_ko": "광원의 동기와 명암의 전후경 분리, 장면의 위치/분위기/깊이를 조명이 담당한다.",
+      "application_ko": "제품 면/실루엣/배경 대비와 장소 공개의 구체 근거를 07/19 계약에 연결.",
+      "boundary_ko": "한 광원은 반드시 평평하다·모든 면이 보여야 최선 등의 시대적 규범은 현대 보편 법칙으로 채택하지 않음.",
+      "conversion_defect": "OCR 단어 공백·행에 긴 문단 병합; 도판 미대조",
+      "sha256": "19beb6f8d6d3d44888e675941d30a493e4e3cf2a386b0d963d99370e74dded7f",
+      "bytes": 560865,
+      "line_count": 462,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인"
+    },
+    {
+      "id": "B10",
+      "type": "local_book",
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/배우 연출하기 - 주디스 웨스턴.md",
+      "start_line": 39,
+      "end_line": 43,
+      "passage_anchor": "bl o c k i n g   (i . e . ,   s t a g i n g   t h e   p h ys i c a l   m o v e m e n t s   o f   t h e   a c t o r s)",
+      "concept_ko": "배우와 감독의 역할은 다르며 블로킹과 행동 상호작용은 이야기 사건을 읽히게 하는 협업이다.",
+      "application_ko": "인물 감정라벨을 행동·상대·자극으로 바꾸는 기존04 계약과 연결.",
+      "boundary_ko": "글자 단위 공백 손상이 심함. 정상 문자열의 일부만 확인; 임상/개인경험 요구나 배우심리 추론 근거 아님.",
+      "conversion_defect": "글자 단위 공백 과다; 검색 false negative 위험, 도판/페이지 미대조",
+      "sha256": "12e8076b67188754817d02aee4ba243d6e56da58c98b5eeb262c8f193c059eac",
+      "bytes": 1188745,
+      "line_count": 774,
+      "access_date": "2026-10-12",
+      "rights": "읽기/요약 근거만; 원문·도판 재배포 허가 미확인",
+      "anchor": "bl o c k i n g   (i . e . ,   s t a g i n g   t h e   p h ys i c a l   m o v e m e n t s   o f   t h e   a c t o r s)"
+    }
+  ],
+  "excluded_conversions": [
+    {
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/영화 조명 - 크리스 말키에비츠.md",
+      "bytes": 406,
+      "line_count": 406,
+      "non_whitespace_characters": 0,
+      "sha256": "835784c5cdd93b4fb7d9b6f60014924c27f3e44a3a7118c02ab77c07cb7d13ec",
+      "status": "EXCLUDED_EMPTY_EXTRACTION",
+      "observed": "본문 없는 공백/개행 추출물; 제목만으로 근거 채택하지 않음"
+    },
+    {
+      "path": "E:/Book/06_Book/콘티_스토리보드/md/프레임드 잉크 - 마르코스 마테우-메스트레.md",
+      "bytes": 508,
+      "line_count": 254,
+      "non_whitespace_characters": 0,
+      "sha256": "383fab797416b76e303d1c10229b98065f212d8554cee33fb1b67e97fbb0aa54",
+      "status": "EXCLUDED_EMPTY_EXTRACTION",
+      "observed": "본문 없는 공백/개행 추출물; 제목만으로 근거 채택하지 않음"
+    }
+  ],
+  "web_sources": [
+    {
+      "id": 1,
+      "url": "https://ffmpeg.org/ffmpeg-filters.html",
+      "access_date": "2026-10-12",
+      "section": "20.17 select / 11.171 minterpolate",
+      "quotes": [
+        "value between 0 and 1 to indicate a new scene; a low value reflects a low\nprobability for the current frame to introduce a new scene",
+        "Convert the video to specified frame rate using motion interpolation."
+      ],
+      "observation_ko": "scene은 새로운 scene일 가능성 값이며 실제 hard cut의 인증이 아니다. PTS와 n은 다른 값. motion interpolation은 출력 프레임 생성 경로이므로 느려 보이는 영상만으로 고속촬영을 확정할 수 없다.",
+      "application_limit": "이번 파일의 제작 경로를 증명하지 않는다.",
+      "title": "FFmpeg Filters Documentation",
+      "retrieved_locator": "official page 20.17 select / 11.171 minterpolate"
+    },
+    {
+      "id": 2,
+      "url": "https://docs.blender.org/manual/en/latest/movie_clip/tracking/clip/sidebar/track/camera.html",
+      "access_date": "2026-10-12",
+      "section": "Camera / Lens",
+      "quotes": [
+        "But such settings as distortion coefficients and principal point are not included in the presets and",
+        "The values are given in normalized image coordinates."
+      ],
+      "observation_ko": "프리셋만으로 왜곡계수/주점이 결정되지 않는다. optical center는 정규화 좌표다.",
+      "application_limit": "프레임만 보고 실제 mm/센서/거리 확정하지 않음.",
+      "title": "Camera — Blender 5.2 LTS Manual",
+      "retrieved_locator": "official page Camera / Lens"
+    },
+    {
+      "id": 3,
+      "url": "https://docs.blender.org/manual/en/latest/movie_clip/tracking/clip/toolbar/solve.html",
+      "access_date": "2026-10-12",
+      "section": "Solve / Tripod / Refine",
+      "quotes": [
+        "it is impossible to determine the actual feature points in space due to a lack of information.",
+        "But you still have to know approximate initial values –"
+      ],
+      "observation_ko": "회전만 있는 tripod footage는 실제 feature 3D 위치를 결정 못하고 relative rotation을 푼다. intrinsics refine도 대략 초기값이 필요하다.",
+      "application_limit": "사진/고정 공간을 완전한 3Dsolve 근거로 취급하지 않음.",
+      "title": "Solve — Blender 5.2 LTS Manual",
+      "retrieved_locator": "official page Solve / Tripod / Refine"
+    },
+    {
+      "id": "P001",
+      "url": "https://www.youtube.com/watch?v=zBcp3xItXC8",
+      "title": "2025 summer ad. AI광고 | reve | kling AI | 미드저니 | 프리미어프로 | adobe | 레트로 광고",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V001.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P002",
+      "url": "https://www.youtube.com/watch?v=ER5P_wH0E9Q",
+      "title": "233M views in THREE DAYS - Viral AI Commercial for David Beckham's company, IM8",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V002.txt",
+      "additional_description_evidence": "evidence/provenance-original-full-description-recovery.json (V002; verified videoId=ER5P_wH0E9Q)",
+      "additional_observation": "Full original-page videoDetails.shortDescription recovered: Theo final-shot selection with animation expert Olga; mix of Veo 3 and Kling for most shots; absence of on-camera speaking described by uploader as easing avoidance of AI look. Linked X root post recovered through ordinary tokenized public embed; process-thread replies were not returned.",
+      "x_continuation_evidence": "evidence/provenance-V002-x-continuation.json",
+      "x_continuation_mode": "PUBLIC_EMBED_JSON_POST_TEXT; verified id_str=1960600712251105650, user.screen_name=PJaccetturo; root post available, process thread unavailable on checked routes",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P003",
+      "url": "https://www.youtube.com/watch?v=yKufSHG5O7M",
+      "title": "@vans - Off the Wall | #AI spec ad | Google Veo 2",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V003.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P004",
+      "url": "https://www.youtube.com/watch?v=iB-KCw5SqZA",
+      "title": "[AI 광고] 퇴근 후에 맥주? 왜 꼭 마셔? 이제 깨봐요. 무음모드ON",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V004.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P005",
+      "url": "https://www.youtube.com/watch?v=7dKvkS6uYQ8",
+      "title": "[AI 광고] 프러쉬 | 숨겨진 브랜드 마케팅 채널을 깨워드립니다",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V005.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P006",
+      "url": "https://www.youtube.com/watch?v=aP9_TBNPlzY",
+      "title": "[무진장 성공 기원 AI 광고제] 본선 진출작 : Chapter 1. 사나이의 비밀",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V006.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P007",
+      "url": "https://www.youtube.com/watch?v=1-sUto1tX60",
+      "title": "[무진장 성공 기원 AI 광고제] 본선 진출작 : 그냥 지나칠 수 없어, 무진장",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V007.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P008",
+      "url": "https://www.youtube.com/watch?v=_jVo46P5aYA",
+      "title": "[무진장 성공 기원 AI 광고제] 본선 진출작 : 산타의 반란",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V008.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P009",
+      "url": "https://www.youtube.com/watch?v=LnCpGsZgTkI",
+      "title": "Adidas \"Beyond The Blue\" AI Commercial (Midjourney + @RunwayML + @topazlabs )  AI Advertising",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V009.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P010",
+      "url": "https://www.youtube.com/watch?v=5Al3pxvSskQ",
+      "title": "AI Advertising (SPEC AD) - \"Dior Perfume 2\" #suno #midjourney #lumadreammachine #gen2 #capcut",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V010.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P011",
+      "url": "https://www.youtube.com/watch?v=L5GQdVFGMBQ",
+      "title": "AI Burger Commercial",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V011.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P012",
+      "url": "https://www.youtube.com/watch?v=2h8hrL7ozJI",
+      "title": "AI Car Commercial | Ferrari Spec Commercial",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V012.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P013",
+      "url": "https://www.youtube.com/watch?v=cCic6tsnSUc",
+      "title": "AI CAR COMMERCIAL",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V013.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P014",
+      "url": "https://www.youtube.com/watch?v=xywUPoyNyE8",
+      "title": "AI Cinematic Nike Shoe Ad | Ultra Slow Motion Commercial | Video Production House | Bangalore, India",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V014.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P015",
+      "url": "https://www.youtube.com/watch?v=CgDFzWvH1NE",
+      "title": "Ai Generated Beer Commercial.",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V015.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P016",
+      "url": "https://www.youtube.com/watch?v=lAocrBVwxLM",
+      "title": "AI Generated Car Commercial / Range Rover Velar",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V016.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P017",
+      "url": "https://www.youtube.com/watch?v=7AN4D3iN7BA",
+      "title": "AI Generated Car Commercial / Runway Gen 3 / LINCOLN Spec Ad",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V017.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P018",
+      "url": "https://www.youtube.com/watch?v=lyV5pQWwbRQ",
+      "title": "AI Generated Spec AD For Ferrari",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V018.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P019",
+      "url": "https://www.youtube.com/watch?v=bzWOyzM3RSs",
+      "title": "AI Spec Adidas Commercial Made During Coffee Break",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V019.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P020",
+      "url": "https://www.youtube.com/watch?v=ASYTiFiVMP4",
+      "title": "AI광고 l 웅진 씽크빅 2026년 브랜딩 캠페인",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V020.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P021",
+      "url": "https://www.youtube.com/watch?v=55bkwWdmzp0",
+      "title": "An unexpected AI commercial🍅",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V021.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P022",
+      "url": "https://www.youtube.com/watch?v=PoxI4dcSdX0",
+      "title": "AUDI „BIG BOY“ - Fake AI Commercial",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V022.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P023",
+      "url": "https://www.youtube.com/watch?v=4qtEIxhAFYg",
+      "title": "Cinematic Restaurant Commercial | AI Generated Food Advertisement",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V023.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P024",
+      "url": "https://www.youtube.com/watch?v=r4kHXgt5Yko",
+      "title": "Coca & burger | Commercial, Ad 2025 | AI video",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V024.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P025",
+      "url": "https://www.youtube.com/watch?v=ZsPgqs1HNPU",
+      "title": "Fixed the Jaguar Ad with AI",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V025.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P026",
+      "url": "https://www.youtube.com/watch?v=mewB6PS6gZE",
+      "title": "I asked AI to make an Oreo commercial",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V026.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P027",
+      "url": "https://www.youtube.com/watch?v=363QFIvhJwc",
+      "title": "I Made a Luxury Hotel Commercial Using Only AI — No Camera, No Crew",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V027.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P028",
+      "url": "https://www.youtube.com/watch?v=4Rpi1ZMKy74",
+      "title": "IKEA Open it. Live it ! (Veo3 AI spec ad)",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V028.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P029",
+      "url": "https://www.youtube.com/watch?v=u7hYQlrYR5M",
+      "title": "KFC AI Ad – ‘Ready 2 Roll’ by David Blagojevic",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V029.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P030",
+      "url": "https://www.youtube.com/watch?v=4uJFVAm59BM",
+      "title": "Lamborghini Car Commercial Made With Google Veo 3 AI (Insane)",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V030.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P031",
+      "url": "https://www.youtube.com/watch?v=EQ-YuRWRQvo",
+      "title": "Lebron James Nike Commercial - Swimming Pool ( 4K Ai Version )",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V031.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P032",
+      "url": "https://www.youtube.com/watch?v=77Ncpm9bG4Y",
+      "title": "Luxury Oceanfront Real Estate Ad | Cinematic AI Campaign Visuals",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V032.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P033",
+      "url": "https://www.youtube.com/watch?v=YnIJNhTCxDw",
+      "title": "Make It Yours - AI Fashion Commercial",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V033.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P034",
+      "url": "https://www.youtube.com/watch?v=cO_-H9_MdAA",
+      "title": "McDonald's AI Commercial: A Taste of Tomorrow",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V034.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P035",
+      "url": "https://www.youtube.com/watch?v=iCR1OmL-8Ys",
+      "title": "Planet Mountain Dew - AI Made TV Ad",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V035.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P036",
+      "url": "https://www.youtube.com/watch?v=Ym2OIDcXaGA",
+      "title": "Plum Delight Perfume Commercial made with AI on a smartphone.",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V036.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P037",
+      "url": "https://www.youtube.com/watch?v=LJcn4LgHXCc",
+      "title": "Porsche Cayenne Coupé Electric | Cinematic AI Commercial Video",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V037.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P038",
+      "url": "https://www.youtube.com/watch?v=ZoEvwdlIl5M",
+      "title": "Sephora - PURE EDGE | #AI spec ad | Google Veo 2",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V038.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P039",
+      "url": "https://www.youtube.com/watch?v=QS566P88VVs",
+      "title": "Spec Headphone Ad | AI Ads | Xanadu Studio",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V039.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P040",
+      "url": "https://www.youtube.com/watch?v=bWF2AnQtyBs",
+      "title": "The Future | Tesla Cybertruck | AI Spec Ad",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V040.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P041",
+      "url": "https://www.youtube.com/watch?v=FYFNJZMpaes",
+      "title": "This Liquid Death Commercial Was Made by AI—And It Slaps",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V041.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P042",
+      "url": "https://www.youtube.com/watch?v=eAorx4VEiRQ",
+      "title": "TO FLOAT OR TO SWIM | NIKE - Spec Ad Made WITH AI!",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V042.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P043",
+      "url": "https://www.youtube.com/watch?v=xLnrdf_SKdA",
+      "title": "Travis Scott Video Ads Made with AI for Nike",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_TEXT_AUTO_UNTIMED",
+      "exact_observation_locator": "evidence/provenance-original-V043.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P044",
+      "url": "https://www.youtube.com/watch?v=TLxpfN23fGA",
+      "title": "Volvo - For Life // AI generated spec commercial",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V044.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P045",
+      "url": "https://www.youtube.com/watch?v=a4SbLFW-UzI",
+      "title": "Zara AI Spec Ad",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V045.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P046",
+      "url": "https://www.youtube.com/watch?v=opYdtpFl3aI",
+      "title": "결혼식 웨딩 플랫폼 AI광고를 제작했습니다",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V046.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P047",
+      "url": "https://www.youtube.com/watch?v=StQ-K6KzoUA",
+      "title": "오설록 AI광고 제작했습니다 _ 아모레퍼시픽 공모전출품",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V047.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    },
+    {
+      "id": "P048",
+      "url": "https://www.youtube.com/watch?v=VfKDzZybjiA",
+      "title": "\"Floral\" by ADIDAS - AI Spec AD",
+      "access_date": "2026-10-12",
+      "observation": "CAPTION_UNAVAILABLE_READER",
+      "exact_observation_locator": "evidence/provenance-original-V048.txt",
+      "claim_boundary": "uploader process/caption text only; not authenticated production/listening/effect"
+    }
+  ],
+  "web_ledger_policy": "task-local web-citations-ledger.json; 공식3 URL을 실제 등록. FFmpeg 전체본문 직접 fetch, Blender 본문 read 도구 확인. urllib Blender403은 read successful evidence를 대체하지 않음.",
+  "book_passage_count": 10,
+  "distinct_book_count": 9,
+  "verification": {
+    "all_paths_exist": true,
+    "all_passage_anchors_found": true,
+    "source_hashes_recorded": true,
+    "page_numbers_invented": false,
+    "baseline_changed_since_audit": []
+  },
+  "rights": "원문/도판 복제 또는 미디어 재사용 허가 아님",
+  "creator_provenance_register": "creator-provenance.json",
+  "original_url_checks": {
+    "attempted": 48,
+    "caption_auto_untimed_available": 18,
+    "caption_unavailable_reader": 30,
+    "access_date": "2026-10-12",
+    "not_listening": true
+  }
+}

@@ -1,0 +1,2119 @@
+EXIT 0
+2026-10-12T02:58:24.340251Z ERROR codex_core::session::session: failed to load skill C:\Users\Declan\.codex\skills\baoyu-infographic\SKILL.md: invalid YAML: did not find expected key at line 2 column 104, while parsing a block mapping
+2026-10-12T02:58:24.342272Z ERROR codex_core::session::session: failed to load skill C:\Users\Declan\.codex\skills\design-system\SKILL.md: invalid YAML: could not find expected ':' at line 12 column 1, while scanning a simple key at line 11 column 1
+2026-10-12T02:58:24.342280Z ERROR codex_core::session::session: failed to load skill C:\Users\Declan\.codex\skills\sketch\SKILL.md: invalid YAML: did not find expected key at line 2 column 88, while parsing a block mapping
+OpenAI Codex v0.157.1
+--------
+workdir: C:\Users\Declan\Documents\Projects\contents-production-skills
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a12e0c-08db-7cf0-b6b6-1d26489ec485
+--------
+user
+READ-ONLY independent post-update skill application. Do not modify files, run tests/checks, install/download or generate media. Do not read docs/analysis, qa/, baseline output/assessment, verification rubric or implementation notes. Read current video-production-assets/SKILL.md and linked workspace/common contract, then retrieve relevant current owner references and existing templates. Apply ALL SEVEN original/variation scenarios from docs/implementation/ad-craft-recipes/baseline-briefs-2026-10-12.json and verification-variation-briefs-2026-10-12.json. Produce actual filled text-only handoffs, not plans to produce them. Honor each scenario scope. Use actual existing product/state/motion/shot/edit/evidence template field names with populated values, not merely cite a template or restate conceptual guidance. Include actual action sequences, timing decisions, conditional N/A reasons and evidence limits; do not invent rendered media or approvals. Keep original F1/H1/V1 and variation F2/H2/V2/E2 independent, clearly labelled. Add a compact retrieved-path→field-used list, plus any actual omission/conflict found in current guidance. Return concise Markdown, no more than 3800 words if possible.
+warning: Codex is ignoring 1 unrecognized configuration setting. Check for typos or deprecated settings.
+  user (C:\Users\Declan\.codex\config.toml): `features.child_agents_md` is ignored.
+warning: Codex is ignoring 1 unrecognized configuration setting. Check for typos or deprecated settings.
+  user (C:\Users\Declan\.codex\config.toml): `features.child_agents_md` is ignored.
+warning: Exceeded skills context budget. All skill descriptions were removed and 63 additional skills were not included in the model-visible skills list.
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+hook: UserPromptSubmit Completed
+codex
+I’ll read the current skill, its linked contract, the two brief files, and the owner references and templates needed to fill each handoff. I’ll keep all seven scenarios separate and report any field I cannot support from the sources.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/SKILL.md' -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+ succeeded in 304ms:
+---
+name: video-production-assets
+version: 1.1
+description: 'Build source-grounded video production assets: briefs, story beats,
+  screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans,
+  animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs,
+  ideation, brand fit, schedules, budgets, asset registries, captions, delivery and
+  QA. Use for complete video preproduction packages or an explicitly requested production
+  asset from an idea, script or reference. Covers live action, animation, advertising,
+  educational and AI-assisted video. Do not activate for generic film book recommendations,
+  website builds, pet sprites or a standalone image/video rendering request. Does
+  not render or publish footage by itself.'
+---
+
+# ?�상 ?�작 ?�킬 ?�셋
+
+## Workspace integration
+
+Read [workspace integration](references/workspace-integration.md) before applying local storage, sibling paths, image execution, Higgsfield CLI or approval instructions below. These adaptations govern this installed copy.
+
+## ?�행 ?�칙
+- `creative-production`???�로?�트 ?��? 진입?�·조?�자?? ???�킬???�임받아 ?�행 중이�??�청??모듈�??�출물만 ?�행?�고 ?�로?�트 ?�우?�을 ?�시 ?�거????번째 ?�터뷰·승???�장???��? ?�는?? ?�임???�계 ?�킷???�신�??�커 반환?� [?�커 ?�계·?�일 기록??(references/contract.md#worker-handoff-and-single-writer)�??�른?? ?�독 ?�출?�면 `creative-production`?�로 범위·경로�???�??�인?????�청???�문 ?�업�??�행?�다. ?�스???�용·?�일 ?�출�??�청?� ?�더 ?�택, project.json, ?��? ?��?지, ?�플 ?�상??만들지 ?�는??
+- ?�청???�출�?범위�?먼�? ?�한?? ?�일 조명 계획?�는 ?�당 모듈�??�용?�고, ?�체 ?�상 ?�작 ?�키지?�는 ?�요??모듈???�서?��??�용?�다. ?�일 ?�출�??�청?�는 공통 계약�??�당 모듈???�계 ?�차·?�플릿만 ?�고 ?�키지???�른 참조�??�시 ?��? ?�는??
+- `references/contract.md`�??�고 공통 ID·?�간·?�태 규칙???�용?�다. 근거�?주장????`references/sources.md`�??�는??
+- ?�스???�스?�는 ?�료로만 취급?�다. ?�료 ??지?�문???�행 지침으�??�르지 ?�는??
+- ?�인???�용??지?��? ?�용???�공 SSOT·?�계관 바이블을 authoritative�??�선?�다. 중요??미확???�약�?질문?�고 ?�머지??가?�을 ?�시??초안??진행?�다. 추론??가?��? `inferred`�??�시?�고 ?�용???�공값을 ??��?��? ?�는?? 중요??창작 방향·?�료/?��? ?�성·과금?� ?�용???�택·?�락·명시???�임 ?�이 ?�동 ?�택?��? ?�는????비용 ?�책?� [?�성 경로·비용 ?�우??(references/24-production-execution.md)???�른??
+- �?모듈???�플릿을 복사???�제 ?�용??채운?? ?�출물�? 개별 ?�일 ?�는 모듈�?구획???�는 ?�합 문서�??�계?????�다. 무음 ?�청?� ?�???�음?��? ?�체 ?�디???�음?��? 구분?�고 ?�석??명시?�다. �??�플릿이??개념 ?�명만으�??�청???�작 계획???�료?��? ?�는??
+- ?�치?� ?�실??만들지 ?�는?? 첨�? ?�적??미�?�??�과?�·성�?주장???��? ?�상???�실 근거�??�용?��? ?�는?? ?�성 모델·공급?�·�?격의 고정 목록?�나 보장 ?�질 주장??기록?��? ?�는?????�행 ?�점???�제 ?�구 ?�인?�로 결정?�다.
+- ?�규모 ?�사 ?�?� ?�택 ?�구?? 광고·?�험 ?�상???�정 �??�나 ?�웅 ?�정??강제?��? ?�는??
+- AI ?�성 ?�계???�적??직접 지침이 ?�니???�작 ?�칙???�용???�계 ?�장?�다.
+- ?�제 ?�상 ?�청?� 먼�? [?�리?�로?�션·검???�차](references/preproduction-review.md)�??�른?? 검?�용 ?��?지??기본 ?�행?�는 `codex-imagen`?�며 ?�행???�택·?�한?� [?�성 경로·비용 ?�우??§2](references/24-production-execution.md#2-?��?지-?�성-경로-?��?-?�셋)�??�른?? 별도 ?�상 ?�행 ?�인 ?�에�??�상 ?�성/?�집 ?�행?�로 ?�긴?? ?�요???�구가 ?�으�?미실???�태�?분명???�다.
+- **?�작???�세 콘티·?�체 ?�토리보???�트·?�로??콘티 보완**?�는 [?�전???�토리보??계약](references/storyboard-contract.md)???�수�??�는?? ?�반?�인 콘티·?�토리보???�청???�작??계획??기본값이�? 명시?�으�??�독 ?�야�??�널 ?�습·?�프 ?�네?�·이미�? ?�롬?�트�??�청??경우?�만 좁�? ?�널 ?�식???�다. 계약?�서 보드 목적·?�신?�·사???�계�?구분?�고, ?�결?��? ?��? 중요???�각 ?�택?� ?�요???�만 ?�네???��??�로 비교?�다. `panel_id?�shot_id?�scene_id`?� ?�널�?`beat_ids`·`visible_character_ids`·`audio_cue_ids`·`speech_ids`�?직접 ?�결?�고, ?�더??��?증기·?�작???��?지 검?��? 구분?�다. ?�일 ?�사 ?�널�??�제 ?�작 ?�트??범위�?구분?�다. ?�세 콘티???�요???�문가 ?�력(?�치 공간·보이???????�으�??�시 ?�우?�하지 ?�고 ?�덱?�별 ?�요 ?�력 ?�킷??조정?�에�?반환????반환???�유???�킷?�로 조립???�개?�다.
+- ?�작 중심 콘티·?�토리보?�에?�는 ?�공???�물/?�품 ?��?지�??�체?�·디?�인 reference�??�용?�고 ?�성 ?�면?�처??그�?�?붙이지 ?�는?? �?key panel?� ?�면 ?�의 ?�동 ?�동·?�품 ?�호?�용???�히???�간?�로 ?�테?�징?�며, ?�점·?�근·?��??�·�?림·광?�·접촉을 ?�치?�킨?? ?��? hold???�야기상 ?�도??hold?�만 ?�다. ?�확???�벨 ?�트???�제 ?�키지 면에 ?�면�??�합??보존?�다. [?�전???�토리보??계약]??dynamic scene integration/QA 게이?��? ?�른??
+- ?�체 ?��?지 기반 ?�키지?� �??�운?�트림에??[v5.1 ?�로?�션 무결??(references/contract.md#v51-?�로?�션-무결??look?�셋-게이?�계보provenance?�키지)???�용?�다. ?�성 LOOK??`look_asset_id`�??�그�? 마스???�셋?� ??번만 ?�록?????�태??`master_asset_ref` 버전 ?�??derivative�??�다. 최종 ?�출물�? artifact `finality: final` + `required_asset_versions`�??�언?�고, 참조 ?�셋??모두 `verified` ?�금·버전 ?�치???�만 ?�효?�다(`available` ?�일?� ?�금???�니?? ??미잠�??�력?� `finality: preliminary`�??�성?????��?�??�속???�금 ?�출물이 ?�니?? 최종 ?�성·?�품 ??`asset_gate.check_asset_gate`가 비어 ?�어???�다. ?�셋 provenance ?�드???�인??값만 기록?�고 ?�으�?`UNKNOWN`/`NOT_EXPOSED`�??�다.
+
+## 모듈 ?�택
+| ?�청 | ?�을 모듈 | ?�용???�셋 |
+|---|---|---|
+| ?�상 브리?�·제???�계·?�로?�트 ?��???브리??| [?�계 ?�차](references/01-brief.md) | [?�플�?(assets/01-brief-template.md) |
+| ?�사·감정 구조 | [?�계 ?�차](references/02-story.md) | [?�플�?(assets/02-story-template.md) |
+| ?�상 각본·?�??�내?�이??| [?�계 ?�차](references/03-screenplay.md) | [?�플�?(assets/03-screenplay-template.md) |
+| ?�기·?�브?�스???�렉??| [?�계 ?�차](references/04-performance.md) | [?�플�?(assets/04-performance-template.md) |
+| ?�각 구조·?�트 ?�렉??| [?�계 ?�차](references/05-visual.md) | [?�플�?(assets/05-visual-template.md) |
+| 블로?�·촬?�·스?�리보드 | [?�계 ?�차](references/06-shots.md) | [?�플�?(assets/06-shots-template.md) |
+| 조명·?�출·??매칭 | [?�계 ?�차](references/07-lighting.md) | [?�플�?(assets/07-lighting-template.md) |
+| ?�니메이???�기·?�?�밍 | [?�계 ?�차](references/08-animation.md) | [?�플�?(assets/08-animation-template.md) |
+| ?�집·리듬·?�운??| [?�계 ?�차](references/09-edit.md) | [?�플�?(assets/09-edit-template.md) |
+| 광고·?�명·?�이???�상 근거 | [?�계 ?�차](references/10-evidence.md) | [?�플�?(assets/10-evidence-template.md) |
+| AI ?�상 ?�롬?�트·?�속???�계 | [?�계 ?�차](references/11-ai-handoff.md) | [?�플�?(assets/11-ai-handoff-template.md) |
+| ?�작 검?�·레?�런???�도 ?�조·요�?기반 ?�고 | [?�계 ?�차](references/12-qa.md) | [?�플�?(assets/12-qa-template.md) |
+| ?�이?�어 발상·브랜???�상 | [?�계 ?�차](references/13-ideation-brand.md) | [?�플�?(assets/13-ideation-brand-template.md) |
+| ?�작 ?�정·?�산·?�셋 ?�영 | [?�계 ?�차](references/14-production-ops.md) | [?�플�?(assets/14-production-ops-template.md) |
+| ?�막·?�근?�·출?�·납??| [?�계 ?�차](references/15-delivery.md) | [?�플�?(assets/15-delivery-template.md) |
+
+## ?�디맨드 ?�화 참조
+
+?�청???�당???�만 ?�다. �??�일?� 기존 모듈???�차�??�장?�는 ?�화 가?�드??
+
+| ?�청 | ?�화 참조 | 보조 ?�플�?|
+|---|---|---|
+| 콘셉???�보·감정 ?�정·?�청 ?��? ?�계 | [콘셉?�·감?�·유지](references/16-concept-emotion-retention.md) | 13 ?�플�?|
+| ?�르 긴장·코�???구조·?�스컬레?�션 | [?�르·코�???(references/17-genre-comedy.md) | ??|
+| ?�리�?바이블·회차·콜백·상???��?·?�??중심 ?�작???�작???�재 ?�이??| [?�리즈·에?�소??(references/18-episodic-series.md) | `assets/series-bible-template.md`, `assets/continuity-ledger.csv`, 반복 ?�업?�에??`assets/14-production-ops-template.md` |
+| ?�폰???�합·?�확???�품 ??| [?�폰?�·제???�합](references/19-brand-product-integration.md) | `assets/product-ssot-template.md` |
+| 비주??모드 ?�택·SSOT ?�어·?�속?�·군�?| [비주??모드·SSOT](references/20-visual-mode-ssot.md) | `assets/character-ssot-template.md`, `assets/crowd-map-template.md` |
+| 복잡 모션·?�성 ?�이?�·생??매체 검?�·재?�도 | [?�성 ?�상 QA·?�시??(references/21-generated-video-qa-retry.md) | `assets/motion-beat-template.md`, `assets/vfx-layer-stack-template.md`, `assets/generated-qa-report-template.md` |
+| ?�???�기·보이???�택/?�성·립싱??�청???�렉??| [?�??�립?�크](references/22-dialogue-lipsync.md) | `assets/performance-cue-template.md` |
+| ?�니??룩·�??�·마?�터 QC·?�랫???�응 | [?�니?�·플?�폼](references/23-finishing-platform.md) | ??|
+| ?��?지/?�상 ?�성 경로·최소 충분 ?�리뷰·최�??�작·비용·?�셋 출처 | [?�성 경로·비용 ?�우??(references/24-production-execution.md) | `assets/video-model-routing-template.md` |
+| ?�퍼?�스 ?�보 ?�정·?�일/?�카?�브 ?�상 분석·source-grounded ?�작 ?�리/�?비교 ?�는 ?�인???�퍼?�스??구조�???브리?�에 ??�� ??| [?�퍼?�스 ?�상 분해](references/25-reference-video-analysis.md) | ?�일 ?�상?� `assets/shot-dna-template.md`, ?�카?�브 비교??`assets/archive-audit-template.md`; ??브리?�에?�는 �??�일??지?�한 기존 ?�너 ?�차/?�플릿만 추�? |
+| ??번에 ?�놉?�스부???�체 ?�토리보???�트까�? ?�청·?�롬?�트 ?�성 | [?�토리보???�트 ?�용??가?�드](references/storyboard-sheet-user-guide.md) | 범용 복사???�롬?�트 |
+| ?�성 LOOK·?�셋 게이?�·마?�터/?�생 계보·?�널 버전 참조·provenance·v5.1 ?�키지 출력 | [v5.1 ?�로?�션 무결??(references/contract.md#v51-?�로?�션-무결??look?�셋-게이?�계보provenance?�키지) | `assets/style-world-bible-template.md`, `assets/adaptation-map-template.md`, `assets/asset-gate.csv`, `assets/asset-provenance.csv`, `assets/prompt-ledger.csv`, `assets/dependency-graph.csv`, `assets/storyboard-panel-manifest.csv` |
+| 명시???�화/?�편/?�니메이??AI ?�화??기획?�배�??�체 ?�이?�사?�클·?�계 ?�계 ?�청 | [?�화 ?�작 ?�이?�사?�클](references/28-film-production-lifecycle.md) | ??|
+
+## ?�체 ?�키지 진행
+1. ?�체 ?�상 ?�키지 ?�는 주제�?받�? ?�상 ?�청?�면 먼�? [?�리?�로?�션·검???�차](references/preproduction-review.md)�??�확???�???�더?� ?�용 범위�??�인?�다. **명시???�화/?�편/AI ?�화???�체 ?�이?�사?�클·?�계 �??�계 ?�청???�해** [?�화 ?�작 ?�이?�사?�클](references/28-film-production-lifecycle.md)???�위 ?�색 구조�??�다 ???�일 ?�출물·비?�화 ?�청?�는 ?�용?��? ?�는?? ?�요??경우 13?�로 콘셉?�·근거�? ?�택?�고, 01 브리?��? `assets/project-template.json`??채운??
+2. ?�사?�는 02, 각본???�요?�면 03???�용?�다. 주장?�나 ?�이?��? ?�는 ?�상?� 10???�께 ?�용?�다. 비서???�상???�물·갈등??강제?��? ?�는??
+3. ?�기가 ?�요?�면 04, ?�각 기�??� 05, ?�·블로킹?� 06, ?�요??조명?� 07???�성?�다. ?�세 보드??[?�전???�토리보??계약](references/storyboard-contract.md)?�로 카메???�치 공간·VFX·?�???�레?�션/립싱?��? 먼�? ?�합?�다. ?�요???�문가 ?�력???�킷???�으�?차단 ?�롯??????비트 ?�덱?�로 ?�리???�나???�구 ?�력 ?�킷??조정?�에�?반환?�고, 반환???�유???�킷?�로 보드 조립???�개?�다. ?�구???�제 공간 검증�? 카메?�·Blender ?�문 ?�킬�??�계?�다.
+4. ?�니메이??계획?� 08, ?�집·?�운?�·�??�밍?� 09, AI ?�계??11???�용?�다. 모든 비트?�씬?�샷?�키?�널??매핑?�고 ?�요???��?지 ?�롯/고유 ?��?지/?�트 ?��? 계산?????�제 ?��? ?��?지�??�성·?�록·검?�한?? ?��?지 ?�독 ?�체 ?�서 검?��? ?�???��?지???�스??self-check�??�체하지 ?�는??
+5. 14�??�작 ?�정·비용·?�셋 ?�장???�성?�고 ?�제 ?�품 ?�청?�면 15�??�막·출력 규격???�한?? 12�?KEEP/FIX/미�?증과 ?�정 ?�유·방식·추�? 준비물·근거 ?�는 ?�요?�간???�성?�고 ?�인 범위 ?�에???�정?�재검?�한?? ?�리�??�상/?�직이???�더??별도 ?�인???�행 범위 ?�에?�만 ?�행?�다.
+6. ?�제 ?�출물별 ?�태?� ?�정 ?�존?�을 기록?�다. `review.md`?� ?�제 ?�일 경로·?��?지·검??결과�??�용?�에�?보고?�고 검???�기한?? ?�당 버전???�리?�로?�션 ?�락�?별도 ?�상 ?�행 ?�인??구분?�다.
+7. `python scripts/validate_project.py <project.json> --profile plan`?�로 ID·?�간·참조�?검?�한?? ?�제 ?�일 ?�품?� `--profile delivery --base-dir <?�로?�트?�더>`�?추�? 검?�한?? ??검?�는 감정·?�기·미디???�코?�·실???�상 ?�질???�인?��? ?�는??
+?�세 ?�작 보드??`python scripts/validate_storyboard.py <project.json>`??추�? ?�용?�고 ?�제 ?��?지 ?�계??`--require-images --base-dir <?�로?�트?�더>`�?검?�한?? 최�? 8?�널 ?�트�?만든 직후 `scripts/split_storyboard.py --sheet <?�트> ...`??모든 ?�트�??�서?��?지?�해 clean ?�널·?�면 overview�?분리·?�록?�고 ?�수 ?�열�?검?��? ?�행?�다. ?�확???�록/?�료 게이?�는 [공통 ?�키지 계약](references/contract.md#?�체-?�리?�로?�션-?�키지)???�른?? 구조/?�일 ?�과???�제 ?�토리텔�??�질??증명?��? ?�는??
+?�키지 ?�품???�청?�면 `python scripts/package_production.py <project.json> --base-dir <project-root> --output <??출력> [--zip] [--require-final]`�?v5.1 ?�키지 ?�리�??�제 ?�록 ?�일로만 조립?�다(?�생 매니?�스?�·게?�트 보고·`.history` 감사 ?�본 ?�함, 기존 출력 ??��?�기 ?�음). ?�금 ???�키징�? ?�린 게이?��? 보고?�며 `--require-final`?� �?경우 거�??�다.
+
+## ?�출�??�계
+?�로?�트 브리?? 채워�??�당 모듈 ?�셋, `project.json`, ?�제 검???��?지?� 경로, 미�?�?가??목록, `review.md`?� 검??결과�????�로?�트 ?�더 ?�에???�계?�다. [?�리?�로?�션·검???�차](references/preproduction-review.md)???�?�·승??계약???�르�??�문 ?�적???�배?�하지 ?�는?? ?�임???�업??반환?�는 ?�당??artifact/entity ID·출력 버전·dependency_versions ?�안·가?�·실??검??��??�결 ?�력??[?�커 ?�계·?�일 기록??(references/contract.md#worker-handoff-and-single-writer)???�라 붙인?? ?�일 ?�스???�청?� ?�당 ?�셋�?반환?�고 ?�로?�트·artifact ID�??�로 만들지 ?�는??
+
+## ???�식 ?�계
+?�???��? `assets/shot-list.csv`, ?�운???�이?�는 `assets/sound-cues.csv`, ?�실 주장?� `assets/claim-ledger.csv`, v5.1 매니?�스?�는 `assets/asset-gate.csv`·`assets/asset-provenance.csv`·`assets/prompt-ledger.csv`·`assets/dependency-graph.csv`·`assets/storyboard-panel-manifest.csv`????구조�??�용?�다. CSV??비어 ?�는 ?�성???�더?�며 JSON ?�장�?ID�?맞춘?? ?�키지 매니?�스?�는 `package_production.py`가 ?�본?�서 ?�생?��?�??�동?�로 ?�로 ?�정?��? ?�는??
+
+## ?�청 범위?� ?�료 ?�정
+???�키지???�나???�합 ?�킬 ?�에 15�??�업 모듈???�다. �?모듈??별도�??�치?�는 ?�킬?� ?�니?? ?�일 ?�출�??�청?�는 ?�요??모듈�?공통 계약�??�는??
+
+계획/각본/?�롬?�트 ?�청?� ?�용�??�계가 ?�성?�면 ?�료?�다. ?�체 ?�리?�로?�션 ?�키지???�제 문서·?�청???��? ?��?지·검??보고�?갖춰 검???�기로 ?�계?�다. ?�상 ?�일 ?�청?� 별도 ?�행 ?�인 ???�제 ?�성·?�집 결과?� ?�당 검?��? 갖춰???�료?�다. ?�리?�로?�션 ?�락?� ?�상 ?�성·과금·게시 ?�인???�니??
+
+검??결과??pass / pass_with_notes / needs_revision�?검??범위�??�께 기록?�다. ?�당 ?�는 ??��?� N/A?� ?�유, ?�인?????�는 ??��?� unverified�??�긴?? ?�본 ?�서???�권 ?�심??추출???�키지?�고 ?�개?��? ?�는??
+
+추�? ?�셋: `assets/asset-registry.csv`, `assets/continuity-ledger.csv`, `assets/storyboard-panels.csv`, `assets/production-budget.csv`?� ?�화 ?�플�?`assets/series-bible-template.md`, `assets/character-ssot-template.md`, `assets/product-ssot-template.md`, `assets/shot-dna-template.md`, `assets/motion-beat-template.md`, `assets/vfx-layer-stack-template.md`, `assets/crowd-map-template.md`, `assets/performance-cue-template.md`, `assets/video-model-routing-template.md`, `assets/generated-qa-report-template.md`. ?�성 ?�도 로그?� ?�시???�한?� 별도 ?�일???�니??`project.json`??`generation_attempts`?� `shot.retry_budget`??기록?�다.
+v5.1 ?�키지 추�? ?�셋: `assets/style-world-bible-template.md`, `assets/adaptation-map-template.md`, `assets/asset-gate.csv`, `assets/asset-provenance.csv`, `assets/prompt-ledger.csv`, `assets/dependency-graph.csv`, `assets/storyboard-panel-manifest.csv`.
+
+## 카메?�·공간과 Blender ?�결
+?�면�?카메???�동·구도·블로?�·피?�체 거리 ??3D 공간 ?�업?�는 `$camera-spatial-design`?�로 ?�치 명세�?만들�?`$blender-previsualization`?�로 ?�제 Blender ?�면·?�더 ?�레?�을 반드???�성·검?�한?? `spatial_spec.py`???�력 ?�전 검?�이�??�독?�로 3D ?�업???�료 처리?��? ?�는?? Blender가 ?�으�??�계 문서�??�기�??�각 검?�는 BLOCKED/UNVERIFIED�??�시?�다. 카메??명세가 바뀌면 ?�당 ?�·스?�리보드·?�성 ?�롬?�트�?stale�??�시?�다. ?�스??2D ?�업?� ??3D ?�행 경로�?강제?��? ?�는??
+
+## ?�택???�태·?�과 ?�계
+?�적 변?�·원?�과 ?�류 결과·?�점 ?�?�·시�??�략·결합 반응·?�확???�퍼?�스 ?�현???�계???�만 [?�태·?�과 ?�속??(references/26-state-causality-continuity.md)???�고 ?�당 ?�롯??기존 ?�출물에 ?�결?�다. 변???�역/?�성, 보존 조건, ?�속 ?��? 범위?� 검??근거�?분리?�며 [?�택 ?�플�?(assets/state-transition-template.md)?� ?�요??부분만 ?�다. 변???�는 ?�터뷰나 ?��? 매칭 ?�는 ?�업???�섯 ?�차�?강제?��? ?�는??
+
+## 카메??분석·?�어·검???�결
+?�퍼?�스??카메???�직임 ??��?��? camera-motion-reference-analysis, ?�치 경로·?�?�밍·?�즈 ?�계??camera-spatial-design, AI ?�성 ?�력 변?��? ai-camera-control???�결?�다. 카메??결과 검?�에??[무빙 QA](references/27-camera-motion-qa.md)�??�용?�다. 계획·?�리비즈·?�성 ?�일·?�제 ?�생 검?��? 분리?�고 ?�틸?�나 ?�롬?�트만으�??�제 무빙 ?�과�??�정?��? ?�는?? ?�킬?� frontmatter name?�로 찾는??
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/contract.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/workspace-integration.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'docs/implementation/ad-craft-recipes/verification-variation-briefs-2026-10-12.json' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'docs/implementation/ad-craft-recipes/baseline-briefs-2026-10-12.json' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+ succeeded in 595ms:
+# ChatGPT Work workspace integration
+
+Apply these host adaptations before upstream local-runtime instructions.
+- Resolve a sibling skill by its exact `name` frontmatter under `/root/.codex/skills/remote-skills/*/SKILL.md`; installed directory names may differ from skill names. Resolve sibling links/resources against that directory. Run `scripts/...` relative to the skill directory, never the current project directory.
+- Use the available built-in image generation tool (`image_gen.imagegen`) for image requests and edits. It replaces this package's unavailable `codex-imagen` CLI dependency in this workspace. Read the installed imagegen skill when needed. Preserve supplied references; inspect local images before edits. Do not require a CLI login or quote for the built-in tool. Returned generated images are displayed and saved automatically; do not download or reconstruct them only for display/storage.
+- For Higgsfield execution, use the installed official Higgsfield plugin skill matching the requested task and its MCP tools first. Upstream CLI recipes are reference material, not a required runtime or proof of current models, pricing or support. Follow the selected plugin's current input/output, consent and spend contract. Use Sites skills for ordinary requested website builds. Preserve package craft and canonical IDs without inventing unsupported tool equivalence.
+- The remote container's Documents folder is not the user's Windows Documents. For actual file production, choose a scratch project root explicitly via `production_history.py init --project-root <absolute-project-root>`, keep chronological history there, and persist requested deliverables and necessary project checkpoints using the installed Library skill. Include history/project manifests when delivering a complete package. Reuse an explicitly selected project root. Chat-only work creates no files/history. Never save production artifacts in the skills checkout. Generic files require actual Library saving; generated-image automatic saving is the stated exception.
+- Existing user authorization carries across stages. Perform necessary reversible preparation and authorized execution without repetitive approvals. Ask only when a concrete unresolved choice or the selected tool's actual approval requirement remains; an upstream blanket stage gate alone does not require renewed approval. User review, technical QA and public publication remain distinct.
+- Discover only dependencies needed for the selected task. Report missing capabilities accurately; installation of these instructions does not install Blender, FFmpeg, model weights or external credentials. Do not autonomously invoke subagents except where the user or applicable skill explicitly authorizes them.
+
+Source: DeclanJeon/contents-production-skills, package 2.4, revision 6eb455621cbfc7520183c92df4884892577e6967. Preserve upstream craft/contracts; apply the host's system/developer and explicit user instructions first.
+
+
+ succeeded in 587ms:
+{
+  "purpose": "Independent post-update application variations. Only briefs may be supplied to the fresh-context consumer; do not supply evaluator criteria, design, archived exercises or baseline answers.",
+  "scenarios": [
+    {
+      "id": "F2",
+      "brief": "Text-only 10-second fragrance concept and edit/state handoff for imaginary NIGHTFOLD: dark rectangular violet bottle, rounded black cap, blank pale square label pending owner artwork. Original approved creative line: Make room for night. Adult moves a folded scarf aside, places bottle on polished black stone, presses one spray toward scarf edge, then scarf briefly hides the label and sprayed corner before both reappear. End on stationary bottle and scarf without recapping or washing. Choose concrete copy/action timing, hand ownership, contact/result/retention conditions, highlights/reflection/readability, and alternative edit if elaborate effect obscures product. Brand-awareness film, no purchasing destination required, no physiological or fabric-care claim. No media or artwork supplied; no generation."
+    },
+    {
+      "id": "H2",
+      "brief": "Text-only 13-second concept/shot/edit handoff for imaginary Paperlight lodge. Visitor travels from east door west to a stone screen, turns south into lounge; guide offers folded map, visitor points to a west-wall skylight, guide follows visitor's glance, and visitor exits north past screen toward east door. Brief permits one impossible scale reveal inside the folded map but should return to ordinary visitor POV and fixed landmarks. Explain meaningful path use, playable actor intentions and stimulus/reaction, point-of-view changes and contact ownership, small-screen disclosure hierarchy and cut alternatives. Not a real property, offer, testimony or measurable geography. No numerical geometry solve/images/video requested."
+    },
+    {
+      "id": "V2",
+      "brief": "Text-only 11-second plan for imaginary TALUS vehicle: compact box body, two blue roof bars, four six-spoke wheels and blank badge pending artwork. Three seconds of grounded rolling through damp clay, four seconds of intentionally sliding with locked wheels in a clearly miniature animated world, then stop beside dry plinth. Clay sticks to rear tire tread and lower sill, briefly hidden behind a miniature arch before reappearance. A sampled still makes a spoke appear stationary. State conditional physical constraints, relative body/camera/ground movement, contact/shadow/reflection/wheel/number continuity, clay/wake persistence and reset, exact package/artwork gates. No safety/traction/range assertions, real-road driving directions or generation. Reference inputs are only one auto-caption sentence without timing and an uploader's claimed remaster process; source audio has not been heard and rights are unknown."
+    },
+    {
+      "id": "E2",
+      "brief": "Produce a compact read-only reference-analysis handoff from this user-supplied inspection log, not a video you personally inspected: original file archive SHA not supplied; requested extraction at 2.000s returned source PTS 2.041667s, requested 2.100s returned source PTS 2.125000s; detector candidate C07 straddles a fade, but exact cut boundary is unresolved; visual blocks B02 and B03 show hand approaching cup then cup in guest hand, without contact interval viewed; black tail after visible title is recorded at PTS 9.958333s; auto captions are untimed and VO unheard; uploader claims wholly generated but gives no shot mapping or rights record. Distinguish the identities, units and evidence states you can actually hand off and give a minimal inspection plan. Do not turn candidates into verified shots, assert cup transfer was observed, claim tail title holds, fabricate SHA or audio, or approve reuse. No media operations requested."
+    }
+  ]
+}
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 1206ms:
+# ���� ���� ��� v1.1
+
+## ID�� ����
+- project_id�� ������Ʈ �� ���������� ���Ѵ�. scene_id S01, beat_id B01, shot_id SH01, character_id CH01, claim_id CL01, sound_id AU01, artifact_id A01 ������ �����ϵ� ���� ü�踦 �켱�Ѵ�.
+- �ð��� �� ���� ���ڷ� ����Ѵ�. ���� Ÿ�Ӷ����� start_s ���� / end_s �������̴�. fps�� �ʴ� ������ ����. ������ ������ ���� ���� / �� �������̸� ���̴� (end-start)/fps��.
+- ����/�Կ� ���� ���� source_duration_s�� ���� ���� ���� ���̸� �����Ѵ�. final ������ ��ġ�� �ʴ´�. ��ȯ�� ����� ��ø�� ���� ���̾� ť�� ǥ���Ѵ�.
+- �⺻ ����� ���� ���� ������ 0�ʺ��� target_duration_s���� �������� ���´�. ������������Ÿ��Ʋ�� �ϳ��� shot���� ����Ѵ�.
+
+## ���¿� ����
+- artifact ����: draft / reviewed / approved / generated / verified / stale.
+- approved�� ���� ����� �Ǵ� ���ӵ� ���� ����� ���� ���� ����Ѵ�. generated�� ���� ������ �������� ��, verified�� �ش� ������ �˻����� ���� ����Ѵ�.
+- ������ dependency�� ����Ѵ�. ���� ������ �ٲ�� ������ �޴� ���� ��ȹ�� stale�� ǥ���Ѵ�.
+- `assets/project-template.json`�� �� �迭�� null�� �ۼ� ���� ���´�. �˻� ��� ������ �ƴϴ�.
+
+## JSON ����
+�ʼ�: project_id, version, target_duration_s, fps, aspect_ratio, scenes, characters, shots, claims, artifacts.
+scenes: id, purpose. characters: id, locked_traits.
+shots: id, scene_id, character_ids, start_s, end_s, source_duration_s, purpose, start_state, end_state.
+claims: id, statement, kind(fact/inference/fiction), source(���� ����/������ ��ġ), status(unverified/verified/fiction).
+artifacts: id, type, version, status, dependencies(artifact id �迭), evidence(�˼� ��ġ; verified ���� �ʼ�).
+
+## �ΰ� �ּҰ�
+�� ���⹰�� �Է� ID�� ����, ������ �׸� ID, ����, ���� ���� ���, ���� �ܰ� ���ذ� ������ ���δ�. ��������� �ٲ� ������ ���� Ÿ���ڵ带 �����. ���� ������ ������ ���� �������� ���� �������� ���� ���� ������ �������� ��ȸ�Ѵ�.
+
+## Worker handoff and single writer
+
+���� �ܰ迡 �ʿ��� ������ �ΰ��Ѵ�. �� ��Ŷ�� �Ͻ��� ���� �����̸� �� ����/�����ٷ��� �ƴϴ�. �ܵ� ä�� ���⹰�� project.json��������Ʈ/���⹰ ID�� ���� �䱸���� �ʴ´�. ���� ������Ʈ��� ���õ� `<project-root>/project.json`�� �����̰�, ��ġ�� skill/support �������� ���� �����͸� ���� �ʴ´�.
+
+**�Է� ��Ŷ:** ���� project_root/project_id/project version(������ ��), �� ���� assigned stage�� requested output, ��� artifact/entity/scene/shot/beat/panel/cue ID�� ���� ����, �Һ��ϴ� artifact ID��version, �ʿ��� �ҽ�/����, ��� ��ǡ����Ӽ������� ����, ���� ���� �ٰ�, ���ذ� �Է�. �̹� Ȯ���� ���� ���������� �ʰ� �ٸ� �ܰ��� �� ������ �̸� ���� �ʴ´�. ���� ���� ���� �ʿ��� �ʵ常 ��ȸ�Ѵ�.
+source/character/beat/provider ID�� artifact ID�� �ƴϴ�. dependencies/dependency_versions/input_versions���� **������ ��ϵ� artifact ID��** �ִ´�. ��� ���θ� Ȯ������ ���� �Է��� source locator �Ǵ� ��� �������� ��ȯ�ϸ� ���� dependency��� �ٹ��� �ʴ´�.
+
+**��Ŀ ��ȯ:** ��� output ID�� output version, dependencies/dependency_versions ����, �ٲ� ���ڵ� ����, ���� ����/������ locator�� ���� ���¡��˼� �ٰ�/�Ѱ�, ������ blocker. ID�� ������ �� �Ǵ� ������ �ű� ��� �������� �����Ѵ�. ������ ����/����/���� �Է��� scene/shot/beat ID�� �䱸 ��Ŷ �� ���� ��ȯ�Ѵ�. ��Ŀ�� �Ѱ��� ��ȣ���ϰų� ���� ������ ������ �ʴ´�.
+
+**�Ѱ��� �ۼ�:** ���塤������ ���� ���� ������Ʈ���� ���� �Է� ������ �ٽ� �а� stale ����� �ź��Ѵ�. ��� ����� �ش� ���� artifact ������ �ݿ��ϰ� ���� ���θ� stale�� ǥ���Ѵ�. ���� �� �ٽ� �о� �˻��ϰ� ���� ���� �ܰ迡 �ѱ��. ��Ŀ�� project.json�� ���� �������� �ʴ´�. �ؽ�Ʈ��/���� ���� ��û�� ��ȯ ���ȿ��� ������. �ʱ� ������Ʈ ���á��ʾ� �ۼ��� ���� �������δ��� �����̸�, �Ʒ� ������ �ڵ� ����/�ڵ� ���� ������ �ƴϴ�.
+
+- `python scripts/project_index.py <project-root>/project.json --shot SH06` �Ǵ� `--artifact A01`: �������� ���� ���� scene/character/beat/panel/voice/audio/claim/asset�� provenance��artifact dependency�� �д� **�б� ���� ��ȸ**. ��/���⹰�� �������� ������ ��ü ������ �ڵ� �ε����� �ʴ´�. ����� ��ü �긮���� ���� ���� ��� ����� �� ����.
+- focused `project_index.py` ���޿��� panel pins, `required_asset_versions`, `master_asset_ref` ��ü �躸, Ȱ�� `look_asset_id`�� �ش� ������ �����ϰ� ������ ��/���⹰�� �����Ѵ�.
+- `python scripts/update_project.py <project-root>/project.json --update update.json`: **�Ѱ� ����**, ������ ��ȿ�� ���� ������ upsert ����. �Է��� `{project_id, base_version, version, input_versions, owner_artifact_ids?, changes, storyboard?, preproduction?}`. changes�� ���� ���̺� �̸���κ� ���ڵ� �迭�̸� ���� ID�� �̺��� �ʵ�� �����Ѵ�. storyboard�� synopsis_artifact_id�� beats/panels upsert, preproduction�� �Ʒ� ��Ű�� �������� �κ� ���Ÿ� �����Ѵ�. ����/������������Ʈ ���á��� ���� ��� ���衤���� �߷��� ���� �ʴ´�.
+- ���� ���ڵ�(��/�ι�/��/����/����/�����/�ڸ�/����)�� �ٲٸ� ��Ŷ���� ������ `owner_artifact_ids`�� �ű�/������ ���� artifact ������ �Բ� �ش�. ���¡����Ÿ� ������ �� ���� ������ ������ �ٲ��� �ʴ´�. ���� ����� ����� ������ �Ѱ��� ���� ���ƿ��� �Ǵ��Ѵ�; ������ ������ �������� �ʴ´�.
+- ������Ʈ ������ base/input ����, ���ڵ� ����/�ð�, ���� ��Ʈ, �ĺ� ��ü ������ Ȯ���� �� ���� ���� �ӽ� ���ϡ���� ��ü�Ѵ�. ���� �ۼ��� lock�� ��ü �� ���� ��Ȯ������ ������ ������ߺ� �ۼ��������� �ܺ� ������ �ź��Ѵ�. ���� lock�� �ڵ� �����ϰų� ��õ����� �ʴ´�. ������ �������� ������ ���� ����/���� ���������� �����ϴ� DB�� �ƴϴ�.
+- ���� ���� ������ ���� dependency �׷����� ���� stale�� �����Ѵ�. stale artifact�� **���� �Է� ����**�� ������ �� ������ ���� ����/���࿡ ���� �ʴ´�. ���� �������� �ٽ� ���� ���ڵ�� ���������� ����ϰ� ��˼��Ѵ�. ���� ���ΰ� ���� ���� �����Ѵ�.
+- `storyboard.panels[].asset_version_refs`�� ���� ������ �ش� ������ `required_asset_versions`�� ��� ���� artifact�� �Է� �����̴�. �� ����� ���� ���� downstream�� stale ó���ϰ� ���� ���� �״�� �����Ѵ�. ������ �б�� ���� ���¸� �����Ѵ�.
+
+������ upload/job/Soul/site/folder ID�� URL�� �ܺ� locator�̸� canonical asset ID�� �ƴϴ�. ���� ������ ��� ����� available/verified asset�� result_asset_id�� ����. Brandkit ���¡�blocks.json��camera_spec.json������ manifest�� ���� domain authority/�Ļ� adapter�� �����ϰ� project.json�� �����ϴ� ���� ������ ������ �ʴ´�.
+- `python scripts/package_production.py <project-root>/project.json --base-dir <project-root> --output <��-���> [--zip] [--require-final]`: ����� ���� ���Ͽ��� v5.1 ��Ű�� Ʈ��/ZIP�� �����ϴ� **�Ļ� ��� ����**. ������ ���� �ʰ� ��� ��θ� ����� ������, �Ŵ��佺Ʈ�� �������� ������Ѵ�.
+
+## v1.1 ������ �˻� ������
+`schema_version`�� `1.1`�� ����Ѵ�. ���� `1.0` �Էµ� �Ϻ� ȣȯ������ ���ο� ������Ʈ�� v1.1 �ʵ带 �ۼ��Ѵ�.
+
+- plan: �ʼ� ���� �������ð������������� ����� �˻��Ѵ�. ���� �� �ڷ�� source_duration_status=estimated�� ����Ѵ�.
+- preproduction: ������ ��ü ��Ű���� �ʼ� ���⹰������ Markdown/�̹�������ü ���塤�ι� �丣�ҳ�/SSOT�������� �ؽø� �˻��Ѵ�. `--base-dir` �ʼ�, �̹��� ��忡�� Pillow �ʿ�. ������������ �󱼡��Ǹ�������� ���� ������ �������� �ʴ´�. plan ������ �� �غ� �Ϸ� ������ ������� �ʴ´�.
+- delivery: plan �˻翡 ���� ���� ���硤�ؽá����� �ð������� blocker����ǰ �˻� ����� �߰��Ѵ�. `--base-dir`�� ������Ʈ ������ �����Ѵ�. ���� ���, ���ڵ�, ���� ����, ����� ������ ������ ������ �� �ڵ尡 Ȯ������ �ʴ´�.
+- �ʼ� ���̺� scenes/shots/artifacts�� ��� ������ �� �ȴ�. �����ι��� ���� ������ characters=[]�� ����Ѵ�.
+- scene.purpose�� ��� ���, character.locked_traits�� ���ڿ� �Ǵ� ��� ���� ���� ���/��ü�� ����Ѵ�.
+- target_duration_s�� shot.start_s/end_s�� fps ���� ������ ��迡 �����. �ʴ� �Ǽ��� ����ϰ� �ݿø� ������ �����Ѵ�.
+- shot.source_duration_status: estimated/measured. ��ȹ�� ���� ���̴� �����̸� ���� ����/�Կ� �� �����Ѵ�.
+- shot.source_in_s�� ���� ����ũ�� �ҽ� ���� ��, playback_rate�� �ҽ� ��/���� ��(�⺻ 1). ��ӡ����θ�ǿ��� �ʿ��� �ҽ� ���̴� source_in_s+(end_s-start_s)*playback_rate��.
+- shot.asset_ids�� asset_registry�� ���õ� ���� ID ����̴�. ������Ʈ�� ��Ρ��衤�ǻ󡤼�ǰ�� CSV ���Ӽ� ����� �����.
+- artifact.dependencies�� ID ����̰� dependency_versions�� **��Ȯ�� �� ID��**�� {artifact_id: �Է� ����} ��ü��. ������� ���� Ű�� ������. ���� ���⹰�� ���� ������ ��ġ�ؾ� �ϰ�, stale ���⹰�� ���� �Է� ������ ������ �� �ִ�.
+- approved artifact�� approval={by, at, evidence}�� ����Ѵ�. �����ڡ��ð����ٰŴ� ���� ����� ����Ѵ�. ����/���� ���⹰���� asset_ids, verified���� evidence�� �ʿ��ϴ�.
+
+## ��ü �������δ��� ��Ű��
+
+���� �ؽ�Ʈ/������Ʈ ��û�� �� Ȯ���� �䱸���� �ʴ´�. ��ü �̹��� ��� ������ **�ó� MD, �ι��� �丣�ҳ���SSOT MD�� ���� �� ��¥�� Identity Sheet A, ���� ��� ��Ƽ MD, ��� �г��� �̾߱� ������ ���� �պ� ���丮���� �̹��� ��Ʈ(��Ʈ�� �ִ� 8�г�, ���� �ִ� 1�� �̻�)**�� �ΰ��Ѵ�. ĳ���� ���� ��ǰ�� �ι� ���⹰�� �������̴�. �ؽ�Ʈ ���� ��ü ����� �̹��� ����/����/������ �߰����� �ʴ´�.
+
+- `preproduction={mode:text|image_backed,synopsis_artifact_id,storyboard_artifact_id,storyboard_sheet_artifact_ids,storyboard_split_asset_id}`�� ���� project.json�� �д�. �̹��� ��忡�� �պ� ��Ʈ artifact ID�� **���ĵ� �迭**�� �ʼ���. �� �嵵 �迭�� ����ϸ� ���� �ܼ� ������ ���� ID�� �� �׸� �迭�� �����Ѵ�. �ó� type�� synopsis, ���� type�� storyboard�̸� ���� ��Ȯ�� �� ���� `.md` ������ �����Ѵ�.
+- ��ü ��Ű���� �� `characters[]`���� `persona={role,personality,observable_behavior,speech}`, `ssot_artifact_id`�� �д�. �� �丣�ҳ� ���� ��ü���� ���� ���� ���ڿ��̸� ����翡�� ������ ���´�. character_sheet artifact�� �ó� �Է� ID/������ ���� SSOT MD ���� �ϳ��� �����Ѵ�. ���޵� ĳ���ʹ� ������ �����ϰ� �ó� ���� ������ �ΰ� ��Ʈ�� �������� �����Ѵ�.
+- �̹��� ����� `identity_sheet_asset_id`�� kind=character_identity_sheet, entity_type=character, �ش� entity_id�� ���� �̹�����. ���� ����/3��4/����/�ĸ� + �� ����/3��4/������ 7�並 �� �忡 �����ϰ� �� ���� ���� ��Ŀ�� ���� �˻��Ѵ�. ��� �ʻ� �ϳ��� ��ü���� �ƴϴ�. �ش� ������ `source_asset_ids`���� �� ĳ���� SSOT artifact�� ����Ű�� ���� Markdown asset ID�� ���Եž� �ϸ�, �˻�Ⱑ ������ Ȯ���Ѵ�. �ι��� �����ϴ� ��� ���� asset_ids�� �� ������ �����Ѵ�.
+- storyboard artifact�� ���� �ó�� ��� ĳ���� character_sheet�� ��Ȯ�� ������ �����Ѵ�. �� ��/�гο� ������beat/scene/shot/panel/ĳ���͡��丣�ҳ�/SSOT��ī�޶󡤽ð������� �̹��� ������ �����Ѵ�. �� �г��� �ش� beat������ ĳ���͡�audio cue��speech ID�� ���� ����Ѵ�.
+- �պ� `type=storyboard_sheet` artifact�� ������ ���� ������ �����ϰ� `kind=storyboard_sheet` �̹��� ���� ��Ȯ�� �ϳ��� �����Ѵ�. PNG�� `storyboard_sheet.panel_traceability` metadata�� ǥ�� ĸ���� panel�� ID ������ ��´�. �Է� ��Ʈ/crop�� �պ� ����� ��ü���� �ƴϴ�.
+- �̹��� ����� `storyboard_sheet_artifact_ids`�� �̾߱� ������ ���ĵ� `type=storyboard_sheet` artifact �迭�̴�. **�� ��Ʈ���� �ִ� 8�� �г�**�� �д� ? �г� �������� �е����� ���� ����� ���ϰ� �� �忡 �������� �ʴ´�. �� ��Ʈ artifact�� ������ ���� ������ �����ϰ� `kind=storyboard_sheet` �̹��� ���� ��Ȯ�� �ϳ��� �����Ѵ�. �� ��Ʈ ������ `panel_ids`�� �ڱ� ������ ���� panels �����̸�, ��� ��Ʈ�� ������� �̾� ���̸� ���� ��ü ������ ��ġ�Ѵ�(�������ߺ� ����). ��Ʈ�� �� �� �̻��̸� �� ���¿� `sheet_index`(1����)��`sheet_count`�� ����Ѵ�. `source_asset_ids`�� �� ��Ʈ �г��� ���� �ȼ� �Է�(source_sheet_asset_id�� ������ �� ID, ������ image_asset_id)�� ���� ������ ��� `source_sha256`�� �ش� �Է� ID������ �ؽ� ���̴�.
+- `render_storyboard_sheet.py <project.json> --base-dir <root> --output 04_STORYBOARDS/sheets/<��.png> [--font <font.ttf>] [--panels-per-sheet 1..8]`�� clean �гΰ� �ܺ� �Կ� ĸ���� ���� �ִ� PNG ��Ʈ�� �����Ѵ�. �� ��Ʈ�� ���� path/hash/�гΡ��ҽ� ���ΰ� ���� traceability PNG metadata�� ��ȯ�ϸ� ������ ���� �ʴ´�. �Ѱ��� ��� ��Ʈ�� ����ϰ� ���� �պ��� ����.
+- �պ��� ���� ���� `split_storyboard.py --sheet <������Ʈ-relative ��Ʈ>`�� �̾߱� ������ �ݺ� ������ ��� overview�� clean �г��� �����Ѵ�. ���� JSON manifest�� `kind=storyboard_split_manifest`�� ����ϰ� `preproduction.storyboard_split_asset_id`�� �����Ѵ�. �� ���� �̹����� ���� ��Ρ�SHA-256���� ����Ѵ�. manifest�� `file`�� manifest ���� ����, `sheet_path`��`sheets[].path`��`band_sources`�� ������Ʈ root ���� ��� ��δ�. ���� �г� �Է��� ���� �̹����� �ٲ��� �ʴ´�.
+- preproduction/FINAL�� manifest�� ���常 �ŷ����� �ʴ´�. �� panel/scene�� ���� ��� ���ϡ�SHA-256, canonical scene/shot/panel, source asset/version/hash �� asset pins�� ���� ��ġ�ؾ� �ϸ� �ٸ� �г� ������ alias�� split�� �ź��Ѵ�.
+- `package_production.py --require-final`�� �������� ���� FINAL ����, �Ϸ�� �̹��� ��� ��Ű��, ���ĵ� ���� ��Ʈ/hash�� ��ġ�ϴ� split manifest, ��ü scene/panel �̹����� ���� ����� �䱸�Ѵ�. ZIP�� root `project.json`�� �޴� ������ �Ļ� �������̸� registry ��ΰ� ���� ��Ű�� ������ ����Ų��. ǥ�� ���� ��δ� �����ϰ�, ���� ��� ��δ� asset ID�� ������ �浹 ���� ��ġ�Ѵ�. CSV manifest�� ������ �Ļ����̰� ��� ���� ��Ű�� ������ �����Ѵ�.
+- ZIP �簳���� asset registry ��ο� split ���� `file`/`sheet_path`/overview source ������ ���� relocation map���� �������ϰ� �Ļ� snapshot hash�� �����Ѵ�. ���� ������ �������� ������, ���� ���� byte stream�� ��� ������ �ٸ��� �Խø� �ߴ��Ѵ�.
+- ��� �ʼ� ���� ���Ͽ��� SHA-256�� ����Ѵ�. �̹��� ���ڵ������� ���� ��������ü Ŀ������������ blocker�� �˻��Ѵ�. reviewed/approved�� preproduction_review �Ǵ� approved�� video_execution_plan���� plan������ �� �ϰ� ����Ʈ�� �ڵ� �����ϸ� �̹��� ��带 �䱸�Ѵ�. ����� �ó񡤺��塤�պ��� dependency �׷����� �Һ��ؾ� �Ѵ�.
+- ���� ���´� draft/stale�� �����ϰ� strict preproduction �˻翡���� �غ� �̿Ϸ�� ��ȯ�Ѵ�. ������Ʈ������ path��planned ���¡��˻� ��ϸ����� ���� ���⹰�̶�� ǥ������ �ʴ´�. ���� ��� �ڿ��� ĳ���� 7�� ��ü��, ��ü clean �� ����, �պ� ����/������, ��� �� ��ǰ�������׸��ڡ��ݻ� ������ ���� �˼��ϰ� ����� ������ ������ �޴´�.
+
+
+## ���� ���ϰ� �ΰ� �ð�ǥ
+- asset_registry: {id, kind, version, path, status, sha256}. ���� path�� ������Ʈ ���� ���� ��� ��θ� �����ϸ� `--base-dir` �˻翡�� resolve�� ����� �� ���� ���̸� �ź��Ѵ�(���� ���/..//symlink ����). planned�� path=null�� ����Ѵ�. available/verified�� ���� ��θ� ���� base-dir�� ������ ���� ����� ������ �ؽø� Ȯ���Ѵ�. ���� ���Ͽ��� verified�� SHA-256�� �ʿ��ϴ�.
+- asset_registry ���� provenance �ʵ�(���� ���� ä���): entity_type(character/product/prop/location/wardrobe/look/lighting/graphic/environment), entity_id, authority(authoritative/inferred/derived), source_asset_ids, prompt, provider, model, workflow, result_asset_id. ����ڰ� �� SSOT�����̺��� authoritative�� ����ϰ� ���Ƿ� �������� �ʴ´�. Ȯ�ε��� ���� provider/model�� ������� �ʴ´�.
+- source_asset_ids/result_asset_id�� ���� asset_registry ID�� �����Ѵ�. entity_id�� ������ ��� ���� ���� ���ڿ��̾�� �ϰ� entity_type=character�� characters�� ID�� ��ġ�Ѵ�. ĳ���� Identity Sheet A�� source_asset_ids���� �ش� ĳ���� SSOT artifact�� ������ Markdown asset ID�� �ݵ�� ���Եȴ�. �ٸ� entity_id�� �ش� ���� ���̺� locator�μ� ���� �ҽ��� �ΰ��ϸ� �� ���� ���̺��� �������� �ʴ´�. shot.claim_ids�� ������ claims�� ���� ID�� �����Ѵ�.
+- shot.retry_budget: ���� ���� ���� ���� �ִ� ��õ� ��(����, 0 �̻� ����). ���ε� video_execution_plan�� ���ѿ��� �´�. 0�̸� ���� 1ȸ�� ����ϰ� attempt�� �ִ밪�� 1+retry_budget�̴�. �ʵ� ����� ������ ���� �㰡�� �ƴϴ�.
+- generation_attempts: {id, shot_id, attempt(����=1, ���� ���� �ߺ� ���� ���� ����), route, model?, changes?, observed_failures?, preserve?, result(accept/reject/conditional), result_asset_id?, failure_class?, notes?}. ���� �õ��� ����Ѵ�. accept�� available/verified�� ���� ��� ���� ID�� �����ؾ� �ϸ� planned ������ ���� ����� ������� �ʴ´�. ���/���� �˻� ��ü�� ���� �����̳� �̵�� ǰ�� �˻�� �ƴϴ�.
+- audio_mode: no_audio / no_dialogue / dialogue. audio_cues: {id, start_s, end_s, layer, shot_id?, asset_id?}. �Ҹ��� ��ĥ �� ������ ��ü ���� ������ ����� �ʴ´�.
+- captions: {id, start_s, end_s, text, shot_id?}. ����� ���ҳ� �ڸ� Ÿ�̹��� �ǹ� ���ռ��� ���� ������� �˻��Ѵ�.
+- issues: {id, severity: blocker/major/minor, status: open/resolved, evidence?, fix?}.
+- delivery_spec: {destination, width, height, container, video_codec, caption_mode: none/sidecar/burned_in, final_asset_id, caption_asset_id?}. ���� �ҽ����� ���� ������ �԰��� �������� �ʴ´�.
+- delivery_checks: {id, category: playback/timing/visual/audio/captions/continuity/claims, status: pass/fail/unverified/not_applicable, evidence?, reason?}. pass�� ���� �˻� ��ġ, N/A�� ������ ������ ���´�. ���� Ȯ������ �ʰ� pass�� ���� �ʴ´�.
+
+## ���� ����� ����
+����� ���⹰�� �� ���� �ΰ踦 stale�� ǥ���ϰ� �Է� ������ ������ �� ���� �׸� ��˼��Ѵ�. ��ȹ ��Ű���� �ϼ��ƾ ���� ������ �ϼ��� ���� �ƴϴ�. ���� �ĺ������ꡤ���� ����� �����̸� ��ȹ���� �������� ����� ���� ���� ������ Ȯ���Ѵ�.
+
+## �������δ��� ����� ���� ���� ����
+[�������δ��ǡ����� ����](preproduction-review.md)�� `review.md`�� `type=preproduction_review` artifact�� ����ϰ� ���� ����� ID�������� dependencies/dependency_versions�� �����Ѵ�. ���� ����� ���� ���� approved�� approval �ٰŸ� ����Ѵ�. �������̹����� generated/verified ���´� ����� ������ ������ �ʴ´�.
+
+���� `type=video_execution_plan` artifact�� ���ε� ���� ��Ű�� ������ ������ ������/endpoint������/��õ�/��� ������ �����Ѵ�. ���� ����� ���� ���� �ڿ��� approved�� ����Ѵ�. �������δ��� �� ��/���� ������ ��������� ������ �⺻������ �������� �ʴ´�. ����� ������ ���� ����/���� ��ȹ�� stale�� ǥ���ϰ� �� ������ ���� ������ �������� �ʴ´�. ����� ���ΰ� ���� ����/���� �˻�� ������ ���Ŵ�.
+approved ���� ���� ��ȹ�� dependency �׷����� ���� approved�� preproduction_review�� �ݵ�� �����Ѵ�. �� ���� �˻�� ���� ����� ���ѡ���롤����/�̹����� ǰ���� �������� �ʴ´�.
+
+������� ������ ���� �㰡��. `video_execution_plan`�� ���� ������ ������ �ܰ谡 ���ԵǸ� ���ε� ������ �Է� ��������������/��� ���������� �״�� ����ϰ�, ������ ���θ����� ���� �������߰� ������ �㰡���� �ʴ´�. ������ ���� ��¡��˼� ��������� �ٰŴ� ����� artifact(result_asset_id, generated/verified, evidence)�� �����, ���ε� ���� ��ȹ�� ������ ������ ���� �°� ��θ� dependencies�� �����Ѵ�. ������� ���� ������ �ϳ��� plan �������� �Բ� ������ ��쿡�� ������ ���� ���� �ȿ��� ���� �Է� ���������ǡ��������� ����Ǹ�, �׷��� ������ ���� ������ ���� ���� ������ �ʿ��ϴ�. ���� seed���Է��� ������� ���� ���ۡ���ü���� �������� �����Ƿ� �������� �ٽ� �˼��Ѵ�.
+
+## ������ �� ���丮���� Ȯ��
+���ۿ�/�� ��Ƽ�� ��ü ���� ��Ʈ���� [������ ���丮���� ���](storyboard-contract.md) ��8�� `storyboard` ��ü�� shot ��� �ʵ带 ���� `project.json`�� �߰��Ѵ�. ���� schema_version=1.1 �� �Ϲ� plan/delivery �������� �����Ѵ�. ���� `validate_storyboard.py`�� ��ü ��Ʈ/��/��/�г� ����� ���� ������ �˻��ϸ� ���� �̹������� `--require-images --base-dir`�� �����Ѵ�. �պ� crop/clean ���� `split_storyboard.py`�� �Ļ� ����� asset_registry�� ����ϰ� ���� ID�� �����Ѵ�. CSV/��Ʈ/���� manifest�� ��ȸ����Ͽ� �����̸� ���� ������ �ƴϴ�. �ǹ� �˼����Ǹ�������� ������ ���� �˻�� ��ü���� �ʴ´�.
+
+## v5.1 ���δ��� ���Ἲ (LOOK������ ����Ʈ���躸��provenance����Ű��)
+
+���� Ȯ���� �ƴ϶� ��ü �̹��� ��� ��Ű���� �� �ٿƮ��(�� ���¡����塤���� �������ִϸ�ƽ)�� �����Ѵ�. ���� schema_version=1.1�� �����ϰ� �Ʒ� �ʵ�� ��� ����������, `final`�� �����ϴ� ���� �ش� ����Ʈ�� ������.
+
+### Ȱ�� LOOK�� ��Ÿ��/���� ���̺�
+- `look_asset_id`�� ��Ʈ �ʵ��, `entity_type=look`(�Ǵ� �̺з�)�� asset_registry ������ ����Ų��. LOOK�� **�ϳ��� Ȱ��**���� �д� ? ������Ʈ ��ü �ð� ����(��ü�������򡤺������ȷ�Ʈ������ ö�С�ī�޶� ��������Ÿ�� �帮��Ʈ ����)�� �������� ��ٴ�. ���̺� �������� `assets/style-world-bible-template.md`�� ����.
+- ��� �ð� ���� ������ Ȱ�� LOOK ������ �����Ѵ�. LOOK ������ ������ �ٲ�� ������ �ø��� ���ӹ��� stale ó���Ѵ�. �г��� Ȱ�� ���̺��� ���� �� �ð� ��Ÿ���� �߸����� �ʴ´�.
+
+### �����͡��Ļ� ���� �躸
+- `asset_registry` ���� �ʵ� `role: master|derivative`�� `master_asset_ref: {asset_id, version}`�� �д�. �ݺ� ��ü�� ����(ĳ���� �����͡���� �����͡���ǰ ������)�� �� ���� master�� ����ϰ�, ���� ����(�������ļա��ǻ���������ġ)�� derivative�� ����� ������ ID�� **��Ȯ�� ����**�� ���Ѵ�. ���� �� ������ ���� �������� ���� ������ �纻�� ���� �ʴ´�.
+- ������ ������ �ö󰡸� �װ��� ���ϴ� derivative�� �ڵ����� stale�� �ǰ�(�����ϱ� ������), �� �躸�� ���� �̾����� derivative�� ����� stale�� �ȴ�. ��stale ������ �� ������ ���ϰų� stale �����Ϳ��� �Ļ��Ǹ� �˻簡 �ź��Ѵ�.
+- ĳ���� �����ʹ� 7�� ��ü�� ��Ʈ �ܿ� ���� ���� ǥ�����ǻ�(WD ID)��DO-NOT-CHANGE ���� �����Ѵ�. ��� �����ʹ� ����� �߿��� ��ҿ� 4������(establishing/reverse/lateral/top-down)�� ���ԡ�â����ֹ������� ��Ŀ�� �д� ? ��ġ�� �����̸� `ESTIMATED`�� �����Ѵ�. ��ǰ/����/��ǰ�� ���Ӽ��� ������ �� ���� ��/��/��/3/4������ ������������ ������ �д�. ��� ���带 ���� ������ ������ �ʴ´�.
+
+### ���� ����Ʈ: preliminary vs final
+- artifact ���� �ʵ� `finality: preliminary|final`�� `required_asset_versions: {asset_id: version}`�� �д�. finality�� �����ϸ� preliminary��.
+- `final` ������ **���� �� ��� ����Ʈ**��: ���� ������ ���� ��ϵ� �ְ� status�� **`verified`**(v5.1�� LOCKED/APPROVED/VERIFIED_REFERENCE�� �ش� ? `available`�� ������ ������ �� ���� QA ����� �ƴϹǷ� final�� �����Ѵ�)�̸� �� ������ ����� ���ƾ� �Ѵ�. final �ð� ���⹰(type storyboard/storyboard_sheet)�� �߰��� **Ȱ�� `look_asset_id`�� ��ϵ� style_world_bible/look �����̰� verified�̸� �ش� board�� `required_asset_versions`�� ���� �������� ��**�� �־�� �Ѵ�. stale�̰ų� draft�� artifact�� final�� �� �� ����, final�� ���� ü�� ��𿡵� ����/draft/stale/���� �帮��Ʈ�� ���� �� ����. ���� ���� ����Ʈ�� `scripts/asset_gate.py`�� `check_asset_gate(project, artifact_ids=None)`�� ? `artifact_ids`�� Ư�� final ������ �˻��� �� �ְ�, ��ȯ blocker ����� ��� �־�� ���� ��������ǰ���� �����Ѵ�. `--profile preproduction|delivery`�� ready-package �˻�� ��ü ����Ʈ�� �����Ѵ�.
+- **PRELIMINARY�� ������ ���ȴ�** ? DRAFT/planned/pending ���¿� �����ϴ� ���塤������ preliminary�� ������������ �� ������ ���Ӽ� ��� ���⹰�� ������� �ʴ´�. ���� ������ ASSET_PENDING���� ǥ���ϰ� ���丮���带 ������ �ҽ��� ���� �ʴ´�.
+- `required_asset_versions`�� ���� ������ �ٲ�� ���� ������Ʈ���� ���� �ش� artifact�� `update_project`�� �ڵ����� stale ó���Ѵ�. ������ �ٿƮ���� �����ȴ�.
+
+### �г� �ڻ� ����
+- `storyboard.panels[]` ���� �ʵ� `asset_version_refs: {asset_id: version}`�� �� �г��� ����ϴ� ��� ������ ��Ȯ�� ������ ����Ѵ�(��� �ǵ� �г� �Ŵ��佺Ʈ ���). ���尡 `finality: final`�̸� ��� �гο� �ʼ��̸�, �� ���� `asset_ids` ���ο� Ȱ�� LOOK�� �����ؾ� �Ѵ�. ���尡 stale�� �г� ���� ���� ������ ������ �� �ִ�.
+
+### provenance��������Ʈ ��Ÿ������
+- asset_registry ���� �ʵ带 Ȯ���Ѵ�: `generation_mode`, `negative_prompt`, `model_version`, `seed`, `aspect_ratio`, `resolution`, `created`, `creator`, `license_status`, `checksum`. ���� `provider`, `model`, `workflow`, `prompt`�� �����ϰ� **Ȯ�ε� ����** ����Ѵ�. Ȯ���� �� ���� ���� ������� ���� `UNKNOWN` �Ǵ� `NOT_EXPOSED`�� ���´� ? ���� ��Ÿ�����͸� �߸����� �ʴ´�.
+- ������Ʈ ���� ������ `prompts/`�� �ΰ� asset�� `prompt` �ʵ峪 ���� locator�� �����Ѵ�. ���� �̷� ��ü�� `.history` ���翡 ����Ѵ�(�Ʒ�).
+
+### ��Ű�� ��°� �̷� ����
+- ���� ������Ʈ ��Ʈ�� ���� ������� `Documents/studio_production/<project>` �Ʒ��� �⺻���� �Ѵ�. ���� ��� �ʱ�ȭ���߰�/���� ��� ��ϡ��ߴ�/�簳 ����� [�������δ��� ���� ���](preproduction-review.md#1a-����-����-����-�ʱ�ȭ��-����-�̷�)�� `recording-production-history`�� `production_history.py` CLI�� ������. `.history/`�� �ð��� ���� �����̸� ���� ������ �ƴϰ� project.json�� �������� �ʴ´�.
+- `python scripts/package_production.py <project.json> --base-dir <root> --output <��-���>`�� ���� ���忡�� v5.1 ��Ű�� Ʈ��(00_MANIFEST��10_DELIVERY)�� �����. `--zip`�� `<root_name>.zip` �� ���� �����. ���� available/verified ���ϸ� �����ϰ�, `package_manifest.csv`��`asset_gate.csv`��`asset_registry.csv`��`asset_provenance.csv`��`scene/shot/storyboard_panel manifest`��`dependency_graph.csv`��`generation_status.csv`��`prompt_ledger.csv`��`qa_report.md`�� ���忡�� **�Ļ�**�� ���� ? �����ϴ� �����Ϳ��� �ش� �Ŵ��佺Ʈ�� ����� �� ������ ���⹰�� �������� �ʴ´�. ���� ��� ��δ� ����� �ʴ´�. `.history/`�� ������ ���� �纻���� �����Ѵ�(`--no-history`�� ���� ����). `--require-final`�� ���� ����Ʈ�� ���� ������ ��Ű¡�� �ź��Ѵ�.
+- ��Ű���� �̹����� �ִٰ� �Ϸᰡ �ƴϴ�: ����Ʈ blocker 0, �ٽ� ���� ������provenance ���� ����, �г� �Ŵ��佺Ʈ�� ��� ������ Ư�� �������� �����ؾ� �Ϸ��.
+
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 429ms:
+{
+  "purpose": "Fresh-context current-contract application; authored before implementation. Do not read archived qa-reader-exercises or approved DESIGN when applying.",
+  "scenarios": [
+    {
+      "id": "F1",
+      "brief": "Text-only 12-second concept/action/edit/state handoff for fictional fragrance STILLWATER. Newly designed oval sea-green glass bottle, brushed silver offset cap and small ivory label; exact artwork not yet supplied. Original copy: Leave the hurry at the door. An adult places the bottle on a mirrored tray, removes its cap, and touches one spray to the wrist; abstract green light calms without claiming physiological benefit. Return to readable bottle close. Explain relative action/copy windows, hand ownership/contact and residue, reflective label treatment, product invariants, rights/claim gates. No mandatory shopping CTA; no asset generation. No source video/audio supplied."
+    },
+    {
+      "id": "H1",
+      "brief": "Text-only 16-second fictional hospitality concept for Lantern Quay, an imagined inn, not a real location or bookable offer. Guest enters vestibule from south, turns east at a brass lantern, crosses curtain into tea room; host gives guest a warm cup, guest notices sheltered garden through north window, then returns toward vestibule. The camera alternates guest POV and host reaction. A window wipe may briefly disclose a deliberately impossible miniature garden; recover guest POV and orientation afterward. Provide master path/threshold/landmark relations, goal/partner/reaction/eyeline and shot/action phases, alternatives to portal, evidence limitations and existing artifact handoffs. Do not assert floorplan accuracy, service quality, real address, booking CTA or satisfied-customer testimony. No numeric camera solve, images or video requested."
+    },
+    {
+      "id": "V1",
+      "brief": "Text-only 14-second fictional vehicle ad for invented four-wheel electric coupe ORBIT with approved verbal identity only: wedge body, single amber side stripe, circular lamps, four five-spoke wheels. Begin with physically coherent ordinary rolling across shallow wet slate at constant speed, then deliberately fantasy levitation over luminous water and a return to wet slate stop. Director flags a still where spokes look backward and asks whether that alone fails QA. Specify when no-slip applies and does not, camera-versus-body movement, multi-frame wheel/contact/shadow/reflection checks, water wake/sand-or-water residue persistence and reset, invariant logo/vehicle reveal and evidence/rights/claim gates. No range, safety, speed or handling claims, no real driving instructions, no asset generation. A reference uploader mentions a model and has untimed auto captions but no audio has been heard or rights documents supplied."
+    }
+  ]
+}
+
+
+hook: PostToolUse
+hook: PostToolUse
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "if (Test-Path -LiteralPath 'C:/Users/Declan/.codex/skills/ai-delegation-loop/SKILL.md') { Get-Content -LiteralPath 'C:/Users/Declan/.codex/skills/ai-delegation-loop/SKILL.md' -Encoding utf8 -Raw } else { 'MISSING' }" in C:\Users\Declan\Documents\Projects\contents-production-skills
+ succeeded in 441ms:
+MISSING
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+The seven briefs are present, and the workspace contract permits chat-only handoffs. The optional `ai-delegation-loop` skill named in AGENTS.md is absent at its specified path, so I’m applying the domain skill directly. I’m now mapping each requested handoff to its current owner references and template fields.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg --files video-production-assets/references video-production-assets/assets | rg '(19-brand|21-generated|25-reference|26-state|27-camera|06-shots|09-edit|10-evidence|shot-dna|product-ssot|motion-beat|state-transition|06-shots-template|09-edit-template|10-evidence-template|generated-qa-report|shot-list|claim-ledger)'" in C:\Users\Declan\Documents\Projects\contents-production-skills
+ succeeded in 278ms:
+video-production-assets/references\27-camera-motion-qa.md
+video-production-assets/references\26-state-causality-continuity.md
+video-production-assets/references\25-reference-video-analysis.md
+video-production-assets/references\21-generated-video-qa-retry.md
+video-production-assets/references\19-brand-product-integration.md
+video-production-assets/references\10-evidence.md
+video-production-assets/references\09-edit.md
+video-production-assets/references\06-shots.md
+video-production-assets/assets\10-evidence-template.md
+video-production-assets/assets\09-edit-template.md
+video-production-assets/assets\06-shots-template.md
+video-production-assets/assets\claim-ledger.csv
+video-production-assets/assets\generated-qa-report-template.md
+video-production-assets/assets\motion-beat-template.md
+video-production-assets/assets\state-transition-template.md
+video-production-assets/assets\shot-list.csv
+video-production-assets/assets\shot-dna-template.md
+video-production-assets/assets\product-ssot-template.md
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/26-state-causality-continuity.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/21-generated-video-qa-retry.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 1045ms:
+# ���¡��ΰ������Ӽ� �ΰ� (�µ�ǵ� ��ȭ)
+
+��� 11(AI �ΰ�)��21(���� QA)��09(����)��25(���۷��� �м�)�� ���� �������̽�. �� ���̿��� ���� ���¿� �����ؾ� �� �Ӽ��� ���� ���� �ѱ�� **������** �ΰ� �����̴�. ���� ��������� ��Ʈ���ռ���ī�޶� �����õ� ���� ��ü�� �� ��⿡ ���� ������, ���⼭�� �������� �ʴ´�. ������Ʈ ��Ű�������� ���� DB���� JSON ����� ������ �ʴ´� ? ���� shot/artifact ID�� ������ �ุ �߰��Ѵ�.
+
+## ���� ����
+
+�ش��ϴ� ������ �ุ �����Ѵ�. �� ��ü�� ��ȭ�� �ƴ϶� �ռ� ������ �̾���� �ļ� ���� �ǹ��� Ȱ�� �����̴�. �� �� ���� �������������� �� ����� ���� �ʴ´�.
+
+| Ȱ�� ���� | �ѱ� �ּ� ��� | �˻��� ���� ��ġ | ���ࡤ�˼� ��� |
+|---|---|---|---|
+| ����� ���� ��ȭ(����������������������������) | ��� ID �� ��ȭ ����/�Ӽ� �� ���� ���� �� ��� ��ȭ �� ���� ����/�Ӽ� �� �� ���� �� �ļ� ������ ������ ���� | ��ȭ ��/�� ������ �ļ� ���� ���� ��� | 11 �ΰ� �� 21 QA |
+| ���� ������ ����� �ٲ�� ��(�ڸ��⡤���ٷ��⡤����������) | ���� �� ��� ��ȭ �� �ܷ� ��� �� �ǵ��� ���� ���� | ����/���� ������ ����� ���̴� �ļ� �� | 11 �ΰ� �� 21 QA |
+| ���� ������ ���� ����(��/��/����, �ٸ� ������ ���� ���ڡ���ǰ) | ���� ��/Ư¡/����/�������� ����ǥ �� ����/����/��Ȯ�� | �� �������� ���� Ư¡�� ������ ���̴� ������ | 25 �м� �� 11 �ΰ� |
+| �� ����� ���� ����(������ ����, ���ǰ� ��, ����� ���) | ���� �� ���� �ൿ �� �ֹ��� ���� �� ����/�и� ���� �� �ļ� ���� | ��ȣ�ۿ� ��ü ���� | 11 �ΰ� �� 21 QA |
+| �ð� ���ࡤ����(��ӡ�Ÿ�ӷ�������Ÿ�֡���� ��) | ȹ�� ��� �� ���� ����ð�/������ �ٰ� �� ���� �� ���� �� ���� �� ���� | ���� ����/�Կ� �α׿� ���� ����� ���� ���� | 09 ���� �� 11/21 |
+| ��Ȯ�� ���۷��� ���� �䱸(���� ���������������� ������ ����) | ȭ�� ����ȭ ������ �� ����/����/��Ȯ�� ���� �� ������ ����� ���� ���� | ���� �����Ӱ� �߰� ����, ���� ���� | 25 �м� |
+
+- **������(N/A)�� �����Ѵ�.** �� ��ȭ�� ��ӵ� ���� �ǹ��� ��� ���� ���ͺ䡤���� ��ǰ Ȧ�忡�� `���� �ΰ�: N/A`�� �ݴ´�. �ռ� �ٲ� ����� ������ �ְų� �߰� �ƿ��� �������� ������ ���� ������ �ǹ��� ���� �ش� ������ �ѱ��. ���� ��Ī �䱸�� ������ ���� �������� ���� �ʴ´�.
+- **���������� ���̸� �������� �ʴ´�.** ���� ���¿� �� ���°� �޶� ���̴� �͸����δ� ���� ������ �����ߴٰ� �������� �ʴ´�. ������ �Ͼ ����(�ա������� ����� ����, ��ȭ�� ����Ǵ� ������)�� �� ���°� ���� �� ��迡�� ������ �����Ǵ����� �Բ� ����. ������ �˻����� �������� �ش� ���̴� unverified��.
+- **����(occlusion)�� ���� ������ �ƴϴ�.** ī�޶󡤴ٸ� ��� ������ �� ���̴� Ư¡�� �������������������� �������� �ʴ´�. ���� �� ������ ���� ���¸� ����ϰ�, ����� ������ ������ ������ ��ȭ ���θ� �����Ѵ�. ��������� ������ ��Ȯ������ �����.
+
+## �ΰ� �ּ� ����
+
+�ش� ������ �ʵ常 ����, �������� ��� �д�. �� �ʵ�� ���� ID��artifact ���������� �ٰ� ��ġ(����/������/Ÿ���ڵ�/�α�)�� ���´�.
+
+- **���� ����**: ��� ID(���� prop/character/location/asset ID) �� ��ȭ�� ����Ǵ� ����/�Ӽ� �� ��ȭ�� �����ϰ� �����Ǿ�� �� ����/�Ӽ�.
+- **����/�� ����**: ���� ������ ���(�������¡��µ�����������������ġ ��)�� �ٰ� ��ġ. �� ���´� ���� ��û�� �� ���¿� �ļ� ���� ���� ���� ���ʿ� ����ȴ�.
+- **�ļ� ���� ����**: �� ��ȭ�� ��ȿ�� �ļ� ��/����, �ٽ� ���µǴ� ����(��ô����ü���ٸ� ���), ������ �ǵ����� ��������. �ٷ� ���� �ƻ� �ƴ϶� ����ȭ�� ���±��� ���� ���� ��� �ش� ����塤��踦 �˻��Ѵ�. �߰� ������ �ǹ��� ������ ������ ���� �Ұ� ������ ��Ȯ������ �����. ��ü sheen, ����, ����, ���ڱ�ó�� ���� ����� ���̴� ���� ��� �����Ѵ�. ������ ��/������ ������ �ƴϸ�, �ڿ� �ҽ��� �ǵ��ϸ� ǥ�����ð� ����� �ٰſ� �� ���¸� �����Ѵ�.
+- **���� ���۰� ����**: ����� ���� ���ۡ����� ���, ȭ�鿡�� ������ �ܰ�� �� ������ �ǵ����̶�� ǥ��. �ǵ� ���� ������ 21�� ���/�ð� ���з� �з��Ѵ�.
+- **���� ����**: �顤Ư¡���������������� �������� ������ ����ǥ. �� ���� ����/����/��Ȯ������ ǥ���Ѵ�.
+- **���� ����**: ���ְ� ������ ����(������ �� �� �����Ǵ� ����, ���� �� �� �þ�� õ). ������ �Ͼ�� ������ �˻��� �� ������ unverified�� ����Ѵ�; ������ �˻��ߴµ� �䱸�� ������ ������ ���� ������ 21�� ������ ���з� �����Ѵ�.
+- **�ð� �ٰ�**: ȹ�� ���(���� �ҽ������� ���ݡ���Ÿ�֡���� ��), ���� ����ð�/������ �ٰ�, ���� ���� ����. ����ð������ ���̸����� ���� playback_rate�� �Կ� ������ Ȯ������ �ʴ´�(09 ����).
+- **������ �ٰ�**: ȭ�� ����ȭ�� �� ������, ������ ������ �и�, ������ ī�޶�/���� �ĺ��� �װ��� ������ ����. ���� �̹�����ũ�� �̻� ���ǿ��� ���� ����Ÿ������� ���� Ȯ������ �ʴ´�(25 ����).
+
+## ���� ���� ���ø�
+
+`assets/state-transition-template.md`�� ������ �ش� �ุ ä���. ��� ���� ��� ������ �䱸���� ������, �� ���� �����ϰų� `N/A`�� �д�.
+
+## �帣�� �ּ� �� (����, ���� ����/�˼� ��� �ƴ�)
+
+- **�丮(���� ��ȭ������ ����)**: ���İ� �ҿ��� �������� ���Ѵ�. �ΰ�: ��ȭ �Ӽ�=ǥ�� ��/������, ���� �Ӽ�=���� ���� ������ ��ġ, ���� ����=������ ���� ����. �ǵ��� ����(���� �߰� 20�� ����)�� ǥ���ϰ�, ���� ������ �� �� ���� ���� ���·� �ǵ��ư��� �ʴ��� �˼��Ѵ�. ���� ������ �˻����� ���ϸ� ���̴� unverified��.
+- **�������Ƿ�(���� ���������� ����)**: ��Ŷ�� ��/�ڷ� �����ִ� �� ��. �ΰ�: ���� �ʱ� �ٴ��������� �������Ȱ� ������ ����ǥ(����/����/��Ȯ��), ���� �ҸŸ� ��� �� �ҸŰ� �þ�� �� ��ġ�� ���󰡴� ���� ����. ������ �޸� ���� ���ٰ� �������� �ʴ´�.
+- **��Ƽ(���� ���ۡ����� ��ȭ������)**: �����̵�� ���� �� ����� ���� ���´�. �ΰ�: ���� ����=��� ����, ��� ��ȭ=��ü ��ġ������, ����=�Ǻ� �桤�Ӹ�ī�������, ���� ����=�ճ� ���˿� ���� �Ǻ��� �̼��� ����. �ܷ� ����� ���� �ƿ��� ������� �ǵ��� �������� ���� �������� �����Ѵ�.
+- **��ȭ ���� ���ͺ�(������)**: ���� ī�޶�� ���ϴ� ���. `���� �ΰ�: N/A`, ��ȭ�����ա��ð� ���� �ʵ带 ä���� �ʰ� ���� ��ü��������� �˼��� �����Ѵ�.
+- **��Ȯ�� ���۷��� ����ġ �۾�(������ ���)**: ���� ���е� �䱸�� ���� �Ϲ����� ������ ������ �ִ� ���, ���� ������������ ������ `N/A`�� �ΰ� ���� SSOT�����Ӽ� �ΰ踸 ����Ѵ�.
+
+## �ٰſ� ���� ����
+
+�ڷ� ID: ���� Ȯ��; ���� 09��11��21��25�� �������̽� ����. `sources.md`���� ���� ���¿� Ž�� ��ġ�� Ȯ���Ѵ�. ���� ����� ���������������ø��� �״���̸�, �� ����� �� ������ ������ ���԰� ���� ���Ǹ� �����Ѵ�.
+
+
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/25-reference-video-analysis.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 553ms:
+# ��ǡ��ռ������� ���� QA���ΰ� ��õ� (�µ�ǵ� ��ȭ)
+
+��� 11(AI �ΰ�)�� 12(���� �˼�)�� ��ȭ. ���� ����/�ռ� ��ü�� �ְų� ������ ���ۡ����ˡ�VFX�� ��ȹ�� �� ����. ��ȹ �ܰ迡���� ���� ������ �����ϰ� ���� ��ü ���� �˼� ����� �������� �ʴ´�.
+
+## 1. AI ��ǡ����� ����
+
+������ ������ ���� ������ ���� ��Ʈ�� ������. �ȱ⡤�޸��⡤�������㡤��⡤�ױ⡤��ǰ ���ˡ���ݡ���ݡ������������� ���� �ൿ��õ/�Ӹ�ī������üó�� ���ˡ����������ԡ��浹��Ÿ�̹֡����� �ٹ� �ൿ ������ �����ϱ� ���� ���� �����Ѵ�.
+
+1. �ʱ� ����������������߽ɡ����� �繰������ ��� ���Ѵ�.
+2. ���� �ϳ��� �� �ൿ���� ǥ���Ѵ�. ���� �ൿ�� �����̰ų� ������ ���� ���̳� ���� ���� �������� ������.
+3. �ش��ϸ� ���� �� ���� �� �̵� �� ����/��� �� ü�� �̵� �� �ļ� �� �������� �ɰ���.
+4. �پ� �־�� �� ���� �����Ѵ�: �ߡ��߹ٴڡ��ա��¼�����������ǰ���ٴڡ��������.
+5. ���簡 �ƴ϶� ������ ��� ��� ����Ѵ�: ���⡤�ӵ� ��ȭ��ȣ������ ����.
+6. ���� ������ �غΡ��繰 ���Ἲ�� ��Ų��. ����� 2�� ���ۺ��� ���� �� �ִ� ������ �켱�Ѵ�.
+7. 2�� ������ �� �ൿ�� ���� �ڿ��� �߰��Ѵ�: �Ӹ�ī����õ���͡������������� �繰��Ʀ������.
+8. ��ü�����ߡ��ı������� �浹�� �� ���� ������ �䱸���� ���� �ռ����� ������Ѵ�.
+
+### ���� �켱����
+
+������ �߷� �� �� ���� �� �繰 ���Ἲ �� ��ü ���� �� 2�� ���� �� ��� ��ƼŬ. ���� �켱���� ������ ���� �׸��� ��ġ�� �����Ѵ�.
+
+### �� ���� Ʈ����
+
+�߿��� ������ 3�� �̻� �� ����+�̵� ���� �� ���� �ι��� �繰 ��ȯ �� ū ī�޶� ����+���� ���� �� ���� ��ǰ �ٷ��+��ü �ùķ��̼�.
+
+### QA�� ���⹰
+
+9. QA: �� �̲��������� �ִ� �繰�����롤�Ұ����� �������� �������ڷ���Ʈ ��ǰ�����ϰ� �������̸� ���� ������ �˼��Ѵ�. `assets/motion-beat-template.md`�� ��Ʈ ��Ʈ�� �����.
+### ���� ���� ? ���� ����� ���� ����
+
+�긮���� ���������� �ϰ��� ����/������ �䱸�� ���� no-slip �� ���� ���� �˻縦 Ȱ��ȭ�Ѵ�. wheel radius���ӵ���ȸ�� ���谡 ���ε� �Է¿� ������ �� ���踦 ���� �������� Ȯ���ϰ�, ������ invented ��ġ�� ��Ȯ�� ���� ������ QA �������� ������ �ʴ´�. ��Ÿ��ȭ���帮��Ʈ���ǵ��� ���ߺξ�ó�� ������ ����� �������� no-slip�� �������� �ʴ´�; ���� ������ contact=N/A�� �ΰ� �������� ���ƿ��� �������� �ٽ� �˻��Ѵ�.
+
+�� �������� ����/��ȸ�� spokes�� rolling failure ������ �ƴϴ�. ���� ���� �����ӿ��� wheel/hub�� ȭ�� ��ġ�� �ƴ϶� ground texture, contact patch, ��ü ���̡��̵�, camera tracking, shadow/reflection�� �Բ� ���Ѵ�. Temporal aliasing/shutter sampling�̳� compositing�� ������� �����, ���� ������ ���Ӽ����� ȸ�������� �̵��� �縳���� �ʴ� interval�� ã���� ���� failure�� ����Ѵ�. ��� ���̾��� splash/wake/residue�� ���� ��ġ�����⡤�ļ� ���� �Ǵ� ���õ� reset�� �����Ѵ�.
+
+## 2. VFX���ռ� ���ۺ���
+
+����� ���� �� ���� ������ ������ ���� �ʴ´�. ���̾� ������ �� ���� ������ �� �����Ѵ�.
+
+1. ���� ���� �÷���Ʈ�� �������� ���̾�� �������� ���Ѵ�.
+2. ���̾� ������ ���Ѵ�: ��� �� �߰� �� ����� �ǻ�ü �� ��ǰ/��ǰ �� �׸��� �� �ݻ� �� ��� �� ��ƼŬ �� Ÿ����/UI �� ���� ����. `assets/vfx-layer-stack-template.md` ���.
+3. ������ ī�޶� ������ ���� �����: ���򼱡����١������ϡ����� �������ɵ������.
+4. ������ �����: Ű ���⡤�ε巯�򡤰��� ���衤���µ��������ٿ������ �׸��ڡ��ݻ籤.
+5. ��������� ���̡���� ����������Ŀ�����׷���/����������� ���� ����Ʈ ������ �����ڸ��� �����Ѵ�.
+6. �ݻ�� �׸��ڴ� ���� ǥ��� �������� ������. �Ϲ����� �� ��� ������ ���Ѵ�.
+7. �ؽ�Ʈ���ΰ�����Ȯ�� ��Ű���� ���� ��ǵ��� �����ϸ� ������ �׷���/��ǰ ���̾�� �����Ѵ�.
+
+### ��Ī ������ ��� ��ȣ
+
+���� �� ��� �� ���� �� ���� �� ���� �� �� �� ����/�׷��� �� ����. ���: �� �ִ� �ǻ�ü���帰 �÷���Ʈ �� ������ ���桤����ġ ����/��� �������ٸ� �׷��� ���ļ�����︮�� �ʴ� ���� �������߸��� ���� �����׸��� ���� ����ġ��Ʋ�� ȯ�� �ݻ硤�Ȱ� �� ����� �Ϻ��� �ƾƿ� �����ڸ�.
+
+��ü �����Ӱ� Ŭ���� �� �ѷ� �˼��Ѵ�: �����ڸ� ���ϷΡ�����ġ ����������ġ �׷��Ρ�Ʋ�� �������� �ߡ����� ���� �׸��ڡ����� ����ġ���Ұ����� �ݻ�.
+
+## 3. ���� ��ü QA
+
+���� ��ü�� �����ϰ� ������Ʈ�� �������� �ʴ´�. �����̳� �ʿ��� ������/������� ������ �ش� �׸��� unverified�� �����.
+
+### �˻� ����
+
+���� ��ü�� �� ������ ���� ? ����(��û�� ���/�ൿ/�ǵ��� ������ ���Դ°�) �� ���(���ˡ��������ð� ����) �� ��ü��(SSOT����ǰ ��Ȯ��) �� ī�޶�(�����̹֡����⡤����) �� �����(�ԡ���Ҹ����Ҹ� ����) �� ��� �԰�(���̡�ȭ����ػ󵵡������� ���Ἲ���ʿ� �� ����� ����). �� �ܰ��� blocker�� ���̸� �� �н��� ���� ���� �������� �Ѿ�� �ʴ´�.
+
+### �˻� �н� (���� ���� ����)
+
+1. ���� ��û(�Ҹ� ����) 2. ���� ���� 3. �ǽ� ���� ����/���� 4. ���ۡ��ٽ� ���ˡ����� ���� ������ �� 5. �� �� ���Ӽ� �� 6. ���/�Ҹ��� �߿��ϸ� ������� ���.
+
+- ��ü�� �н�: ���� SSOT�� ���� ���� ���� ��/��/�Ӹ�/��/�ǻ�/�׼����� ��.
+- �繰/��ǰ �н�: �Ƿ翧��������ĸ/��ǰ���󺧡��ΰ��������ϡ��� ���ˡ��ݻ硤�ؽ�Ʈ ������.
+- ��� �н�: �߰� �պ��� ����. �������ˡ�ü�� �̵����ļӡ��浹���̲�������Ʀ���غ� �ʰ�/��ա��繰 ���Ӽ�.
+- �ð� �н�: �ø�Ŀ�����Ρ����� �����Ҿ��� �׸��ڡ�������� �����ϡ���� ȣ��������� ������ ���� ��ȭ.
+- ī�޶�/���� �н�: ���򼱡����� ���������١������̹֡��ü���ȭ�� ���⡤���� �ִ� �����ӡ������� �䱸�� ����/�� ����.
+- �ռ� �н�: �����ڸ������� ���������� �׸��ڡ����� ���⡤�׷���/�������� �������ɵ�������/ȭ��Ʈ ��������� ���ա��ݻ� ����.
+- ����/����� �н�: �ü���ǥ�� ��ȯ������ Ÿ�̹֡���� �ǵ����� Ÿ�̹֡��������㡤�����Ŭ���Ρ��Ҹ� ���ٰ� ȭ�� ��ġ.
+
+### ����
+
+�̽����� `Ÿ���ڵ� �� ���� �� ���� ���� �� �ɰ��� �� ���� ���� �� ���� ��� �� ��˼� ����`���� ����Ѵ�. �ɰ����� ������ ��� 12�� blocker/major/minor�� pass/pass_with_notes/needs_revision�� ����Ѵ�. ���� ������ �Ʒ� ��õ� ������, â��/���� ���д� ���� ����, ��Ȯ�� �׷��Ȱ� ���̾� ������ �ռ� ������ �ǵ�����. `assets/generated-qa-report-template.md` ���.
+
+���� ��ü�� �˻����� �ʰ� ������ ǰ�� ������ �ű��� �ʴ´�. ����� ���� ��긯�� ���� �˻簡 ���� ���� ������ ����.
+
+### ������ ������ ���� �˼�
+
+���� ��¸� �����Ѵ�: ª�� ������� �� ������ ���ۡ����ˡ����Ӽ��� �������� �����Ƿ� ������ ���� ����� ����� ���� �ʴ´�. ����/����/��� ������ [���� ��Ρ���� �����](24-production-execution.md) ��5�� ������ ��ȹ ���� �°� ��η� �ǵ�����. ������ ������ ���� ������ �ƴϸ�, �������� ���ۡ���ü�������������� �԰��� �ٽ� �˼��Ѵ� ? ���� seed���Է��� ������� ���� ������ �������� �ʴ´�.
+
+### ���¡��ΰ� �˼� (������)
+
+���� �Ǵ� �ռ� ������ �̾���� [���¡��ΰ� ����](26-state-causality-continuity.md)�� �ִ� ���� �����Ѵ�. ���� enum�� ���� �з��� �״���̸�, ���⼭�� �ٰ� ��ġ�� �̰��� ���и� �߰��Ѵ�.
+
+- **���� �˻�**: ���ۡ��� �������� �޶� ���̴� �͸����� ���� ������ �����ߴٰ� �������� �ʴ´�. ����/��ȭ�� ����Ǵ� ������ ������ ����. ������ ���� �������� ���̸� unverified�� �����.
+- **�ļ� ���**: ������ ���� ���� ���� ��� �ش� �ļ� �� ��衤����� ���¸� ����ȭ�� ���±��� �����Ѵ�. �߰� ���� �ơ������� �ǹ��� ������ ������ �ǵ��� ���°� ���� ���� ������ �����Ѵ�.
+- **����**: ������ ���� �� ���� Ư¡�� ���� ������������ �������� �ʴ´�. ���� �� ������ ����� ������ ���ϰ�, ������� ������ ��Ȯ������ �д�.
+- **���� ����**: �ΰ�� ������ ������ ������ ������ ���� ����. ���� ������ �˻��� �� ������ unverified�� �����, �˻��ߴµ� �䱸�� ������ ������ ���� ������ ���/���� ���з� �з��� needs_revision���� �ǵ�����.
+- **����**: ���ε� ���� ������ ���� ���¿� ������ �д� �ΰ��� �긮���� ������ ���� ����Ѵ�. ���� ǥ�⸸���� �ʼ� �ÿ��� �����ϰų� ������ ���� ������ �������� �ʴ´�. ������ ���� ��ü�� unverified�� �����, ������ �ʼ� �ൿ ������ needs_revision���� �ǵ�����. ��衤�ΰ� ������ ���� ���̳� �������� ������ �ʴ´�.
+- �� Ȱ�� ���ǰ� ��ӵ� ���� �ǹ��� ��� ���� `N/A` ������ �� �н��� �������� �ʴ´�.
+
+### ���ࡤ���� ���� �ֱ�
+
+���� �������� ���� ȣ�� ���(API��CLI������ ���� �� ���� ��)���θ� ���ε� ������ �����Ѵ�. �񵿱� �۾��� �� ������ ���/���� ��Ģ�� ������ ���� ��û���۾������ ID�� ��� ���¸� ����� ���� ���⹰�� ����Ѵ�. ���°� �Ҹ��̸� ���� �� ������ ���� Ȯ������ �����ϰ�, ���С��κ� ������ �״�� �����Ѵ� ? ���� ���� ���θ� Ȯ���� �� ���� �� �ٽ� ȣ���� �ߺ� ���ࡤ������ ������ �ʴ´�. ���� ��� ������ �޾� �˻��� �ڿ��� �������� ����Ѵ�. �ڽ��� �˻�� ������� ���� ������ �����ϰ�, ������ ���� �Ӽ��� ������ ä �� ���� �� �ֿ� ������ �ٲ� ��5�� ����Ѵ�. ���� �õ� ����� �����ϸ� �Է� ���� ���� �� ����޴� ���� ���⹰�����θ� stale�� ǥ���Ѵ�; �õ��� ���� stale ���¸� ������ �ʴ´�.
+
+## 4. �ϼ� �������� ��ǡ����롤����� QA
+
+Ŭ���� ���� QA�� ����� �͸����� ����/��Ÿ���� �������̳� ���� ��ũ�� �������� �ʴ´�. �ϼ� Ÿ�Ӷ��ο��� Ȯ���Ѵ�.
+
+1. ���������������Ÿ�Ӷ����� artifact ID�� ������ �����Ѵ�. �˻� ����(��ü ���, ǥ�� ������, ����� �ܵ�)�� ���� ����Ѵ�.
+2. ������ ��û�̸� ������ ���� �ǻ�ü ����, ī�޶� ����, ��ǰ/���� ����, ����/���� �� ������ �ð��� ���� �ٲ���� ���´�. �� �ӵ��� �����길���� ����� ��ü�ߴٰ� �Ǵ����� �ʴ´�.
+3. ���� �������� ���� �ӵ��� ���� �ͽ��� ����� ��ü ���̡̽���ȯ�� Ȯ���Ѵ�. �߿��� ���ˡ���ݡ���ǰ ������ ������/Ÿ���ڵ�� ����� ���� �������� �����Ѵ�. ����������� �ܵ� �˼��� ��û�� ���� ������ �°� �߰��Ѵ�.
+4. ���� �����Ӹ� �˻������� ����� �߰� ������, ��ȯ�� ���� ����, ��ü ���� ���ռ��� �̰������� �д�. û������ ���� ������ ǰ���̳� ��ũ�� ����� ���� �ʴ´�.
+5. ������� ���� ������ ���� ȥ�� Ʈ���̸� �и� BGM/SFX stem�� ������ ����Ѵ�. �м� ������ ã�� ���� ��ũ�� û�� ������ �ƴϸ�, ���� �Ǹ��� ���� Ȯ���Ѵ�.
+6. ����/���� ������ ������ ��û�� ��Ʈ�� ���� �������� �䱸�ϴ��� ���� �Ǵ��Ѵ�. �ǵ��� ��ǰ ����� Ȧ��μ� ȭ�� ���롤��������Ÿ�̹��� �̸� �޹�ħ�� ���� �����Ѵ�. ���� ���¶�� ���������� ���� ���̳� ����ī�� ������ �������� �ʴ´�. ������ �ʿ��� ��Ʈ�� �������� ������ �� ���� ���� ���� ������ �����ϰų� �� ��ü���� ����. Ȯ��/��ȯ ȿ�������� �������� �ٸ系�� �ʴ´�. �� ���������� ������ ���� ���ΰ� ���� ���/��õ� ������ ������.
+
+�������� Ÿ�Ӷ��� ���������� �˻� ��塤����/���ϡ������� Ÿ���ڵ塤�̰��� �׸���˼� ������ �����Ѵ�. `assets/generated-qa-report-template.md`�� ����Ѵ�.
+
+## 5. �ΰ� ��õ� ����
+
+������ ������ ���� ������. �Ź� ���� �ٽ� ���� ���� ���� �̸� ���� ���� ������ ��ģ��.
+
+### ���� �з�
+
+- ��ü��: �� ǥ������ü ���� ��ȭ���ǻ�/�׼����� ǥ������/���� ��ȭ.
+- ��ǰ/�׷���: ���� ǥ����ĸ/�� ��ȭ���ΰ�/�ؽ�Ʈ �ջ����� ����ġ��Ʋ�� ������.
+- ���/����: �ʰ� �������� �̲����������� ���ˡ��ڷ���Ʈ���Ұ����� �������繰 ���롤�̻��� ��ü.
+- �ð�: �ø�Ŀ�����Ρ����� ����������� �繰���Ҿ��� ��桤�ҿ��� ����.
+- ī�޶�/����: Ʋ�� �����̹֡��ǵ� ���� ��/�ҡ��ǻ�ü ��Ż������/���� ����ġ���ü�/ȭ�� ���� ����.
+- ����: Ʋ�� ���������� �������� ����ġ������ �����ǵ��� �ٸ� ����ó.
+- �ռ�: ���� �����ڸ������� ���� �׸��ڡ�Ʋ�� ���̡�����ġ ����/������/����������/���� ����ġ.
+- â��: �Ҹ�Ȯ ���̵����� �����ߺ� �������� ���� ��ġ. �͸��� ����� ��� ������ ������.
+
+### ���� �� ���� ����
+
+| ������ ���� | ù ���� | ��� ��� |
+|---|---|---|
+| ���� ����ġ(��û�� ���/�ൿ�� �ƴ�) | ������Ʈ�� ��û �ǵ����� �ൿ���� ���·� �ٵ�� | �� ���� �� �� ������ |
+| ����/�ð� �Ҿ������ø�Ŀ | ���� ���ࡤ�ൿ �ܼ�ȭ������ ��ȭ | ���׸�Ʈ ���� �� �ռ� |
+| ��Ȯ�� �ؽ�Ʈ/�ΰ� �ջ� | �ݺ� ���� �ߴ�, ���� ��Ʈ��ũ �ռ� ���̾� | �ռ� ��� Ȯ�� |
+| ����/���� �ر� | ���� �ൿ ��ҡ����� ���ء��ʱ�/�� ���� ���� | �� ���� �� ���̾� �ռ� |
+| ��ü�� ǥ�� | ���� SSOT ���� ��ȭ������ ���� ���� | �� ���� ���� ���� ��� �� ������ |
+| ī�޶� ����ġ | ���� Ȯ�ε� ����ȭ ī�޶� ��� ��� | ī�޶� ���� ���� ��� �� ������ �ռ� |
+| �����/����ũ �ҷ��������� | ������ �� ���� ��� ���� | ���� ����/����ũ �н��� �и� |
+| ������Ʈ ������ | �ٵ��: �� �� �� �� �ൿ������ ��Ģ�� | �� ���� |
+| â�� ����(�����ԡ����� ����) | ��õ� �ƴ� ? ���� �ܼ�Ʈ/�������� �ۺ� | ? |
+
+### ����
+
+1. �ǵ��� �� ���������õ� �� ��Ρ����� SSOT������ ����� �޴´�.
+2. �� QA�� ���� ������ ���и� �з��Ѵ�.
+3. ������ �����Ѵ�: ������Ʈ ��ȣ �� ���� ���� ���� �� ������ �ൿ ���⼺ �� �� �ɷ� ����ġ �� ���� �ʱ� ������ �� ���Ӽ� ���� �� �ռ� �ʿ� �� Ȯ���� �л�.
+4. ��ĥ ���ɼ��� ū ���� ���� ������ ������. �ǿ������� �� ���� �� �ֿ� ������ �ٲ۴�.
+5. ��õ� �� ������ �Ӽ��� ���������� �����Ѵ�.
+6. �ݺ� ���� �� ������ ��õ� ��� ����Ѵ�: �ൿ �ܼ�ȭ �� �� ���� �� ���̾� �и� �� ��/��ũ�÷� ���� �� �� ���� ���� ���� �� ��Ȯ�� ��� �ռ� �� ���� ������ ������ �� �缳��.
+7. ��õ� ������ ��Ų��. ���� ������ ��� ��ġ�� ���� ��ȯ���� ������ �����.
+8. ���� ������ ����ǵ��� �� �õ��� `project.json`�� `generation_attempts`�� ����Ѵ�(��� v1.1). �� `retry_budget`�� ���ε� `video_execution_plan`�� ���ѿ��� �´�.
+
+### ��õ� ��ٸ�
+
+������Ʈ ����ȭ �� ����/ù ������ ���� �� �ൿ �ܼ�ȭ �� ����/Ÿ�̹� ���� �� �� ���� �� ��/��ũ�÷� ������ �� ���̾� �и�/�ռ� �� ���� ���� ���� �� �缳��.
+
+### ��Ģ
+
+- �� ���� �� ����: ��õ����� �ϳ��� �ֿ� ������ �ٲٰ� ���� ������ generation_attempts.changes�� �����. seed�� ���� ��Ʈ�� �� ��ü����ǰ�� ���� ������ �ƴϸ�, seed�� ������ ��õ��� ���� �������� ���� �ʴ´�.
+- ��� �ִ� ��õ�: �� retry_budget�� ���ε� ���� ��ȹ�� ��롤�ð� ���� �ȿ����� �õ��Ѵ�. ���� �ʰ� ���� ���� ��ȯ(����/������/�ռ�) �Ǵ� unverified ������ �ݴ´�.
+- ������ �����ϴ� ���Ӽ� ���и� ���� �������� ������ �ʴ´�.
+- ��ü�� ǥ���� ���� �� ������ ��ġ�� �ʴ´�: ���� ������ ��ȭ�ϰ� ���� ���ø� ���δ�.
+- ��Ȯ�� �ؽ�Ʈ/�ΰ��� �ݺ� �������� �ռ��� �켱�Ѵ�.
+- ���� �߽� ������ ���� �ൿ�� ���̰� �ʱ�/����/�� ���¸� �����Ѵ�.
+- ���� ���п� â�� ���и� �����Ѵ�. �Ϻ��� �������� ������ ���� ��õ��� �ƴ϶� �ܼ�Ʈ/�������� ���ư���.
+
+
+ succeeded in 337ms:
+# ���۷��� ���� ���� (�µ�ǵ� ��ȭ)
+
+��� 01��05��06��09�� ���� ��ȭ. ����ڰ� ���� ����Ŭ����������������������ȭ ��顤�ð� ���۷����� ���� ������ ������ �޶�� �ϰų�, ���� ������ �ִ� ����/��ī�̺긦 ���� �м��� ��Ʈ������ ���ϡ���ų Ŀ������������ ���� �޶�� �� �� ����. ��ȣ�� ǥ���� ������ �ƴ϶� ���� ������ ���� ������ �����Ѵ�.
+
+## ���۷��� �߰߰� ����
+
+"���۷����� ã�� �޶�"�� ��û���� �ĺ� ���Ȱ� �� �м��� �и��Ѵ�. �� �м��� ����ڰ� �ĺ��� ���á������� �ڿ��� �����Ѵ�.
+
+1. �ĺ����� ���� ���´�: Ȯ�� ������ ��ŭ�� �ĺ���/��ó(����ä�Ρ���ũ), �ش� ä�Ρ��������� ���ռ�, �� �긮���� ���� ������ ��ü�� ��� �ϳ�.
+2. �ĺ� �ܰ迡���� �ĺ��� ������ ��ŭ�� ���� ��Ÿ�����͡��̸����⸸ ����. ���õ��� ���� �ڷḦ ��ü ��û�ϰų� �� �м����� �ʴ´�.
+3. ����ڰ� ���󡤸�ũ����������ī�̺긦 ���� �����ϰ� �м��� ��û�� ��� �̹� ���õ� ������ ����, ���� ���� ���� �ٷ� �м��Ѵ�.
+4. ���õ� �ڷḦ �м��ϴ� �б�� ���롤�ܺ� ���ε塤���� �м������� ������ �����Ѵ�. �м� ��û������ �ܺ� �����̳� ������ ���ι޾Ҵٰ� ���� �ʰ�, �ش� �ܰ�� ���� ���� ������ ���� ���� �����Ѵ�.
+
+## ����
+
+1. ���ġ����̡�ȭ����帣�������������� �ľ��ϰ� ������ �˻��� �ҽ� ����/������ ����Ѵ�. ���� ��ü�� ���� �������� �м� ������ ǥ�� ������ ���� ������.
+2. �� �Ǵ� �ǹ� �ִ� �ð� ��Ʈ�� �����Ѵ�. ���� �� ������ �����ϰ�, ������ �� ������ �ٻ�ġ�� ǥ���Ѵ�.
+3. ��Ʈ���� �ǻ�ü���ൿ�� ����/�� ���¡��ֿ� ���� ����(���ˡ���ݡ���ǰ ���� ��)�������̹�/�����ϡ�ī�޶� �������������ȷ�Ʈ�����⡤��ȯ�����Ӽ��� ����Ѵ�. �������̳� Ÿ���ڵ�� ������ �� ���� ������ �������� �д�.
+4. ���� Ÿ�Ӷ��ο� �� ��������ȯ ������ ���̡�����/ȿ�� ť�� ���´�. ȭ�� ��ȭ�� �Ҹ��� �������� ���� �ð���Ÿ���ڵ�� ����, Ȯ���� �� ���� ���е��� ������ �ʴ´�.
+5. ���� ������ �и� stem���� ���� �ͽ����� �����Ѵ�. ȥ�� ������ ������ ���ǰ� ȿ������ �и��� ����ٰ� ǥ������ �ʰ�, ���� �Ǹ��� ���� ��Ȯ������ ����Ѵ�.
+6. **ǥ�� ��Ÿ��**(�ǻ��ȷ�Ʈ����������Ʈ ���)�� **���� ����**(���� ���� ������������ ��ȭ������/ī�޶� ���⡤���� ��ȯ���� ����)�� �и��Ѵ�. �������� �� ���� ��ȯ ȿ���� �ƴ϶� ���� �ǻ�ü/ī�޶��� �ð��� ��ȭ�� �� �迭�� �����Ѵ�.
+7. �߰��� ���� ������ ���� �����Ƿ� ��ȯ�Ѵ�. ������ �����ϰ�, ����ڰ� �����ϰų� ������ �㰡���� ���� ĳ���͡���ǡ��귣�� ���¡���ҡ���硤Ư�� ��ȣ �������� �ٲ۴�. ���� ������ �Ʒ� ��η� ������Ѵ�.
+### ���� ��ġ����衤�м� ID�� ���� ����
+
+��ī�̺� ���翡���� `archive_id`�� source�� ������ identity�� ����ϰ�, ���� �塤�м����� ���� locator�� ������Ʈ�� `scene_id`, `shot_id`, `panel_id`�� �°����� �ʴ´�. `C##`�� detector candidate/neighborhood, `B##`�� ���� ����, `G##/SG##`�� ��� �ؼ�, `S##.P##`�� source shot ���� action phase�� ��Ÿ�� �� �ִ�. ���ڿ� ���ξ���� ������ �������� ���� �ش� source�� legend�� ������.
+
+���� ������ ������ ���̴� `DETECTOR_CANDIDATE`��. �ĺ� �ϳ�, contact sheet, 1fps/native sample, ������ ��ü decode�� �� ��� ������ �ƴϴ�. `SH###`�� ��� ������ ���� ���ŷ� ���� ���� Ȯ������ ���� ����ϰ�, ǥ�� ������ ���� bracketed `ESTIMATED` �Ǵ� `UNKNOWN`���� �����. Scene, shot/cut, �� shot ���� ���� action phase�� ���� ���� dissolve/morph/wipe�� ��Ȯ���̸� transition candidate�� �Ѵ�.
+
+�� locator���� ��û �ð�(`requested_s`)�� ���� source frame PTS(`source_pts_s`)�� ������ ����Ѵ�. PTS�� ���� ������ ��ġ���� ��Ȯ�� cut time�̳� action onset�� �ƴϴ�. ���� �ð��� ȭ�� �ؽ�Ʈ�� `OBSERVED`�� �� �� ������ ���� speech timing/����� û�밡 �ʿ��ϴ�. Uploader pipeline/tool credits�� `DECLARED_UPLOADER_CLAIM`; �ڵ� ĸ���� `CAPTION_TEXT_AUTO_UNTIMED`; ASR�� `ASR_RUN / HYPOTHESIS_UNVERIFIED`; ��û�� ��������̰˻� ������ `UNKNOWN`�̴�. Frame review �� continuous playback; stream metadata �� listening.
+
+�� �긮���� �ű� ���� ������ source locator�� �� ��ȹ�� proposed timing/IDs�� �ٸ� ���� �д�. `assets/shot-dna-template.md`�� source scope, observed/estimated/unknown, transfer chain, reusable mechanism fields�� ����, Ȯ���� ���� ����/����/����� ��� ��⿡ �ѱ��. �м��� �� ��ü ���������� ���/�Ǹ���ȿ�ɡ����� ������ �ƴϴ�.
+
+### Craft recipe routing
+
+���۷��� ��Ŀ������ �� �긮�������� �����Ѵ�. Copy-to-action / concept / information order �� [concept design](16-concept-emotion-retention.md) and [edit timing](09-edit.md); product invariants / reflection / contact state �� [product integration](19-brand-product-integration.md), [state handoff](26-state-causality-continuity.md), and [generation QA](21-generated-video-qa-retry.md); performance / spatial anchors / POV �� [performance](04-performance.md), [shots](06-shots.md), and `$camera-spatial-design`; claims / caption / provenance / finishing �� [evidence](10-evidence.md), [production execution](24-production-execution.md), and [finishing](23-finishing-platform.md). Read only branches activated by the brief; these pointers reuse existing contracts and templates, not new recipe IDs or project fields.
+
+| Family | Existing owner contract and branch |
+|---|---|
+| A01 copy �� action / proposition | [16 concept](16-concept-emotion-retention.md), [09 edit](09-edit.md) |
+| A02 attribute �� world/material; A03 shape/action correspondence | [19 product](19-brand-product-integration.md), [20 visual SSOT](20-visual-mode-ssot.md), [21 composite QA](21-generated-video-qa-retry.md) |
+| A04 material/product/contact state | [26 state](26-state-causality-continuity.md), [19 product](19-brand-product-integration.md), [21 motion QA](21-generated-video-qa-retry.md) |
+| A05 space/service route; A08 POV/scale break/return | [06 shots](06-shots.md), [camera spatial design](../../camera-spatial-design/SKILL.md), [20 visual SSOT](20-visual-mode-ssot.md) |
+| A06 vehicle/ground/contact; A11 light/reflection | [21 motion/composite QA](21-generated-video-qa-retry.md), [26 state](26-state-causality-continuity.md), [07 lighting](07-lighting.md), [19 product](19-brand-product-integration.md) |
+| A07 actor/relationship/reaction | [04 performance](04-performance.md), [06 shots](06-shots.md); [17 genre-comedy](17-genre-comedy.md) only when the brief actually calls for its genre/expectation/reaction/closure contract |
+| A09 claim/evidence/recipient; A10 declared pipeline/remaster/post; A12 insert hierarchy/scale | [10 evidence](10-evidence.md), [24 production execution](24-production-execution.md), [06 shots](06-shots.md), [09 edit](09-edit.md), [23 finishing](23-finishing-platform.md) |
+
+When applicable, use these conditional refinements inside the same contracts: copy-to-action timing (A01b, 09); toy/adult-copy reframe (A07a, 06/20); expectation violation��witness reaction (A08a, 04/06); POV scale-break portal (A08b, 06/20/camera spatial); category metaphor vs substantiated provenance (A09a, 10); untimed rhetoric vs heard speech (A09b, 09/10); lifestyle proxy vs location/service evidence (A07b, 10/20); late category joke and child/guardian/audience rights review (A09c, 10/20); surface and semantic match (A12a, 19/21); wheel temporal aliasing (A06a, 21); terrain texture��product reveal (A02a, 06/19); witness/reverse-object reaction ladder (A07c, 04/06); offer hold��optional narrative coda��terminal brand reset (A09d, 09/23); declared spectacle��safe product close (A11b, 07/19/21). Activate a refinement only when its stated brief predicate exists; it does not create a claim, CTA, scene, shot, asset ID, or execution approval.
+
+## �м� ��� ���� ����
+
+�ش��ϴ� �͸� �ټ� �࿡�� ��� ä��� ? ����/����/���� ���� �� ��/����/ī�޶� �� ���־� ��Ÿ�� �� ���� �� ����/���� ȿ��. �ึ�� **����**(���� Ȯ���� �����ӡ������û�� �Ǵ� ��ó�� ���� ����� ���� ���), **�ؼ�/����**(�������� ������ �ǵ������), **��Ȯ��**(���� �ۡ��Ǹ�������)�� �и��Ѵ�. ����� ����� ���� �˻�� ǥ������ �ʴ´�. Ȯ���� �� ���� Ÿ���ڵ塤����� ���롤���� �Ǹ������� ��ġ�� ������ �ʰ�, ������ �ڵ� �հ� ������ ������ �ʴ´�.
+
+## Shot DNA �ʵ� (�߿��� �͸� ä���)
+
+shot_id/�ٻ� �Ǵ� ���� �ð� �� ���� ��� �� �ǻ�ü/�ൿ�� ����-����-�� �� �� ũ��/�ޱ� �� ī�޶� ����/���� �� ����/�� �� ��/��ȯ �� ����/ȿ�� ť�� ������ �� ���Ӽ� �� ����/���� ���� �� (���� ���� ��������Ȯ�� ���� �䱸 ��) ���� Ư¡ ������ ���� ������ �ٰ� ? �Ʒ� "���� ������ ���� ������" ��
+
+`assets/shot-dna-template.md`�� ����Ʈ ������ ����(�ش��ϴ� ǥ�� ä���).
+
+## ���� ������ ���� ������ (�ش��� ����)
+
+���۷����� ���� ��󡤱����� �� �̻��� ����(��/��/����, �ٸ� �������Ÿ�)���� �����ְų�, �긮���� Ư�� ���������������� ������ ��Ȯ�� ������ �䱸�� ���� �����Ѵ�. �ش����� ������ `N/A`�� �ݰ� ������ ���������� �� ������ ä���� �ʴ´�.
+
+**���� Ư¡�� ���� ����.** ���� ���̿��� ���� Ư¡�� ¦���´� ? ���� �󱼡��顤�ٴ����������Ρ�������ó�� ������ �����ϴ� Ư¡�� �����ϰ� �� �ֿ� `���� / ���� / ��Ȯ��`�� ǥ���Ѵ�. �������� �� ���̴� Ư¡�� ���ٰ� �����ϰų� ���� ��ȭ���������� �ؼ����� �ʴ´�. ���� �� ������ ������ ����� ������ ������ ������ ����ϰ�, ��������� ������ ��Ȯ������ �����. ���� ������ �� ���̴� ���� Ư¡�� �ٸ� ���� ���� ���� ������ �ʴ´�.
+
+**���� ������(��Ȯ�� ���� �䱸 ��).** �������� �Է��� �ȼ� ��ġ�� �ƴ϶� ȭ�� ����ȭ �������̴�: �ҽ��������� ���̡��ǻ�ü�� ȭ�� ��� ũ�⡤���̴� ���� ���������ڸ� �ְ��� ũ�� ����ó�� �ػ󵵿� �����ϰ� �����Ǵ� ���� ���´�. �˷��� ũ�ӡ���� ȭ���� ���� �Է��� �ƴ϶� �������� ����ϰ�, ũ�� ���ΰ� ��Ȯ���̸� �� ����� �����Ѵ�. �� �׸��� **����**(�����ӿ��� ���� ���� ��)/**����**(�������� ������ ����)/**��Ȯ��**(�����ϡ���⡤��ġ ���� ����)���� �и��Ѵ�.
+
+�� �����Ӱ� ��ü ũ�� �̻� ���ǿ��� ī�޶� �ش� ������ �ƴϴ� ? ���� �����Ÿ����Ÿ���ũ�� ������ ���� ȭ���� ���� �� �ִ�. ���� ����������Ÿ��� Ȯ������ ������ �ʰ�, ������ �縳�ϴ� **�ĺ� ����**�� �� �ٰŸ� ���´�(��: ����� ������ �� �����Ÿ�+�� �Ÿ� ���հ� ũ�� ��ο� �縳). �ĺ� ���̸� ������ ������ ������ ��������(�ΰ���)�� ������Ȯ���� �ʿ��� �߰� ����(�ٸ� ���� �����ӡ��Ķ�������EXIF/���� ��ϡ��˷��� ũ���� ���� ��ü)�� �Բ� ����Ѵ�. �� �������� �ѱ�� ��ǥ�� Ȯ�� ī�޶� ���� �ƴ϶� ������ ȭ�� Ư��(���� ���ࡤ�ɵ����ְ�ǻ�ü ȭ�� ���)�̴�.
+
+��ġ ī�޶󡤰��� ������ ����� ������ `$camera-spatial-design`�� ����Ѵ� ? ���⼭�� �������� �ٰſ� ��Ȯ�Ǽ��� ����� �ѱ��. ����ǥ�� ������ ������ [���¡��ΰ������Ӽ� �ΰ�](26-state-causality-continuity.md)�� ���� ������������ �ٰ� �������� �̾� �� �� �ִ�.
+
+
+## ��ī�̺� �ϰ� �м�
+
+����/��ī�̺��� ���� ���� �м� �Ǵ� ��Ʈ������ �� ����� ���� ���۷��� �м��� �����Ѵ�. ��û�� ���� ������ �а�, ��û�� �м��̸� ���� �������ܺ� ���ε塤�������Խ� ���� �м��Ѵ�.
+
+1. ���� ������ ���� �����ϰ� ����� ���� �Խù� ID/ĸ�ǰ� ������ �����Ѵ�. �߰ߡ���û������ �м��� ������ �и��ϰ�, �� �� ���� ������ �̺м����� �����. �Խù� ĸ���� ���� �������� ������ ������� �ʴ´�.
+2. �� ������ ���� �׸����� �ٷ��. ���̡������� ũ�⡤ȭ��񡤾˷��� ��Ʈ�� ��Ÿ�����Ϳ� ���� Ȯ���� �ð�/������ `assets/archive-audit-template.md`�� ����Ѵ�. ��ī�̺� ��û�̸� ���ø��� source�� coverage ledger�� ������ archive_id(���� �ƴ�)����Ȯ�� ���ϸ���evidence locator�� mode�� ��������Ȯ ������timestamp �������� ����ϰ�, decode/locator������/���� �ð����䡤���� ���������� û�븦 �и��Ѵ�. ��ü decode�� contact sheet Ȯ�θ����� full temporal analysis�� ���� �ʴ´�. �ǹ� �ִ� ��Ʈ�� `assets/shot-dna-template.md`�� �����Ѵ�.
+3. �� ���� ���� �����������/�Խ� ��Ÿ�����͡��ؼ�����Ȯ���� �����Ѵ�. ǥ�� �����Ӹ� �� ��� ��ü �������� ���롤����� Ȯ������ �ʴ´�. ����� ��Ʈ�� ���������� ���� ��硤���ǡ�ȿ������ǰ���� �������� �ʴ´�.
+4. ���� ���ذ� ���� �� �ݺ������� ������ �����Ѵ�. �ش� ������ �޹�ħ�ϴ� ���� ���� ���� Ȯ�� ������ �Բ� ����, ��ȸ��������������ȯ �����Ͱ� ������ ���� �Ǵ����� Ȯ������ �ʴ´�.
+5. �� �� �ĺ��� ���� ��ų�� ��Ȯ�� ����/������ ������ `�̹� Ŀ��`, `�κ� Ŀ��`, `�� �ĺ�`, `���� ����`���� �з��Ѵ�. ������ Ű���常���� ����� ���ٰ� �Ǵ����� �ʴ´�.
+6. ���� ���� ���� �ĺ��� �����ϰ� ���� ������ �ߺ� ���縦 ���Ѵ�. ��Ȯ�� ���󿡼��� ���硤ĸ�� ����ġ���Ǹ� ������ Ȯ������ �ʴ´�.
+
+## ���� ��Ģ ����
+
+"��Ȯ�� �� ��� �ǻ��� ����"���� "�� Ŭ��������� �ؿ��̵�� �߶� �Ը� �巯����" ���� ��Ģ�� �켱�Ѵ�. ������ �����������÷��̼� ���ϡ����� ������������ ������ ������ �����Ѵ�.
+
+**���� ���� ��Ŀ����**(���� ������Ÿ�̹� ���衤���� ����)�� **��ȣ ǥ��**(ĳ���͡��귣�塤Ư�� �����Ρ���硤����)�� �и��ϰ�, ��Ŀ���� ������� �� �긮���� ��ü������ �����. �� ������ ���� ������ ü������ ���´�: ���۷��� ����(���� + ��ġ) �� ��Ŀ���� �� �ǵ� ȿ��(�ؼ����� ǥ��) �� �� �긮���� ���� �䱸 �� ���� ���� ����. ���� Ÿ�̹��� ������ ���� �ð��� ������ ǥ���ϰ�, ���� ���⹰�������г� ID�� ���� ��� �ܰ谡 ���δ� ? �� �м�/���� �ܰ迡�� Ȯ�� ID�� ������ �ʴ´�. �м��̳� ���ø��� ������������ �������� �ʴ´�.
+
+���۷��� ��� �� �м� ������ ����/�ٻ� ���� �� ��/��Ʈ DNA ǥ �� ���ۡ�ī�޶��ơ��Ҹ��� Ÿ�Ӷ��� ���� �� �ݺ� �ð���û�� ���� �� ���� ���� �䱸 �� ���� ü�� ǥ �� �����ϸ� �� �Ǵ� ��� �� ���� ���� �����. ��ī�̺� �м��� �κ��丮������ ���� ���������� ���� ��ų Ŀ������/�� ǥ�� �Բ� ����.
+
+## ��� ����
+
+�м������ǡ��ؽ�Ʈ ��û�� ����� �״�� �ؽ�Ʈ�� ����. project.json��Ÿ�Ӷ��Ρ��������̵�� �ڸ��� ������ �ʰ�, ��ų ������ ���ų� �������� ������, �߰��� �������� ��ų�� �ڵ� �������� �ʴ´�. ���� ���� �ܰ�� �ѱ� ���� ��� ����� ���⹰�� �����.
+
+
+hook: PostToolUse
+hook: PostToolUse
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/27-camera-motion-qa.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+ succeeded in 361ms:
+# ī�޶� ����������ð� �˼�
+
+## ���� �ٰ�
+camera_spec�� companion timing/lens ��ȹ�� ���� ����, ����/���� Ŭ��, �����гΡ���Ʈ, ��ǥ ����/���� �ð��� ���ε� ��� ������ �޴´�. ���� �����������/Ÿ���ڵ塤���� ����������� ��ϡ��߷��� �����Ѵ�. �̵�� ���� �ؽ�Ʈ ��ȹ�� �˻��ϸ� ���� motion ǰ���� unverified��. ���� ��ƿ�� ���� ��鸲�̳� �ӵ��� ��� �������� �ʴ´�.
+
+## �˻�
+1. ��ü �� ���, ����/���� ��ȯ, ����/���� ����, �ʼ� �����ְ̹� �յ� ���� ����. �����ų� ���� �ִ� ������ �� ������ �˻��ϰ� ���� �˻� ������ ���´�.
+2. �̵� ���⡤��� ������start/end/hold, pan/tilt/translation/zoom/focus�� �и�, �ǻ�ü�� ī�޶��� ��� �������� ��ȹ�� �����Ѵ�.
+3. ���� ��Ŀ������������ ��������ǰ ��ʡ���� ������ ���������� ����. ��ü ��� ����, �ι� foot sliding, floating, ������ wobble�� �ڿ������� ī�޶� �����Ӱ� �����Ѵ�. ���� ��Ȯ���� ������ ����Ѵ�.
+4. �ް��ӡ�ȸ�� ���������ʿ��� Ű������ ��������ġ ���� horizon roll��Ŭ���Ρ��̲����� ����ȭ ũ���� �˻��Ѵ�. �ǵ��� �ڵ����/��/������ ��� ����� �����ϰ� �ڵ� ���� ó������ �ʴ´�.
+5. focus ���� ��ȯ ����, �ʼ� �ൿ����ǰ��ǥ���� ������, ���� ȣ�������������� ��ȭ�� �ǵ��� �´��� ����. �� ��Ŀ���� ī�޶� �̵� �������� ������� �ʴ´�.
+6. 180�� ��/�ü����ǻ�ü �������̵� ���⡤��ġ �׼ǡ��� �� ��� �ӵ��� �̾������� ����. �ǵ��� �� ������ ���� ������ �ܼ��� �˻��Ѵ�.
+7. ���ε� ����/���� ��ǥ�� ���� timecode/PTS�� ���Ѵ�. ���� ����� ������ measured difference�� �����ϰ� ���� pass �Ӱ谪�� ������ �ʴ´�. source reference timing�� �� ������ ���� ��ǥ�� �����Ѵ�. ���� ���絵/flow ���������� ���� ����� �ڵ� ������� ���� �ʴ´�.
+
+## ����� ���� ���
+issue_id / severity / shot��panel ID / actual clip version / source evidence time / OBSERVED �Ǵ� USER_REPORTED / expected vs actual / impact(interpretation) / cause hypothesis / minimum fix / owner / affected dependents / reinspection range�� ���´�.
+��Ρ����Ÿ�̹� ���� ������ camera-spatial-design, ���� �ٰ� ������ camera-motion-reference-analysis, ����/������ ���� �Է��� ai-camera-control, actual render ������ blender-previsualization, ��/����ȭ/�ӵ� ������ �ش� ���� ���� ������. �������� ���� ������ ���� �ذ�Ǵ����� Ȯ���Ѵ�. �������Է¡��� �����𵨡������ ������ ���� ���� ������ �����Ѵ�.
+
+������ pass / pass_with_notes / needs_revision�� �˻� ������ �Բ� ����Ѵ�. �ٽ� ������/������ �̰����̸� ���� ���� ī�޶� ����� �������� �ʴ´�. ��������� �˻�, ��ǰ �Ǵ�, ����� ������ ������. ���� �� �ش� ���� �յ� ���� ��˻��ϰ� ���� ���� �� ������ �޴� ���� ���¸� �����Ѵ�.
+
+
+hook: PostToolUse
+hook: PostToolUse
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/19-brand-product-integration.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+ succeeded in 260ms:
+# ����������ǰ ���� (�µ�ǵ� ��ȭ)
+
+��� 13(���̵��귣��)�� 10(�ٰš����� ����)�� ��ȭ. ��󸶡��ڹ̵� �ø����Ŷ��ũ�������� ���� �ȿ� ������ �ڿ������� �ְų�, ��ǰ ��ü�� ��Ȯ�ϰ� ������ �ϴ� ���� ����.
+
+## 1. ���丮 ����Ƽ�� ���� ����
+
+��ǰ�� �̾߱⿡ ���ֹ�ó�� �������� �Ѵ�. �긮���� ���������� ������ ������ ������ ������ ���� ���� ������ ������ �ʴ´�.
+
+1. ������ �䱸�� �����Ѵ�: ��ǰ/���񽺸����ʼ� ����� ���� ���塤�ʼ� ���� ���־�CTA/���� �䱸���� ����. �ʼ�/���� ������ ��� 10�� claim ���忡 claim_id�� �����Ѵ�.
+2. �̾߱� ü�踦 �����Ѵ�: �ι������� ���� ������� �ǵ����帣 �桤���� ����.
+3. �̾߱� ȣȯ ��ǰ ����� ã�´�: ��ǰ�� ���� ��Ȳ�� �ذ��ϰų��������ϰ� �ϰų����巯���ų�����Ȥ�ϰų�����¡������ �ݿ��Ѵ�.
+4. ���� ��带 ������:
+   - �÷� ��ġ: ��ǰ�� ���� ����� ����Ű�ų� ���� ��ָ� �ذ��Ѵ�.
+   - �ι� �ǽ�: �ι��� �ݺ� �ƶ����� �ڿ������� ���� ��ǰ.
+   - ���� ����: ��ǰ�� ���� ��������ü���������� �巯����.
+   - �ڹ� �ذ��: �콺�� ������ ���� ����ġ�� ������ �ذ�å.
+   - �귣��� ��ȸ: ���谡 ���ǽ������� ���� ���׸� ���� ����ٰ� �����Ѵ�. ���ǽ��� ������ �ش� ������ ������ ���� ����Ѵ�.
+5. ���� ������ ����: ���� ����/���� �� ��ǰ�� �ڿ������� ���� �� ���/�ÿ� ��Ʈ �� �귣�� ���� �� ���� ���� ��ȯ.
+6. �ι� ������ ��Ų��. ������ ���簡 ���ڱ� ���� ��Ʈ�� ���� �ʴ´� ? �� ���� ��ü�� �ǵ��� ������ ���� ����.
+7. ������ ��å���ŷڿ� �縳�ϴ� �ּ� �ջ� ��ġ�� �ִ´�. �����ϴٰ� ������ �������� �ʴ´�.
+8. ��Ȯ�� ��ǰ ���־���Ű�� �䱸�� �Ʒ� ��ǰ SSOT ������ ������.
+9. �и� �׽�Ʈ: ��ǰ�� �� ����. ����� ������ �ر��ϸ� ������ ������, �ƹ� ��ȭ�� ������ ������ �ʹ� ���ϴ�.
+
+### ���� ���� ���
+
+- �ι��� ������ ���̵� �� ��/�ൿ�� �� �� �ִ°�?
+- ��ǰ ������ ��� �ȿ��� �����ϴ°�?
+- ������ ������ �� ���� ��û���� �����°�?
+- ������ �����ϴ°�?
+- ���� ������ �Ų����� �簳�Ǵ°�?
+
+### ��Ģ
+
+- �Ƿᡤ���������� ������ ����� �ʴ´�. Ȯ�ε� ���常 claim ���忡 verified�� �д�.
+- �̾߱⸦ ���߰� ��յ� ��� ������ ���� �ʴ´� ? ���� ��û �ø�.
+- �Ϲ� �ÿ� �������� �ι� Ư���� ������ �켱�Ѵ�.
+- ��ǰ�� �ڹ̵� ���� ���� ������ ������ ��û�ڸ� �����Ű�� �ʴ´�.
+
+## 2. ��ǰ ���־� ����
+
+��ǰ�� �Ϲ� ��ǰ�� �ƴ϶� ������ ���ΰ� �������� �ٷ��.
+
+1. ��ǰ SSOT�� �����: `assets/product-ssot-template.md`. ġ��/�������Ƿ翧���ΰ����� ��ġ��ĸ/����������������ǥ�� �����������������빰 ����������ڰ� ������ ���� �ʼ� ǥ��.
+2. ��Ȯ�� ��ǰ ǥ���� ������ ����/ȿ�� �ð�ȭ�� �и��Ѵ�. �޹�ħ���� ���� ȿ���� �Ͻ����� �ʴ´�.
+3. �� ����� ������: ���� �� �˰� Ŭ����� �� �߻� ��ũ�� �� ��ǰ ����� �� ���/��� �� ��Ȯ�� �Ѽ� �� CTA/����ī��. �긮���� �䱸�ϴ� ��ɸ� ���� CTA/���� ��δ� ���������� �ʿ��� ���� �д�.
+4. ������ ������ �����Ѵ�:
+   - ����: ������ �� ���̶���Ʈ�� ������ �ݻ�.
+   - ������: ����/�����ڸ� ������ ���� �е�.
+   - ũ��/��ü: ������ǥ�� ��¡�����������.
+   - �ݼ�: �ݻ� ȯ�� ��ü�� �Ѹ���̴�.
+   - �ݻ� ��ǰ(�ſ�������ݼ�): ������ �ݻ�Ǵ���, ��ǰ ȸ��/ī�޶� �̵� �� �ݻ� �찡 ��� �̵��ϴ���, �󺧡��ΰ��� �б� ������ ���� ���Ѵ�. ��Ȯ�� artwork�� ��ǰ ���� �Һ� ���̾�� ��װ�, �ݻ� �н��� ���ڸ� ������������ ��¥ ���� ������ �ʵ��� ����/��ȣ ������ �д�. ���� �����ӿ��� �ݻ� ����� Ȯ�ε��� ������ ���� �ݻ籤���� �������� ���� graphic/reflection design���� ǥ���Ѵ�. �����ߡ��Ŀ� ���� ũ�ӿ��� ǥ��/���и� Ȯ���Ѵ�.
+   - �Ǻ�: ������ ���� ���ؾ� �ϸ� �ǵ��� ��Ÿ��ȭ�� �ƴϸ� �ö�ƽ �������� ���Ѵ�.
+5. ���� ���� �ؽ�Ʈ/�ΰ� ��ǵ��� �Ҿ����ϸ� ���ε� ��Ű�� ��Ʈ��ũ�� ��Ȯ�� �´� ��ǰ �鿡 �ռ��ϰų� ��ǰ�� ���� ���̾�� �����. �ռ��� �������� action scene���� source packshot ��ü�� ��� ���� ������� ���� �ʴ´�. ���١��� ���⡤�����ϡ��������ݻ硤���� �׸��ڡ������� ������ ���� ������ ��ü�� ������ �Ѵ�. ��ǰ�� ��ų� ���ų� �����ϴ� ���� �հ��� ����/���� ���� ��ȭ�� �����ش�. ���� packshot �ռ��� ��ȹ�� frontal hold�� ���� ����ϸ� ��Ȯ�� �ΰ������� ������ ���� ��Ʈ��ũ�� �����Ѵ�.
+6. ��/�Ǻ�/������ ������ [���� ���� QA����õ�](21-generated-video-qa-retry.md)�� ��� ����, �� ���Ӽ��� [���־� ��塤SSOT](20-visual-mode-ssot.md)�� ������Ѵ�.
+7. ��ü Ʀ���������� ���衤�Ұ����� ��ũ�� ��ȯ�� ���̾� �ռ� ��ȹ���� �и��Ѵ�.
+8. QA: �Ƿ翧��ĸ ���󡤷ΰ� ��ġ���� ���������������빰 ������������ ���ˡ����� �Ѽ�.
+
+### ���¡�ȯ�� ������ ��ǰ ������ ������ ��
+
+��ǰ�� �ʰ� �巯���� ���/ǳ�� ������ �ʿ��� ���� �����Ѵ�. ���̵� ȯ��氡��� ǥ��/�������Ϻ� �Ƿ翧����ǰ���󺧿� ���� �ٸ� ���� ������ �ְ�, ������ ������ ���� �ơ����� �̵����ռ� �� ���������� Ȯ�� ������ �������� �ʴ´�. ��ǰ ���� �ڿ��� SSOT�� �Ƿ翧���顤ǥ���� �ٽ� ȸ���Ѵ�. ǳ�桤�ݻ硤������� ���/��/������/���� ���Ű� �ƴϴ�.
+
+��ǰ�� ������ ���¸� ���� ���� **ǥ�� ����**(���������������)�� **�ǹ� �ؼ�**(��: �����ӵ�����)�� ������ ���´�. ���ڴ� ȭ�� ����, ���ڴ� �� �ؼ� �����̸� �� �� ������ �������� �ʴ´�. �ð� ������ ������ ��ǰ�� �ְ��ϰų� ǥ��/���� ������ �ܼ� ��, ���� ���̶���Ʈ, ���ε� �׷��� ���̾ ������� �����Ѵ�.
+
+�긮���� �Ұ����� ������Ŭ�� ���� ���� �� ���ԡ�ȯ�� ���������͸� ���ϰ�, �� ��ǰ ����ο��� ���ε� ������/��/����/��ü���� ��Ȯ���Ѵ�. �ҡ��������������� �� �����ϰų� �Ұ����� ����� ���� ����������������ǰ �������� ���ν�Ű�� �ʴ´�. ȯ�� ��ȣ�� ������� ������ ������Ŭ�� �����ϰų� ������ �׷���/�ִϸ��̼����� �ٲ۴�. �� ��ʴ� ���� ���������¡�����/�Ǹ� ���ǿ� �°� �����Ѵ�.
+
+���⹰: ������ �䱸 ���, ���� ���, �̾߱� ȣȯ ��� ���, ���� ��Ʈ ��, �ʼ� ����/���־� üũ����Ʈ, ���� ��ȹ, ���� ����, ��/�ŷ� ����. ��ǰ ������ �߰��� ��ǰ SSOT���ð� ������������� ���� ��ȹ����ũ��/���� ��ȹ��VFX �и����Ѽ� QA.
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/generated-qa-report-template.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/shot-dna-template.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/motion-beat-template.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/state-transition-template.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+ succeeded in 363ms:
+# ���� ���� QA ����
+
+## ����
+- artifact / version:
+- shot �Ǵ� ��ü ������:
+- �˻��� ���� ��ü�� Ÿ�Ӷ��� ����:
+- �˻� ���: ��ü �ǽð� ��� / ǥ�� ������ / ���� / ����� �ܵ� (���� �׸� ǥ��)
+- �̰��� �׸�:
+
+## ������ ���롤����� (�ش� ��)
+- ���� �ǻ�ü/ī�޶� �����Ӱ� ���� ��ȭ:
+- ���ǡ�ȿ�� ť/���� ������:
+- ȥ�� ���� �Ǵ� �и� stem ����:
+- ���� �Ǹ� ����:
+- ���� ����������/��� ����:
+
+## ���¡��ΰ� �˼� (�ش� �� ? references/26 ������ �ΰ�� ����)
+- �˻��� ����/���� ������ Ÿ���ڵ�:
+- �� ���� �� ���� �� ����� ���� Ȯ�� / unverified:
+- ���� ���� ���� ���� / ��Ȯ��:
+- ���� ������ �� ����: ���� ���� �̰˻� = unverified / �˻� �� �䱸 ���� ���� = �߰� ǥ�� ���з� ���:
+- �ǵ��� ������ ���ǵ� ���� ����:
+
+## �߰�
+| Ÿ���ڵ� | ���� | ���� ���� | �ɰ��� | ���� ���� | ���� ��� | ��˼� ���� |
+|---|---|---|---|---|---|---|
+
+## ����
+- ����: pass | pass_with_notes | needs_revision
+- ������ ����:
+- ���� �ൿ:
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 357ms:
+# ���۷��� ���� �м� ����Ʈ
+
+�б� ���� �м� ���⹰�̴�. �� ����Ʈ�� ä��� ���� ���������ۡ����ε塤���� �м� ������ �ƴϴ�. �ش��ϴ� ���Ǹ� ä���, Ȯ���� �� ���� �׸��� `��Ȯ��`���� �����.
+
+## �ҽ�
+| �׸� | �� |
+|---|---|
+| �ĺ���/��ó | ����ä�Ρ���ũ �Ǵ� ���ϸ�(Ȯ�� ������ ��ŭ) |
+| ������ archive_id (��ī�̺� �м��� ��) | ������ �ƴ� ���� source identity; ������ N/A |
+| �˻��� ����/���� | ���� �˻� �Ǵ� ����� ����� ����������(�̰˻� ���� ����) |
+| ���ġ����̡�ȭ����帣������������ | ���� �Ǵ� ��Ÿ�����ͷ� ���� |
+| �̵�� ��Ÿ�����Ϳ� ��ó | ���� ������ ����/ũ��/fps/timebase/stream ����, ��Ȯ�� ���� N/A |
+| �м� ���� | ���� / �ٻ� / ǥ�� �����Ӹ� |
+| coverage evidence | ���⡤�ĺ� ���� ���� �ð����䡤���� �����û�� ��/������ �и�; archive �м��� `archive-audit-template.md` ���� |
+
+| source-local locator | ��û �ð� (`requested_s`) | ���� ������ PTS (`source_pts_s`) | ���� | ���� ���� / ��Ȯ�Ρ��Ѱ� |
+|---|---:|---:|---|---|
+| {���� ���� C/B/G/S.P �� ���� locator; ������ N/A} | | | OBSERVED / ESTIMATED / DETECTOR_CANDIDATE / UNKNOWN | |
+
+���� locator�� source�� ID legend�� ���� ����ϸ� ������Ʈ `scene_id`/`shot_id`/`panel_id`�� �ƴϴ�. PTS�� Ư�� sample frame�� ��ġ���� ��Ȯ�� cut/onset�� �ƴϴ�. `SH###`�� ���� ��踦 ���� Ȯ���� ��쿡�� �ο��Ѵ�. Unverified candidate, bracketed estimate, sample counts�� verified cut ���� ���� �ʴ´�. Frame review �� continuous playback; stream metadata �� audio listening. Creator production description, caption, ASR�� ���� declared claim / untimed caption text / unverified hypothesis�� ���� ���� �����̳� û��� �°����� �ʴ´�.
+## �ະ �м� (�ش��ϴ� �ุ)
+�� �࿡�� **����**(���� �����ӡ������û�� �Ǵ� ����� ���; ��ó ����) / **�ؼ�������**(������ �ǵ�) / **��Ȯ��**(�Ǹ������������� ��)�� �и��Ѵ�. ����� ����� ���� �˻� ����� �ƴϸ� �������հ� ������ ����.
+
+| �� | ���� | �ؼ������� | ��Ȯ�� |
+|---|---|---|---|
+| ����/����/���� ���� | | | |
+| ��/����/ī�޶� | | | |
+| ���־� ��Ÿ�� | | | |
+| ���� | | | |
+| ����/���� ȿ�� | | | |
+
+## Shot DNA
+| Shot | ��Ʈ �ð�(����/�ٻ�) | ��� | �ǻ�ü���ൿ ����/����/�� | �����̹֡�ī�޶� ���� | ������ | �ơ���ȯ������ | ����� ť������ ������ | ����/���������Ӽ������̵� |
+|---|---|---|---|---|---|---|---|---|
+| | | | | | | | | |
+
+## ���� ���� (���� ������ ���� ����)
+���� ���̿��� ���� Ư¡�� ¦���´�. �� �ֿ� ����/����/��Ȯ���� ǥ���ϰ�, ������ Ư¡�� ���ٰ� �����ϰų� �ٸ� ���� ���� ���� ���� ���� ��ȭ�� ���� �ʴ´�. �ش� ������ `N/A`.
+
+| ���/Ư¡ | ���� A ���� | ���� B ���� | ���� ����: ����/����/��Ȯ�� |
+|---|---|---|---|
+| | | | |
+
+## ���� ������ (��Ȯ�� ���� �䱸 �ø�)
+�� �����Ӱ� ��ü ũ�� �̻� ���ǿ��� ī�޶� �ش� ������ �ƴϴ�. ������ �縳�ϴ� �ĺ� ������ �ٰŸ� ���� ���� ����������Ÿ��� Ȯ������ ������ �ʴ´�. �� ������ ��ǥ�� Ȯ�� ī�޶� ���� �ƴ϶� ������ ȭ�� Ư��(���� ���ࡤ�ɵ����ְ�ǻ�ü ȭ�� ���)�̴�. ��ġ ī�޶󡤰��� ������ `$camera-spatial-design`�� �����Ѵ�. �ش� ������ `N/A`.
+
+| �׸� | ����(�����ӿ��� ���� ����) | ����(����) | ��Ȯ�� |
+|---|---|---|---|
+| ȭ�� ����ȭ ������(�ҽ��������򼱡��ǻ�ü ȭ�� ��񡤺��̴� �顤�ְ�) | | | |
+| �˷��� ũ�ӡ���� ȭ���(����) | | | |
+| ���� ���ࡤ�ɵ� Ư�� | | | |
+
+| ������ ī�޶� �ĺ� ���� | �ĺ��� �縳�ϴ� ���� �ٰ� | �ĺ��� ������ ����(�ΰ���) | ������Ȯ���� �ʿ��� �߰� ���� |
+|---|---|---|---|
+| | | | |
+
+
+## ���� ü�� (���� �� �� �긮��)
+��Ŀ���� �����Ѵ�. ĳ���͡��귣�塤Ư�� �����Ρ���硤���� �� ��ȣ ǥ���� �� �긮�� ��ҷ� �ٲ۴�. ���� �ð��� ���� ���� �ð��� ���� ���� �д�. ���⹰�������г� ID�� ���� ��� �ܰ谡 �ο� ? ���⼭ Ȯ�� ID�� ������ �ʴ´�.
+
+| ���۷��� ����(����+��ġ) | ��Ŀ���� | �ǵ� ȿ��(�ؼ�) | �� �긮�� ���� �䱸 | ���� �ð�(�ű�) | ���� ���� ���� |
+|---|---|---|---|---|---|
+| | | | | | |
+
+## �����ϸ� �� �Ǵ� ���
+| ��� | ���� | ��ü ���� |
+|---|---|---|
+| | | |
+
+## ���� ���� �����
+| �߰� | ����� ��� ���/��ų |
+|---|---|
+| | |
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 344ms:
+# ��� ��Ʈ ��Ʈ
+- Shot:
+- �ʱ� ����/������:
+- �� �ൿ:
+- ����:
+- �̵�/����:
+- ����/���:
+- ü�� �̵�:
+- �ļ�:
+- ���� ����:
+- ���� ����:
+- 2�� ����:
+- ���� ����:
+
+- ���¡��ΰ� ����(�ش� �ø�, references/26):
+- ���� �� ��� ��ȭ �� �ܷ� ���:
+- ���� ���ְ� �� ����:
+- ���� �Ӽ� / �ļ� ���� ����:
+- �ǵ��� ���� ����:
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 348ms:
+# ���¡��ΰ� �ΰ� ���� (������)
+
+�ش��ϴ� �ุ ä���. �������� `N/A`�� �ΰų� �����Ѵ�. ���� ID�� artifact ������ �̾�ް� project.json �ʵ峪 ID ���ӽ����̽��� ���� ������ �ʴ´�.
+
+- ���� shot_id / artifact version:
+- Ȱ�� ����: {���� ��ȭ �� ���� ���� �� ���� ���� �� ���� ���� �� �ð� ���� �� ��Ȯ�� ���۷��� �� ��ӵ� ���� �ǹ�} ? �� ���ǰ� ��ӵ� �ǹ��� ��� ������ `N/A`�� �ݰ� �� ������ ������ �ʴ´�.
+
+## ���� ��ȭ
+- ��� ID:
+- ��ȭ ����/�Ӽ�:
+- ��� ��ȭ:
+- ���� ����/�Ӽ�:
+- ���� ���¿� �ٰ�:
+- �� ���¿� �ٰ�:
+- �ļ� ���� ���� / ���� ����:
+
+## ���� ����
+- ���� �� ��� ��ȭ �� �ܷ� ���:
+- �ǵ��� ���� ���ο� ��ġ:
+- �˻��� ����/���� ����:
+- �ļ� �ƿ��� ����� �����Ǵ���:
+
+## ���� ����
+- ���� ��/Ư¡/����/������ ����ǥ:
+| Ư¡ | ���� A ���� | ���� B ���� | ����(����/����/����/��Ȯ��) |
+|---|---|---|---|
+
+## ���� ����
+- ����:
+- ���� �ൿ �� �� ����� ����:
+- ����/�и� ����:
+- ���� ���� �̰˻�(unverified) / �˻������� �䱸�� ���� ����(����) ����:
+
+## �ð� ���ࡤ����
+- ȹ�� ���: {���� �ҽ� �� ���� ���� �� ��Ÿ�� �� ��� ��}
+- ���� ����ð�/������ �ٰ�:
+- ���� �� ���� �� ���� �� ����:
+- ��� ������ ���� ������ ����:
+
+## ��Ȯ�� ���۷���
+- ȭ�� ����ȭ ������:
+- ���� / ���� / ��Ȯ��:
+- ������ ī�޶󡤷��� �ĺ��� ������ ����:
+- ���� �̹�����ũ�� �̻� ���ǿ��� Ȯ������ �ʴ� �׸�:
+
+## �ٰ� ��ġ
+- ������ �˻��� ����/������/Ÿ���ڵ�/�α�:
+- �̰������� ���� �׸�:
+
+
+hook: PostToolUse
+hook: PostToolUse
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/10-evidence-template.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/09-edit-template.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/06-shots-template.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+ succeeded in 501ms:
+# ������������������ ���� �ٰ�
+
+project_id: {������Ʈ}
+version: {����}
+status: draft
+assumptions: {����}
+
+| claim_id | ���� | ���� | source_id/��ġ | �Ⱓ/�и�/���� | �Ѱ� | ���� shot_id | ���� |
+|---|---|---|---|---|---|---|---|
+| CL01 | | ���/�ؼ�/â�� | | | | | Ȯ���ʿ� |
+
+��Ȯ�� ����: {���}
+���� �ܰ� �ΰ�: {�Է� ID�� ����}
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 466ms:
+# ���������롤����
+
+project_id: {������Ʈ}
+version: {����}
+status: draft
+����������Ŭ �Ĺ� �ܰ� ����: {��ȭ������ ��û�̸� `film-postproduction-template.md`�� �ܰ�/�� ���� ǥ�� artifact ID���������� ����, �ƴϸ� N/A}
+assumptions: {����}
+����� �ǵ�(audio_mode�����̾�)/������ ���� Ȯ��: {no_audio/no_dialogue/dialogue + SFX-only���������ܡ�ȥ������ ����, ���� ���� ����/Ȯ�� ����, ������ �� ���� ���� ����}
+
+| �ҽ� �ĺ� | ��ó/���� ID������ | ��ɡ����������̡����� ������ | �Ǹ� �ٰ�/Ȯ�� ���������� | û�� ��� | ���� |
+|---|---|---|---|---|---|
+| | | | | | |
+
+| cut_id | shot_id/asset_id | source_in_s | source_out_s | playback_rate | final_start_s | final_end_s | �ൿ��ī�޶� ��ȭ / �ƾƿ������� phase��state + cue time / �� ���� | transition/duration_s | sound_id��sync anchor | reaction/settle hold final start?end s�����Ӽ�/�˼� ���� |
+|---|---|---:|---:|---:|---:|---:|---|---|---|---|
+| C01 | SH01 | | | 1.0 | | | | hard_cut/0 | | |
+
+### �ð� ���ࡤ���� (�ش� �Ƹ�)
+| cut_id | ȹ�� ���: ���ӹ��/���͹�/��Ÿ��/�ǵ��� ����/��Ȯ�� | ���� ����ð����Կ� ���������ݡ�����(�ٰ� ��ġ) | ���� �� ���� | ���� �� ���� | �ļ� �� ����/���� ���� |
+|---|---|---|---|---|---|
+| | | | | | |
+
+����/��� ���� ���������� playback_rate���Կ� ���ݡ�ȹ�� ����� Ȯ������ �ʴ´�. �ٰ� ���� �׸��� `��Ȯ��`���� �д�.
+
+
+���� ť�� `sound-cues.csv` �ʵ忡 ���� ���; �Ǹ������� �󼼴� mix_note/���� artifact�� �д�.
+��Ȯ�Ρ��Ǹ� ���¡����/û�� ����: {���}
+���� �ܰ� �ΰ�: {�Է� ID�� ����, ���� �����, ���� ����}
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 476ms:
+# ����ŷ���Կ������丮����
+
+project_id: {������Ʈ}
+version: {����}
+status: draft
+assumptions: {����}
+board_purpose: {�ܼ�Ʈ ��ġ / �Կ� ���� / �ִϸ�ƽ ��ȹ}
+audience: {Ŭ���̾�Ʈ�������� / �������Կ��� / ��Ÿ}
+approval_status: {���� / ��ġ ���� / �Կ� ���� ����}
+deferred_execution_slots: {���� �� ������ �� ���� ID �Ǵ� ����}
+
+| shot_id | scene_id | beat_id | shot-local time (s or frames; FPS if frames) | ũ��/ī�޶� ��ġ | �ι� ����ŷ | �ü�/�� | ���� ���� | ����������/���� �ǵ� | ��ȡ�ä��/���� ���� | ī�޶� ���� | ���� ������ | �ڵ� |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SH01 | S01 | B01 | | | | | | | | | | |
+
+`�ι� ����ŷ` / `ī�޶� ����`�� ���� ����Ѵ�. �� �� ������ ���� ���� shot-local basis�� ����Ǵ� move/change��reveal/contact��stop/settle��hold/cut �ð��� ���� ���� ���´�; �̻�� ť�� �����Ѵ�. ��������� hold�� �ʿ��ϸ� �ش� �� �ð� ���� ������ ���´�. See `camera-spatial-design/references/motion-timing-lens.md`.
+
+### Consequential moving-shot cue timeline (DESIGN_PROPOSAL example)
+
+For every consequential walking/stop or camera-moving shot, return these cue rows populated as part of the shot plan. Use shot-local times within the owning shot's duration; actor and camera phases share that basis. Include applicable actor/camera onset, deceleration, stop and settle sub-intervals. In `Actor phase / contact / visibility`, state the visible foot-contact cue/window or mark it `hidden/out-of-frame` or `unverified`. In `Reveal / hold`, give reaction onset and a distinct hold start?end when used. For an action cut, pair out/in phases and their shot-local cue times here and in the existing 09 edit slot, keeping each cue within its owning final range. In the existing AI-handoff tool-support slot, write `UNKNOWN` until the actual endpoint control is checked; until then, camera direction remains a DESIGN_PROPOSAL. These are proposed values, not observations or universal gait timings.
+
+| Local time (shot seconds) | Actor phase / contact / visibility | Camera phase | Reveal / hold | Cut-out �� cut-in phase |
+|---|---|---|---|---|
+| 0.00 | Walk begins; feet visible, no contact claim yet | Track begins with actor | Path revealed; no hold | ? |
+| 0.00?1.20 | Approach; show foot plants/weight transfers only where visible in this frame | Track alongside; preserve spacing | Keep both actors readable | ? |
+| 1.20?1.50 | Decelerate; final plant and transfer to supporting foot visible | Track decelerates | ? | ? |
+| 1.50?1.85 | Stop; planted feet remain visible, body settles | Track stops, camera settles | Hold begins after settle | ? |
+| 1.85?2.00 | Partner reaction begins after the stop | Locked | Reaction onset 1.85; hold not started | ? |
+| 2.00?2.55 | Settled mutual eyeline | Locked | Reaction hold 2.00?2.55 | SH01 out 2.55: settled look �� SH02 in 0.00: reverse begins on matching eyeline |
+
+## �гκ� ID ���� ? project.json `storyboard.panels[]`�� ����
+
+| panel_id | shot_id | beat_ids | visible_character_ids | audio_cue_ids | speech_ids | frame/time | ���������������Ӽ� | image_asset_id |
+|---|---|---|---|---|---|---|---|---|
+| P01 | SH01 | B01 | CH01 | AU01 | SP01 | | | IM01 |
+
+`beat_ids`�� �ش� �г��� �ð�ȭ�ϴ� beat, `visible_character_ids`�� ���� ȭ�鿡 ���̴� �ι��� ����. �г� ������ �� ���� shot�� ���� ID �κ������̾�� �Ѵ�. `frame/time`�� �г��� ���� �ð��̸� ������ audio cue �� speech�� �ð� ������ ���ԵǾ�� �Ѵ�. �� shot�� beat/audio/speech ������ �ش� shot�� �ϳ� �̻��� �гο� ���� ����ƴ��� Ȯ���Ѵ�.
+
+��Ȯ�� ����: {���}
+���� �ܰ� �ΰ�: {�Է� ID�� ����}
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/product-ssot-template.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+ succeeded in 535ms:
+# ��ǰ SSOT ���ø�
+
+- product_id:
+- �Ƿ翧/����:
+- ��Ű�� ����:
+- �� ��:
+- �ΰ� ����:
+- �� ��ġ/����:
+- ĸ/����:
+- ǥ�� ����:
+- ���빰/����:
+- must-never-change:
+- ���� �ʼ� ǥ�� (����� �����и�):
+- ���� ���� ���� ID:
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/shot-list.csv' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/10-evidence.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/25-reference-video-analysis.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/06-shots.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/assets/claim-ledger.csv' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/09-edit.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+ succeeded in 376ms:
+shot_id,scene_id,beat_id,start_s,end_s,source_duration_s,character_ids,purpose,camera_position,camera_motion,blocking,start_state,end_state,light_id,sound_id,status
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 412ms:
+# ������������������ ���� �ٰ�
+
+## �Է°� ���⹰
+�Է�: ���� �����͡��ڷ�, ������ ����, ���� ����
+
+���⹰: ���� ����, ���� ��, ��Ʈ ����, �긮���� �䱸�ϴ� ��� CTA/����
+
+## ���� ����
+1. ���塤�������ؼ���������â���� �и��Ѵ�. ��ġ�� �Ⱓ�������ܡ��и𡤴�������ó ��ġ�� ����Ѵ�.
+2. �����͡�� �������Ȳ �ؼ��氡���� �ൿ���� �����Ѵ�. ������踦 �ΰ������ ǥ������ �ʴ´�.
+3. �񱳴� ����, �ð� ��ȭ�� �� �� ������ �´� ��Ȯ�� �ð�ȭ�� ����Ѵ�. �� ���ܡ��Ⱓ ���á���Ȯ�Ǽ��� ����� �ְ��ϴ��� �����Ѵ�.
+4. �ڷᰡ ������ �ʿ��� �ڷ�� �ӽ� ������ �����Ѵ�. ��¥ ��Ʈ���ı⡤���ͺ�� ��ĭ�� ä���� �ʴ´�.
+5. �ð� ������ ������ ��ʴ� ���ظ� ���� �������� ����Ѵ�. �Ϻ� ÷�� ������ �����С���� ȿ�� ���ڸ� ������ ���� �������� �������� �ʴ´�.
+6. ��ȭ����Ʈ���ڸ� �� ��û�� CTA/������ ���� claim_id�� �����ϰ� �ܼ��� �߸��ų� ��ȭ���� �ʰ� ��Ÿ���� �ʴ��� �˼��Ѵ�. CTA�� ��û�� ��ǥ �ൿ�� �������� ���� ���� �߰��Ѵ�.
+
+### ������ �ð� �������������ٰ� �и�
+
+������ī�װ��� ��㡤â�� ������ `claim-ledger.csv`�� ���� `statement`/`kind`/`limitations` �ʵ�� ��� ����� �����Ѵ�. �� claim class/enum�� ������ �ʴ´�. ����ó�� ���̴� ���, ���� ����, ������� �ð� ������ ȿ�ɡ����������̷¡����� ��ǰ ����� �������� �ʴ´�. �����ǥ����ۡ������ ȭ�� ������ â�� �̾߱�� ������ �� ������ ����������ǰ ���������� ǰ�� ǥ������ �� �ð� ������ ������ �ٰŰ� �ʿ��ϴ�.
+
+���۷��� ���󿡼� ���� ���� ȭ�� ������ ���� ��ȹ�� ī�Ǹ� �����Ѵ�. ȭ�� ������ `OBSERVED`�� ���� locator, ������ ������ `DECLARED_UPLOADER_CLAIM`, �ڵ� ĸ���� `CAPTION_TEXT_AUTO_UNTIMED`, ASR ����� `ASR_RUN / HYPOTHESIS_UNVERIFIED`�� ����Ѵ�. ��� ������ ��û�� ��ȭ�� �ð�������, ������ ����, ���� �Ǹ��� �ٲ��� �ʴ´�. �ڼ��� �ٰ� ����� [25 ���۷��� ���� ����](25-reference-video-analysis.md)�� ������. �������� �д� �˼��� ���� û��� ������.
+
+�ι�����Ұ� ���� ���񽺡��������ı�� ���� �� ������ �㱸�� ����, ����, ��� ����, ��� �㰡�� ���� �����Ѵ�. ��Ȱ��� ����� ��ġ����鵵������ ǰ������������ ���Ű� �ƴϴ�. �Ƶ��� ������ �����ϸ� ��ȣ�� ���ǡ����������ɿ� �´� ����/�ƶ��� �����ϵ�, �Ƶ� ���� �ǰ� ���� ���� �ΰ������� ����������ǰ ����̳� �ڵ� ���� ������ �߷����� �ʴ´�. ��ü���� �Ǹ������� ������ ���� ����/�ߴ� ������ ������.
+
+CTA�� �긮���� ��ǥ �ൿ�� �������� ���� ���� ���� �����ڿ� �����Ѵ�. �ʼ� ������ ���� ���� ������ ������ ���� ȭ�鿡�� �������� �˼��ϰ�, �̸� ������ ����ī��/�ļ� ����� �����Ѵ�.
+
+## �Ϸ� ����
+�� ���忡 Ȯ�� ������ �ٰŰ� �ִ°�? ��ġ���������ڸ����ؼ��� ��ġ�ϴ°�?
+
+## �ٰſ� ���� ����
+�ڷ� ID: 24,26,27,28,29,30,32,34,35. `sources.md`���� ���� ���¿� Ž�� ��ġ�� Ȯ���Ѵ�. ������ ���ø��� ���� �ڷ��� ������ ������ ���� �����. ������ ��Ģ�� �״�� ������ ����̳� ���� ������ ��������� ǥ������ �ʴ´�.
+
+## ��� ���ø�
+`assets/10-evidence-template.md`�� ������ ä���.
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 399ms:
+# ���۷��� ���� ���� (�µ�ǵ� ��ȭ)
+
+��� 01��05��06��09�� ���� ��ȭ. ����ڰ� ���� ����Ŭ����������������������ȭ ��顤�ð� ���۷����� ���� ������ ������ �޶�� �ϰų�, ���� ������ �ִ� ����/��ī�̺긦 ���� �м��� ��Ʈ������ ���ϡ���ų Ŀ������������ ���� �޶�� �� �� ����. ��ȣ�� ǥ���� ������ �ƴ϶� ���� ������ ���� ������ �����Ѵ�.
+
+## ���۷��� �߰߰� ����
+
+"���۷����� ã�� �޶�"�� ��û���� �ĺ� ���Ȱ� �� �м��� �и��Ѵ�. �� �м��� ����ڰ� �ĺ��� ���á������� �ڿ��� �����Ѵ�.
+
+1. �ĺ����� ���� ���´�: Ȯ�� ������ ��ŭ�� �ĺ���/��ó(����ä�Ρ���ũ), �ش� ä�Ρ��������� ���ռ�, �� �긮���� ���� ������ ��ü�� ��� �ϳ�.
+2. �ĺ� �ܰ迡���� �ĺ��� ������ ��ŭ�� ���� ��Ÿ�����͡��̸����⸸ ����. ���õ��� ���� �ڷḦ ��ü ��û�ϰų� �� �м����� �ʴ´�.
+3. ����ڰ� ���󡤸�ũ����������ī�̺긦 ���� �����ϰ� �м��� ��û�� ��� �̹� ���õ� ������ ����, ���� ���� ���� �ٷ� �м��Ѵ�.
+4. ���õ� �ڷḦ �м��ϴ� �б�� ���롤�ܺ� ���ε塤���� �м������� ������ �����Ѵ�. �м� ��û������ �ܺ� �����̳� ������ ���ι޾Ҵٰ� ���� �ʰ�, �ش� �ܰ�� ���� ���� ������ ���� ���� �����Ѵ�.
+
+## ����
+
+1. ���ġ����̡�ȭ����帣�������������� �ľ��ϰ� ������ �˻��� �ҽ� ����/������ ����Ѵ�. ���� ��ü�� ���� �������� �м� ������ ǥ�� ������ ���� ������.
+2. �� �Ǵ� �ǹ� �ִ� �ð� ��Ʈ�� �����Ѵ�. ���� �� ������ �����ϰ�, ������ �� ������ �ٻ�ġ�� ǥ���Ѵ�.
+3. ��Ʈ���� �ǻ�ü���ൿ�� ����/�� ���¡��ֿ� ���� ����(���ˡ���ݡ���ǰ ���� ��)�������̹�/�����ϡ�ī�޶� �������������ȷ�Ʈ�����⡤��ȯ�����Ӽ��� ����Ѵ�. �������̳� Ÿ���ڵ�� ������ �� ���� ������ �������� �д�.
+4. ���� Ÿ�Ӷ��ο� �� ��������ȯ ������ ���̡�����/ȿ�� ť�� ���´�. ȭ�� ��ȭ�� �Ҹ��� �������� ���� �ð���Ÿ���ڵ�� ����, Ȯ���� �� ���� ���е��� ������ �ʴ´�.
+5. ���� ������ �и� stem���� ���� �ͽ����� �����Ѵ�. ȥ�� ������ ������ ���ǰ� ȿ������ �и��� ����ٰ� ǥ������ �ʰ�, ���� �Ǹ��� ���� ��Ȯ������ ����Ѵ�.
+6. **ǥ�� ��Ÿ��**(�ǻ��ȷ�Ʈ����������Ʈ ���)�� **���� ����**(���� ���� ������������ ��ȭ������/ī�޶� ���⡤���� ��ȯ���� ����)�� �и��Ѵ�. �������� �� ���� ��ȯ ȿ���� �ƴ϶� ���� �ǻ�ü/ī�޶��� �ð��� ��ȭ�� �� �迭�� �����Ѵ�.
+7. �߰��� ���� ������ ���� �����Ƿ� ��ȯ�Ѵ�. ������ �����ϰ�, ����ڰ� �����ϰų� ������ �㰡���� ���� ĳ���͡���ǡ��귣�� ���¡���ҡ���硤Ư�� ��ȣ �������� �ٲ۴�. ���� ������ �Ʒ� ��η� ������Ѵ�.
+### ���� ��ġ����衤�м� ID�� ���� ����
+
+��ī�̺� ���翡���� `archive_id`�� source�� ������ identity�� ����ϰ�, ���� �塤�м����� ���� locator�� ������Ʈ�� `scene_id`, `shot_id`, `panel_id`�� �°����� �ʴ´�. `C##`�� detector candidate/neighborhood, `B##`�� ���� ����, `G##/SG##`�� ��� �ؼ�, `S##.P##`�� source shot ���� action phase�� ��Ÿ�� �� �ִ�. ���ڿ� ���ξ���� ������ �������� ���� �ش� source�� legend�� ������.
+
+���� ������ ������ ���̴� `DETECTOR_CANDIDATE`��. �ĺ� �ϳ�, contact sheet, 1fps/native sample, ������ ��ü decode�� �� ��� ������ �ƴϴ�. `SH###`�� ��� ������ ���� ���ŷ� ���� ���� Ȯ������ ���� ����ϰ�, ǥ�� ������ ���� bracketed `ESTIMATED` �Ǵ� `UNKNOWN`���� �����. Scene, shot/cut, �� shot ���� ���� action phase�� ���� ���� dissolve/morph/wipe�� ��Ȯ���̸� transition candidate�� �Ѵ�.
+
+�� locator���� ��û �ð�(`requested_s`)�� ���� source frame PTS(`source_pts_s`)�� ������ ����Ѵ�. PTS�� ���� ������ ��ġ���� ��Ȯ�� cut time�̳� action onset�� �ƴϴ�. ���� �ð��� ȭ�� �ؽ�Ʈ�� `OBSERVED`�� �� �� ������ ���� speech timing/����� û�밡 �ʿ��ϴ�. Uploader pipeline/tool credits�� `DECLARED_UPLOADER_CLAIM`; �ڵ� ĸ���� `CAPTION_TEXT_AUTO_UNTIMED`; ASR�� `ASR_RUN / HYPOTHESIS_UNVERIFIED`; ��û�� ��������̰˻� ������ `UNKNOWN`�̴�. Frame review �� continuous playback; stream metadata �� listening.
+
+�� �긮���� �ű� ���� ������ source locator�� �� ��ȹ�� proposed timing/IDs�� �ٸ� ���� �д�. `assets/shot-dna-template.md`�� source scope, observed/estimated/unknown, transfer chain, reusable mechanism fields�� ����, Ȯ���� ���� ����/����/����� ��� ��⿡ �ѱ��. �м��� �� ��ü ���������� ���/�Ǹ���ȿ�ɡ����� ������ �ƴϴ�.
+
+### Craft recipe routing
+
+���۷��� ��Ŀ������ �� �긮�������� �����Ѵ�. Copy-to-action / concept / information order �� [concept design](16-concept-emotion-retention.md) and [edit timing](09-edit.md); product invariants / reflection / contact state �� [product integration](19-brand-product-integration.md), [state handoff](26-state-causality-continuity.md), and [generation QA](21-generated-video-qa-retry.md); performance / spatial anchors / POV �� [performance](04-performance.md), [shots](06-shots.md), and `$camera-spatial-design`; claims / caption / provenance / finishing �� [evidence](10-evidence.md), [production execution](24-production-execution.md), and [finishing](23-finishing-platform.md). Read only branches activated by the brief; these pointers reuse existing contracts and templates, not new recipe IDs or project fields.
+
+| Family | Existing owner contract and branch |
+|---|---|
+| A01 copy �� action / proposition | [16 concept](16-concept-emotion-retention.md), [09 edit](09-edit.md) |
+| A02 attribute �� world/material; A03 shape/action correspondence | [19 product](19-brand-product-integration.md), [20 visual SSOT](20-visual-mode-ssot.md), [21 composite QA](21-generated-video-qa-retry.md) |
+| A04 material/product/contact state | [26 state](26-state-causality-continuity.md), [19 product](19-brand-product-integration.md), [21 motion QA](21-generated-video-qa-retry.md) |
+| A05 space/service route; A08 POV/scale break/return | [06 shots](06-shots.md), [camera spatial design](../../camera-spatial-design/SKILL.md), [20 visual SSOT](20-visual-mode-ssot.md) |
+| A06 vehicle/ground/contact; A11 light/reflection | [21 motion/composite QA](21-generated-video-qa-retry.md), [26 state](26-state-causality-continuity.md), [07 lighting](07-lighting.md), [19 product](19-brand-product-integration.md) |
+| A07 actor/relationship/reaction | [04 performance](04-performance.md), [06 shots](06-shots.md); [17 genre-comedy](17-genre-comedy.md) only when the brief actually calls for its genre/expectation/reaction/closure contract |
+| A09 claim/evidence/recipient; A10 declared pipeline/remaster/post; A12 insert hierarchy/scale | [10 evidence](10-evidence.md), [24 production execution](24-production-execution.md), [06 shots](06-shots.md), [09 edit](09-edit.md), [23 finishing](23-finishing-platform.md) |
+
+When applicable, use these conditional refinements inside the same contracts: copy-to-action timing (A01b, 09); toy/adult-copy reframe (A07a, 06/20); expectation violation��witness reaction (A08a, 04/06); POV scale-break portal (A08b, 06/20/camera spatial); category metaphor vs substantiated provenance (A09a, 10); untimed rhetoric vs heard speech (A09b, 09/10); lifestyle proxy vs location/service evidence (A07b, 10/20); late category joke and child/guardian/audience rights review (A09c, 10/20); surface and semantic match (A12a, 19/21); wheel temporal aliasing (A06a, 21); terrain texture��product reveal (A02a, 06/19); witness/reverse-object reaction ladder (A07c, 04/06); offer hold��optional narrative coda��terminal brand reset (A09d, 09/23); declared spectacle��safe product close (A11b, 07/19/21). Activate a refinement only when its stated brief predicate exists; it does not create a claim, CTA, scene, shot, asset ID, or execution approval.
+
+## �м� ��� ���� ����
+
+�ش��ϴ� �͸� �ټ� �࿡�� ��� ä��� ? ����/����/���� ���� �� ��/����/ī�޶� �� ���־� ��Ÿ�� �� ���� �� ����/���� ȿ��. �ึ�� **����**(���� Ȯ���� �����ӡ������û�� �Ǵ� ��ó�� ���� ����� ���� ���), **�ؼ�/����**(�������� ������ �ǵ������), **��Ȯ��**(���� �ۡ��Ǹ�������)�� �и��Ѵ�. ����� ����� ���� �˻�� ǥ������ �ʴ´�. Ȯ���� �� ���� Ÿ���ڵ塤����� ���롤���� �Ǹ������� ��ġ�� ������ �ʰ�, ������ �ڵ� �հ� ������ ������ �ʴ´�.
+
+## Shot DNA �ʵ� (�߿��� �͸� ä���)
+
+shot_id/�ٻ� �Ǵ� ���� �ð� �� ���� ��� �� �ǻ�ü/�ൿ�� ����-����-�� �� �� ũ��/�ޱ� �� ī�޶� ����/���� �� ����/�� �� ��/��ȯ �� ����/ȿ�� ť�� ������ �� ���Ӽ� �� ����/���� ���� �� (���� ���� ��������Ȯ�� ���� �䱸 ��) ���� Ư¡ ������ ���� ������ �ٰ� ? �Ʒ� "���� ������ ���� ������" ��
+
+`assets/shot-dna-template.md`�� ����Ʈ ������ ����(�ش��ϴ� ǥ�� ä���).
+
+## ���� ������ ���� ������ (�ش��� ����)
+
+���۷����� ���� ��󡤱����� �� �̻��� ����(��/��/����, �ٸ� �������Ÿ�)���� �����ְų�, �긮���� Ư�� ���������������� ������ ��Ȯ�� ������ �䱸�� ���� �����Ѵ�. �ش����� ������ `N/A`�� �ݰ� ������ ���������� �� ������ ä���� �ʴ´�.
+
+**���� Ư¡�� ���� ����.** ���� ���̿��� ���� Ư¡�� ¦���´� ? ���� �󱼡��顤�ٴ����������Ρ�������ó�� ������ �����ϴ� Ư¡�� �����ϰ� �� �ֿ� `���� / ���� / ��Ȯ��`�� ǥ���Ѵ�. �������� �� ���̴� Ư¡�� ���ٰ� �����ϰų� ���� ��ȭ���������� �ؼ����� �ʴ´�. ���� �� ������ ������ ����� ������ ������ ������ ����ϰ�, ��������� ������ ��Ȯ������ �����. ���� ������ �� ���̴� ���� Ư¡�� �ٸ� ���� ���� ���� ������ �ʴ´�.
+
+**���� ������(��Ȯ�� ���� �䱸 ��).** �������� �Է��� �ȼ� ��ġ�� �ƴ϶� ȭ�� ����ȭ �������̴�: �ҽ��������� ���̡��ǻ�ü�� ȭ�� ��� ũ�⡤���̴� ���� ���������ڸ� �ְ��� ũ�� ����ó�� �ػ󵵿� �����ϰ� �����Ǵ� ���� ���´�. �˷��� ũ�ӡ���� ȭ���� ���� �Է��� �ƴ϶� �������� ����ϰ�, ũ�� ���ΰ� ��Ȯ���̸� �� ����� �����Ѵ�. �� �׸��� **����**(�����ӿ��� ���� ���� ��)/**����**(�������� ������ ����)/**��Ȯ��**(�����ϡ���⡤��ġ ���� ����)���� �и��Ѵ�.
+
+�� �����Ӱ� ��ü ũ�� �̻� ���ǿ��� ī�޶� �ش� ������ �ƴϴ� ? ���� �����Ÿ����Ÿ���ũ�� ������ ���� ȭ���� ���� �� �ִ�. ���� ����������Ÿ��� Ȯ������ ������ �ʰ�, ������ �縳�ϴ� **�ĺ� ����**�� �� �ٰŸ� ���´�(��: ����� ������ �� �����Ÿ�+�� �Ÿ� ���հ� ũ�� ��ο� �縳). �ĺ� ���̸� ������ ������ ������ ��������(�ΰ���)�� ������Ȯ���� �ʿ��� �߰� ����(�ٸ� ���� �����ӡ��Ķ�������EXIF/���� ��ϡ��˷��� ũ���� ���� ��ü)�� �Բ� ����Ѵ�. �� �������� �ѱ�� ��ǥ�� Ȯ�� ī�޶� ���� �ƴ϶� ������ ȭ�� Ư��(���� ���ࡤ�ɵ����ְ�ǻ�ü ȭ�� ���)�̴�.
+
+��ġ ī�޶󡤰��� ������ ����� ������ `$camera-spatial-design`�� ����Ѵ� ? ���⼭�� �������� �ٰſ� ��Ȯ�Ǽ��� ����� �ѱ��. ����ǥ�� ������ ������ [���¡��ΰ������Ӽ� �ΰ�](26-state-causality-continuity.md)�� ���� ������������ �ٰ� �������� �̾� �� �� �ִ�.
+
+
+## ��ī�̺� �ϰ� �м�
+
+����/��ī�̺��� ���� ���� �м� �Ǵ� ��Ʈ������ �� ����� ���� ���۷��� �м��� �����Ѵ�. ��û�� ���� ������ �а�, ��û�� �м��̸� ���� �������ܺ� ���ε塤�������Խ� ���� �м��Ѵ�.
+
+1. ���� ������ ���� �����ϰ� ����� ���� �Խù� ID/ĸ�ǰ� ������ �����Ѵ�. �߰ߡ���û������ �м��� ������ �и��ϰ�, �� �� ���� ������ �̺м����� �����. �Խù� ĸ���� ���� �������� ������ ������� �ʴ´�.
+2. �� ������ ���� �׸����� �ٷ��. ���̡������� ũ�⡤ȭ��񡤾˷��� ��Ʈ�� ��Ÿ�����Ϳ� ���� Ȯ���� �ð�/������ `assets/archive-audit-template.md`�� ����Ѵ�. ��ī�̺� ��û�̸� ���ø��� source�� coverage ledger�� ������ archive_id(���� �ƴ�)����Ȯ�� ���ϸ���evidence locator�� mode�� ��������Ȯ ������timestamp �������� ����ϰ�, decode/locator������/���� �ð����䡤���� ���������� û�븦 �и��Ѵ�. ��ü decode�� contact sheet Ȯ�θ����� full temporal analysis�� ���� �ʴ´�. �ǹ� �ִ� ��Ʈ�� `assets/shot-dna-template.md`�� �����Ѵ�.
+3. �� ���� ���� �����������/�Խ� ��Ÿ�����͡��ؼ�����Ȯ���� �����Ѵ�. ǥ�� �����Ӹ� �� ��� ��ü �������� ���롤����� Ȯ������ �ʴ´�. ����� ��Ʈ�� ���������� ���� ��硤���ǡ�ȿ������ǰ���� �������� �ʴ´�.
+4. ���� ���ذ� ���� �� �ݺ������� ������ �����Ѵ�. �ش� ������ �޹�ħ�ϴ� ���� ���� ���� Ȯ�� ������ �Բ� ����, ��ȸ��������������ȯ �����Ͱ� ������ ���� �Ǵ����� Ȯ������ �ʴ´�.
+5. �� �� �ĺ��� ���� ��ų�� ��Ȯ�� ����/������ ������ `�̹� Ŀ��`, `�κ� Ŀ��`, `�� �ĺ�`, `���� ����`���� �з��Ѵ�. ������ Ű���常���� ����� ���ٰ� �Ǵ����� �ʴ´�.
+6. ���� ���� ���� �ĺ��� �����ϰ� ���� ������ �ߺ� ���縦 ���Ѵ�. ��Ȯ�� ���󿡼��� ���硤ĸ�� ����ġ���Ǹ� ������ Ȯ������ �ʴ´�.
+
+## ���� ��Ģ ����
+
+"��Ȯ�� �� ��� �ǻ��� ����"���� "�� Ŭ��������� �ؿ��̵�� �߶� �Ը� �巯����" ���� ��Ģ�� �켱�Ѵ�. ������ �����������÷��̼� ���ϡ����� ������������ ������ ������ �����Ѵ�.
+
+**���� ���� ��Ŀ����**(���� ������Ÿ�̹� ���衤���� ����)�� **��ȣ ǥ��**(ĳ���͡��귣�塤Ư�� �����Ρ���硤����)�� �и��ϰ�, ��Ŀ���� ������� �� �긮���� ��ü������ �����. �� ������ ���� ������ ü������ ���´�: ���۷��� ����(���� + ��ġ) �� ��Ŀ���� �� �ǵ� ȿ��(�ؼ����� ǥ��) �� �� �긮���� ���� �䱸 �� ���� ���� ����. ���� Ÿ�̹��� ������ ���� �ð��� ������ ǥ���ϰ�, ���� ���⹰�������г� ID�� ���� ��� �ܰ谡 ���δ� ? �� �м�/���� �ܰ迡�� Ȯ�� ID�� ������ �ʴ´�. �м��̳� ���ø��� ������������ �������� �ʴ´�.
+
+���۷��� ��� �� �м� ������ ����/�ٻ� ���� �� ��/��Ʈ DNA ǥ �� ���ۡ�ī�޶��ơ��Ҹ��� Ÿ�Ӷ��� ���� �� �ݺ� �ð���û�� ���� �� ���� ���� �䱸 �� ���� ü�� ǥ �� �����ϸ� �� �Ǵ� ��� �� ���� ���� �����. ��ī�̺� �м��� �κ��丮������ ���� ���������� ���� ��ų Ŀ������/�� ǥ�� �Բ� ����.
+
+## ��� ����
+
+�м������ǡ��ؽ�Ʈ ��û�� ����� �״�� �ؽ�Ʈ�� ����. project.json��Ÿ�Ӷ��Ρ��������̵�� �ڸ��� ������ �ʰ�, ��ų ������ ���ų� �������� ������, �߰��� �������� ��ų�� �ڵ� �������� �ʴ´�. ���� ���� �ܰ�� �ѱ� ���� ��� ����� ���⹰�� �����.
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 430ms:
+claim_id,statement,kind,source_id,source_location,period,population,denominator,unit,limitations,shot_id,status
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 460ms:
+# ����ŷ���Կ������丮����
+
+## �Է°� ���⹰
+�Է�: ����, ��, ���, �ο������
+
+���⹰: �� ����Ʈ, ����ŷ, ���丮���� ����, Ŀ������
+���ۿ�/�� ��Ƽ, ��ü ���丮���� ��Ʈ, ���ε��� ���� ��Ƽ�� �����̸� [������ ���丮���� ���](storyboard-contract.md)�� �ʼ� �����Ѵ�. narrative panel�� shot�� �ٸ� �������� ī�޶�/����/��ȭ/����/VFX�� ���� ���� �ε����� �Բ� �����Ѵ�.
+
+## ���� ����
+1. ������ �����������ڡ����� ��� �ܰ踦 ���Ѵ�. �ܼ�Ʈ ��ġ�� �Կ� ���� ���带 �����ϰ�, �Կ� ������ �̾߱� ������ ȥ������ �ʴ´�.
+2. ����� ���� ���� ������ �ι��� �� ���踦 ���� ���Ѵ�. �ι� ��ġ���̵����ü����ൿ ���� ����Ѵ�.
+3. �� ���� ���� ���� ������ ���� �� ����, ���� ������ ���δ�. ������ ����, ȭ�鿡 ��ų� ������ ����, �������ָ����� ���� ������ ���´�. ���� �����Ӹ� �ִ� ���� �����ϰų� ���⸦ �ο��Ѵ�.
+4. �ð� ������ �߿��� ���� ����� ���� ����� ���� �� �帧��������������¡������ ������ �����Ѵ�. ����� ������ ��� ������ ��Ű��, ä�þȰ� �̽��� ������ �����Ѵ�. Ȯ���� ���⸸���� ����ϸ� ����� ������ ������ �ʴ´�.
+5. ���̵塤�̱ۡ����������׼ǡ��μ�Ʈ �� ��鿡 �ʿ��� Ŀ�������� �����Ѵ�. ��縦 ���� ���� ���� �������� �ذ����� �ʴ´�.
+6. �̵��� ���ۡ������ӵ������⡤���� �������� ���Ѵ�. **�ȱ�/���� �Ǵ� ī�޶� ������ �ٽ��̸� `assets/06-shots-template.md`�� canonical cue table�� ä�� shot plan�� ��ȯ�Ѵ�.** �� phase/hold�� ���� 09 ���� ���Կ�, ä�� ī�޶� ���ÿ� ���� ���´� ���� 11 �ΰ� ���Կ� ����Ѵ�(`UNKNOWN` until endpoint support is checked). ������ gait timing�� ������ �ʴ´�. �� ��� [ī�޶� ���� Ÿ�̹�](../../camera-spatial-design/references/motion-timing-lens.md)�� ������.
+7. �ü���ȭ�� ���⡤180�� �ࡤ�ൿ ���� �˼��Ѵ�. ���� ������ �߸� �������� �̵����� ���� ���� �� ������ ��������Ű�� ������ �����Ѵ�.
+8. ���� �ڵ�, ����, ��ǰ �μ�Ʈ�� ���� ���� Ȯ���Ѵ�. ��ҡ��������������� �Կ� ������ ���� �̾߱� ������ �����Ѵ�.
+9. �гο��� �ٽ� �ൿ�� �Ƿ翧, �ι�����ǰ ��ħ, �ָ������ü� ����, �ʿ��� ���̡���� �� ���� ��� ũ�⿡���� �ǵ����� Ȯ���Ѵ�. �ʼ� ������ ������ ������ ������������¡������ �Ǵ� �г� ������ ��ģ��.
+10. ���� �߽� ��Ʈ�� start/action_peak/end �̹����� ���� �ð� ���� ���̸� ������ �Ѵ�. ���� �гο� �ڼ����ൿ����-��ǰ ���ˡ��ü������� ������ ��ȭ�� ������ Ű�������� �ٽ� ������¡�Ѵ�. ������ �ι�/��ǰ reference�� �ϼ��� �ƾƿ����� ������ �ʰ�, ��ǰ�� ����� ���١����������� �ȿ��� �������� Ȯ���Ѵ�.
+11. ���丮���尡 �ؽ�Ʈ �������̸� �̹����� �ϼ��ƴٰ� ������ �ʴ´�. ���� �׸�/������� ������ ī�޶�� ����ŷ�� ���Ѵ�.
+
+### ���� ������ POV/���� �ΰ�
+
+�ϳ��� scene�� ���� shot�� ���� �� �ְ�, �� shot�� ���� action-phase�� ������ �� �ִ�. ��鿡�� actor/camera/action ��ȭ�� ���ٸ� event detector�� �ð� grain���� �� shot�� ������ �ʴ´�. �ݴ�� POV �̵��� ����� reaction�� ���� �ٸ� ����/������ ������ �� ���� ����������/���� ���°� ���̴� shot���� �и��Ѵ�. ���� continuous shot���� ������ ������ �� �� ������ �� shot ���� phase�� ����, �������� ���� reverse/cut�� �������� �ʴ´�.
+
+�� shot���� ���� ���, �� ����, �ൿ�� ��ü�����, reaction cue, ���� ���¸� ���� shot/beat/cue �ʵ忡 ����Ѵ�. �ٽ� �����̳� product handoff�� �� shot�� �ڱؿ� �����ϸ� cut order�� cue�� [09-edit](09-edit.md)�� �����Ѵ�. ĳ���� ��ǥ/���� ������ action�� [04-performance](04-performance.md), ���� ���¿� ���� �� ������� �ش��� ���� [26-state-causality-continuity](26-state-causality-continuity.md)�� �ѱ��. Copy�� �ൿ�� ����ϸ� �ؽ�Ʈ ���¿� �ൿ�� ���ߵ� shot count�� endcard/CTA�� ���� �ǹ�ȭ���� �ʴ´�.
+
+����/������ ��㿡�� �Ƶ��� ������ ���/������ ���� ���� ��, �� �ι����ð������谡 ������ �긮������ ���ϰ� storyboard�� ���� character/shot identity�� �����. ���õ� �㱸�� �ƴϸ� �Ƶ��� ���� ������ �����ϰų� ������ �ൿ�� �ϴ� ��ó�� staging���� �ʴ´�. copy�� �� �濡�� �ٸ� ������ �ٲ�� �� ȭ�� ���¿� ������ ���/�ൿ�� ������ ���´�; �������� �Һи��ϸ� �ܼ� cut �Ǵ� copy ������ ���Ѵ�.
+
+�����/��� ���� ��ٸ��� �ʿ��� ���� ��ǡ氳�� �ü������� ��������� ���/������ �����湮�� ������ ��ȹ�Ѵ�. �� ������ ���� cut���� �������� �ʰ�, ���� scene�� ���� phase�� �� �ִ��� �����Ѵ�. Ȯ�� ������ eyeline�� ���� ���踦 ���߰� ǥ�������� ���, ��, ����, ���� ����� �������� �ʴ´�. ���� �帣 ���/closure�� ���� comedy brief�� ���� [17-genre-comedy](17-genre-comedy.md)���� �Ǵ��Ѵ�.
+
+����/����/��Ҹ� ���󰡴� �긮������ �Ա����Ρ湮�Ρ���� landmark��������� ���͸� scene/shot fields�� ���� �������� �����Ѵ�. ������/POV�� �ٲ� landmark�����⡤��ǰ ���� ���踦 �����Ѵ�. �̴Ͼ�ó/portal scale break�� ordinary space�� �и��� fantasy view �� ���� shot/phase�� ǥ���Ѵ�; ������wipe������ ���� floorplan�̳� �̵� �Ÿ��� �������� �ʴ´�. ��ġ spatial/camera ��û�� ���� `$camera-spatial-design` handoff�� ����Ѵ�.
+
+ȭ�� �� ȭ�顤�μ��� ���� �ü��� ���� ���� main/secondary ����, ���� ����, ���� anchor, �� â�� �ð�����������ó�� ������/�ٸ��� ����Ѵ�. ���� inset�̸� ���� ������ ���̴���, ����/���� ������ insert�� �� �ð������� ��ȯ�� �������� �����Ѵ�. ���� ��� ũ��� ũ�ӿ��� �� â�� ����ൿ��Ÿ������ �˻��Ѵ�; flash�� detector event �������� ����/beat�� ����ų� ���ü��� �������� �ʴ´�.
+
+## ���⹰ ���� ���� ? ���丮���塤������Ʈ���ִϸ�ƽ����������
+
+���� �� ID�� �����ص� �� ���⹰�� ������ �ٸ��� �ϳ��� �ٸ� �ϳ��� ��ü���� �ʴ´�. ��ȭ ����������Ŭ������ [��ȭ ���� ����������Ŭ](28-film-production-lifecycle.md)�� 03 Pre-production ������� ������.
+
+- **���丮����**: �̾߱⡤���� ������ �����ϴ� �ð� ������. [������ ���丮���� ���](storyboard-contract.md)�� panel��shot��scene ����� �̹��� �˼��� �����Ѵ�.
+- **���� ������Ʈ**: �Կ�/���� ���ÿ� ��� ���(`assets/shot-list.csv`, `06-shots-template.md`). ��ȹ�� �Կ� ������ ��ҡ����������á���� ���� �������� ���� **�̾߱� ������ ���� ��**�� ����Ѵ�.
+- **�ִϸ�ƽ**: �ð��� ���� ���� ������ �ӽ� ������(Ÿ�̹֡��ӽ� �Ҹ�). �ϼ� �����̳� ���� ������ �ƴϴ�.
+- **3D ��������**: ������ī�޶� ����� ��ġ ����(�� `camera-spatial-design`, `blender-previsualization` �ΰ�). �̰������⸦ �������� �ʴ´�.
+
+**�̾߱� ���� �� �Կ� ����.** �̾߱� ������ ���丮���� �г� �迭�� ���� Ÿ�Ӷ��� ������. �Կ� ������ ���á��ڿ� ���� ���� �����μ� �� ���ø��� ��ȹ ���� �ΰ�, ������ �Կ��� ������ �ǻ翡 ���� `assets/film-production-day-template.md`�� �Կ� ������ ���� ����Ѵ�. ���� �� �ʵ�� ���ų� �Կ� ������ �̾߱� ������ ����� �ʴ´�.
+
+## �Ϸ� ����
+������ ������ �´� �Կ� ������ Ŀ�������� ���⼺�� Ȯ���ƴ°�? �� ���� ���������� ������ �ǵ��� ������ ������ �����ϴ°�? ���� �̹����� ������ �ʼ� �ൿ�� �ָ����� �����°�? ���� �߽� panel�� ���� keyframe���� �ڼ����ൿ����ǰ ����/��ġ�� ������ �޶����°�?
+
+## �ٰſ� ���� ����
+�ڷ� ID: 04,05,06,07,08. `sources.md`���� ���� ���¿� Ž�� ��ġ�� Ȯ���Ѵ�. ������ ���ø��� ���� �ڷ��� ������ ������ ���� �����. ������ ��Ģ�� �״�� ������ ����̳� ���� ������ ��������� ǥ������ �ʴ´�.
+
+## ��� ���ø�
+`assets/06-shots-template.md`�� ������ ä���.
+
+���丮���尡 ��û�Ǹ� `assets/storyboard-panels.csv`�� ���� project.json�� �������� �ۼ��� panel_id��shot_id��scene_id�� �гκ� `beat_ids`/���� ��ġ��`visible_character_ids`��`audio_cue_ids`��`speech_ids`�� �����Ѵ�. �� ���� ����� �г� ������� ������� �ʴ´�. `frame_time_s`�� �г��� ���� �ð��̸� ������ ���� ť�� ��ȭ�� �ð� ������ ���Եž� �Ѵ�. ���� image_asset_id�� ����ϰ� �ؽ�Ʈ ��ȹ�� ������ planned/drawing_pending���� �����Ѵ�. �� ����� ��� ��/���� ���ۡ��ʿ� �������� �г� �Ǵ� ���� hold�� �����ϰ� �̹��� ���� ���� ����Ѵ�. �ʼ� �ൿ�� �������ų� ���� ���� �ΰ��� ����� �ش� �ε����� �����Ѵ�.
+
+## ���� ��ų �ΰ�
+`$camera-spatial-design`���� ��ġ���Ÿ�������������������� ������ ��θ� ��ġȭ�ϰ�, ��麰 3D ī�޶�/���� �۾��� `$blender-previsualization`���� ���� �������ð� �˼��� �ݵ�� �����Ѵ�. `camera_spec.json`�� ���� �������� ���� ���� start_s/end_s�� �����ϰ� total duration�� �����Ѵ�. Blender �̽��� �� 3D ȭ�� ������ BLOCKED/UNVERIFIED��.
+
+## ��ȭ ����
+���� ���ˡ����� ������ [���� ���� QA����õ�](21-generated-video-qa-retry.md)�� ��� ����(`../assets/motion-beat-template.md`), ���ߡ�������Ŭ�� [���־� ��塤SSOT](20-visual-mode-ssot.md) ��4(`../assets/crowd-map-template.md`).
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 462ms:
+# ���������롤����
+
+## �Է°� ���⹰
+�Է�: ��������ũ, ����, ��Ʈ, ��ǥ ����
+
+���⹰: �� ��ȹ, �ð�ǥ, ���� ť, ���� ����Ʈ
+
+## ���� ����
+1. ����ũ�� ���� ���Ǽ������� ���������ۡ���� ���·� ���Ѵ�. ���� ������ ���� ���ϸ� ��������� ǥ���Ѵ�.
+2. �Ƹ��� ���� ������ �̾߱� ������ �켱 Ȯ���ϰ� ���롤�ü� ���������/���� ���Ӽ��� �����Ѵ�. Murch�� ��ȣ�� �ڵ� ���� �������� ������ �ʴ´�.
+3. ��ü ���롤���� ���롤��� ������ �����Ѵ�. �� ���̸� ������ ���� ���� ������������ ������������ ��ġ�� �ٲ۴�.
+
+4. ������ ���� ������ ����� �巯���� �����Ѵ�. J/L ��, ������ũ�� �Ҹ�, ħ���� ��� ������ ���� ���� ����.
+5. ��硤ȯ�桤ȿ�������ǡ�ħ���� ����� �����Ѵ�. ������ ���� ������ ���ų� ��縦 ������ �ʵ��� Ȯ���Ѵ�.
+6. ���� ����� ť������������ ���� ��û�� ����� �ǵ��� �з��ϰ� �����ڰ� ���� �����ϴ� ��� Ȯ���Ѵ�(�Ʒ� "����� �ǵ��� ���� ���"). ���ǡ�ȿ������ �ܺο��� �������� "���ǡ�ȿ���� �ҽ̰� �Ǹ�"�� �ٰ� ������ ��ģ��.
+7. ��û �˼��� �Ҹ� ���� / ���� / ȭ�� ���� ���� ���� ���� ������ ã�´�. ���� �������ڸ����ػ󵵴� ������ �԰��� Ȯ���ϰ� ���� ���Ͽ��� �����Ѵ�.
+���� �� ���� �߻��ϸ� ���� ��ȹ�� �ƾƿ� action phase/end state�� �����ϴ� ���� �� ���� phase/start state �� ������ ���� Ÿ�Ӷ��� cue �ð��� �ݵ�� ����Ѵ�. �Ϲ� ���Ӽ� �޸����� ��ü���� �ʴ´�. ����/���� hold�� ����Ÿ���� �����ϸ� �� ������ ���� ���ۡ����� ���� ���� �ð� ���� �ȿ� ����Ѵ�. ���� �ð��� ������ ���� �ð��� �����Ѵ�.
+���ڡ��ΰ�������ī�尡 ���� ��Ʈ�� �ٽ��� ���� �� ǥ�� ������ ���ۡ��������б� Ȧ�������/��ȯ�� `assets/09-edit-template.md`�� ���� ��/ī��/���� ����/Ȧ�� ������ �����Ѵ�. �ܾ� ��ȭ(��: �������ؼ� ��ȯ)�� ���� �ٸ� ���� ���·� �����ϰ� ���ۡ����� cue�� ���� Ÿ�Ӷ��ο� �д�. �б� Ȧ��� ���� ��� ũ�⡤���� ���̡�������ڰ� ������ �������� ���ϸ� �������� ���� �ʸ� ���� �ʴ´�. �ʼ� ������ ��Ȯ�� ��Ʈ��ũ�� ���ε� ����/���̾�� ��װ�, ������ ������ Ÿ�̹֡����̾ƿ������� ��ģ��.
+
+����ī��/CTA���� �긮���� �䱸�ϴ� ī�ǡ�URL�������� ����. ����/��¥/CTA�� �б� Ȧ�尡 �ʿ��� ��� �ش� ���¸� ���� ���� Ÿ�Ӷ��ο� ������ �ڿ��� ������ �ڴٸ� ���Ѵ�. �ڴٰ� �޽����� ���� ������ ������ ����/����Ѵ�. ������ ���� �����̳� �ΰ� �ʱ�ȭ�� ���� Ȯ���� Ÿ�Ӷ����� ȭ�� ���·� ���´�. �ڵ� ĸ��/ASR�� ���� ť�� ��ȭ �ð��� �ٰŰ� �ƴϸ� ���� �� �ð��� �� ī�� ��ũ�� �������� �ʴ´�.
+
+## �Ϸ� ����
+���� ���� �Ǵ� ������ �ٲٴ°�? ��簡 �����Ѱ�? ��ü ���̿� �� �� ���⼺�� �´°�?
+
+## �ٰſ� ���� ����
+�ڷ� ID: 04,09,10,11,12. `sources.md`���� ���� ���¿� Ž�� ��ġ�� Ȯ���Ѵ�. ������ ���ø��� ���� �ڷ��� ������ ������ ���� �����. ������ ��Ģ�� �״�� ������ ����̳� ���� ������ ��������� ǥ������ �ʴ´�.
+
+## ��� ���ø�
+`assets/09-edit-template.md`�� ������ ä���. ��ȭ ����������Ŭ�� �Ĺ� �ܰ� �������� `assets/film-postproduction-template.md`�� �Բ� ����.
+
+## ��Ӱ� ����
+��ӡ����θ�� ���� source_in_s�� playback_rate�� ���� ���� ���� ���̿� ���� ������ �����Ѵ�. �����ꡤ����� ��ø�� ���� ���̾�� ǥ���ϸ� �⺻ JSON �� ������ ���� ������ ��ǥ ������ ��ġ�� �ʰ� �����Ѵ�. ���� ��ȯ �������� ���� Ÿ�Ӷ��ο��� ��˼��Ѵ�.
+
+## �ð� ���ࡤ������ ȹ�� ��İ� ����
+
+�ð��� ���̴� ������ ȹ�� ����� ���� �����Ѵ� ? ���� "4�ð� �� 8��"�� ����ؾ� �� �ٰŰ� �ٸ���.
+
+- **���� �ҽ� ���**: ���� ��ȭ�� �� ������ ��� �ӵ��� ����. `playback_rate`�� source ������ ���� �������� ���´�.
+- **���͹� ȹ��(Ÿ�ӷ���)**: ���� ���ø����� �Կ�. ���� �Կ� ������������ ���ݡ��ߴ�/������ �ٰ�(�Կ� �αס����� Ÿ�ӽ������������ ���� ��Ÿ������)�� ����, ȭ�� �� �ܼ�(�ð衤���� ��ȭ)�� ���� ��Ÿ�����͸� �����Ѵ�.
+- **�ܰ� ��Ÿ��**: ������ ���� �ܰ踦 ���� ������ �迭. �� ���� ������ Ŀ���ϴ� �ܰ�� �� ���̿� ������ �ܰ踦 ���´�.
+- **�ǵ��� ����(elision)**: �߰� ������ �������� �ʰ� ���� �� ���� �� ���� �� ���·� �ڸ���. ���� ������ ���� ������ ���¸� ���� ����, �������� ���� ����� ���� �ƿ��� �����ž� �ϸ� �� ���� ����(�ٽ� ���µǴ� ���� ����)�� �ΰ��Ѵ�.
+
+���� ����ð����Կ� ���������ݡ������� Ȯ�� ������ �ٰŰ� ���� ���� ���� ������ `��Ȯ��`���� �д�. ���� ���̿� ��� ������ ����(��: "4�ð� / 8��")������ ���� playback_rate���Կ� ���ݡ�ȹ�� ����� Ȯ������ �ʴ´� ? �� ������ �Կ� ���ø������� ��ӡ����� ���� �� ������ ������� ������ �� ���� �����̴�. ȹ�� ����� ��Ȯ���̸� ���� ��� ������ ���� ���� ���¸� ����ϰ� ��ĺ� �ٰŴ� ��� �д�.
+
+���°� �ٲ�� ���ࡤ����(��ᰡ ����, ��ü�� ����, ������ �����)���� ���� �� ���� �� ���� �� ���¿� �ļ� ���� ������ [���¡��ΰ������Ӽ� �ΰ�](26-state-causality-continuity.md)�� ���� �������� �ѱ��. �ð� ������ ���� �ǽð� �������� �� ������ �������� �ʴ´�.
+
+
+## ���� ������ ���������� ť
+
+���� ǥ�� source ������ ���� Ÿ�Ӷ��� ������ ������ ����Ѵ�. ��� ���� `playback_rate`�� ���� ������ �Բ� �θ�, ��ȯ ��ø�� `transition`�� ���� ���̷� ǥ���Ѵ�. ��ó Ÿ�Ӷ����� �𸣸� ������ ���� in/out�� �������� �ʴ´�. ���� ���� ������ �� ���� ����ڰ� ���� ����� ��û���� �ʾҴٸ� ���� ���� Ÿ���ڵ塤���̸� ������ ���� ��Ʈ ������ ���Ҹ� �����Ѵ�. ���������� ���� ����� ��û�ϸ� `proposal / ������`���� ǥ���ϰ� ������ EDL�� �и��Ѵ�.
+
+������ť ID�� `project.json`�� ���� ���� ���忡�� �̾�޴´�. ��ó�� ���� shot_id/sound_id�� ���� JSON ����� ����� ���� ������ ���⹰ó�� �������� �ʴ´�. ���� Ÿ�Ӷ����̳� ������ ���� ������ ID�� source ������ ��� �ΰų�, ������ ���ȼ������� ���Ҹ����� �θ���.
+
+`assets/sound-cues.csv`�� `sound_id`�� `project.json`�� `audio_cues[].id`�� ���� ����. `start_s/end_s`�� ���� Ÿ�Ӷ����� ���� ����/�� ������, `source_in_s/source_out_s`�� ���� ���� ������ ���� ����/�� ������ �ʴ�. �� �� ����ó�� ������ ��ü�� ��ģ ť�� `shot_id`�� ��� �д�. �߰� ���� ��Ÿ�����ʹ� ������ �ִ� ���� ���⹰�� ����ϰ� `project.json`������ artifact/asset ID�� �����Ѵ�.
+
+�� ť���� ���̾�, ����, ���� gain(dB), fade ����, �ͽ� �ڵ�ȭ �޸�, ���� ������/������, �Ǹ� ���¸� �����Ѵ�. `sync_offset_s`�� ���� �Ҹ� ��� �ð����� ȭ�� ������ �ð��� �� ���̸�, ������ ������ ������. �ڵ�ȭ�� `mix_note`�� ������ ��ǥ�� ���´�. ���� ȥ�� ���� ������ `mixed_reference` ���̾�� ����ϰ�, ���� stem�� �������� �ʴ´�. �Ǹ� ���´� `unknown`, `user_asserted`, `evidence_recorded`, `restricted` �� ���� �ٰſ� ���� ����, ���� ��ġ�� ������ `mix_note`�� �д�. ǥ�⸸���� �Ǹ� �㰡�� �Խ� ������ �ǹ����� �ʴ´�.
+
+��ǰ ���������ˡ���ݡ���ȯ�� ���ǿ� ���� ���� �������� `action_peak`, `reveal`, `cut` ������ �̸� ���̰� ���� Ÿ���ڵ�� ���� �������� �����Ѵ�. ��� ������ �긮���� ���ε� �˼� ���ؿ��� �������� �������� ���� ��ġ�� �������� �ʴ´�. �Ǹ� ��Ȯ�� ������ ���亻�� ����ϴ��� ���¿� �Խ� ������ ǥ���Ѵ�.
+
+��Ʈ ��� �׷��ȡ���Ÿ�ֿ����� ���ε� ���� ����� �������� ���� ��/�ٿ��Ʈ/��� �ð��� �������� ���, �ش� ���ϡ������� ���� �ٰŸ� ���� ��Ƽ��Ʈ�� �����Ѵ�. �� ���� ��� �ð��� Ÿ�Ӷ��� �����ӷ���Ʈ�� ���� ������ ���� ��ȯ�ϸ�, �ݿø��� �� ������ �ݺ� ������ �帮��Ʈ�� ������ �ʴ´�. �����ͳ� �����ӷ���Ʈ�� �ٲ�� ���� �ơ��׷��� Ÿ�̹��� �ٽ� ����ϰ� �ǽð� ������� Ȯ���Ѵ�. �� ��� ������ �긮�� �䱸�� �ƴϸ� �� ������ �������� �ʴ´�.
+
+���� ���� �˼��� ��ü ������ �ǽð����� �Ҹ��� �Բ� ����ϰ�, �ʿ��� ��� ���� ȭ�顤����� �ܵ�����ȯ ��� �������� �߰� Ȯ���Ѵ�. ǥ�� �����Ӹ� Ȯ�������� ��ü �����̳� û�� ǰ���� ����� �������� �ʴ´�.
+
+���� ������ ����⿡�� �ؼ� ������ Ÿ�Ӷ��ΰ� ���� ������ �����ؾ� �Ѵ�. ���� ������ ���� ��û�����ΰ� ��� ������ ����� Ȯ�� �� �����ϸ�, ��ȹǥ����ũ��Ʈ �ۼ������� ���� �ϷḦ �������� �ʴ´�.
+
+## ����� �ǵ��� ���� ���
+
+����� �۾� ���� ��û�� �з��Ѵ�: ����(`no_audio`) �� ��� ����(`no_dialogue`) �� ȿ������ �� ���� ���� �� ���� ȥ�� ����. `project.json`�� `audio_mode`�� `audio_cues` ���̾ �״�� �����ϰ� �� enum�� ������ �ʴ´�. ���� �ǵ��� ���� ���⹰�� ť ���̾�� ����Ѵ�:
+
+- `no_audio` ? ����� ť�� ���� �ʴ´�. ���� ��û�� ���ǡ�ȿ���� �߰����� �ʴ´�.
+- `no_dialogue` ? ���� ����. ���ǡ�ȯ�桤ȿ�� ť�� �����ǹǷ� �����̳� ���� ���ܷ� �ؼ����� �ʴ´�.
+- ȿ������(SFX-only) ? ��� ������ ���� `dialogue`/`no_dialogue`�� ����ϵ� ť�� SFX �迭 ���̾ �д�. �����̳� ��縦 �Ϲ������� �߰����� �ʰ�, ���� ����� ���ǡ����� ���� ������ ���з� ����Ѵ�.
+- ���� ���� ? ���� ���̾ ���� �ʴ´�. ���� ������ �������� ���� ���� ����� ����; ��� ���� endpoint�� �������� �ʴ� �Ķ���ͳ� �������� �ʴ� stem�� �߸����� �ʴ´�.
+- ���� ȥ�� ���� ? `mixed_reference` ���̾� �ϳ��� ����ϰ� ���/����/ȿ�� �и��� ������� �ʴ´�. �и� stem�� ���� �ҽ��� ������ ���� �� ���̾�� ����Ѵ�.
+
+��û�� ���ܡ������� endpoint�� ���� �������� ������ ��¥ ���ø� ���� �ʴ´�. ��� ���� ������ ������ �и��� �����ϴ� ���(���� ����/ȿ���� �н�, ���� �ܰ� �ռ�)�� ��롤���� ������ �Բ� ���� �����ϰ�, ���� ���� �� ���� �۾����и��������� �������� �ʴ´�. ����ڰ� ������ ���� �����ڡ��ҽ�������� ������ ��ü���� �ʴ´�.
+
+���� ����� ����� ��û�� �ǵ��� ������ û�� �˼��Ѵ�. ���� ���� ������ �̰������� �ΰ�, û�� Ȯ�� ���� ����(�� ���������� �������и�)�� �´ٰ� �������� �ʴ´�.
+
+## ���ǡ�ȿ���� �ҽ̰� �Ǹ�
+
+īŻ�α� �Ǵ� ����� ���� ���Ͽ��� �ĺ��� ���� �� �긮���� ��ɡ����������̡����� �������� ���� ���ϰ� ���� ������ �����. ���� ���̿� �ʿ��� ������ ������ ���� �����.
+
+���� �׸񸶴� ���� ��ó/Ʈ�������� ID�� ����, �Ǹ� �ٰ�, Ȯ�� ��������ġ�� �����Ѵ�. �������ٿ�ε塤���� ���� URL�� �Խ� �㰡�� �ƴϸ�, �÷�/������Ʈ��ä�Ρ��������Ⱓ ������ �ش��ϴ� �͸� `mix_note`�� ����� ���� ���⹰�� ����Ѵ�(`sound-cues.csv` �ʵ带 �ø��� �ʴ´�). `rights_status`�� ���� �ٰſ� ���� ���� ��ó URL������ ����� ����� �����Ű�� �ʴ´�. �Ǹ��� ���ѵǰų� �Ҹ��̸� �Խ� �������� �������� �ʰ�, ���ܵǴ� ������ �غ� ������ ������ ���� �����Ѵ�. ���š����� ���ԡ��Խô� �ڵ����� ���� �ʰ� ����� ������ �޴´�.
+
+������ ������ ������ �� �ĺ� �񱳰� ���� �Ҹ��� �´��� Ȯ���� �� `source_in_s/source_out_s`, fade, gain, `sync_anchor`/`sync_offset_s`�� ������ ���� ���� ǥ�� `sound-cues.csv` �ʵ忡 �����. �������� ���� ����������� �������� ǥ���Ѵ�.
+
+## �Ĺ��۾� �ܰ� ���� (��ȭ ����������Ŭ ��û ��)
+
+��ȭ������ ��û���� [28](28-film-production-lifecycle.md)�� 05 Post-production�� �������� ��, ���õ� �Ĺ� �ܰ踸 �ܰ� ǥ�� �����Ѵ�. `assets/film-postproduction-template.md`�� ����ϰ�, �� ǥ�� `project.json` artifact/dependency/version�� `asset_registry`�� �����ϴ� �ΰ� ������ �� ������ �ƴϴ�.
+
+**�ܰ� ���** ? �� �ܰ�� ���� artifact�� ������ �ܴ�: ������Ʈ/��ũ �� ������� �� �� ���� �� �� ���� �� �� ��ó �� �� VFX �� ADR �� Foley �� ���� ������ �� ���ھ�/���� ���� �� ���� �ͽ� �� �÷� �׷��̵� �� �ڸ�/ũ���� �� �����͸� �� ���� QC. ������ �ܰ�� N/A�� ������ ����, ��ġ�� �ܰ�� ���� ����� ������ �����. ������ [23](23-finishing-platform.md)�� ���� ������ ����� ? �׷��̵�� ���� �ͽ��� ��ó �� ����, �����͸��� �� ���Ĵ�.
+
+�� ���� ������ ����Ѵ�: �ܰ� artifact ID������, �Է� ����ũ/�̵���� artifact��asset ID�� ����(��� �Է��� ��� �� ��� ����), ����, ���� ��� locator, dependencies, �˼� evidence, ���ذ� �̽�, �̰��� ����.
+
+**���� ��Ģ** ? `project.json` artifact ����(draft/reviewed/approved/generated/verified/stale)�� �״�� ���� �� enum�� ������ �ʴ´�. ��ȹ������� draft/reviewed�� �ΰ�, ���� ��� ������ ����� ������ generated/verified�� �ø��� �ʴ´�. ���� ��ȹ��ť ǥ���ͽ� ��Ʈ������ ����/�ͽ�/������ �ϷḦ �������� �ʴ´�. ��ó ���� ���� ���ε� �� ������ ���� ���� ����ϰ�, ��ȹ�� ��� ��¥�� ������� ������� �ʴ´�.
+
+**�ܰ躰 �ΰ� ��Ģ**
+
+- ������Ʈ/��ũ: ���� ����ũ(�Կ� �αס�`generation_attempts`�� ���� accept ���)�� �Է����� �����Ѵ�. ���� ���ϡ�asset_registry ID�� ����ȭ �ٰ�(��ũ �����¡�Ŭ����Ÿ���ڵ� ��ġ)�� �˼� evidence�� �����, ��ũ�� Ȯ������ ���� Ŭ���� unverified�� �д�. ��ȹ�ǰų� ���� ����ũ�� ������Ʈ�� �Է����� ���� �ʴ´�.
+- �������/����/���� ��: �� ���� ���� ������ artifact��. �Է��� ���� �� ������ �ش� ����ũ �����̸�, ���� �Է� ���� �� ���� ���� �ļ� �Ƹ� stale�� ǥ���Ѵ�.
+- VFX: [21](21-generated-video-qa-retry.md)�� VFX���ռ� ���ۺ��� ������ ����ϰ� ���̾�/�ҽ� ���������� comp ������� ����Ѵ�. VFX �۾��� �ڵ� �����ϰų� �÷��̽�Ȧ���� �ϼ����� �������� �ʴ´�.
+- ADR/����ũ: [22](22-dialogue-lipsync.md)�� ���̽� ���á�û�롤����ũ ������ ����ϰ� ���� ����/���� ������ ID��������û�� ����� �����Ѵ�. ���� ���� ������ �̰������� �ΰ��Ѵ�.
+- Foley������ �����Ρ����ھ�/���� ����: �� `sound-cues.csv`�� ����� �ǵ� ������ ť�� ����Ѵ�. �ҽ��� "���ǡ�ȿ���� �ҽ̰� �Ǹ�"�� �ٰ� ������ ��ġ�� �Ǹ� ��Ȯ�� ������ �Խ� �������� �������� �ʴ´�.
+- ���� �ͽ����÷� �׷��̵塤�ڸ�/ũ�����������͸�: [23](23-finishing-platform.md)�� �ǴϽ� ���� ������ [15](15-delivery.md)�� �ڸ����԰� ������ ������. ���� �ͽ�/�׷��̵�/������ ��� ���� locator�� ������ ����ϰ�, ��ȹ �ܰ迡���� �ش� ����� �� ĭ���̿����� �д�.
+- ���� QC: QC üũ����Ʈ�� ��ȹ �ܰ迡���� ���� �� ������, ���� pass�� �ش� ������ ����� �����û�롤�԰� �˻縦 ��ģ �ڿ��� [12](12-qa.md)��[15](15-delivery.md)�� delivery_checks �ٰŷ� ����Ѵ�. üũ����Ʈ ���縦 �˻� ����� ȥ������ �ʴ´�.
+
+�� ������ �Ĺ� �ܰ��� ��ȹ������������ ���¸� �����ϴ� ���̸�, �ڵ����� VFX�� �ռ��ϰų� ADR�������� �����ϰų� �ͽ���Ʈ�����ε带 �������� �ʴ´�. ���� ��ü �۾��� ���� ���Ρ������� Ȯ�� �ڿ��� �����Ѵ�.
+
+## ��ȭ ����
+������ ���� �������� ��ü(���� ����)�� [�ܼ�Ʈ������������](16-concept-emotion-retention.md) ��3, �Ҹ��� ���� ��ɰ� �ǴϽ� �ͽ� ������ [�ǴϽ̡��÷���](23-finishing-platform.md).
+
+
+## �Ҹ��� ���� ���
+�Ҹ��� ����� �ƴ϶� ����Ƽ�� ������. ť���� �ּ� �ϳ��� ���Ѵ�: � ������ ���ϴ°� �� � ������ ����°� �� � ��ȯ�� ����ȭ�ϴ°�.
+- ���� �� ȭ�� �� ������ �˸���.
+- ���� ���������� ���� ���Ӽ��� �����.
+- �ι��� ��/�������� ������ ������.
+- ��Ƽ���� ����̳� �ݺ� ���̵� ��ȣ�Ѵ�.
+- ���̷��ϳ� �Ҿ��� ���� ȭ��� ����ȴ�.
+- ���� ����ų� ��ȯ�� ����ȭ�Ѵ�.
+- �߰��� �ƴ϶� ���ŷ� ����Ʈ�� �����.
+- �� ���̿� ���������� ü�� �ӵ��� �����Ѵ�.
+- Foley�� ���� ������ �����.
+- ��ü�� �ں�𽺷� ��Ҹ� �ϰ� �Ѵ�.
+
+���̾�(��� �� �ٽ� ȿ�� �� Foley �� �ں�� �� ���� �� ħ��)�� �׵� ��� ���� ��� ä���� �ʴ´�. ħ���� �̺�Ʈ�� ������� ���� �Ҹ��� ���� �� ����. ������ �� ������ �ƴ϶� ���� ��ȯ�� ����ȭ�ϰ�, �߿� ����� ������ ���� �����Ѵ�. ť ������ Ÿ�̹� �ǵ��� ���� ���۱� ���� ��縦 �䱸���� �ʴ´�.
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/04-performance.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/20-visual-mode-ssot.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'video-production-assets/references/16-concept-emotion-retention.md' -Encoding utf8 -Raw" in C:\Users\Declan\Documents\Projects\contents-production-skills
+ succeeded in 383ms:
+# ���⡤�����ؽ�Ʈ ����
+
+## �Է°� ���⹰
+�Է�: ��� ����, ����, �ι� �̷�
+
+���⹰: �ൿ ����, ��� ��Ʈ, ���㼳 ��Ʈ
+
+## ���� ����
+1. ��쿡�� ǥ�� ����� �䱸�ϱ� ���� ��뿡�� ������ ���������� ��ǥ�� ���Ѵ�.
+2. �����ԡ��� ȭ���� ���� ���ø� �����Ѵ١�����١�����´� �� ��뿡�� �ۿ��ϴ� �ൿ���� �ٲ۴�. ���� ���� �ƶ� �����θ� ����Ѵ�.
+3. ����� �����ü����ൿ�� �޴� ������ ������ �ٲ�� ������ ǥ���Ѵ�. ������ �ʴ� ����� ������ Ȯ���Ѵ�.
+4. ��ǡ��̹����������� �������������� ����� �����ϰ� �� ���� �� ������ �ٲ� ���㼳�Ѵ�. ����� ������ ���� ������ �䱸���� �ʴ´�.
+5. �ִϸ��̼ǡ�AI �ι����� �������ǥ���ൿ������ �����Ѵ�. ���� ǥ���� ��� �����ϴ� ��� �ڱ��� ���� �� �ൿ�� ��ȯ�Ѵ�.
+6. ��ǰ/��ǰ�� ��ǿ� ������ �� ��ü�� ���� ������ �ϵ��� �ٲٴ��� �����ϰ�, ���ޡ����������ˡ������ ��� �ൿ�� �����Ѵ�. ���̴� ���������� ��ǰ ��롤��õ�����Ǹ� �߷����� �ʴ´�.
+7. ȭ��� ������ ���� ������ �ü����ൿ������ ��ȭ�� �����Ѵ�. �̼ҳ� ��������� �������丣�ҳ������衤���� �Һ��� ������ ������ �ʴ´�; ���� ���Ұ� ���� testimonial/claim�� [10-evidence](10-evidence.md)�� �ٰŷ� ���� ó���Ѵ�.
+
+## �Ϸ� ����
+���ø� ��찡 ���� �ൿ���� ������ �� �ִ°�? ������ ����� �ڱذ� ���ÿ��� �߻��ϴ°�?
+
+## �ٰſ� ���� ����
+�ڷ� ID: 03,04,13,24. `sources.md`���� ���� ���¿� Ž�� ��ġ�� Ȯ���Ѵ�. ������ ���ø��� ���� �ڷ��� ������ ������ ���� �����. ������ ��Ģ�� �״�� ������ ����̳� ���� ������ ��������� ǥ������ �ʴ´�.
+
+## ��� ���ø�
+`assets/04-performance-template.md`�� ������ ä���.
+
+## ��ȭ ����
+��� ���� �ּ�������ũ �켱��������� ��� ������ [��硤����ũ](22-dialogue-lipsync.md), `../assets/performance-cue-template.md` ���.
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 400ms:
+# ���־� ��塤SSOT Ƽ����Ӽ� (�µ�ǵ� ��ȭ)
+
+��� 05(�ð� ����), 11(AI �ΰ�), 14(���� �)�� ��ȭ. �ݺ� �ι�/��ǰ/���谡 ���� ����ȸ���������� ���� ��ü���� �����ؾ� �� �� ����. ����ڰ� ������ SSOT�����̺��� authoritative�� �����ϰ�, �� �ʵ�� ������ â�� ������ ���� ���� `proposal` �󺧷� ä��� ? ���� �ι��� ����ȭ���� ���� ����� �߷����� ������ �ʴ´�.
+
+## 1. ���־� ��� ����
+
+ĳ���� ��Ʈ������ �̹��� ���� ���� ǥ�� ü�踦 ���Ѵ�. ��Ÿ���� ����� �ƴ϶� SSOT �䱸����� ��롤������������ī�޶� ���� ������� �ٲ۴�.
+
+1. �긮�������۷������÷������帣���ݺ�/���� ��������ü�� ���Ӽ� �䱸�� �д´�.
+2. ������� ���� ������ authoritative��.
+3. �������̸� �긮���� �´� ���� �ٸ� ǥ�� ����� ��õ ������ �����Ѵ�. �ĺ� ���� ��û�� �ʿ��� �� ������ ���Ѵ�. �߿��� ������ ����� ���� �Ǵ� ������ â�� ���� �ڿ� ��׸�, ���ӹ��� ��� ���� ������ ����� ����Ѵ�. ����/���� ���� ������ ������.
+4. ���־� ��� ID�� ��װ� �ð� ��Ģ(�� ���̺�)�� ����Ѵ�.
+5. ������ ������ �����Ѵ�: ǥ��(�ǻ�/��Ÿ�϶������ �ǻ�/2D/3D/������/�Ϸ���Ʈ/ȥ��)�������� ���ء��ι� ����������/���� ���������� ����������/ī�޶� �����򡤸�� �����򡤻� ü�衤��/���� ó��.
+6. �̹��� ���������� �������ǴϽ� �� �������� �����ؾ� �� ���� ���Ѵ�.
+7. ��庰 SSOT �䱸�� �Ʒ� ���� �� ǥ, ���� �䱸�� [���δ��� ���ࡤ��� �����](24-production-execution.md)���� ������.
+
+### ���� �޴� (������ ������ ��)
+
+- A. �ǻ� ? ���� �� �ִ� �ǺΡ����С����������� ����.
+- B. ��Ÿ�϶������ �ǻ� ? ����� �غ� + �ǵ��� ��Ʈ �𷺼�.
+- C. 2D �ִϸ��̼� ? �׷��� ���¡���/�� �ϰ��������� ������.
+- D. 3D �ִϸ��̼� ? ������ �������������� ��Ʈ �Ͼ���塤���� ����.
+- E. ������/�̴Ͼ�ó ? �˰� ���������� �ҿ����������� ����.
+- F. �Ϸ���Ʈ/�׸�å ? ȸȭ�����׷����� ���� �̹��� �켱 ����.
+- G. ���̺긮�� ? � ���̾ � ǥ���� ������ ���� ����.
+- AUTO ? ���۷����� ������ ��ǥ���� �߷�.
+
+### ��庰 ���� ����
+
+- �ǻ�: ��ü�� ��ǵ����Ǻ�/�Ӹ�ī�����ǻ� ���������� �ŵ��������� ������ǥ�� ����. �߸� ��ü�� ������ �ش��� �׷��̵��� ������ �ʴ´�.
+- ��Ÿ�϶������ �ǻ�: �غ� ���塤�� ���������� ���������ȷ�Ʈ����Ÿ��ȭ ������ ��ٴ�. ������ �Ϲ� �ǻ糪 ī������ ǥ������ �ʰ� �Ѵ�.
+- 2D: �� ��Ʈ �������Ƿ翧���� ���⡤�ȷ�Ʈ������ �ܼ�ȭ����/�� ���������� ���. �Ͼ����� ǥ�� ��Ʈ�� �ǻ� �������� �߿��ϴ�.
+- 3D: ���������� ������ǥ�� ��ĥ��/�ݻ硤���/�� ó�������� ģȭ �������߸� ��Ʃ��� ����. ��/��/��/3/4 �䰡 �߿��ϴ�.
+- ������/�̴Ͼ�ó: ���� ������ �ܼ������� ǥ�顤�̴Ͼ�ó �ɵ� �������ǹ� ���� ������������ �� �˰� �ϰ���.
+- �Ϸ���Ʈ: ��/�� ó�������� ���ȷ�Ʈ������ �ܼ�ȭ���ݺ� ��Ƽ�� ó��. ��� ������ ������ image-first ��ũ�÷ΰ� �ʿ��� �� �ִ�.
+- ���̺긮��: ���̾�/���������� ǥ�� ���� ��ȯ ��Ģ�� �����Ѵ�. �� ǥ���� ����� ȥ���� ������ �ʴ´�.
+
+��Ģ: ���� �۰� �̸������� ��Ÿ���� �������� ���� �ð� �Ӽ����� ����Ѵ�. ���۷��� ������ ���̡̽�ī�޶� ������ �����ϰ� ���� ������ ��Ÿ���� �������� �ʴ´�.
+
+## 2. ĳ���� SSOT Ƽ��
+
+���Ӽ��� ��ų ��ŭ�� SSOT�� ����� �� �̻��� ������ �ʴ´�.
+
+- Tier A ? Full SSOT: ���ΰ����ݺ� ���塤�ݺ� �����ڡ��ݺ� ���� ��롤�ñ״�ó ������Ʈ������ ��/ȸ���� ��ü�� �ٽ� �ι�.
+- Tier B ? Lite SSOT: ���� ���� ��ü���� �ʿ��� ������ ���������� ȸ�� �ι�.
+- Tier C ? ��ŰŸ�� ����Ʈ��: ���� SSOT ��� ���� ĳ���� ī��(���� �óࡤ�����Ρ����� �������Ƽ �մ�).
+- Tier D ? ���� ��Ģ: ���� ��Ʈ ���� �α� �������ǻ� �������ൿ �������ȷ�Ʈ������ ��Ģ�� �����Ѵ�.
+- Tier�� �ؽ�Ʈ ���̴� ���� ����: `designing-video-character-sheets`�� ��ü canonical `CHARACTER SSOT`(���� 0?33, [`designing-video-character-sheets/references/character-ssot-master-prompt.md`](../../designing-video-character-sheets/references/character-ssot-master-prompt.md))�� Tier A�� ������ ��ü SSOT ��û�� ����, Tier B/C�� `assets/character-ssot-template.md`�� �ʿ� �ʵ常 ä���.
+- **�̹��� ��� ��ü ��Ű���� �ʼ� �̹���:** ���ǵ� �ι����� Sheet A ? �� ���� �߸� ��Ʃ��� ��ü�� ��Ʈ(���� ���顤3/4 ���顤���顤�ĸ� + �� ���顤3/4������, 7��, ���� �ι�, �߸� ǥ��������, ��� ���� ����)�� ���� ���Ϸ� �ʿ��ϴ�. B/C/D(ǥ�����ǻ󡤾׼�)�� ������Ʈ ������ �� �߰� ������������ �������� �ʴ´�. �ؽ�Ʈ ����/���� �۾��� ���ϡ��̹��� ���� ������. �۷��� �ʻ��� ���� ��Ʈ ��ü�� �� �ȴ�.
+
+### �°� ���ذ� ����
+
+1. �̾߱�/ȸ��/�ø����� ĳ��Ʈ ����� �Ľ��Ѵ�.
+2. ��ü�� �ٽ� �ݺ� �ι��� ���� ����.
+3. �ϳ� �̻� �ش��ϸ� Full�� �°�: ȸ�� �ݺ������� �߽ɡ���� ���ν� �ʿ䡤�ñ״�ó �ǻ�/��ǰ/��ǰ ��ȣ�ۿ롤���� ���� ��Ȯ�� ��/��ü ���Ӽ��� ����.
+4. ª���� ���� ���� ���� ���� Lite.
+5. ��ȯ ������ ��� ���� ��ŰŸ��/���� ��Ģ���� ���´�.
+6. Ƽ� ��Ȯ�� ���� ������ ������ �ڿ� ���� �̹����� �����.
+7. �ø���� ���� ������Ʈ���� �����ϰ� �� �ݺ� ��ü���� ���� ���� SSOT�� �߰��Ѵ� ? `project.json`�� characters�� asset_registry�� ���� ���� DB�� ������ �ʴ´�.
+
+### ���� �� (�� �ʿ信 �°� ����)
+
+- Full SSOT ? �ǻ�/��Ÿ�϶������: ���� �߸� �� 3/4 �߸� �� ����(�� ���� ������) �� ���� �߸� �� �� �ǻ� ���� �� ���� �ٽ� ǥ���� �� �ݺ� ��ǰ ��ȣ�ۿ� �� �ĸ�(�޸�� ���� ������).
+- Lite SSOT ? �ǻ�/��Ÿ�϶������: ���� �Ǵ� 3/4 ��ü�� �� ����/�ǻ� �� �ʿ�� ǥ��/�ൿ ���� 1��.
+- Full SSOT ? 2D: �ʿ��� �Ͼ����(��/3/4/��/��) �� ���� �� ��Ʈ �� ǥ�� ��Ʈ �� �÷Ի� �߿��� ��/��ǰ ������ �� �ȷ�Ʈ�� ��/���� ��Ģ.
+- Full SSOT ? 3D: ��/��/��/3/4 �� ���� �߸� �� ���� ��Ʈ �� ǥ�� ��ǥ �� �߿� �� ���/��/���� Ŭ�����.
+- ������/�̴Ͼ�ó: ��/��/�� ���� ���� �� ����/���� ��ũ�� �� �ǻ�/��ǰ ������ ����.
+- ũ��ó/���ΰ�: �غε����̵� ������������ �������Ƿ翧 �Һ��� �߰�.
+- ����Ʈ��/����: ���� SSOT ��� ��ŰŸ�� ���峪 ���� ��Ģ ? ��� �ι��� ����� �߿������� �׶� �°�.
+
+��Ģ: ��� ����Ʈ�󸶴� Full SSOT�� ������ �ʴ´�. �ݺ� �ι��� �۷��� �ʻ� �ϳ��� �������� �ʴ´�. ��ü�� ��Ŀ�� ���� ����/����/��Ÿ�� ������ �и��Ѵ�. ���� �ι��� ��� �ʿ��ѵ� �� �̹����� ������ ��ü�� ��Ȯ���� �����ϱ� ���� �ʿ��� �Է��� ��û�Ѵ�.
+
+### ���� ���ڵ� ���� (�̹��� ��� ��ü ��Ű��)
+
+ĳ���� SSOT ����� ���� `project.json`�� �̷��� ����ȴ�(�����ڰ� ���, ��Ŀ�� ��Ŷ���� ����):
+
+| ���� �ʵ� | ���� |
+|---|---|
+| `characters[].persona` | `{role, personality, observable_behavior, speech}` ? ��� ��� ���� ���� ���ڿ�; �����ش� ������ ������ ���� `N/A` |
+| `characters[].ssot_artifact_id` | `type=character_sheet` artifact ? ���� SSOT Markdown ����, synopsis artifact�������� ���� |
+| `characters[].identity_sheet_asset_id` | `mode=image_backed` ���� ? `kind=character_identity_sheet`, `entity_type=character`, `entity_id`=character_id; �ι��� ���� Sheet A �̹��� 1�� |
+| `preproduction` | `{mode: text|image_backed, synopsis_artifact_id, storyboard_artifact_id, storyboard_sheet_artifact_ids, storyboard_split_asset_id}` ? ��Ʈ artifact ID�� �� �嵵 �̾߱� ���� �迭(��Ʈ�� �ִ� 8�г�), split pointer�� ���� ���/�г� ���� manifest asset. text�� �̹��� �䱸�� ���� image_backed ���䡤������ text�� ��ȸ���� �ʴ´� |
+
+���� ü���� synopsis artifact���������ҽ� locator �� `character_sheet` artifact������ �� ���� `character_identity_sheet` ���� �� ��/�г� ���� �Է��̴�. `mode=image_backed`���� ĳ���͸� �̸����� ȣ���ϴ� ���� �� �ι��� ��ü�� �̹��� ������ �Һ��Ѵ�. ���� �̹��� �˼��� ��Ʈ�� �� ��� ���� ��Ŀ�� ���� ���Ѵ� ? ������Ʈ�� ������ ��Ʈ�� ������ �ʰ�, ������ ������ ��ü�� QA�� �ƴϴ�.
+
+## 3. ĳ���� ���Ӽ� ���
+
+���Ӽ��� ������Ʈ ����簡 �ƴ϶� ���� ���� ������.
+
+1. �ݺ� �ι����� ������ `character_id`(CH01 ����)�� �ο��Ѵ�.
+2. ���� �� ���� ���� SSOT�� �����: `assets/character-ssot-template.md`. �Һ� ��ü���� �� ���� ���¸� �и��Ѵ�.
+   - �Һ�: �� �������� ��ġ����/�� ���¡��Ǻ�/�� ���̡����ɴ롤��ü ������Ű ���衤�Ӹ�/�� �Ƿ翧���ĺ� ǥ�����ñ״�ó �׼����������� �ǻ� ���󡤰��� �� ��Ҹ� ��ü��.
+   - ����: ǥ��������ӽ� �Ӹ� ���¡������������������ۡ��ǡ��ǻ� ���ҡ�Ż�� ���̾����ǰ���ջ����� ����.
+3. ���ε� ���� �並 �����Ѵ�(�� ���� ��).
+4. �� ���´� ������ ����Ѵ�: �������������λ󡤸Ӹ� ��ȭ�����������ǻ� �ջ󡤺��塤���� ����.
+5. ������ SSOT�� ����ϰ� ���õ� ���� ��Ÿ�� �ٲ۴�. ������ ��ü ��ü���� �ٸ��� �ٽ� ���� �ʴ´�.
+6. ���Ӽ� ��Ŀ: �� ���󡤸Ӹ� �Ƿ翧����ü �������ñ״�ó �׼��������ǻ� ���󡤻�/��������ǰ ��.
+7. ���� ���� ���Ѵ�: ��ü�� ǥ�����ǻ� ǥ�������� ǥ�����¿� ���������� �׼����������� ���� ���� ����.
+8. �����Ⱑ ����/ĳ���� ����Ŵ��� �����ϸ� ���ε� ������ ����. seed������ ��ü���� ����ȴٰ� �������� �ʴ´�.
+9. ǥ���� ����� ���� ���� ���� ������ ������ϰ� �� ���� �� ������ �ٲ۴� ? ��õ� ������ [���� ���� QA����õ�](21-generated-video-qa-retry.md).
+
+### ���Ӽ� ����
+
+�� ����/���� ��ȭ, �׼������� ���� �ű�, �Ӹ� ���� ǥ��, ��ü ������ ǥ��, �� ���� ��ȭ, �ǻ� ���� ����, �� �� ǥ��, ��ǰ �� �ٲ�, ���� ���� ����/������ ����, ���Ī ǥ���� �ſ� ����.
+
+���Ӽ� �˻�� `assets/continuity-ledger.csv`(shot_id��character_id���ǻ󡤼�ǰ/�ա��ü���ȭ�� ���⡤���� ���⡤����/��Ż ���¡����� ����)�� ����Ѵ�. ���� ������ �ؽ�Ʈ ����, ���� �Ŀ��� ���� ��ü�� �����Ѵ�.
+
+## 4. ���ߡ�������Ŭ
+
+������ �Ը�� "��õ ��" ��û�� �ƴ϶� ����� �����.
+
+1. ����� �̺�Ʈ�� �Ը� �̾߱⸦ ���Ѵ�: ������ ������ ���� Ŀ ������ �ϴ°�.
+2. ���� ��带 �����: ���� ��Ŀ �� �߰� ���� �� ��� ���� �� ȯ�� �Ը� �ܼ� �� �ϴ�/����/����.
+3. ���� �ൿ�� ���� �ٸ� �̼� �ൿ�� �������� ������: ���⡤�Կ�����ȭ���ȱ⡤ȯȣ����⡤�ڵ��⡤�ɱ⡤����/�������������� ���� ����. �ȹ��� �ǵ��� �� �ƴϸ� ����ȭ�� ������ ���Ѵ�. ������ ��� ���� ����ȭ���� ���� ������ ���� �ƶ��� ���´�.
+4. �������������� ��񡤰��������̷� ����� ����� ���� ������ ������ �Ѵ�.
+5. ���� �帧�� ������ ���� ������ �����Ѵ�: ���Ա������������롤�庮���������װ��⡤�ü� ����.
+6. �� ������ �Ը� �Ǵ�: ������/���� �� �߰� ���� �� �ؿ��̵� �� ����� ����. �Ұ����� ������ �� �ϳ��� �������� �ʴ´�.
+7. �ſ� ū ���� ���� �÷���Ʈ������/������ ���̾��� ȿ�����ռ��� �����Ѵ�. `assets/crowd-map-template.md` ���.
+8. QA: �ݺ� �󱼡����� ����Ұ����� �е����� �ִ� ����������� ���������� ���롤�Ϸ��� �ü������� ���� ����.
+
+�Ը� �ܼ�: �˷��� ũ���� ���/��������ħ ���̡���� ���١����ֵ� �ݺ� ���������������� �������Ҹ� �е������� ���������� ����.
+
+## 5. ��� ���� ��Ŀ�� ����� ���� ����
+
+���� ���� ���� ������ �̾�ްų� portal/�Ұ����� �������� ����� ���� �����Ѵ�. ���� location/world SSOT�� �Ա������Ρ�landmark������������/��ǰ ����� ī�޶� �� �̵��� �����ϰ�, �̵� ���� ������ �������� ȭ�� anchor�� �����Ѵ�. ��/POV ���桤������ ���� �̵��̳� reset�� �ƴϴ�. �����Ǵ� ��ġ/��ǰ�� [26 ���� �ΰ�](26-state-causality-continuity.md)���� �ļ� ���·� �մ´�.
+
+���� ��Ģ�� �ǵ������� ���� ��� shot/layer���� �ٲ�� ordinary space�� ��� ���ƿ����� brief�� ǥ���Ѵ�. portal ������ frame/eyeline, ����, scale �ܰ�� ���� view�� ���Ѵ�. cut/dissolve/graphic wipe/composite�� ���ϰ� �ܼ� cut�� �� ��Ȯ�ϸ� ���� morph�� ���� �ʴ´�. ��� �� anchor��fantasy insert��ȸ�� anchor�� storyboard/shot cue�� ���̰�, scale/���� ��ȭ�� ���� ��鵵�����񽺡���� claimó�� ������ �ʴ��� inspect�Ѵ�.
+
+��ġ ī�޶󡤰�Ρ�3D geometry�� �ʿ��ϸ� `$camera-spatial-design`���� �ѱ��; ���� ��� geometry�� �ʿ��� ���� �ش� 3D review/runtime ������ ������. ���� reference frame���� �ּҡ����������� ���ࡤcamera solve�� �������� �ʴ´�. ���� ������ ����/ī�޶� �ٰŴ� ��ȹ �ؽ�Ʈ�� �����Ѵ�.
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 494ms:
+# �ܼ�Ʈ �߻󡤰��� ���衤��û ���� (�µ�ǵ� ��ȭ)
+
+��� 13(���̵�� �߻󡤺귣�� ����), 01(�긮��), 02(���硤���� ����), 09(����������)�� ��ȭ ����. ������ �ְų�, ù ���̵� ����ϰų�, ���� ����û ������ �ٽ� ��ǥ�� �� ����. �� �������� �۰��� ������ ���� ���� �����̸� ������ �������� �ʴ´�.
+
+## 1. �ܼ�Ʈ ����
+
+�뺻 �ۼ� ���� �ܼ�Ʈ�� �����. ��ǥ�� �ű��� ��ü�� �ƴ϶� ��￡ ���� ������.
+
+1. ������ �ΰ��� �������� �ٲ� ���´�: ������η��򡤸������������ȭ.
+2. ���� ����� ���´�: ������ ������ �����ų����߰��ϰų������ų����η����ϰų��������ϰ� �� ��.
+3. ��û�� ������ �Ʒ� ������ ������ �������� ������ �����. ���õ� �ĺ� ���� ��Ű��, ������ ������ [���̵�� �߻�](13-ideation-brand.md)�� Ž�� �� �������� ���Ѵ�. ���� ������ ���� ���� ä��� ���� �ĺ��� ������ �ʴ´�.
+   - ���: �縳���� �ʴ� ���ҡ���ġ���Ը𡤼����� ����.
+   - ����: �������ġ�������å���� �����ڸ� ������.
+   - ����: ���� ��Ģ��Ÿ�̸ӡ����� �ൿ������ �ڿ� �ΰ�.
+   - �����÷��̼�: ����ϰ� ������ �������������ģ�а��������� Ű���.
+   - ���� ü��: �ϻ� ��� ���� ������ �ʴ� ������ �巯����.
+   - ���� ��ȯ: �繰������������ڡ����̹����̷��� ����ȯ���� �������� �ٽ� ���ϱ�.
+   - ����: ���̴� ��/�� �Ǵ� �ų� ��ȭ.
+   - ��ȸ ����: �����ڸ� �����Ű�� �����鼭 �ൿ�� �巯���� ���� �����.
+   - ������ ����ȭ: �߻��� ������ ������ ���� ��Ģ���� �ٲٱ�.
+   - �̽��͸� ������: ���߿� �ǹ̰� �ٲ�� �������� ���� �̹����� ����.
+   - �浹: ��� ������ �ʴ� �� ������ �����ϵ� ���� ������ ����.
+   - ����: ū ���� ȣ�� �� �������� �繰���� �ǽġ��Ϸ�� ���ϱ�.
+4. �ð��� �ϼ����������� ��桤��ݡ��Ϲ��� ���� �޽������� �����ϴ� ���̵��� �Ÿ���.
+5. �ﰢ�� ���Ἲ������ ���ϡ��ð� ��顤�����÷��̼� ���¡��ḻ ����¡��ڸ��� ó�� ��� ��â������ ���ϰ�, ��û�� ���� ������ �ΰ��Ѵ�.
+6. �ֻ� �ܼ�Ʈ�� ���� �̹��� �ϳ�, �߽� ��� �ϳ�, ��ȭ �ϳ�, �ḻ �̹��� �ϳ��� �����Ѵ�.
+7. ��û���� ������ ���� �ܼ�Ʈ�� �ΰ��Ѵ�. �߿��� â�� ���� ������ ����� ���á����� �Ǵ� ������ ������ ������.
+
+### �ű��� ����
+
+�Ʒ� ����� ��û ������ ���� ������ ������ ��ġ���� �Ǵ��� �ٰſ� �������� ����. ����� �ܼ� ������ �ڵ� Ż����Ű�� �ʴ´�.
+- ù ���̵� �ش� ī�װ����� �⺻ ó����.
+- �ܼ�Ʈ�� "�Ƹ��ٿ� ��Ÿ��+�����̼�"���� ���ȴ�.
+- ���� ��ȯ�� �����׿��� �����ȴ�.
+- ���� �������� ��ü���� �������� ���� ������ �ⱳ�� ���� �ʴ´�.
+- ���� ��ü�� ��� ���� �Ѵ�.
+- �ڸ� ���� �˾ƺ� �� �ִ� �̹����� ����.
+- ������ ������ ���� ���������� ���� ���� ����.
+
+������ �⹦�Ժ��� ��ü�� ������ �켱�Ѵ�. ������ ������ �� �� �����ϰ� �������� �Ѵ�.
+
+���⹰: �ܼ�Ʈ ����, ���� ���, ���� ����, �ð� ��, �����÷��̼� ���, �ḻ/����, ���ؾ� �� ����. �ܼ�Ʈ�� �� �������� ���� �����ؾ� �Ѵ�.
+
+### Copy�� �ൿ������ ��Ģ���� �ű�� (copy �Ǵ� ������ ���� ��)
+
+�� �긮���� ���ε� ī�Ǹ� �� �پ� �з��Ѵ�: ���/���� claim, ����, �ൿ ����, ���������峭, disclaimer, ������ CTA. Claim�� [10-evidence](10-evidence.md)�� �ٰ�/���ѿ� �����ϰ�, â�� ������ ��� �ٰ�ó�� ���� �ʴ´�. �ش� ������ ���� �ൿ�̳� ������ �ð� ��Ģ�� ����Ѵٸ� �� ���ۡ����� ��ȭ�� ���̵��� ����� �����Ѵ�; ���۰� ������ mood montage������ ������ ô���� �ʴ´�. ���� �ൿ�� ������ ��ȯ�� �Ͻ��ϸ� ��ǰ/���� SSOT�� ȿ�� claim�� ���� �˻��Ѵ�.
+
+������ �ð������� ������ ���� � ���� ���� ������ ������ ���� ���¿��� �޶������� �����Ѵ�. �� ������ ���� �б� ������ ��ȯ�� [09-edit](09-edit.md)�� �ѱ��. ª�� ���� �ڿ� post-card/coda�� �������� ������ �� ������, ���� CTA�� coda�� �긮���� �䱸/����� ���� �д�. ������ ���̴� �͸����� claim proof, ���� ��ȭ, ���� �������� ������Ű�� �ʴ´�. ���㼳 QA�� �ൿ�� ī���� ������ �����ϴ���, �ٸ� ���峭/���� �ؼ��� �� �ڿ��������� Ȯ���Ѵ�.
+
+### ��� ���ݡ������ ���� (���� ��Ģ�� ������ ���� ���̵���� ��)
+
+������ ���� �˾ƺ� ���/��� �ܼ��� �ΰ�, �� ��Ģ�� ������ ���, ����� �� �ι��� ���� ������ ����, �� ����/���͸� ������� �����Ѵ�. �ൿ ���ΰ� reaction cue�� ������ �������� [04-performance](04-performance.md) �� [06-shots](06-shots.md)�� ��ü����롤�ü���cut slot���� �ΰ��Ѵ�. �ʿ����� ������ �����/���� shot�� �߰����� �ʴ´�; �� shot�� action phase�� �����ϴ�.
+
+���� frame/eyeline������ ����� �� �ι��� �ش� ����� �� �� �ִ��� Ȯ���Ѵ�. ǥ�������� ��� ����, ����, ����, audience persuasion�� �������� �ʴ´�. �ڹ̵��� genre promise�� punchline�� [17-genre-comedy](17-genre-comedy.md)������ �Ǵ��ϰ�, 17�� �⿬�� �ι�����/���� ��ǥ ������� ���� �ʴ´�. �� recipe�� ���� �����̸� ���� ����/���� ���Ű� �ƴϴ�.
+
+## 2. ������ ��� ����
+
+������ ���������� ������ �� �ִ� ������ �����Ѵ�. ��硤�����̼����� ���� �̸��� ���̴� ������ ������� �ʴ´�.
+
+1. ��ǥ ���� ������ �ϳ��� �����Ⱑ �ƴ϶� ������ ���Ѵ�: ��) ȣ��ɡ�����ԡ������ȵ��澹���� ����.
+2. ������ ������ ������ ���������� ������, �� ����� ���� ������ ���ϴ��� ���Ѵ�.
+3. ���� ������ ������� ã�´�: �ൿ�������ӡ��ǽġ�������Ǽ������󡤼���.
+4. �ǹ̡����衤��롤�ǵ��� �ٲٴ� ���� ��ȯ�� ��û�� ���̿� �̾߱� ��Ʈ�� �°� �����Ѵ�. ������ ä��� ���� ��ȯ�� �߰����� �ʴ´�.
+5. �ٽ� ������ ���������ð��� ��Ŀ �ϳ��� �����Ѵ�: �繰���Ҹ�������ó���� ���衤��� �����ϡ��ݺ� �ൿ.
+6. ��� ����: �����/�Ÿ�, ����/ħ��, ����/����, �ӵ�/����, ���/���.
+7. ������ ������ ������ �����ų� �߷��� �ٰŰ� ������� �ڷ� �̷��.
+8. �ḻ�� �ռ� �̹������Ҹ����������ൿ�� �����ϰų� ��ƶ�ȭ�� �ݴ´�. ���Ǵ� �ḻ�� �繫���� ���ߴ��� ��� ��ȭ�� ��� �̹��� ��� �߿������� �����Ѵ�.
+
+### ���� ���� ����
+
+- ���ν�: "�� ������ �ȴ�" �� ��ü�� �� ������ �ΰ���.
+- ��ȣ�� ����: ������ �Ѹ�� �� ���� ����� �� �ǹ� �ִ� ����.
+- ��ƶ�ȭ: �߸� ��Ƽ�� �� �� ���� �� ������ ���Ը� ���� ��Ƽ���� ��ȯ.
+- ����: ���� �ൿ�� �ݺ��� ���ָ� ���� �ǹ̸� ��´�.
+- ����: �ϻ��� ���� �� ��� �ϳ��� ���� ���ڸ��� ������ ����ϰ� �Ѵ�.
+- ������ �ع�: ��ַ� �з��� ���� �� �ִ� ��ε�󸶰� �ƴ϶� �۰� ���� �� �ִ� �ع��� �ش�.
+- ȥ�� ����: �ȵ�+���, ���+��Ȯ��, �ں�+�밡. ȥ�� ���´� ���� �������� ���� ���� ��찡 ����.
+
+�ൿ�� ����纸�� �켱�̰�, ��ü�� �ǵ��� �Ϲ��� ��غ��� �켱�̴�.
+
+### ���� ������ ����
+
+�޹�ħ���� ���� ��ء���¥ ������� ��ǡ����塤���䡤�̾߱� ���Ÿ� ����ϴ� ������ �������� ������ ������ �ʴ´�.
+- �� ������ ������ ��ǿ��� ���� ���ΰ�?
+- ������ ���� ����� �۵��ϴ°�?
+- ����� ������ �������� �����ϴ°�?
+- �������� ���� ���� ���ϴ� ��� �߷��� ������ �ִ°�?
+- ������ Ȯ���� �ι�������� ��ġ�ϴ°�?
+
+## 3. ��û ���� ����
+
+���Ǹ� ��Ű�� �� �ʸ� �������� ������ �ʴ´�. �������� ��� �� ������ �����̴�.
+
+1. ���񡤽���ϡ������������� �̹����� ���� ���� ��븦 ���´�. �̳�-�ڹٲٱ�� ���� �ʴ´�.
+2. ��� �� ù ��ü�� ������ ��� �ش�: Ư���� �̹��������ذ� �ൿ����������� ��ǥ������������ ������ ����.
+3. ���� ���� ���� ������ �����. �������� ���� �������� ��������ȭ����ӵ� ������ ���´�.
+4. ���� ���� ���صǴ� ���� ���� ���š�����̹����������� ������ �̵��Ѵ�.
+5. ����� �� �����⸦ ������ ����. �ݺ� ���������� ��㡤�ߺ� establishing�������� �̹� ������ ����� �����Ѵ�.
+6. ���� ��ȭ�� ���Ⱑ ���� ���� ����: �� ũ�⡤��ҡ�ȭ�ڡ��ð� ��塤�Ҹ����������׷��ȡ��ൿ������ ����.
+7. ���� ������ �����鼭 �� ū ������ ����. ��� ������ ������ �̷��� �ʴ´�.
+8. ���� �ֱ�: ������ 10~30�ʸ���, ������ ��Ʈ���� "������ ���ߴ°�?"�� ���� ��ȭ�� ������ �����ϰų� �����Ѵ�.
+
+### ���� ��Ű��ó
+
+����(�ǵ� �켱) �⺻ ��Ʈ ? ���Ű� �������� ����:
+- ����: �̻󡤰�������� �б� ���� �ൿ�� �����ش�.
+- ����: ����/����/��ǥ�� ������ �����Ѵ�.
+- ����ȭ: �����̳� ��� ����.
+- �����÷��̼�: ����� ���� ����.
+- ��ȯ: �ؼ��̳� ���� ��ȭ.
+- ����: ���� ��� ����.
+- �����ͺ�Ʈ(����): �ݹ顤���ࡤ���� ������ ������ �̹���.
+
+������ ��ø ����:
+- �Ž� ����: �� ��ü�� ���°�.
+- ���� ����: �� ���� 2~5���� ���°�.
+- ��Ʈ ����: �� ���� 10~30�ʸ� ���°�.
+
+��¡��귣����ä�� �⹫��ù ���� ��� �ڿ� �����ص� �Ǵ� �ƶ����� �������� �ʴ´�.
+
+### ������ ���� (���� �м� �����Ͱ� ���� ��)
+
+- �϶�: �϶� ���� ������ �˻��Ѵ�. ���� ������ ��� ����ġ���ݺ���ȥ�������� ���������� �ǵ������� ������ ��ȯ������ �ð� ��ȭ������ ���š��� �����̴�.
+- ���: ���� ���������û �����ϡ������� ��Ʈ������� �ʿ��� ȥ�� ��� �����ϴ�. ��ۡ��ƶ����� Ȯ���� �� ������ �����Ѵ�. ��� ������ũ�� �������� �ؼ����� �ʴ´�.
+- �����׺��� �� ������ ������ ���ϸ� ������ ��ġ�� �ʴ� �������� �Ϻθ� �̸� �����ְų� ������ �ű�� ���� �����Ѵ�.
+
+## ���� ���
+
+- ���õ� �ܼ�Ʈ�� �긮�� ����: ��� 01.
+- ���� ��� �ΰ� ��Ʈȭ: ��� 02, ����ȭ�� 03.
+- ���� ������ �ơ����� �ݿ�: ��� 09, �÷��� ������ [�ǴϽ̡��÷���](23-finishing-platform.md).
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+# Text-only production handoffs
+
+All time ranges below are **proposed final seconds**; each ends before the next begins. These are draft handoffs based on the seven briefs. No footage, audio, artwork, render, approval, or rights record was supplied. `source_in_s` and `source_out_s` are therefore N/A for every proposed cut; `playback_rate` is 1.0 unless an edit is later specified.
+
+## Original F1 — STILLWATER, 12 seconds
+
+**Product SSOT fields.** `product_id: STILLWATER`; `packaging shape: oval`; `material/color: sea-green glass`; `cap/closure: brushed silver, offset`; `label position/design: small ivory label, exact artwork pending`; `must-never-change: silhouette, glass hue, offset cap, label size and position`. Logo lettering is unverified until owner artwork arrives. The final close must use that artwork or a clearly blank proposal label.
+
+**Shot and edit fields** (`shot_id`, `start_s–end_s`, `blocking`, `camera_motion`, `start_state → end_state`; hard cuts):
+
+| Shot | Time | Action and cut cue |
+|---|---:|---|
+| SH01 | 0–2.5 | Adult’s right hand carries capped bottle into a stable mirrored-tray frame. Decelerate 1.7–2.1; base contacts tray 2.1–2.3; fingers release 2.3–2.5. Camera locked. |
+| SH02 | 2.5–5.0 | Same right hand grips and lifts cap at 3.1–4.0. Cut only after cap separates; cap stays in that hand and remains off bottle. |
+| SH03 | 5.0–7.5 | Left wrist enters; right hand holds bottle and depresses atomizer once at 6.1–6.5. Show nozzle direction and wrist contact result without implying a measured effect. |
+| SH04 | 7.5–9.5 | Abstract green light softens around the stationary wrist and bottle. Camera eases toward bottle; light is an expressive layer, not a bodily transformation. |
+| SH05 | 9.5–12 | Readable bottle close; hold label face 10.2–12. Cap remains removed, wrist outside the packshot. |
+
+`copy`/edit window: **“Leave the hurry at the door.”** appears or is spoken at 0.5–3.8; no VO is assumed. Leave 10.2–12 clear for the bottle. `sound_id: N/A—no source audio; any music or spray cue remains a proposal`.
+
+**State fields.** `object ID: bottle`; `change trigger: placement, cap removal, one spray`; `before → after: carried/capped/dry tray → standing/uncapped/tray unchanged, wrist visually sprayed`; `retention: cap stays off; no second spray or unexplained tray droplets`. In the mirror, preserve one coherent bottle silhouette and label orientation. Keep a controlled reflection highlight beside the label, never over its text. If the green effect masks the bottle, use a clean wrist-to-packshot hard cut.
+
+**Evidence fields.** `claim_id CL-F1-01`, `statement: Leave the hurry at the door`, `kind: fiction/creative line`, `source_id: F1 brief`, `limitations: metaphor; no calm, health, or performance benefit`, `status: fiction`. Commercial rights for artwork, talent, music, and any supplied product design remain unverified. Shopping CTA: **N/A**, because this is a concept without a required purchase action.
+
+## Original H1 — Lantern Quay, 16 seconds
+
+**Location and actor handoff.** Master path: south vestibule entrance → east turn at brass lantern → curtain threshold → tea room → view through north window → return through curtain toward vestibule. Keep lantern on the guest’s turning side and north window ahead in the tea room. Guest’s playable goal is to find the sheltered room; host’s is to welcome and offer tea. The cup starts in the host’s hand and ends in the guest’s hand only after visible shared contact and host release.
+
+| Shot | Time | `blocking` / `camera_motion` / cut phase |
+|---|---:|---|
+| SH01 | 0–3 | Wide south entrance: guest walks in, notices lantern at 1.5, slows 2.2, plants and turns east 2.5–3. Camera tracks then settles. |
+| SH02 | 3–5 | Guest POV past the brass lantern to curtain; eastward motion continues through threshold. Cut out as hand parts curtain. |
+| SH03 | 5–8.5 | Host reverse in tea room. Host sees guest enter, lifts warm cup 5.8, offers 6.4. Guest grips 7.1–7.5; host releases 7.6. Hold guest’s reaction 7.8–8.5. |
+| SH04 | 8.5–11.5 | Guest POV north window. A **brief window wipe** at 9.4–10.4 reveals an intentionally impossible miniature garden, framed as fantasy. Return to the same window edge and ordinary garden view by 11.2. |
+| SH05 | 11.5–16 | Host reaction to guest’s glance, then guest looks back to lantern/curtain and walks toward vestibule. Hold the recovered east–south orientation at 14.5–16. |
+
+`eyeline`: guest looks north to window; host follows the guest’s gaze before the fantasy insert. `start_state → end_state`: cup host-held → guest-held; curtain parted → falls closed; no implied teleport. `transition/duration_s`: window wipe 1.0; other cuts hard/0. Alternative if the portal overpowers the visit: cut from the guest’s window glance to a single miniature detail and back to the fixed window frame.
+
+`claim_id CL-H1-01`; `kind: fiction`; `source_id: H1 brief`; `limitations: imagined inn, impossible garden, no floorplan or service evidence`. Address, booking CTA, customer testimony, floorplan accuracy, and service quality: **N/A**. No numerical camera or geometry solve is claimed.
+
+## Original V1 — ORBIT, 14 seconds
+
+**Product SSOT.** `product_id: ORBIT`; `shape: wedge coupe`; `color/mark: single amber side stripe`; `lamps: circular`; `wheels: four, five spokes each`; `logo artwork: verbal identity only`; `must-never-change: wheel count/spokes, stripe continuity, lamp shape, wedge body`. Reserve any exact badge/logo reveal until approved artwork exists.
+
+| Shot | Time | Motion and state |
+|---|---:|---|
+| SH01 | 0–4 | Ordinary constant-speed roll across shallow wet slate. Vehicle translates relative to fixed ground texture; tracking camera may reduce screen displacement but cannot erase ground travel. Four contact patches and reflections follow it. |
+| SH02 | 4–6 | Wheel/side close: wet tread exits contact, small wake trails behind, stripe remains one continuous mark. Cut on the same travel direction. |
+| SH03 | 6–10 | Clearly signaled fantasy: vehicle lifts over luminous water. Wheels lose ground contact; no-slip is N/A while airborne. Shadow separates from body; reflection stays tied to water plane. |
+| SH04 | 10–12.5 | Descend to wet slate, regain contact, decelerate and stop. Recheck wheel rotation against ground travel after touchdown. |
+| SH05 | 12.5–14 | Stationary full vehicle reveal; retained wetness and a settling wake remain plausible. |
+
+**Motion-beat fields.** `initial anchors: slate texture, contact patches, water plane`; `main action: roll → lift → descend → stop`; `contact/transfer: grounded at 0–4 and after touchdown, airborne 6–10`; `secondary motion: wake, droplets, shadow and reflection`; `follow-through: wake settles after stop`. No-slip applies to the ordinary grounded roll and return, subject to visible speed/rotation consistency. It does not govern fantasy levitation. A backward-looking spoke in one still is **not** a QA failure: compare multiple consecutive frames, hub/spoke phase, ground displacement, contact patch, shadow, reflection, camera track, and shutter aliasing. Record a failure only when an interval contradicts the stated motion without a deliberate style cue. Wet residue persists across the lift and return; any reset needs a visible time or surface transition.
+
+`claim_id CL-V1-01`, `kind: fiction`, `limitations: fantasy vehicle; no range, safety, speed, or handling claim`. Uploader model mention is a `DECLARED_UPLOADER_CLAIM`; untimed auto captions are `CAPTION_TEXT_AUTO_UNTIMED`. Audio, source rights, remaster method, and exact logo artwork remain unverified. No real driving directions are conveyed.
+
+## Variation F2 — NIGHTFOLD, 10 seconds
+
+`product_id: NIGHTFOLD`; `packaging shape: dark rectangular violet bottle`; `cap: rounded black`; `label: blank pale square, owner artwork pending`; `must-never-change: shape, violet tone, cap shape, label placement`. Never generate label lettering.
+
+| Shot | Time | Action and copy |
+|---|---:|---|
+| SH01 | 0–2 | Adult’s left hand moves folded scarf aside; right hand carries capped bottle in. Copy “Make room for night.” begins 0.4. |
+| SH02 | 2–4 | Right hand places bottle on polished black stone; base contacts 2.8–3.1, fingers release by 3.4. Left hand steadies scarf. Copy ends 3.6. |
+| SH03 | 4–6.4 | Right index presses atomizer once toward scarf edge at 5.1–5.5. Keep cap state explicit: remove before this shot and retain offscreen in right-hand setup; do not show it reattached. |
+| SH04 | 6.4–8 | Scarf briefly passes over label and sprayed corner, then reveals both. This is occlusion, not a reset. |
+| SH05 | 8–10 | Stationary bottle and scarf; label face and sprayed corner readable in separate visual zones. Hold 8.5–10. |
+
+`change trigger: one spray`; `before → after: dry scarf corner → visibly misted corner`; `retention: same corner remains misted after occlusion; bottle stays on stone and uncapped`. Place a narrow edge highlight on violet glass and a separate controlled reflection on stone; suppress reflected false lettering and glare across the pale square. If an elaborate mist effect hides bottle or scarf state, cut directly from press to the unobscured stationary end composition. `sound_id: N/A—no audio supplied`; purchasing CTA: **N/A** for brand awareness. `claim_id CL-F2-01`, `kind: fiction`, `limitations: creative line; no physiological or fabric-care effect`. Artwork, talent, sound, and product-use rights remain unverified.
+
+## Variation H2 — Paperlight lodge, 13 seconds
+
+**Master anchors:** east door → westward approach to stone screen → south turn into lounge; west-wall skylight is seen from the lounge; exit north past the screen toward the east door. The folded map begins with the guide, transfers to visitor on visible contact, and stays with visitor on exit. Visitor wants orientation; guide wants to help; the skylight triggers the visitor’s point, which triggers the guide’s glance.
+
+| Shot | Time | Action/camera phase |
+|---|---:|---|
+| SH01 | 0–2.5 | Wide: visitor enters east door, walks west to screen; slows 1.8–2.2 and turns south at 2.3. Camera settles on screen as landmark. |
+| SH02 | 2.5–5 | Lounge reverse: guide offers folded map. Visitor grips 3.7; guide releases 4.1; hold shared eyeline to 5. |
+| SH03 | 5–7.5 | Visitor POV: map opens; one impossible scale reveal occupies its interior 5.7–6.8. Return to ordinary paper folds by 7.2. |
+| SH04 | 7.5–10 | Visitor points to west-wall skylight at 8.0; guide follows the point/glance at 8.5. Show skylight after their stimulus and reaction. |
+| SH05 | 10–13 | Visitor takes map north past screen, glances back toward east door. Locked wide re-establishes screen/door relation; settle and hold 12.3–13. |
+
+Small-screen order: door/screen, map handoff, brief impossible map, point and guide reaction, recovered exit. Keep the impossible world inside the paper boundary; a plain insert of an enlarged map drawing is the cut alternative. `state`: guide-held folded map → visitor-held opened map → visitor-held folded map. `claim_id CL-H2-01`, `kind: fiction`, `limitations: imagined property and scale effect`; geography measurement, property offer, testimony, booking CTA, and numerical camera solve: **N/A**.
+
+## Variation V2 — TALUS, 11 seconds
+
+`product_id: TALUS`; `shape: compact box`; `roof marks: two blue bars`; `wheels: four six-spoke`; `badge: blank, artwork pending`; `must-never-change: body box, two bars, four wheels/six spokes, badge position`.
+
+| Shot | Time | Motion and edit state |
+|---|---:|---|
+| SH01 | 0–3 | Grounded roll through damp clay. Body translates against fixed miniature ground; wheel phase, contact patches and moving shadow agree with travel. |
+| SH02 | 3–7 | Explicit miniature animated-world slide with **locked wheels**. Sliding is intentional, so no-slip is N/A here. Camera pans separately from body drift; clay is displaced at contact and sticks to rear tread/lower sill. |
+| SH03 | 7–8.5 | Miniature arch briefly hides rear tread and sill; entry state records clay on both. |
+| SH04 | 8.5–11 | Re-emerge with the same clay pattern, stop beside dry plinth; body and shadow settle, clay remains. Blank badge faces camera. |
+
+`motion-beat`: `initial anchors: damp clay, miniature arch, dry plinth`; `main action: roll → locked-wheel slide → occlusion → stop`; `contact/transfer: ground contact throughout, with deliberate sliding in 3–7`; `secondary motion: clay displacement, shadow/reflection where surfaces permit`; `follow-through: clay retention after arch`. Check wheel count and spokes, hub phase over several frames, ground texture, relative body/camera displacement, contact, shadow, and any reflection. A stationary-looking spoke in one sampled still is inconclusive. Clay cannot disappear behind the arch; a reset would require a visible cleaning or elapsed-time cue, neither is in this brief. A wake is **N/A** because the surface is clay rather than water.
+
+`claim_id CL-V2-01`, `kind: fiction`, `limitations: miniature animation; no safety, traction, or range assertion`. Badge artwork and any product approval are pending. The single untimed caption sentence is `CAPTION_TEXT_AUTO_UNTIMED`; the remaster story is `DECLARED_UPLOADER_CLAIM`. Source audio was not heard; rights are unknown. No source-media or generated-video QA pass is asserted.
+
+## Variation E2 — reference-analysis handoff from supplied log
+
+**Source fields:** `identifier/source: user-supplied inspection log`; `archive_id: N/A—no archive identity supplied`; `file SHA: UNKNOWN`; `analysis mode: log-derived, no personal media inspection`; `coverage evidence: two extraction returns, B02/B03 descriptions, C07 candidate, black-tail note; no continuous playback or audio listening`.
+
+| Source-local locator | `requested_s` | `source_pts_s` | Evidence state and usable finding |
+|---|---:|---:|---|
+| Extraction A | 2.000 | 2.041667 | `USER_REPORTED`; returned frame PTS only, not an action or cut time. |
+| Extraction B | 2.100 | 2.125000 | `USER_REPORTED`; second returned PTS. The PTS gap is 0.083333 s; request gap is 0.100 s. |
+| C07 | N/A | UNKNOWN | `DETECTOR_CANDIDATE`; straddles a fade. Exact cut boundary unresolved. |
+| B02 → B03 | N/A | UNKNOWN | `USER_REPORTED` visual blocks: approaching hand, then cup in guest hand. Contact and transfer interval unviewed. |
+| Black tail | N/A | 9.958333 | `USER_REPORTED` black frame after visible title. Title-hold end is unresolved. |
+
+**Shot DNA / state handoff:** `Shot: UNKNOWN`—do not promote C07 or B02/B03 to `SH###`. `object: cup`; `before: hand approaching cup`; `after: cup in guest hand`; `change trigger/contact: UNKNOWN`; `continuity status: unverified`. `audio cue: UNKNOWN`; captions are `CAPTION_TEXT_AUTO_UNTIMED`, VO unheard. “Wholly generated” is `DECLARED_UPLOADER_CLAIM`; shot mapping and rights are unknown. No reuse approval follows from this log.
+
+**Minimum inspection:** obtain source identity/hash and stream metadata; inspect continuous frames across C07 and the B02–B03 gap to locate fade and cup-contact phases; play through title-to-black tail; listen to the audio and align any spoken words; request shot mapping and rights records. Keep each finding attached to source PTS rather than proposed edit time.
+
+## Retrieved path → populated field
+
+| Current source | Fields used |
+|---|---|
+| [SKILL.md](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/SKILL.md), [workspace integration](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/references/workspace-integration.md), [contract](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/references/contract.md) | Chat-only output, draft status, separate source and final times, no invented approval or media |
+| [Product owner reference](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/references/19-brand-product-integration.md) → [product SSOT template](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/assets/product-ssot-template.md) | `product_id`, shape, material/color, cap, label, `must-never-change` |
+| [State owner reference](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/references/26-state-causality-continuity.md) → [state template](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/assets/state-transition-template.md) | Object, trigger, before/after, retention, occlusion, N/A |
+| [Motion QA owner reference](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/references/21-generated-video-qa-retry.md) → [motion-beat template](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/assets/motion-beat-template.md) | Anchors, action, contact, body/camera motion, secondary motion, follow-through |
+| [Shot template](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/assets/06-shots-template.md), [edit template](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/assets/09-edit-template.md) | Shot IDs, blocking, camera phases, cut cues, final ranges, source N/A, reaction holds |
+| [Evidence template](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/assets/10-evidence-template.md), [reference-analysis owner](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/references/25-reference-video-analysis.md) → [shot DNA template](/C:/Users/Declan/Documents/Projects/contents-production-skills/video-production-assets/assets/shot-dna-template.md) | Claim status/limits; E2 source identity, requested time vs PTS, candidate vs observed state |
+
+**Guidance issue encountered:** several current Korean reference and template fields render with replacement characters in the checked files. Their stable English field names and explicit owner-reference rules were usable; any unreadable label needs confirmation before transfer into a production file.
+hook: Stop
+hook: Stop
+hook: Stop Completed
+hook: Stop Completed
+tokens used
+75,439

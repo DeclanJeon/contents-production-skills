@@ -1,0 +1,29 @@
+{
+  "variant": "post-edit archive-audit template + reference-25 scenario",
+  "raw_outputs": "qa/archive-audit-coverage-refined.json",
+  "baseline_control": "qa/archive-audit-coverage-baseline.json",
+  "baseline_assessment": "qa/archive-audit-coverage-baseline-assessment.json",
+  "method": "Manually read all five fresh stateless outputs. Each is scored against the same archive facts and the new coverage-ledger requirements; no automated source-text assertions or footage are used.",
+  "manual_scores_out_of_5": {
+    "distinct_rows_for_decode_locator_extraction_visual_review_playback_audio": 5,
+    "explicit_mode_counts_and_extracted_vs_reviewed_counts": 5,
+    "timestamp_retention_completeness_and_sampling_limits": 5,
+    "playback_and_audio_limits_no_full_temporal_claim": 5,
+    "refuses_to_invent_missing_per_file_identifiers_or_locators": 5,
+    "populates_exact_filename_and_stable_identity_per_source": "0/5 populated; the model correctly marks unavailable because this stateless prompt gave only an aggregate summary and said a manifest existed, but did not supply its contents. This is a missing test input, not evidence that those source facts are absent from the actual manifest."
+  },
+  "per_output_observations": [
+    "Sample 1: six separate coverage modes; records 44/44 full decode, 6,002 candidates, first-eight PTS retention, 335 extracted and reviewed strips, six frames/1.2 s/5 fps, 0 playback and 0 audio. Does not claim full temporal review; explicitly withholds per-file IDs/names pending manifest contents.",
+    "Sample 2: same six modes and counts; distinguishes locator from cuts, extraction from human review, and no playback/audio. Per-file IDs and ranges remain unavailable without the manifest contents.",
+    "Sample 3: same mode separation/counts/limits; explicitly labels archive-level totals rather than pretending the required per-source ledger can be filled from aggregate input.",
+    "Sample 4: same six modes, counts, timestamp incompleteness and playback/audio zeros; states per-file identity/range data were not supplied.",
+    "Sample 5: same six modes and counts, exact no-playback/no-audio limitations, and no invented IDs; notes exact source manifest data were not supplied in the prompt."
+  ],
+  "baseline_comparison": {
+    "baseline_structured_mode_ledger": "0/5; all five baseline answers put the coverage distinctions in one free-text method/limits field and an aggregate inventory row.",
+    "refined_structured_mode_ledger": "5/5; each answer returns explicit rows for full decode, locator/PTS retention, still/strip extraction, manual visual review, continuous playback, and audio listening.",
+    "baseline_playback_audio_limits": "5/5 already stated no continuous playback and no audio listening in prose; updated guidance preserves that evidence while making the modes explicit.",
+    "baseline_timestamp_and_count_facts": "5/5 already captured the first-eight PTS limit and the 6,002 / 335 counts in prose. The template change addresses the missing repeatable structure and linkage, not a lack of those facts in these prompted outputs."
+  },
+  "limitations": "This five-call text microtest is descriptive, not a reliability guarantee or source-media validation. Exact per-file IDs, filenames, ranges and image paths were not supplied to these model calls, so the correct result was to mark them unavailable rather than fabricate them. Actual archive analysis evidence remains external; no footage or source report copied into QA."
+}

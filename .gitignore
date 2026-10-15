@@ -5,3 +5,8 @@ video-production-assets/support/
 
 .omx/
 delta-parts.json
+.pytest_cache/
+
+# Derived frame/timeline evidence dumped by source-analysis runs (GBs); keep
+# the JSON/report outputs, not the extracted media.
+docs/analysis/*/evidence/

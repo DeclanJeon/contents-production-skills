@@ -179,5 +179,27 @@
         "No topic/synopsis alternatives, redundant interview, style document, project folder, unsupported model fields or media generation."
       ]
     }
+    ,
+    {
+      "id": 26,
+      "prompt": "Run one full creative-production invocation for the supplied brief through synopsis, screenplay, technical storyboard, cross-stage fact/causality/duration/coverage QA and allowed corrections, then deliver the actual image-backed preproduction package with Codex Imagen stills, locked LOOK/master assets, all required scene/panel images and ordered sheets. No video generation/render/publication. Treat the source camera coordinates as PROPOSED until the required spatial/Blender contract verifies them; if Blender is required/unavailable, preserve the proposed values as unverified, finish reachable image/text work, and do not falsely mark FINAL. Use existing approved complete root if one exists; otherwise actual Windows Documents production root with one project.json/.history writer. No SVG/mock/JSON-only substitution.",
+      "expected_output": "One creative-production coordinator drives the complete package; actual image files and manifests are external to the skill checkout; readiness and blockers truthfully reflect evidence.",
+      "expectations": [
+        "Routes image-backed full package to creative-production as sole coordinator; orchestrating-video-preproduction remains only the assigned text worker and coordinator resumes after its handoff.",
+        "Reconciles synopsis, screenplay and full technical board for facts, events/causality, all beat/scene/shot/panel coverage, continuity, dialogue/subtitles/audio and total duration, applies minimal corrections, and reruns affected checks before image generation.",
+        "Uses Codex Imagen for requested stills; checks active LOOK and applicable verified master asset gate before FINAL; generates no video, render, or alternate-provider media.",
+        "Returns actual ordered storyboard sheets (at most 8 panels each), actual per-scene overview and every panel extraction, plus evidence-scoped visual QA/correction results; no SVG/HTML/mockup, template, or JSON-only final substitution.",
+        "Uses external selected project root and a single canonical project.json/.history writer; does not falsely claim approval or spatial/Blender validation; if Blender is required but unavailable, preserves coordinates as unverified and reports blocker while finishing reachable work."
+      ]
+    },
+    {
+      "id": 27,
+      "prompt": "Write only a text-only production storyboard plan for an explicit rough-panel exercise. Do not save files or generate any images, even though creative-production supports full image-backed packages. Keep the existing orchestrating-video-preproduction worker scoped to assigned text-only stages.",
+      "expected_output": "Only the requested narrow text storyboard, with technical coverage appropriate to its explicit rough-panel scope and no media/files/project ledger.",
+      "expectations": [
+        "Does not escalate a single explicitly text-only rough-panel request into the image-backed full package route.",
+        "Does not broaden orchestrating-video-preproduction beyond its text-only assigned stage or create files, project.json, .history, or media."
+      ]
+    }
   ]
 }

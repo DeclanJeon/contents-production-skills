@@ -4,11 +4,12 @@
 
 ## 1. 정확한 프로젝트 폴더 확인
 
-파일 생성과 외부 미디어 요청 전에 사용자에게 정확한 저장 디렉터리를 묻는다. 현재 프로젝트에 이미 정확한 경로를 지정했다면 재질문하지 않는다. 루트만 고르면 주제 기반의 하위 폴더를 제안하고 선택받는다. 이전 프로젝트의 경로를 자동 승계하지 않는다.
+사용자가 선택했거나 현재 활성 프로젝트에서 확인된 **실제 승인·에셋 완결 프로젝트 루트**를 재사용한다. 과거에 쓴 프로젝트 경로를 이유 없이 자동 승계하지 않는다. 이를 확인할 수 없으면 실제 사용자 Documents 아래 `studio_production/<project_id>`를 사용하며, 도구/현재 프로젝트에서 확인할 수 있는 경로를 다시 묻지 않는다. 저장소 validation fixture를 사용할 때는 별도의 외부 프로젝트 루트를 만들고 모든 파일·보고서에 validation smoke이며 승인된 사용자 납품물이 아님을 표시한다.
 
-새 프로젝트 경로에 기존 파일이 있으면 다른 폴더 또는 명시적 재개를 선택받는다. 재개는 기존 `project.json`과 파일을 읽어 ID·버전을 보존한다. 파일을 임의로 덮어쓰거나 삭제하지 않는다. 지정한 경로의 접근/쓰기 권한을 확인하고, 불가능하면 경로 변경을 요청한다.
+파일을 쓰거나 이미지 도구를 호출하기 전에 선택 루트, 정본 `project.json`, 등록 파일/버전, 승인 근거, 쓰기 권한, `.history`의 in-flight operation을 검사한다. 등록 파일 누락은 기존 패키지가 완결 상태가 아님을 뜻하고, pending operation이 있으면 새 작업을 시작하지 말고 상태를 확인해 명시적으로 재개/조정한다. 경로에 기존 파일이 있으면 ID·파일을 보존하고 명시적 재개로 처리하며 덮어쓰거나 삭제하지 않는다. 루트 접근이 불가능하면 정확한 blocker를 말하고 해당 루트에 쓰지 않는 작업만 진행한다.
 
-모든 산출물은 이 루트 안에 저장하고 `asset_registry.path`는 루트 기준 상대 경로로 기록한다. 이미지 도구에도 루트 내부의 명시적인 출력 위치를 전달한다. 소스·검토본·수정본은 버전으로 구분한다.
+모든 산출물은 선택된 실제 외부 루트 안에 저장하고 `asset_registry.path`는 루트 기준 상대 경로로 기록한다. 이미지 도구에 같은 명시적 루트를 전달한다. 소스·검토본·수정본은 덮어쓰지 않고 버전으로 구분한다.
+
 
 | 위치 | 내용 |
 |---|---|
@@ -61,7 +62,7 @@ Before the call, verify runtime/auth and technical readiness using that tool's a
 실제 호출 전에 이미지 수, 출력 위치, 시간/재시도 범위를 정한다. 단일 검토 이미지는 선택 실행자의 실제 출력 방식으로 `<project-root>/images/` 아래 버전이 붙은 경로에 저장하고, 관련 프롬프트/설정을 `prompts/`에 남긴다. 선택 실행자의 최신 timeout·reference·다중 이미지 규칙을 따른다. 참조 이미지는 명시적으로 연결한다. 기존 파일 경로를 재사용하지 않는다.
 
 창작 방향을 아직 수락/위임받지 않았으면 대표 **정지 이미지**로 확인한다. 위임받은 경우 요청한 세트를 생성한다. 반환된 실제 파일을 열어 의도·인물/소품·구도·연속성을 검사하고 원장에 ID·사용 샷·버전·해시·상대 경로를 기록한다. 부분 생성/미완료는 실제 받은 파일만 등록한다. 제공되지 않은 seed·가격·생성 결과를 만들지 않는다.
-For a character-backed package, the character designer first returns the synopsis-based persona, visual locks, Identity Prefix, and Sheet A prompt. Then the image executor creates and inspects one actual seven-view Identity Sheet A per character, checks all views against the anchors, and passes real source IDs/versions/hashes to panel generation. A scene portrait or prompt cannot substitute. Sheet B/C/D prompts do not authorize additional outputs; generate them only when separately requested.
+For a character-backed package, the character designer first returns the synopsis-based persona, visual locks, Identity Prefix, and Sheet A prompt. Before any dependent master or panel still, close the applicable storyboard-contract spatial/contact gate for required contact poses; without feasible-pose evidence, mark the relevant claim UNVERIFIED and hold dependent image generation. For each master call, make the authoritative SSOT content being consumed part of the actual submitted prompt and preserve that submitted prompt plus actual input-reference hashes in the existing per-call `.history` record; file existence, trait agreement, or a filename/ID/hash mention alone does not prove consumption. Inspect each actual seven-view Identity Sheet A against its SSOT and continuity anchors before panel generation, then pass its real source IDs/versions/hashes downstream. A scene portrait or prompt cannot substitute. Sheet B/C/D prompts do not authorize additional outputs; generate them only when separately requested.
 
 Review stills do not require video-generation approval. Video samples, moving animatics, test renders, and edited video exports remain outside still-image review and require the separate video-execution gate.
 

@@ -1,0 +1,51 @@
+[
+  {
+    "argv": [
+      "python",
+      "scripts/check_versions.py"
+    ],
+    "exit_code": 0,
+    "elapsed_s": 0.16,
+    "stdout": "version check OK: package 2.5, 23 skill(s) consistent\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "python",
+      "-X",
+      "utf8",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "exit_code": 0,
+    "elapsed_s": 29.03,
+    "stdout": ".........s........................................... [ 20%]\n............................................................ [ 43%]\n...................................................... [ 64%]\n.................................................................... [ 90%]\n........................                             [100%]\n258 passed, 1 skipped, 217 subtests passed in 27.45s\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "python",
+      "-X",
+      "utf8",
+      "-c",
+      "import json, pathlib; paths=[pathlib.Path('manifest.json'),*sorted(pathlib.Path('qa').glob('*.json'))]; [json.loads(p.read_text(encoding='utf-8')) for p in paths]; print(f'json ok: {len(paths)} file(s)')"
+    ],
+    "exit_code": 0,
+    "elapsed_s": 0.12,
+    "stdout": "json ok: 50 file(s)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "python",
+      "scripts/sync_installed.py",
+      "--dry-run",
+      "--quiet"
+    ],
+    "exit_code": 0,
+    "elapsed_s": 0.2,
+    "stdout": "dry run: created=0 repointed=0 skipped=69 backed_up=0 (nothing written)\nsummary: created=0 repointed=0 skipped=69 backed_up=0\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "variant": "pre-edit current-template baseline",
+  "raw_outputs": "qa/archive-audit-coverage-baseline.json",
+  "method": "Manually read all five independent stateless outputs generated against the existing archive-audit template and reference-25 context before source edits.",
+  "scenario_facts": {
+    "archive_files": 44,
+    "source_duration_seconds": 33419.9,
+    "automated_full_decode_files": 44,
+    "scene_candidate_frames": 6002,
+    "retained_locator_pts_per_source": "first 8 only",
+    "manually_reviewed_intervals": 335,
+    "interval_duration_seconds": 1.2,
+    "sample_rate_fps": 5,
+    "frames_per_interval": 6,
+    "full_continuous_playback_files": 0,
+    "audio_listened_files": 0
+  },
+  "manual_assessment": {
+    "explicit_decode_locator_timestamp_limit_in_prose": "5/5 outputs state full decode, the 6,002 locator candidates, only first-eight PTS retained, and no full timestamp list/stderr.",
+    "extracted_vs_actually_reviewed_counts_in_prose": "5/5 outputs report 335 extracted strips and 335 visually reviewed strips; this is prose in the single analysis-method field, not distinct per-mode slots.",
+    "playback_and_audio_limit_in_prose": "5/5 outputs explicitly say there was no continuous full-video playback and no audio listening.",
+    "structured_per_source_per_mode_coverage_ledger": "0/5. All outputs compress decode, locator, still extraction, visual review, playback, and audio into one free-text analysis-method bullet and one aggregate inventory row; no separate mode/status/count/range/timestamp-completeness slots exist in the current template.",
+    "stable_source_identity_exact_filename_and_evidence_locator_per_record": "0/5. All use the positional aggregate `AV01–AV44` row and point generically to `manual_review.json`; none returns a stable source ID, exact filename, per-source range, and exact evidence locator together for each mode.",
+    "full_motion_claim": "No output explicitly asserts full motion analysis; all mention the playback/sampling limitation. The broad template field ‘analysis complete’ still leaves ambiguity about which mode is complete and can be misread as overall review completion."
+  },
+  "gap_observed": "The template does not structurally distinguish full-file automated decode, scene-locator candidate/PTS retention, extracted images, human visual review of extracted samples, continuous source playback, and audio listening. The content happened to mention several distinctions in prose, but counts, exact source ranges, timestamp-list completeness, extracted-versus-reviewed counts, stable source identities and evidence locators are not required by the form.",
+  "limits": "Text planning output only. No source footage copied into repository QA. This tests evidence-coverage recording only, not camera/gait craft, source naturalness, complete shot decomposition, or archive-source interpretation."
+}

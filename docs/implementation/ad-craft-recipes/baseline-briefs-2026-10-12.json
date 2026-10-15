@@ -1,0 +1,17 @@
+{
+  "purpose": "Fresh-context current-contract application; authored before implementation. Do not read archived qa-reader-exercises or approved DESIGN when applying.",
+  "scenarios": [
+    {
+      "id": "F1",
+      "brief": "Text-only 12-second concept/action/edit/state handoff for fictional fragrance STILLWATER. Newly designed oval sea-green glass bottle, brushed silver offset cap and small ivory label; exact artwork not yet supplied. Original copy: Leave the hurry at the door. An adult places the bottle on a mirrored tray, removes its cap, and touches one spray to the wrist; abstract green light calms without claiming physiological benefit. Return to readable bottle close. Explain relative action/copy windows, hand ownership/contact and residue, reflective label treatment, product invariants, rights/claim gates. No mandatory shopping CTA; no asset generation. No source video/audio supplied."
+    },
+    {
+      "id": "H1",
+      "brief": "Text-only 16-second fictional hospitality concept for Lantern Quay, an imagined inn, not a real location or bookable offer. Guest enters vestibule from south, turns east at a brass lantern, crosses curtain into tea room; host gives guest a warm cup, guest notices sheltered garden through north window, then returns toward vestibule. The camera alternates guest POV and host reaction. A window wipe may briefly disclose a deliberately impossible miniature garden; recover guest POV and orientation afterward. Provide master path/threshold/landmark relations, goal/partner/reaction/eyeline and shot/action phases, alternatives to portal, evidence limitations and existing artifact handoffs. Do not assert floorplan accuracy, service quality, real address, booking CTA or satisfied-customer testimony. No numeric camera solve, images or video requested."
+    },
+    {
+      "id": "V1",
+      "brief": "Text-only 14-second fictional vehicle ad for invented four-wheel electric coupe ORBIT with approved verbal identity only: wedge body, single amber side stripe, circular lamps, four five-spoke wheels. Begin with physically coherent ordinary rolling across shallow wet slate at constant speed, then deliberately fantasy levitation over luminous water and a return to wet slate stop. Director flags a still where spokes look backward and asks whether that alone fails QA. Specify when no-slip applies and does not, camera-versus-body movement, multi-frame wheel/contact/shadow/reflection checks, water wake/sand-or-water residue persistence and reset, invariant logo/vehicle reveal and evidence/rights/claim gates. No range, safety, speed or handling claims, no real driving instructions, no asset generation. A reference uploader mentions a model and has untimed auto captions but no audio has been heard or rights documents supplied."
+    }
+  ]
+}

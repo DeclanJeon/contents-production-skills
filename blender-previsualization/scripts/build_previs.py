@@ -157,6 +157,7 @@ def main():
             me=bpy.data.meshes.new(name);me.from_pydata(vertices,[],faces);ob=bpy.data.objects.new(name,me);scene.collection.objects.link(ob)
             ob.location=(pos[0],pos[1],pos[2]+size[2]/2);ob.data.materials.append(material(name,color));return ob
         def orient(ob,target,roll=0):
+            ob.rotation_mode='QUATERNION'
             q=(Vector(target)-ob.location).to_track_quat('-Z','Y')
             q.rotate(Quaternion(Vector((0,0,1)),math.radians(roll)))
             if ob.rotation_quaternion.dot(q)<0:q.negate()

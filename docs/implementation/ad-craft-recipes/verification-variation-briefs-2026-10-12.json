@@ -1,0 +1,21 @@
+{
+  "purpose": "Independent post-update application variations. Only briefs may be supplied to the fresh-context consumer; do not supply evaluator criteria, design, archived exercises or baseline answers.",
+  "scenarios": [
+    {
+      "id": "F2",
+      "brief": "Text-only 10-second fragrance concept and edit/state handoff for imaginary NIGHTFOLD: dark rectangular violet bottle, rounded black cap, blank pale square label pending owner artwork. Original approved creative line: Make room for night. Adult moves a folded scarf aside, places bottle on polished black stone, presses one spray toward scarf edge, then scarf briefly hides the label and sprayed corner before both reappear. End on stationary bottle and scarf without recapping or washing. Choose concrete copy/action timing, hand ownership, contact/result/retention conditions, highlights/reflection/readability, and alternative edit if elaborate effect obscures product. Brand-awareness film, no purchasing destination required, no physiological or fabric-care claim. No media or artwork supplied; no generation."
+    },
+    {
+      "id": "H2",
+      "brief": "Text-only 13-second concept/shot/edit handoff for imaginary Paperlight lodge. Visitor travels from east door west to a stone screen, turns south into lounge; guide offers folded map, visitor points to a west-wall skylight, guide follows visitor's glance, and visitor exits north past screen toward east door. Brief permits one impossible scale reveal inside the folded map but should return to ordinary visitor POV and fixed landmarks. Explain meaningful path use, playable actor intentions and stimulus/reaction, point-of-view changes and contact ownership, small-screen disclosure hierarchy and cut alternatives. Not a real property, offer, testimony or measurable geography. No numerical geometry solve/images/video requested."
+    },
+    {
+      "id": "V2",
+      "brief": "Text-only 11-second plan for imaginary TALUS vehicle: compact box body, two blue roof bars, four six-spoke wheels and blank badge pending artwork. Three seconds of grounded rolling through damp clay, four seconds of intentionally sliding with locked wheels in a clearly miniature animated world, then stop beside dry plinth. Clay sticks to rear tire tread and lower sill, briefly hidden behind a miniature arch before reappearance. A sampled still makes a spoke appear stationary. State conditional physical constraints, relative body/camera/ground movement, contact/shadow/reflection/wheel/number continuity, clay/wake persistence and reset, exact package/artwork gates. No safety/traction/range assertions, real-road driving directions or generation. Reference inputs are only one auto-caption sentence without timing and an uploader's claimed remaster process; source audio has not been heard and rights are unknown."
+    },
+    {
+      "id": "E2",
+      "brief": "Produce a compact read-only reference-analysis handoff from this user-supplied inspection log, not a video you personally inspected: original file archive SHA not supplied; requested extraction at 2.000s returned source PTS 2.041667s, requested 2.100s returned source PTS 2.125000s; detector candidate C07 straddles a fade, but exact cut boundary is unresolved; visual blocks B02 and B03 show hand approaching cup then cup in guest hand, without contact interval viewed; black tail after visible title is recorded at PTS 9.958333s; auto captions are untimed and VO unheard; uploader claims wholly generated but gives no shot mapping or rights record. Distinguish the identities, units and evidence states you can actually hand off and give a minimal inspection plan. Do not turn candidates into verified shots, assert cup transfer was observed, claim tail title holds, fabricate SHA or audio, or approve reuse. No media operations requested."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "scope": "Documentation/guidance update and three stateless application probes; no media generation or archive scan by this workstream.",
+  "checks": [
+    {
+      "name": "focused version and added relative Markdown target check",
+      "command": "python scripts/check_versions.py && test -f video-production-assets/references/../../camera-spatial-design/references/motion-timing-lens.md && echo 'Added relative Markdown link target exists'",
+      "exit_code": 0,
+      "output": "version check OK: package 2.5, 23 skill(s) consistent\nAdded relative Markdown link target exists"
+    },
+    {
+      "name": "full repository test suite",
+      "command": "python -X utf8 -m pytest -q",
+      "exit_code": 0,
+      "output": ".........s........................................... [ 20%]\n............................................................ [ 43%]\n...................................................... [ 64%]\n.................................................................... [ 90%]\n........................                             [100%]\n258 passed, 1 skipped, 2 warnings, 217 subtests passed in 186.53s (0:03:06)",
+      "skipped_test": {
+        "id": "blender-previsualization/scripts/test_camera_orientation_in_blender.py::CameraOrientationTests::test_camera_points_at_subjects_in_rendered_scene",
+        "reason": "set BLENDER_EXECUTABLE or put blender on PATH",
+        "evidence": "test class skipUnless(BLENDER); BLENDER_EXECUTABLE was unset and shutil.which('blender') returned None; confirmed separately by the targeted -rs run."
+      },
+      "warnings": [
+        {
+          "identity": "scripts/test_sync_installed.py::test_stale_link_is_repointed",
+          "warning_type": "PytestUnhandledThreadExceptionWarning",
+          "detail": "Thread-13 (_readerthread) raised UnicodeDecodeError decoding UTF-8; byte 0xbf at position 215."
+        },
+        {
+          "identity": "scripts/test_sync_installed.py::test_remove_link_never_deletes_target_content",
+          "warning_type": "PytestUnhandledThreadExceptionWarning",
+          "detail": "Thread-17 (_readerthread) raised UnicodeDecodeError decoding UTF-8; byte 0xbf at position 224."
+        }
+      ]
+    },
+    {
+      "name": "targeted skip-reason confirmation",
+      "command": "python -X utf8 -m pytest -q -rs blender-previsualization/scripts/test_camera_orientation_in_blender.py",
+      "exit_code": 0,
+      "output": "s                                                                        [100%]\n=========================== short test summary info ===========================\nSKIPPED [1] blender-previsualization\\scripts\\test_camera_orientation_in_blender.py:14: set BLENDER_EXECUTABLE or put blender on PATH\n1 skipped in 0.37s"
+    }
+  ],
+  "text_application_evidence": {
+    "raw": "qa/30s-romantic-fantasy-final-application.json",
+    "assessment": "qa/30s-romantic-fantasy-final-assessment.md",
+    "classification": "Accepted text-smoke application evidence only; not media naturalness, actual gait, camera-control support, or rendered continuity proof."
+  },
+  "runtime_probe": {
+    "command": "where.exe ffmpeg && where.exe ffprobe && python --version",
+    "output": "C:\\Users\\Declan\\AppData\\Local\\Flucto\\cli\\bin\\ffmpeg.exe\nC:\\Users\\Declan\\AppData\\Local\\Microsoft\\WinGet\\Links\\ffmpeg.exe\nC:\\Users\\Declan\\AppData\\Local\\Microsoft\\WinGet\\Links\\ffprobe.exe\nPython 3.12.10"
+  }
+}

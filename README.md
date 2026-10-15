@@ -10,10 +10,10 @@
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|
-| [creative-production](creative-production/SKILL.md) | 원고·소셜·캠페인·이미지·오디오·영상 요청 분류와 담당·검토·납품; 명시적 영화/단편 전체 제작은 라이프사이클 경로로 연결 | 단일 총괄. UI 개발이나 별도 전역 DB를 소유하지 않는다. |
+| [creative-production](creative-production/SKILL.md) | 단일 총괄: 원고·소셜·캠페인·이미지·오디오·영상 요청 라우팅, QA/납품; 이미지 기반 전체 프리프로덕션은 text worker handoff 뒤 실제 still/sheet/extraction까지 조정 | 요청 범위·단일 project.json/.history writer·사전검토/사용자수락/영상실행 승인을 분리한다. |
 | [topic-demand-selection](topic-demand-selection/SKILL.md) | 주제 선택·순위·인기/검색 수요 검증 | 주제 후보를 고르기 전에 audience-demand 근거와 사실/자료 게이트를 별도로 평가한다. |
 | [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품; 영화 제작 6단계 참조; 대사·립싱크(22)의 TTS 전 다국어 대사 현지화·각색과 기존 보이스·립싱크 | 15개 선택형 모듈과 통합 전문 참조. 영화 경로는 명시적 전체/단계 간 요청에만 적용하고, 실제 렌더·권리 승인·게시와 구분한다. |
-| [orchestrating-video-preproduction](orchestrating-video-preproduction/SKILL.md) | 콘셉트→시놉시스→필요한 캐릭터→스토리보드의 텍스트 기획 | 총괄의 내부 레인. 텍스트만 요청하면 이미지·영상·폴더를 만들지 않는다. |
+| [orchestrating-video-preproduction](orchestrating-video-preproduction/SKILL.md) | 콘셉트→시놉시스→필요한 캐릭터→스토리보드의 텍스트 기획 | 총괄의 내부 text-only worker. 배정된 텍스트만 반환하며 이미지·영상·폴더·원장을 만들지 않는다; 총괄은 handoff 뒤 이미지 기반 전체 package를 계속할 수 있다. |
 | [developing-video-synopses](developing-video-synopses/SKILL.md) | 콘셉트·로그라인·시놉시스·비트 | 사실·서사·추상 모드에 맞춰 작성한다. |
 | [designing-video-character-sheets](designing-video-character-sheets/SKILL.md) | 캐릭터 정체성·행동·시각 앵커·연속성·범용 이미지 프롬프트와 페르소나·음성 설계 통합 | 텍스트 SSOT. 페르소나 전문 스킬을 필수 소비하며 실제 음성 생성은 하지 않는다. |
 | [designing-character-personas](designing-character-personas/SKILL.md) | 동기·조건부 행동·MBTI/에니어그램 창작 렌즈와 시각 연기·Voice Identity/Speech Style/Performance 설계 | 단독 텍스트 패킷 또는 기존 캐릭터 SSOT에 통합. 실존 인물 유형 추정·검사·음성 생성은 제외한다. |
@@ -23,7 +23,7 @@
 | [blender-previsualization](blender-previsualization/SKILL.md) | 카메라·피사체 움직임, 구도·공간 배치의 실제 Blender 프록시·프리비즈·기하 검사 | 장면별 3D 카메라/공간 설계의 필수 구현·시각 검수 경로. Blender 런타임 필요; 최종 영상 품질을 보증하지 않는다. |
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
-설치 목록의 원본은 [manifest.json](manifest.json)이다. 전문 참조는 추가 설치 스킬이 아니다.
+The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills.
 
 Rofan 관찰 색인에는 저장된 관찰 ID 57개와 보조 cue 4개가 선택적 provenance/evidence로만 들어 있다. 저장 관찰이나 provenance를 사용자가 명시적으로 요청한 경우에만 참고하며, 일반 brief나 cue 일치가 조회를 유발하지 않는다. 이 색인은 제작 레시피·정책·QA 계약이 아니며 기존 범용 craft 절차가 정본이다. 자세한 내용은 [설계](docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md)와 [테스트 계획](docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md)을 참조한다. 과거 T18 casebank microtest는 10/15 full pass, 5 partial, guard failure 0으로 all-pass가 아니었다([등급](qa/rofan-craft-t18-microtest-grade.json)). 실제 미디어 검사·생성 QA·자연스러움·분산 검증은 수행되지 않았다.
 Exhaustive all-source/all-shot 또는 cross-source craft extraction에는 [archive craft crosswalk](video-production-assets/assets/archive-craft-crosswalk-template.md)이 조건부 필수다; 일반·단일 레퍼런스는 가볍게 유지한다.
@@ -42,9 +42,11 @@ Exhaustive all-source/all-shot 또는 cross-source craft extraction에는 [archi
 2. 목적과 형식에 맞는 레인만 로드한다. 원고 한 편이나 프롬프트 하나를 전체 제작으로 확대하지 않는다.
 3. 실제 원고·기획·모듈 에셋을 작성한다. 사실, 계산, 해석, 창작 제안, 미확인을 구분한다.
 4. 다단계 영상만 기존 `project.json`을 정본으로 사용한다. 시리즈 바이블·SSOT·공급자 입력은 버전이 있는 종속 에셋으로 연결한다.
-5. 실제 파일 제작은 사용자 Documents/studio_production/<project_id> 또는 사용자가 지정한 project root에 저장하고 `recording-production-history`를 호출한다. 이미지 기반 전체 프리프로덕션은 [검토 계약](video-production-assets/references/preproduction-review.md)에 따라 LOOK 바이블·자산 잠금 → 기술 보드 → 최대 8패널 시트 → 씬/패널별 이미지 분할 → 검사·사용자 검토를 갖춘다.
+5. 실제 파일 제작은 사용자 Documents/studio_production/<project_id> 또는 사용자가 지정한 project root에 저장하고 `recording-production-history`를 호출한다. 이미지 기반 전체 프리프로덕션은 [검토 계약](video-production-assets/references/preproduction-review.md)에 따라 실제 SSOT prompt-consumption 증거와 적용 가능한 contact/spatial feasibility gate를 먼저 닫고, 생성된 master를 검사한 뒤 의존 패널을 만든다; LOOK 바이블·기술 보드·최대 8패널 시트·씬/패널별 이미지 분할·검사·사용자 검토도 포함한다.
 6. 별도 영상 진행 요청 뒤 현재 도구·모델·입력 스키마·가격을 확인한다. 샷/산출물 수, 설정, 실행·재시도·비용 상한을 승인받은 뒤에만 실행한다. 무료/로컬 샘플도 실행 승인 범위에 포함한다.
 7. 실제 결과를 검사하고 요청한 형식으로 납품한다. 계획, 파일 생성, 기술/시청각 검사, 사용자 수락, 게시 상태를 따로 보고한다.
+
+The route documents intended behavior, not its execution proof; see the [design record](docs/superpowers/specs/2026-10-14-creative-production-end-to-end-preproduction-design.md#source-instruction-verification-scope) for the scoped source-suite result and outstanding host-behavior verification.
 
 단독 전문 스킬은 총괄의 범위 계약을 한 번 확인한다. 이미 위임받은 전문 스킬은 총괄로 재귀 호출하거나 인터뷰·승인 원장을 다시 만들지 않는다. 수정 시 영향을 받는 종속 에셋과 승인만 stale로 처리한다.
 
@@ -138,6 +140,8 @@ python -X utf8 -m pytest -q
 커밋 직전 전체 실행 결과는 **258 passed, 217 subtests passed**다. Windows subprocess 출력 디코딩 경고 2건이 남았으며 테스트를 건너뛰거나 오류를 억제하지 않았다. 버전 검사는 package `2.5`와 23개 스킬의 일치를 확인했다. 격리 설치본에서도 이미지 기반 FINAL 패키지 성공, 손상 입력 거부와 history lifecycle을 실행했다. [최종 검증 원본](docs/evidence/production-v51-final-verification.json)과 [설치본·독립 검증 기록](docs/evidence/production-v51-qa-remediation.md)을 참조한다.
 
 전체 이미지 기반 프리프로덕션은 출처/시놉 MD → active LOOK 바이블 → 관련 잠금 Master/Scene State → 연결된 기술 콘티 → 읽을 수 있는 실제 시트들(시트당 최대 8패널) → 씬/패널 이미지 분할이 필수다. [정본 계약](video-production-assets/references/contract.md#전체-프리프로덕션-패키지)과 [Character SSOT 0–33](designing-video-character-sheets/references/character-ssot-master-prompt.md)를 따른다. FINAL 자산 게이트와 실제 검수는 별개다. 텍스트-only 요청에 이미지 생성·지출을 추가하지 않는다.
+
+포즈 검증의 부모-local 불변량은 기존 [creative QA](creative-production/references/creative-qa.md#blender3d-and-web)가 소유한다. [이번 source 검증·실제 continuation 상태](docs/superpowers/specs/2026-10-14-creative-production-end-to-end-preproduction-design.md#observed-post-freeze-verification--2026-10-14)는 post-freeze suite와 합성 행동 probe 결과를 실제 이미지 기반 제작 완료와 구분해 기록한다.
 
 ```powershell
 python video-production-assets/scripts/render_storyboard_sheet.py project.json --base-dir production-root --output 04_STORYBOARDS/storyboard-sheet.png --panels-per-sheet 4

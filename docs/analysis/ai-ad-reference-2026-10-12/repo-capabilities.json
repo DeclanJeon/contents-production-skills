@@ -1,0 +1,2640 @@
+{
+  "schema": "design-evidence.repo-capabilities.v1",
+  "date": "2026-10-12",
+  "repository_root": "C:/Users/Declan/Documents/Projects/contents-production-skills",
+  "manifest_version": "2.5",
+  "bundled_skills": [
+    "creative-production",
+    "topic-demand-selection",
+    "video-production-assets",
+    "camera-spatial-design",
+    "camera-motion-reference-analysis",
+    "ai-camera-control",
+    "blender-previsualization",
+    "orchestrating-video-preproduction",
+    "developing-video-synopses",
+    "designing-video-character-sheets",
+    "designing-character-personas",
+    "storyboarding-video",
+    "storytelling-with-still-images",
+    "recording-production-history",
+    "higgsfield-brandkit",
+    "higgsfield-generate",
+    "higgsfield-marketplace-cards",
+    "higgsfield-product-photoshoot",
+    "higgsfield-soul-id",
+    "higgsfield-video-explainer",
+    "higgsfield-video-replicate",
+    "higgsfield-websites",
+    "higgsfield-youtube-thumbnail"
+  ],
+  "scope_note": "파일 인벤토리 전수; capability 근거는 실제 읽은 핵심 clauses와 scoped search. 설치 copies/선택 외부스킬은 baseline 제외.",
+  "counts": {
+    "PRESENT": 19,
+    "PARTIAL": 5,
+    "NOT_FOUND": 1
+  },
+  "capabilities": [
+    {
+      "id": "C01",
+      "domain": "감독·스토리·광고 약속",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/06-shots.md",
+          "start_line": 10,
+          "end_line": 19
+        },
+        {
+          "path": "video-production-assets/references/13-ideation-brand.md",
+          "start_line": 4,
+          "end_line": 11
+        }
+      ],
+      "observation": "관점·정보 공개·힘 관계·제품증거와 관객 문제·한 문장 약속을 연결한다.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C02",
+      "domain": "소비자 설득·브랜드",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/13-ideation-brand.md",
+          "start_line": 8,
+          "end_line": 11
+        },
+        {
+          "path": "creative-production/references/marketing-source-adaptation.md",
+          "start_line": 7,
+          "end_line": 15
+        },
+        {
+          "path": "video-production-assets/references/19-brand-product-integration.md",
+          "start_line": 9,
+          "end_line": 22
+        }
+      ],
+      "observation": "품질 시연·조건·한계·고지·CTA 다음 경험·강압 금지 포함.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C03",
+      "domain": "페르소나·음성 정체성",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "designing-character-personas/SKILL.md",
+          "start_line": 36,
+          "end_line": 58
+        }
+      ],
+      "observation": "행동·선택·비용과 voice identity/speech/per-line performance를 분리한다.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C04",
+      "domain": "배우 연기·듣기",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/04-performance.md",
+          "start_line": 9,
+          "end_line": 16
+        }
+      ],
+      "observation": "행동동사·자극 반응·전술 전환·생각→목표→행동→결과.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C05",
+      "domain": "블로킹·시선·접촉",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/06-shots.md",
+          "start_line": 11,
+          "end_line": 19
+        },
+        {
+          "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+          "start_line": 7,
+          "end_line": 28
+        }
+      ],
+      "observation": "축·소유·행동정점·지지/중력/주접촉 우선.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C06",
+      "domain": "촬영·렌즈·카메라 타이밍",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "camera-spatial-design/references/motion-timing-lens.md",
+          "start_line": 4,
+          "end_line": 18
+        }
+      ],
+      "observation": "공통 시간 기준·병진/회전/줌/초점 구분·렌즈와 거리·미지원 경계.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C07",
+      "domain": "광학 역추정 불확실성",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/25-reference-video-analysis.md",
+          "start_line": 34,
+          "end_line": 44
+        }
+      ],
+      "observation": "정규화 기준점·여러 후보 해·크롭 제약·반증 증거까지 있음.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C08",
+      "domain": "조명·빛 크기·연속성",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/07-lighting.md",
+          "start_line": 9,
+          "end_line": 17
+        }
+      ],
+      "observation": "동기·키필 분리·상대 크기/거리·그림자 경도·역방향 연속성.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C09",
+      "domain": "색·시각 구조",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/05-visual.md",
+          "start_line": 9,
+          "end_line": 17
+        },
+        {
+          "path": "video-production-assets/references/23-finishing-platform.md",
+          "start_line": 11,
+          "end_line": 23
+        }
+      ],
+      "observation": "7시각요소·대비/유사성·비보편적 색 의미·샷 매칭과 제품 보호.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C10",
+      "domain": "제품·재질·팩샷",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/19-brand-product-integration.md",
+          "start_line": 39,
+          "end_line": 55
+        }
+      ],
+      "observation": "SSOT·유광/반투명/크림액체/금속/피부 조명·히어로/매크로/팩샷·합성 공간통합.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C11",
+      "domain": "반사 형상 정밀 레시피",
+      "status": "PARTIAL",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/19-brand-product-integration.md",
+          "start_line": 46,
+          "end_line": 52
+        },
+        {
+          "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+          "start_line": 35,
+          "end_line": 46
+        }
+      ],
+      "observation": "반사환경·길게 통제된 하이라이트·환경 반사 검수는 있음.",
+      "operational_gap_candidate": "반사 카드/광원 형상→표면 하이라이트 궤적→카메라각 변화별 보존을 연결한 광고별 레시피는 현재 읽은 일반 조항보다 상세하다.",
+      "extension_condition": "관련 광고의 실제 프레임/움직임에서 이 문제가 확인될 때 19/07/21 심화; 새 조명 스킬 불필요.",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C12",
+      "domain": "식품·액체 누적 상태",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/26-state-causality-continuity.md",
+          "start_line": 11,
+          "end_line": 19
+        },
+        {
+          "path": "video-production-assets/references/26-state-causality-continuity.md",
+          "start_line": 39,
+          "end_line": 43
+        },
+        {
+          "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+          "start_line": 7,
+          "end_line": 20
+        }
+      ],
+      "observation": "익음·변색·붓기·접촉·잔류결과·유체 합성 포함.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C13",
+      "domain": "식품 미감·상태별 시연 레시피",
+      "status": "PARTIAL",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/19-brand-product-integration.md",
+          "start_line": 43,
+          "end_line": 54
+        },
+        {
+          "path": "video-production-assets/references/26-state-causality-continuity.md",
+          "start_line": 26,
+          "end_line": 32
+        }
+      ],
+      "observation": "재질/상태/후속유지 일반계약은 충분히 있다.",
+      "operational_gap_candidate": "먹을 수 있는 단면·표면·김/응결·중량/점성/충격의 광고별 공개 시퀀스와 반례를 묶은 재사용 사례는 별도 후보.",
+      "extension_condition": "실제 식품 영상 증거가 있을 때 19/26/21의 사례 확장; 물리값 역추정 금지.",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C14",
+      "domain": "차량 광고 전용 운행 안전·바퀴 위상 레시피",
+      "status": "NOT_FOUND",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+          "start_line": 7,
+          "end_line": 28
+        },
+        {
+          "path": "camera-spatial-design/references/motion-timing-lens.md",
+          "start_line": 7,
+          "end_line": 15
+        },
+        {
+          "path": "video-production-assets/references/20-visual-mode-ssot.md",
+          "start_line": 112,
+          "end_line": 121
+        }
+      ],
+      "observation": "일반 관성·접촉·추적카메라 계약은 있음. 차량 전용 노면/바퀴회전/차체반사/운행안전 인계 조항은 scoped text 검색에서 발견하지 못함. 20에는 군중 공간의 차량 안전 논리·관통·규모단서도 이미 있다; 본 판정은 차량 광고 전용 바퀴/노면 위상 계약에 한정.",
+      "operational_gap_candidate": "차량 전용 조항의 부재이지 차량 영상을 만들 기능 전체의 부재 아님.",
+      "extension_condition": "차량 장면이 실제 포함되고 일반 모션/제품 계약으로 설명 못하는 실패가 확인되면 심화; 독립 전문 스킬은 별도 소유 계약이 필요할 때만.",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C15",
+      "domain": "건축·장소 지리",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "camera-spatial-design/SKILL.md",
+          "start_line": 32,
+          "end_line": 37
+        },
+        {
+          "path": "video-production-assets/references/contract.md",
+          "start_line": 111,
+          "end_line": 118
+        }
+      ],
+      "observation": "4공간뷰·출입/창/장애물/광원 앵커·마스터/파생 계보.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C16",
+      "domain": "건축 공개 시퀀스·공간 전환 레시피",
+      "status": "PARTIAL",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/06-shots.md",
+          "start_line": 11,
+          "end_line": 19
+        },
+        {
+          "path": "video-production-assets/references/25-reference-video-analysis.md",
+          "start_line": 38,
+          "end_line": 44
+        }
+      ],
+      "observation": "관점·주목점·깊이·동일 특징 대응은 있음.",
+      "operational_gap_candidate": "외관→문턱→실내→시설의 공간지리 읽힘과 비가능 공간 점프 반례를 묶은 장르별 레시피는 조건부 후보.",
+      "extension_condition": "관련 건축 영상의 실제 공개 순서가 증명될 때 06/25 또는 camera-design 사례를 확장.",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C17",
+      "domain": "세계·에셋 연속성",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/contract.md",
+          "start_line": 111,
+          "end_line": 130
+        },
+        {
+          "path": "video-production-assets/references/26-state-causality-continuity.md",
+          "start_line": 18,
+          "end_line": 33
+        }
+      ],
+      "observation": "활성 LOOK 하나·정확 버전핀·후속 재등장/리셋/가림 구분.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C18",
+      "domain": "편집·전환·시간 압축",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/09-edit.md",
+          "start_line": 9,
+          "end_line": 17
+        },
+        {
+          "path": "video-production-assets/references/09-edit.md",
+          "start_line": 28,
+          "end_line": 42
+        }
+      ],
+      "observation": "J/L컷·감정/신체/사건 리듬·배속/인터벌/몽타주/생략 구분.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C19",
+      "domain": "매치컷 지각 대응 레시피",
+      "status": "PARTIAL",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/09-edit.md",
+          "start_line": 10,
+          "end_line": 17
+        },
+        {
+          "path": "video-production-assets/references/25-reference-video-analysis.md",
+          "start_line": 18,
+          "end_line": 22
+        }
+      ],
+      "observation": "시선유도·action phase 컷 경계·전환 길이 기록은 있음.",
+      "operational_gap_candidate": "형상/색/화면위치/벡터/재질/소리 가운데 무엇을 맞추고 무엇을 의도적으로 바꾸는지 분리한 레시피 카드 후보.",
+      "extension_condition": "실제 경계 양쪽 프레임·재생 증거 있을 때 09/25 심화. 키워드 부재만으로 매치컷 기능 부재 판정 금지.",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C20",
+      "domain": "음악·VO·Foley·싱크·권리",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/09-edit.md",
+          "start_line": 45,
+          "end_line": 83
+        },
+        {
+          "path": "video-production-assets/references/09-edit.md",
+          "start_line": 111,
+          "end_line": 124
+        }
+      ],
+      "observation": "큐 레이어·소스/최종구간·gain/fade·sync offset·청취·권리 근거·침묵 포함.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C21",
+      "domain": "타이포·엔드카드·CTA",
+      "status": "PARTIAL",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/23-finishing-platform.md",
+          "start_line": 19,
+          "end_line": 20
+        },
+        {
+          "path": "creative-production/references/marketing-source-adaptation.md",
+          "start_line": 34,
+          "end_line": 58
+        },
+        {
+          "path": "video-production-assets/references/19-brand-product-integration.md",
+          "start_line": 9,
+          "end_line": 9
+        },
+        {
+          "path": "video-production-assets/references/19-brand-product-integration.md",
+          "start_line": 45,
+          "end_line": 52
+        }
+      ],
+      "observation": "철자/로고/안전영역·요청된 CTA 문구/길이·실제 읽기 QA 있음.",
+      "operational_gap_candidate": "광고별 타이포 motion onset/settle/읽기 hold/팩샷/음성 약속 일치의 재사용 레시피를 체계화할 여지.",
+      "extension_condition": "실제 텍스트·최종 크기·타이밍 증거로 필요 확인; CTA 없는 브리프에 강제하지 않음.",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C22",
+      "domain": "아카이브 전수 분석·coverage ledger",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/25-reference-video-analysis.md",
+          "start_line": 47,
+          "end_line": 68
+        },
+        {
+          "path": "video-production-assets/assets/archive-audit-template.md",
+          "start_line": 14,
+          "end_line": 27
+        }
+      ],
+      "observation": "stable archive_id·6모드·추출≠검토·연속재생≠청취·cross-video gap 분류 이미 있음.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C23",
+      "domain": "재사용 메커니즘 이전 체인",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/25-reference-video-analysis.md",
+          "start_line": 58,
+          "end_line": 64
+        },
+        {
+          "path": "video-production-assets/assets/shot-dna-template.md",
+          "start_line": 50,
+          "end_line": 55
+        }
+      ],
+      "observation": "증거→메커니즘→해석 효과→새브리프 요구→정성 QA 이미 있음.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C24",
+      "domain": "QA·실패 반례·최소 수리",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+          "start_line": 48,
+          "end_line": 158
+        },
+        {
+          "path": "video-production-assets/references/12-qa.md",
+          "start_line": 9,
+          "end_line": 16
+        }
+      ],
+      "observation": "실패 클래스·원인/수리/보존/재검수·예산·실제 전체 재생 게이트.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    },
+    {
+      "id": "C25",
+      "domain": "구조 검사와 작품/권리 판정 경계",
+      "status": "PRESENT",
+      "evidence": [
+        {
+          "path": "video-production-assets/references/contract.md",
+          "start_line": 47,
+          "end_line": 52
+        },
+        {
+          "path": "video-production-assets/references/12-qa.md",
+          "start_line": 36,
+          "end_line": 51
+        }
+      ],
+      "observation": "구조 pass는 예술/권리/수락 인증 아님. 점수 평균으로 blocker 숨기지 않음.",
+      "operational_gap_candidate": "없음",
+      "extension_condition": "영상별 근거와 대조 후 판단",
+      "search_scope": "manifest 23 bundled skills의 SKILL.md/references/assets/evals/support; 설치 .codex 및 외부 의존 스킬 제외"
+    }
+  ],
+  "baseline_inventory": [
+    {
+      "path": "creative-production/assets/icon.svg",
+      "bytes": 1210,
+      "sha256": "49315dda7125ec5fc77ef5f2b96126d8b2121c6e72944b4702972e90f321d3ee",
+      "mtime_ns": 1791390975045564600,
+      "lines": null
+    },
+    {
+      "path": "creative-production/evals/evals.json",
+      "bytes": 28159,
+      "sha256": "5888a4b0d3b980eecc191a01059ff6ca77cd6b3ad2c82f280ce0fe35d1334532",
+      "mtime_ns": 1791390975046094200,
+      "lines": 183
+    },
+    {
+      "path": "creative-production/references/creative-qa.md",
+      "bytes": 3244,
+      "sha256": "7e67b6d7203db018e6fe8a4b3fba707ad1e0638d5195961e8c7c809ece73dcc5",
+      "mtime_ns": 1791390975046094200,
+      "lines": 36
+    },
+    {
+      "path": "creative-production/references/marketing-source-adaptation.md",
+      "bytes": 6708,
+      "sha256": "3ca0ea03d7c8bddf4eaf2318a7d367e9c1b2a53b20cb2cc1ae1fc956e62559f5",
+      "mtime_ns": 1791390975047118800,
+      "lines": 65
+    },
+    {
+      "path": "creative-production/references/production-routing-optional.md",
+      "bytes": 3853,
+      "sha256": "f1c2482d245fae38cca772acc5048df0e3c8f82583bf1d0ad694f8e5e6c7ad60",
+      "mtime_ns": 1791390975047625600,
+      "lines": 26
+    },
+    {
+      "path": "creative-production/references/production-routing.md",
+      "bytes": 7433,
+      "sha256": "fada9089216025ad1206b2ecc058971302bc9935b45aa9d3983d86e3a473b592",
+      "mtime_ns": 1791707650093826800,
+      "lines": 47
+    },
+    {
+      "path": "creative-production/references/shot-manifest.md",
+      "bytes": 2137,
+      "sha256": "f1cd19450c7e1ff33314a4a948fbb0a9f196734415fdbea91dcc46f88bce2cda",
+      "mtime_ns": 1791390975048657900,
+      "lines": 19
+    },
+    {
+      "path": "creative-production/references/video-generation-planning.md",
+      "bytes": 10926,
+      "sha256": "712afe1ccc8f8c55b977c3ebd7ef2d7bcdaf3a0641dd01b65c0768e46c00f54c",
+      "mtime_ns": 1791438909099704400,
+      "lines": 82
+    },
+    {
+      "path": "creative-production/references/video-prompt-dialects.json",
+      "bytes": 2490,
+      "sha256": "f028ffba90d867895e047881c11702c1097b74241adc3ee0196bd60f696e187f",
+      "mtime_ns": 1791390975050181100,
+      "lines": 31
+    },
+    {
+      "path": "creative-production/references/workspace-integration.md",
+      "bytes": 2979,
+      "sha256": "1a852240f84bfe2daa5fd7ec77801fcb0591ddd55c13733859a2dcd419d24758",
+      "mtime_ns": 1791390975050181100,
+      "lines": 11
+    },
+    {
+      "path": "creative-production/SKILL.md",
+      "bytes": 12095,
+      "sha256": "b0c0cd653b88aca148b418c3721ff217e34a100c2e5c8278241bb89a89adbbb8",
+      "mtime_ns": 1791704467065382000,
+      "lines": 70
+    },
+    {
+      "path": "topic-demand-selection/SKILL.md",
+      "bytes": 6016,
+      "sha256": "a28cca99b7cde7bac3aed8fd94b0198d23b3917e7020ef69eeced90e097a64fa",
+      "mtime_ns": 1791373438924203500,
+      "lines": 51
+    },
+    {
+      "path": "video-production-assets/assets/01-brief-template.md",
+      "bytes": 2335,
+      "sha256": "208346c48cb999beff81b1f4d14b14e5a5452c76822c49e6c2799da9efc41251",
+      "mtime_ns": 1791692121500563800,
+      "lines": 49
+    },
+    {
+      "path": "video-production-assets/assets/02-story-template.md",
+      "bytes": 1677,
+      "sha256": "72183c82114f11806378be7911c672032aaa487903fbb1bd5fb2f4fbcc9f14d2",
+      "mtime_ns": 1791692129662611700,
+      "lines": 39
+    },
+    {
+      "path": "video-production-assets/assets/03-screenplay-template.md",
+      "bytes": 1718,
+      "sha256": "7f5c68e7c44f6072afadcece04e1f1be2b7aeec9335010ba2647c7b29a3b1ad6",
+      "mtime_ns": 1791692141757119900,
+      "lines": 42
+    },
+    {
+      "path": "video-production-assets/assets/04-performance-template.md",
+      "bytes": 389,
+      "sha256": "2f64e5874afb2a8f8fd3740c2a50292fb5a133ef7a3f1a3312226bcb65ec45c5",
+      "mtime_ns": 1791390975055989000,
+      "lines": 13
+    },
+    {
+      "path": "video-production-assets/assets/05-visual-template.md",
+      "bytes": 404,
+      "sha256": "c3c640cde77f9a31098d7d719f2fd1ff8c4d3aa0b44690bc5b2414abeb3f966a",
+      "mtime_ns": 1791390975056506200,
+      "lines": 15
+    },
+    {
+      "path": "video-production-assets/assets/06-shots-template.md",
+      "bytes": 3898,
+      "sha256": "d138bf0ff657f79fd8ab35efd9006e09481240c11792eaf21c6be05704df0251",
+      "mtime_ns": 1791733888400985400,
+      "lines": 40
+    },
+    {
+      "path": "video-production-assets/assets/07-lighting-template.md",
+      "bytes": 431,
+      "sha256": "d311833f2b41b026fa1d7f20a232b24e11b3522b7481f988751b53f9192adea7",
+      "mtime_ns": 1791390975057526400,
+      "lines": 13
+    },
+    {
+      "path": "video-production-assets/assets/08-animation-template.md",
+      "bytes": 706,
+      "sha256": "e69e2b652b9adc18371ce6ed14eaddce907d38ec573dceb8a426a0514c1ee6cf",
+      "mtime_ns": 1791730411910774700,
+      "lines": 15
+    },
+    {
+      "path": "video-production-assets/assets/09-edit-template.md",
+      "bytes": 1829,
+      "sha256": "41f99857d47e09738254110d443ad1b36965dcf260ccefa5c35972e4db6361cc",
+      "mtime_ns": 1791730741044046100,
+      "lines": 28
+    },
+    {
+      "path": "video-production-assets/assets/10-evidence-template.md",
+      "bytes": 396,
+      "sha256": "f3ba08a84fa771c8df2ce766f29e50c4223fe560f8239c261bf7bb8065d0a1eb",
+      "mtime_ns": 1791390975057526400,
+      "lines": 13
+    },
+    {
+      "path": "video-production-assets/assets/11-ai-handoff-template.md",
+      "bytes": 973,
+      "sha256": "33a112598d985ff6cf75140f1442b9b10c16ec51dd58060358b7156c3051a3f9",
+      "mtime_ns": 1791734321354436800,
+      "lines": 25
+    },
+    {
+      "path": "video-production-assets/assets/12-qa-template.md",
+      "bytes": 1227,
+      "sha256": "daab960ae648502c52129503ba4a294ce7dc15cadb055ad0f0dcd1912cf1733b",
+      "mtime_ns": 1791390975059059100,
+      "lines": 30
+    },
+    {
+      "path": "video-production-assets/assets/13-ideation-brand-template.md",
+      "bytes": 514,
+      "sha256": "ac13a90aa0635099b3f9dccf8c1dd7c07572bd13ccf8be51bbcdae4559e5cede",
+      "mtime_ns": 1791390975059059100,
+      "lines": 16
+    },
+    {
+      "path": "video-production-assets/assets/14-production-ops-template.md",
+      "bytes": 3026,
+      "sha256": "8b8965a68dcb8bd3016e565e406b18da309de315c03a3a45fbc6340ffeb95444",
+      "mtime_ns": 1791692267794797800,
+      "lines": 58
+    },
+    {
+      "path": "video-production-assets/assets/15-delivery-template.md",
+      "bytes": 1168,
+      "sha256": "eb3131b37b3f5aafdc4ba5ad2c9b6de088f95d43a4bf3b28446da169e830eb18",
+      "mtime_ns": 1791692418730395000,
+      "lines": 24
+    },
+    {
+      "path": "video-production-assets/assets/adaptation-map-template.md",
+      "bytes": 1191,
+      "sha256": "1a51f5f81b5b83e8b3b9926b28904ae11ef814792901b75796687f68fbf685b6",
+      "mtime_ns": 1791390975060875800,
+      "lines": 23
+    },
+    {
+      "path": "video-production-assets/assets/archive-audit-template.md",
+      "bytes": 5048,
+      "sha256": "cde9d186da22a8cc093605e93be1e1609f601f23df0e549e2e9688f0e3269fbe",
+      "mtime_ns": 1791735436428071100,
+      "lines": 62
+    },
+    {
+      "path": "video-production-assets/assets/asset-gate.csv",
+      "bytes": 91,
+      "sha256": "e10f1fc2a9305628bfb8393fe155b7e242927809d66dc8505f7b634a143224d9",
+      "mtime_ns": 1791390975062816800,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/asset-provenance.csv",
+      "bytes": 245,
+      "sha256": "590d5f4b089d6551887f9ad3b37b6d1875f311b7e11789b83486516d231fed41",
+      "mtime_ns": 1791390975062816800,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/asset-registry.csv",
+      "bytes": 66,
+      "sha256": "bcab663b57704f655257fcfc8ec409ad46b92d17b8996847f48453f6d8a5fcce",
+      "mtime_ns": 1791390975063850500,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/camera-motion-qa-template.md",
+      "bytes": 604,
+      "sha256": "0fbb5fabf772e151ff1b4130d00d549b41bc0685a66d3a95a830424cb7044bde",
+      "mtime_ns": 1791390975063850500,
+      "lines": 14
+    },
+    {
+      "path": "video-production-assets/assets/character-ssot-template.md",
+      "bytes": 14878,
+      "sha256": "5f086cdbaa7c05660e84993b8d63dc852442a4927bd199bfb5b54f0520439657",
+      "mtime_ns": 1791647159217257100,
+      "lines": 197
+    },
+    {
+      "path": "video-production-assets/assets/claim-ledger.csv",
+      "bytes": 112,
+      "sha256": "d46e16f125d7af0d8c02cd8e0f45ef5f8cd2bcb0137af29a451744abc871db16",
+      "mtime_ns": 1791390975064852200,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/continuity-ledger.csv",
+      "bytes": 124,
+      "sha256": "cad901c0dc6b9ab4a209c095489062697282f2010c95dde5957da08a42066dc9",
+      "mtime_ns": 1791390975065850100,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/crowd-map-template.md",
+      "bytes": 152,
+      "sha256": "c35e7b058f6588b321482584138475ccfb2b71b726a86f1ef81e565dc7abc588",
+      "mtime_ns": 1791390975065850100,
+      "lines": 3
+    },
+    {
+      "path": "video-production-assets/assets/dependency-graph.csv",
+      "bytes": 51,
+      "sha256": "e0567100c8e6a2deac3549f3f2be1c5e397eafaf2a0a95a245c0963c63b26cea",
+      "mtime_ns": 1791390975066850700,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/film-distribution-template.md",
+      "bytes": 3927,
+      "sha256": "b93173aec0491af6ede5a83bad26d86c4316900c0c927119f62da90ca830a20c",
+      "mtime_ns": 1791692416299761600,
+      "lines": 57
+    },
+    {
+      "path": "video-production-assets/assets/film-postproduction-template.md",
+      "bytes": 4427,
+      "sha256": "ca1aa8828c28da28a09b4029ffef0e388e06e1a57001ec6f508d8aeaee41560d",
+      "mtime_ns": 1791692416294821000,
+      "lines": 69
+    },
+    {
+      "path": "video-production-assets/assets/film-production-day-template.md",
+      "bytes": 3781,
+      "sha256": "61c977f712e994150feadced5c4164934f3532dd2fa9bf6fd8b90c64d250c86b",
+      "mtime_ns": 1791692546444375000,
+      "lines": 65
+    },
+    {
+      "path": "video-production-assets/assets/generated-qa-report-template.md",
+      "bytes": 1192,
+      "sha256": "2009ec6d5eff63833a7ddbdd3eec089f7c332ffe2861a4cb6509fcff44f09688",
+      "mtime_ns": 1791390975066850700,
+      "lines": 31
+    },
+    {
+      "path": "video-production-assets/assets/icon.svg",
+      "bytes": 1210,
+      "sha256": "49315dda7125ec5fc77ef5f2b96126d8b2121c6e72944b4702972e90f321d3ee",
+      "mtime_ns": 1791390975067841200,
+      "lines": null
+    },
+    {
+      "path": "video-production-assets/assets/motion-beat-template.md",
+      "bytes": 412,
+      "sha256": "bbae57f44eb9edea791705a8f784396e01093ee148762cd9fab73d10148f452e",
+      "mtime_ns": 1791390975067841200,
+      "lines": 19
+    },
+    {
+      "path": "video-production-assets/assets/performance-cue-template.md",
+      "bytes": 1680,
+      "sha256": "f648497ef47f4acfdb48834c55471d8212bdc6f7229113c1a55b2b6e67913668",
+      "mtime_ns": 1791648209899312100,
+      "lines": 14
+    },
+    {
+      "path": "video-production-assets/assets/product-ssot-template.md",
+      "bytes": 279,
+      "sha256": "bef91738e6603728026c2f88fa557f0c0a563bbd39f726fc3a28a3ed9629cdf3",
+      "mtime_ns": 1791390975069475700,
+      "lines": 14
+    },
+    {
+      "path": "video-production-assets/assets/production-budget.csv",
+      "bytes": 87,
+      "sha256": "a0961fdf0c40d39a2b7bcf8cbc1f1422b250f65747931c0e48a3ada33df53f27",
+      "mtime_ns": 1791390975069475700,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/project-template.json",
+      "bytes": 457,
+      "sha256": "15b141bcf267fbc9a7f83f363f31d2f3585e3c418bf17920cf61024808cfd1e1",
+      "mtime_ns": 1791390975071100400,
+      "lines": 23
+    },
+    {
+      "path": "video-production-assets/assets/prompt-ledger.csv",
+      "bytes": 60,
+      "sha256": "e75d993482b0737625416dec6cd9b9efd51d4c8d8c5af6139a4a2b98f4ff8a78",
+      "mtime_ns": 1791390975071100400,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/series-bible-template.md",
+      "bytes": 1117,
+      "sha256": "dd93f0941745c8e20d243abe410ca27afa8ff035e82d8707a833d30b7d4100a8",
+      "mtime_ns": 1791390975071100400,
+      "lines": 58
+    },
+    {
+      "path": "video-production-assets/assets/shot-dna-template.md",
+      "bytes": 3649,
+      "sha256": "46864b90cec66a33a2321ffa2ece3489bd6cee20e7d063a738c2589a9bcde049",
+      "mtime_ns": 1791390975072681300,
+      "lines": 65
+    },
+    {
+      "path": "video-production-assets/assets/shot-list.csv",
+      "bytes": 165,
+      "sha256": "443a4c4c3fc03bee2295a669ba782e2df6360206c3349488325df84faede6737",
+      "mtime_ns": 1791390975072681300,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/sound-cues.csv",
+      "bytes": 168,
+      "sha256": "a4674da7f6ac61289693cbddc6ea05ca64df22bf3e80270398eaf269c39da722",
+      "mtime_ns": 1791390975073701500,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/state-transition-template.md",
+      "bytes": 1835,
+      "sha256": "5e4df77255b4e763562ad50b304a4170a868675d46c44c984a8466953465cb2c",
+      "mtime_ns": 1791390975073701500,
+      "lines": 48
+    },
+    {
+      "path": "video-production-assets/assets/storyboard-panel-manifest.csv",
+      "bytes": 78,
+      "sha256": "ef182146b50419385b66cab4a2a8f3c9fb7a13eceab3263c79ec5747b2ec8696",
+      "mtime_ns": 1791390975074701600,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/storyboard-panels.csv",
+      "bytes": 255,
+      "sha256": "ba6b4ffc7bf251fba21d19c7cae416fe697e909b3ffc5b458a64e98d139af214",
+      "mtime_ns": 1791390975074701600,
+      "lines": 1
+    },
+    {
+      "path": "video-production-assets/assets/style-world-bible-template.md",
+      "bytes": 1455,
+      "sha256": "e02468f56d31b1107a77cee4d27e2d935bad7bb25ad68c06c9d25964caff8bf8",
+      "mtime_ns": 1791390975075689800,
+      "lines": 44
+    },
+    {
+      "path": "video-production-assets/assets/vfx-layer-stack-template.md",
+      "bytes": 171,
+      "sha256": "888a02fae2fd03302cad37246f9ef3540a872689bc02c3811edd2140cf748c92",
+      "mtime_ns": 1791390975075689800,
+      "lines": 3
+    },
+    {
+      "path": "video-production-assets/assets/video-model-routing-template.md",
+      "bytes": 693,
+      "sha256": "2c2a58c227a35cf614f16e5a049b27ec2ff9aaf15bb51ae4045c5bc0d205d612",
+      "mtime_ns": 1791390975076713300,
+      "lines": 25
+    },
+    {
+      "path": "video-production-assets/references/01-brief.md",
+      "bytes": 5543,
+      "sha256": "e2cf821b6fb61410e15c0028f012a96d48e0933d7f074b1b6ca94f5bfd640852",
+      "mtime_ns": 1791692085864670700,
+      "lines": 44
+    },
+    {
+      "path": "video-production-assets/references/02-story.md",
+      "bytes": 4399,
+      "sha256": "7a98b02fe2b3dd6246300f694363704cc21aa65ddb80f3cc700db84d4fa053ca",
+      "mtime_ns": 1791692520776210000,
+      "lines": 38
+    },
+    {
+      "path": "video-production-assets/references/03-screenplay.md",
+      "bytes": 3759,
+      "sha256": "c70f76d69228a9451b4bf9fc281b53c8046a249d0a10f4cc8daec34f16cd270b",
+      "mtime_ns": 1791692115174312700,
+      "lines": 38
+    },
+    {
+      "path": "video-production-assets/references/04-performance.md",
+      "bytes": 1708,
+      "sha256": "583c7324fd06589736290dda1b2ca2535c8ff04b18878c74d350a5f6ab60cd46",
+      "mtime_ns": 1791390975078713600,
+      "lines": 25
+    },
+    {
+      "path": "video-production-assets/references/05-visual.md",
+      "bytes": 1954,
+      "sha256": "fd99bca18ef2493780e6a73767e8ec68f5d727d1e5ad8923fa53dbd4a885e55a",
+      "mtime_ns": 1791390975078713600,
+      "lines": 26
+    },
+    {
+      "path": "video-production-assets/references/06-shots.md",
+      "bytes": 7240,
+      "sha256": "7b49c985c63107fe1fb4859864804543e70090f4af7895a952a0eff86bfc216a",
+      "mtime_ns": 1791734321341289200,
+      "lines": 48
+    },
+    {
+      "path": "video-production-assets/references/07-lighting.md",
+      "bytes": 1764,
+      "sha256": "4962b7b8545a40bd0f71102b21bcbeaed71a82d97edf5f234d72f1031d7b5efa",
+      "mtime_ns": 1791390975080551900,
+      "lines": 23
+    },
+    {
+      "path": "video-production-assets/references/08-animation.md",
+      "bytes": 2401,
+      "sha256": "fb835a4a7e54270c7dcdba7a75d5ce0466b7ecdd09914a1e4bcc0f0085fa9fef",
+      "mtime_ns": 1791730410766156300,
+      "lines": 26
+    },
+    {
+      "path": "video-production-assets/references/09-edit.md",
+      "bytes": 17772,
+      "sha256": "6c3037ac5fbb5371c9ec1528217feee33c54f21980b28cf18424d87b76db3c12",
+      "mtime_ns": 1791730758160793000,
+      "lines": 124
+    },
+    {
+      "path": "video-production-assets/references/10-evidence.md",
+      "bytes": 1674,
+      "sha256": "ea9a7cadda199a46aaa21d37082aef3f7e80af41c02d3499a8bc70d84ad5c54d",
+      "mtime_ns": 1791390975081930800,
+      "lines": 23
+    },
+    {
+      "path": "video-production-assets/references/11-ai-handoff.md",
+      "bytes": 3385,
+      "sha256": "f008f7c41c235ffad3a31954afb5f4a0338547e2070a4eb55e201a1a2cb5deee",
+      "mtime_ns": 1791734321363923000,
+      "lines": 29
+    },
+    {
+      "path": "video-production-assets/references/12-qa.md",
+      "bytes": 8135,
+      "sha256": "76d3210542ffe6aa0e19f6d2ac325163b09ed75dce125e6b9a62090a1bf85b4a",
+      "mtime_ns": 1791390975082951700,
+      "lines": 67
+    },
+    {
+      "path": "video-production-assets/references/13-ideation-brand.md",
+      "bytes": 2870,
+      "sha256": "a0672f81f75b576f552b75b9dc155798721eb4ec3792d7aa15e7c9617e495bba",
+      "mtime_ns": 1791390975082951700,
+      "lines": 23
+    },
+    {
+      "path": "video-production-assets/references/14-production-ops.md",
+      "bytes": 8138,
+      "sha256": "1087afa6a58b62bda41a8226c159fbd7a6e506019dadcb9b988a7b500cc8e39a",
+      "mtime_ns": 1791692549180803800,
+      "lines": 58
+    },
+    {
+      "path": "video-production-assets/references/15-delivery.md",
+      "bytes": 6843,
+      "sha256": "27dfb712498fd6f018b5dd6bc16dff09a4579892e6c138a61cd33375c8172c64",
+      "mtime_ns": 1791692392739423700,
+      "lines": 41
+    },
+    {
+      "path": "video-production-assets/references/16-concept-emotion-retention.md",
+      "bytes": 9197,
+      "sha256": "4c17c4f0c1a19aa661bb6d01d73b17336463441366017e13179edd26359c019c",
+      "mtime_ns": 1791390975084588900,
+      "lines": 119
+    },
+    {
+      "path": "video-production-assets/references/17-genre-comedy.md",
+      "bytes": 4967,
+      "sha256": "4c06e69f2d3de23ae455067013bd17fb5a0c57ea41ce19a91ca5bea0fbffd4c4",
+      "mtime_ns": 1791390975086245500,
+      "lines": 65
+    },
+    {
+      "path": "video-production-assets/references/18-episodic-series.md",
+      "bytes": 6044,
+      "sha256": "898f46af7a4a850070669f2813e83cab2f94cf003ea1f4db1882ed48b1b923aa",
+      "mtime_ns": 1791390975086245500,
+      "lines": 47
+    },
+    {
+      "path": "video-production-assets/references/19-brand-product-integration.md",
+      "bytes": 5501,
+      "sha256": "f34d4ac263b8f5f028e94c0635261949d2d2c49adf9418d9f56009f3457fe5ce",
+      "mtime_ns": 1791390975087269600,
+      "lines": 57
+    },
+    {
+      "path": "video-production-assets/references/20-visual-mode-ssot.md",
+      "bytes": 13279,
+      "sha256": "a426948349f13da11e881a871657310abc474d019a4dfb155884e4fd52fe0cfb",
+      "mtime_ns": 1791390975087269600,
+      "lines": 121
+    },
+    {
+      "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+      "bytes": 17011,
+      "sha256": "f4617c5226914c88dce510a202f7aa6e80f4df1e4403feb6575740fd3b14a0ae",
+      "mtime_ns": 1791390975088777100,
+      "lines": 158
+    },
+    {
+      "path": "video-production-assets/references/22-dialogue-lipsync.md",
+      "bytes": 7913,
+      "sha256": "46474b11ec33361fe006ddabca2c31c47aef80c6e060a2c49d9b92ef1adabfd1",
+      "mtime_ns": 1791647754124217500,
+      "lines": 58
+    },
+    {
+      "path": "video-production-assets/references/23-finishing-platform.md",
+      "bytes": 5243,
+      "sha256": "c861d2420b0a556832a10fcb7d6aaccc737ae9ce2c5fe7369293f589c212d075",
+      "mtime_ns": 1791390975089297000,
+      "lines": 61
+    },
+    {
+      "path": "video-production-assets/references/24-production-execution.md",
+      "bytes": 18619,
+      "sha256": "4b3b2c4c42c1f33beb08a2f21595a8d92759064c229a97173d79747a18c5922e",
+      "mtime_ns": 1791438926584050400,
+      "lines": 181
+    },
+    {
+      "path": "video-production-assets/references/25-reference-video-analysis.md",
+      "bytes": 11265,
+      "sha256": "ff80af535f9021e985cb1979f10788e8dcf580848572529d5cd5d8ed01d61c3b",
+      "mtime_ns": 1791735445627508000,
+      "lines": 68
+    },
+    {
+      "path": "video-production-assets/references/26-state-causality-continuity.md",
+      "bytes": 8011,
+      "sha256": "0bd85f9b75f800acc7cfe1bd31e9f8fe6c8b2c759d1e2a4961c770070702adec",
+      "mtime_ns": 1791390975090837600,
+      "lines": 49
+    },
+    {
+      "path": "video-production-assets/references/27-camera-motion-qa.md",
+      "bytes": 3282,
+      "sha256": "388c2a4cc5ce440c139a70833cbce9f3488e28b9ba394f70c93241c721fae7fd",
+      "mtime_ns": 1791390975091847700,
+      "lines": 19
+    },
+    {
+      "path": "video-production-assets/references/28-film-production-lifecycle.md",
+      "bytes": 15431,
+      "sha256": "511e84715bc978c08b09f6dc6bc32b3099815bd936b90be0847b75afe0f3809f",
+      "mtime_ns": 1791692933758341500,
+      "lines": 110
+    },
+    {
+      "path": "video-production-assets/references/contract.md",
+      "bytes": 30667,
+      "sha256": "7a7c0f2454e788d8ccd01f243a0ea5b30b8e64b0e970179b70e75376c18cd5ce",
+      "mtime_ns": 1791390975091847700,
+      "lines": 137
+    },
+    {
+      "path": "video-production-assets/references/preproduction-review.md",
+      "bytes": 13972,
+      "sha256": "76f254bd139acb39de01aa8e3b8f0e42639907064ff90c37cc46c605b8ee462d",
+      "mtime_ns": 1791390975092846400,
+      "lines": 97
+    },
+    {
+      "path": "video-production-assets/references/sources.md",
+      "bytes": 14335,
+      "sha256": "1089f835a7750a311363eb6a5f75138704aa585cea83e4dee86cfee2d56232a3",
+      "mtime_ns": 1791390975093847000,
+      "lines": 101
+    },
+    {
+      "path": "video-production-assets/references/storyboard-contract.md",
+      "bytes": 29158,
+      "sha256": "f55a71eb5898007b3c7d8a8855c0bdcddce8b776b72991697702ce176d95af15",
+      "mtime_ns": 1791390975093847000,
+      "lines": 144
+    },
+    {
+      "path": "video-production-assets/references/storyboard-sheet-user-guide.md",
+      "bytes": 17473,
+      "sha256": "68feac88c651e210f4334950785ce401365525177914965d9c17e2071d373623",
+      "mtime_ns": 1791390975093847000,
+      "lines": 148
+    },
+    {
+      "path": "video-production-assets/references/workspace-integration.md",
+      "bytes": 2979,
+      "sha256": "1a852240f84bfe2daa5fd7ec77801fcb0591ddd55c13733859a2dcd419d24758",
+      "mtime_ns": 1791390975093847000,
+      "lines": 11
+    },
+    {
+      "path": "video-production-assets/SKILL.md",
+      "bytes": 21013,
+      "sha256": "124df965ca4f14dfabca6067b88a04fc149c3ea54537bd4ed478f1a678eecd30",
+      "mtime_ns": 1791707650078581400,
+      "lines": 109
+    },
+    {
+      "path": "video-production-assets/support/CHANGELOG.md",
+      "bytes": 21840,
+      "sha256": "d8ba94167a460196d50bcb2aed92b7df7797d5921dc7ffaed42e988a8f830d4e",
+      "mtime_ns": 1791707811983001200,
+      "lines": 105
+    },
+    {
+      "path": "video-production-assets/support/examples/15-second-education/plan-ko.md",
+      "bytes": 3941,
+      "sha256": "dcf2d66958af917a18035a96f5f98a898e706832722947c9b52776672a8f1751",
+      "mtime_ns": 1790940283397128400,
+      "lines": 31
+    },
+    {
+      "path": "video-production-assets/support/examples/15-second-education/project.json",
+      "bytes": 7141,
+      "sha256": "64ea76e274f96b0886054c83f984e5fe84f98087aaf31bad72e68d9b9924ca79",
+      "mtime_ns": 1790940283397128400,
+      "lines": 290
+    },
+    {
+      "path": "video-production-assets/support/examples/15-second-education/validator-report.json",
+      "bytes": 182,
+      "sha256": "19b530311426746927fc819233ee31ed13c8586f3b94f8fda5a652cf73baec0e",
+      "mtime_ns": 1790940283398146600,
+      "lines": 6
+    },
+    {
+      "path": "video-production-assets/support/examples/20-second-animation/production-plan.ko.md",
+      "bytes": 16697,
+      "sha256": "4ec6e68a54b514259311b294f1238c605ea179cf678a957adbd4012269b5cd83",
+      "mtime_ns": 1790940283399239400,
+      "lines": 146
+    },
+    {
+      "path": "video-production-assets/support/examples/20-second-animation/project.json",
+      "bytes": 19672,
+      "sha256": "72ebb07ab698b23597fbd171f73e9d2aa6f3695de17b498b0e57a130d7083f99",
+      "mtime_ns": 1790940283399239400,
+      "lines": 520
+    },
+    {
+      "path": "video-production-assets/support/examples/20-second-animation/validator-report.json",
+      "bytes": 182,
+      "sha256": "19b530311426746927fc819233ee31ed13c8586f3b94f8fda5a652cf73baec0e",
+      "mtime_ns": 1790940283401279700,
+      "lines": 6
+    },
+    {
+      "path": "video-production-assets/support/examples/spatial-scene/camera_spec.json",
+      "bytes": 3761,
+      "sha256": "8804c3f35afcec7d70496f6042e030a9737b45d24b5d69c8f5248fe5b117bfcd",
+      "mtime_ns": 1790940283401279700,
+      "lines": 185
+    },
+    {
+      "path": "video-production-assets/support/examples/spatial-scene/numerical-analysis.json",
+      "bytes": 146104,
+      "sha256": "65c0d29ca198fcadbcf2c0f80170c70f0143f2843ca09c18ee2020b4df4885b7",
+      "mtime_ns": 1790940283403324300,
+      "lines": 4825
+    },
+    {
+      "path": "video-production-assets/support/examples/spatial-scene/wireframe.png",
+      "bytes": 15090,
+      "sha256": "8c3f89d68ffc9ae19be00226e30db0add954c591bcb0f0b981187697624781dc",
+      "mtime_ns": 1790940283404348700,
+      "lines": null
+    },
+    {
+      "path": "video-production-assets/support/examples/vertical-product/analysis.json",
+      "bytes": 79487,
+      "sha256": "b06b87aac7ff667fc7e6b7d54c1c3032f9964d411c054653a12aece9408c512d",
+      "mtime_ns": 1790940283406394300,
+      "lines": 2609
+    },
+    {
+      "path": "video-production-assets/support/examples/vertical-product/camera-comparison.csv",
+      "bytes": 728,
+      "sha256": "1648dd05367ce5ed34ea653883e501bf3e1a92528699c3e0d2728cd48117a7dc",
+      "mtime_ns": 1790940283407404100,
+      "lines": 3
+    },
+    {
+      "path": "video-production-assets/support/examples/vertical-product/camera_spec.json",
+      "bytes": 1661,
+      "sha256": "4913246d1fbea6f31e1ebe6fe5cc16ea2c6d7b375f4d0f75d8566851bcf3613a",
+      "mtime_ns": 1790940283407404100,
+      "lines": 82
+    },
+    {
+      "path": "video-production-assets/support/examples/vertical-product/camera_spec_smoke.json",
+      "bytes": 1661,
+      "sha256": "0730446a800a82c81f305545dcd2e2928412b158894071077a54d2adf7d8c153",
+      "mtime_ns": 1790940283408414000,
+      "lines": 82
+    },
+    {
+      "path": "video-production-assets/support/examples/vertical-product/handoff-ko.md",
+      "bytes": 2877,
+      "sha256": "dc8aacf7de236cc1be7cedef84f06f5e12c25b3defdca29a913ceb97b959e346",
+      "mtime_ns": 1790940283408414000,
+      "lines": 25
+    },
+    {
+      "path": "video-production-assets/support/manifest.json",
+      "bytes": 6518,
+      "sha256": "a3f618bc64d3f750aadeb5681e5e0c5aaa63535a2e9b263be7348e5bde7d8e98",
+      "mtime_ns": 1791644372874262700,
+      "lines": 184
+    },
+    {
+      "path": "video-production-assets/support/qa/audit-report.json",
+      "bytes": 3079,
+      "sha256": "d1a04f66cddd0cd5ffd88c75948001fee78ad7ea110fdd153882e31e061c376e",
+      "mtime_ns": 1790940283414377300,
+      "lines": 80
+    },
+    {
+      "path": "video-production-assets/support/qa/behavior-benchmark.json",
+      "bytes": 13781,
+      "sha256": "f0dd88b72073dd85190b18612922859695ff64f5d8138ae6e298666fc4a82fc7",
+      "mtime_ns": 1790943375194537700,
+      "lines": 397
+    },
+    {
+      "path": "video-production-assets/support/qa/camera-blender-validation.json",
+      "bytes": 518,
+      "sha256": "2cf7e56c381bd1e3373d7bb094df581aa9fd85e5475260e4161d19d6bc24a28d",
+      "mtime_ns": 1790940283414377300,
+      "lines": 17
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-default-baseline.json",
+      "bytes": 5527,
+      "sha256": "8d0f5cf9f87b6aac28da2f553ce5d534390bde90a240e81f9eb5f5e600f61343",
+      "mtime_ns": 1791644496306483900,
+      "lines": 5
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-baseline-grading.json",
+      "bytes": 14298,
+      "sha256": "bbe3fad30a4d89d1e6542706f3ea7fd886b5fae21ae9ab05655338c922a406df",
+      "mtime_ns": 1791646546597530100,
+      "lines": 304
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-baseline.json",
+      "bytes": 97884,
+      "sha256": "403c8e4ccc18905406d4359aac845973ef6c04d22d48d7939ca4f472d7d292fb",
+      "mtime_ns": 1791644276078029300,
+      "lines": 40
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-compact-route.json",
+      "bytes": 172279,
+      "sha256": "05721b3d38f065aed9572479962313e721990ba4645ede58f4d198dd0eda127d",
+      "mtime_ns": 1791649354423082400,
+      "lines": 55
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-final-compact.json",
+      "bytes": 212382,
+      "sha256": "548c1748232fb079be303d52a5dc29a2a63f42e6cb6e4fea74c26be08afd4226",
+      "mtime_ns": 1791650392197508900,
+      "lines": 406
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-final-grading.json",
+      "bytes": 60129,
+      "sha256": "7b7521314ca0ef6cc56c57d468b53c7068006b4789970625515f9c6cd18101ab",
+      "mtime_ns": 1791650392218473100,
+      "lines": 522
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-final-smokes.json",
+      "bytes": 16758,
+      "sha256": "23f9a20da54f296ac781e78471dba803579dec1f632a263069c8972fcac26e11",
+      "mtime_ns": 1791647980662006400,
+      "lines": 20
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-installation.json",
+      "bytes": 4866,
+      "sha256": "6e660bf2fd9603542fca9fd7a11d52a46472ffe1a1a86c1b1b337deae082eb0a",
+      "mtime_ns": 1791647361249167400,
+      "lines": 44
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-installed-smoke.json",
+      "bytes": 64996,
+      "sha256": "fcfdc3554ff2ec87ba0d1b2f278f92e55bf4dead38d759cbbdc1b55535d920a2",
+      "mtime_ns": 1791650646843619800,
+      "lines": 52
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-local-installation.json",
+      "bytes": 10312,
+      "sha256": "ed78712442f4bd1273b24fe91f38c2994929bb3108a8a3138a36b33b49d24736",
+      "mtime_ns": 1791650478165931900,
+      "lines": 222
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-release-grading.json",
+      "bytes": 82980,
+      "sha256": "9f1baa8955769d2bc0302f62f249d4f5a3f3fa06d8066eb737169377d6f42e98",
+      "mtime_ns": 1791648841080469900,
+      "lines": 790
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-release-smokes.json",
+      "bytes": 352316,
+      "sha256": "9dc99e83632f52a09b359a95db9fb791a505d9efb1595fc6ed4030869fef2dd2",
+      "mtime_ns": 1791648733651686600,
+      "lines": 240
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-review.html",
+      "bytes": 629397,
+      "sha256": "37b0b913a791d95b639eda91c8b6921aaf3551cd752f95e79dd2a364a9cc6331",
+      "mtime_ns": 1791650392701977700,
+      "lines": null
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-shipping-smokes.json",
+      "bytes": 159995,
+      "sha256": "512ad899a96fd86a4c0723c731d5d637e968f0bb8ef4911f6a74a5f8036ce7c6",
+      "mtime_ns": 1791649706712110600,
+      "lines": 112
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-updated-grading.json",
+      "bytes": 70597,
+      "sha256": "1da81618c737a16fac011d7008c5e2431e325b0d4cf8c32d29dcd4917a9106b1",
+      "mtime_ns": 1791647980648861700,
+      "lines": 678
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-updated.json",
+      "bytes": 290628,
+      "sha256": "f2e6c0d170e064b9f4bce0c45dee5622209b3cca5461992fdd994d15d64168d5",
+      "mtime_ns": 1791647699660764300,
+      "lines": 91
+    },
+    {
+      "path": "video-production-assets/support/qa/character-persona-voice-verification.json",
+      "bytes": 2880,
+      "sha256": "9520b7a94547809530bf27bc02e693a9c8d8065b30df3c2154671abe12d53609",
+      "mtime_ns": 1791650646851178400,
+      "lines": 92
+    },
+    {
+      "path": "video-production-assets/support/qa/character-ssot-instruction-smoke.json",
+      "bytes": 4836,
+      "sha256": "bd353fc2acf8045ac6562d2c931ccbb99949578debb22a704a69271d5f8b7ed7",
+      "mtime_ns": 1791155953739438500,
+      "lines": 20
+    },
+    {
+      "path": "video-production-assets/support/qa/codex-image-routing-validation.json",
+      "bytes": 4089,
+      "sha256": "31fe83734ad9be7e344db9752bd42cfa0e2b8ed2c74f48f85df40661bfd77da7",
+      "mtime_ns": 1791042976425231200,
+      "lines": 61
+    },
+    {
+      "path": "video-production-assets/support/qa/consolidation-validation.json",
+      "bytes": 7784,
+      "sha256": "a212cfdfa7eb50cc1e4ba2f684da950840eefc766f602c9b988be18ba46c9121",
+      "mtime_ns": 1790943681775629500,
+      "lines": 211
+    },
+    {
+      "path": "video-production-assets/support/qa/evaluation-review.html",
+      "bytes": 137247,
+      "sha256": "6d61ab3c1d334e348733f7e72763c27b2ba7d7761b34e2c8127b00ef291c51ac",
+      "mtime_ns": 1790943384892671300,
+      "lines": null
+    },
+    {
+      "path": "video-production-assets/support/qa/orchestration-baseline.json",
+      "bytes": 4005,
+      "sha256": "8e7da033fb3bacaf2a131dab76a7977a128d34c06f7b7991209a8d565c58b4d8",
+      "mtime_ns": 1791127137286216800,
+      "lines": 152
+    },
+    {
+      "path": "video-production-assets/support/qa/orchestration-optimization.json",
+      "bytes": 29626,
+      "sha256": "29654f81cbb7efa936dbd3cd3146fec23a2aae1c22de17394536991a4f0dee20",
+      "mtime_ns": 1791131541035566100,
+      "lines": 575
+    },
+    {
+      "path": "video-production-assets/support/qa/package-validation.json",
+      "bytes": 37947,
+      "sha256": "b76aa92e1363c0f0b651748f881a8fd85484740da8061e3d80eb23a4f6dd8fc6",
+      "mtime_ns": 1790940283416435300,
+      "lines": 169
+    },
+    {
+      "path": "video-production-assets/support/qa/provider-neutral-production-validation.json",
+      "bytes": 55019,
+      "sha256": "2e44a369635c2f9ba1cbe51200cef8520650290ac02530310f27d3e36bd71e95",
+      "mtime_ns": 1791016057800864500,
+      "lines": 326
+    },
+    {
+      "path": "video-production-assets/support/qa/reference-workflow-validation.json",
+      "bytes": 8831,
+      "sha256": "fab5cab119b22d88a19134083a5299b29a1f8fcdcd42c545ff7ab228eb0e4106",
+      "mtime_ns": 1791037664788284000,
+      "lines": 47
+    },
+    {
+      "path": "video-production-assets/support/qa/ssot-storyboard-render-smoke.png",
+      "bytes": 62595,
+      "sha256": "ceaf1cc97b4c6e49c93fa164c757877719796c1d5f37b8a154cd84c12e719b30",
+      "mtime_ns": 1791155883166325500,
+      "lines": null
+    },
+    {
+      "path": "video-production-assets/support/qa/state-causality-baseline.json",
+      "bytes": 58179,
+      "sha256": "ba67db199be34a610025ab1f971524427cc974a4f0cddc127b57f8cf2eed4f84",
+      "mtime_ns": 1791133070876079200,
+      "lines": 77
+    },
+    {
+      "path": "video-production-assets/support/qa/state-causality-final.json",
+      "bytes": 60514,
+      "sha256": "3d4073ec61fb9a55c68c91c3fb84fe791479a27e527fe9ab9d1b5d4ee5570424",
+      "mtime_ns": 1791134031734544700,
+      "lines": 49
+    },
+    {
+      "path": "video-production-assets/support/qa/state-causality-post.json",
+      "bytes": 66749,
+      "sha256": "b4a95199c53556e1ea19703f80aa8b682645727425d7c75e6bbfac1ac7a2952b",
+      "mtime_ns": 1791133636299485600,
+      "lines": 58
+    },
+    {
+      "path": "video-production-assets/support/qa/state-causality-reviews.json",
+      "bytes": 5093,
+      "sha256": "168a68e9ca5f80c71a9923deba87df6f59f9c3e9102bab5e28a99328bd56f713",
+      "mtime_ns": 1791134378601381300,
+      "lines": 20
+    },
+    {
+      "path": "video-production-assets/support/qa/state-causality-static.json",
+      "bytes": 10207,
+      "sha256": "21ea79e9868362c3ec6b96d75cb66e5f87d76d6f77192d1d32a8e6c3fe57700e",
+      "mtime_ns": 1791133918585159800,
+      "lines": 338
+    },
+    {
+      "path": "video-production-assets/support/qa/storyboard-baseline.json",
+      "bytes": 88941,
+      "sha256": "e8e24b72981f60b9f397cf25d09bd3c93b612a8144746138921937365da8aa5a",
+      "mtime_ns": 1791123217696099400,
+      "lines": 10
+    },
+    {
+      "path": "video-production-assets/support/qa/storyboard-edge-cases.json",
+      "bytes": 64430,
+      "sha256": "b27fa941c0390d5c9feb4529de4d875ec2b48772f96b8135b907c42de2e0480d",
+      "mtime_ns": 1791125386700843700,
+      "lines": 25
+    },
+    {
+      "path": "video-production-assets/support/qa/storyboard-flow-validation.json",
+      "bytes": 10519,
+      "sha256": "dde7b72bb22b7ff2a459b59a9efe07753723c59a1103f853d2b61457bfbaaaba",
+      "mtime_ns": 1791125478415067000,
+      "lines": 175
+    },
+    {
+      "path": "video-production-assets/support/qa/storyboard-updated.json",
+      "bytes": 128173,
+      "sha256": "6ce25499487e1c88d93053378affc53757228acb960ca6ff7bd0a3a7fe130596",
+      "mtime_ns": 1791124702247251000,
+      "lines": 17
+    },
+    {
+      "path": "camera-spatial-design/assets/camera-comparison.csv",
+      "bytes": 178,
+      "sha256": "d2683640eeaf51512e89a9cf34e6afc8d4db3babfbb45256c7d83ba048cced2a",
+      "mtime_ns": 1791390975132795400,
+      "lines": 1
+    },
+    {
+      "path": "camera-spatial-design/assets/camera-spec-example.json",
+      "bytes": 3622,
+      "sha256": "90345bf845c5876e5b684bc0b67baa333c8751b14e394c84ef2d193344b380a3",
+      "mtime_ns": 1791390975133816100,
+      "lines": 187
+    },
+    {
+      "path": "camera-spatial-design/assets/icon.svg",
+      "bytes": 1738,
+      "sha256": "8936b24f674a1250d999e2c2b5901374fb4240426f32bd1ae340c352a90d617d",
+      "mtime_ns": 1791390975133816100,
+      "lines": null
+    },
+    {
+      "path": "camera-spatial-design/assets/motion-timing-template.md",
+      "bytes": 688,
+      "sha256": "e7651ea543052d5fc14735e8e29bf72cd1e33dce934184f6aa716a6083d0dbed",
+      "mtime_ns": 1791390975133816100,
+      "lines": 14
+    },
+    {
+      "path": "camera-spatial-design/assets/spatial-review-template.md",
+      "bytes": 443,
+      "sha256": "db2ab0f822e603da13cff1fbc68a0831ba53e6eb7290a191f60fcad2a0b16de3",
+      "mtime_ns": 1791390975133816100,
+      "lines": 10
+    },
+    {
+      "path": "camera-spatial-design/references/camera-design.md",
+      "bytes": 2208,
+      "sha256": "2384b5d27ed833b3eb27735d0f35daec30966ffca4e98aabcbd7a79e61659ffa",
+      "mtime_ns": 1791390975135332600,
+      "lines": 16
+    },
+    {
+      "path": "camera-spatial-design/references/camera-programs.md",
+      "bytes": 2922,
+      "sha256": "0b0525d1a0b30701667eaece9558d2dea343ae5223ca8661596381bf437ff4f7",
+      "mtime_ns": 1791390975136922500,
+      "lines": 26
+    },
+    {
+      "path": "camera-spatial-design/references/motion-timing-lens.md",
+      "bytes": 3969,
+      "sha256": "dcf54837d31dab36c0b09450cd51f13aecd768c38538184fe2650cadd6a7c24c",
+      "mtime_ns": 1791730412254798400,
+      "lines": 18
+    },
+    {
+      "path": "camera-spatial-design/references/sources.md",
+      "bytes": 2444,
+      "sha256": "006722fdc97386171e407b671f22f95fd108b4d3ea59c2aa63e53ab4bb54728b",
+      "mtime_ns": 1791390975136922500,
+      "lines": 23
+    },
+    {
+      "path": "camera-spatial-design/references/spatial-contract.md",
+      "bytes": 5232,
+      "sha256": "a5364018692ae0d27cb2d4bf35361b06da0d64bccf6fc3f066c2727f59cdec0b",
+      "mtime_ns": 1791390975136922500,
+      "lines": 30
+    },
+    {
+      "path": "camera-spatial-design/references/workspace-integration.md",
+      "bytes": 2979,
+      "sha256": "1a852240f84bfe2daa5fd7ec77801fcb0591ddd55c13733859a2dcd419d24758",
+      "mtime_ns": 1791390975136922500,
+      "lines": 11
+    },
+    {
+      "path": "camera-spatial-design/SKILL.md",
+      "bytes": 7080,
+      "sha256": "aae4ebba7a379bc4ed24f476cf0988ec1bd597483cca42e87636a63b1c8f5424",
+      "mtime_ns": 1791707755053040200,
+      "lines": 43
+    },
+    {
+      "path": "camera-motion-reference-analysis/assets/icon.svg",
+      "bytes": 420,
+      "sha256": "e9301497fa98ef56aaca7ede0857b9a18dc06c34040f0679c609a6bf49b1d38b",
+      "mtime_ns": 1791390975150119800,
+      "lines": null
+    },
+    {
+      "path": "camera-motion-reference-analysis/assets/motion-analysis-template.md",
+      "bytes": 708,
+      "sha256": "9cfe3facdcd23ea5de3c66f6916f73aa57ddc5e4970eef0c8361afae2316d45a",
+      "mtime_ns": 1791390975150723200,
+      "lines": 18
+    },
+    {
+      "path": "camera-motion-reference-analysis/references/motion-analysis.md",
+      "bytes": 1904,
+      "sha256": "2b8676763ac2e25e956d6647070e4fe1eb3167b310efbb9524e52f5a8b91d715",
+      "mtime_ns": 1791390975151138500,
+      "lines": 16
+    },
+    {
+      "path": "camera-motion-reference-analysis/references/programs.md",
+      "bytes": 2922,
+      "sha256": "0b0525d1a0b30701667eaece9558d2dea343ae5223ca8661596381bf437ff4f7",
+      "mtime_ns": 1791390975151138500,
+      "lines": 26
+    },
+    {
+      "path": "camera-motion-reference-analysis/SKILL.md",
+      "bytes": 3446,
+      "sha256": "34bdd991c878e53654b87c3f7d58c19a8fd972a6da6a3d56f51586cc9a6f65dc",
+      "mtime_ns": 1791391069740794500,
+      "lines": 26
+    },
+    {
+      "path": "ai-camera-control/assets/camera-control-template.md",
+      "bytes": 771,
+      "sha256": "2ceba9802e9bfec475f423f0b0073db56e67879523a20956d087ccbd15f21bc3",
+      "mtime_ns": 1791390975144576200,
+      "lines": 18
+    },
+    {
+      "path": "ai-camera-control/assets/icon.svg",
+      "bytes": 1738,
+      "sha256": "8936b24f674a1250d999e2c2b5901374fb4240426f32bd1ae340c352a90d617d",
+      "mtime_ns": 1791390975144576200,
+      "lines": null
+    },
+    {
+      "path": "ai-camera-control/references/control-contract.md",
+      "bytes": 1567,
+      "sha256": "2498f52ce8cd8b377362abf24e8acd10c621e6d20d6be01927e77fbf1192de73",
+      "mtime_ns": 1791390975145589900,
+      "lines": 12
+    },
+    {
+      "path": "ai-camera-control/references/programs.md",
+      "bytes": 2922,
+      "sha256": "0b0525d1a0b30701667eaece9558d2dea343ae5223ca8661596381bf437ff4f7",
+      "mtime_ns": 1791390975145589900,
+      "lines": 26
+    },
+    {
+      "path": "ai-camera-control/SKILL.md",
+      "bytes": 3237,
+      "sha256": "a8ee157bf9f6a6a398b262a15cde735183a112a8a9d0ae031913794f890c328d",
+      "mtime_ns": 1791391069738581200,
+      "lines": 24
+    },
+    {
+      "path": "blender-previsualization/assets/icon.svg",
+      "bytes": 1744,
+      "sha256": "0eeca909bc2498f216277aa4d7a05e886752957de7138ccc52e5cd06672c775f",
+      "mtime_ns": 1790940283364505000,
+      "lines": null
+    },
+    {
+      "path": "blender-previsualization/assets/previs-handoff-template.md",
+      "bytes": 982,
+      "sha256": "4f0dade2e1931097833a72394c21da0df5b1286bea240270218473c8490b4801",
+      "mtime_ns": 1791128112189056900,
+      "lines": 12
+    },
+    {
+      "path": "blender-previsualization/references/blender-workflow.md",
+      "bytes": 3518,
+      "sha256": "57ae6f3cf85c6a23797c796e8378d76eb787776b5ca92fc34b3998a74e50fdf6",
+      "mtime_ns": 1791711308502187300,
+      "lines": 17
+    },
+    {
+      "path": "blender-previsualization/SKILL.md",
+      "bytes": 6046,
+      "sha256": "8982ea7bce2ddc628f762e03f59539d94c613758c728c2d99d88741774ddeb15",
+      "mtime_ns": 1791711308496988000,
+      "lines": 25
+    },
+    {
+      "path": "orchestrating-video-preproduction/evals/evals.json",
+      "bytes": 5879,
+      "sha256": "8926a0396ec6012c2ec26c09f691a98659465fc9957e5934b88b69861b5dd326",
+      "mtime_ns": 1791128136939794500,
+      "lines": 61
+    },
+    {
+      "path": "orchestrating-video-preproduction/references/stage-execution.md",
+      "bytes": 12911,
+      "sha256": "73b3c8940d98ea7d4ba5a22f4ee1bf7260a709c0a7f3ad90128bd1864a955515",
+      "mtime_ns": 1791644372962642300,
+      "lines": 77
+    },
+    {
+      "path": "orchestrating-video-preproduction/references/video-direction.md",
+      "bytes": 10183,
+      "sha256": "278e1463cff16dd4724812a57b29c9a295e5956fbbdb67dd6e852172bbb38e36",
+      "mtime_ns": 1791373338711798700,
+      "lines": 59
+    },
+    {
+      "path": "orchestrating-video-preproduction/SKILL.md",
+      "bytes": 7030,
+      "sha256": "7531797e3e52f44141531f0958fd91faae816d8ceeef6b21dabe2c797a787f40",
+      "mtime_ns": 1791704467072916400,
+      "lines": 42
+    },
+    {
+      "path": "developing-video-synopses/evals/evals.json",
+      "bytes": 3412,
+      "sha256": "7e9d931d6976f9fab8c104f16ea6814ca101374a310180a825c237ba8b8ed202",
+      "mtime_ns": 1790940283392028600,
+      "lines": 40
+    },
+    {
+      "path": "developing-video-synopses/references/synopsis-craft.md",
+      "bytes": 5745,
+      "sha256": "0d2235e95736b1ce737744787949309ee27b27338f6b224a6ab2d2511db7b1d2",
+      "mtime_ns": 1791127886366036600,
+      "lines": 51
+    },
+    {
+      "path": "developing-video-synopses/SKILL.md",
+      "bytes": 5414,
+      "sha256": "952ad635906f0aa92032f7a2ed8024361363986ee9c5ee3498d381a51e21bfba",
+      "mtime_ns": 1791704467079070000,
+      "lines": 45
+    },
+    {
+      "path": "designing-video-character-sheets/evals/evals.json",
+      "bytes": 3641,
+      "sha256": "55b69563808b6dfb4c6757fda35c88480dcfffb00e7dc05d0191ce6ff9257745",
+      "mtime_ns": 1790940283387917500,
+      "lines": 41
+    },
+    {
+      "path": "designing-video-character-sheets/references/character-craft.md",
+      "bytes": 14778,
+      "sha256": "0837a5df6736a09b92691decf9064b1f4556d2355986917a5bfb3caae62c8fc3",
+      "mtime_ns": 1791649752784938500,
+      "lines": 85
+    },
+    {
+      "path": "designing-video-character-sheets/references/character-ssot-master-prompt.md",
+      "bytes": 25997,
+      "sha256": "673561793559e98c1d54b21976a877dc47106b23ed02b7e8d87df4ef9edd19c1",
+      "mtime_ns": 1791647159212678800,
+      "lines": 201
+    },
+    {
+      "path": "designing-video-character-sheets/SKILL.md",
+      "bytes": 11199,
+      "sha256": "31b5af4b0114384e5ded5e2fdfa3be24ef74504a04c44b30b3e133ebdd53b56e",
+      "mtime_ns": 1791704516497071400,
+      "lines": 54
+    },
+    {
+      "path": "designing-character-personas/assets/persona-template.md",
+      "bytes": 8612,
+      "sha256": "07bdf75e35152ccb56d357a99baacb9fc6b541bf5314efd42627d2ef7065a6a8",
+      "mtime_ns": 1791649454527278200,
+      "lines": 77
+    },
+    {
+      "path": "designing-character-personas/evals/evals.json",
+      "bytes": 11711,
+      "sha256": "dd8ff6b97dcae83aa25a801f3a4b05fa13299f11a29957078b800dd82d08eb12",
+      "mtime_ns": 1791649487243727700,
+      "lines": 120
+    },
+    {
+      "path": "designing-character-personas/references/enneagram-lens.md",
+      "bytes": 3061,
+      "sha256": "69f7e85e6d16ee7f33b3c38b73370dce57436683289607353c6de12e9ec77dc7",
+      "mtime_ns": 1791646212081543000,
+      "lines": 33
+    },
+    {
+      "path": "designing-character-personas/references/expression-voice-bridge.md",
+      "bytes": 3132,
+      "sha256": "af1f2f88557faf0a5832d7cde2738459e6faf3c524ae6722c9d1990ff0d6457d",
+      "mtime_ns": 1791646386054444400,
+      "lines": 38
+    },
+    {
+      "path": "designing-character-personas/references/mbti-lens.md",
+      "bytes": 3753,
+      "sha256": "17db66276ef9196435d575536233d0fe3c699a694a92c20455e1b5ac5301197e",
+      "mtime_ns": 1791647754122696200,
+      "lines": 31
+    },
+    {
+      "path": "designing-character-personas/references/sources.md",
+      "bytes": 3488,
+      "sha256": "1378af1af2a3c9aea361ecb4ebb1fc577d3b1ddc0b91967f296ecb92f022688f",
+      "mtime_ns": 1791646536315806500,
+      "lines": 39
+    },
+    {
+      "path": "designing-character-personas/SKILL.md",
+      "bytes": 8190,
+      "sha256": "933e2b3d20403f90461ea43370cf5b92854924b4c26fac0006a6067d918e6272",
+      "mtime_ns": 1791650264198088800,
+      "lines": 62
+    },
+    {
+      "path": "storyboarding-video/evals/evals.json",
+      "bytes": 8276,
+      "sha256": "c489ec571c60b21ec707264c85acd169f004927c1681d984750bfeefa1194a84",
+      "mtime_ns": 1791128145518285900,
+      "lines": 88
+    },
+    {
+      "path": "storyboarding-video/references/narrative-panels.md",
+      "bytes": 6297,
+      "sha256": "b13c72b79f05580aa1927a768ebbc8a66d7709a20cb4cb582be345b25204bb20",
+      "mtime_ns": 1791128168380241300,
+      "lines": 63
+    },
+    {
+      "path": "storyboarding-video/SKILL.md",
+      "bytes": 7319,
+      "sha256": "44c474f8335869d24c944d4a89b664e4b574ae144bc8dc3361bee7da6681bbab",
+      "mtime_ns": 1791704516495069400,
+      "lines": 32
+    },
+    {
+      "path": "storytelling-with-still-images/evals/evals.json",
+      "bytes": 4227,
+      "sha256": "42fa1c268b8e4f2cc0e6a02ab551742d73b779c915148d75c2cbc5eee4641151",
+      "mtime_ns": 1791465217525835800,
+      "lines": 32
+    },
+    {
+      "path": "storytelling-with-still-images/SKILL.md",
+      "bytes": 3491,
+      "sha256": "3e981acda0af828cd35ac58c71838684f4de5b08091b465b166c79050cd8a626",
+      "mtime_ns": 1791465207979793700,
+      "lines": 36
+    },
+    {
+      "path": "recording-production-history/SKILL.md",
+      "bytes": 8646,
+      "sha256": "89b538c25b64c03b5c24619e32c572ed37168167eb84b38f2849b432fae09063",
+      "mtime_ns": 1791303450619110500,
+      "lines": 92
+    },
+    {
+      "path": "higgsfield-brandkit/references/asset-analysis.md",
+      "bytes": 7834,
+      "sha256": "55f41b878384cd8b318f473de1b1c5632b40e1e4e247b1725f7e144277abbe58",
+      "mtime_ns": 1790502954981785800,
+      "lines": 178
+    },
+    {
+      "path": "higgsfield-brandkit/references/brand-lock.md",
+      "bytes": 6423,
+      "sha256": "fb96f548446d71523bcb5ff70cc0ab41361765ce5b57ad01ed979684e5968637",
+      "mtime_ns": 1790502954982782700,
+      "lines": 178
+    },
+    {
+      "path": "higgsfield-brandkit/references/brandbook.md",
+      "bytes": 5064,
+      "sha256": "b3000e2ec9315605b21a7e97c16f05b7026ab6e6404802179591eafa290f487c",
+      "mtime_ns": 1790502954984304700,
+      "lines": 122
+    },
+    {
+      "path": "higgsfield-brandkit/references/brandkit-design-brain.md",
+      "bytes": 8485,
+      "sha256": "606ac9b7d87bb5e69cebeb7c74b8df16048f682eeaaaf6897aada6c453840989",
+      "mtime_ns": 1790502954986995900,
+      "lines": 249
+    },
+    {
+      "path": "higgsfield-brandkit/references/concept-boards.md",
+      "bytes": 7345,
+      "sha256": "cc01bb869d86933a1887574987a7d99e25de0f921bfe0e06f26997b4b26402de",
+      "mtime_ns": 1790502954987984400,
+      "lines": 90
+    },
+    {
+      "path": "higgsfield-brandkit/references/handoff.md",
+      "bytes": 5065,
+      "sha256": "b1e68066824f6cc879c702b1f0f6d04348f5474e7027921915b2d2f7d751f7c5",
+      "mtime_ns": 1791128271965903600,
+      "lines": 122
+    },
+    {
+      "path": "higgsfield-brandkit/references/inline-widgets.md",
+      "bytes": 2800,
+      "sha256": "077a7c05b526eecc87f39968140d063d9f99623915e8cb08a91f6bcda5e4b157",
+      "mtime_ns": 1790502954989985700,
+      "lines": 77
+    },
+    {
+      "path": "higgsfield-brandkit/references/intake.md",
+      "bytes": 3459,
+      "sha256": "3c19ec73e6ae10a3832888ebe74781f432d8525ff6ed10590cd8fc5e031ec827",
+      "mtime_ns": 1790502954991000500,
+      "lines": 84
+    },
+    {
+      "path": "higgsfield-brandkit/references/logo-export-payloads.md",
+      "bytes": 728,
+      "sha256": "7f569d1476935218a5e5e56e42fdae26451aab622815635801d9dc9c47b173b7",
+      "mtime_ns": 1790502954992011000,
+      "lines": 19
+    },
+    {
+      "path": "higgsfield-brandkit/references/logo-prompt-enhancer.md",
+      "bytes": 9985,
+      "sha256": "33eedf49d4fff3a423dfba779070754c9ae52474df54604771a5520c9b48cb1b",
+      "mtime_ns": 1790502954993016400,
+      "lines": 212
+    },
+    {
+      "path": "higgsfield-brandkit/references/logo.md",
+      "bytes": 10567,
+      "sha256": "059cb96ce1394ec8f3ed02e3834410dbda07060358071fac7c27c84b94be468f",
+      "mtime_ns": 1790502954994018400,
+      "lines": 181
+    },
+    {
+      "path": "higgsfield-brandkit/references/merchandise.md",
+      "bytes": 1075,
+      "sha256": "6be42e49319aab9187baaf360a020d2e609c26d977b5c56744c34bd590b974e5",
+      "mtime_ns": 1790502954995016100,
+      "lines": 15
+    },
+    {
+      "path": "higgsfield-brandkit/references/mockups.md",
+      "bytes": 11321,
+      "sha256": "b2fba9449d99150f37646177bcb0518066e2623ff27e5ddc6a5d2bac6c7c6c54",
+      "mtime_ns": 1790502954995016100,
+      "lines": 201
+    },
+    {
+      "path": "higgsfield-brandkit/references/packaging.md",
+      "bytes": 1343,
+      "sha256": "ba2b19a44565b8df796620ea444518fa69b76e0a63c10b6de6be6b9a64ad411f",
+      "mtime_ns": 1790502954996005700,
+      "lines": 32
+    },
+    {
+      "path": "higgsfield-brandkit/references/palette.md",
+      "bytes": 1076,
+      "sha256": "2f5ee543783f8d7dd0b2878f20394e5dbc2d8dcbe45ab8a50454cc6cfe16ade5",
+      "mtime_ns": 1790502954996005700,
+      "lines": 25
+    },
+    {
+      "path": "higgsfield-brandkit/references/posters-banners.md",
+      "bytes": 1123,
+      "sha256": "e06e56f6a4c2928ea9aeb16a751a9250bdd9f82562bce21fd1531c1692108538",
+      "mtime_ns": 1790502954997518500,
+      "lines": 30
+    },
+    {
+      "path": "higgsfield-brandkit/references/prerequisites.md",
+      "bytes": 3025,
+      "sha256": "8a54bd93b10bcf9b631fd305c9b6dff74a482ab30832a8e9e8ed9e11d2042312",
+      "mtime_ns": 1790502954997518500,
+      "lines": 85
+    },
+    {
+      "path": "higgsfield-brandkit/references/presentation-deck.md",
+      "bytes": 1638,
+      "sha256": "80684f56c52129e130a5a249d4aaffcc91fb9333af6854a5e89ca2db9409d7d7",
+      "mtime_ns": 1790502954998469600,
+      "lines": 37
+    },
+    {
+      "path": "higgsfield-brandkit/references/preview-payloads.md",
+      "bytes": 3055,
+      "sha256": "aa9446ab2b81b3856d715d4f7fb9301f3724f816b960fc0a9a7e1f2b7229c3f1",
+      "mtime_ns": 1790502954999550600,
+      "lines": 128
+    },
+    {
+      "path": "higgsfield-brandkit/references/qa-and-iteration.md",
+      "bytes": 7098,
+      "sha256": "561e5c6af2b9a98a4488da0e2f7966bac9d76b1cc57b31f5664f5a2c5ebb01bd",
+      "mtime_ns": 1790502954999914100,
+      "lines": 177
+    },
+    {
+      "path": "higgsfield-brandkit/references/signage.md",
+      "bytes": 1023,
+      "sha256": "9d005a78556e13c3d18af09e291dcc774495bdbb008aee2203da3b36210c5c1d",
+      "mtime_ns": 1790502955000920900,
+      "lines": 22
+    },
+    {
+      "path": "higgsfield-brandkit/references/social-templates.md",
+      "bytes": 4515,
+      "sha256": "adafeeb3ae36ca6599fa808bde3291ee8cee2f419705717915f2317397a5849a",
+      "mtime_ns": 1790502955001939200,
+      "lines": 100
+    },
+    {
+      "path": "higgsfield-brandkit/references/state-payloads.md",
+      "bytes": 3256,
+      "sha256": "7a28ad60dfae2ee069fceec713eddd888beffcc3e677b390f646d613511a9ce9",
+      "mtime_ns": 1790502955001939200,
+      "lines": 126
+    },
+    {
+      "path": "higgsfield-brandkit/references/typography.md",
+      "bytes": 4487,
+      "sha256": "0b6e3eb021ebf855f6f4dfe107fd346fec82aa67c62a2ea7c78819e4dae83df4",
+      "mtime_ns": 1790502955002940900,
+      "lines": 89
+    },
+    {
+      "path": "higgsfield-brandkit/SKILL.md",
+      "bytes": 15128,
+      "sha256": "903fc8a108ced43f3ceb500192266e1ce88a9f4ffafc5de437feec2ba3e6a631",
+      "mtime_ns": 1791130590460811900,
+      "lines": 197
+    },
+    {
+      "path": "higgsfield-generate/references/image-branches.md",
+      "bytes": 3527,
+      "sha256": "328c95245f2d35abb3a28047428bcb128c92ea51f39b20b0139a78995598ccfd",
+      "mtime_ns": 1791127890394160500,
+      "lines": 49
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-ad-references.md",
+      "bytes": 4413,
+      "sha256": "51ecd110b059d78ec7411fa0a305ba5c2925636af1edb67dd46ba61dea7982e7",
+      "mtime_ns": 1790502955012003500,
+      "lines": 99
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-avatars.md",
+      "bytes": 1441,
+      "sha256": "0fc1bab974e7b651d652e9bc3f2ff9b37d25cfcfde8986599bab7215d29e90da",
+      "mtime_ns": 1790502955013032100,
+      "lines": 46
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-brand-kits.md",
+      "bytes": 2629,
+      "sha256": "858d23282bba031ca6095cc88ef35fadf008588baea9a498c40b4e44336ee2f0",
+      "mtime_ns": 1790502955014025400,
+      "lines": 55
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-dtc-ads.md",
+      "bytes": 4786,
+      "sha256": "4f063300ab84190866f1a63b260a9ac801d2f8c340a4d3438f250383b4b9cacc",
+      "mtime_ns": 1790502955015023100,
+      "lines": 88
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-modes.md",
+      "bytes": 3383,
+      "sha256": "4614d3df586bad9305de666c060c4f9db6bfda7f91c192be0f1075cbfc6f9f12",
+      "mtime_ns": 1790502955016018300,
+      "lines": 53
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-products.md",
+      "bytes": 1562,
+      "sha256": "3f10b476ada995379ccd75a5c27010a676da2ed23e5b2c25c7caf24cea7b01be",
+      "mtime_ns": 1790502955016018300,
+      "lines": 57
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-setup-items.md",
+      "bytes": 2703,
+      "sha256": "ef0c04bfa364333fb2a5ce881f4e3bc0774820da46eef772ca7e403e1a13d1f9",
+      "mtime_ns": 1790502955017542300,
+      "lines": 63
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-studio.md",
+      "bytes": 7758,
+      "sha256": "578cebaba0a3b81d59c22230c59c4354731ecb985bf9c1307ec4ecb196ea0eae",
+      "mtime_ns": 1791128601353676700,
+      "lines": 114
+    },
+    {
+      "path": "higgsfield-generate/references/media-inputs.md",
+      "bytes": 7749,
+      "sha256": "ec56e0946d6b980e15d49031e48864a8cd547d3cc4f73a4c3da04ea69162d366",
+      "mtime_ns": 1790502955017542300,
+      "lines": 142
+    },
+    {
+      "path": "higgsfield-generate/references/model-catalog.md",
+      "bytes": 21893,
+      "sha256": "fcf3a58b63b029767fd884b9a584f08067d4a2f7cec46defb99a56f746790cd8",
+      "mtime_ns": 1790502955018569900,
+      "lines": 221
+    },
+    {
+      "path": "higgsfield-generate/references/package-gate.md",
+      "bytes": 7445,
+      "sha256": "2b3fa2850efb07d9453abae5c0e9bd42c486351778fdd92c96d7dac3cb4280ea",
+      "mtime_ns": 1791129438248236700,
+      "lines": 113
+    },
+    {
+      "path": "higgsfield-generate/references/prompt-engineering.md",
+      "bytes": 1601,
+      "sha256": "2875fad7bfc58fcdff9d0b901478a460577f2cbb061f1e85fef80af6c327b956",
+      "mtime_ns": 1790502955020556100,
+      "lines": 47
+    },
+    {
+      "path": "higgsfield-generate/references/troubleshooting.md",
+      "bytes": 1627,
+      "sha256": "e2ba558cbb8d88f9aadd29e4cac6d8aadf78c069743cfc4f677913971416c7c1",
+      "mtime_ns": 1790502955022659500,
+      "lines": 34
+    },
+    {
+      "path": "higgsfield-generate/references/workflows.md",
+      "bytes": 3155,
+      "sha256": "ca99193c4813e6713cc8d0c4c1e0237a082fdc4f3d6f1210ccc6fa2b4dc02197",
+      "mtime_ns": 1790502955023654600,
+      "lines": 96
+    },
+    {
+      "path": "higgsfield-generate/SKILL.md",
+      "bytes": 18686,
+      "sha256": "711c771d3ec949f0a2faff6a6dcb942dc67ec1846ff2c64e29560d4417ea1330",
+      "mtime_ns": 1791130590460811900,
+      "lines": 207
+    },
+    {
+      "path": "higgsfield-marketplace-cards/SKILL.md",
+      "bytes": 6067,
+      "sha256": "b3e34ee4f0cfc564b27970c552f94e71c88414134b63abb16951e04aee54a2ce",
+      "mtime_ns": 1791130590471924800,
+      "lines": 98
+    },
+    {
+      "path": "higgsfield-product-photoshoot/references/modes.md",
+      "bytes": 4625,
+      "sha256": "24b9b03c3c754e9c900c0ee7d245eaf6f2f1d9308b9ef82fe9e524cadfdbb584",
+      "mtime_ns": 1791127996138994700,
+      "lines": 93
+    },
+    {
+      "path": "higgsfield-product-photoshoot/SKILL.md",
+      "bytes": 7521,
+      "sha256": "010b6a036d96cbaa475dbe4c34ac3acde7940b3e28034a217ef34e6bea8f7829",
+      "mtime_ns": 1791130590472733900,
+      "lines": 136
+    },
+    {
+      "path": "higgsfield-soul-id/references/photo-guide.md",
+      "bytes": 757,
+      "sha256": "d6dc7c1df8cb1034171b39a2fc19d00b39751743988ceaaf4d8c8d6d0f7caeeb",
+      "mtime_ns": 1790502955029651200,
+      "lines": 37
+    },
+    {
+      "path": "higgsfield-soul-id/references/troubleshooting.md",
+      "bytes": 562,
+      "sha256": "b499b51999220e865b462e83875f6cdd971ec530d053c1bdffa38f8aad3f3066",
+      "mtime_ns": 1790502955029651200,
+      "lines": 24
+    },
+    {
+      "path": "higgsfield-soul-id/SKILL.md",
+      "bytes": 5101,
+      "sha256": "ce5f99ddaafe26d7b1d622f382ab1629e992cecb70412b537f62e8693c3e7f7d",
+      "mtime_ns": 1791130590473749000,
+      "lines": 87
+    },
+    {
+      "path": "higgsfield-video-explainer/references/prompts.md",
+      "bytes": 4907,
+      "sha256": "54b9710a18db3fa15781818ee847fd222b6b5fad57ab66d96191e8fd2ae3c249",
+      "mtime_ns": 1790502955031651400,
+      "lines": 95
+    },
+    {
+      "path": "higgsfield-video-explainer/SKILL.md",
+      "bytes": 17398,
+      "sha256": "ea935b48a90fff23b989727b6bd60faffd9b8049167478a868a7597aec0f1a97",
+      "mtime_ns": 1791130590473749000,
+      "lines": 292
+    },
+    {
+      "path": "higgsfield-video-replicate/references/analysis.md",
+      "bytes": 4253,
+      "sha256": "6508d03e152b68a78304613d63c0cc9bc152e090cb9ca509082b120d2a71b86b",
+      "mtime_ns": 1791111674860401400,
+      "lines": 85
+    },
+    {
+      "path": "higgsfield-video-replicate/references/assembly.md",
+      "bytes": 4143,
+      "sha256": "139cb12d83d9be14baf17c1e0f81e78e28fe263393c1e014c2371dbebd0195c9",
+      "mtime_ns": 1791110967102717900,
+      "lines": 109
+    },
+    {
+      "path": "higgsfield-video-replicate/references/consistency.md",
+      "bytes": 5250,
+      "sha256": "906672c33bdc6a0beb573db507b28caeb10163e58037a04ca71e8c25584f63b8",
+      "mtime_ns": 1791128153226579100,
+      "lines": 83
+    },
+    {
+      "path": "higgsfield-video-replicate/references/prompts.md",
+      "bytes": 3835,
+      "sha256": "685ad10914fe462b689afee43a0fcd1c82dcbd08178dfdfab51bac7100fc5b75",
+      "mtime_ns": 1791111677780109100,
+      "lines": 77
+    },
+    {
+      "path": "higgsfield-video-replicate/SKILL.md",
+      "bytes": 14704,
+      "sha256": "8404fa833f183603687cb59a62ee1383773cf7c5066a91604317dbcb0169fa6b",
+      "mtime_ns": 1791130590475360700,
+      "lines": 177
+    },
+    {
+      "path": "higgsfield-websites/references/app-cover.md",
+      "bytes": 35617,
+      "sha256": "eb4c99226ca5916f47146c0210d9ac198a86878737802b71195bc0d76ac8b55e",
+      "mtime_ns": 1791128543327845600,
+      "lines": 765
+    },
+    {
+      "path": "higgsfield-websites/references/app-flow.md",
+      "bytes": 26333,
+      "sha256": "76a5e27e04c46162940d30daa5be9bfee2c2b55430d9f3192509b8f0850f5235",
+      "mtime_ns": 1791128463482247200,
+      "lines": 428
+    },
+    {
+      "path": "higgsfield-websites/references/app-layouts.md",
+      "bytes": 12333,
+      "sha256": "28462545e37bee0f171ade6851297cdc44fc6db46d6e5b67bf766fa8b1e0e8c4",
+      "mtime_ns": 1790502955038281900,
+      "lines": 154
+    },
+    {
+      "path": "higgsfield-websites/references/app-quickstart.md",
+      "bytes": 12080,
+      "sha256": "0da28330284223cc9db17c6e67457af18d83a8af0a346f96a91f85a9642584e1",
+      "mtime_ns": 1790502955039302800,
+      "lines": 276
+    },
+    {
+      "path": "higgsfield-websites/references/asset-system.md",
+      "bytes": 14337,
+      "sha256": "7f1f22246c5c64763fa5d57b1f6492263f671353e63d81b9c85276b092234c45",
+      "mtime_ns": 1791128342891511300,
+      "lines": 229
+    },
+    {
+      "path": "higgsfield-websites/references/auth.md",
+      "bytes": 14974,
+      "sha256": "e91ec8d5fb9dd3bd38da30b2894538a3bed8abe078707ee0477c806540d56ccd",
+      "mtime_ns": 1790502955041298600,
+      "lines": 416
+    },
+    {
+      "path": "higgsfield-websites/references/containers.md",
+      "bytes": 16504,
+      "sha256": "0541dfbbc5c00d59f2ffb8ee82654e99d83b10ae794fac3e9de6d708a98323d1",
+      "mtime_ns": 1790502955042313200,
+      "lines": 338
+    },
+    {
+      "path": "higgsfield-websites/references/contest.md",
+      "bytes": 4719,
+      "sha256": "3802dd956880f04844d7d086affc1e07a7812cf2d3677b6c5eab43dda9be7c49",
+      "mtime_ns": 1790502955042660600,
+      "lines": 85
+    },
+    {
+      "path": "higgsfield-websites/references/cover-animator.md",
+      "bytes": 4846,
+      "sha256": "9dd7259d515ff6e2d3c6a6320a288b061d86c898787f7ec17a1c567de6e6c402",
+      "mtime_ns": 1790502955043663100,
+      "lines": 98
+    },
+    {
+      "path": "higgsfield-websites/references/design-recipe.md",
+      "bytes": 11048,
+      "sha256": "d22f28573b1722b13a86f5b68c491f8275204f6cab17b669577ca72f2226d0c4",
+      "mtime_ns": 1790502955044672100,
+      "lines": 176
+    },
+    {
+      "path": "higgsfield-websites/references/design-taste-frontend.md",
+      "bytes": 88898,
+      "sha256": "f2dc692f6fb899576672fd2da85ed5e73913b410cc7f48f77191b4c9c68d101d",
+      "mtime_ns": 1790502955045671600,
+      "lines": 1224
+    },
+    {
+      "path": "higgsfield-websites/references/fnf-react.md",
+      "bytes": 13290,
+      "sha256": "e008b23e19c8b53c74b48a83a64feb7a612fa3f1dcd7679a7b61de48a952cd5d",
+      "mtime_ns": 1790502955046672100,
+      "lines": 264
+    },
+    {
+      "path": "higgsfield-websites/references/fnf-sdk.md",
+      "bytes": 36901,
+      "sha256": "d1c8dcf592ebda982df344bb0c02f06b819bb276b3c45164a82b45a97b5b4c93",
+      "mtime_ns": 1790502955047671600,
+      "lines": 874
+    },
+    {
+      "path": "higgsfield-websites/references/game-2d-animation.md",
+      "bytes": 18397,
+      "sha256": "bcfa28fee1e0912dc339138fbf2c17ef1449dea9ecaf22d30d1595796c67d475",
+      "mtime_ns": 1790502955047671600,
+      "lines": 369
+    },
+    {
+      "path": "higgsfield-websites/references/game-3d-animation.md",
+      "bytes": 14153,
+      "sha256": "eb69a3f52d13ed11632239f0d22e1406857a437eb1acd519b561492a1b7e9b3c",
+      "mtime_ns": 1790502955049191600,
+      "lines": 233
+    },
+    {
+      "path": "higgsfield-websites/references/game-audio.md",
+      "bytes": 3445,
+      "sha256": "dde3004d74f934a9bff0a22c09905107ee1dd03b0bd7b7e4016b8229d7d23c93",
+      "mtime_ns": 1790502955049191600,
+      "lines": 94
+    },
+    {
+      "path": "higgsfield-websites/references/game-design-system.md",
+      "bytes": 16359,
+      "sha256": "d9eb5306f43b558ceaab2a31e9a66468934b8858490265744bc40f4488bcbcdd",
+      "mtime_ns": 1790502955050814300,
+      "lines": 155
+    },
+    {
+      "path": "higgsfield-websites/references/game-flow.md",
+      "bytes": 5487,
+      "sha256": "7b7982eee0ce8f1293ae5eb9a4b2a4b0a4e0b693d7632835681c86e8b6660388",
+      "mtime_ns": 1791128463508820400,
+      "lines": 114
+    },
+    {
+      "path": "higgsfield-websites/references/game-meshy-api.md",
+      "bytes": 8260,
+      "sha256": "5fbc4143017955ed0a77bc13e9fb3736a0f69986be4a1b198c0c500a8193ead3",
+      "mtime_ns": 1790502955051835400,
+      "lines": 191
+    },
+    {
+      "path": "higgsfield-websites/references/game-meshy-input-rules.md",
+      "bytes": 4770,
+      "sha256": "ab5ede8e66018ad383ab77b11ee60ebbedf997677867d3bf4d852a6335e24f46",
+      "mtime_ns": 1790502955052833600,
+      "lines": 127
+    },
+    {
+      "path": "higgsfield-websites/references/game-procedural-animation.md",
+      "bytes": 6271,
+      "sha256": "7817670240a3f245297c657b1410032e2899258abf87ba658499cefe3abd285f",
+      "mtime_ns": 1790502955054721500,
+      "lines": 112
+    },
+    {
+      "path": "higgsfield-websites/references/game-stylization.md",
+      "bytes": 12875,
+      "sha256": "7d878cd67e3a76dce55473dffad1b55ec039e67bb1254280029ddc580a7a7c29",
+      "mtime_ns": 1790502955056244700,
+      "lines": 217
+    },
+    {
+      "path": "higgsfield-websites/references/game-textures.md",
+      "bytes": 12568,
+      "sha256": "cd80317ab50e42fdd97dedc44c20ea6d6e310fca76506a530f05135ba2cd0a97",
+      "mtime_ns": 1790502955057264100,
+      "lines": 269
+    },
+    {
+      "path": "higgsfield-websites/references/image-to-code.md",
+      "bytes": 6672,
+      "sha256": "c240e981031d97394624cfcf6952c831a2dd4b0b0802635015da6de66259ea33",
+      "mtime_ns": 1790502955059261200,
+      "lines": 126
+    },
+    {
+      "path": "higgsfield-websites/references/quanta-design.md",
+      "bytes": 35394,
+      "sha256": "994ca84cc243a7dfdd47ebcda02d5a7e04f4102efae29682e515eb87ab49a321",
+      "mtime_ns": 1790502955060267600,
+      "lines": 600
+    },
+    {
+      "path": "higgsfield-websites/references/reference-boards.md",
+      "bytes": 7365,
+      "sha256": "74eb7dae7010672bb249363b6e56874e2c522ea68e4a00078676e784ef54b8a5",
+      "mtime_ns": 1791128334785716100,
+      "lines": 130
+    },
+    {
+      "path": "higgsfield-websites/references/review-rubric.md",
+      "bytes": 8858,
+      "sha256": "a89dad8bfc5dd83ab0e6f8cc7b42478e7937b2480987c65a85611c8500f63379",
+      "mtime_ns": 1790502955062257100,
+      "lines": 127
+    },
+    {
+      "path": "higgsfield-websites/references/runtime-and-infra.md",
+      "bytes": 10935,
+      "sha256": "ae54fa64db84d4906b1a2b8cbd36bca87ff8fe6e03861f51d5eed638a37c9f59",
+      "mtime_ns": 1790502955063257200,
+      "lines": 252
+    },
+    {
+      "path": "higgsfield-websites/references/scroll-scrub-asset-css.md",
+      "bytes": 5993,
+      "sha256": "a0849540798a257b1caa94566b038ef5c7b96dc2a0dba3f793594632a4c1a2c3",
+      "mtime_ns": 1790502955064511800,
+      "lines": 290
+    },
+    {
+      "path": "higgsfield-websites/references/scroll-scrub-asset-react.md",
+      "bytes": 21562,
+      "sha256": "ceee8a7a22c303f645443d515709325a9293262216890e4b80a37b18fe0fe137",
+      "mtime_ns": 1790502955066508900,
+      "lines": 714
+    },
+    {
+      "path": "higgsfield-websites/references/scroll-scrub-asset-video.md",
+      "bytes": 2106,
+      "sha256": "9ed91012c970bde7018ade27f2f1467c35d477d364d02963b655c2d7a62acc9e",
+      "mtime_ns": 1790502955067521000,
+      "lines": 81
+    },
+    {
+      "path": "higgsfield-websites/references/scroll-scrub.md",
+      "bytes": 21062,
+      "sha256": "6518f4cba4209afb0d82c252f7838e2cf796a19126d84477b8f12f36e24c4050",
+      "mtime_ns": 1791128446166050400,
+      "lines": 360
+    },
+    {
+      "path": "higgsfield-websites/references/security.md",
+      "bytes": 39226,
+      "sha256": "3c56006b1665d9968fb94a35c60f5e1f66c616ac70f2ba9e62c370b9fa412c77",
+      "mtime_ns": 1790502955070518000,
+      "lines": 912
+    },
+    {
+      "path": "higgsfield-websites/references/seo.md",
+      "bytes": 37533,
+      "sha256": "d983e063084a61b1438c07fee9e3822632e1a4897a89706a8fa9c094080e4ede",
+      "mtime_ns": 1790502955071834500,
+      "lines": 861
+    },
+    {
+      "path": "higgsfield-websites/references/website-flow.md",
+      "bytes": 31219,
+      "sha256": "2b04322556e3dc39771793b5a9c7e75d4603a94f58d705efa63e9c031cc179bc",
+      "mtime_ns": 1791128352227731200,
+      "lines": 516
+    },
+    {
+      "path": "higgsfield-websites/references/wow-catalog.md",
+      "bytes": 7964,
+      "sha256": "ed9d57d0880e49482a4574f5238edbb34f39dfdf6dd981b82b55f71f7422669b",
+      "mtime_ns": 1790502955072827000,
+      "lines": 138
+    },
+    {
+      "path": "higgsfield-websites/references/wow-maker.md",
+      "bytes": 22495,
+      "sha256": "8c52067e223919b224599eca3bac47f2898240b2ee98b49ce80b43ebf00edf16",
+      "mtime_ns": 1790502955074337000,
+      "lines": 288
+    },
+    {
+      "path": "higgsfield-websites/SKILL.md",
+      "bytes": 17192,
+      "sha256": "538bedf5802491f6fbe661866efa8a3bcd75989eeeda413ed42fcd9ca45c222f",
+      "mtime_ns": 1791130590475360700,
+      "lines": 263
+    },
+    {
+      "path": "higgsfield-youtube-thumbnail/references/prompt-contract.md",
+      "bytes": 6237,
+      "sha256": "c70cbcb7805c28c4a67bba04b46edb02c12ceb8bacdce8b43a7311eb19e0daeb",
+      "mtime_ns": 1791128224846735800,
+      "lines": 86
+    },
+    {
+      "path": "higgsfield-youtube-thumbnail/references/text-overlay-bake.md",
+      "bytes": 11641,
+      "sha256": "6144d9034df6c76b0da239dcd9071c7417bbc2de76e60b7dce73ad07d7b48e3d",
+      "mtime_ns": 1790502955087860900,
+      "lines": 285
+    },
+    {
+      "path": "higgsfield-youtube-thumbnail/references/thumbnail-frameworks.md",
+      "bytes": 4109,
+      "sha256": "509e2fb8da0ba5b8ec0eb7f4d18a6e76b80c84ba5606a451bb350ed8a7a4dc13",
+      "mtime_ns": 1790502955088864600,
+      "lines": 46
+    },
+    {
+      "path": "higgsfield-youtube-thumbnail/SKILL.md",
+      "bytes": 9515,
+      "sha256": "d1ba513051181c1e76839241e53432f010652883fa8fb4a3d9be572edc71113f",
+      "mtime_ns": 1791130590475360700,
+      "lines": 111
+    }
+  ],
+  "verification": {
+    "inventory_files": 295,
+    "capabilities": 25,
+    "path_line_ranges_valid": true,
+    "baseline_changed_files": [],
+    "evaluation_execution": false
+  },
+  "searches": [
+    {
+      "pattern": "wheel|바퀴|타이어|노면|운행.?안전|차량|자동차|vehicle",
+      "scope": "**/SKILL.md;**/references/*.md;**/assets/*.md;**/evals/*.json",
+      "observation": "20-visual-mode-ssot:112-121은 차량 안전 공간/관통/규모단서 있음; 차량 전용 바퀴위상/노면 레시피 미발견"
+    }
+  ]
+}

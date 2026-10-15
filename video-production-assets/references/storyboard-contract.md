@@ -48,7 +48,7 @@
 
 정확한 좌표·피사체 거리·렌즈/경로 요구, 여러 피사체 접촉·가림·축 전환, 또는 Blender 요청이면 `camera-spatial-design`을 필수 적용해 미터 좌표·카메라 후보·전 프레임 경로/거리/화각 검사를 작성한다. 단순 정보 그래픽은 공간 수치 N/A 사유를 기록할 수 있다. 화면 좌우와 월드 X를 같은 것으로 가정하지 않는다.
 
-실제 3D 배치 검증이 요청됐거나 수치만으로 가림/카메라 경로를 판단할 수 없으면 `blender-previsualization`에 **동일 shot/scene ID·fps·명세 버전**을 인계한다. 실제 런타임 smoke→정지 프리비즈→이미지 확인 순서다. 실행 불가면 해당 프리비즈는 blocker/미검증이며 텍스트·수치 설계까지만 완료한다. 움직이는 시퀀스/animatic은 별도 영상 실행 범위를 따른다. BBox 프록시는 얼굴·손 리깅·접촉·완성 미감을 보장하지 않으며 실제 패널에서도 이를 다시 본다.
+실제 3D 배치 검증이 요청됐거나 수치만으로 가림/카메라 경로를 판단할 수 없으면 `blender-previsualization`에 **동일 shot/scene ID·fps·명세 버전**을 인계한다. 실제 런타임 smoke→정지 프리비즈→이미지 확인 순서다. 실행 불가면 해당 프리비즈는 blocker/미검증이며 텍스트·수치 설계까지만 완료한다. 움직이는 시퀀스/animatic은 별도 영상 실행 범위를 따른다. BBox 프록시는 얼굴·손 리깅·접촉·완성 미감을 보장하지 않으며 실제 패널에서도 이를 다시 본다. Static BBox, raycast, or centerline-only proxies cannot verify anatomically specific contact, prop ownership, crouch/reach, or handoff. If any is a required beat, inspect an articulated body and actual contact-surface state for the relevant frame(s); without that evidence, return the indexed missing-evidence packet and mark the claim UNVERIFIED—not passed by body overlap, visibility, or camera fit alone.
 
 ## 3. 전체 커버리지와 이미지 수 산정
 
