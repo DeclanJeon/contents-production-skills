@@ -26,6 +26,7 @@
 | `renderer_path` | 배포된 렌더러 스크립트 경로 |
 | `renderer_mode` | `scene_card` 또는 `webtoon_page` |
 | `renderer_template_path` | `webtoon_page`일 때 에피소드 웹툰 템플릿 |
+| `renderer_template_path`의 `channel_label` | 화면에 burn되는 채널명. **바이트 권위는 이 파일**이며, 프레임을 눈으로 읽은 값이 아니다 |
 | `speed` | 렌더 후 배속(예: `1.4`). 원장은 60초 그대로 |
 | `font_path` | burn-in 폰트 (예: `/usr/share/fonts/truetype/nanum/NanumGothicBold.ttf`) |
 | `source_rights_status` / `source_rights_evidence` | 권리 게이트 |
@@ -48,6 +49,10 @@
 - `youtube-community-shorts.service` — oneshot, `User=root`, `ExecStart=<venv>/bin/python <release>/app/runner.py`,
   `WorkingDirectory=<release>`. `TimeoutStartSec`은 넉넉히(웹툰 18페이지 + 경계 패스 + 배속 패스).
 - `youtube-community-shorts.timer` — `OnBootSec`, `OnUnitInactiveSec`로 주기 실행.
+- **`OnUnitInactiveSec` 타이머는 서비스가 systemd로 한 번도 실행된 적이 없으면 다음 시각이 없다**
+  (`systemctl list-timers`가 `NEXT=-`, `NextElapseUSecMonotonic=infinity`). `enable --now`만으로는
+  발화하지 않는다. `sudo systemctl start youtube-community-shorts.service`로 1회 실행해
+  `InactiveEnterTimestamp`를 만들면 그 시점부터 주기가 성립한다. 서비스는 멱등이므로 안전하다.
 - 리소스 상한이 있으면(`MemoryMax`, `CPUQuota`) 인코딩이 죽지 않는지 첫 실측에서 확인하고 조정한다.
 - 릴리스 경로를 바꾸면 두 유닛의 경로를 함께 고치고 `daemon-reload` → `timer` 재시작.
 
