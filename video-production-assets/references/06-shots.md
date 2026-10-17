@@ -31,11 +31,11 @@
 
 위계/스케일 농담에서 아동과 성인의 대상/역할을 마주 놓을 때, 두 인물·시간·관계가 같은지 브리프에서 정하고 storyboard의 기존 character/shot identity를 맞춘다. 명시된 허구가 아니면 아동이 실제 차량을 운전하거나 위험한 행동을 하는 것처럼 staging하지 않는다. copy가 한 뜻에서 다른 뜻으로 바뀌면 두 화면 상태와 각각의 대상/행동을 별도로 적는다; 연결점이 불분명하면 단순 cut 또는 copy 변경을 비교한다.
 
-목격자/대상 반응 사다리가 필요할 때만 사건→개별 시선→집단 반응→원인 대상/역방향 정보→문구 순서를 계획한다. 각 반응을 독립 cut으로 강제하지 않고, 같은 scene의 여러 phase일 수 있는지 검토한다. 확인 가능한 eyeline과 공간 관계를 맞추고 표정만으로 목격, 말, 동의, 동일 사건을 추정하지 않는다. 관련 장르 기대/closure는 실제 comedy brief일 때만 [17-genre-comedy](17-genre-comedy.md)에서 판단한다.
+필요한 경우에만 쓰는 사건→개별 시선→집단 반응→원인 대상/역방향 정보→문구 순서는 package-authored sequencing heuristic이다(`[BASIS-UNSTATED]` as an external efficacy claim). Katz의 특정 반응 coverage 사례는 해당 sequence가 보편적이거나 관객 주의를 개선한다는 근거가 아니다. 각 반응을 독립 cut으로 강제하지 않고 같은 scene의 phase일 수 있는지 검토한다. 확인 가능한 eyeline과 공간 관계를 맞추고 표정만으로 목격, 말, 동의, 동일 사건을 추정하지 않는다. 관련 장르 기대/closure는 실제 comedy brief일 때만 [17-genre-comedy](17-genre-comedy.md)에서 판단한다.
 
-숙박/서비스/장소를 따라가는 브리프에는 입구→경로→문턱→기준 landmark→목적지와 복귀를 scene/shot fields의 공간 기준으로 선언한다. 프레임/POV가 바뀌어도 landmark·방향·소품 소유 관계를 유지한다. 미니어처/portal scale break는 ordinary space와 분리된 fantasy view 및 복귀 shot/phase를 표시한다; 가림·wipe만으로 실제 floorplan이나 이동 거리를 증명하지 않는다. 수치 spatial/camera 요청은 기존 `$camera-spatial-design` handoff를 사용한다.
+숙박/서비스/장소를 따라가는 브리프에는 입구→경로→문턱→기준 landmark→목적지와 복귀를 scene/shot fields의 공간 기준으로 선언할 수 있다. 이 경로/miniature/portal staging은 package-authored continuity proposal이지, 관객이 실제 floorplan·이동 거리·스케일 전환을 이해한다는 근거가 아니다(`[BASIS-UNSTATED]` as an external effect claim). 프레임/POV가 바뀌어도 landmark·방향·소품 소유 관계를 유지하고, 가림·wipe만으로 실제 floorplan이나 이동 거리를 증명하지 않는다. 수치 spatial/camera 요청은 기존 `$camera-spatial-design` handoff를 사용한다.
 
-화면 안 화면·인셋이 관객 시선을 나눌 때만 main/secondary 정보, 공개 순서, 기준 anchor, 각 창의 시간·공간·출처가 같은지/다른지 기록한다. 동시 inset이면 동시 동작을 보이는지, 과거/별도 세계의 insert면 그 시간·공간 전환이 읽히는지 명시한다. 실제 출력 크기와 크롭에서 각 창의 대상·행동·타이포를 검사한다; flash나 detector event 수만으로 리듬/beat를 만들거나 동시성을 주장하지 않는다.
+화면 안 화면·인셋이 선택된 경우 main/secondary 정보, 공개 순서, 기준 anchor, 각 창의 시간·공간·출처가 같은지/다른지를 package-authored layout/QA fields로 기록한다. 이는 시선을 더 잘 유도하거나 관객 이해를 보장한다는 근거가 아니다(`[BASIS-UNSTATED]` as an external effect claim). 동시 inset이면 동시 동작을 실제로 보이는지, 과거/별도 세계의 insert면 그 시간·공간 전환이 읽히는지 계획하고 실제 출력 크기와 크롭에서 각 창의 대상·행동·타이포를 검사한다; flash나 detector event 수만으로 리듬/beat를 만들거나 동시성을 주장하지 않는다.
 
 ## 산출물 목적 구분 — 스토리보드·샷리스트·애니매틱·프리비즈
 
@@ -53,6 +53,10 @@
 
 ## 근거와 적용 범위
 자료 ID: 04,05,06,07,08. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 절차와 템플릿은 여러 자료의 개념을 결합한 독자 설계다. 저자의 규칙을 그대로 재현한 요약이나 공식 인증된 방법론으로 표현하지 않는다.
+04 L37은 동기 있는 카메라 이동의 배경이고, 05 L333–355는 축·화면 방향·재정위, L595–597은 앵글 의미의 맥락 의존성을 직접 지원한다(READ-PARTIAL, [직접 대조 구간](sources.md#직접-대조-구간--2026-10-16-w4)). 05 L75는 시각화 모델 소개에 한정하므로 축의 locator로 쓰지 않는다. 도판·전체 커버리지·키패널 체계의 지원은 별도 확인하며 ID·cue·보드 슬롯·수치 인계는 패키지 규격이다.
+
+E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/Film Directing Shot by Shot Visualizing from Concept to Screen (Steven D. Katz) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `e8ad5bf5ecc3659fb9b936dd081147a465b03ca09f53e6d690ca286fa4706e9a`, 535607 bytes, L389–393 `Camera Cutting vs. Coverage`(이 구간의 인쇄 페이지 표기 없음). 정밀한 camera cutting과 여분 coverage의 장단점, 전체 행동을 확보하는 이유, 말하는 아버지만이 아니라 듣는 아이들의 반응을 확보하는 예를 지원한다. 모든 장면에 고정 샷 수를 부과하거나 모든 coverage를 보장하지 않는다. 썸네일→핵심 상태→접촉 상태를 계획하는 근거는 [08의 Williams L137–155](08-animation.md#근거와-적용-범위), 행동 판독은 [05의 L525](05-visual.md#근거와-적용-범위)로 한정한다. start/action_peak/end라는 슬롯 이름·패널 수·ID·순서 원장은 패키지 규격이며 책의 그대로인 키패널 분류가 아니다. 도판은 미확인이다.
+추가 직접 읽기(READ-PARTIAL): Katz 동일 535607-byte rendition, SHA-256 `e8ad5bf5ecc3659fb9b936dd081147a465b03ca09f53e6d690ca286fa4706e9a`, L333–355(printed p130 onward)는 screen direction과 visible reorientation/camera crossing을 지원하고, L393–395는 action 중 cut의 편집 선택을 설명한다. 이 구간들은 축/행동 연속성의 planning 근거이지 모든 장면의 고정 coverage, 정확한 key-pose 세트, inset·portal 배치나 특정 reaction ladder의 효능 근거가 아니다.
 
 ## 출력 템플릿
 `assets/06-shots-template.md`를 복사해 채운다.

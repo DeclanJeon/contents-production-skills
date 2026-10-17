@@ -21,15 +21,17 @@ Every value carries exactly one provenance, and the four classes are never blurr
 
 **Delegated fictional design.** When the brief explicitly delegates creative design of a fictional character, choose missing creative attributes — including age, gender, build and backstory — as **labeled design proposals** grounded in the topic. This is the normal full-SSOT path: a delegated fiction SSOT with empty identity slots is a failed output, not a cautious one.
 
-**Scope-limited approved characters.** When the packet supplies an existing character with established choices, preserve those choices; fill only the gaps the section needs, labeled as proposals, and never rewrite supplied identity.
+**Scope-limited approved characters.** Preserve established choices. Fill gaps as proposals only inside explicit fictional-design delegation; outside that scope leave consequential unknowns undecided. A request for the full format does not itself grant permission to invent biography or demographics.
 
 **Real people.** For a real, identifiable person, never invent undocumented biography, psychology or personal facts. Unsupplied facts stay `미정`. **Irrelevant exact numbers** — a precise weight, birthday, or measurement the story and design do not need — are not manufactured for anyone.
 
-**Questioning.** Do not stop a one-sentence topic with interrogation. One concise question is warranted only when an unresolved choice materially changes the character's role or the story; otherwise proceed with labeled proposals.
+**Questioning.** Do not stop a one-sentence topic with interrogation. One concise question is warranted only when an unresolved choice materially changes the character's role or the story. Otherwise proceed with proposals inside explicit delegation and retain undecided values outside it.
 
 ## Required output: `CHARACTER SSOT`, sections 0–33
 
 The output keeps this exact section order and numbering. Omit nothing; mark a section `N/A` only with a stated reason (e.g., silent role → Voice & Speech N/A).
+Use compact labeled tables for count-bound lists and concise prose without repeated framing or duplicate rationale. Every character still gets a complete, separately numbered SSOT; the cast differentiation matrix supplements those SSOTs and never substitutes for them. All sections, required field content, numeric counts, and prompt word windows below remain binding—compactness is not permission to omit, merge, or shrink them.
+When a request combines compact cast sheets with one full SSOT, give each compact sheet the six compact-format blocks in `character-craft.md` using concise field/value rows. Keep the CH01 compact sheet as a short projection; do not duplicate its detailed persona, voice, or prompt prose from the full SSOT. Then return the full CH01 sections 0–33 exactly once, using compact tables for count-bound lists and concise field/value rows elsewhere. State shared provenance, scope, and verification limits once when they apply; keep per-value provenance clear. Avoid preambles, repeated rationale, repeated disclaimers, and prose restatements of table values. These compression rules change formatting only: preserve every required field, count, and prompt word window, including the full §29 prefix and §30 negatives embedded in A–D prompt specifications.
 
 | # | Section | Content |
 |---|---|---|
@@ -164,7 +166,7 @@ Use one or more decision conflicts supported by the synopsis, brief, or establis
 
 ## Design principles
 
-- Avoid generic beauty — controlled small imperfections are what make a face real and reproducible.
+- Avoid generic beauty as a substitute for specific identity. Small asymmetries may be labeled design proposals within delegation; they are optional, not a requirement for realism or a guarantee of model reproducibility.
 - Recognition beats accessory count; specific shape and behavior beat adjective lists.
 - Internal logic over stereotype: occupational or cultural shorthand is not character.
 - Every invented value is labeled; every supplied or observed value is preserved with its provenance.

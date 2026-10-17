@@ -7,6 +7,8 @@ default), and keep the preserved CLI shapes as reference for contexts where they
 permitted. A "retry" inside the preserved CLI notes is a workflow limit only — the approved
 bounded retry/cost scope governs.
 
+Evidence scope: ordering, 40–60% subject area, lighting rig, 4K preference and identity-lock wording are house design/prompt heuristics, not proven audience outcomes or guarantees of exact identity/logo preservation. Tonal separation has the narrow source support recorded in `thumbnail-frameworks.md`; no source there establishes the rest of this recipe. Inspect actual identity, lettering, crop and small-preview legibility. Preserved CLI models, flags, ratios and result fields below require current executor-contract validation; they are not a fresh provider observation.
+
 ## Prompt contract
 
 Assemble every main-render prompt in this order:

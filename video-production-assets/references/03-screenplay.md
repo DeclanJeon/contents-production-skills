@@ -30,6 +30,10 @@
 
 ## 근거와 적용 범위
 자료 ID: 04,18,19,20,25,27,32,35. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 절차와 템플릿은 여러 자료의 개념을 결합한 독자 설계다. 저자의 규칙을 그대로 재현한 요약이나 공식 인증된 방법론으로 표현하지 않는다.
+시간 추정·claim ID·수정 의존성은 운영 설계다. 서사 단위와 서브텍스트의 직접 근거는 아래와 같으며, 정확한 설명이 필요한 교육/튜토리얼에 드라마의 간접 표현을 강제하지 않는다.
+
+E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/Story Substance, Structure, Style and the Principles of Screenwriting (Robert McKee) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `2ebf099c352fe0814e00ef15d285bbb4545f216d18d5b9df440ec9e1b11ec5da`, 856699 bytes. L77–89(pp38–44)는 행동/반응 비트와 가치 중심 씬/시퀀스/막, L497–505(pp248–252)는 보이는/들리는 text와 그 아래 의도·감정인 subtext, 행동 안에 관계를 담는 대사 예를 지원한다. 여기의 장소/시간 블록은 제작용 씬 구분이며 McKee의 가치 전환 씬과 항상 일치하지 않는다(L79–81의 여러 장소에 걸친 한 사건). 화면/음향 중복을 점검하되 소리 자체의 질감·맥락 가치를 없애지 않는 근거는 [09의 Reisz 직접 구간](09-edit.md#근거와-적용-범위)이다. 대사 감소가 모든 영화의 품질 조건이라는 주장은 아니다.
+Syd Field 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/Screenplay The Foundations of Screenwriting (Syd Field) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `84c897be444ca94a50a6f4b1c009e9529cf02d771c0a572fad0adde2d36c2e25`, 671535 bytes. L459–461(pp213–214)와 L475(p221)는 장면 목록·트리트먼트·각본 요소의 기본 구분을 지원한다. Field의 treatment는 dialogue를 포함할 수 있고 outline 형식은 다양하다. 이 패키지의 scene outline 필드는 로컬 제작 계약이며 보편 외부 정의가 아니다.
 
 ## 출력 템플릿
 `assets/03-screenplay-template.md`를 복사해 채운다.

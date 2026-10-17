@@ -1,6 +1,6 @@
 # Marketing Studio Modes
 
-Current mode values for `marketing_studio_video` `--mode`. The live schema is the source of truth, so run `higgsfield model get marketing_studio_video` if validation fails.
+Historical mode taxonomy. Directly read 2026-10-17: [official MODELS.md, marketing_studio_video](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md#marketing_studio_video--marketing-studio-video) documents default `ugc`, arrays, setup IDs, and ad-reference/setup exclusion. It does not enumerate the cached mode whitelist or prove its quality labels; those remain unverified until selected live schema confirms them. Inspect before submission, not only after failure; no generation observed.
 
 | `--mode` slug | Human-readable label | Hook/setting | Best for |
 |---|---|---|---|
@@ -32,8 +32,8 @@ The "Hook/setting" column shows whether `--hook_id` and `--setting_id` are valid
 For `marketing_studio_video`, the API accepts:
 
 - `aspect_ratio`: `auto`, `21:9`, `16:9`, `4:3`, `1:1`, `3:4`, `9:16` (default `16:9`).
-- `duration`: integer ≥ 4 seconds. No fixed cap; check `higgsfield model get marketing_studio_video` for the current upper bound.
-- `resolution`: `480p` or `720p` (default `720p`).
+- `duration`: documented integer, default 15; no unlimited-duration guarantee. Verify the live allowed set/range.
+- `resolution`: official table read lists `480p`, `720p`, `1080p` (default `720p`); verify the current selected contract.
 - `generate_audio`: boolean (default `false`). Generates audio for the video.
 - `avatars`: array of `{id, type}` where `type` is `preset` or `custom`. See `marketing-avatars.md`.
 - `product_ids`: array of product UUIDs (from `higgsfield marketing-studio products fetch` or `create`). See `marketing-products.md`.

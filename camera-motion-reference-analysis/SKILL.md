@@ -1,6 +1,6 @@
 ---
 name: camera-motion-reference-analysis
-version: 1.0
+version: 1.18
 description: Analyze camera movement in supplied reference video or time-coded observations.
   Use for camera walking, dolly, tracking, pan, tilt, orbit, handheld, reveal timing,
   lens/motion discrimination or a reference-derived motion brief. Separate observed
@@ -23,4 +23,8 @@ description: Analyze camera movement in supplied reference video or time-coded o
 ## 완료와 저장
 원본 구간, 근거 종류, 카메라/피사체/렌즈 구분, 시간 구간, 가설·미확인, 재사용할 무빙 의도와 실제 검사 범위를 납품한다. 직접 관찰은 OBSERVED, 사용자 기록은 USER_REPORTED, 추정은 ESTIMATED, 새 제작 수치는 DESIGN_PROPOSAL로 표시한다. 창작 해석을 성과 측정으로 표현하지 않는다.
 
-상대 스킬 폴더명은 설치 후 달라질 수 있으므로 /root/.codex/skills/remote-skills/*/SKILL.md의 정확한 name으로 찾아 참조를 연다. 파일 요청은 기존 제작 이력·Library 저장 흐름을 따른다. 채팅 전용은 파일을 만들지 않는다. 실제 생성은 담당 스킬에 인계한다.
+형제 스킬은 현재 설치 루트에서 정확한 frontmatter `name`으로 찾고 해당 디렉터리 기준으로 참조를 연다. 특정 Linux 설치 경로를 다른 호스트의 필수 경로로 가정하지 않는다. 파일 요청은 기존 제작 이력·Library 저장 흐름을 따른다. 채팅 전용은 파일을 만들지 않는다. 실제 생성은 담당 스킬에 인계한다.
+
+## Acceptance
+
+The report is complete only when every movement claim has a time range and observation basis, separates camera motion from subject motion and lens/zoom effects, distinguishes observation from inference/design proposal, and identifies uninspected intervals. Exact 3D position, speed, lens, or rig claims require tracking/solve evidence; otherwise state the ambiguity. Missing video or inaccessible footage blocks visual analysis and must be returned as the specific required input.

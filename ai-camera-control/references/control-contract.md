@@ -3,6 +3,8 @@
 ## 보존 정보
 shot_id/scene_id/beat_id/panel_ids, camera_spec ID/version, source asset ID/version, duration/fps/aspect, subject path, camera path/target, lens/focus, reveal/contact timing, 좌표·단위, 정체성/제품/배경 앵커. 단독 요청에 불필요한 전체 원장을 만들지 않는다.
 
+Each source reference includes a resolvable file/section or supplied-text locator, its shot ID and version; a title such as “approved plan” alone is insufficient. If no version was supplied, record `unversioned supplied text` rather than inventing an approval/version. Carry missing lens, effective gate, duration/FPS or move onset/settle timing as `UNRESOLVED` in the packet and return the affected numeric directive to camera-spatial-design. A request such as “push in” permits a qualitative SOFT_PROMPT draft, not an invented 35 mm lens, two-metre path or four-second duration. Never populate a numeric provider field from that draft.
+
 ## 변환과 지원
 현재 도구가 실제 받는 duration/aspect/reference/start_frame/end_frame 등의 확인된 필드만 HARD_CONTROL로 표시한다. 참조 지원과 완전한 경로 지원을 구분한다. camera curve·speed·lens의 텍스트 지시는 SOFT_PROMPT이며 생성 후 검사한다. 스키마 한도를 넘는 잠긴 입력을 조용히 잘라 제출하지 않는다. 모델/스키마 확인이 없으면 provider_inputs는 비우고 UNVERIFIED로 남긴다.
 

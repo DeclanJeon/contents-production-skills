@@ -1,6 +1,6 @@
 # Sources: scope read, claims adopted, verification limits
 
-These citations back **external model descriptions and research findings** only. The skill's packet structure, execution order, mode rules, and bridge tables are this repo's own creative design — not a psychologically validated generation method.
+External citations back only the model descriptions, research findings, and scoped theatrical craft below. The packet structure, execution order, mode rules, and bridge tables are authored production design, not a psychologically validated generation method. They adapt craft ideas where stated; an authored schema is not evidence that its borrowed craft or psychology is empirically true.
 
 ## What was actually read
 
@@ -22,6 +22,22 @@ The MBTI developer page is a primary source for intended use, not independent ve
 ## Update policy
 
 Sources are version-pinned reference material: re-verify only when the external theory basis changes or a specific execution tool's capabilities need checking — not on every character generation. Web research never overrides a user's supplied character facts.
+
+## Addressable reading record — 2026-10-16
+
+`READ-PARTIAL` attaches to each citation, not to the whole site or book:
+
+| Citation | Directly read locator | Supports / does not support |
+|---|---|---|
+| [1] | MBTI Facts questions 5–7, 14 | Preference pairs and preference ≠ ability; not behavioral diagnosis or type→voice |
+| [3] | PubMed abstract, PMID 33332604, findings paragraph | Mixed evidence across 104 samples, fewer factors, limited wing/movement research; full study not read |
+| [11] | PubMed abstract, PMID 2709300, data/findings paragraph | 267 men + 201 women, dimensional findings on that instrument; not all modern instruments |
+| [12] | “The Wing”; “Directions of Integration (Growth) and Disintegration (Stress)” | Tradition's theory only; not a verified state predictor |
+| [14–22] | Each linked type page, “in Brief”: Basic Fear, Basic Desire, Key Motivations | Nine motive paraphrases only; no adoption of celebrity typing, illness, addiction or diagnosis claims |
+| [10] | “Recommended prompt format”, “Tone/Timbre”, “Pacing”, “Text to preview”, Overview | Vendor distinguishes timbre from delivery and warns quality varies; does not define our three-layer SSOT or prove output continuity |
+| [23] | Local original rendition, lines 99–103 | Theatrical action pursuing an objective against an obstacle; craft lens only, not a universal psychological law |
+
+[23] Ed Hooks, *Acting for Animators*, `E:/Book/06_Book/originals/콘텐츠_제작/md/Acting for Animators (Ed Hooks) (z-library.sk, 1lib.sk, z-lib.sk).md#L99-L103`; 337169 bytes; SHA-256 `78d7a71fd3f530ae501d8cef6d77db97edded4c0e4ad8f9406af3fbd8944740a`. This supports behavior-first fictional performance in `persona_core`/`behavior_rules`; the detailed cost/exception columns are our writing checks. Do not import “no conflict, no scene” as permission to add events to a locked synopsis.
 
 [1] https://www.themyersbriggs.com/en-US/Support/MBTI-Facts
 [3] https://pubmed.ncbi.nlm.nih.gov/33332604

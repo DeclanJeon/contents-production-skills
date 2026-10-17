@@ -1,6 +1,6 @@
 ---
 name: higgsfield-video-replicate
-version: 0.17.0
+version: 0.35.0
 description: |
   Replicate an existing reference video into a new similar-style video:
   analyze its shots, lock a style bible and characters, regenerate every
@@ -175,3 +175,7 @@ higgsfield generate create brain_activity --video ./final.mp4 --wait
 ## Deliver
 
 The final MP4 (local path or uploaded URL), exact duration, aspect, model and shot count, soundtrack source, QC notes, and a one-line comparison against the reference. Keep intermediate job IDs and loose asset URLs internal unless asked. For delegated production work, additionally return the internal canonical join: output file path + hash, per-shot job UUID locators mapped to canonical shot IDs, chained-frame anchor provenance, observed terminal states, and measured cost.
+
+## Acceptance
+
+The replication is complete only when the reference was actually inspected over the reported scope, the user-selected or supplied model was schema-checked and used without silent substitution, all N shot jobs completed in order, the final MP4 was assembled and opened, and beat-level QC reports observed matches and deviations. Aggregate cost approval must cover submitted work and retries. Missing reference media, unauthorized likeness/branding, unavailable model, failed assembly, or uninspected output is a blocker; loose clips are not a finished replication.

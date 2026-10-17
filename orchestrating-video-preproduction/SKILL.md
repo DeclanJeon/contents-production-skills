@@ -1,6 +1,6 @@
 ---
 name: orchestrating-video-preproduction
-version: 2.6
+version: 2.24
 description: Use for text-only video preproduction that spans multiple artifacts — a complete planning package or one idea carried from concept through synopsis, characters, and storyboard. Delegated planning lane under creative-production; returns text and generic image prompts, never media.
 ---
 
@@ -11,6 +11,8 @@ This lane moves a single brief through whichever planning stages were requested 
 `creative-production` alone coordinates content and video projects. This skill is its delegated text-planning lane — on a standalone call, consult `creative-production` once to confirm scope and route, then perform only the requested planning. When work arrives already delegated, inherit the coordinator's brief, IDs, versions, and approvals: no call-backs, no re-routing, no second interview or approval ledger — with stage packet intake and worker return per the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer). Text planning alone never creates a project folder, `project.json`, stills, or a sample video. Anything beyond text — image-backed packages, generation, editing, delivery, publication — goes back to `creative-production` as a plan and handoff; this lane never executes or picks an executor.
 
 Text-only forbids media, files, and spend — not technical planning: a storyboard requested here defaults to the complete production plan under [`../video-production-assets/references/storyboard-contract.md`](../video-production-assets/references/storyboard-contract.md). Rough narrative panels or prompt-only thumbnails apply only on an explicit request for that narrow exercise.
+
+If a text-only/read-only request also says “render the storyboard later,” return the requested text plan, generic prompts and downstream render requirements only. “Later” is a handoff requirement, not authorization to render now: do not call an image/video generator, Blender, a provider submit tool, or a file-writing production tool from this lane. This boundary applies even when `creative-production` is not loaded; loading or consulting a coordinator cannot widen the current request's permission.
 
 ## Choosing the stages
 
@@ -32,6 +34,10 @@ A production storyboard needs camera/spatial, VFX, speech/lipsync, and audio spe
 ## Package return
 
 A full package returns the assembled sections defined in `references/stage-execution.md` — shared spine, concept/synopsis with stable beat IDs, character sheets, Visual Bible, the storyboard, and the consistency/unresolved/review status. Delegated returns additionally carry the assigned artifact/entity IDs and output versions, a dependency/dependency_versions proposal naming each input artifact version used, assumptions, checks performed, and remaining blockers, per the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer). Standalone chat work allocates no project or artifact IDs.
+
+## Multi-artifact plan response shape
+
+For a **plan-depth** multi-artifact request, preserve all six requested sections and the full storyboard contract, but keep the response compact: target **≤2,000 words** unless the user asks for exhaustive detail. Put shared assumptions, IDs, continuity and status in one spine/table; reuse them by ID instead of repeating them in every artifact. Use one concise row per beat, shot and required panel; populate each mandatory slot once in the shot table and mark unresolved values with indexed blockers. Keep rationale to decision-changing facts, cite sources inline, and omit repeated explanations, duplicate source-basis sections and unrequested prompt variants. The word target never authorizes omitting a requested artifact, panel, or mandatory slot: compress field values, not coverage. Finished drafts or explicitly exhaustive boards follow the requested detail instead of this plan-depth target.
 
 ## Acceptance
 

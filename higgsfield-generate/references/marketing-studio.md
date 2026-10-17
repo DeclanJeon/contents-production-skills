@@ -9,9 +9,11 @@ this package — its workflow below is craft/reference only. Entity management c
 (products/avatars/hooks/settings/ad-references/brand-kits fetch/list/create) are not media
 generation; they still require the runtime check and serve only the user-authorized scope.
 
+Evidence scope (2026-10-17): directly read [official MODELS.md, marketing_studio_video](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md#marketing_studio_video--marketing-studio-video) and CLI 1.1.26 entity help. The table documents `ugc` default, arrays, hook/setting fields, `ad_reference_id` exclusion, output-audio flag, and resolutions through `1080p`. It does not verify private retrieval, hook prepending, automatic Soul creation, URL deduplication or the full mode whitelist below. Those historical details require current entity/model contracts before use; never infer training consent or duplicate-mutation safety from them. No import/upload/generation was exercised.
+
 ## Concepts
 
-- **Avatar** — presenter face. Curated `preset` (browse `higgsfield marketing-studio avatars list`) or `custom` (uploaded photos via `higgsfield marketing-studio avatars create`). For UGC modes, an avatar is optional if the brief clearly mentions a person; the backend can create a Soul Character automatically. Pass an avatar when the user wants a specific presenter.
+- **Avatar** — presenter face. Curated or custom entity from the selected transport. Historical recipe describes automatic presenter synthesis if omitted; that behavior is unverified. Never infer reusable-identity training consent from an ad brief.
 - **Product** — brand item with title + reference images. Imported from URL (`higgsfield marketing-studio products fetch --url ...`) or created from uploaded images (`higgsfield marketing-studio products create`).
 - **Webproduct** — App Store / web page version. Auto-routes when fetching App Store URLs.
 - **Hook** — reusable opening angle / ad hook. Browse with `higgsfield marketing-studio hooks list`. Hook text is prepended to the user's prompt; it does not replace `--prompt`.
@@ -54,7 +56,7 @@ higgsfield marketing-studio ad-formats list --json
 2. **Pick avatar if needed.**
    - Default: `higgsfield marketing-studio avatars list` and pick a preset matching the brand voice.
    - Custom: `higgsfield marketing-studio avatars create --name "..." --image <upload_id>`.
-   For UGC modes, you may omit `--avatars` when no specific presenter is required and the brief mentions a person; the backend can synthesize a Soul Character.
+   Do not rely on historical automatic Soul synthesis when omitting `--avatars`. Verify current presenter behavior and preserve any supplied presenter; resolve explicit identity-training consent before a reusable training operation.
 3. **Optionally pick setup items.**
    - Hook: `higgsfield marketing-studio hooks list --json`
    - Setting: `higgsfield marketing-studio settings list --json`

@@ -1,6 +1,6 @@
 ---
 name: recording-production-history
-version: 1.0
+version: 1.18
 description: "Use when content production writes intermediate or final files, when a project needs a chronological audit of actual prompts, methods and outputs, or when interrupted production must be resumed."
 ---
 
@@ -86,7 +86,13 @@ python scripts/production_history.py resume --project-root ROOT
 
 - 채팅 전용 답변, 파일 없는 설계 논의, 단일 텍스트 산출물에는 저장 초기화를 하지 않는다(chat-only는 no-save).
 - `.history`를 승인 증거·품질 판정·QA 검증·project.json 대체로 사용하지 않는다.
+- 실행 증거가 없는 과거 사건은 새 `started`/`completed`로 재연하지 않는다. 사용자가 전한 과거 이력은 사용자 보고로 구분하고 원래 시각·출처·미검증 상태를 설명한다. 파일 존재는 생성 주체·방법·QA 성공의 증거가 아니다.
 
 ## 종속성
 
 Python 3.10+ 표준 라이브러리만 사용한다. 외부 패키지 없다.
+
+## Acceptance
+
+An event is recordable only when it describes an operation that actually occurred and its status matches the observed outcome. Every declared output must be reported with its resolved path and existence state; completed outputs must exist within the project root. A project may be marked completed only when no operation is in flight and every requested output exists. Missing prompt, nonexistent operation, out-of-root path, or unobserved result is a blocker; never backfill an invented event.
+

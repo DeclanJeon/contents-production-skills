@@ -17,3 +17,14 @@ issue_id / severity / shot·panel ID / actual clip version / source evidence tim
 경로·렌즈·타이밍 설계 문제는 camera-spatial-design, 관찰 근거 부족은 camera-motion-reference-analysis, 상충/미지원 생성 입력은 ai-camera-control, actual render 구현은 blender-previsualization, 컷/안정화/속도 조절은 해당 편집 모듈로 보낸다. 편집으로 공간 오류가 실제 해결되는지도 확인한다. 설정·입력·샷 수·모델·비용의 변경은 기존 승인 범위에 대조한다.
 
 판정은 pass / pass_with_notes / needs_revision과 검사 범위를 함께 기록한다. 핵심 움직임/공개가 미검증이면 실제 영상 카메라 통과를 선언하지 않는다. 구조·기술 검사, 작품 판단, 사용자 수락은 별개다. 수정 뒤 해당 샷과 앞뒤 컷을 재검사하고 정본 버전 및 영향을 받는 종속 에셋만 갱신한다.
+
+## 근거와 적용 범위
+
+검사 범위·오차 보고·수정 담당·판정 상태는 패키지 운영 설계다. 축/시선·광학/렌즈·자연스러운 움직임에 관한 craft 판단은 해당 카메라/촬영 소유 모듈의 직접 구간과 실제 파일 검사에 연결해야 한다. 이 파일의 체크리스트나 소유자 링크만으로 그 외부 근거를 확인했다고 하지 않는다([지원 경계](sources.md#모듈별-지원-경계)).
+
+E7 직접 대조(READ-PARTIAL, OCR 텍스트만; 도판·실제 클립 미검사):
+
+- 자료08 `E:/Book/06_Book/originals/콘텐츠_제작/md/The Visual Story Creating the Visual Structure of Film, TV, and Digital Media Third Edition (Bruce Block) (z-library.sk, 1lib.sk, z-lib.sk).md` L103–117(인쇄 pp51–58), L529–537(pp264–268); SHA-256 `403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c`, 368221 bytes. 전중후경의 상대 운동·이동 카메라의 화면 효과를 §검사2–3의 비교 단서에 연결한다. 원문 설명을 “pan이면 모든 pixel 속도가 같다”는 보편 측정식으로 쓰지 않는다. 움직이는 피사체·회전·줌·크롭·합성의 조합은 같은 단서와 양립할 수 있으므로 화면 변화를 실제 camera translation의 확정 증거로 승격하지 않는다.
+- 자료05 `E:/Book/06_Book/originals/콘텐츠_제작/md/Film Directing Shot by Shot Visualizing from Concept to Screen (Steven D. Katz) (z-library.sk, 1lib.sk, z-lib.sk).md` L333–355(`The Line of Action`, 인쇄 p130 이후; `Establishing a New Line`/`Moving the Camera Over the Line`); SHA-256 `e8ad5bf5ecc3659fb9b936dd081147a465b03ca09f53e6d690ca286fa4706e9a`, 535607 bytes. 연속 편집의 방향/시선 유지와 명확한 재정위 단서를 §검사6에 연결한다. 저자도 다른 편집 방식과 의도된 축 변경을 허용하므로 축을 넘었다는 사실만으로 실패시키지 않는다.
+- [OpenCV 투영 근거와 역추정 한계](25-reference-video-analysis.md#근거와-적용-범위)는 단일 프레임만의 수치 카메라 확정 제한에만 적용한다. Block L103–117/L529–537은 상대 운동·이동 카메라의 화면 단서를 비교하는 데, Adobe의 아래 설명은 stabilization crop/edge artifact 검사에만 적용한다. horizon roll, rotation snap, keyframe stop, lens breathing, 자연스러운 가감속은 남는 관찰 체크이며 이 package의 `[BASIS-UNSTATED]` craft claims다: 실제 승인 의도와 비교하되 자동 실패나 원인 판정으로 쓰지 않는다. 책의 단서나 체크리스트로 미검사 영상의 motion pass를 만들지 않는다.
+**Stabilization behavior (official Adobe Help, READ-PARTIAL, directly read 2026-10-18):** [Tracking and stabilization motion workflows in After Effects](https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/track-motion/tracking-stabilizing-motion-cs5.html), sections `Framing` and `Advanced`. Adobe documents that “Stabilize, Crop, Auto-scale” crops moving borders and enlarges the footage; alternate framing can show the full frame or synthesize edges. This supports checking stabilization crop/edge artifacts only. It does not identify the cause of a particular clip's wobble, lens breathing, natural camera acceleration, or subjective smoothness; compare actual frames with approved intent and keep causes hypothetical unless independently measured.

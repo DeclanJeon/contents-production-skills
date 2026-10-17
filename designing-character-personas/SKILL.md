@@ -1,6 +1,6 @@
 ---
 name: designing-character-personas
-version: 1.0
+version: 1.18
 description: Use to create fictional character personas with MBTI or Enneagram lenses, deepen an existing character's motives and decision rules, or translate a persona into observable acting, dialogue, and voice direction. Not for real-person typing, personality assessment, or media generation.
 ---
 
@@ -37,7 +37,8 @@ Supplied types are preserved verbatim and recorded as `supplied`; gaps between a
 
 1. **Input lock** — separate supplied facts, delegation scope, existing IDs/versions, speaking vs. silent. Done when preserved vs. open choices are distinct.
 2. **Behavioral core** — role, outer goal, protected value, core desire, avoided state, interpretive beliefs, conflict priorities, hard limits, surface-vs-intent gap, strength costs, relationship-dependent openness, contradictions with conditions. Done when every core trait has an action, a choice, and a cost.
-3. **Typology lens** — read `references/mbti-lens.md` and/or `references/enneagram-lens.md` only for the active mode. Preserve supplied types; propose within delegated scope only. Each axis/type interpretation needs character-specific rationale plus conditions where the character acts against the preference. Done when every interpretation carries its own grounds and exception.
+   Source scope: the action/objective/obstacle craft lens is Hooks [23] in `references/sources.md` (`READ-PARTIAL`, lines 99–103); the cost/exception packet structure is authored design. A theatrical lens never authorizes new obstacles in a locked story or factual claims about real psychology.
+3. **Typology lens** — read `references/mbti-lens.md` and/or `references/enneagram-lens.md` only for the active mode. Preserve supplied types; propose within delegated scope only. Each active type needs its own `design_rationale`, character-specific axis/motive interpretation, grounds, limits, and recorded exceptions; preserve the template's separate fields and do not imply `design_rationale` from grounds or interpretation. Done when every interpretation carries its own grounds and exception, and every active type has an explicit rationale.
 4. **State & relation variants** — only the pressure/trust/relationship contrasts the story needs. Done when changed behavior and preserved values are both explained.
 5. **Expression bridge** — read `references/expression-voice-bridge.md`. Map each core rule to observable acting, speech, and — for speaking roles — vocal direction. Done when every mapped cue is observable or audible.
 6. **Voice design** — speaking roles only: fixed Voice Identity (register, timbre, resonance impression, articulation, sentence-end handling, baseline rhythm, auditory anchors, allowed variation), Speech Style, and per-line Performance cues, kept as separate layers. Done when identity and performance states don't conflict and voice procurement status is honest.

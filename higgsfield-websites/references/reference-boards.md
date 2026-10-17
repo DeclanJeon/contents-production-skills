@@ -1,8 +1,8 @@
 # reference-boards — design the page as IMAGES before writing code (Phase 1)
 
-The single highest-leverage step in the pipeline. The reference boards ARE the
-design: a generic board guarantees a generic site, and no amount of code craft
-recovers from it. Budget real effort here.
+Reference boards are this package's chosen section-level visual specification.
+Use them to make composition decisions reviewable before implementation; they do
+not guarantee originality or final quality. Inspect both boards and rendered code.
 
 Eligibility: a board is an image-generation artifact — in this package it runs
 through the explicitly authorized eligible image executor (`codex-imagen`

@@ -2,6 +2,119 @@
 
 ## Unreleased
 
+## 2.28 2026-10-18
+
+- Tighten source-claim boundaries and reconcile evidence ledger rows across video-production-assets; map ID 16/41 to direct use; add indexed contact-evidence packet and explicit before/action/after storyboard gates.
+
+## 2.27 2026-10-18
+
+- Bind production and narrow-panel storyboard guidance to exact partial-source scope; distinguish package-authored safeguards from source-backed craft, and prevent citation crosswiring or unsupported effect/efficiency claims.
+
+## 2.26 2026-10-17
+
+- Give the production-operations source index's exact checkout path to prevent reads from a nonexistent root-level alias.
+
+## 2.25 2026-10-17
+
+- Clarify that the operations workflow is package-authored and Lumet's ID 04 is limited background, not its book-derived model.
+
+## 2.24 2026-10-17
+
+- When a one-character sheet is explicitly requested and assumptions are allowed, choose a provisional subject by supplied cast order and provide the complete plan instead of blocking it.
+
+## 2.23 2026-10-17
+
+- Require module-based deliverables to bind used claims to exact source IDs and scope without treating a module roster as blanket evidence.
+
+## 2.22 2026-10-17
+
+- Return independent cast and single-sheet deliverables under a reversible protagonist assumption, or explicitly block only the sheet plan while continuing the cast artifact.
+- Identify production-operations source ID 04 precisely and require reading the reference-analysis module before stopping for missing footage.
+
+## 2.21 2026-10-17
+
+- Bind storyboard spatial/axis guidance to its exact partial-source scope; keep attention, composition, and board acceptance limits explicit.
+- Reconcile W4 legacy ledger dispositions against later E5/E6/E7 evidence without promoting unsupported craft or effect claims.
+
+## 2.20 2026-10-17
+
+- When a cast projection and one member's full SSOT are co-delivered, keep six essential compact blocks with precise section references instead of duplicating the full prose.
+
+## 2.19 2026-10-17
+
+- When a singular image sheet lacks a named target and target choice matters, ask one direct selection question; do not substitute a generic plan.
+
+## 2.18 2026-10-17
+
+- Require an attempted read before declaring required typology references inaccessible; prerequisite lists are not implicit allowlists.
+
+## 2.17 2026-10-17
+
+- Inherit the persona specialist's default `both` typology proposals for explicitly delegated new fictional characters, and read both active lens references. Keep compact-cast rows concise and omit invented sample dialogue unless requested or supplied.
+
+## 2.16 2026-10-17
+
+- Define compact output for three-plus-character casts, preserve all six character-sheet blocks, avoid unrequested sample dialogue, and honor an explicitly singular image-sheet count.
+
+## 2.15 2026-10-17
+
+- Preserve each module's exact printed provenance marker alongside any normalized category, and distinguish explicitly selected optional routes from generally mandatory procedures.
+- Load thumbnail concept and prompt references only for concept/prompt work; route-only intake stays scoped. Define a compact cast-plus-full-SSOT layout that reduces duplicate prose without relaxing required fields, counts, or word windows.
+
+## 2.14 2026-10-17
+
+- Require an explicit per-view disposition for every supplied door, opening, and access route in camera-space acceptance, including visibility, occlusion, framing intent, and passage status.
+- Require a distinct `design_rationale` for each active character typology lens and add a compact-but-complete output contract for full character SSOTs without relaxing field counts or prompt word windows.
+
+## 2.13 2026-10-17
+
+- Gate video-reference, frame-chaining, edit and ComfyUI planning on the selected endpoint's current schema or an inspected installed workflow; add a read-only route-boundary smoke case.
+- Specify common output geometry plus SAR=1 for FFmpeg concat inputs, and exercise the observed mismatched-SAR failure and normalized recovery with synthetic media.
+
+## 2.12 2026-10-17
+
+- Require current live model discovery and exact schema checks before Higgsfield model selection; demote the cached model catalog to an archived, non-authoritative reference and align its claim-ledger row.
+- Require Soul training eligibility and cost to be confirmed from the current provider contract, without asserting an unverified paid-plan tier.
+
+## 2.11 2026-10-17
+
+- State the non-predictive evidence scope for topic-demand selection and AI camera-control packets, bound text-only multi-artifact plans to the requested plan depth, and require the reference-analysis guide to be read before stopping on a missing-video blocker.
+
+## 2.10 2026-10-17
+
+- Add explicit, fail-able acceptance gates to the 15 previously sub-4 skill contracts: topic selection, camera motion/spatial/control/previsualization, synopsis/asset/story workflows, production history, and Higgsfield/community pipelines. Gates distinguish observed results from plans, block unsupported claims and side effects, and preserve existing specialist and approval boundaries. Gate wording alone does not establish behavioral improvement; final-tree execution and independent scores are recorded separately under `qa/skill-completeness-95/`.
+- Add the canonical 61-case manifest and a sequential explicit-model, read/grep/glob-only evaluation runner. Verify frozen source bytes, bind cached attempts to prompt/tree/model/profile identities, retain failed attempts, reject tree mutation, and keep execution success `UNREVIEWED` until independently scored. This is a new OMP series, not a replay-equivalence claim for historical Codex or context-injected outputs.
+- Enforce standalone no-generation boundaries for camera and synopsis planning; distinguish topic-selection objectives and comparable observations, supplied/observed/proposed character information, locked-story gaps, real production history, and separate acceptance/execution/publication authority.
+- Bind newly read craft passages to exact renditions, byte sizes, hashes and partial-read scopes; correct unsupported memory/retention, product-removal, empty-grade-node, identity and provider-capability guarantees without claiming whole-book coverage or successful live provider execution.
+- Correct provider reference transport, timeout reconciliation, product-photo mode selection, historical marketplace bundle counts, explainer assembler readiness, and downstream website authorization. Unverified private backends and unavailable assembly remain explicit blockers rather than silent substitutes.
+- Fix the stills delivery verifier to require the matching artifact SHA-256 and consistent unapproved-render state, and to return structured failure for invalid retiming speed before arithmetic. Real-MP4 regression scenarios fail before and pass after the fix; valid media still passes.
+- Exercise actual Blender keyframe renders and scene reopening on the discovered local Blender 5.2 installation. Proxy/keyframe evidence does not establish full-rate playback, acting, final aesthetics, or Blender 6.0 compatibility. Overall 95% completion still requires the final-tree behavior arm and independent scorecard.
+- Resolve the independent-review ranking conflict and retain unsupported comedy/callback/2D/compositing ideas as explicit optional comparisons rather than universal success rules. Bind additional framing and brand-design claims to directly read source scopes; narrow ArtCraft component licensing/capability assertions to actually inspected contracts.
+- Preserve real host-resolved read events and original JSONL in the v3 evaluation runner; do not mistake quoted error prose for an infrastructure failure. Disable automatic global skill discovery for the explicitly owner-assisted checkout profile; this is not an automatic-discovery benchmark.
+- Implement deterministic browser PNG export for all five thumbnail overlay presets, await stylesheet arrival before font loading, and reject nullable/failed exports. Inspect actual local font-loaded exports and crops; no creator-style authenticity, CTR or universal legibility claim.
+- Require observed browser checks for applicable website branches—keyboard, narrow-screen, persistence and reduced motion—using a local runtime or safely reachable, authorized preview; source/grep checks alone are insufficient. Correct timer activation/idempotency guarantees against the actual systemd contract and preserve operation-specific authorization.
+- Make website/app/game lifecycle and auth gates consistent across build, asset-system, cover, contest, flow, and auth references: listing or contest consent does not authorize remote creation, generation, spend, upload, push, or live deployment; app sign-out/account/wallet chrome stays platform-owned. Use SSR-safe server auth in loaders and only enable platform auth when end-user functionality uses the SDK. Reuse approved user assets; use single-shot as the default animated journey and require informed multi-leg opt-in with a verified cost before planning its chain. Apply the same pre-deployment cover/metadata gate to games; require pre-deployment browser checks for website, app, and game surfaces in local runtimes or safely reachable authorized previews, plus separate deployment authorization. Require eligible executors for image operations, explicit blockers, and no unsupported live-state claims. Enforce 3:2 cover/OG source dimensions, inspect independent crops, honor supplied brand fonts, validate cutout alpha and fail closed when the required app glyph is unavailable; remove contradictory auto-cover/auto-deploy and auto-publish instructions.
+- Describe still-image crop anchoring as a central-dark-pixel heuristic rather than head detection or preservation; name its failure modes and require inspection of the actual crop.
+- Complete direct, passage-level source audits for residual E5/E6/E7 craft claims, recompute newly documented local rendition identities, and bind narrow support/unsupported outcomes at each consuming reference. Keep advertising-law signoff explicitly blocked pending jurisdiction-specific primary sources and qualified review; add official YouTube-retention and Adobe-stabilization source bounds. These reads do not establish audience effects, production output quality, or media execution.
+- Capture Windows `mklink` output as bytes so non-UTF command output cannot crash the junction helper; retain readable replacement-decoded detail only on command failure. Isolated link-sync regression suite passes without subprocess decode warnings.
+
+## 2.9 2026-10-16
+
+- Add excerpt-bounded provenance to `16-concept-emotion-retention.md` and correct `12-qa.md`'s former claim of integrating all readable sources. Add a bounded appraisal check to major emotion transitions, with inferred appraisals labeled and no performance guarantee.
+- Add evidence-backed owner rules for narration/emotional context (`22-dialogue-lipsync.md`), legible shadow-bar confinement cues (`07-lighting.md`), data-story subject/goal/opposition (`10-evidence.md`), need/behavior/benefit/context segmentation (`13-ideation-brand.md`), and buyer-relevant competitive alternatives (`creative-production/references/marketing-source-adaptation.md`). Extend source traceability for book IDs 02, 24, 30, 41–44; all newly read works remain READ-PARTIAL.
+
+## 2.8 2026-10-16
+
+- Absorb the Higgsfield MCP catalog (`higgsfield.ai/ko/mcp`; 3 bundles + 28 presets) as routing and craft coverage only, not as new skills. `creative-production/references/production-routing-optional.md` gains a `Higgsfield MCP preset inventory` table mapping every Production-bundle (Blender, After Effects, Premiere Pro, Illustrator, Photoshop, TouchDesigner, DaVinci Resolve), Motion-bundle (After Effects), Paid-Ads and Faceless/UGC preset to an existing owner reference, plus two boundary rows for explicit Blender and desktop-app operations. No second coordinator, no parallel approval ledger, no micro-skill was added. The provider's eight advertised models were checked against the existing model catalog: no new provider capability to absorb.
+- Add `Desktop-app fallback: ArtCraft` to the same routing reference: when a requested Adobe app (or TouchDesigner / DaVinci Resolve) is not installed, the native open-source ArtCraft counterpart takes the same craft — Photoshop→PhotoCraft, Illustrator→VectorCraft, After Effects→EffectCraft, Premiere Pro→FilmCraft, Lightroom→LightCraft, InDesign→DesignCraft, Acrobat→PdfCraft, Audition→SoundCraft, PowerPoint→DeckCraft, Excel→GridCraft, AutoCAD→CADCraft, Figma→FigCraft, Word→WordCraft. TouchDesigner and DaVinci Resolve have no counterpart and stay reported as missing. Rules require preferring the installed app, naming the app that actually ran, checking maturity before promising, driving it through the existing `craft-cli` discovery/verify boundary, and stating real output format and conversion loss. Corresponding pointers were added to `video-production-assets/references/08-animation.md` (motion graphics) and `23-finishing-platform.md` (grading has no fallback; edit/motion/retouch/vector do).
+- Add a color-grading node-structure section to `video-production-assets/references/23-finishing-platform.md` §1 (Balance → Shot Match → Look → Skin/Product → Texture → Output node naming, original grade kept as a separate version, look applied only after edit lock, whole-sequence review before export) without reordering the existing `의존 순서` and without duplicating §1.
+- Extend `video-production-assets/references/08-animation.md` with a motion-graphics surface table (illustration animation, paper collage, SaaS/UI, presentation, whiteboard, text-localization motion) and the timing-base / editable-layer / text-safe-area / localization rules that the After Effects Motion-bundle presets depend on; the existing five-heading structure and `심화 참조` link convention are preserved.
+- Append `§6 Structured ad variation and campaign review` to `creative-production/references/marketing-source-adaptation.md`, covering the eight Paid-Ads presets: distinct-angle ad sets, evidence-bound VOC ads, single-variable headline-only and hook-only variants with the held-constant list, 1:1/4:5/9:16 resizing re-checked for copy legibility and branding, ad localization that preserves the offer and never strengthens a claim, reference-video persuasion-structure reuse bounded to structure (never copied footage/script/likeness/music), and campaign scale/pause/test recommendations that require real measured data. Existing §1–§5 numbering and the no-fabricated-claims rules are unchanged; the package image ineligibility clause is repeated.
+- Add ten faceless style-descriptor starters (cut-paper diorama, pastel flat 2D, colored-pencil sketch, matte mannequin, editorial mixed-media collage, stickman) to `higgsfield-video-explainer/references/prompts.md` so the provider's faceless presets have in-package STYLE descriptors that keep the mandatory non-photoreal suffix.
+- Fix stale `README.md` metadata: package version `2.5`→`2.8`, skill count `23 (핵심 14 + 조건부 Higgsfield 9)`→`24 (핵심 14 + 조건부 Higgsfield 10)`, and the verification paragraph now records the actual re-run instead of the historical 2.5-era numbers.
+- Close two coverage gaps found in a follow-up audit of the same live index: the Production-bundle desktop entries `/use-photoshop`, `/use-illustrator` and `/use-premiere` are now listed alongside their preset rows (previously only `/use-blender` and `/use-touchdesigner` were named), and the ArtCraft section records the verified workstation state — the four `craft-cli`-driven ArtCraft apps exist at `C:\Program Files\<App>\<app>-cli.exe` while Adobe Photoshop / Premiere Pro / After Effects / Illustrator are absent, so those presets and `/color-grading` cannot run in their named app here. `creative-qa.md` now lists a missing named desktop app among the explicit readiness blockers and states that an ArtCraft substitution changes which tool runs, not whether the result was verified.
+- The audit also confirmed no other gap: all 36 live preset slugs map to an existing owner; the eight advertised models are already profiled in `higgsfield-generate/references/model-catalog.md` (the index's "Google Omni Flash" chip corresponds to the catalog's "Gemini Omni Flash"); references 05/08/09/15/21/23 cited by the inventory all exist; and the 15 preset URL slugs that differ from their slash-command names (`link-to-ads`→`/marketing-research-to-ads`, `voc-research-ad`→`/marketing-feedback-to-ads`, `headlines-ab`→`/marketing-headline-variants`, `aspect-ratio-formatter`→`/marketing-resize-ads`, `localizations`→`/marketing-localize-ads`, `ad-adaptation`→`/marketing-adapt-video`, `ad-hooks`→`/marketing-hook-variants`, `performance-marketing-operator`→`/marketing-campaign-manager`, `destruction-studio`, `exploded-view`, `scene-builder`, `cartoon-shaders`, `shot-composer`, `shot-cleanup`, `project-sorter`, `vectorize`, `image-fixer`) were verified to be the same preset, not additional ones. The `28 micro-skills` wording and the ~2.5-era `qa/` and `docs/` records were deliberately left unchanged: they are historical snapshots of what was run then, not current-package claims.
+
 ## 2.7 2026-10-15
 
 - Narration is reused instead of re-synthesised: `producer.prepare_episode` now reads each shot's pinned recording (`<speech_id>-WAV-V###`, highest version, sha256-verified) via the artifact `asset_ids` graph and copies it in without calling Typecast, falling back to synthesis only for an episode that carries no recording. Word timings come from the pinned caption track, so `caption_source` stays honest. Clips are placed inside their own shot window, which fixes two real defects: captions were stacked back to back (SP02 0.5 s early, SP18 ~5 s early vs the pinned SRT) instead of anchored to the authored shot start, and the 58..60 s gate compared the back-to-back clip sum (54.54 s, permanently blocking) instead of the authored 60 s window sum. Superseded `narration_outside_target` with a per-shot `narration_overruns_shot` guard and a shot-window time-base gate. Verified locally: 47 automation tests pass (7 new), and a real `prepare_episode` run of the pinned episode reuses all 18 WAVs without calling Typecast — 28 cues land on the authored timeline, every recording fits its window, and the delivered artifact is 1286 frames / 42.866667 s. Fixed a double-speed defect the same run exposed: the renderer's manifest path already retimes, so producer now asks for a 1.0x master and applies the delivery speed once, last.

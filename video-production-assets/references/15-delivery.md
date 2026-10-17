@@ -4,8 +4,8 @@
 1. 실제 납품 목적지의 화면비·해상도·프레임레이트·코덱/컨테이너·오디오·파일 크기 조건을 확인해 delivery_spec에 기록한다. 플랫폼 규격을 고정된 상수로 재사용하지 않는다.
 2. 오디오 의도를 기록한다: 무음은 no_audio, 대사 없음은 no_dialogue, 일반 음성은 dialogue. no_dialogue에는 음악·효과가 있을 수 있고 no_audio에는 실제 오디오 큐를 넣지 않는다. 효과음만 요청에는 음악·말을 추가하지 않고, 음악 제외는 음악 레이어만 비운다. 세부 의도 분류와 endpoint 지원 확인은 [편집](09-edit.md)의 오디오 의도 절차를 따른다.
 3. 자막은 최종 음성과 맞추고 시작/끝 시간·줄 나눔·화자·의미에 필요한 소리를 검수한다. 타이밍은 최종 음성·파일에서 실제 측정한다; 최종 음성이 없으면 원고 기반 타이밍을 임시(provisional)로 표시하고 동기화를 미검증으로 둔다. 번역본은 인명·단위·고유명사·화자를 원문과 대조하고 운문은 행 구분·리듬·승인된 각색을 구분한다. 원문 의미를 지우는 윤문으로 대체하지 않는다.
-4. caption_mode를 none/sidecar/burned_in으로 정하고 외부 자막 파일과 영상 내 자막을 구분한다. 하드 자막을 크롭·재배치·가림·번역 자막으로 보존/대체할지는 먼저 실제 문구·가독성·타이밍·원본 자막의 추출 가능성을 확인해 결정한다. 미검사 상태에서는 보존·대체를 확정하지 말고 조건부 선택지와 필요한 검사를 제시한다. 소스 미디어를 세로형 짧은 영상으로 각색하면 [소스 자막·세로 프레이밍](../../creative-production/references/marketing-source-adaptation.md#4-source-media-adaptation-shortform-vertical)도 적용한다. 자막·CTA가 작은 화면과 목적지 UI에 가려지는지는 실제 미리보기에서 확인한다.
-5. 색과 텍스트만으로 필수 정보를 전달하지 않는지, 대사 명료도·자막 대비·읽기 시간·시각 정보 설명의 필요성을 확인한다. 해당 없는 검사는 N/A와 이유를 남긴다.
+4. caption_mode를 none/sidecar/burned_in으로 정하고 외부 자막 파일과 영상 내 자막을 구분한다. 하드 자막을 크롭·재배치·가림·번역 자막으로 보존/대체할지는 먼저 실제 문구·가독성·타이밍·원본 자막의 추출 가능성을 확인해 결정한다. 미검사 상태에서는 보존·대체를 확정하지 말고 조건부 선택지와 필요한 검사를 제시한다. 소스 미디어를 세로형 짧은 영상으로 각색하면 [소스 자막·세로 프레이밍](../../creative-production/references/marketing-source-adaptation.md#4-source-media-adaptation-shortformvertical)도 적용한다. 자막·CTA가 작은 화면과 목적지 UI에 가려지는지는 실제 미리보기에서 확인한다.
+5. 필수 정보를 색만으로 구별하지 않고 텍스트·형태 등 추가 단서를 제공한다. 시각 전용 정보는 자막만으로 접근 가능해졌다고 하지 말고 음성 설명/미디어 대체의 필요성을 확인한다. 대사 명료도·자막 대비·읽기 시간은 실제 출력에서 검수한다. 적용할 접근성 기준·레벨과 예외/N/A 이유를 delivery_checks에 남긴다(아래 WCAG 근거); 모든 납품을 자동으로 웹 접근성 인증하지 않는다.
 6. 계획 단계는 --profile plan, 실제 파일 납품 직전은 --profile delivery로 검사한다. 납품 검사는 파일 존재·해시·원장 상태를 확인하며 영상 디코딩·청취·미관 평가를 대신하지 않는다.
 7. 실제 재생·측정·청취 결과를 delivery_checks에 적고 blocker가 열린 상태로 납품 완료를 선언하지 않는다. 검사 도구가 없으면 해당 항목은 unverified로 남긴다. 계획 패키지는 미디어 파일 없이 완료할 수 있다.
 
@@ -18,6 +18,17 @@
 
 ## 근거와 한계
 09·12의 편집/검수 원칙에 연결한 현대 제작 운영 확장. 목적지 규격은 첨부 서적에서 확인한 고정값이 아니다.
+
+### 접근성의 직접 근거 — E6
+
+웹 납품에 WCAG 2.2를 적용할 때 아래 criterion을 검사 기준으로 연결한다. W3C의 **Understanding HTML rendition, 2026-10-17 READ-PARTIAL**, 각 `Success Criterion (SC)`·`Intent`와 명시한 정의/예외를 직접 읽었다. 로컬 snapshot/SHA-256/bytes는 **N/A-live-web**. 설명 문서는 규범 자체가 아닌 공식 해설이며 전체 WCAG 적합성·법적 인증·모든 장애 요구 충족을 뜻하지 않는다.
+
+- **SC 1.2.2 A / 절차 3–4:** [Captions (Prerecorded)](https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html), `Success Criterion`·`Intent`·`captions` 정의: 사전 녹화 동기화 미디어의 대사·화자와 이해에 필요한 비음성 소리를 동기화 자막에 포함한다. 명확히 표시된 텍스트 대체 미디어 예외를 구별한다. 대사 번역만 있는 자막을 완전 captions로 간주하지 않는다.
+- **SC 1.2.3 A / 절차 5:** [Audio Description or Media Alternative](https://www.w3.org/WAI/WCAG22/Understanding/audio-description-or-media-alternative-prerecorded.html), `Success Criterion`·`Intent`·`alternative for time-based media` 정의: 음성 설명 또는 시간 기반 미디어 대체를 제공한다. 중요 시각 정보가 기존 음성에 모두 있으면 추가 설명이 필요하지 않다. AA의 1.2.5는 음성 설명을 요구하므로 A용 텍스트 대체만으로 AA를 주장하지 않는다. 촬영 원고는 최종 편집 내용과 맞춘 뒤에만 대체가 된다.
+- **SC 1.4.1 A / 절차 5:** [Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), `Success Criterion`·`Intent`: 색만을 정보 구별 수단으로 쓰지 않는다. “텍스트를 사용하면 안 된다”는 규칙이 아니다.
+- **SC 1.4.3 AA / 절차 5:** [Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), `Success Criterion`·`Intent`의 큰 글자/로고/부수적 텍스트 예외 및 반올림 금지: 일반 텍스트/텍스트 이미지 4.5:1, 큰 텍스트 3:1을 적용 범위와 함께 검사한다. 영상 픽셀 크기를 CSS의 큰 글자 정의와 자동 동일시하지 않는다. 변하는 배경에 대한 실제 자막 가독성과 목적지 UI 가림 검사는 별도로 필요하다.
+
+플랫폼별 codec/비트레이트·자막 읽기 속도·법정 납품 규격은 위 접근성 문서의 지원 범위가 아니다. 목적지가 미정이면 해당 규격을 unverified로 두며 숫자를 발명하지 않는다.
 
 ## 템플릿
 

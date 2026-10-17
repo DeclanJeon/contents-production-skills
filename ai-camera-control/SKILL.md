@@ -1,6 +1,6 @@
 ---
 name: ai-camera-control
-version: 1.0
+version: 1.18
 description: Translate camera motion, timing, blocking, lens and continuity plans
   into model-neutral or selected-provider AI video prompts and control packets. Use
   for start/end-frame camera control, camera path prompts, shot decomposition or correction
@@ -21,4 +21,20 @@ description: Translate camera motion, timing, blocking, lens and continuity plan
 ## 인계와 실행 경계
 설계/참조 ID·버전, prompt, 실제 지원 provider_inputs, 지원/미지원 표, frame/asset 참조, 검사 기준·미확인을 인계한다. 생성 요청은 선택 공식 플러그인에 전달한다. 초안은 생성된 영상이 아니다. 정확한 궤적이 필수인데 선택 모델이 지원하지 않으면 결정적인 3D 렌더/합성 대안 또는 미충족으로 보고한다.
 
-형제 스킬은 /root/.codex/skills/remote-skills/*/SKILL.md의 정확한 name으로 찾아 읽는다. 채팅 전용은 저장하지 않는다. 실제 파일은 제작 이력·Library 저장을 따른다. 실행 환경은 [프로그램](references/programs.md)을 읽는다.
+형제 스킬은 현재 설치 루트에서 정확한 frontmatter `name`으로 찾아 해당 디렉터리 기준으로 참조를 연다. 특정 Linux 설치 경로를 다른 호스트의 필수 경로로 가정하지 않는다. 채팅 전용은 저장하지 않는다. 실제 파일은 제작 이력·Library 저장을 따른다. 실행 환경은 [프로그램](references/programs.md)을 읽는다.
+
+## 근거와 검증 범위
+
+패킷 순서·근거 라벨·수락 필드는 이 스킬의 자체 인계 설계이며 특정 모델이 카메라 제어를 구현한다는 증거가 아니다. `HARD_CONTROL`은 현재 선택된 모델 스키마 또는 현재 공식 공급자 계약에서 해당 제어를 확인한 경우에만 쓴다. 텍스트 프롬프트와 시작/끝 이미지는 정확한 제어가 계약에 노출되지 않는 한 `SOFT_PROMPT`로 둔다. 모델 중립 패킷 스모크는 정보 보존·분류·누락 입력 처리를 검증할 뿐, 생성된 움직임이나 시각 품질을 검증하지 않는다.
+
+
+
+
+## Acceptance
+
+A control packet is complete only when each directive is tied to its shot and camera-spec version, states its coordinate and timing basis, and is classified as `HARD_CONTROL`, `SOFT_PROMPT`, or `UNSUPPORTED/UNVERIFIED`. It preserves designed blocking and path, lists observable framing, timing, visibility, and continuity checks, and states when exact control is unsupported. Missing design inputs or a required unsupported control are returned as blockers to the design owner.
+
+
+
+
+

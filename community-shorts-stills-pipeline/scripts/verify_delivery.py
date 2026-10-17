@@ -59,6 +59,7 @@ def verify(video: Path) -> dict:
     speed = qa.get("speed", 1.0)
     if type(speed) not in (int, float) or isinstance(speed, bool) or not math.isfinite(speed) or not SPEED_MIN <= speed <= SPEED_MAX:
         problems.append(f"QA speed {speed!r} is outside {SPEED_MIN}..{SPEED_MAX}")
+        return {"ok": False, "problems": problems}
 
     runtime = float(meta["format"]["duration"])
     expected = BASE_DURATION_S / speed
@@ -86,13 +87,13 @@ def verify(video: Path) -> dict:
         problems.append(f"raw audio decode ({decoded} frames) runs past the picture")
 
     digest = hashlib.sha256(video.read_bytes()).hexdigest()
-    if qa.get("video_sha256") and qa["video_sha256"] != digest:
-        problems.append("the QA sidecar was written for different bytes")
+    if qa.get("video_sha256") != digest:
+        problems.append("the QA sidecar is missing the matching SHA-256 for these bytes")
 
     if qa.get("full_decode_verified") is not True:
         problems.append("the QA sidecar does not record a full decode")
-    if qa.get("publishable") is not False and qa.get("status") != "RENDERED_NOT_PUBLISH_APPROVED":
-        problems.append("an unapproved render claims to be publishable")
+    if qa.get("publishable") is not False or qa.get("status") != "RENDERED_NOT_PUBLISH_APPROVED":
+        problems.append("delivery requires status RENDERED_NOT_PUBLISH_APPROVED and publishable=false; technical smoke is not delivery")
 
     decode = subprocess.run(["ffmpeg", "-v", "error", "-xerror", "-i", str(video), "-f", "null", "-"],
                             capture_output=True, text=True, encoding="utf-8")

@@ -1,6 +1,6 @@
 ---
 name: camera-spatial-design
-version: 1.0
+version: 1.18
 description: Design camera positions/angles, composition, lens, blocking and motivated paths
   for film, animation or AI video. Use for camera movement, shot coverage, spatial staging
   or numeric camera specs; every scene-specific 3D design requires Blender implementation
@@ -14,6 +14,8 @@ description: Design camera positions/angles, composition, lens, blocking and mot
 Read [workspace integration](references/workspace-integration.md) before applying local storage, sibling paths, image execution, Higgsfield CLI or approval instructions below. These adaptations govern this installed copy.
 
 `creative-production`이 프로젝트 수준 진입점·조정자다. 이 스킬은 카메라·공간 수치 설계라는 직접 요청 산출물만 만든다. 단독 호출이면 `creative-production`으로 범위·경로를 한 번 확인한 뒤 요청된 설계만 수행한다. 위임받아 실행 중이면 프로젝트 라우팅을 다시 하거나 두 번째 인터뷰·승인 원장을 열지 않고 지정된 샷과 명세만 진행한다.
+
+텍스트 전용/read-only 요청에서는 좌표·렌즈·동선·카메라 경로를 채팅 계획으로만 반환한다. 이어서 “렌더된 스토리보드 스틸”을 요구해도 이 스킬은 이미지 출력 owner가 아니므로 이미지/영상 생성·Blender 실행·파일 저장을 하지 않고 담당 storyboard/image 실행 owner에 넘길 입력과 기존 no-generation 제약을 명시한다. coordinator가 로드되지 않은 단독 호출에도 이 경계가 적용된다. 아래의 명세 파일·수치 명령·Blender 필수 절차는 실제 파일/3D 실행이 허용된 범위에만 적용하며, 텍스트 계획을 렌더 검증 완료라 부르지 않는다.
 
 ## 실행
 1. [공통 공간 계약](references/spatial-contract.md)을 읽는다. 장면 목적, 관객이 알 정보, 인물 관계, 화면비, 장소·리그 제약을 확인한다. 도서 근거가 필요하면 [자료 지도](references/sources.md)를 읽는다.
@@ -41,3 +43,7 @@ Pillow가 있으면 `python scripts/render_projection.py camera_spec.json wirefr
 
 ## 무빙 타이밍·렌즈 보완
 카메라 무빙/초점/렌즈 또는 레퍼런스 기반 촬영 설계 요청에는 [무빙 타이밍·렌즈](references/motion-timing-lens.md)를 읽고 [시간표](assets/motion-timing-template.md)를 적용한다. 타이밍을 현재 camera_spec·피사체 행동·정보 공개 시점과 연결하고 스키마를 무단 확장하지 않는다. 레퍼런스 관찰은 camera-motion-reference-analysis, 생성 입력 변환은 ai-camera-control로 인계한다. 형제 스킬은 정확한 frontmatter name으로 찾는다. 프로그램은 [실행 환경](references/camera-programs.md)을 읽는다.
+
+## Acceptance
+
+ A camera design is complete only when the delivered `camera_spec.json` passes `spatial_spec.py`, all scene-specific positions and dimensions identify units and mark estimates, and the selected view/path has a stated story purpose plus observable framing, visibility, and continuity checks. Every supplied door, opening, and access path has an explicit per-view disposition: visible/in frame, occluded with the blocker named, intentionally out of frame with a reason, or irrelevant with a reason; where passage matters, label the path clear or blocked. Never leave a supplied entry/exit route implicit. Every scene-specific 3D design also requires the Blender `.blend`, inspected frames and handoff manifest; without them, return the numeric design as a plan and mark 3D validation `BLOCKED` or `UNVERIFIED`.

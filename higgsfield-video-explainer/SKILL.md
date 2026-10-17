@@ -1,5 +1,5 @@
 ---
-version: 0.17.0
+version: 0.36.0
 name: higgsfield-video-explainer
 description: |
   Build a complete non-photoreal narrated explainer or story video from
@@ -58,6 +58,8 @@ Never use the monolithic `video_explainer` job in this skill.
    higgsfield model get explainer_video
    ```
 
+The ten-second block length is this lane's assembly contract, not a universal model limit. Before quoting or submitting, verify that the selected clip model accepts ten seconds AND that the live assembler accepts the typed ordered pairs, block timing, aspect and subtitle options below. On 2026-10-16 the read-only MCP catalog accepted `gemini_omni` (duration 4–10 seconds, 720p, 16:9/9:16), but returned `Model not found: explainer_video`; `higgsfield model get explainer_video --json` independently returned `No model with job_type "explainer_video"` (exit 4). This lane is therefore blocked at that checkpoint until a live assembler contract becomes available. Block before generating paid audio/clips. Do not silently switch to the newer `faceless-video` workflow or change block lengths.
+
 ## Phase 0 — ask first
 
 Collect choices in two separate turns, in this order. Never merge them. Reuse any choice already supplied in the request or delegated brief (a supplied preset id, style donors, voice, duration, language, character mode, aspect, subtitles counts as that choice made); ask only what is materially unresolved. Every choice belongs to the user unless they explicitly delegate it.
@@ -79,6 +81,7 @@ Skip this turn when the request already supplies the style: an `explainer preset
 Only after style selection, collect every *unresolved* setting:
 
 - Duration: one to ten whole minutes. `N = duration_minutes × 6` fixed 10-second blocks.
+- A request below one minute (including 40 seconds) is outside this lane's intake. State the conflict and ask whether the user wants to change duration or choose another workflow; never round up, add blocks, or switch workflows silently. A provisional four-by-ten-second arithmetic sketch is not an executable plan under this contract. Report an unavailable assembler independently; no paid precursor jobs may run while it is unresolved.
 - Narration language: English by default; ask only when unresolved.
 - Character: recurring mascot or faceless stylistic scenes. Ask when unresolved.
 - Aspect: `16:9` by default or `9:16` vertical.
@@ -175,6 +178,7 @@ Block 2
 
 - One line per block, usually 20–24 words and about 8–9 seconds.
 - Keep every take under roughly 9.5 seconds.
+- Word count is a drafting heuristic, not a duration measurement. Inspect each completed audio take's actual runtime before accepting it; record measured seconds and any overrun. Do not infer timing from language, word count or a successful job status.
 - Use plain spoken text only: no timecodes, emotion cues, parentheticals, or stage directions.
 - Spell numbers out.
 - Use a concrete tone and never say “in this video.”
@@ -272,7 +276,7 @@ Use `--width 720 --height 1280` for vertical. When subtitles are enabled, add th
 --subtitles '{"font":"patrick"}'
 ```
 
-The assembler keeps each block at exactly 10 seconds: it centers short voice takes, pitch-safely speeds small overruns, never stretches video, concatenates blocks in order, and optionally burns timed captions. Total duration is exactly `N × 10` seconds.
+The preserved assembler recipe specifies ten-second blocks, centered short takes, pitch-safe handling of small overruns, ordered concatenation and optional timed captions. Treat these as required capabilities to verify in the live assembler contract, not observed output. After assembly, measure the actual duration and inspect narration alignment/captions; expected total is `N × 10` seconds. Report measured and expected duration separately.
 
 Do not use local ffmpeg, the legacy assembly scripts, or the monolithic `video_explainer` job.
 
@@ -290,3 +294,7 @@ Do not use local ffmpeg, the legacy assembly scripts, or the monolithic `video_e
 ## Deliver
 
 Return the final assembled video URL, exact duration, aspect, narration language, selected style, narrator, subtitle status, and a Sources list for researched topics. Keep intermediate job IDs and loose asset URLs internal unless requested. For delegated production work, additionally return the internal canonical join (per the package gate): assembled output file path/hash and job locator, block→audio_job/video_job UUID pairs, STYLE_KEY_ID locator, observed terminal states, and measured cost.
+
+## Acceptance
+
+The final explainer is complete only when the selected style and voice are user-supplied or explicitly approved, the aggregate package gate covers the eligible operations and retries, and each of the `N` labeled narration takes is paired exactly once with one completed clip in the same order. The assembled result must have the requested aspect and exactly `N × 10` seconds; verify the final URL/status and report failures by block. A plan, loose clips, missing style key, or unassembled clips are not a completed explainer.

@@ -1,9 +1,10 @@
 # AI camera control packet
 
 - Shot / scene / beat / panels:
-- Input camera specification and asset IDs/versions:
-- Duration / FPS basis / aspect / coordinate convention:
+- Input camera specification and asset IDs/versions / file-section or supplied-text locator:
+- Duration / FPS basis / aspect / coordinate convention / units:
 - Approved scope / provider or model-neutral:
+- Lens / effective gate / move onset-stop / unresolved design slots and owner:
 
 ## Prompt
 Scene; subject action; camera action; timing/reveal; lens/focus; continuity.

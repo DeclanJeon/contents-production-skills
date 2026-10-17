@@ -14,6 +14,7 @@
 - **`voice_identity_direction`:** 모든 발화에 그대로 재사용하는 고정 음성 정체성 한 줄 — 청각 앵커·발음·문장 끝 습관·기본 리듬과 허용 변화 범위. 각 대사의 `performance_cue`(의도·서브텍스트·숨·강세·멈춤)와 분리해 유지한다.
 - **유지 vs 변화:** 압박·신뢰 등 상태 변주는 고정 음색·발음 앵커를 유지한 채 연기 매개변수만 바꾼다 — 새 보이스가 아니다.
 - **지원 제어 확인:** 현재 음성 도구가 지시문·감정·속도·참조 음성 등 어떤 제어를 실제 지원하는지 확인하고, 지원하지 않는 요구는 적용했다고 주장하지 않고 요구 간극(unsupported control gap)으로 기록·반환한다.
+- **정서 방향:** 내레이션의 보컬 정서를 서술 사건에 대한 화자의 평가·관점과 대조한다. 맥락과 맞지 않는 정서적 이탈은 회피·불성실 또는 부적절한 반응으로 읽힐 수 있으므로, 의도된 이탈이 아니라면 정합성을 맞춘다. 청자 반응은 맥락에 따라 달라지며 정서 일치를 보장하는 규칙은 아니다 (자료 24, READ-PARTIAL; `video-production-assets/references/sources.md`).
 
 설계 단계의 `proposed`/`unresolved` 보이스 상태는 선택된 보이스로 취급하지 않는다 — 실제 voice ID·모델·설정은 아래 선택·청취 절차의 기록에서만 생긴다. 권리·동의·승인 상태와 보이스 연속성(same ID·설정만으로 보장되지 않음 — 실제 청취 검수 필요)은 기존 절차 그대로 유지한다.
 
@@ -34,7 +35,7 @@ TTS 전에 대상 로케일별 대사를 줄 단위로 현지화한다. 원문�
 3. 가능하면 정밀 립싱크 전에 최종에 가까운 음성을 먼저 생성/녹음한다. 플레이스홀더 타이밍에 애니메이션하고 나중에 정확한 싱크를 기대하지 않는다. 보이스 선택·생성·청취는 "보이스 선택과 청취" 절차를 따른다.
 4. 강세 음절과 중요한 입 닫힘/열린 모음을 표시한다. 모든 음소를 기계적으로 과다 조형하기보다 강조 단어의 지각적 싱크를 우선한다.
 5. 듣는 사람을 디렉팅한다: 눈 이동·숨·미세 반응·지연 응답·적절한 신체 정지. 대화는 번갈아 움직이는 입이 아니다.
-6. 코미디는 셋업/펀치 간격과 반응 창을 지키고, 드라마는 침묵과 듣기를 지킨다.
+6. 코미디는 셋업/펀치 간격과 반응 창을 계획하고 실제 편집/청취에서 확인한다. 보편적인 초/프레임 수나 웃음 효과는 이 모듈에 근거가 없으므로 단정하지 않는다. 드라마의 침묵과 듣기도 의도·실제 연기 맥락에서 검토한다.
 7. 컷을 가로질러 목소리 정체성·억양/언어·연령·에너지·마이크 원근·실내 음향을 유지한다.
 8. QA: 오디오-입 오프셋·얼어붙은 청자·과도한 입 움직임·반복되는 일반 제스처·빠진 숨·부자연스러운 끼어들기·불일치 룸톤.
 
@@ -48,7 +49,9 @@ TTS 전에 대상 로케일별 대사를 줄 단위로 현지화한다. 원문�
 
 ## 립싱크 우선순위
 
-정확한 타이밍은 단단한 폐쇄음과 두드러진 강세 음절에서 가장 중요하다. 자연스러운 턱/볼 움직임을 유지하고 말을 입술만으로 취급하지 않는다. 오디오 편집을 먼저 맞추고 그 다음 입 애니메이션/생성을 맞춘다.
+승인된 실제 음성에서 중요한 닫힘과 강조 모음을 찾아 지각적 싱크를 대조한다. Williams의 애니메이션 조언은 음소마다 동일한 입 모양을 강제하기보다 단어/구와 주요 악센트를 고르고 과도한 입 움직임을 줄이는 것이다(아래 자료16). “단단한 폐쇄음이 모든 발화에서 가장 중요하다”는 보편 순위로 확대하지 않는다. 턱/얼굴·몸의 태도도 같이 검토하고, 최종 오디오 편집을 기준으로 입 애니메이션/생성을 맞춘다.
+
+자료16의 프레임 조언은 원문의 애니메이션 예이지 공급자 오프셋 규격이 아니다. 같은 책도 일률적인 “영상 2프레임 선행” 규칙을 비판하고 캐릭터·보이스·실제 재생 비교를 요구한다. 임의 2프레임 선행이나 고정 허용오차를 자동 적용하지 않는다. FPS·원본 PTS·음성 버전과 실제 듣고 본 구간을 기록하고, 보이지 않는 입/미청취 음성은 싱크 미검증으로 둔다.
 
 ## 보이스 선택과 청취
 
@@ -113,3 +116,11 @@ v4 태그는 문맥에 맞는 보컬 전달 방향용이며 위험어 발음 교
 ## 산출물
 
 대사별 연기 주석, 타이밍 지도, 립싱크 우선순위, 반응 계획, 목소리 연속성 노트, 보이스 선택 기록·청취 결과, QA 기준.
+
+## 근거와 적용 범위
+
+자료24 L351–359(READ-PARTIAL, W4 및 E7 직접 읽기)은 내레이션의 정서·관점과 수용 맥락에만 연결한다. E7이 읽은 판본은 `E:/Book/06_Book/originals/콘텐츠_제작/md/감정과 서사 - 틸만 하버마스.md`, 952320 bytes, SHA-256 `4e7dc3f8b2a1f448fc00df883fa2e5a475b0f590b84af583603ed6a5caa325aa`, 인쇄 pp160–164다([정본 대조 구간](sources.md#직접-대조-구간--2026-10-16-w4)). voice 핀·권리·승인·청취 기록은 패키지 운영 설계다. 코미디 반응 창의 효과/길이·다국어 적응의 자연스러움과 청자 동작 전체의 효과는 이 근거로 검증되지 않아 `[BASIS-UNSTATED]`로 남는다. Eleven v4 관련 문장은 링크한 공급자 계약이지 서적 원리가 아니며, 현재 계약을 직접 확인하지 않았으면 미확인으로 남긴다.
+W4가 [공식 v4 문서](https://elevenlabs.io/docs/overview/capabilities/text-to-speech/eleven-v4)의 `Native accent handling`/`Model variants`, [프롬프팅](https://elevenlabs.io/docs/overview/capabilities/text-to-speech/best-practices#prompting-eleven-v4)의 IPA/태그/구두점, [quota 문서](https://elevenlabs.io/docs/help-center/account/general/do-i-use-quota-on-every-generation)의 웹 재생성 조건을 직접 읽었다(READ-PARTIAL; 확인 기록은 `sources.md`의 공급자 문서 직접 확인). 문서 대조는 계정 자격·endpoint 제어 적용·실제 발음/청취 성공의 증거가 아니며, v3/Studio의 별도 조건을 v4 웹/API에 혼용하지 않는다.
+
+**E7 직접 읽기 — 립싱크/연기 craft(READ-PARTIAL):** `E:/Book/06_Book/originals/콘텐츠_제작/md/The Animators Survival Kit, Expanded Edition A Manual of Methods, Principles and Formulas for Classical, Computer, Games,… (Richard Williams) (z-library.sk, 1lib.sk, z-lib.sk).md` L631–651(인쇄 pp304–314, DIALOGUE/PICTURE AND SOUND SYNC/ATTITUDE), L675(듣는 사람의 눈 움직임 예). SHA-256 `dd1d17e5d57695a274c531287cdf1dce76785229280b0ae68bf850a51e4ca9ef`, 390099 bytes. 입 모양의 개인차·구/주요 악센트·중요 자음의 읽힘·재생에 따른 sync 선택·몸/얼굴의 태도 우선과 눈 반응의 제작 예를 지원한다. OCR 텍스트만 읽었으며 도판·한국어 음소별 mapping·현 provider 출력·오디오 청취·코미디 반응 시간은 검증하지 않았다. L675의 관찰 예를 모든 청자의 눈 움직임에 대한 심리 진단으로 확대하지 않는다. W4의 v4/IPA/quota 문서 범위와 실행 시 재확인 의무는 그대로 유지한다.
+**E7 직접 읽기 — double-take/room tone/reaction example(READ-PARTIAL):** Culhane, `E:/Book/06_Book/originals/콘텐츠_제작/md/Animation  from script to screen (Culhane, Shamus) (z-library.sk, 1lib.sk, z-lib.sk).md`, 668243 bytes, SHA-256 `be4240f517b982d1d78c1417edf0affed31c999cd82ba399be51f85d4d393ca8`; L387(p174) describes stimulus, initial nonreaction and later realization with character-dependent interval; L413(p183) gives subordinate reaction examples; L575(p264) discusses room tone. These are practitioner craft examples, not a universal laugh window, localization-effect rule, microphone-continuity formula or audience-response guarantee.

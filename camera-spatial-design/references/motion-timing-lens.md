@@ -23,3 +23,14 @@ camera-spatial-1.0 경로 스키마는 유지한다. 지원되는 interpolation�
 ## 인계
 
 카메라 원본 artifact_id/version, 타이밍·렌즈 companion 버전, 샷/씬/패널 ID와 의도·실제 검사·미확인을 함께 전달한다. 생성 프롬프트 변환은 ai-camera-control, 레퍼런스 역분석은 camera-motion-reference-analysis에 연결한다. 프리비즈·실행·실제 QA를 수치 설계와 분리한다.
+
+## 주장별 근거와 검증 한계
+
+정확한 원문 경로·rendition bytes·SHA256·읽은 위치는 설치 참조 [sources.md](sources.md)의 E2 인용에 붙어 있다. 각 항목은 `READ-PARTIAL`이며 도판은 미검사다.
+
+- **동기에서 시간 곡선으로**: E2-WILLIAMS L95–97은 사건 시점(timing)과 연속 위치 간격(spacing)을 구별한다. E2-PEARLMAN L119–121은 강조점과 카메라/배우/대사/음향의 구절 조율을, E2-KENWORTHY1 L175는 반응에 맞춘 push-in을 지원한다. onset/contact/reveal/hold 슬롯과 공통 local-time 테이블은 이를 납품하기 위한 자체 설계다. 특정 easing이나 보편적인 hold 길이를 책에서 도출하지 않는다.
+- **좌표와 운동**: E2-KENWORTHY1 L183의 배우 회전과 카메라 병진/팬은 별도 동작을 조율하는 사례다. 좌표축·차분·평균 속도·보간·샷 경계 처리와 `camera-spatial-1.0`은 자체 구현 계약이며 심미적 법칙이 아니다.
+- **렌즈·초점**: 시점/거리와 줌의 구별은 sources.md의 W2-Block 범위, 반응/주의에 맞춘 초점 선택은 E2-KENWORTHY1 L301, push-in 중 초점 유지 과제는 E2-KENWORTHY2 L83에 한정한다. 반사상 사례를 모든 랙 포커스의 성공 보장으로 일반화하지 않는다. focus 시작/완료·필수 정보 가림 검사는 자체 QA 적용이다. 호흡/왜곡/심도·모션블러의 정량 관계는 여기서 입증하지 않으며 실제 설정/캘리브레이션 없이는 미확인이다.
+- **차량 접촉·공간 연속성 / 인계**: 조건부 no-slip·topology 표시·버전/ID 필드는 자체 설계다. 위 책 구간은 차량 역학이나 portal의 정확성을 지원하지 않는다. 실루엣/포즈 가독성은 E2-STANCHFIELD L67–69, L223의 원리이며 BBox로 대신 검증하지 않는다.
+
+기존 실행 기록 W2-NUMERIC/W2-BLENDER는 좌표 예제와 첫 샷 첫 프레임만 다룬다. 이번 인용 보정은 새 timing playback·rack-focus·gesture 렌더 검증이 아니다. 해당 동적 결과는 실제 출력 검수 전까지 UNVERIFIED다.

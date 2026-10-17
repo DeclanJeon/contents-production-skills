@@ -1,12 +1,12 @@
 """Webtoon-page episode renderer.
 
-Reproduces a measured *layout grammar* (pale-yellow header bar, hamburger glyph, centered
-channel label, title, meta line, thin rule, centered body text, square illustration panel on a
+Reproduces a historical layout template (pale-yellow header bar, hamburger glyph, centered
+channel label, title, meta line, thin rule, centered body text, bounded illustration panel on a
 white page) over the episode's own still panels and narration audio.
 
-The geometry is measured from `09_QA/reference-template/ref-*.png` scaled to 1080x1920; no
-reference channel identity, view count, meta string, logo or artwork is reproduced. The channel
-label is a caller-supplied string and is refused if it is the reference channel's name.
+The layout was recorded as derived from `09_QA/reference-template/ref-*.png`, but those
+original measurement files are not bundled or reverified here. New input pixels/crops must
+be inspected independently. No reference channel identity, counters, logo or artwork is used.
 
 Stills only. No generative motion. Explicit `--technical-smoke` output is never publishable.
 """
@@ -25,13 +25,13 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 W, H, FPS = 1080, 1920, 30
 
-# --- measured template geometry (1080x1920 target; source frames scaled by 1080/608) ---
+# --- historical template geometry (1080x1920 target), not a new source-image measurement ---
 BAR_H = 213
 BAR_BG = "#fdedb6"  # rgb(253,237,182)
 ICON_X0, ICON_X1 = 63, 126
 ICON_Y0, ICON_Y1 = 95, 152
 ICON_LINES = 3
-ICON_BAR_RATIO = 0.30  # measured bar thickness / pitch (rows 54-57, 69-71, 84-86)
+ICON_BAR_RATIO = 0.30  # chosen template bar thickness / pitch
 TITLE_TOP = 286
 META_TOP = 380
 META_X = 128
@@ -42,8 +42,8 @@ BODY_ADVANCE = 64
 BODY_MAX_WIDTH = 830
 PANEL_BOX = (85, 690, 993, 1890)  # 908x1200; artwork fills the box edge to edge
 PANEL_CENTERING = (0.5, 0.50)  # vertical crop bias when the figure cannot be measured
-PANEL_HEAD_MARGIN = 0.10  # keep this fraction of the crop above the top of the character's head
-PANEL_INK_THRESHOLD = 110  # a pixel is "character line ink" below this luminance
+PANEL_HEAD_MARGIN = 0.10  # target offset above candidate central dark pixels; not head detection
+PANEL_INK_THRESHOLD = 110  # pixels below this luminance form a crop-anchor candidate mask
 PAGE_BG = "#ffffff"
 
 SIZES = {"channel": 74, "title": 66, "meta": 36, "body": 46}
@@ -111,7 +111,7 @@ def _draw_left(draw: ImageDraw.ImageDraw, text: str, x_left: int, y_top: int, fo
 
 
 def draw_hamburger(draw: ImageDraw.ImageDraw) -> None:
-    """Three stacked bars inside the measured icon box (measured bars are ~1/4 of the pitch)."""
+    """Draw three bars using the template's selected thickness-to-pitch ratio."""
     pitch = (ICON_Y1 - ICON_Y0) / (ICON_LINES - 1)
     thickness = pitch * ICON_BAR_RATIO
     for index in range(ICON_LINES):
@@ -130,12 +130,13 @@ def fit_channel_label(draw: ImageDraw.ImageDraw, label: str, font_path: Path, si
 
 
 def panel_centering(artwork: Image.Image, box: tuple[int, int, int, int]) -> tuple[float, float]:
-    """Vertical crop bias that fills `box` with `artwork` without beheading the figure.
+    """Return a candidate vertical crop bias from central dark-pixel rows.
 
-    The panel art is 9:16 while the panel box is 3:4, so a full-width `cover` crop must discard
-    rows. Anchor the crop on the drawn character: find the first source row carrying dark line
-    ink in the middle of the frame (the character's line art is the darkest thing on a pale
-    illustration), then leave PANEL_HEAD_MARGIN of the crop above it.
+    This threshold heuristic is not head detection and cannot guarantee head
+    preservation. It assumes central character ink is darker than the surrounding
+    background. Off-center figures, dark background details, absent qualifying
+    pixels, and bias clamping can misidentify the row or reduce the requested
+    margin. Inspect the actual rendered crop before claiming preservation.
     """
     x0, y0, x1, y1 = box
     box_w, box_h = x1 - x0, y1 - y0

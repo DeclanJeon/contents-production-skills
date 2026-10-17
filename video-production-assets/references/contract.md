@@ -47,6 +47,8 @@ source/character/beat/provider ID는 artifact ID가 아니다. dependencies/depe
 ## v1.1 구조와 검사 프로필
 `schema_version`은 `1.1`을 사용한다. 이전 `1.0` 입력도 일부 호환되지만 새로운 프로젝트는 v1.1 필드를 작성한다.
 
+카메라·공간 명세를 연결할 때는 [카메라 공간 계약](../../camera-spatial-design/references/spatial-contract.md#json)의 별도 `schema_version=camera-spatial-1.0`을 사용한다. `camera-spatial-design/scripts/spatial_spec.py`가 이 문자열을 검사한다. 프로젝트 schema `1.1`, 카메라 schema `camera-spatial-1.0`, 각 artifact의 내용 `version`은 서로 다른 필드다. 카메라 schema `0.9`를 임의 수락하지 않으며, 프로젝트 `1.0`의 기존 호환 입력 허용을 새 프로젝트의 `1.1` 계약 충족으로 보고하지 않는다.
+
 - plan: 필수 제작 정보·시간·참조·상태 기록을 검사한다. 생성 전 자료와 source_duration_status=estimated를 허용한다.
 - preproduction: 저장한 전체 패키지의 필수 산출물·실제 Markdown/이미지·전체 보드·인물 페르소나/SSOT·참조와 해시를 검사한다. `--base-dir` 필수, 이미지 모드에는 Pillow 필요. 예술성·동일 얼굴·권리·사용자 승인 진위를 인증하지 않는다. plan 성공은 이 준비 완료 판정을 대신하지 않는다.
 - delivery: plan 검사에 실제 파일 존재·해시·측정 시간·열린 blocker·납품 검사 기록을 추가한다. `--base-dir`을 프로젝트 폴더로 지정한다. 파일 재생, 디코딩, 음량 측정, 사실의 진위나 동의의 진위는 이 코드가 확인하지 않는다.

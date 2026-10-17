@@ -51,6 +51,29 @@ All of these must hold for each bounded batch of actual provider jobs:
    only what is materially unresolved. A native aesthetic/model/style selection is NOT
    execution or spend approval; "you choose" does not approve cost.
 
+## Submission outcome and transport boundaries
+
+Inspect the contract of the transport actually used. CLI media paths may auto-upload;
+mounted MCP generation media arrays require confirmed media/job IDs, not local paths
+or arbitrary HTTPS URLs. Upload/import is an external transmission requiring authority
+for those references; do not trigger it during text-only preparation.
+
+A wait timeout or transport failure can leave submission outcome unknown. Keep the
+original job IDs and reconcile their status before retrying; no ID is not evidence that
+no job exists. Never resubmit merely because a result URL is absent. Nonterminal states
+remain pending; terminal errors are returned with their recorded reason, partial successes
+are identified individually, and only terminal successful accessible results are delivered
+as completed. Follow the selected status contract's poll interval (MCP `poll_after_seconds`
+when present). A documented schema is not a live-observed provider execution.
+
+Direct documentation read 2026-10-17: mounted `xd://mcp__higgsfield_generate_video`
+(confirmed media/job IDs, `get_cost`, unknown-outcome reconciliation),
+`xd://mcp__higgsfield_job_status` (`poll_after_seconds`), and
+[official CLI MODELS.md introduction](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md)
+(CLI path auto-upload / UUID transport). These support the transport distinction,
+not a completed job, upload, current quote, or a provider mandate for this package's
+stricter eligibility/authorization/canonical-join policy.
+
 ## Image branches — craft/reference only in this package
 
 Package policy (production execution §2) excludes Higgsfield image generation/editing even

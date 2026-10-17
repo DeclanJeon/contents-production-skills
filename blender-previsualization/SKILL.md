@@ -1,6 +1,6 @@
 ---
 name: blender-previsualization
-version: 2.4
+version: 2.22
 description: "Required Blender implementation/visual inspection for scene-specific 3D camera/spatial design (movement, blocking, composition, distances); also Blender previs and animatics. Exclude beauty rendering, full character rigging, physics simulation and other-app rendering."
 ---
 
@@ -22,4 +22,10 @@ description: "Required Blender implementation/visual inspection for scene-specif
 
 ## 실행 출력
 previs.blend, 샷별 PNG(또는 전체 PNG 시퀀스), numerical-analysis.json, blender-inspection.json, manifest.json을 인계한다. 파일이 실제 존재하는 것만 generated로 기록한다. 기본 어댑터는 BBox 대역·카메라·간단한 조명을 만들며 실사 촬영의 최종 조명과 다른 기술 프리비즈다.
-상세 제작 보드에 인계할 때 [완전한 스토리보드 계약](../video-production-assets/references/storyboard-contract.md)의 scene/shot/beat/panel ID와 카메라 artifact ID·명세 version·해시를 유지한다(manifest와 blender-inspection에 그대로 기록된다). 필요한 정점은 무조건 샷 중앙이 아니라 실제 접촉·공개·감정 전환 프레임에서 추가 검사하고 `--render-map`으로 명시 렌더한 뒤 해당 파일/프레임을 패널 ID로 연결한다. 미실행 프리비즈는 미검증/blocker이며 BBox 프리비즈 통과는 캐릭터 시트 정체성·손 리깅·실제 패널의 이야기 가독성을 보장하지 않는다.
+
+
+## Acceptance
+
+A previs is complete only when the requested scene spec passes its schema check, the actual Blender version and run mode are recorded, requested `.blend`/image artifacts exist and can be reopened, and the inspected frames are tied to shot/panel IDs. Report smoke-only checks as smoke-only; list occlusion, framing, missing-asset, and unsupported-geometry failures with the affected IDs. If Blender was unavailable or any requested render was not produced and opened, mark that deliverable `BLOCKED` or `UNVERIFIED`; never infer completion from a script exit code alone.
+
+

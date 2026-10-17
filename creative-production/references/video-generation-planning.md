@@ -32,10 +32,10 @@ Read [video-prompt-dialects.json](video-prompt-dialects.json) for narrative, pro
 Composition rules:
 
 1. Never emit a prompt for a feature the model lacks (dialogue on a silent model, 30s on an 8s cap).
-2. Prefer one coherent primary camera action per shot; split incompatible moves or unmanageable beats while preserving the requested sequence.
-3. Concrete over abstract: "rain-slick neon street at dawn", not "cool city vibe".
-4. For i2v, describe *motion and change*, not the static image content.
-5. Keep negatives minimal and only for known failure modes (text, watermark, extra fingers).
+2. Prefer one coherent primary camera action per shot; split incompatible moves or unmanageable beats while preserving the requested sequence. This is a planning default, not a universal one-move model limit.
+3. Use concrete physical action rather than abstract intent when the endpoint's guide recommends it (e.g. "the woman smiles and waves", not "embodies joyful greeting").
+4. For image-to-video endpoints with a motion-focused guide, let the input image carry its static appearance and describe motion/change in text. Do not generalize this to endpoints that require identity or scene restatement.
+5. Use negative instructions only for a known failure and only where supported. Runway Gen-4's guide explicitly rejects negative phrasing; use a positive target such as "locked camera" there, not a minimal negative list.
 6. API-level controls (seed, aspect, duration, motion strength, structured camera params) belong in parameters when the endpoint exposes them, not prompt text.
 
 When a local prompt corpus is configured, inspect its real layout before lookup. `VIDEO_PROMPT_CORPUS` may identify the corpus root; record actual example paths and reuse structure, not source content. An absent corpus does not block a normal prompt, and historical inventory totals, frequency statistics or host paths are not bundled evidence.
@@ -50,19 +50,19 @@ Repeat stable subject descriptors and supply approved references using documente
 
 **Hybrid pipeline recipes**:
 
-- **Blender → i2v/V2V**: Blender supplies exact camera path, lighting, composition; render a clean plate or first(+last) frame; the AI prompt describes only the *motion + style delta* Blender can't rig (cloth billow, particles, atmosphere), restating lighting to preserve it. Via `blender-previsualization` for the real scene.
-- **Image → video two-stage**: full art direction in a strong image model, then an i2v prompt describing only motion.
-- **ComfyUI node chains**: use the installed workflow's actual nodes, model files and input contract; verify their dependencies and memory/compute needs. Duration/resolution are node controls when exposed. Local computation does not bypass execution approval or imply zero cost.
-- **V2V edit passes**: instruction models take a clip + verb (extend, replace background, restyle, remove, relight); reference-driven swaps where supported.
-- **Conditional code-motion-graphics composite**: choose this only when the brief needs exact/repeatable typography, interface graphics, beat-locked timing, or deterministic graphic animation that a generated clip cannot reliably guarantee. Keep the generative route for organic performance, imagery, and motion; use code/compositing only for the layers that benefit from exact control. For mixed work, assign ownership per layer and define the plate, matte/alpha or other separation method, occlusion order, timing source, and final compositor before generating inputs. A generated-video-only or live-action route remains valid when these needs are absent. Do not require a chroma color, application, or rendering framework; choose separation based on subject colors, edges, motion blur, and actual executor support. Verify temporal edges and the composite over the intended background.
+- **Blender plate + conditional reference input**: use Blender to specify the reference camera path, lighting and composition, then render the approved plate. Before assigning an image/video route, inspect the selected endpoint's current schema for accepted media roles and any first/last-frame fields. An uninspected or absent field is not an available route. Never promise that a generated continuation preserves Blender camera, geometry or lighting; inspect actual output.
+- **Image → video two-stage**: establish approved art direction in the image stage. Use image references only when the selected endpoint's current schema declares the required role; follow that endpoint's documented prompting guidance. This is a handoff pattern, not a cross-model quality ranking.
+- **ComfyUI**: use only an identified, installed workflow after inspecting its actual graph, model files, dependencies, resource requirements and input/output contract. Do not infer a usable workflow from the ComfyUI name. Duration/resolution are controls only when the inspected nodes expose them. Local computation does not bypass execution approval or imply zero cost.
+- **Video edits**: select an edit route only when the chosen endpoint's current schema accepts the source video and declares the requested operation. List only documented operations; words such as extend, replace, restyle, remove or relight describe intent, not provider support. If the exact field is absent or uninspected, mark the route unresolved.
+- **Conditional code/motion-graphics composite**: use when the brief requires exact, repeatable or editable typography, interface graphics or beat timing. This assigns controllable layers; it is not a quality guarantee or proof that a generated layer cannot meet the brief. For mixed work, assign layer ownership and define the plate, matte/alpha or other separation, occlusion order, timing source and final compositor before generating inputs. A generated-video-only or live-action route remains valid when appropriate. Do not require a chroma color, application or rendering framework; choose separation from subject colors, edges, motion blur and actual executor support. Inspect temporal edges and the composite over the intended background.
 
-| Goal | Pipeline |
+| Goal | Conditional plan |
 |---|---|
-| Exact camera/composition | Blender → i2v or V2V |
-| Character consistency across clips | image ref → reference-to-video |
-| Long sequence | shot decomposition + FLF2V chaining |
-| Fix/restyle existing footage | V2V edit verbs |
-| Authorized local execution | Available ComfyUI workflow after runtime/dependency checks |
+| Camera/composition reference to preserve and verify | Blender plate; use a reference input only if the selected endpoint's current schema declares it |
+| Character-reference continuity to inspect across clips | Use identity/reference inputs only when declared in the current schema; inspect actual outputs and make no consistency guarantee |
+| Long sequence with inspected joins | Shot decomposition; frame chaining only when the exact current schema supports it and joins can be inspected; otherwise plan separate shots |
+| Fix/restyle existing footage | Use only a current, schema-declared video input and edit operation; otherwise report the route unresolved |
+| Authorized local execution | Use an identified installed ComfyUI workflow only after runtime, dependencies and its input/output contract are inspected |
 
 For outputs collected from concurrent jobs, bind each file to its actual request/job/result identifiers before registering it as an asset. Never associate results by newest-file timestamps or shared-directory scan order. If the executor exposes no reliable result binding, isolate outputs per job or serialize collection; inspect content against the requested shot before marking the existing canonical asset verified. Do not add a parallel ledger.
 
@@ -80,3 +80,10 @@ Applies only to authorized actual media submission; text-only prompt/plan work e
 - Async jobs follow that tool's own wait/poll rule. Track the actual request/job/result IDs and pending status in the linked execution artifact; when an attempt is resolved, retain these details in `generation_attempts.notes` with its actual result. Unknown submit status is resolved through the tool's status check — never by resubmitting, which risks duplicate spend. Report failures and partial successes as they are.
 - Inspect actual output before reporting success. Distinguish your own viewing/listening from user-reported observations.
 - Targeted revision changes one primary variable at a time and names the preserved successful attributes (`generation_attempts.changes`, `preserve`), staying inside the approved retry/spend caps — see [QA/retry §5](../../video-production-assets/references/21-generated-video-qa-retry.md). Preserve historical attempt records; changed inputs make only affected dependent artifacts and approvals stale, not a new status field on attempts.
+
+## 7. Evidence scope at this consumer
+
+- **Prompt rules 2–5 and the motion-focused branch of §4:** [Runway, Gen-4 Video Prompting Guide](https://help.runwayml.com/hc/en-us/articles/39789879462419-Gen-4-Video-Prompting-Guide), read 2026-10-17, READ-PARTIAL: “Prompting for Iteration”, “Best Practices” (positive phrasing, direct/simple prompts, motion rather than input image, avoiding complexity), “Image prompts”, and “Subject Motion”. These sections support simple physical action, incremental detail and motion-focused i2v for **Gen-4**. They explicitly do not support negatives there. This is a live HTML article, not a local book rendition; URL and section headings are its locator, and no immutable byte/hash identity or generated-result validation is claimed. Recheck the selected endpoint rather than exporting these recommendations to every model.
+- **Slots, four dialect patterns and hybrid handoff structure:** authored planning/serialization design. `video-prompt-dialects.json` examples demonstrate document shape only, not syntax accepted by any provider. The JSON conditions are prerequisites to verify, not verified endpoint capabilities. No book is being credited with model syntax, FLF2V, interactive steering, ComfyUI nodes or edit support.
+- **Hybrid limits:** §4 proposes division of work, not measured superiority, guaranteed identity preservation or hard AI camera control. Blender's exact reference does not establish exact generated output. First/last-frame, reference-to-video, V2V verbs and time-addressed beats remain unsupported for an actual endpoint until its current documented contract is supplied or checked. The conditional code/composite route is an engineering choice for inspectable layers, not a claim that every generated clip fails typography or that every matte works.
+- **Inherited gates:** canonical requirement, storyboard, execution and retry references retain their owners. This citation covers prompting only; it does not prove their craft claims, prices, rights or executor availability. Planning permission never becomes submission permission.

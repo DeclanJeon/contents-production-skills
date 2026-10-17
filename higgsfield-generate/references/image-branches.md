@@ -7,6 +7,8 @@ and so that a request can be routed to the right owner or an authorized eligible
 Do NOT treat a listed model as currently available or priced; check `higgsfield model get
 <jst>` in any context where image generation is actually permitted.
 
+Direct contract read 2026-10-17: [official MODELS.md](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md), image tables, supports listed CLI fields only where the named row exists (including Recraft model_type and Soul quality/soul-id). Taxonomy, quality preferences, backend dimension mappings and style/image exclusions below are not independently validated outcomes; unmatched details remain historical/unverified and require current model/preset contracts. No image submission is authorized by this evidence.
+
 ## Routing first — specialized image owners
 
 | Request | Owner |

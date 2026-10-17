@@ -5,9 +5,9 @@ are verified by grep/code inspection. **Item 9f is the hard machine gate for the
 animated-website default: a website that ships without the scroll-scrub component
 + scene media (and without an explicit `non-animated` choice in the brief) FAILS, no matter
 how polished the rest is** — this is the single most common miss, so run 9f every
-time. For the animated website, item 9e adds its interactive runtime checks in
-local preview before the final deploy. There is no post-deploy visual/screenshot
-review — this mechanical gate is the only verification.
+time. Animated item 9e is additional to the local runtime checks in §B, which
+apply to every selected website/app/game branch. Mechanical inspection alone
+cannot establish keyboard, narrow-screen, storage or rendered-content behavior.
 
 ## §A. Mechanical gate (pre-deploy, code-level)
 
@@ -125,3 +125,19 @@ Check each item; fix every hit before deploying.
 11. **Copy self-audit** — every visible string re-read; nothing grammatically
     broken, referent-unclear, filler-verb ("Elevate", "Seamless"…), or fake-precise
     (`92%`, `4.1×` without a source).
+
+## §B. Local rendered-surface gate (all branches)
+
+Open the actual local implementation in a browser before delivery/deployment. Record viewport, inspected route, interaction, observed outcome and limitations; a static fixture does not certify a remote app/backend or an untested animation/game branch.
+
+- Keyboard: navigate meaningful controls with Tab/Shift+Tab, inspect visible focus and activate the primary action without a mouse. No keyboard trap; labels and validation remain reachable.
+- Narrow viewport: inspect at the requested mobile width (or record a chosen test width), text wrapping, horizontal overflow, navigation and touch/control reachability. Inspect a screenshot, not just computed CSS.
+- Actual actions: exercise the real form/save/error path. Reload to check the declared persistence scope; distinguish tab/session/local-device storage from server/database/multi-user persistence. Never report a mock/no-op success as a working submission.
+- Rendered readability: inspect actual type, foreground/background contrast and disabled/error/focus states. A declared token is not a measured rendered ratio; if claiming WCAG conformance, measure the relevant state/colors and cite the applicable criterion.
+- Reduced motion: test `prefers-reduced-motion` and confirm meaningful content/control access remains. Animated/game branches also run their specific seam/input/two-tab checks.
+- Report console/runtime errors observed during those paths. Failed interaction or unreadable/missing content blocks that deliverable; untested routes/features stay explicitly unverified.
+
+These are authored acceptance checks. Relevant primary references: [WCAG 2.2 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), [Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html), and [MDN localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage); do not call this checklist alone a conformance audit.
+
+Direct reading scope (2026-10-16, `READ-PARTIAL`): WCAG 2.2 SC 2.1.1 Success Criterion/Intent, SC 1.4.10 Success Criterion/Basic text reflow (text, not its example images), and MDN localStorage Value/Exceptions/Description. These support keyboard operability, reflow and origin-scoped persistence limits; they do not validate a particular rendered app or imply server storage.
+

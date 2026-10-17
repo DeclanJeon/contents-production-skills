@@ -1,6 +1,6 @@
 ---
 name: developing-video-synopses
-version: 2.4
+version: 2.22
 description: Use to develop a video concept, logline, synopsis, plot outline, or story beats (콘셉트, 시놉시스, 줄거리, 비트) before production.
 ---
 
@@ -8,7 +8,7 @@ description: Use to develop a video concept, logline, synopsis, plot outline, or
 
 This skill turns a premise or brief into narrative planning artifacts — concept, logline, synopsis, beat map. Show the artifact itself in Korean by default; a report that one was written is not the deliverable.
 
-Narrative planning is where this skill ends. Character sheets, panels, images, and model-specific prompts belong to `designing-video-character-sheets` and `storyboarding-video` and are produced only when asked for.
+Narrative planning is where this skill ends. Character sheets and storyboard text belong to their respective owners; rendered panels and images require a separate authorized media stage. This skill never generates them. A frozen read-only/no-generation scope remains binding even when a later clause asks for completed panels: return the requested narrative text and name the conflicting media request, without tools, writes, or execution. This boundary applies standalone, without loading a coordinator.
 
 ## Inputs
 

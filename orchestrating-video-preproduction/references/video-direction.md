@@ -36,7 +36,7 @@ The axes are independent: a supplied value on one fixes nothing about the others
 
 ## Shared brief
 
-The lane keeps one canonical brief covering the direction axes, mode, audience, takeaway, format/runtime, message, fact status, constraints, anchors, and continuity decisions — the field list lives in `orchestrating-video-preproduction`'s SKILL.md so there is exactly one source of truth. This contract adds the discipline around it: capture each field once, carry it through every handoff unchanged, mark material assumptions where they first matter, and never let a later stage quietly convert a proposal into an approved fact.
+The lane keeps one canonical brief covering the direction axes, mode, audience, takeaway, format/runtime, message, fact status, constraints, anchors, and continuity decisions — the field list lives in `stage-execution.md` §The shared spine so there is exactly one source of truth. This contract adds the discipline around it: capture each field once, carry it through every handoff unchanged, mark material assumptions where they first matter, and never let a later stage quietly convert a proposal into an approved fact.
 
 ## Checkpoints
 

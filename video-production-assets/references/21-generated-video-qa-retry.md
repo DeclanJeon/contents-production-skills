@@ -13,7 +13,7 @@
 5. 동사가 아니라 궤적과 상대 운동을 기술한다: 방향·속도 변화·호·정지 조건.
 6. 접촉 순간의 해부·사물 무결성을 지킨다. 장식적 2차 동작보다 믿을 수 있는 접촉을 우선한다.
 7. 2차 동작은 주 행동이 읽힌 뒤에만 추가한다: 머리카락·천·귀·꼬리·느슨한 사물·튐·먼지.
-8. 액체·군중·파괴·복잡 충돌은 한 번의 생성에 요구하지 말고 합성으로 라우팅한다.
+8. 액체·군중·파괴·복잡 충돌에는 단일 생성과 분할/합성 경로를 실행자 지원·브리프·예산으로 비교한다. 복잡성 분류만으로 합성을 강제하지 않는다.
 
 ### 접촉 우선순위
 
@@ -38,17 +38,18 @@
 
 1. 샷을 단일 플레이트로 생성할지 레이어로 분해할지 정한다.
 2. 레이어 스택을 정한다: 배경 · 중경 · 히어로 피사체 · 제품/소품 · 그림자 · 반사 · 대기 · 파티클 · 타이포/UI · 전경 가림. `assets/vfx-layer-stack-template.md` 사용.
-3. 색보다 카메라 형상을 먼저 맞춘다: 지평선·원근·스케일·렌즈 느낌·심도·모션.
-4. 조명을 맞춘다: 키 방향·부드러움·강도 관계·색온도·림·바운스·접촉 그림자·반사광.
-5. 가림·대기 깊이·모션 블러·디포커스·그레인/노이즈·정당할 때만 라이트 랩으로 가장자리를 통합한다.
-6. 반사와 그림자는 실제 표면과 움직임을 따른다. 일반적인 뜬 드롭 섀도를 피한다.
+3. 카메라 형상 비교 후보를 기록한다: 지평선·원근·스케일·렌즈 느낌·심도·모션. 색보다 반드시 먼저 처리해야 한다는 보편 순서는 적용하지 않는다.
+4. 브리프가 요구하는 조명 정합을 비교한다: 키 방향·부드러움·강도 관계·색온도·림·바운스·접촉 그림자·반사광. 각 항목은 승인 플레이트/룩의 관찰 또는 명시된 스타일에 연결하고 모든 샷에 동일한 물리 조명을 강제하지 않는다.
+5. 가장자리 통합의 선택적 처리 후보는 가림·대기·모션 블러·디포커스·그레인/노이즈·라이트 랩이다. 문제에 맞는 처리와 무처리 안을 비교하고 필요 없는 효과를 추가하지 않는다. 이 목록 자체가 검증된 성공 recipe는 아니다.
+   - 가장자리 문제가 있으면 입력의 straight/premultiplied alpha와 합성 노드의 기대 형식을 먼저 확인한다. Blender 4.2 `Alpha Over`는 premultiplied 입력을 기대하며 straight 입력에 `Convert Premultiplied`를 쓴다([공식 Properties](https://docs.blender.org/manual/en/4.2/compositing/types/color/mix/alpha_over.html#properties), READ-PARTIAL). 이를 모든 합성 도구의 같은 필드명/기능으로 일반화하지 않고, 헤일로를 alpha 문제로 단정하지 않는다.
+6. 물리 정합이 요구된 표면/움직임에는 반사·그림자 목표를 지정한다. Blender 4.2 Cycles의 Shadow Catcher는 그림자와 간접광 상호작용을 합성할 수 있으나 pass 활성 여부에 따라 결과가 달라진다(아래 공식 근거). 스타일화된 드롭 섀도도 브리프가 채택하면 유효하며 자동 결함으로 처리하지 않는다.
 7. 텍스트·로고·정확한 패키지는 생성 충실도가 부족하면 통제된 그래픽/제품 레이어로 유지한다.
 
 ### 매칭 순서와 경고 신호
 
-형상 → 모션 → 조명 → 접촉 → 깊이 → 색 → 질감/그레인 → 광택. 경고: 떠 있는 피사체·흐린 플레이트 위 선명한 전경·불일치 셔터/모션 블러·다른 그레인 주파수·어울리지 않는 블랙 레벨·잘못된 광원 측·그림자 방향 불일치·틀린 환경 반사·안개 낀 장면의 완벽한 컷아웃 가장자리.
+선택적 진단 비교 순서: 형상 → 모션 → 조명 → 접촉 → 깊이 → 색 → 질감/그레인 → 광택. 이 순서는 원인 탐색 가설이지 필수 처리 순서가 아니다. 관찰 후보: 떠 보이는 피사체·플레이트/전경 선명도 차이·셔터/블러·그레인·블랙 레벨·광원 측·그림자·반사·대기/가장자리 차이. 차이만으로 실패시키지 않고 승인된 물리/스타일 목표와 대조한다.
 
-전체 프레임과 클로즈 줌 둘로 검수한다: 가장자리 헤일로·불일치 블랙·불일치 그레인·틀린 블러·뜬 발·빠진 접촉 그림자·원근 불일치·불가능한 반사.
+실제 합성본의 전체 프레임과 클로즈 줌을 검사하고, 위 후보 가운데 관찰된 차이·브리프 영향·원인 가설·최소 비교 수정을 기록한다. 헤일로·블랙·그레인·블러·접촉·원근·반사의 미검사 항목은 unverified다. 효과 추가나 목록 전항목 충족을 합격 조건으로 쓰지 않는다.
 
 ## 3. 생성 매체 QA
 
@@ -165,3 +166,18 @@
 - 정확한 텍스트/로고는 반복 생성보다 합성을 우선한다.
 - 접촉 중심 물리는 동시 행동을 줄이고 초기/접촉/끝 상태를 정의한다.
 - 생성 실패와 창작 실패를 구분한다. 완벽히 렌더링된 지루한 샷은 재시도가 아니라 콘셉트/편집으로 돌아간다.
+
+## 근거와 적용 범위
+
+검사 순서·실패 분류·시도 기록·재시도 상한·접촉 수에 따른 분할 트리거는 패키지 작업 방식이다. 특히 “접촉 3개 이상”은 운영 경고값이지 측정된 모델 한계가 아니다. 합성 매칭 순서는 문제를 좁히는 작업 순서이며 유일한 수학적 순서나 성공 보장이 아니다. 액체/군중/파괴의 분할·합성 라우팅은 승인된 실행자 능력과 비용을 대조할 작업 제안이지 모든 모델에서 단일 생성이 불가능하다는 주장도 아니다.
+
+직접 읽은 근거와 한계(E7, 2026-10-17):
+
+- **무게·접촉 craft / 자료 16, READ-PARTIAL:** `E:/Book/06_Book/originals/콘텐츠_제작/md/The Animators Survival Kit, Expanded Edition A Manual of Methods, Principles and Formulas for Classical, Computer, Games,… (Richard Williams) (z-library.sk, 1lib.sk, z-lib.sk).md` L535–543(WEIGHT, 인쇄 pp256–260); SHA-256 `dd1d17e5d57695a274c531287cdf1dce76785229280b0ae68bf850a51e4ca9ef`, 390099 bytes. 무게 위치/이전·들기 준비·하중에 따른 전신 대응을 애니메이션의 믿음직함에 연결한다. 실측 질량·마찰·관성 계산이나 특정 생성기의 실패 확률은 입증하지 않는다. 텍스트/OCR만 읽었고 도판은 미검사다.
+- **굴림 / [OpenStax University Physics 1 §11.1](https://openstax.org/books/university-physics-volume-1/pages/11-1-rolling-motion), `Rolling Motion without Slipping` 식11.1–11.3 및 `Rolling Motion with Slipping`, READ-PARTIAL:** no-slip에서 `v_CM=Rω`, `d_CM=Rθ`, 접점의 지면 상대 속도 0이라는 조건만 지원한다. 화면 픽셀 속도를 물리 속도로 곧장 쓰거나 미확인 반지름/회전을 추정해 실패시키지 않는다.
+- **샘플링 / [PBRT 4e §8.1](https://pbr-book.org/4ed/Sampling_and_Reconstruction/Sampling_Theory#Aliasing), 도입과 §8.1.3, READ-PARTIAL:** 충분히 샘플링하지 않은 신호의 재구성이 다른 저주파 신호로 보일 수 있다는 원리와 애니메이션 플리커를 지원한다. 반복 spokes의 정지/역회전을 대안 가설로 두는 것은 이 원리의 적용 추론이지 검사한 클립의 실제 원인 확정이 아니다. 노출/셔터·패턴·원본 연속 프레임이 없으면 aliasing 여부도 미확인이다.
+- **alpha / 위 Blender 4.2 문서 `Inputs`/`Properties`, F1 재직접 읽기 READ-PARTIAL:** 전경/배경 입력·alpha에 따른 overlay·premultiplied 기대·straight 입력 변환·legacy Premultiply 우선관계만 지원한다. 원근·블러·그레인·light wrap의 전체 합성 craft는 입증하지 않아 `[BASIS-UNSTATED]`다. §2는 이들을 선택적 진단/수정 비교로만 사용하며 필수 효과·보편 매칭 순서로 강제하지 않는다.
+- **F1 그림자/간접광 / [Blender 4.2 LTS Cycles Object](https://docs.blender.org/manual/en/4.2/render/cycles/object_settings/object_data.html#visibility), `Visibility > Mask > Shadow Catcher`, READ-PARTIAL, 2026-10-17:** CG를 실제 푸티지에 합성할 때 shadow catcher와 다른 CG 간 간접광 상호작용, 별도 pass 활성 시 모든 간접광·비활성/viewport의 단순 근사를 지원한다. 자동 원근/조명 매칭·반사 정확도·다른 합성기의 기능이나 실행 성공은 지원하지 않는다. 같은 문서의 `Motion Blur`도 직접 읽었으며 topology 변화 시 deformation blur가 올바르게 렌더되지 않는 제한만 확인했다. 도판/실제 Blender 실행은 이 읽기에 포함하지 않았다.
+**Retry-intervention source boundary (READ-PARTIAL):** Stanchfield, `E:/Book/06_Book/originals/콘텐츠_제작/md/Drawn to Life 20 Golden Years of Disney Master Classes Volume 1 (Hahn, DonStanchfield, Walt) (z-library.sk, 1lib.sk, z-lib.sk).md`, 652080 bytes, SHA-256 `a765d6b75e1945ae217ed121a33ff6bbfd7acc40362bd55d8ba7210763bd586c`, L195(p79) says primary action should remain central and secondary action should not distract. Culhane's traditional physical-model aid passage is cited in [20-visual-mode-ssot.md](20-visual-mode-ssot.md#근거와-적용-범위). Neither passage compares generative retries, references, shot splitting or single-variable edits; those remain controlled workflow hypotheses, not demonstrated improvement effects.
+
+웹 근거는 해당 URL의 live HTML reader rendition을 직접 읽었으며 고정 로컬 rendition/hash/bytes는 `N/A-live-web`이다. 원문 지문이 고정된 책 근거와 구별하고, 웹 계약 재확인·실제 합성/물리 매체 검수는 실행 시점 별도다. [정본 지원 경계](sources.md#모듈별-지원-경계)는 소유자 통합 대상이다.

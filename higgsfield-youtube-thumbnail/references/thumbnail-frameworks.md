@@ -8,9 +8,9 @@ video answers. Before writing any prompt, brainstorm **≥5 concept options** ac
 frameworks below and carry the strongest into the blocks; a concept often **combines 2+
 frameworks** (e.g. Posed Portrait + Map + Landscape) when it deepens the gap without clutter.
 
-**Truthfulness law:** the image may exaggerate but must honestly represent the video. A
-Social-UI / News-Clip / amplification that misrepresents the video breaks viewer trust —
-keep any baked text short and true.
+**Truthfulness policy:** the image may use declared visual exaggeration but must honestly
+represent the video. Reject invented social proof, news events or performance claims;
+keep any baked text short and true. This is an editorial constraint, not a measured claim about trust.
 
 Most frameworks map straight onto the house-structure blocks; the ones needing readable
 in-image text use the **BAKED UI** clause in the Text contract (block 3) and stay
@@ -33,7 +33,7 @@ brand-generic (no real logos / networks).
 | 13 | Repetition of Objects | KEY ELEMENTS = a large quantity of ONE object filling the frame, still legible; add one context element + a subject for scale |
 | 14 | Size Difference | COMPOSITION = extreme scale contrast between two elements central to the story (giant vs tiny) |
 | 15 | News Clip | Generic "breaking news" lower-third / chyron over the image (BAKED UI, short truthful line); generic broadcaster styling, NO real network |
-| 16 | Amplified Reality | Posed Action Shot + exaggerate ONE real element from the story (KEY ELEMENTS oversized); keep it plausible — over-amplification kills trust |
+| 16 | Amplified Reality | Posed Action Shot + exaggerate ONE real element from the story (KEY ELEMENTS oversized); label/inspect the exaggeration and reject any implication unsupported by the actual video |
 
 Frameworks 1, 5, 12 are already the skill's defaults; the rest are selected here and realized
 through the existing house-structure blocks — do not invent a parallel renderer.
@@ -44,3 +44,7 @@ The frameworks are vehicles for the underlying rules — apply them regardless o
 one clear focal subject, a strong information gap, high contrast and readability at ~120px,
 emotion or intrigue on any face, no clutter, truthful to the video, and a concept that reads
 in under a second in a crowded feed.
+
+Evidence scope: Bruce Block, *The Visual Story*, directly read rendition `E:/Book/06_Book/콘텐츠_제작/md/비주얼 스토리 - 브루스 블록.md`, lines 275–283 (embedded pages 137–141), `READ-PARTIAL`, supports tonal separation making lines/contours visible. It does not establish CTR, a one-second recognition threshold, a 120px benchmark, the sixteen-framework taxonomy or a required five-concept count. Those are authored workflow heuristics, to be checked on the actual thumbnail/crop rather than reported as measured audience outcomes.
+
+Read-rendition identity: 368221 bytes; SHA-256 `403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c`. This metadata belongs to the cited partial reading and remains available with this independently installed reference.

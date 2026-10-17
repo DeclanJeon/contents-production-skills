@@ -1,5 +1,5 @@
 ---
-version: 0.17.0
+version: 0.35.0
 name: higgsfield-youtube-thumbnail
 description: |
   Create high-click-through YouTube thumbnails and vertical video covers through the Higgsfield CLI. Builds a truthful information-gap concept, preserves up to three referenced identities, supports logos and controlled variants; rendering runs through the authorized eligible image executor under package policy (Higgsfield image jobs are craft/reference only in-package). Use when: "make a YouTube thumbnail", "thumbnail for this video", "MrBeast-style cover", "Shorts cover", or "Instagram video cover". Chain after any video workflow once its truthful topic and visual direction are known. NOT for producing the video itself (use higgsfield-generate), product catalog photos (use higgsfield-product-photoshoot), or marketplace cards (use higgsfield-marketplace-cards).
@@ -55,7 +55,7 @@ If the user gives an emotion count without names, use this ladder: shock, hype, 
 
 ## Concept gate
 
-Read `references/thumbnail-frameworks.md`. Brainstorm at least five truthful concepts internally, across multiple frameworks, then select the strongest information gap with one focal subject and minimal clutter. Combine frameworks only when the result still reads in under one second at roughly 120px wide.
+Read `references/thumbnail-frameworks.md` when the user asks to develop or compare thumbnail concepts. An intake/route-only response that does not create concepts skips this reference. For concept work, brainstorm at least five truthful concepts internally, across multiple frameworks, then select the strongest information gap with one focal subject and minimal clutter. Combine frameworks only when the result still reads in under one second at roughly 120px wide.
 
 When a reference thumbnail exists, extract this structure before prompting:
 
@@ -78,7 +78,7 @@ Local paths are auto-uploaded. Previous completed job IDs also work as `--image`
 
 ## Prompt contract and render
 
-Load `references/prompt-contract.md` before prompting. It carries the full 11-block prompt contract, the identity-lock CHARACTER block, split-layout rules, the optional 3D logo pass, the main-render recipe (Nano Banana Pro 4K shape, stdin-piped prompt file, per-concept calls — never `--count`), and surgical-tweak mechanics. Apply the same contract through the authorized eligible executor; the preserved Higgsfield CLI examples are reference-only in-package.
+Load `references/prompt-contract.md` before writing an actual generation prompt. An intake/route-only response that does not compose a prompt skips this reference. It carries the full 11-block prompt contract, the identity-lock CHARACTER block, split-layout rules, the optional 3D logo pass, the main-render recipe (Nano Banana Pro 4K shape, stdin-piped prompt file, per-concept calls — never `--count`), and surgical-tweak mechanics. Apply the same contract through the authorized eligible executor; the preserved Higgsfield CLI examples are reference-only in-package.
 
 ## Post-render gate
 
@@ -89,6 +89,7 @@ Inspect every result with host vision when available:
 - Explicit baked text matches character-for-character.
 - The face/emotion and hero element remain readable at about 120px wide.
 - The concept truthfully matches the video promise.
+- Inspect the actual delivery crop as well as the full image: use the requested 16:9, 9:16 or 4:5 framing and any supplied platform UI/safe-area template. Resize a preview to roughly 120px wide and check focal subject, face, product and requested headline there. Record preview dimensions, crop and observed clipping/legibility; the one-second target is a design heuristic, not a measured viewer response or CTR claim. If no platform crop template is supplied, state that UI occlusion remains unverified rather than inventing safe margins.
 
 On a hard failure, retry the same prompt at most twice — inside the approved retry bound. If visual inspection is unavailable, do not claim it passed; deliver the result for user review. Present every passing variant and let the user pick before making optional tweaks.
 

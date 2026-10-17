@@ -1,11 +1,12 @@
 ---
-version: 0.17.0
+version: 0.35.0
 name: higgsfield-generate
 description: |
   Generate videos/3D assets/audio via Higgsfield AI (image
   branches are craft/reference only under package image
-  exclusion). Defaults: Seedance 2.5 for video, Marketing
-  Studio for ads, Seed Audio 1.0 for audio.
+  Routing cues only: discover the current model and verify its schema
+  before selecting any model. Do not treat cached defaults as capability
+  or quality claims.
   Use when: "generate an image", "make a video", "animate
   this photo", "image-to-video", "edit/stylize/remix this
   image", "reframe this video", "edit this video from a
@@ -29,6 +30,8 @@ allowed-tools: Bash
 
 Submit jobs to any Higgsfield model. Wraps the `higgsfield` CLI. Covers generic image/video/3D/audio generation, Marketing Studio (branded ads, avatars, products, hooks, settings), and, secondarily, Virality Predictor video scoring.
 
+Evidence scope (2026-10-17): directly read [official CLI README](https://github.com/higgsfield-ai/cli#examples), [MODELS.md](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md) image/video/3D/audio tables, and mounted `models_explore`, `generate_video`, `job_status`, `virality_predictor` documentation. CLI examples and named fields are documentation, not exercised generation. All cached IDs, numeric limits, role tables, defaults, private backend behavior and quality/ranking claims below and in triggered references require the selected current contract; unmatched details remain historical/unverified, not guarantees. CLI and MCP IDs/transports differ. Package defaults are routing preferences, never authority to submit an unsupported model. In particular, the read MODELS.md tables do not establish the Seedance 2.5 4–30s claim: inspect its exact live contract rather than inferring it from another Seedance model.
+
 ## Scope
 
 `creative-production` is the sole project-level coordinator for content/video production; this skill is the Higgsfield generation executor. Standalone invocation: consult `creative-production` once for scope/route when the request is part of a larger content effort, then run only the requested generation. Delegated by `creative-production`: proceed without calling back — no recursive routing, second interview, or new approval ledger; consume the assigned input IDs/versions and return the canonical output join per `references/package-gate.md`. A single generation request implies no folder selection, project manifest, thumbnail, CTA, extra variants, or publication beyond the requested artifact. Named preset slash commands and MCP tool routes keep their own contracts.
@@ -50,7 +53,7 @@ Before any other command:
 2. No internal jargon in user-facing chat. Cost/quote mechanics still happen — silently, at the package gate.
 3. Detect the user's language from the first message and reply in it. Technical args (`--aspect_ratio 16:9`) stay English.
 4. Don't batch-ask. Reuse every supplied choice; ask one thing at a time only for genuinely missing decisions.
-5. Prefer the quality-first default inside the approved bounded scope. Cost status and aggregate quote are resolved at the package gate BEFORE submission — never submit on unverified or unapproved cost, and never add unrequested variants for cheapness or quality.
+5. Prefer the current schema fit and the user's stated priorities over any cached route label. Resolve eligibility and aggregate quote before submission; never submit on unverified or unapproved cost, and never add unrequested variants.
 6. Pass `--wait` to `generate create` so the command blocks until done and prints the result URL itself. Avoid the two-step `create` → `wait` pattern.
 
 ## Discovery guardrail
@@ -71,43 +74,40 @@ If the user says "analyze this video", "score this ad", "evaluate the hook", or 
 
 ## Workflow — generic generation
 
-1. **Pick a model.** Start with the core defaults:
+1. **Pick a model from the live contract, not a cached ranking.**
 
-   - Image-model defaults (GPT Image 2.5, Nano Banana 2, etc.) → craft/reference only; see `references/image-branches.md` — ineligible in this package.
-   - **Seedance 2.5** (`seedance_2_5`) → SOTA default video model for serious motion, cinematic clips, multi-shot work, and image-to-video. Supports 4–30s output up to 1080p; use Seedance 2.0 when native 4K is required.
-   - **Marketing Studio** → default for ads, UGC, product demos, unboxing, TV spots, presenter videos, and brand/product workflows.
-   - **Seed Audio 1.0** → default audio model for text-to-audio, voice, sound effects, ambience, foley, and music-like audio unless the user names Sonilo/Mirelo.
+   - Image-model references (GPT Image, Nano Banana, etc.) → craft/reference only; see `references/image-branches.md` — ineligible in this package.
+   - For video, audio, and 3D, discover current candidates with `higgsfield model list --json`; inspect each candidate needed for the request with `higgsfield model get <id> --json`.
+   - Match only fields and limits present in the selected model's current schema. Do not infer resolution, duration, mode, media roles, quality, speed, or cost from `references/model-catalog.md`.
+   - Route narrated explainers, reference-video remakes, branded ads, and named workflows to their specialist owners or workflows below; each route still requires a current eligible contract.
+   - If the user names a model, preserve that choice, verify its current schema, and report a blocker rather than silently switching if it cannot satisfy the request.
+   - If the user does not name a model, use the current list/schema to identify eligible candidates. State any material tradeoff and ask only when the user's preference is needed to choose.
 
-   Only the models below are picked without being asked. Any other model is used only when the user names it or explicitly asks for what it offers (cheaper, faster, a specific look); see `references/model-catalog.md`. A model the user names stays in use for follow-ups on the same work.
+   The model catalog is an archive of historical routing notes, not a current inventory, capability source, or quality/cost ranking.
 
    **Image:** Higgsfield image generation/editing is ineligible in this package — the model selection craft lives in `references/image-branches.md` for routing and non-package contexts. Route specialized image requests to their owners (brandkit, youtube-thumbnail, product-photoshoot, marketplace-cards, soul-id); a missing generic image goes to the authorized eligible image executor (`codex-imagen` default) with truthful scope, never to a Higgsfield image fallback.
 
    **Video:**
    - Complete narrated explainer from a topic, story, or document → use `higgsfield-video-explainer`, not generic video generation.
    - Replicate, remake, or restyle an existing reference video into a new multi-shot video → use `higgsfield-video-replicate`, not generic video generation.
-   - All advertising / commercial / branded ad video → Marketing Studio (see Marketing Studio below)
-   - Edit existing video from sketch/timestamp, or reframe to another aspect ratio → workflow (`draw_to_video` or `reframe`), not a model. See `references/workflows.md`.
-   - **Default for everything else → Seedance 2.5** (`seedance_2_5`): multi-shot, consistent identity, motion-heavy, image-to-video, editing, extension, 4–30s. Modes `t2v` / `omni_reference` / `video_edit` / `video_extension`; use `omni_reference` for reference inputs, including start/end frames; `t2v` accepts no media. Up to 1080p. Do not downgrade because another model's schema looks simpler.
-   - User asks for 4K → Seedance 2.0 (`seedance_2_0`); say why you switched.
-   - User asks for cheaper or faster → Kling 3.0 Turbo (`kling3_0_turbo`), Veo 3.1 Lite, or Seedance 1.5 Pro.
-   - Named by the user → use it, e.g. Cinema Studio 4.0 (`cinematic_studio_video_4_0`), Kling 3.0, Veo 3.1, Gemini Omni Flash (`gemini_omni`), or Grok Video 1.5 (`grok_video_v15`: one `--start-image` or `--image`, duration 2–15s, up to `1080p` without reference media).
+   - All advertising / commercial / branded ad video → Marketing Studio only when its current schema supports the requested operation (see Marketing Studio below).
+   - Edit existing video from sketch/timestamp, or reframe to another aspect ratio → workflow (`draw_to_video` or `reframe`) only when the live workflow contract supports it. See `references/workflows.md`.
 
    **Video analysis:**
-   - Rate a finished video's hook, virality potential, attention, retention, or distraction risk → Virality Predictor (`brain_activity`). This is a video analysis model that returns a text score/report, not a generated media asset.
+   - Rate a finished video's hook, virality potential, attention, retention, or distraction risk → inspect the current Virality Predictor (`brain_activity`) contract. Treat its report as analysis, not generated media.
 
    **3D:**
    - A 3D asset within a playable game or game-wide asset system → use `higgsfield-websites` (game product type).
-   - Create an actual 3D mesh/model/GLB from one or more object/product reference images → Multi-Image to 3D (`multi_image_to_3d`). Pass 1–4 images with repeated `--image`; use `--should_texture true` when the asset needs texture. If the user only asks for a 3D-rendered *picture*, that's an image job — authorized eligible executor, never a Higgsfield image model.
+   - Create an actual 3D mesh/model/GLB from supplied object/product references → select a current model only if its schema accepts the requested references and output. If the user only asks for a 3D-rendered *picture*, that's an image job — authorized eligible executor, never a Higgsfield image model.
 
    **Audio:**
-   - **Default for audio generation → Seed Audio 1.0 (`seed_audio`).** Use for text-to-audio, sound effects, ambience, foley, impacts, environmental audio, voice-style generations, and music-like audio. It requires `--prompt`; use optional `--audio-references`/`--image-references` only when the user provides references.
-   - Use Sonilo Music (`sonilo_music`) only when the user explicitly asks for Sonilo or you need that specialist music model. It requires `--prompt` and `--duration`, and returns audio.
-   - Use Mirelo Text to Audio (`mirelo_text_to_audio`) only when the user explicitly asks for Mirelo or you need that legacy SFX model. It requires `--prompt` and `--duration`, and returns audio.
+   - Select a current audio model only after checking its live prompt, reference, duration, and output fields. Do not infer support for speech, music, sound effects, or other audio categories from this archive.
 
-   For the actual `--model` ID to pass to `higgsfield generate create`, run `higgsfield model list --json | jq` to map display names to IDs. See `references/model-catalog.md` for the full table; image-only rows are craft/reference (ineligible here).
+
+   Map the chosen display name to its current ID with `higgsfield model list --json | jq`, then inspect that exact ID with `higgsfield model get <id> --json`. `references/model-catalog.md` is historical only; image-only rows remain ineligible here.
 
 2. **Pass media inputs straight to flags.** Media flags accept a local file path **or** a UUID. CLI auto-uploads paths and auto-detects job vs upload for UUIDs. No need to pre-upload. Each model declares accepted media roles or `*_references` params — see `references/media-inputs.md`.
-3. **Validate quickly.** If unsure of params, run `higgsfield model get <jst> --json` once and pass only what's needed. Validate the preferred model before falling back to an older one. Use schema defaults otherwise. The server returns `adjustments` for non-fatal coercions (e.g. `aspect_ratio=99:99` → closest match) and a structured error for invalid declared-param values.
+3. **Validate the exact current schema.** Run `higgsfield model get <jst> --json` for every selected model and pass only declared fields/values. Never use cached limits, schema defaults, or a simpler alternative without verifying that the exact current contract supports the request. If no current model satisfies it, report the blocker; do not silently fall back.
 4. **Submit and wait in one shot.** `higgsfield generate create <jst> [--prompt "..."] [media flags] [param flags] --wait`. Blocks until terminal status and prints the result on stdout. Tunables: `--wait-timeout 20m` (default 10m), `--wait-interval 5s` (default 3s). Virality Predictor does not need a prompt; pass `--video`.
 5. **Deliver.** For generated media and 3D assets, send the primary result URL plus a one-line summary (model, duration if video; GLB/asset URL for 3D). For Virality Predictor, deliver the scores, business interpretation, and the Open report link. Do not surface Virality Predictor `.glb`, `.bin`, or region-table internals in normal chat output.
 
@@ -160,7 +160,7 @@ Use Virality Predictor (`brain_activity`) when the user wants to evaluate a fini
 higgsfield generate create brain_activity --video ./creative.mp4 --wait
 ```
 
-The result is text, not a generated image/video. Report the overall score, peak hook second, sustain score, strongest/weakest regions, and report URL if present. Interpret it as an objective attention proxy for creative testing: higher Visual/Auditory/Language/Attention scores suggest stronger stimulus and focus; lower Default Mode is better because it suggests less mind-wandering.
+The result is an analysis report, not generated image/video. Report only fields actually returned, including the overall score, peak hook second, sustain score, regions, and report URL when present. Treat scores and brain-region labels as provider predictions/proxies, not measured audience response, neurological diagnosis, or a guarantee of retention or virality. Keep provider interpretation separate from observed business outcomes.
 
 The CLI prints an Open report URL like `https://<app-domain>/apps/virality-predictor?resultJobId=<job_id>`. Send that URL for the visual report. Raw artifact URLs such as `brain_example_url`, `vertexMapBinaryUrl`, and `vertexMapUrl` are implementation details; mention them only when the user asks for raw data or implementation details.
 
@@ -193,7 +193,7 @@ Load on demand:
 - `references/package-gate.md` — REQUIRED before any submission: runtime check, execution eligibility, bounded approval, canonical handoff join
 - `references/image-branches.md` — image model routing/taxonomy/CLI craft (ineligible in this package)
 - `references/marketing-studio.md` — Marketing Studio concepts, entities, modes, ad workflows
-- `references/model-catalog.md` — picking the right model for the task
+- `references/model-catalog.md` — historical routing notes only; verify candidates and capabilities against the live schema
 - `references/workflows.md` — `draw_to_video` and `reframe` workflow generation
 - `references/prompt-engineering.md` — writing prompts that work
 - `references/media-inputs.md` — image/video/audio reference flows and Virality Predictor video analysis
@@ -205,3 +205,7 @@ Load on demand:
 - `references/marketing-brand-kits.md` — brand kits (fetch from URL, list, get)
 - `references/marketing-dtc-ads.md` — DTC Ads Engine (`dtc-ads generate`)
 - `references/marketing-modes.md` — every Marketing Studio mode
+
+## Acceptance
+
+A generation request is complete only when the selected operation is eligible under the package gate, its model/input contract and aggregate quote are verified, the user’s bounded approval covers submission and retries, and the terminal result is recorded with its canonical asset join. Higgsfield image generation remains ineligible here; route to the authorized image executor or report the requested result blocked. Analysis requests return the observed report, not generated media.

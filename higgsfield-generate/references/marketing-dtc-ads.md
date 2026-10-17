@@ -4,6 +4,8 @@ DTC Ads Engine is a flexible ad-image generation surface for DTC brands. It comp
 
 CLI command: `higgsfield marketing-studio dtc-ads generate` (aliases: `dtc`, `ads`).
 
+**Package gate:** this is image generation and remains ineligible here, including every example below. Direct read 2026-10-17: CLI 1.1.26 `marketing-studio dtc-ads generate --help` supports required prompt/format, media ≤14, avatar/product ≤1, batch 1–20 and the listed quality/resolution flags. Help does not verify private composition, readiness enforcement, all aspect enums, or successful images. Inspect the current official contract for those historical details; browsing and selection do not authorize submission.
+
 ## End-to-end flow
 
 There is no fixed order, but **picking an ad format is mandatory** — both the CLI and the server reject calls without `format_id`. There is no auto-default. Everything else (brand kit, avatar, product, media) is optional and only applied when the user explicitly provides them.

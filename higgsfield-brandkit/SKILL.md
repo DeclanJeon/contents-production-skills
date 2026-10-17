@@ -1,5 +1,5 @@
 ---
-version: 0.17.0
+version: 0.35.0
 name: higgsfield-brandkit
 description: |
   Create and extend complete visual brand systems through the Higgsfield CLI and bundled deterministic local tooling: palettes, SVG logo marks, typography, mockups, social graphics, packaging, signage, merchandise, posters, presentation decks, and editable PPTX/PDF brandbooks. Preserves official supplied assets, persists approvals locally, and regenerates only dependent outputs. Use when: "create a brand kit", "make a visual identity", "design a logo and brandbook", "apply this logo to branded assets", "make packaging or signage", or "extend our existing branding". Chain with higgsfield-generate for general image production and Marketing Studio brand-kits when importing website metadata for ads. NOT for unbranded image generation (use higgsfield-generate), product catalog photography (use higgsfield-product-photoshoot), website implementation (use higgsfield-websites), or native Figma/Canva/PSD/AI delivery.
@@ -16,6 +16,12 @@ Build a coherent identity and its requested applications. Treat supplied brand f
 `creative-production` is the project-level coordinator when one exists; this skill owns the brand-identity lifecycle — deterministic HTML/SVG/PPTX/PDF construction, approvals, and revision graph. Ordinary production boards do not route here. Delegated work follows `../higgsfield-generate/references/package-gate.md`: consume the explicitly selected brand/project root and assigned input IDs/versions; return the canonical join (versioned brand artifact proposal, registered asset paths/hashes, provider locators for any externally produced asset, invalidated slot/element keys, observed states, measured cost). `brandkit/state.json` is brand-domain state — never a rival production ledger; the coordinator writes `project.json`.
 
 Apply the shared gate before any paid provider operation. **Higgsfield image generation (Recraft logo marks, Seedream mockups, GPT Image text/detail passes) is ineligible in this package** — the deterministic local pipeline (previews, SVG export, brandbook build, state) stays fully eligible; a needed generated raster goes only to the explicitly authorized eligible image executor (`codex-imagen` default) with disclosed scope differences (e.g. raster mark where the preserved contract expects an SVG-capable backend). If no authorized executor exists, report that stage blocked and deliver the eligible deterministic outputs.
+
+The shared image exclusion also governs every triggered reference recipe: commands in
+logo, concept-board, mockup, and social modules are preserved provider documentation,
+not permission to submit. Local approvals authorize selected design state, not uploads,
+paid jobs, retries, or publication. Uploading an official logo or licensed font requires
+authority for that external transmission; keep deterministic-only work local.
 
 ## Bootstrap
 
@@ -163,7 +169,7 @@ For logo export, load [logo export payloads](references/logo-export-payloads.md)
 
 ## Failure policy
 
-- Retry a failed Recraft or image-generation request once with the same locked concept and corrected contract. Stop after the second equivalent failure.
+- For an eligible, separately authorized image executor, retry a failed request at most once with the same locked concept and corrected contract, within the approved retry/cost ceiling. Reconcile unknown submission outcomes before any retry; this never authorizes an ineligible Higgsfield image call.
 - If preview or logo export fails twice, report the concrete error; never replace it with ad-hoc SVG rewriting.
 - If the Brandbook template, font, or conversion contract fails, stop immediately. Do not produce a visually different fallback and call it canonical.
 - If exact typography or official-logo fidelity cannot be preserved, disclose the limitation instead of claiming completion.

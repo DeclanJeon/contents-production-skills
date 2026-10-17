@@ -4,7 +4,8 @@
     "verification": "Choose a pattern and exact markers only after inspecting the selected endpoint's current documented syntax or user-supplied verified input contract.",
     "language": "Preserve the requested prompt language; propose translation only when a verified tool constraint requires it.",
     "slot_order_default": ["shot_type", "subject", "start_state", "action", "end_state", "setting", "camera", "lighting", "style", "audio", "dialogue"],
-    "parameters": "Put duration, aspect, resolution, seed, negative_prompt and camera controls in API fields only when those exact fields are supported. Do not invent unsupported fields or assume audio/reference/edit support."
+    "parameters": "Put duration, aspect, resolution, seed, negative_prompt and camera controls in API fields only when those exact fields are supported. Do not invent unsupported fields or assume audio/reference/edit support.",
+    "evidence_scope": "Authored serialization examples, not source-derived model recipes. See video-generation-planning.md section 7 for the directly read Gen-4 guidance and its endpoint-specific limits. None of these four patterns establishes a provider capability or universal prompt syntax."
   },
   "genres": {
     "narrative": {

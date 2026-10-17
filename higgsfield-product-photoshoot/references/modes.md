@@ -4,6 +4,12 @@ Load this before mode selection or the pre-generation interview. These taxonomie
 knowledge — they serve the authorized executor path truthfully-scoped work and preserved
 backend contracts; they do not make an ineligible submission eligible.
 
+Contract scope (2026-10-17): CLI 1.1.26 `product-photoshoot create --help` directly read;
+it requires a mode string but does not enumerate these ten slugs or verify their aspect,
+slide-count or private template semantics. Preserve this historical taxonomy for brief
+classification; verify selected slugs/limits against a current official contract before
+depending on them. Interview tie-breakers are authored routing rules, not provider validation.
+
 ## Modes
 
 | Mode | When user wants… |
@@ -22,6 +28,11 @@ backend contracts; they do not make an ineligible submission eligible.
 ## Mode selection
 
 Pick by intent, not surface keyword. When two modes could apply, prefer the more specific one.
+
+An object name or count does not determine mode. “Three photos of this mug” leaves
+`mode` unresolved: reuse count=3 and ask for the intended setting/use. Do not silently
+choose `product_shot`. A supplied mode or a current inspected contract that explicitly
+determines it resolves the field; historical defaults and the product category do not.
 
 - product + neutral / clean / white / studio / catalog / Shopify → `product_shot`
 - product + scene / in use / kitchen / outdoor / cafe / gym → `lifestyle_scene`
@@ -42,7 +53,7 @@ Tie-breakers:
 
 ## Pre-generation interview
 
-Ask 3–4 short questions before submitting. Always labeled options, never open-ended. Skip a question whose answer is obvious from context.
+Ask only materially unresolved questions, at most 4 short questions; zero is valid when the brief is complete. Use labeled options when helpful; the scripts below are menus, not a fixed minimum. Reuse supplied answers.
 
 ### Type A — uploaded a product photo, "make me images / photoshoots"
 
@@ -61,7 +72,7 @@ E.g. "make ads for my product", "make a Pinterest pin", "make a hero banner". Mo
 
 ### Type C — text only, no product photo
 
-1. Can you upload a product photo? (preferred — much higher fidelity)
+1. Can you supply a product photo? It provides visible attributes (shape, color, packaging, markings) to preserve; inspect actual outputs against those attributes rather than assuming higher fidelity.
 2. If not, describe the product — category, packaging, color, distinctive features.
 3. What style? (same options as Type A)
 4. Where will you use it?

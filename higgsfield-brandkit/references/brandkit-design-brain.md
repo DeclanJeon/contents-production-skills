@@ -7,6 +7,13 @@ The Design Brain does not render assets, write Recraft prompts, call tools, or
 store approvals. It turns the current brief and selected draft elements into
 strong, coherent creative decisions for the next stage.
 
+Read [design source bindings](design-sources.md) before applying the craft rules.
+K-brand supports coherent, mutually reinforcing identity elements; A-logo-font
+and A-pair support visual-weight pairing and hierarchy; A-logo supports the
+one-distinctive-element simplification. These are bounded craft guidance, not
+universal aesthetic laws or measured provider/audience guarantees. Fixed candidate
+counts and the symbol-only phase are local output contracts.
+
 ## Source of truth
 
 Use only:
@@ -120,20 +127,22 @@ generic geometry or adjectives do not qualify.
 
 ### Logo type routing
 
-Choose mark types from evidence, not taste alone:
+Compare the following routes against the brief and intended applications
+(K-brand / A-logo / A-logo-font in `design-sources.md`). These are optional
+starting hypotheses, not exclusive categories or mandatory success tests:
 
-- **lettermark_monogram** — only when initials/name letterforms support an
-  ownable construction tied to the brief.
-- **pictorial** — only when a literal product/process/object is central and can
-  be represented without a category cliché.
-- **abstract** — when the strongest source is a process, benefit, emotion, or
-  relationship rather than one literal object.
-- **mascot** — only for strongly character-led, playful, community, or
-  family-facing positioning.
-- **emblem** — only for heritage, certification, membership, ritual, or
-  badge/label-heavy applications.
+- **lettermark_monogram** — test whether initials/name letterforms can carry a
+  brief-specific construction and remain identifiable at the intended size.
+- **pictorial** — compare a literal product/process/object cue with less literal
+  routes; check category cliché and recognition risks.
+- **abstract** — compare a process, benefit, emotion, or relationship expressed
+  nonliterally; disclose that its meaning may need explanation.
+- **mascot** — compare a character-led route where play, community, or a
+  family audience is relevant; check whether the character obscures brand identity.
+- **emblem** — compare a badge/seal route where heritage, membership, ritual,
+  or label applications matter; check detail loss at small sizes.
 
-Normally return three different mark types:
+Normally return three different mark types (local workflow contract; A-logo/K-brand provide category vocabulary and brief/context guidance, not this fixed count):
 
 1. one name/letter-derived route when viable
 2. one product/meaning-derived route
@@ -160,8 +169,9 @@ Do not create type scales, line-height systems, or letter-spacing systems.
 
 Choose pairs by:
 
-- matching display-font anatomy to the selected mark's geometry and stroke
-  character
+- comparing display-font anatomy with the selected mark's geometry and stroke
+  character: explain similar or complementary weight, width, curvature, and
+  proportions in the rendered specimen, rather than demanding literal matching
 - keeping body text readable and quieter than the display face
 - supporting the audience, positioning, and selected visual axes
 - ensuring required language/glyph coverage
@@ -181,7 +191,7 @@ Check:
 - Is every element traceable to the brief?
 - Do logo, palette, and typography express one central mechanism?
 - Could the identity be renamed for another brand without meaningful changes?
-- Is there one primary expressive move rather than several competing moves?
+- Is the intended expressive hierarchy clear (see “One expressive move” below)?
 - Is the mark scalable and producible?
 - Does typography complete rather than fight the mark?
 - Does the palette support contrast and real applications?
@@ -223,12 +233,20 @@ Reject:
 
 ## One expressive move
 
-Each direction gets one distinctive expressive mechanism. Supporting elements
-must be quieter.
+For the default direction format, name one dominant expressive mechanism and
+make supporting elements quieter. This constrained adaptation of A-logo's
+“Own one thing” and A-pair's headline/body hierarchy is not evidence of universal
+superiority. Preserve an explicit user multi-device direction; name its reading
+order and inspect competing visual weights rather than rejecting the device count.
 
-- Expressive mark → restrained palette/type.
-- Expressive palette → simpler mark/layout.
-- Expressive typography → minimal supporting graphics.
+Default comparisons:
+
+- Expressive mark → compare restrained palette/type.
+- Expressive palette → compare simpler mark/layout.
+- Expressive typography → compare minimal supporting graphics.
+
+Judge the rendered relationship and the brief, not the presence of these pairings
+alone. Record a specific visible conflict before rejecting a direction.
 
 ## Internal selection rubric
 

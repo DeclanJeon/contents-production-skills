@@ -8,12 +8,12 @@ Read when `typology_mode` is `enneagram` or `both`. The desires/fears below are 
 |---|---|---|
 | 1 | Being good, right, balanced — integrity intact | Being defective, corrupt, wrong |
 | 2 | Being loved, needed | Being unworthy of love |
-| 3 | Being valued, worthwhile, seen as accomplished | Being worthless, exposed as a failure |
+| 3 | Being valued, worthwhile, seen as accomplished | Being worthless |
 | 4 | Identity and personal significance — being truly oneself | Having no identity or meaning |
-| 5 | Competence, capability, mastery | Being helpless, incapable, invaded |
+| 5 | Competence, capability, mastery | Being useless, helpless, incapable |
 | 6 | Security, support, reliable guidance | Being without support or orientation |
-| 7 | Satisfaction, fulfillment, freedom | Deprivation, pain, being trapped |
-| 8 | Self-protection, control of their own life | Being harmed, controlled, vulnerable |
+| 7 | Satisfaction, fulfillment, freedom | Deprivation, pain |
+| 8 | Self-protection, control of their own life | Being harmed, controlled |
 | 9 | Inner stability, peace, harmony | Loss, separation, conflict that fragments |
 
 ## Interpretation rules
@@ -31,3 +31,5 @@ Same as the MBTI lens: no typing real people or undelegated existing characters;
 ## Evidence status
 
 The nine-type system, wings, and direction theory come from the Enneagram Institute's own description — a tradition's model statement, not independent validation [12,14–22]. A 2021 systematic review (Hook et al., 104 samples) found mixed reliability/validity evidence, factor analyses mostly recovering fewer than nine factors, and little research support for wings or type movement [3]. Use the lenses as motive questions; claim no empirical grounding. See `sources.md`.
+
+Read scope: [3] PubMed abstract (`READ-PARTIAL`, 2026-10-16), specifically the 104-sample review findings; [12] “The Wing” and “Directions of Integration (Growth) and Disintegration (Stress)” (`READ-PARTIAL`, same date); [14–22] each page's “in Brief” Basic Fear/Basic Desire/Key Motivations (`READ-PARTIAL`, same date). “Invaded” is not included as type 5's basic fear: it was an interpretive expansion beyond that cited field. The table stays within the named source fields.

@@ -27,8 +27,8 @@
   `asset_ids`로 이어진다. 각 발화의 녹음은 `<speech_id>-WAV-V###` 중 **가장 높은 버전**을 고르고,
   sha256이 일치할 때만 복사한다. 파일명을 추정하지 않는다. 이 경로에서는 Typecast를 부르지 않는다.
   녹음이 하나도 없을 때만(=미제작 에피소드) 처음 합성한다.
-- 실제 워드 타임스탬프는 **고정 자막 트랙(`<...>-CAPTIONS-SRT-V###`)** 에서 읽는다. 추정 자막은 쓰지
-  않는다. `caption_source`는 "actual Typecast word timestamps"로 기록한다.
+- 고정 자막 트랙(`<...>-CAPTIONS-SRT-V###`)에서 제공된 타임스탬프를 읽되, cue 단위 SRT를 실제 단어 타이밍으로 승격하지 않는다. 단어 정렬 근거가 없으면 정렬 단계는 차단한다. 추정 자막은 쓰지 않는다.
+  `caption_source`는 실제 산출물 출처·버전·해시와 정렬 방식을 기록한다. Typecast 생성 증거가 있을 때만 "actual Typecast word timestamps"라고 적는다. SRT 존재만으로 단어 단위 실측을 주장하지 않는다.
 - 새로 합성할 때만 샷별 WAV(44100/1ch/16-bit)를 남기고, 불확실한 결과는 `provider_outcome_uncertain`으로
   막고 사람이 판단하게 한다.
 - **각 녹음은 자기 샷 윈도우 안에 놓인다.** 렌더러는 `apad -t <샷 윈도우>`로 샷을 채우므로 녹음이
@@ -53,7 +53,24 @@
 - `references/delivery-speed.md` 참조. 렌더·자막·라우드니스가 끝난 뒤 마지막에 한 번만.
 - 원장은 손대지 않는다.
 
-## 7. 발행 전 게이트
+## 7. 메타데이터 설계 (LLM)
+
+업로드 **전에** 제목·설명글·태그를 사연별로 설계한다 (`metadata.py`).
+
+- 모델은 **hook(제목 앞부분)·body(설명 본문)·tags만** 공급한다. 시리즈 라벨(`｜쓰멜씬`), 면책 문구,
+  출처 URL, 필수 해시태그(`#Shorts`)는 **코드가 결정적으로 부착**한다 — 모델이 귀속 정보를 빠뜨릴 수 없다.
+- 모델 호출은 `codex exec --sandbox read-only`(ChatGPT 인증, 모델 오버라이드 금지). 사연 본문은
+  **untrusted data**로 프롬프트에 명시한다.
+- **fail-closed**: 게이트가 하나라도 실패하면 `Blocked('metadata_' + code)`로 발행을 중단한다.
+  폴백 메타데이터는 **금지**한다.
+- 게이트(`validate_metadata`)는 I/O 없는 순수 함수다. 검사 항목: 제목 길이(정책 상한)·시리즈 라벨 포함·
+  개행/마크업(`#`/`@`)/작화 태그(`/`)/금지어 부재, 설명의 출처·면책·해시태그 포함과 길이,
+  태그 개수(8..15)·중복·`#` 접두·길이.
+- 정책 키: `series_label`, `metadata_title_max`, `metadata_description_max`,
+  `metadata_tag_min/max/length_max`, `metadata_disclaimer`, `metadata_required_hashtag`,
+  `metadata_forbidden_title_terms`, `request_cost_upper_bounds.model`.
+
+## 8. 발행 전 게이트
 
 통과해야 할 것 (하나라도 실패하면 업로드 시도 자체를 하지 않는다):
 
@@ -66,6 +83,48 @@
 - 일일 발행 한도 미초과
 
 `audio_listening_verified`는 **실제 청취 전까지 false**로 둔다. 렌더 성공은 청취 검증이 아니다.
+
+이 저장소의 `verify_delivery.py`는 미디어 스트림·길이·프레임·해시·디코드 검사다. 패널 머리 여백, 자막 내용/단어 정렬, 실제 청취, 2-pass 라우드니스 결과, 메타데이터·권리·발행 승인을 대신 검증하지 않는다. 각 항목은 별도 산출물과 관찰 결과로 확인하고, 렌더러 QA sidecar만으로 전체 발행 게이트를 통과시켜서는 안 된다. `metadata.py`, 업로더, 미러/백필 스크립트는 프로젝트 운영 구현의 이름이며 이 스킬에 번들된 실행 파일이 아니다. 해당 구현/정책이 없으면 그 단계는 차단하고 렌더 결과만 반환한다.
+
+## 9. 시리즈 재생목록 편입
+
+- 업로드 직후(`_update("processing","upload_accepted")` 다음) 영상을 시리즈 재생목록에 넣는다.
+  **private+예약 상태에서 편입**하면 공개 전환 시 자동 반영된다.
+- 정책은 `series_playlist_id`(고정 ID, 우선) 또는 `series_playlist_title`(동일 제목 재사용, 없으면
+  **이 채널 소유**로 새로 생성) 중 하나. 둘 다 없으면 편입하지 않는다.
+- **편입 실패는 업로드 클레임을 되돌리지 않는다.** `playlist_status`에 `playlist_failed_<code>`로
+  별도 기록하고, `_verify_claim`이 후속 패스에서 재시도한다. 업로드 슬롯은 이미 소비된 것으로 본다.
+- **편입은 멱등**: 삽입 전에 멤버십을 먼저 확인한다. 이미 들어 있으면 `playlist_verified`로 기록하고
+  아무것도 삽입하지 않는다. 중복 삽입이 발생하면(예: 백필 후 `verify` 재실행) 정리한다.
+- 준비 코드: `playlist_item_added`, `playlist_verified`, `playlist_complete`.
+
+### 기존(백필) 영상
+
+메타데이터 설계 이전에 업로드된 영상은 `backfill_episode01.py`로 처리한다:
+`videos.update(part=snippet)`으로 제목·설명·태그를 교체(카테고리·언어·발행시각 등 나머지 필드는 보존)하고
+재생목록 편입을 보장한다. **upload claim과 영상 상태(예약 시각 포함)는 건드리지 않는다.** 멱등이다.
+
+## 10. 납품 미러 (Drive 백업 + Sheets 원장)
+
+발행 부작용. 재생목록과 완전히 같은 규칙을 따른다: **업로드 클레임을 되돌리지 않는다.**
+
+- 업로드가 `scheduled`/`*_verified`로 확인된 뒤 실행한다. 상태는 `delivery_status`,
+  `drive_file_id`, `ledger_status` 컬럼에 별도 기록한다.
+- 실패는 `delivery_partial`/`delivery_failed`로만 남기고 `_verify_claim`이 후속 패스에서 재시도한다.
+  `delivery_mirror_enabled`가 `true`가 아니면 아무 것도 하지 않는다.
+- **Drive 백업**: `drive_backup_folder_name` 폴더에 `drive_backup_artifacts`를 올린다.
+  파일에는 `source_key` / `bundle_sha256` 앱 프로퍼티를 붙인다 → 같은 번들이면 재업로드하지 않고,
+  번들이 바뀌었으면 업로드 후 이전 사본을 지운다.
+- **Sheets 원장**: `ledger_title` 스프레드시트의 `ledger_sheet_name` 시트에 헤더 1행 + 사연 1행.
+  키는 `(release_date, source_key)` — 재실행은 append가 아니라 **해당 행을 갱신**한다.
+- 원장 `title`은 **실제 발행된 제목**을 쓴다. `claims.video_title`은 업로드 시 모델 제안으로 기록되지만,
+  `verify`가 원격 snippet 제목을 읽어 **권위로 삼는다**(운영자가 업로드 후 제목을 바꿀 수 있다).
+  불일치가 감지되면 원격 제목을 저장하고 미러를 재실행해 원장 행을 교정한다 —
+  `delivery_complete`라도 제목이 어긋나면 스킵하지 않는다.
+- 자격증명은 n8n Google OAuth 자격증명을 런타임에 export/refresh해 **메모리에서만** 쓴다.
+  필요한 API 스코프·대상 접근 권한을 해당 자격증명에서 확인한다. 과거 실측 기록만으로 현재 계정의 재동의 불필요를 주장하지 않는다. 비밀값을 파일로 쓰지 않는다.
+- CLI: `delivery_sync.py --state … --policy … --source-key … [--title|--title-file|--credential|--dry-run]`.
+  제목처럼 셸 인용이 깨지는 값은 `--title-file`로 넘긴다.
 
 ## 실패 시 원칙
 

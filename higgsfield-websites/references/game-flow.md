@@ -6,10 +6,17 @@ and where the rules live.
 
 Package gate applies throughout this flow (see `../SKILL.md`): the runtime check never auto-installs; every asset/cover generation is an authorized operation inside the approved scope; image jobs run through the authorized eligible image executor in-package, video/audio/3D stay eligible provider jobs.
 
+Remote project creation, asset operations, pushes, live deployment, community
+listing, and contest entry each need their own explicit authorization under the
+shared gate. Building a game or opting into a listing does not authorize any
+other operation. Run the commands below only after their individual permission
+checks pass.
+
 Games used to run on a separate engine with its own `higgsfield game` commands.
 They don't any more — that engine is being retired, and its commands are gone.
-If you find a reference telling you to publish a game any other way than
-`higgsfield website deploy`, it is out of date.
+Deploy a game to production with the website deploy workflow after explicit
+deployment authorization. Community listing is a separate operation; do not
+describe it as game deployment.
 
 ## Create
 
@@ -55,19 +62,24 @@ good:
   that player receives. For a card game return that player's hand and everyone
   else's card *count*, never the full state.
 
-## Build, deploy, publish — identical to the other types
+## Build, deploy, and publication
 
-```bash
-cd app && bun run build      # runs check:logic + tsc
-higgsfield website deploy <website_id>
-higgsfield website publish <website_id>
-```
+Run the game build checks as documented, then complete the cover and metadata
+gate **before deployment**. A game is not complete or deployable while the
+required real values are missing:
 
-Deploy ships the live game at `<subdomain>.higgsfield.app`; publish lists it on
-the community feed. As with every type, **fill `app/src/app-meta.json` before
-publishing** (`og_title`, `og_description`, `og_image_url`,
-`marketplace_cover_url`) — a game with an empty `og_title` is invisible on the
-feed. See the cover + metadata section of `SKILL.md`.
+- `og_title`, `og_description`, `favicon_url`, `og_image_url`, and
+  `marketplace_cover_url` in `app/src/app-meta.json`.
+- The cover must use the user's independent game brand; never use the
+  Higgsfield app lockup for a standalone game. Reuse approved art or follow
+  `references/app-cover.md` through an eligible, separately authorized
+  executor. Authorize any output upload/storage separately.
+
+Deploy with `higgsfield website deploy <website_id>` only after explicit
+deployment authorization. It ships the live game. Publishing with
+`higgsfield website publish <website_id>` is a separate, optional community
+listing of the deployed version and requires explicit listing authorization;
+listing consent does not authorize assets, upload, push, or deployment.
 
 ## Testing it
 
@@ -76,8 +88,11 @@ The template ships vitest against the real workerd runtime
 `bun run test` in `app/`. A game whose rules you changed should get a test for
 the rule — the suite is the safety net for the wire protocol every game shares.
 
-Play-test with two browser tabs on the deployed URL: rooms are per-path
-(`/ws/<room>`), so two tabs on the same room join the same game.
+Play-test with two browser tabs on a local runtime or safely reachable
+authorized preview before deployment: rooms are per-path (`/ws/<room>`), so two
+tabs on the same room join the same game. Do not deploy solely for testing.
+After an independently authorized deployment, verify the deployed game
+separately; that post-deploy check does not replace pre-deployment testing.
 
 ## Art and audio
 

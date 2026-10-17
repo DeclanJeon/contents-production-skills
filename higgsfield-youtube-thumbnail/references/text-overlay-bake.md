@@ -2,15 +2,15 @@
 
 How to lay a MrBeast-style headline over the image and "bake" it into a flat PNG.
 Two layers: (1) a **live HTML/CSS preview** to tune the text in a browser, (2) a
-**canvas bake** — the same look re-rendered to pixels at the image's native resolution.
+**canvas bake** — outlined/filled text re-rendered at the image's native resolution, with preset-specific effects implemented separately.
 
-This is the implementation of the 5 overlay styles named in the skill's Text policy. The
-overlay is the DEFAULT delivery for headline text (zero generation credits, always legible);
-baking text INTO the generation is the fallback, only on an explicit ask.
+This is the implementation recipe for the 5 overlay styles named in the skill's Text policy.
+Overlay is the default headline delivery and requires no generation credits, but legibility
+still requires actual crop/small-preview inspection. Baked generation text requires an explicit ask.
 
 ## What makes text "MrBeast-y"
 
-Not one trick but a stack of six — remove any one and it falls apart.
+These six traits are house styling choices, not measured requirements for a creator's style or audience performance:
 
 | Trait | Value | Why |
 |---|---|---|
@@ -84,10 +84,9 @@ Feed the background into `--bg`, put the text in `<h1>`, tune it in a browser.
 </html>
 ```
 
-> `paint-order: stroke fill` is critical. Without it the stroke paints ON TOP and "eats" half
-> the letter — the #1 bug in 90% of home-made MrBeast text.
+> `paint-order: stroke fill` places the stroke behind the fill. Verify the chosen font/browser result rather than assuming that ordering alone makes text legible.
 
-## 5 proven presets (swap the `.line` block) — same 5 as the skill's Text policy
+## 5 house presets (swap the `.line` block) — same 5 as the skill's Text policy
 
 ### Beast — white + thick black stroke (default)
 ```css
@@ -126,89 +125,23 @@ Feed the background into `--bg`, put the text in `<h1>`, tune it in a browser.
 
 ## Layer 2 — bake to PNG (canvas)
 
-The same look, re-rendered in canvas at native resolution — a clean PNG, zero dependencies.
-**Important: wait for the font to load (`document.fonts.load`) BEFORE the first draw, or it
-bakes the system font.**
+The [browser implementation](../scripts/bake-thumbnail.mjs) draws all five presets: outlined Beast, Fire gradient/glow, Neon Lime glow, Clean Glass rounded translucent pills with a blurred background sample, and Marker line boxes. These are deterministic house effects, not pixel-identical copies of another creator's graphics. Serve the package/module over a local HTTP origin; inspect the selected preset and exported PNG. Default Anton/Inter loading uses Google Fonts; an explicitly chosen installed/custom font may instead be supplied. A declared CSS family or successful FontFaceSet check alone does not prove every rendered glyph or prevent fallback.
+
+Load the stylesheet and selected font before drawing; inspect the loaded face and glyph coverage. `document.fonts.load` does not itself validate every glyph.
 
 ```html
-<canvas id="c"></canvas>
-<script>
-async function bake({ src, lines, W, H, out='baked.png' }) {
-  // 1) load Anton BEFORE drawing
-  const fontLink = document.createElement('link');
-  fontLink.rel = 'stylesheet';
-  fontLink.href = 'https://fonts.googleapis.com/css2?family=Anton&display=swap';
-  document.head.appendChild(fontLink);
-  await document.fonts.load('120px "Anton"');
-  await document.fonts.ready;
+<script type="module">
+import { bake } from '/higgsfield-youtube-thumbnail/scripts/bake-thumbnail.mjs';
 
-  // 2) background
-  const img = new Image();
-  img.crossOrigin = 'anonymous';        // else toDataURL fails on CORS (for URLs)
-  await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = src; });
-
-  const cv = document.getElementById('c');
-  cv.width = W; cv.height = H;
-  const ctx = cv.getContext('2d');
-  // cover-fit the image
-  const s = Math.max(W / img.width, H / img.height);
-  const dw = img.width * s, dh = img.height * s;
-  ctx.drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
-
-  // 3) text
-  const fontPx = Math.round(H * 0.16);   // ≈16% of frame height
-  const lineH  = fontPx * 0.9;
-  const stroke = Math.round(fontPx * 0.11);
-  ctx.font = `${fontPx}px "Anton"`;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'alphabetic';
-  ctx.letterSpacing = '-2px';            // tight tracking (Chrome/Edge)
-
-  const cx = W / 2;
-  const totalH = lines.length * lineH;
-  let y = H * 0.94 - totalH + lineH;     // block pinned to the bottom, comfortable margin
-
-  for (const ln of lines) {
-    // hard shadow
-    ctx.save();
-    ctx.shadowColor = 'rgba(0,0,0,.55)';
-    ctx.shadowBlur = 24; ctx.shadowOffsetY = 14;
-    // paint-order: stroke FIRST
-    ctx.lineWidth = stroke;
-    ctx.strokeStyle = '#000';
-    ctx.lineJoin = 'round';               // no sharp spikes on thick-stroke corners
-    ctx.miterLimit = 2;
-    ctx.strokeText(ln.text, cx, y);
-    ctx.restore();
-
-    // fill on top (white / gradient)
-    if (ln.gradient) {
-      const g = ctx.createLinearGradient(0, y - fontPx, 0, y);
-      ln.gradient.forEach(([stop, col]) => g.addColorStop(stop, col));
-      ctx.fillStyle = g;
-    } else {
-      ctx.fillStyle = ln.color || '#fff';
-    }
-    ctx.fillText(ln.text, cx, y);
-    y += lineH;
-  }
-
-  // 4) export
-  cv.toBlob(b => {
-    const a = document.createElement('a');
-    a.download = out; a.href = URL.createObjectURL(b); a.click();
-  }, 'image/png');
-}
-
-// example call
-bake({
+const result = await bake({
   src: 'photo.jpg',
   W: 1280, H: 720,
-  lines: [
-    { text: 'I SPENT', color: '#fff' },
-    { text: '100 DAYS', gradient: [[0,'#FFE24B'],[0.5,'#FF9A1F'],[1,'#FF2E2E']] },
-  ],
+  preset: 'fire', // beast | fire | neon-lime | clean-glass | marker
+  lines: [{ text: '100 DAYS' }],
+  out: 'baked.png',
 });
+// result.blob is an actual non-null PNG; result.loadedFaces reports loaded web faces.
+// For inspection without a download, pass download:false and show result.canvas.
 </script>
 ```
 
@@ -237,15 +170,15 @@ If the user asks for a different font, pick from this menu (all on Google Fonts,
 load through the same mechanism as Anton). Named font → use it; "something else / not Anton"
 → pick the closest fit below and say which you chose.
 
-**A — Top 3 on YouTube (punchy display, the Anton alternates)**
+**A — Punchy display options (house menu, not a usage ranking)**
 
 | Font | Google Fonts weight | Vibe / use |
 |---|---|---|
-| Bebas Neue | 400 (reads bold) | tall narrow ALL-CAPS — the #1 Anton alternative, maximum cap height |
+| Bebas Neue | 400 (reads bold) | tall narrow ALL-CAPS — a house Anton alternative |
 | Oswald | 600–700 | condensed grotesk, a touch softer than Anton |
 | Archivo Black | 400 (ultra-bold) | blocky, wide, very loud headline |
 
-**B — 5 most-used bold workhorses**
+**B — Bold workhorse options (house menu, not measured popularity)**
 
 | Font | Weight | Vibe / use |
 |---|---|---|
@@ -263,11 +196,11 @@ load through the same mechanism as Anton). Named font → use it; "something els
 | Cormorant Garamond | 600–700 | delicate refined serif, editorial feel |
 | DM Serif Display | 400 | high-end display serif |
 | Fraunces | 600–900 | soft "old-style" serif, trendy |
-| Sacramento | 400 (script) | handwritten script — ACCENT / secondary line only, never the hero word (a script fails the ~120px legibility test as the main headline) |
+| Sacramento | 400 (script) | handwritten script — house default: accent/secondary line; verify actual ~120px legibility rather than asserting every script fails |
 
 **How to swap (keep everything else):**
 - HTML/CSS: `#headline { font-family: '<Family>', sans-serif; }` and set `.line { font-weight: <w>; }`; update the Google-Fonts `<link>` to that family.
-- Canvas: `await document.fonts.load('120px "<Family>"')` and `ctx.font = \`<weight> ${fontPx}px "<Family>"\``.
+- Canvas: pass `fontFamily`, `fontWeight` and, for a web font, its `stylesheet` URL to `bake`; the implementation awaits the stylesheet event before loading the selected face. Pass `strokeRatio` explicitly for a thinner/no-stroke override.
 - Stroke / shadow / `paint-order` / tracking stay as in the presets — only the family (and weight) change.
 
 **Stroke caveat by font class:** heavy condensed faces (Anton, Bebas Neue, Oswald, Archivo Black)
@@ -277,9 +210,15 @@ drop-shadow for separation instead. Sacramento (and any script) is an accent lin
 
 ## Quick check before baking
 
-- [ ] Font **Anton**, ALL CAPS, 2–4 words.
-- [ ] Stroke manual and **thick**, drawn under the fill (`paint-order` / `strokeText` first).
+- [ ] Selected font/style matches the user's request (Anton/ALL CAPS/2–4 words are defaults, not overrides).
+- [ ] Stroke matches the selected font: heavy display defaults may use thick outlines; delicate serif/script overrides use the thinner/no-stroke caveat above.
 - [ ] Text does **not** cover the face; sits in a free quarter.
 - [ ] Text within the frame, off the extreme edges (comfortable padding).
 - [ ] One punchy color: white / fire gradient / lime — one per headline.
 - [ ] Waited for the font to load before `fillText`.
+
+## Evidence and export limits
+
+Directly read API reference, 2026-10-17: [FontFaceSet.load](https://developer.mozilla.org/en-US/docs/Web/API/FontFaceSet/load) supports awaiting font loading but explicitly does not check individual glyph coverage; [canvas.toBlob](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob) documents nullable export results and origin-clean restrictions. These contracts do not establish creator-style authenticity, popularity or legibility. Handle a null blob or a security exception as export failure, not a delivered PNG. Inspect the actual exported file at delivery size and the requested crop. The code sample alone is not browser-smoke evidence.
+
+Additional direct reading (2026-10-16 UTC, `READ-PARTIAL`): [HTMLElement load event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/load_event), resource elements and Handling resources that have already loaded; FontFaceSet.load Parameters/Return value; toBlob Parameters/Exceptions. The implementation registers stylesheet load/error handlers before insertion, then awaits the selected font. The local five-preset export exercise used an explicit installed Arial Bold alias, not verified default Anton/Inter delivery; a failed web-font stylesheet remains a hard export error without silent font substitution.

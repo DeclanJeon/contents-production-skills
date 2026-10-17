@@ -49,7 +49,8 @@
 확정 브리프와 해당 제작 원장을 입력받고 아래 템플릿을 채워 인계한다.
 
 ## 근거와 한계
-04의 제작 제약 원칙을 바탕으로 한 운영 설계 확장. 일정·예산·파일 원장 규격은 서적의 직접 모델이 아니다.
+The scheduling, budget-record, and asset-operation procedures and schemas in this module are package-authored; no book is their direct source or operational model. If asked for the book source of this workflow, state that explicitly. Related background only: source ID 04 is Sidney Lumet, *Making Movies* (`sources.md` §자료 원장, ID 04); the directly checked L37, printed p.18, concerns production constraints such as weather, budget, departmental collaboration, and design serving theme. It does not prescribe this module's procedures or schemas. Cite ID 04 only as that limited background, never as the source of the operations framework. `04-directing.md` does not exist.
+The source index is `video-production-assets/references/sources.md`; there is no root-level `video-production-assets/sources.md`.
 
 ## 템플릿
 `assets/14-production-ops-template.md`를 사용한다. 실제 실사 촬영일에는 `assets/film-production-day-template.md`를 별도 인계 문서로 사용한다.

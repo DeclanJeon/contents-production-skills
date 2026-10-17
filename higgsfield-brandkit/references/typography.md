@@ -2,6 +2,14 @@
 
 Build a usable type system, not a list of attractive font names.
 
+Read [design source bindings](design-sources.md): A-logo-font supports similar
+or complementary icon/type style, visual-weight balance, and readable small use;
+A-pair supports expressive-headline/quiet-body hierarchy. Compare actual anatomy
+in rendered specimens rather than treating font-class stereotypes as laws.
+Norman's READ-PARTIAL L10399–10419 supports size/contrast accessibility only.
+The two-family ceiling is this workflow's output constraint, not a universal
+optimum; exact-font/editability claims require the actual format checks below.
+
 ## 1. Existing or user-owned font
 
 If the user supplies `.otf`, `.ttf`, `.woff`, or `.woff2`:
@@ -34,7 +42,7 @@ Evaluate:
 - Compatibility between headline and body anatomy
 - Whether one family with multiple styles is stronger than an unnecessary second family
 
-Avoid recommending a decorative font for body copy. Do not pair two families that compete in contrast, width, or personality. One family with useful contrast between weights/styles is valid when it is the stronger system.
+Use a readable body face at the intended size. Contrast in width, weight, or personality can establish hierarchy (A-pair); reject an actual rendered pair for unintended competing emphasis or illegibility, not for contrast alone. One family with useful contrast between weights/styles is valid when it fits the brief.
 
 ## 3. Show the typography
 

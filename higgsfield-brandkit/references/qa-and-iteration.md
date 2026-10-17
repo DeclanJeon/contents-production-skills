@@ -2,6 +2,10 @@
 
 Assume the first pass contains inconsistencies. Validate the set as a system and each asset as an individual deliverable.
 
+Read [design source bindings](design-sources.md) for coherence, hierarchy, and
+optical-balance scope. These checks apply the brief and observed rendering;
+they do not establish empirical brand recognition or universal aesthetic quality.
+
 ## 1. Preflight before paid generation
 
 - The Brandkit state script's `get_status` action was called in this turn
@@ -72,7 +76,9 @@ Do not accept a vision model's statement as proof of exact hex, font, spacing, o
 - New-logo selection contains exactly three editable SVGs
 - All three use identical Recraft model, palette, background, aspect, and quality parameters
 - Candidate prompts contain no text except explicitly requested monogram initials
-- Selected mark and later wordmark are optically balanced as one lockup
+- Inspect selected mark/wordmark visual weight together at the intended sizes
+  (A-logo-font): identify unintended dominance, crowding, or spacing imbalance
+  and record a concrete correction. Numeric centering alone is not optical proof.
 - Check geometry, proportions, clear space, and small-size behavior
 
 ### Typography

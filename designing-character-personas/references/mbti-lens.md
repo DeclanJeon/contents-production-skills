@@ -29,3 +29,5 @@ Read when `typology_mode` is `mbti` or `both`. The four pairs below are this rep
 ## Evidence status
 
 The official description presents the pairs as preferences, not abilities, and allows acting outside preference [1]. A 1989 study of 468 adults (McCrae & Costa) did not support discrete types or true dichotomies, treating the indicators as relatively independent dimensions, while reporting correlations with some personality dimensions — read as scope-limited, older-instrument evidence, not a verdict on every MBTI use [11]. This skill uses the axes as design questions and makes no empirical claim. See `sources.md` for citation scope.
+
+Read scope: [1] official MBTI Facts questions 5–7 and 14 (`READ-PARTIAL`, 2026-10-16); [11] PubMed abstract (`READ-PARTIAL`, same date). The observable-territory column is an authored set of writing prompts, not a finding that those behaviors establish a person's preference. In particular, the S–N axis is about preferred information, not a claim that one pole verifies truth and the other does not.

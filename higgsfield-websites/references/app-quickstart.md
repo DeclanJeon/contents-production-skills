@@ -271,6 +271,6 @@ For a gap, build a small component from Quanta primitives in
 
 ---
 
-**Then follow `app-flow.md` steps 6–8:** deploy → cover + metadata (generate the
-cover per `references/app-cover.md`) → publish (automatically if the user opted in
-at intake, else when asked), then suggest the contest.
+**Then follow `app-flow.md` steps 6–8:** approved cover + complete metadata →
+explicitly authorized deployment → feed listing only with its consent and every
+separately authorized prerequisite. Contest entry requires separate consent.

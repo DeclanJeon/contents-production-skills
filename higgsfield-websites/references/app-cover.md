@@ -7,13 +7,13 @@ the marketplace card. Also use it when the user directly asks for a "cover",
 model, feature or app announcement.
 
 **Branding follows the product type.** For `--type app` (Higgsfield-integrated
-products) the cover uses the Higgsfield lockup — bundled squiggle glyph +
-"Higgsfield" wordmark + `Available now at higgsfield.ai` CTA, the defaults
-described below. For `--type website` (independent-brand products) the cover
-uses the USER'S brand: `--wordmark "<user brand>"` with `--glyph <user-logo.png>`
-(or `--glyph none` for a text-only wordmark) and the user's own CTA via `--cta`
-— never the Higgsfield wordmark, squiggle, or `higgsfield.ai` CTA. Everything
-else (scene doctrine, capsule, lockup structure) is identical.
+products), default to the Higgsfield lockup described below. Independent
+`--type website` and `--type game` covers use the USER'S brand:
+`--wordmark "<user brand>"` with `--glyph <user-logo.png>` (or `--glyph none`
+for a text-only wordmark) and the user's own CTA via `--cta` — never the
+Higgsfield wordmark, squiggle, or `higgsfield.ai` CTA. Use a supplied brand font
+via `--font <path>` when provided; otherwise Inter is the documented default.
+The scene doctrine, capsule, and lockup structure are shared.
 
 Cover generation is an authorized operation inside the approved scope/budget
 (package gate) — it is not "no permission needed". The scene image and cutout
@@ -25,10 +25,10 @@ create` image models — the CLI shapes below are the preserved contract.
 
 **The image model NEVER renders text. Not the title, not the wordmark, not
 labels, not UI. It renders ONLY the scene.** Every glyph on the cover is drawn
-by `compose_cover.py` from the bundled Inter font — that is why the type is
-identical and crisp on every cover, like the official ones. If a generated
-scene comes back with lettering in it, the candidate is DEAD. Regenerate with
-"no text, no letters, no logos, no captions" appended.
+by the bundled Inter default or a supplied local brand font; this keeps the type
+consistent and crisp. If a generated scene contains lettering, reject it and
+request a newly authorized image operation with "no text, no letters, no
+logos, no captions" appended.
 
 Division of labor:
 
@@ -39,13 +39,14 @@ Division of labor:
   scrim, break-out compositing. All geometry and typography. Text is ALWAYS the
   topmost layer.
 
-**Outputs** (one compose run makes all three, same pixels/scene in each):
+**Outputs** (one compose run derives all three from the same approved source
+art; framing/crops differ by output and must each be inspected):
 
-| file | what | use |
-|---|---|---|
-| `<slug>_cover.png` | full-bleed 3:2 scene + type lockup | marketplace / `marketplace_cover_url` |
-| `<slug>_og.png` | frame + stadium capsule + corner dots | OG / `og_image_url` |
-| `<slug>_og_wide.png` | same, 1.91:1 | Twitter/FB link cards |
+| file | target and use |
+|---|---|
+| `<slug>_cover.png` | 3:2 full-bleed cover + type lockup; marketplace / `marketplace_cover_url` |
+| `<slug>_og.png` | 3:2 frame + stadium capsule + corner dots; OG / `og_image_url` |
+| `<slug>_og_wide.png` | 1.91:1 framed social-card variant; Twitter/FB link cards |
 
 ## What an official cover looks like (internalize before prompting)
 
@@ -78,6 +79,11 @@ Hard bans (non-negotiable): acid lime/yellow `#D9FF2E`-family frames or text
 borders inside the art, model-rendered UI panels, any MODEL-rendered
 squiggle/logo (the real glyph is bundled and pasted by code — never ask the
 model to draw it).
+
+This is a design recipe, not blanket operation authorization. In this package
+all cover imagery, edits, cutouts, and upscales must use the authorized eligible
+image executor after the applicable package gate. The preserved Higgsfield CLI
+examples below are provider-contract references only; do not run them here.
 
 ## Workflow
 
@@ -176,27 +182,25 @@ If the winning scene is under ~1500 px wide, upscale it first
 (`higgsfield generate create bytedance_image_upscale --image <url> --wait`) —
 the script refuses art below 1500 px.
 
-### 4. Break-out pass (whenever there is a clear subject)
+### 4. Break-out pass (when there is a clear subject)
 
-Run `image_background_remover` on the winning scene and download the cutout PNG
-— it must be the SAME image, subject isolated with alpha:
-
-The cutout step is an image-edit job — in-package through the authorized
-eligible image executor (or a local deterministic cutout); the provider shape
-is preserved:
+Run the eligible authorized background-removal operation on the exact approved
+`--art` file, or use an authorized local deterministic cutout, then download or
+save the RGBA result. The cutout may come from a separate operation; it must
+derive from that exact art version, not a regenerated or differently cropped
+scene.
 
 ```bash
 higgsfield generate create image_background_remover \
-  --image <winning_scene_url_or_id> --wait
+  --image <approved_scene_url_or_id> --wait
 ```
 
-Pass the cutout as `--cutout`: on the framed OG variants the subject then
-BREAKS OUT of the stadium capsule onto the frame color instead of being
-amputated by the window edge (the official pop-out look). The window shrink is
-ADAPTIVE — it only kicks in when the subject actually reaches the window's
-top/side edges; a subject sitting fully inside keeps the full scene, no fat
-frame ring. The cutout MUST come from the same job as `--art` or it silently
-misaligns.
+Pass the aligned cutout as `--cutout`. Its dimensions must exactly match
+`--art`; the compositor rejects mismatches rather than resizing and silently
+shifting the subject. Visually inspect an alpha overlay against the exact scene
+before composition. On framed OG variants the subject breaks out of the stadium
+capsule onto the frame. Any crop, transform, or retouch must be identical for
+the scene and cutout; otherwise omit the cutout.
 
 ### 5. Compose
 
@@ -228,13 +232,11 @@ python3 compose_cover.py \
   --out-og-wide dreamcut_og_wide.png
 ```
 
-A website-type cover MUST NOT carry the default `Higgsfield` wordmark, the
-squiggle glyph, or `Available now at higgsfield.ai` — pass the user's
-`--wordmark`/`--glyph`/`--cta` (`--glyph none` when the user has no logo mark).
-
-**ONE typeface, hardcoded.** Inter — the title face on the reference cover —
-renders everything: wordmark, title, CTA. There is no font flag. A different
-face is a manual edit, not a skill feature.
+**Typeface:** Inter is the default for Higgsfield-branded app covers. A
+website/game cover with a supplied brand font must pass it with `--font
+<path>`; when no supplied font exists, Inter is the fallback. The font path is
+local input, not a provider upload. Missing or unreadable explicit fonts are
+errors, not a reason to silently substitute another face.
 
 **All type is flat white — no shadows.** Legibility comes from scene contrast
 (dark negative space) and the scrim, not effects.
@@ -244,14 +246,17 @@ face is a manual edit, not a skill feature.
 #7A7D3C`); dark scene → light frame (`sky-blue #A9CFF4`, `peach #F7DDB9`, `cream
 #F1EEE6`, `dusty-rose #E7B7B0`, `warm-gray #D6D3CE`). Echoing an accent already
 in the scene (red jacket → signal-red) looks intentional; a random pastel does
-not. Lime is BLOCKED by the script — do not `--force-frame-color` around it.
+not. Lime is blocked by default; allow it only on the user's explicit color
+direction (`--force-frame-color`).
 
 **Block placement**: `--anchor left --block-x 0.07` with the subject on the
 right (or mirror it); `--anchor center` only for symmetric hero scenes.
 `--block-y` so the title sits on the subject's torso band (0.26–0.38 usually).
-`--scrim 60-110` depending on how busy the art is behind the block. On framed
-outputs the whole lockup is clamped INSIDE the capsule automatically — text
-never touches the frame.
+`--scrim 60-110` depending on how busy the art is behind the block.
+The compositor targets a lockup placement inside the capsule, but its bounds
+heuristic does not guarantee containment for every title, tagline, font, or
+CTA. Inspect every rendered output at full size; if any glyph touches or crosses
+the frame, adjust the composition or report that it does not fit.
 
 ### 6. Final check + deliver — the side-by-side gate
 
@@ -277,10 +282,11 @@ If any box fails — fix and re-run.
 
 - **Standalone cover request**: show all three files to the user and save them
   to their folder if one is connected.
-- **App/website build (the publish gate)**: upload the cover + OG with
-  `higgsfield upload create` and set the returned durable URLs in
-  `app/src/app-meta.json`: `<slug>_og.png` → `og_image_url`, `<slug>_cover.png`
-  → `marketplace_cover_url`. Commit before running `higgsfield website publish`.
+- **App/website build:** upload the approved cover files only when upload/storage
+  permission covers that operation. Set returned durable URLs in
+  `app/src/app-meta.json`: `<slug>_og.png` → `og_image_url`,
+  `<slug>_cover.png` → `marketplace_cover_url`. Commit/push, deploy, and publish
+  are separate operations; run each only within its own explicit authorization.
 
 If the text (drawn by the script) ever needs adjusting, it is a compose-flag
 change (`--title`, `--block-x/y`, `--title-width`), never a regeneration — the
@@ -310,9 +316,9 @@ structured lockup block, matching the official covers:
 (NO tagline by default — the reference lockup has none; --tagline exists
 only for an explicit user request.)
 
-Break-out: pass --cutout (subject with alpha from remove_background, same
-size as the scene) and on the framed OG variants the subject pops OUT of the
-stadium capsule onto the frame color instead of being clipped by the window.
+Break-out: pass --cutout (subject with alpha, derived from the exact approved
+scene version and in the same pixel coordinates) and on framed OG variants the
+subject pops OUT of the stadium capsule onto the frame color.
 Text is ALWAYS the last (topmost) layer — the subject never covers a letter.
 
 The stadium capsule, frame and corner dots are code too. Outputs:
@@ -320,18 +326,19 @@ The stadium capsule, frame and corner dots are code too. Outputs:
   --out-og      frame + capsule + dots + lockup, same ratio as the art (3:2)
   --out-og-wide the 1.91:1 social-card variant
 
-ONE typeface: Inter (the title face on the reference cover) renders
-EVERYTHING — wordmark, title, CTA. No other font ships in the bundle.
+Inter is the default font; `--font <path>` accepts a supplied local brand font.
+Output dimensions are enforced: --out-cover and --out-og require 3:2 source art;
+--out-og-wide is 1.91:1 and crops the source independently.
 
 All type is FLAT white. No shadows, no outlines, no gradients — ever.
-On framed outputs the whole lockup is clamped INSIDE the stadium capsule
-(rounded ends included) — text never touches the frame.
+The placement heuristic targets the capsule interior; it does not guarantee that
+every lockup fits. Inspect each output and adjust or report any overflow.
 
 Only Pillow required.
 
-ASSETS: the font + logo glyph are NOT bundled — they are fetched once from the
-hosted asset base and cached locally (~/.cache/higgsfield-cover, override with
-$COVER_ASSET_CACHE). Point at a different host with $COVER_ASSET_BASE.
+The default Inter font and optional Higgsfield glyph are fetched from the
+hosted asset base and cached locally. A supplied `--font` is read from its
+local path instead; it is not uploaded.
 """
 import argparse
 import colorsys
@@ -353,7 +360,7 @@ ALLOWED_FRAMES = {
 }
 DEFAULT_FRAME = ALLOWED_FRAMES["sky-blue"]
 CTA_DEFAULT = "Available now at higgsfield.ai"
-# ONE font. Inter Bold — the title face on the reference cover.
+# Default font; `--font` selects a supplied local brand font.
 BRAND_FONT = "Inter-Variable.ttf"
 
 # Hosted asset base (font + logo). Override with $COVER_ASSET_BASE. The two
@@ -417,20 +424,22 @@ def luminance(rgb):
     return 0.2126 * r + 0.7152 * g + 0.0722 * b
 
 
-def brand_font(px, weight):
-    """Inter at the given weight (opsz pinned for display). The ONLY typeface."""
-    path = ensure_asset(f"fonts/{BRAND_FONT}")
-    if path is None:
-        return ImageFont.load_default(px)
+def brand_font(px, weight, supplied_path=None):
+    """Load the requested local brand font or the documented Inter default."""
+    path = (os.path.expanduser(supplied_path) if supplied_path
+            else ensure_asset(f"fonts/{BRAND_FONT}"))
+    if path is None or not os.path.isfile(path):
+        sys.exit(f"ERROR: font file is unavailable: {path or BRAND_FONT}")
     try:
         f = ImageFont.truetype(path, px)
-        try:
-            f.set_variation_by_axes([32, weight])
-        except Exception:
-            pass
+        if supplied_path is None:
+            try:
+                f.set_variation_by_axes([32, weight])
+            except Exception:
+                pass
         return f
-    except Exception:
-        return ImageFont.load_default(px)
+    except Exception as e:
+        sys.exit(f"ERROR: could not load font {path}: {e}")
 
 
 def measure(d, text, font):
@@ -453,28 +462,35 @@ class Lockup:
         # Size the title so its longest line fills the width budget…
         budget = W * a.title_width
         px = round(H * 0.5)
-        f = brand_font(px, 700)
+        f = brand_font(px, 700, a.font)
         w = max(measure(probe, ln, f)[0] for ln in self.title_lines)
         px = max(24, round(px * budget / max(1, w)))
         # …capped by line height and by total available width at the anchor.
         px = min(px, round(H * a.title_max_h))
         avail = W * (0.94 - a.block_x) if a.anchor == "left" else W * 0.88
-        f = brand_font(px, 700)
+        f = brand_font(px, 700, a.font)
         w = max(measure(probe, ln, f)[0] for ln in self.title_lines)
         if w > avail:
             px = round(px * avail / w)
         self.title_px = px
-        self.f_title = brand_font(px, 700)
+        self.f_title = brand_font(px, 700, a.font)
 
-        glyph_path = (a.glyph if getattr(a, "glyph", None)
-                      else ensure_asset("logo/hf-glyph.png"))
         if a.glyph == "none":
             glyph_path = None
+        elif a.glyph:
+            glyph_path = a.glyph
+            if not os.path.isfile(glyph_path):
+                sys.exit(f"ERROR: supplied glyph file not found: {glyph_path}")
+        else:
+            glyph_path = ensure_asset("logo/hf-glyph.png")
+            if glyph_path is None or not os.path.isfile(glyph_path):
+                sys.exit("ERROR: required Higgsfield glyph is unavailable; "
+                         "do not compose an incomplete app cover.")
         self.glyph = (Image.open(glyph_path).convert("RGBA")
-                      if glyph_path and os.path.exists(glyph_path) else None)
-        self.f_word = brand_font(max(16, round(px * 0.26)), 650)
-        self.f_tag = brand_font(max(14, round(px * 0.20)), 500)
-        self.f_cta = brand_font(max(13, round(px * 0.17)), 500)
+                      if glyph_path else None)
+        self.f_word = brand_font(max(16, round(px * 0.26)), 650, a.font)
+        self.f_tag = brand_font(max(14, round(px * 0.20)), 500, a.font)
+        self.f_cta = brand_font(max(13, round(px * 0.17)), 500, a.font)
         self.cta_pad_y = round(px * 0.14)
         self.cta_pad_x = round(px * 0.30)
 
@@ -671,7 +687,7 @@ def build_framed(art, cutout, canvas_ratio, a, frame_rgb, dot_rgb):
         # frame (official look — Cinema Studio 4's boot + ball over the green).
         cut = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         piece = cutout.crop(cb).resize((bw, bh), Image.LANCZOS)
-        cut.paste(piece, (box[0], box[1]), piece)
+        cut.paste(piece, (box[0], box[1]))
         # ADAPTIVE window shrink: only if the subject actually reaches the
         # window's top/side edges does the window pull in (top + sides,
         # bottom stays flush) so the full-size plate pops over the capsule
@@ -702,6 +718,7 @@ def main():
     p.add_argument("--wordmark", default="Higgsfield", help="'' to disable")
     p.add_argument("--glyph", default=None,
                    help="wordmark glyph PNG path; 'none' = text-only wordmark")
+    p.add_argument("--font", help="local brand font file; default: Inter")
     p.add_argument("--tagline", default="")
     p.add_argument("--cta", default=CTA_DEFAULT, help="'' to disable")
     p.add_argument("--anchor", choices=["left", "center"], default="left")
@@ -735,6 +752,8 @@ def main():
         if a.dot_color == "auto" else hex_rgb(a.dot_color)
 
     art = Image.open(a.art).convert("RGB")
+    if (a.out_cover or a.out_og) and art.width * 2 != art.height * 3:
+        sys.exit("ERROR: --art must be exactly 3:2 for --out-cover/--out-og.")
     if art.width < a.min_width:
         sys.exit(f"ERROR: art is {art.width}px wide (< {a.min_width}). Upscale "
                  f"first — do not ship a soft cover.")
@@ -742,7 +761,14 @@ def main():
     if a.cutout:
         cutout = Image.open(a.cutout).convert("RGBA")
         if cutout.size != art.size:
-            cutout = cutout.resize(art.size, Image.LANCZOS)
+            sys.exit("ERROR: --cutout dimensions must exactly match --art.")
+        alpha_hist = cutout.getchannel("A").histogram()
+        pixels = cutout.width * cutout.height
+        transparent = sum(alpha_hist[:16])
+        foreground = sum(alpha_hist[240:])
+        if transparent < pixels * 0.005 or foreground < pixels * 0.005:
+            sys.exit("ERROR: --cutout must contain meaningful transparent "
+                     "background and near-opaque foreground.")
 
     if a.out_cover:
         out = Lockup(a, art.width, art.height).render(art, cutout)

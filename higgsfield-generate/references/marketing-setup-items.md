@@ -1,5 +1,7 @@
 # Marketing Studio Hooks And Settings
 
+Contract read 2026-10-17: CLI 1.1.26 `marketing-studio hooks list --help` documents search/cursor/size; [official MODELS.md](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md#marketing_studio_video--marketing-studio-video) documents hook/setting IDs and exclusion with ad_reference_id. Hook prepending, response fields, mode whitelist and automatic Soul synthesis below remain historical/unverified unless the selected current contract confirms them. Recommendations about product context are heuristics, not measured quality.
+
 Marketing Studio setup items are optional reusable context for `marketing_studio_video`.
 
 - **Hook** (`--hook_id`) sets the opening angle / ad hook. The hook prompt is prepended to the user prompt; it does not replace `--prompt`.

@@ -4,14 +4,13 @@ You are building ONE per-website Cloudflare Worker: a **React 19 + TanStack
 Start** app that is **server-rendered (SSR)** and deploys as a single Worker
 served at the website's own subdomain. A `type: "website"` product is a
 STANDALONE brand — no Higgsfield integration, no Quanta, no fnf SDK; the
-user's brand is the only brand on the page. If mid-build the request turns
-out to need Higgsfield generation, sign-in, or credits, that is a
-`type: "app"` — switch to `references/app-flow.md`.
+user's brand is the only brand on the page. If the product itself needs end users
+to authenticate with Higgsfield or generate media inside the experience, use
+`type: "app"` and `references/app-flow.md`. This does not change a standalone
+website into an app merely because its separately authorized build process uses
+approved media assets.
 
-**Higgsfield as the asset engine — EVERY build.** All visual assets on every
-website are generated with the Higgsfield CLI generation commands per
-`references/asset-system.md`. (Internal use of Higgsfield generation is
-invisible to visitors and always fine.)
+**Asset execution follows the package gate in `../SKILL.md`.** Design boards, cover and other stills use the authorized eligible image executor or supplied approved assets; preserved Higgsfield image commands in references are not in-package execution. Video/audio/3D remain separately budget/consent-gated. Internal asset use does not waive upload, generation or live-deployment authorization.
 
 **Scope: build the real, full app.** This stack ships complete, production-grade
 applications: real frontend AND backend, database (D1), file storage (R2), auth,
@@ -35,12 +34,13 @@ phase consumes. Do not reorder, merge, or skip phases — "simple" briefs are wh
 generic output happens. (Follow-up edits to an existing site do NOT restart the
 pipeline — see "Small edits" at the bottom.)
 
-### Before Phase 0 — intake (ONE batched round of questions, then never again)
+### Before Phase 0 — creative intake (ONE batched round)
 
-The `type` is already resolved (the main skill also asks, in that first round,
-whether to publish to the community feed when ready — remember that for Phase
-6). This single intake round carries the two website-specific questions worth
-asking; put both in the ONE batched round and never ask a second round.
+Ask the creative-discovery questions below together once; do not reopen answered
+design questions in later phases. Authorization for remote project creation,
+asset generation/upload, spending, push, deployment, or publication is
+operation-specific and is requested separately at the relevant gate when not
+already explicit. An earlier creative-intake answer never grants that consent.
 
 1. **Animation — ask when unresolved.** Offer exactly two options:
    - **Animated (recommended)** → sets `Animation mode: animated-website` — the
@@ -54,17 +54,14 @@ asking; put both in the ONE batched round and never ask a second round.
    ONLY if the user is genuinely unreachable / never answers do you proceed on
    the default (**Animated**) and say so in one line — never as a shortcut to
    avoid asking.
-2. **Brand constraints** — an existing brand to honor (ask for
-   colors/fonts/logo/photos/links) vs. free rein ("design the brand for me").
-   Whatever they don't have, you generate: the full identity kit plus the
-   personalization ladder in `references/asset-system.md` (logo family, icon set,
-   patterns, illustrations, state artwork, product universe). Free rein is the
-   richer path, not the degraded one.
+2. **Brand constraints** — ask whether to honor an existing brand (including
+   supplied/approved colors, fonts, logos, photos, and links) or receive free
+   creative direction. Free direction authorizes the creative brief, not remote
+   asset generation, upload, credit spend, or deployment. For missing assets,
+   identify the proposed kit and stop at each operation gate until its required
+   authorization exists. See `references/asset-system.md` for the kit scope.
 
-The Animation question (1) is always asked — never skip the round to avoid it.
-You may drop only question 2 when the brief already answers the brand question. If
-the user skips or is unreachable, default to **Animated** and say so in one line.
-Never ask a second round.
+Ask the Animation question only when unresolved; honor an explicit choice without asking again. Omit the brand question when the brief already answers it. An unreachable user permits only the stated design default, not authorization for paid assets, uploads or live deployment.
 
 ### Phase 0 — Concept (`app/design-brief.md`, committed, BEFORE any code)
 
@@ -91,44 +88,47 @@ clean", "Inter", "blue accent") means the brief is not done:
   oxblood, (4) AI purple/violet glow, (5) the palette family of your previous
   build in this chat. Overridable only by the user's explicit brand colors.
   See `references/reference-boards.md` for what to reach for instead.
-- **Locked type** — pairing from the recipe's tables; serif only with a written
-  brand justification.
+- **Locked type** — preserve supplied/approved brand typography and do not
+  substitute a recipe font. A supplied family owns the hierarchy; use size,
+  case, spacing, and its available styles. Use the recipe pairing only when no
+  approved brand typography is supplied. Serif still needs written justification.
 - **`Animation mode` — MANDATORY explicit state, set from the intake answer.
-  HARD STOP.** The brief MUST contain a literal line `Animation mode: <value>`
-  (the value the user picked at intake — see "Before Phase 0"; default Animated
-  if they skipped) and you may not leave Phase 0 without it. Only two values are
-  legal:
-  - **`animated-website`** (the recommended default — from "Animated" at intake):
-    the seam-locked scroll-scrub camera journey (**A4**), where the visitor's
-    scroll flies the page through several connected generated scenes. This value
-    OBLIGATES you to also write the journey block into the brief NOW, before
-    boards or generation: read **`references/scroll-scrub.md`** and add its
-    **Journey** (4–7 named scenes), **Camera architecture** (A or B), **seam
-    direction**, and **mobile framing**, plus one sentence on how the journey
-    enacts the concept spine. `Animation mode: animated-website` with no journey
-    block is an INCOMPLETE brief — a hard stop, not a proceed-anyway. On this
-    value, do NOT shop the wow-catalog — the animated website IS the technique;
-    the anti-convergence "no repeat" rule does NOT force you off it (differ on the
-    OTHER five axes instead: world/subject, journey shape, palette, type, CTA
-    garments, corner language).
-  - **`non-animated`** (from "Non-animated" at intake, or a request that clearly
-    asked for it): a well-crafted site with lighter/optional motion and NO
-    mandatory camera journey. Legal ONLY as the user's own choice — append the
-    reason on the line, e.g. `non-animated — user picked Non-animated at intake`
-    or `non-animated — "<verbatim request>"`. Your own taste, "calm/minimal/B2B",
-    or "it's just a simple landing page" is NOT a reason to pick this — when in
-    doubt it is `animated-website`. On this value the site still clears the
-    `wow-maker.md` craft floor (bespoke assets, motivated micro-motion, real
-    typography); reach into **`references/wow-catalog.md`** for a lighter Tier-1
-    technique (named with its catalog ID) or run the editorial tier. Never ship a
-    dead flat page.
+  HARD STOP.** Write `Animation mode: animated-website` or
+  `Animation mode: non-animated` in the brief; an unreachable user may receive
+  only the stated animation default and this does not authorize media operations.
+  Animated is the product default. When animated, read
+  `references/scroll-scrub.md` and record `Journey shape` separately:
+  - **`single-shot` is the default.** One continuous ~15s film; map 3–6 semantic
+    page chapters to moments in that film. Require a single storyboard and
+    mobile framing. Do not require multiple scenes, seam direction, or A/B
+    camera architecture.
+  - **`multi-leg` requires informed, explicit user opt-in.** Before selection,
+    disclose the 4–7 worlds, planned sequential operation count and time, and a
+    verified aggregate cost. If a current quote is unavailable, state that and
+    keep `single-shot`; a budget cap is not a verified quote. Only after the
+    user opts in on the verified cost, plan exact-frame handoffs, seam direction,
+    and A/B architecture as scoped by `scroll-scrub.md`. Authorize each
+    operation separately before submission.
+  For either shape, say how the scroll-driven film serves the concept and plan
+  mobile-safe framing. Do not infer multi-leg from “animated” or “make it
+  impressive”; choose single-shot when the brief fits one continuous move.
+  Do NOT shop the wow catalog for animated mode — differ on the other design
+  axes instead.
+- **`non-animated`** (user picked it or the request clearly asked for it): a
+  well-crafted site with lighter/optional motion and no mandatory camera
+  journey. Record the user's exact choice/reason; the agent's taste or a “simple
+  landing page” is not a reason to override the Animated default. Clear the
+  `wow-maker.md` floor through a named lighter Tier-1 technique or editorial
+  tier; do not ship a dead-flat page.
 
   Either way, a passive autoplay loop is never the Tier-1 mechanic.
 - **Section plan** — ordered, one layout family per section, no consecutive
   repeats, ≥4 families for 6+ sections, eyebrow budget ceil(sections/3).
-- **Asset plan** — the full kit per `references/asset-system.md` (hero visual,
-  section plates, content imagery, custom icon set, logo/monogram, OG; + video
-  loop for cinema, + GLB for spectacle).
+- **Asset plan** — list required and optional roles from
+  `references/asset-system.md`, reuse approved supplied assets, and flag missing
+  items for which operation authorization/capability is not yet available.
+  Include scroll media only for selected `animated-website`; video loop and GLB
+  remain optional, separately authorized treatments.
 - **CTA inventory** — every CTA named with its OWN interaction identity (no
   shared button style — see bespoke-chrome in `references/image-to-code.md`).
 
@@ -137,30 +137,37 @@ brief first and say why.
 
 ### Phase 1 — Reference boards (design the page as IMAGES)
 
-Read **`references/reference-boards.md`** and execute it: ONE horizontal design
-reference image PER SECTION (an image job — in-package via the authorized
-eligible image executor per the package gate; the preserved provider shape is
-`higgsfield generate create` with `gpt_image_2` / `nano_banana_pro`), one committed
-combinatorial pick (theme paradigm, background character, typography character,
-hero architecture, section system, 4 signature components, narrative spine,
-second-read moment), composition anchor VARYING per board, palette locked across
-all boards. **Look at every board** and re-roll any that reads template-y
-(budget 2 re-rolls). Boards land in `refs/` in the repo. The boards ARE the
-design — do not start Phase 3 with a generic board in the set.
+Read **`references/reference-boards.md`** and plan one landscape design reference
+for each section. Reuse approved references first. Create only missing required
+boards through the eligible image executor, after explicit authorization for
+the model, board count, inputs, and total cost under the package gate. Do not
+infer board-generation or re-roll permission from the website request; each
+additional image operation requires scope and cost approval. Inspect every
+returned board against the approved concept and section plan. If a required
+reference is unavailable or unauthorized, record the blocker rather than
+starting implementation against a fictitious board. Boards land in `refs/` in
+the repo; they guide the design and do not replace the separate single-shot
+film storyboard described in `references/scroll-scrub.md`.
 
-### Phase 2 — Asset system (submit everything, then build while it renders)
+### Phase 2 — Asset system (plan only authorized missing assets)
 
-Read **`references/asset-system.md`** and submit the ENTIRE kit as async jobs
-right after the boards are chosen: hero visual (2 candidates + interaction
-pair), section plates, all content imagery, the custom generated icon set, the
-logo/monogram + favicon, the OG card — plus video loop (cinema) / GLB
-(spectacle). Poll between build steps; download into `app/public/assets/`;
-verify kit coherence when it lands (re-generate anything whose grade fights the
-boards). Never idle waiting on renders; never fall back to stock/picsum/CSS-only.
-For the animated website (A4, the default), follow `references/scroll-scrub.md`'s
-specialized scene/clip chain: independent stills/dives may batch, but exact-frame
-forward legs are intentionally sequential. The normal "submit everything up
-front" rule never overrides a real rendered-frame dependency.
+Read **`references/asset-system.md`** and use the Phase 0 asset plan as a
+role checklist, not a batch-generation order. Reuse approved supplied assets
+first. Mark each role required or optional for this design; plan only missing
+required roles, and generate only after explicit authorization for that
+operation, model, output count, and disclosed cost. The interaction pair, extra
+section plates, custom icons, video loop, and GLB are optional unless this
+specific design requires them. A logo/monogram is needed only if the user has no
+approved brand mark. Do not use stock, picsum, or CSS-only substitutes as fake
+content; when a truly required asset is unavailable or unauthorized, record the
+blocker rather than pretending the kit is complete.
+
+For animated websites, use the selected `Journey shape` from Phase 0 and
+`references/scroll-scrub.md`. `single-shot` uses one storyboard and one
+continuous video. Opt-in `multi-leg` uses its planned scenes and exact-frame
+handoffs sequentially; do not parallelize dependent legs or trigger them without
+separate asset-operation authorization. Compose and inspect only the assets
+actually approved and returned.
 
 ### Phase 3 — Build to the boards, section by section
 
@@ -175,33 +182,34 @@ utility classes. Registry components (`references/wow-maker.md` §5) remain
 available as raw material — restyled to the boards, never default-skinned.
 Build static-but-complete; motion is the next phase.
 
-**HARD STOP for `Animation mode: animated-website` — build the journey as the
-spine, not an afterthought.** The scroll-scrub scene media (Phase 2) and the
-scroll-scrub component (`app/src/components/scroll-scrub/scroll-scrub.tsx` +
-`.css`, per `references/scroll-scrub.md` Phase 3) ARE the page — the semantic
-chapters are the page structure, not decoration added later. Materialize the
-scroll-scrub component and wire the real scene data in THIS phase. Do NOT build a
-generic static page of sections and plan to "add the camera journey later" — that
-is the exact failure this flow guards against, and it is caught by the Phase 5
-gate. If the scene MP4 chain is still rendering, build the scroll-scrub component
-against its posters and swap the clips in when they land — never substitute a
-plain static layout for the animated website.
+**HARD STOP for `Animation mode: animated-website` — build the selected
+scroll-scrub journey as the spine, not an afterthought.** The selected shape in
+Phase 0 controls the component and media data: `single-shot` is one continuous
+film mapped to semantic chapters; opt-in `multi-leg` is a sequential, exact-frame
+scene chain. Materialize `app/src/components/scroll-scrub/scroll-scrub.tsx` and
+its CSS per `references/scroll-scrub.md`, and wire that real shape in this
+phase. Use verified posters from approved assets. If required media is
+unavailable, keep any development-only placeholder clearly isolated, mark the
+site non-deployable, and remove it before delivery; do not claim the phase is
+complete. Do not downgrade an animated request to a generic static page.
 
 ### Phase 4 — Motion pass (tier-mandated, one focused pass)
 
-- **cinema/spectacle:** Lenis smooth scroll bridged to GSAP ScrollTrigger
-  (`autoRaf: false` + `gsap.ticker` — without the bridge, scrub stutters).
+- **cinema/spectacle:** use one Lenis/GSAP scroll clock when those libraries are selected.
+  The directly read [Lenis README](https://github.com/darkroomengineering/lenis#gsap-scrolltrigger), Setup → GSAP ScrollTrigger and Settings → autoRaf (`READ-PARTIAL`, 2026-10-16; README examples name Lenis 1.3.27), shows `lenis.on('scroll', ScrollTrigger.update)` and `gsap.ticker` driving `lenis.raf(time * 1000)`. Confirm the installed versions/API and avoid a second RAF driver. This is an integration pattern, not proof that every alternative stutters; inspect actual scroll/seam behavior in the selected runtime.
 - The **Tier-1 hero mechanic** from the brief, fully executed — a half-wired
   version fails review. The hero is the wow carrier and it must respond to
   the USER'S INPUT (scroll plays the movie), never a passive autoplay loop.
   Passive motion the user can't influence does not count as the Tier-1 mechanic.
-- **Animated website (default):** the full-site seam-locked MP4 chain from
-  `references/scroll-scrub.md` IS the hero mechanic — it replaces the ordinary
-  single hero frame sequence. Let its controller own scroll-to-video time; keep
-  the Lenis/GSAP bridge for surrounding motion, and never drive the same media
-  with a second ScrollTrigger timeline. Only when the user explicitly asked for
-  a non-animated-website treatment do you instead wire the chosen catalog
-  technique — e.g. the single scroll-scrubbed hero film per `asset-system.md` §7.
+- **Animated website:** the selected shape from `references/scroll-scrub.md` is
+  the Tier-1 hero mechanic; scroll controls playback, never passive autoplay.
+  For `single-shot`, inspect the one continuous clip and chapter mapping; there
+  are no inter-clip seams to validate and no A/B multi-leg architecture. For
+  opt-in `multi-leg`, inspect every sequential exact-frame handoff, its selected
+  A/B architecture, and seam direction. Let the chosen controller own
+  scroll-to-video time; never drive the same media with a second ScrollTrigger
+  timeline. A user-selected non-animated treatment instead wires its selected
+  catalog mechanic.
 - Scroll-chapter reveals: staggered headline builds (`split-type` + GSAP or
   registry text components), per-section distinct timing; work rows / cards
   with hover reveals; magnetic nav/CTA physics via `useMotionValue`, never
@@ -234,20 +242,25 @@ deploy with a failing item.
 
 ### Phase 6 — Deploy
 
-0. `bun run typecheck` once, from `app/` — ~15s locally vs a failed deploy
-   round-trip plus a fix-and-redeploy loop. Fix what it finds, then deploy.
-   This is the ONE pre-deploy local check; do not also run `bun run build`
-   unless typecheck passed and the deploy still failed.
-1. `higgsfield website deploy <website_id>` — this ships the live public site
-   immediately; there is no preview stage.
-2. Report: live URL (from `higgsfield website status`) — "Your site is live:
-   <url>" — + one-line concept statement + anything honestly skipped. Speak in
+0. Local type/build checks are not a default prerequisite: trusted platform CI
+   performs the authoritative type + build on an explicitly authorized deploy.
+   Use the optional local checks below only when their stated conditions apply.
+   If CI fails, fix the reported issue before any separately authorized retry.
+1. `higgsfield website deploy <website_id>` only with explicit live-deployment
+   authorization; it ships the site immediately, with no preview stage.
+2. Report “Your site is live: <url>” only after `higgsfield website status`
+   confirms it is live. Otherwise report prepared/blocked status without
+   implying deployment.
    product terms — no repo/commit/deploy jargon (see the SKILL.md "Talking to
    the user" rule).
 
-Do NOT navigate to, screenshot, or run image analysis on the deployed site —
-the mechanical gate (the grep checklist in `references/review-rubric.md` §A) is
-the only verification.
+Before deployment, complete the actual browser checks in
+`references/review-rubric.md` §B for every selected branch using a local runtime
+or another safely reachable preview with authorized access; source/grep checks
+alone cannot prove rendered behavior. Do not deploy solely to enable QA. Remote
+visits and live deployment remain separately authorized operations.
+After an explicitly authorized deployment, report status-confirmed availability;
+do not claim the live pixels or interactions were inspected unless they actually were.
 
 3. **Publish.** If the user opted in at intake, publish automatically now that
    the site is deployed with its cover + metadata filled — run
@@ -291,7 +304,7 @@ Then route to the FUNCTIONAL reference for the task:
 
 | Task | Read |
 |---|---|
-| **Any website (the DEFAULT — animated website)** / scrollable world / continuous camera journey / diorama fly-through / browse-through-an-industry site | `references/scroll-scrub.md` — seam-locked media pipeline + React/CSS Markdown assets + mobile/QA contract |
+| Any website (animated by default), scrollable world, continuous camera journey, diorama fly-through, browse-through-an-industry site | `references/scroll-scrub.md` — choose single-shot by default or an explicitly opted-in multi-leg chain; React/CSS implementation, mobile, and QA contract |
 | TanStack Start routes, SSR, server functions, Cloudflare Worker runtime | `references/runtime-and-infra.md` |
 | Cover / OG image ("cover", "обложка", "OG image", publish prep) | `references/app-cover.md` — branded 3:2 cover + capsule OG mask |
 | SEO: meta tags, OG/Twitter cards, robots/sitemap, JSON-LD, entity, GEO, audit | `references/seo.md` |
@@ -450,49 +463,50 @@ build result. Do NOT reflexively `bun install` +
 `bun run build` just to check your work. The sandbox cannot deploy/migrate (no
 Cloudflare token); the trusted platform CI does that.
 
-**Default: run the pipeline, pass the Phase 5 gate, deploy**
-(`higgsfield website deploy <website_id>` — this ships the live site
-immediately). Never publish/list on the community feed unless the user
-explicitly asked to publish.
+**Default:** run the pipeline and pass the Phase 5 gate. Deploy
+(`higgsfield website deploy <website_id>`) only with explicit deployment
+authorization; it ships the live site immediately. Never publish/list on the
+community feed unless the user explicitly authorized that listing.
 
-**Publishing ("show in feed").** When the user asks to publish / share / put the
-site on the feed, run `higgsfield website publish <website_id>` — it lists the
-site on the Higgsfield community feed. **Publishing no longer deploys**: it
-lists whatever is already live, so run `higgsfield website deploy <website_id>`
-FIRST — and after ANY later change, deploy again to ship it (re-publishing does
-not re-deploy and won't pick up un-deployed changes).
+**Publishing ("show in feed").** Feed publication is a separate operation:
+`higgsfield website publish <website_id>` lists the currently deployed version
+and does not deploy changes. Run it only with explicit community-listing
+consent. Deploy prerequisites are separately authorized under the gate below;
+do not deploy just because a user requested a feed listing.
 
-**HARD GATE — the cover is NOT optional. Running `higgsfield website publish` while
-`og_image_url` or `marketplace_cover_url` is empty is a BROKEN publish** (the
-feed card renders ONLY from `app/src/app-meta.json`; an empty `og_title` makes
-the listing INVISIBLE, an empty cover makes it a blank card). The publish
-sequence is: (a) READ `app/src/app-meta.json`; (b) if `og_image_url` or
-`marketplace_cover_url` is empty → STOP, read `references/app-cover.md` and
-generate + upload the cover NOW — do not skip this because the user "only asked
-to publish", the cover IS part of publishing; (c) fill ALL fields below with
-real values (never placeholders); (d) commit + push; (e) run
-`higgsfield website deploy <website_id>` to ship the pushed changes (publish no
-longer deploys — it lists what's already live); (f) only then run
-`higgsfield website publish`:
+**HARD GATE — the cover is required for a usable feed card.** An empty
+`og_image_url` or `marketplace_cover_url` produces a blank cover; an empty
+`og_title` makes the listing invisible. The feed card reads `app/src/app-meta.json`.
+Before a feed listing:
 
-1. `og_title` — the card's title (also the browser tab title).
-2. `og_description` — the card's one-liner.
-3. `og_image_url` — REQUIRED: the cover image, generated per
-   `references/app-cover.md` (the branded 3:2 cover + stadium-capsule OG
-   mask) if none exists yet; upload the OG file with `higgsfield upload create`
-   and set the returned durable URL.
-4. `marketplace_cover_url` — REQUIRED: the plain (unmasked) cover, the same
-   generation's `<name>_cover.png` from `references/app-cover.md`, uploaded
-   with `higgsfield upload create`. One generation fills both this and
-   `og_image_url` — there is never a reason to have one without the other.
-5. `favicon_url` — the card's logo/icon (generate one if none exists yet).
-6. `og_video_url` — the **cover video**, OPTIONAL and permission-gated: OFFER
-   it to the user ("want a short cover video for the feed card?") and ASK
-   PERMISSION FIRST — generating a video costs credits; never generate it
-   unprompted. If they say yes, follow "Cover video" in `references/seo.md`.
+1. Read `app/src/app-meta.json` and identify each missing real value.
+2. Read `references/app-cover.md` for the cover requirements. Reuse an existing,
+   user-approved asset when available. Do not substitute a placeholder.
+3. If a cover must be created or uploaded, do that only when the explicit
+   authorization already covers the selected executor, any credit spend,
+   upload/storage, and required project changes. A request to publish authorizes
+   the community listing only; it does **not** authorize cover generation, spend,
+   upload, a code change, push, or deployment. If a required permission is
+   missing, stop before that operation and state which input or authorization is
+   needed. Do not publish an incomplete card as a workaround.
+4. Fill required fields only from verified, user-approved content and assets:
+   `og_title`, `og_description`, `og_image_url`, `marketplace_cover_url`, and
+   `favicon_url` as applicable. The cover URLs must use approved assets; do not
+   presume a single generation may provide both files unless its actual output
+   contains both.
+5. Commit, push, and deploy only if each operation is authorized. Deployment is
+   a separate live-site change, not included in feed-listing permission. A feed
+   listing describes the currently deployed version; if the required metadata
+   is not live and deployment is not authorized, stop before listing.
+6. Run `higgsfield website publish` only with explicit community-listing consent
+   and after required live metadata is ready.
 
-(1–5 are generated without asking — they are part of the publish, not a
-separate credit decision; only the cover VIDEO (6) needs permission.)
+An optional `og_video_url` is also a separate media operation. Offer it and ask
+permission before generating; then follow "Cover video" in `references/seo.md`.
+
+Permission is operation-specific throughout this sequence. Existing content or
+asset requirements do not authorize creating, uploading, paying for, pushing,
+deploying, or publishing them.
 
 `higgsfield website deploy <website_id>` remains the way to ship the live site
 WITHOUT a feed listing.
@@ -507,8 +521,9 @@ bun run build        # local build — only to chase a build error on deploy
 Run them when: you changed dependencies or build/runtime config, you're debugging
 a build/type error, or a command genuinely needs `node_modules`.
 
-**Small edits to an existing site** (copy tweak, one component, styling fix): the
-pipeline does not restart. Make the edit, deploy.
+**Small edits to an existing site** (copy tweak, one component, styling fix):
+the pipeline does not restart. Make the local edit; deploy only with explicit
+live-deployment authorization. Otherwise report the prepared change and stop.
 
 **Before claiming a build done / deploying, no placeholders may remain** — no
 `<...>`-style tokens, `lorem ipsum`, or scaffold blank-page markers

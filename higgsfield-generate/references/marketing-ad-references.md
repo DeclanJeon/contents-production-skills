@@ -1,5 +1,7 @@
 # Marketing Studio Ad References
 
+Contract read 2026-10-17: CLI 1.1.26 `marketing-studio ad-references create --help` documents uploaded video or completed job flags plus single avatar/product flags; [official model table](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md#marketing_studio_video--marketing-studio-video) documents ad-reference/setup exclusion. Help does not prove the cached response fields, exact-one validation, status lifecycle or URL rejection below; verify the current entity contract before relying on them. Creation mutates state; no upload/create/poll was exercised. Poll examples are illustrative, not permission for unbounded waits.
+
 Ad references are reusable inspiration videos a user wants to model new ads after — typically tied to a specific avatar and/or product. The backend processes the input video and stores a reusable reference the user can recall later.
 
 ## Inputs

@@ -2,13 +2,13 @@
 
 Keep recurring characters recognizable across N independently generated shots.
 
-> Limits below are **verified for `seedance_2_5` only**. If the gate question chose another model, re-check with `higgsfield model get <jst> --json` — nothing here transfers automatically.
+> The numeric/API details below are a preserved `seedance_2_5` recipe, not a fresh provider observation. Before submitting, read the selected model's current official schema (`models_explore` get or `higgsfield model get <jst> --json`) and record its date, reference roles, limits and modes. A different model inherits none of these details automatically.
 
-## Verified constraints (`seedance_2_5`)
+## Preserved constraints to revalidate (`seedance_2_5`)
 
-- **No soul-id parameter.** The schema has no `soul_id` / `custom_reference_id` — `--soul-id` works only on image models (`text2image_soul_v2`, `soul_cinematic`). Video consistency therefore always travels as **reference images** (`--image-references`, `--start-image`, `--end-image`).
-- Images including `start_image`/`end_image` ≤ 30; total reference media ≤ 50; `start_image`/`end_image` allowed only in `omni_reference`.
-- Practical per-shot budget: **1 video reference + 1–3 images + optional start frame**. More references rarely help and obscure which one governs identity.
+- Preserved recipe assumes no `soul_id` / `custom_reference_id` video parameter and uses reference images (`--image-references`, `--start-image`, `--end-image`). Confirm current schema before relying on that assumption; image Soul support does not establish video Soul support.
+- Preserved numeric recipe: images including `start_image`/`end_image` ≤ 30; total reference media ≤ 50; `start_image`/`end_image` only in `omni_reference`. These exact limits remain unverified in this audit; replace them with the observed current contract before submission.
+- House per-shot starting budget: **1 video reference + 1–3 images + optional start frame**, only within the current model contract. This is a selection heuristic, not evidence that more references rarely help; judge identity and look on actual outputs.
 
 ## Strategy ladder (pick the first that applies)
 
@@ -41,7 +41,7 @@ higgsfield generate create seedream_v5_pro \
 
 ### 4. No recurring character
 
-Skip this file; the video reference alone carries the look.
+Skip character-specific references; use the video reference as the selected look input within the current model contract. Its influence on palette, lighting, and motion must be observed on actual outputs; the reference alone does not guarantee a matched look.
 
 ## Shot chaining (motion + appearance handoff)
 
@@ -59,7 +59,7 @@ higgsfield generate create seedance_2_5 --mode omni_reference \
   --duration 7 ... 
 ```
 
-Also pin shot 1's `--start-image` to the reference's first beat frame when the opening composition must match exactly. In delegated work, record which approved predecessor frame asset/version anchored each chained shot in the internal return.
+Also pin shot 1's `--start-image` to the approved first-beat frame when a matching opening composition is required and the model supports that role. An anchor expresses the requirement, not a guarantee of exact composition. In delegated work, record which approved predecessor frame asset/version anchored each chained shot in the internal return.
 
 ## Wardrobe and props
 
@@ -80,4 +80,4 @@ Also pin shot 1's `--start-image` to the reference's first beat frame when the o
 
 - Passing 10+ character frames per shot — pick representative frames, not a dump.
 - Re-generating the sheet between shots — lock the sheet in Phase 1; all shots consume the same asset.
-- Describing the character differently per prompt "for variety" — breaks identity; vary only SCENE/MOTION.
+- Describing the character differently per prompt "for variety" changes the identity input. Keep CHARACTER fixed and vary SCENE/MOTION; assess identity drift on actual outputs rather than assuming wording changes necessarily break identity.

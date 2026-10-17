@@ -20,6 +20,10 @@
 
 ## 근거와 적용 범위
 자료 ID: 03,04,13,24. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 절차와 템플릿은 여러 자료의 개념을 결합한 독자 설계다. 저자의 규칙을 그대로 재현한 요약이나 공식 인증된 방법론으로 표현하지 않는다.
+13 L73(READ-PARTIAL)은 목표 추구·알고 반응하는 순서만 지원한다. 큐·권리·관찰 상태 및 한 번에 한 변수만 바꾸는 기록 방식은 패키지 운영 규격이다. 배우의 사적 경험 공개를 요구하지 않는 경계는 운영상 보호 규칙이며 아래 서적의 임상적 효과로 표현하지 않는다.
+
+E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/Directing Actors Creating Memorable Performances for Film  Television (Judith Weston) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `12e8076b67188754817d02aee4ba243d6e56da58c98b5eeb262c8f193c059eac`, 1188745 bytes. L49–59 `RESULT DIRECTION`은 원하는 외관/감정 결과와 구체적 playable 지시를 구별한다. L79는 서로에게 실제로 영향받는 listening, L89–93 `VERBS`는 verbs/facts/images/events/physical tasks와 상대에게 작용하는 타동사(설득·간청 등)를 지원한다. 걷는다·슬퍼한다를 동사라는 이유만으로 이 action verb와 같게 취급하지 않는다. 원문은 문자 사이 공백이 많은 OCR 판본이고 인쇄 페이지 번호는 이 구간에 없다. 저자의 연기 실무 관점이며 심리 진단·관객 반응·AI 실행 보장이 아니다.
+추가 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/Acting for Animators (Ed Hooks) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `78d7a71fd3f530ae501d8cef6d77db97edded4c0e4ad8f9406af3fbd8944740a`, 337169 bytes, L73–75. 자극을 먼저 알아차린 뒤 반응하며 목표 지향 행동을 바꾸는 애니메이션 연기 원리만 지원한다. 고정 hold 대신 제안한 미세 시선/호흡/손동작은 이 구간의 직접 주장이 아니며, 실제 AI 성능을 보장하지 않는다.
 
 ## 출력 템플릿
 `assets/04-performance-template.md`를 복사해 채운다.

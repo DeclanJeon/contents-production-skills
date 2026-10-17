@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 1.1
+version: 1.21
 description: Use for content creation or adaptation, including articles, social posts,
   campaigns, scripts, storyboards, audio, images, and video planning, AI-video prompt
   composition, model routing, generation critique, editing, QA or delivery; for explicit
@@ -16,6 +16,10 @@ description: Use for content creation or adaptation, including articles, social 
 Read [workspace integration](references/workspace-integration.md) before applying local storage, sibling paths, image execution, Higgsfield CLI or approval instructions below. These adaptations govern this installed copy.
 
 One brief, one coordinator, one requested deliverable. Skills are instruction modules; use the host's actual tools/workers, not a presumed autonomous scheduler. Coordination does not enlarge the request.
+
+For each handoff, state one current stage, one owner, the exact requested artifact, and the actual approver (or `unassigned`). The coordinator owns scope and approval interpretation; the canonical handoff contract owns persisted IDs/versions. Workers may review and recommend readiness, never impersonate user acceptance. Review, user acceptance, execution/spend authorization, and publication authorization are separate decisions; record only supplied authority, and leave missing decisions unresolved.
+
+A read-only/no-generation probe remains constrained for the whole turn; a later media request does not override it. Name the conflict and ask for explicit release before any media call or side effect.
 
 For recurring production, multi-stage coordination, reuse of approved resources, or repeated output corrections, **REQUIRED SUB-SKILL: `ai-delegation-loop`** applies once at the coordinator even without an explicit skill request. Resolve it by exact skill name in the current host's available skill sources; read the actual matching module, checking the host's available locations rather than hard-coding one platform path or inferring absence from a broken junction. Do not copy, install, or alias a substitute. If no matching module is reachable, record the precise missing source and keep only the dependent coordination step unresolved while continuing unaffected native-contract work. Use its reuse, evidence and layer-repair procedure within the existing domain gates; this does not authorize skill/profile updates, media execution, or a second project ledger.
 

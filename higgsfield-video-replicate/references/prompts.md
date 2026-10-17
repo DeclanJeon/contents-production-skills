@@ -2,6 +2,8 @@
 
 One prompt per shot. STYLE and CHARACTER are byte-identical across every shot; only SCENE/MOTION change.
 
+Evidence scope: this template, token target and verbatim-block strategy are authored workflow choices. They reduce accidental prompt variation; they do not prove identity, style fidelity or reference adherence. Actual model limits and reference roles come from its current official contract.
+
 ## Template
 
 ```text
@@ -17,10 +19,10 @@ NEGATIVE: <bans — see below>
 ## Rules
 
 1. **Verbatim blocks:** STYLE and CHARACTER strings are copy-pasted, never reworded.
-2. **Video reference changes the prompt's job:** with `--video-references` attached, the model already has the look — the prompt carries the NEW scene, subject, and camera intent. Do not re-describe the reference's grade or lens (same principle as image-to-image in `higgsfield-generate`).
-3. One clear action per shot, completable within its 4–30s duration.
-4. Under ~200 tokens. Long prompts distort.
-5. English prompts always.
+2. **Video reference changes the prompt's job:** when the selected model supports video references, use the prompt to state the intended scene, subject and camera changes. Reference influence is model-dependent; inspect outputs rather than assuming it already preserves the look.
+3. One clear action per shot, completable within the selected model's currently verified duration limits; 4–30s is not a universal contract.
+4. Aim for ~200 tokens as a house editing heuristic, not a proven distortion threshold; retain required identity, action and camera information.
+5. English is the house prompt default, not a claim that other languages are unsupported.
 6. Positive phrasing for attributes (`tack sharp`, `locked-off tripod`); style bans live only in NEGATIVE.
 7. Standard NEGATIVE tail: `no on-screen text, no captions, no watermark, no logos, no style drift, no documentary shakiness` — adjust only when the beat sheet calls for text/logos (then generate them as assets, don't ask the video model to spell).
 

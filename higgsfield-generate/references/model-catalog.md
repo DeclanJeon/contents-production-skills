@@ -1,16 +1,21 @@
 # Model Catalog
 
-The full lineup of generation models available through Higgsfield. Each entry has its own sweet spot — pick the one that matches your brief. For the actual `--model` ID to pass to `higgsfield generate create`, run `higgsfield model list --json` and look up by display name.
+This is a historical routing archive, not a current inventory, capability source, or quality/cost ranking. The official [CLI model documentation](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md) was read on 2026-10-17 (image/video/3D/audio tables); it supports only its named fields and constraints, not every cached row below. The mounted `models_explore` contract requires `get` for selected-model constraints. Do not use the notes below to choose a model or claim capability, duration, resolution, media role, default, price, speed, or quality. At runtime, discover current candidates and inspect the exact selected contract. Image rows remain ineligible under `package-gate.md`.
 
-Preferred defaults for examples and quick-start guidance in this repo:
-- **Images/design/text:** `gpt_image_2_5` (general/high-fidelity) and `nano_banana_flash` (Nano Banana 2, character/cartoon). The id `nano_banana_2` resolves to Nano Banana Pro.
-- **Video:** `seedance_2_5` (SOTA all-purpose video).
-- **Character/stylized image work:** `text2image_soul_v2`.
-- **Ads/UGC/product demos:** `marketing_studio_video` or `marketing_studio_image`.
-- **Audio:** `seed_audio` (general text-to-audio, voice-style, SFX, ambience, and music-like audio).
-- **Video analysis:** Virality Predictor (`brain_activity`) for attention, hook, retention, and virality scoring. It may appear under text/analysis because the output is a report, but the input and intent are video analysis.
+## Historical route labels (not current recommendations)
+
+The names below record previous package routing examples only. Every selection must come from current runtime discovery and schema verification; no row is authority to submit or describe a provider capability.
+
+- **Image examples:** `gpt_image_2_5`, `nano_banana_flash`, `text2image_soul_v2`; ineligible in this package.
+- **Video example:** `seedance_2_5`; not a default or quality ranking.
+- **Ads example:** `marketing_studio_video`; not an asserted capability.
+- **Audio example:** `seed_audio`; not an asserted capability.
+- **Video analysis example:** Virality Predictor (`brain_activity`); inspect its current contract.
 
 ---
+
+The remaining tables are retained as historical observations only; do not use their unverified descriptions as live facts.
+
 
 ## Image models
 
@@ -33,7 +38,7 @@ Preferred defaults for examples and quick-start guidance in this repo:
 | Flux Kontext Max | Black Forest Labs | **Context-aware editing and style transfer.** Strong for anime, stylized looks, typography remix — when defaults feel too generic. |
 | Kling O1 Image | Kling | Versatile photorealistic image generation with broad aspect-ratio support. |
 | GPT Image 1.5 | OpenAI | Earlier-generation OpenAI image model with editing and text-rendering capabilities. |
-| GPT Image 2 | OpenAI | High-fidelity image generation and editing. Used by `higgsfield-product-photoshoot` under the hood. |
+| GPT Image 2 | OpenAI | Image generation/editing; historical photoshoot backend association is unverified, not a current contract. |
 | GPT Image 2.5 (`gpt_image_2_5`) | OpenAI | **Default high-fidelity image generation.** Graphic design, UI, banners, typography, and on-image text. Reference-guided editing with Flare/Sunburst variants and quality tiers through `max`. |
 | Grok Imagine | xAI | Expressive, high-contrast, bold creative outputs. Worth trying for anime and stylized looks. |
 | Recraft V4.1 | Recraft | **Clean graphic and vector-style design assets.** Logos, icons, flat illustrations, brand marks, and controlled-palette visuals. Use `model_type=vector` for vector-like output and `standard` for raster-style graphics. |
@@ -96,7 +101,7 @@ Also available but not profiled here — use them when the user names them, and 
 
 | Model | Provider | What it's for |
 |---|---|---|
-| Virality Predictor (`brain_activity`) | Higgsfield | **Objective attention proxy for video creative testing.** Scores how effectively a clip captures and sustains attention, useful for hook validation, virality potential, ad review, and product/content focus. Takes a video input and returns a text report with overall score, peak second, sustain, and an Open report link. Raw `.glb` / `.bin` render artifacts stay in JSON/debug output. |
+| Virality Predictor (`brain_activity`) | Higgsfield | Provider prediction for creative review, not an objectively validated attention measurement. Official CLI documentation requires one video and describes predicted engagement; report only actual returned fields. Raw artifacts are not audience evidence. |
 
 ---
 
@@ -158,7 +163,7 @@ Match by intent, not surface keyword. When two could apply, the higher entry win
 - **Do not treat audio generation as an audio media input.** `seed_audio`, `mirelo_text_to_audio`, and `sonilo_music` create audio from text. `--audio` is for reference audio on video models like Seedance 2.0 or an alias for `audio_references` on Seed Audio.
 - **Audio on Seedance 2.0**: reference audio comes through the media inputs with role `audio`. Native audio generation is a separate `generate_audio` flag, on by default.
 - **Prompt-only models reject reference media.** Z Image, Recraft V4.1, Soul Cast, Soul Location, and some Wan configs are prompt-only; pass no media flags to them. Virality Predictor is different: it returns text but requires a video input.
-- **Route branded product visuals through `higgsfield-product-photoshoot`** — its prompt enhancer adds 10 mode-specific templates on top of GPT Image 2. Direct GPT Image 2.5 generation here is the right call for everything that isn't a product photoshoot.
+- **Route branded product visuals through `higgsfield-product-photoshoot`** for its preserved mode taxonomy. Its private enhancer, ten-template behavior, and GPT Image 2 backend remain historical/unverified; image execution stays ineligible here.
 - **Cinema Studio ids** (`cinematic_studio_video_4_0`, `cinematic_studio_3_0`) do not appear in `higgsfield model list`; check them with `higgsfield model get <id>`. Prefer 4.0 when the user asks for Cinema Studio without a version.
 - **When the user names a specific model, use it.** The auto-picks cover the common intents — the rest of the catalog exists for users who know what they want.
 

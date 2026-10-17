@@ -11,6 +11,13 @@
 ## 시간과 수치
 source_time_range, shot_local_time, PTS/time_base 또는 명시된 CFR fps, 실제 검사 구간을 적는다. move_start, acceleration_change, reveal/contact/emotion_peak, settling, cut 전후를 관찰한다. 빠른 움직임은 더 촘촘히 확인한다.
 정규화 위치 변화와 픽셀 변위는 화면 측정이다. m/s·degrees/s로 바꾸려면 장면·카메라 캘리브레이션이 필요하다. 솔브 스케일은 알려진 거리로 설정하지 않으면 임의 단위다. 정확한 복원 없이도 근거 있는 정성 브리프를 납품할 수 있다.
+For each inferred camera/lens explanation, state confidence (`high`, `medium`, `low`, or `indeterminate`) and the visible evidence and competing explanation behind it. This is qualitative confidence, not a measured probability. If an interval is unreadable, record its exact range and reason; do not interpolate a confident movement claim through it. User time-coded observations can support a USER_REPORTED brief, never an OBSERVED video finding.
 
 ## 재사용
 원본 소재 복제보다 정보를 공개하는 기능을 새 소재에 적용한다. 길이·장소·피사체가 달라지면 경로·타이밍을 다시 설계한다. 원본 관찰 시각은 새 영상의 승인된 목표 시간이 아니다.
+
+## Source scope
+
+Motion/parallax and zoom/dolly distinctions: Bruce Block, *The Visual Story*, third edition, original corpus rendition `originals/콘텐츠_제작/md/The Visual Story Creating the Visual Structure of Film, TV, and Digital Media Third Edition (Bruce Block) (z-library.sk, 1lib.sk, z-lib.sk).md`, lines 103–117, 161–173 and 529–537 (`READ-PARTIAL`; printed page labels 51–58, 80–86, 264–268). These passages support qualitative depth/movement distinctions, not metric camera solving, a particular rig, or universal equal pixel velocities under rotation. Confidence labels, evidence statuses and handoff fields are authored workflow design; their behavioral evaluation is separate from the book reading.
+
+Exact read rendition: 368221 bytes, SHA256 `403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c` (W2 reading; E2 independently rechecked file identity only). The book citation does not verify lens breathing, a specific handheld rig, optical calibration or a successful inverse solve; these remain competing explanations or require independent measured evidence.

@@ -48,7 +48,8 @@
 
 정확한 좌표·피사체 거리·렌즈/경로 요구, 여러 피사체 접촉·가림·축 전환, 또는 Blender 요청이면 `camera-spatial-design`을 필수 적용해 미터 좌표·카메라 후보·전 프레임 경로/거리/화각 검사를 작성한다. 단순 정보 그래픽은 공간 수치 N/A 사유를 기록할 수 있다. 화면 좌우와 월드 X를 같은 것으로 가정하지 않는다.
 
-실제 3D 배치 검증이 요청됐거나 수치만으로 가림/카메라 경로를 판단할 수 없으면 `blender-previsualization`에 **동일 shot/scene ID·fps·명세 버전**을 인계한다. 실제 런타임 smoke→정지 프리비즈→이미지 확인 순서다. 실행 불가면 해당 프리비즈는 blocker/미검증이며 텍스트·수치 설계까지만 완료한다. 움직이는 시퀀스/animatic은 별도 영상 실행 범위를 따른다. BBox 프록시는 얼굴·손 리깅·접촉·완성 미감을 보장하지 않으며 실제 패널에서도 이를 다시 본다. Static BBox, raycast, or centerline-only proxies cannot verify anatomically specific contact, prop ownership, crouch/reach, or handoff. If any is a required beat, inspect an articulated body and actual contact-surface state for the relevant frame(s); without that evidence, return the indexed missing-evidence packet and mark the claim UNVERIFIED—not passed by body overlap, visibility, or camera fit alone.
+실제 3D 배치 검증이 요청됐거나 수치만으로 가림/카메라 경로를 판단할 수 없으면 `blender-previsualization`에 **동일 shot/scene ID·fps·명세 버전**을 인계한다. 실제 3D 배치가 필수가 아니면 카메라 수치만으로 해부학적 동작/접촉을 통과시키지 않는다. Static BBox, raycast, or centerline-only proxies cannot verify articulated contact, prop ownership, crouch/reach, or handoff. 필수 접촉 beat는 해당 프레임의 articulated body와 실제 접촉면 상태를 검사한다. 근거가 없으면 claim을 `UNVERIFIED`로 두고 겹침·가시성·카메라 적합성만으로 통과시키지 않는다.
+요구 접촉 근거가 없을 때 반환하는 **indexed missing-evidence packet**은 기존 요청/검토 결과 안의 행으로 작성한다(새 승인 원장이나 미디어 아티팩트 아님). 필드: `scene_id`, `shot_id`, `beat_id`, `panel_id`, `frame_time_s` 또는 필요한 프레임 구간, 요구 동작/접촉 대상·접촉면, 실제 확인한 증거와 locator/version/hash 또는 `NONE`, 빠진 증거, 필요한 articulated asset/pose/runtime와 소유자, 차단되는 dependent asset/generation, 재검사 가능한 수락 기준. 미확인 값은 `UNKNOWN`으로 두고 번호가 없는 샷을 추정하지 않는다. [프리프로덕션 검토](preproduction-review.md#3-검토용-이미지는-codex-imagen-기본-경로)와 [스토리보드 스킬 인계](../../storyboarding-video/SKILL.md#missing-specialist-inputs)는 같은 packet을 사용한다.
 
 ## 3. 전체 커버리지와 이미지 수 산정
 
@@ -68,12 +69,12 @@
 
 ### 동작 중심 패널의 장면 통합
 
-- 스토리보드 이미지는 정지 keyframe이지만, 동작/상호작용이 장면의 핵심일 때는 해당 시점의 진행 상태를 보여야 한다. start/action_peak/end 패널 사이에서 인물의 자세·손·시선·제품의 위치/접촉 상태 또는 카메라 구도가 의도적으로 변해야 한다. 같은 정면 포즈를 반복하거나 카메라 크롭만 바꿔 행동 변화를 대신하지 않는다.
+- 스토리보드 이미지는 정지 keyframe이지만, 동작/상호작용이 장면의 핵심일 때는 해당 시점의 진행 상태를 보여야 한다. start/action_peak/end 패널은 실제로 구별되는 before/action/after 상태를 보이며, 각 전환에서 변한 자세·손·시선·제품 위치/접촉 상태·카메라 구도를 명시한다. 필요한 상태 변화가 하나도 보이지 않으면 panel을 추가/수정하거나 해당 동작을 `UNVERIFIED`로 둔다. 같은 정면 포즈 반복이나 카메라 크롭만으로 행동 변화를 대신하지 않는다.
 - 제공된 인물/캐릭터 이미지는 정체성·외형 reference이고, 제품 packshot은 형상·라벨·재질 reference다. 별도 collage/reference-board 요청이 아닌 한 해당 이미지를 완성된 인물/제품 컷아웃처럼 배경 위에 붙이지 않는다. 장면마다 포즈·블로킹·카메라를 새로 스테이징하고 제품을 물리적 공간 안에서 다룬다.
 - 정확한 패키지 아트워크는 제품 면에 맞는 원근·시점·스케일로 적용한다. 광원·반사·접촉 그림자·가림·깊이를 장면과 맞춰야 하며, 정면 packshot이 손 앞에 뜨거나 경계가 분리된 평면 컷아웃처럼 읽히면 실패다. 작은 라벨 문구를 모델이 새로 그리도록 강요하지 말고 승인된 아트워크를 통합한다.
 - 제품을 집거나 열거나 떨어뜨리거나 도포하는 행위는 패널에서 손-제품 접촉과 물리적 상태 변화를 읽을 수 있어야 한다. 화살표·캡션·모션 블러만으로 정지 참조 이미지를 동작 장면이라고 간주하지 않는다. 정적 hero/packshot은 콘티가 의도한 `hold` 비트에서만 사용한다.
 
-실제 clean 이미지 QA에서 각 동작 비트의 증거 panel ID를 기록한다. 캡션을 숨겨도 행위와 제품의 공간적 통합이 보이는지, 인접 keyframe이 서로 다른 시각 상태를 보여 주는지 검사한다. 실패한 panel은 프롬프트/스테이징을 고쳐 재생성하거나 물리 통합을 다시 합성하고, 전체 순서의 정체성·연속성을 다시 검사한다.
+실제 clean 이미지 QA에서 각 동작 비트의 증거 panel ID를 기록한다. 캡션을 숨겨도 행위와 제품의 공간적 통합이 보이는지, 인접 keyframe이 요구된 before→after 상태 변화를 실제 픽셀에서 보여주는지 검사한다. 실패한 panel은 프롬프트/스테이징을 고쳐 재생성하거나 물리 통합을 다시 합성하고, 전체 순서의 정체성·연속성을 다시 검사한다.
 
 ## 4. 실제 이미지 생성·시트·clean 컷
 
@@ -142,3 +143,15 @@ schema_version=1.1을 유지한다. 상세 보드에서는 아래 필드를 작�
 | 문단1 문장3/B03 반환 | S02/SH03 | P07/start, P08/action_peak, P09/end | CH01만 점유→두 손 접촉→CH02만 점유 | CH01·CH02 / AU02 천마찰 / 발화 N/A |
 
 실제 프로젝트에는 중간 B02 등 **전체 비트 행**도 작성한다. 일부 행 예시는 전체 스토리보드로 인계하지 않는다.
+
+## 9. Craft 근거와 적용 한계
+
+§2–3의 축·가독성·구도 점검과 §6의 수정 절차 중 일부는 아래 READ-PARTIAL 구간의 craft guidance에 근거한다. 정확한 rendition 지문과 범위는 [자료 근거 원장](sources.md)의 “스토리보드 craft 추가 직접 대조” 절에 있다. 인용 시 자료 ID, 저자/짧은 제목, locator를 원장과 일치시킨다. 서로 다른 ID의 locator를 합쳐 하나의 인용으로 제시하지 않는다.
+
+| 계약 범위 | 직접 근거 | 적용 한계 |
+|---|---|---|
+| §2–3의 화면 방향·축, 스테이징·구도·깊이·명암/대비 검토 | ID 05 Katz L333–355; ID 45 Hu L235–264 (구도·깊이·대비), L636–661 (스테이징·축) | 맥락에 맞춰 검토할 craft 선택지다. 모든 장면에 삼등분/황금비/특정 방향을 강제하지 않는다. ID 45의 “관객이 흥미를 잃는다”는 문구를 측정된 관객 효과로 채택하지 않으며, L650–655의 side assignment 예시는 고립된 방향 규칙으로 쓰지 않는다. |
+| §3의 핵심 동작 실루엣·불필요한 세부 단순화·패널 명료성 | ID 46 Paez/Jew L1424–1440, L3490–3500 | 커뮤니케이션 중심의 스토리보드 drawing guidance다. 모든 이미지의 품질, 이해도, 유지율을 보장하지 않는다. |
+| §6의 검토 의견 반영과 수정 가능성 | ID 47 Cristiano L2711–2716 | 특정 브리핑 뒤 연필 스케치 조정 사례다. 시간·비용 절감량이나 썸네일 대안의 효과를 수치로 입증하지 않는다. |
+
+이 계약의 beat/scene/shot/panel 연결, 필수 슬롯, ID·시간·패널 수, 승인·상태, validator, 실제 이미지 및 인계 게이트는 패키지의 운영 설계다. 서적 인용은 이 규칙들의 외부 표준성이나 실제 이미지 통과·사용자 수락을 증명하지 않는다. READ-PARTIAL 텍스트 외의 도판은 검사하지 않았다.

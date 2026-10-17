@@ -26,6 +26,8 @@ When the brief calls for variants, vary a relevant audience question, demonstrab
 For a requested full launch/strategy document, cover the sections its decision needs: positioning, supported audience segments, channel-specific copy, discoverability, content formats, measurement and release dependencies. Website copy, SEO/AEO/GEO, OG cards, visual identity and growth-channel plans are optional branches, not compulsory deliverables. Coordinate with the existing design/brand owner rather than inventing a parallel brand kit.
 
 Keep the document evidence-bound: capabilities only with brief or source support; no invented social proof, guarantees, urgency, or contact details. When architecture or product facts change, re-audit the strategy sections that depend on them and flag gaps (e.g. implemented FAQ pairs vs defined pairs) rather than declaring completion.
+When positioning a product or offer, identify the competitive alternatives buyers actually use as their comparison yardstick. A feature is a differentiator only relative to those alternatives; do not substitute a product-feature list for buyer context (Dunford, *Obviously Awesome*, source 43; directly read rendition: `E:/Book/06_Book/originals/마케팅/Obviously Awesome How to Nail Product Positioning so Customers Get It, Buy It, Love It (April Dunford) (z-library.sk, 1lib.sk, z-lib.sk).md#L983-L1038`, READ-PARTIAL).
+This excerpt supports customer-relative alternatives and differentiation only, not audience-demand ranking or a guarantee of market performance. The directly read rendition is 201161 bytes, SHA-256 `8f010e119d1f0cb67c1b7b09349b8ca31f43a41524ee056cb5ac93530081ecd2`; this identity travels with the installed reference. Other source-43 renditions retain their own locators in the canonical source index.
 
 ## 4. Source-media adaptation (shortform/vertical)
 
@@ -46,7 +48,7 @@ Production decisions to settle first:
 
 - Never stack generated subtitles on readable source hard captions unless intentionally designing a bilingual layout.
 - For hard-burned captions that a 9:16 full crop would clip, prefer contain-blur (blurred duplicate background behind the original frame) or candidate re-selection over opaque masks — a misaligned lower-third mask reads as unfinished.
-- Contain-blur filter shape: split the stream, scale+crop+gblur the background, overlay the SAR-normalized foreground (`setsar=1` matters — non-1:1 SAR breaks concatenation with transition/ending cards).
+- Contain-blur filter shape: split the stream, scale+crop+gblur the background, and scale the foreground to the shared output dimensions while preserving its display aspect ratio; set SAR to 1 on every concat input. In an FFmpeg 8.1.2 synthetic case, a 64×64 SAR 2:1 clip failed to concatenate with a 64×64 SAR 1:1 clip before normalization. Scaling the SAR 2:1 clip to 128×64 and concatenating it with a 128×64 SAR 1:1 card after setting SAR 1 on both inputs succeeded. This verifies one filter path only; inspect the actual output.
 - Prefer FFmpeg filter solutions over neural inpainting for caption handling unless a GPU/cloud approach is explicitly acceptable.
 - If immersion (full crop) vs caption integrity (contain-blur) conflict, prefer caption integrity unless the user explicitly values immersion.
 
@@ -62,4 +64,28 @@ Production decisions to settle first:
 For a requested concept/script/draft review, use the canonical [production content-quality gate](../../video-production-assets/references/12-qa.md) under “내용 품질 판정”. Apply its purpose-appropriate evidence and repair criteria to text, not its unrelated media-inspection modules. This reference does not keep a second scoring rubric.
 
 Marketing critique can compare requested audience/channel variants, but claims of improved views, retention or conversion need actual measurements. User acceptance and execution/publication authorization remain separate.
+
+## 6. Structured ad variation and campaign review
+
+Applies when the request is an advertising set on a paid platform. The Higgsfield Paid-Ads presets map onto these operations; a preset name alone does not authorize spend, submission, or publication.
+
+**Distinct-angle ad sets.** One set = several ads differing in a *named* angle (audience question, demonstrable contrast, practical benefit, curiosity, personal perspective), not in incidental wording. Record the angle per ad in the ledger. Claims, prices, features and evidence follow §1.5 exactly; competitor figures need checked sources with URLs. Meta/placement formats are requested output specs, not defaults to invent.
+
+**VOC / evidence-driven ads.** Customer-review-derived ads may quote or paraphrase only supplied reviews or checked sources. A review is evidence for the claim it makes and nothing more — do not generalize one reviewer's experience into product-wide capability, and do not fabricate testimonials, ratings or counts.
+
+**Single-variable variants.** Hold every other variable constant and change exactly the named one:
+
+- Headline-only set: identical visual, layout, product framing, offer and branding; the headline text differs.
+- Hook-only video set: identical body, order, demo, product and CTA; only the opening hook differs.
+- Report the held-constant list, so a reviewer can confirm the set is genuinely single-variable.
+
+**Placement resizing.** For 1:1 / 4:5 / 9:16 adaptations, re-check per aspect: copy legibility at actual viewing size, text not clipped or crowded by safe areas, product/branding intact and uncropped, hierarchy preserved (not a blind center-crop). A resized ad that loses the offer or brand mark is a failed adaptation, not a variant.
+
+**Ad localization.** Translate the copy while preserving the offer, price, legal/claim meaning and brand voice. Re-check reading time, line breaks, glyph rendering and any culture-specific claim. Do not localize a claim into a stronger claim than the source supports. Policy/compliance wording follows the target market's requirement when supplied; never invent it.
+
+**Reference-video persuasion-structure reuse.** Reproducing a reference video's *persuasion structure* (hook type → problem → proof → offer → CTA order, pacing, on-screen beat rhythm) is permitted; copying its footage, voice, script, performer likeness, music or branded assets is a rights violation unless the user holds or supplies those rights. Recreate structure and craft, not content.
+
+**Campaign review from data.** Scale / pause / test recommendations require actual supplied campaign data (impressions, spend, CTR, CPA/ROAS, frequency, window). A recommendation without measured inputs is blocked, not assumed. State the metric, the window and the decision rule per recommendation (e.g. "CPA above target with volume → pause", "cheap CPA but low reach → scale"), and separate what the data shows from what to test next. Never present predicted lift as measured.
+
+**Boundaries kept distinct:** producing ad *copy/design* (this lane) ≠ generating or spending on provider media (execution approval) ≠ publishing or changing a live campaign (publication approval). Package image policy applies unchanged: Higgsfield **image** submission is ineligible — still-ad assets come from the authorized image executor, and a Higgsfield image recipe stays craft/reference only.
 

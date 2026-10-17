@@ -36,13 +36,17 @@ There are two different auth concepts. Pick intentionally:
 
 | Website need | Auth mode | Required behavior |
 |---|---|---|
-| Higgsfield SDK/model generation, media upload, profile, workspace, credits, feed/history | Higgsfield platform auth | Use `/api/user`, `/__auth/login`, `/__auth/logout`, and server-side `https://fnf.internal` guards |
+| Higgsfield SDK/model generation, media upload, cost preview, and feed/history | Higgsfield platform auth | Use `/api/user`, a signed-out login link, and server-side `https://fnf.internal` guards; platform chrome owns logout, account, and wallet UI |
 | The generated website's own product accounts, for example todos, notes, CRM records, dashboards, memberships | In-app auth | Build app-local auth/session/storage. Do not call `fnf.internal/user` unless the website also uses Higgsfield SDK features |
 | Both generation and product accounts | Both, kept separate | Gate SDK routes with Higgsfield auth and product data with in-app auth. Label UI clearly and never mix identities |
 
-If the prompt mentions Higgsfield, SDK, model generation, Nano Banana, Seedance,
-image/video generation, media upload, credits, workspaces, or generation history,
-Higgsfield auth is implicit even if the user did not say "add sign in."
+Higgsfield platform auth is implicit when the product's end-user functionality
+actually uses Higgsfield SDK-backed services (for example generation,
+Higgsfield media upload, workspace selection, or generation history), even if
+the user did not say "add sign in." Mentioning a provider, listing supplied
+assets, or authorizing build-time asset work does not by itself make a
+standalone website an SDK app; route by product behavior as defined in
+`references/website-flow.md` and `references/app-flow.md`.
 
 If the prompt only asks for "sign in" for a normal generated product and does not
 use Higgsfield generation/profile/credits, default to in-app sign in. Do not use
@@ -89,7 +93,8 @@ Notes:
 
 ## Frontend User Loader Pattern
 
-Use `/api/user` from loaders, queries, or components:
+Use `/api/user` from browser-only queries, effects, or client components. This
+relative-fetch helper must not run during SSR:
 
 ```ts
 export async function fetchCurrentUser() {
@@ -102,8 +107,27 @@ export async function fetchCurrentUser() {
 }
 ```
 
-For route loaders, return `null` for signed-out users rather than crashing the
-page. For account-required pages, redirect or render a sign-in action.
+For a loader that can run during SSR, call a server function that delegates to
+`requireCurrentUser()` from `auth.server.ts`; do not call the browser-relative
+fetch helper or statically import server-only auth code into a client module:
+
+```ts
+import { createServerFn } from '@tanstack/react-start'
+
+export const loadCurrentUser = createServerFn({ method: 'GET' })
+  .handler(async () => {
+    const { requireCurrentUser } = await import('@/lib/auth.server')
+    const auth = await requireCurrentUser()
+    if (auth.ok)
+      return auth.user
+    if (auth.status === 401)
+      return null
+    throw new Error(`Failed to load user (${auth.status})`)
+  })
+```
+
+Call `loadCurrentUser()` from the route loader. The signed-out result is `null`;
+account-required pages may redirect or render the platform sign-in action.
 
 ## Login
 
@@ -125,21 +149,11 @@ Rules:
 
 ## Logout
 
-Logout is also browser navigation:
-
-```ts
-function logout(returnPath = '/') {
-  window.location.href = `/__auth/logout?return=${encodeURIComponent(returnPath)}`
-}
-```
-
-Rules:
-
-- Use `/` or the current public route as the default `return`.
-- Clear client-side query/cache state after navigation if the website stores user,
-  workspace, feed, or credits data in TanStack Query.
-- Do not try to delete platform cookies manually from website code.
-- Do not call `fnf.internal` for logout.
+`GET /__auth/logout?return=<path>` is a platform-owned browser route, not an
+app endpoint. Integrated generation apps do not render a logout button or link;
+the platform's own chrome controls sign-out. Never clear platform cookies
+manually or call `fnf.internal` for logout. If an explicitly separate product
+account needs logout, implement only that product's own session contract.
 
 ## Authenticated File Downloads
 
@@ -264,11 +278,15 @@ Any website that uses SDK-backed generation must be authenticated. This includes
 - profile, workspace switch, wallet, and credits
 - any UI that exposes model settings or writes paid/user-owned outputs
 
-When the user asks for a Higgsfield generation website, model form, image/video
-generator, Nano Banana/Seedance/etc. website, or anything that uses the SDK, auth is
-implicit even if the user does not say "add sign in." Add sign-in/logout,
-`/api/user`, server-side auth guards, profile/credits/workspace UI, and a
-feed/history surface automatically.
+When the product's end-user behavior uses Higgsfield SDK features (for example
+generation, SDK-backed media upload, or workspace/history operations), platform
+auth is implicit even if the user did not say "add sign in." A product-only
+upload or build-time asset operation does not by itself require Higgsfield
+auth; use the mode selected above. For SDK-backed behavior, require `/api/user`,
+a signed-out login link, and server-side auth guards; put model-specific cost
+preview/confirmation and generation history in the app. Do not duplicate
+platform-owned logout, profile, wallet-balance, or account-credit chrome; expose
+workspace selection only if the active SDK contract requires it.
 
 The only exception is an offline/mock demo the user EXPLICITLY asked for — memory
 adapters only, never calling fnf.internal, apps-marketplace, media upload, or
@@ -303,9 +321,9 @@ Use a small server-only helper for SDK server functions:
 // app/src/lib/auth.server.ts
 export async function requireCurrentUser() {
   const response = await fetch('https://fnf.internal/user')
-  const body = await response.json().catch(() => null)
 
   if (response.status === 401) {
+    const body = await response.json().catch(() => null)
     return {
       ok: false as const,
       status: 401,
@@ -314,6 +332,7 @@ export async function requireCurrentUser() {
   }
 
   if (!response.ok) {
+    const body = await response.json().catch(() => null)
     return {
       ok: false as const,
       status: response.status,
@@ -321,9 +340,10 @@ export async function requireCurrentUser() {
     }
   }
 
+  const user = await response.json()
   return {
     ok: true as const,
-    user: body,
+    user,
   }
 }
 ```

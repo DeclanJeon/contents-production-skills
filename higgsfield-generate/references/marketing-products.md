@@ -1,5 +1,7 @@
 # Products
 
+Contract read 2026-10-17: CLI 1.1.26 `marketing-studio products fetch --help` documents required URL, `--wait`, default timeout 90s. It does not prove extracted fields, App Store auto-routing, manual response shape or successful import; those cached details require current official entity contracts. Fetch/create mutates provider state and is not read-only preparation.
+
 Two ways to register a product: URL fetch (auto-imports title, description, images) or manual (provide your own).
 
 ## URL fetch (default)

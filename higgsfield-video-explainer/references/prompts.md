@@ -2,7 +2,7 @@
 
 Write every image and video prompt in English. Write only narration in the user's selected language.
 
-Two elements keep the film consistent: one style-key image attached to every clip, and one identical STYLE descriptor pasted into every clip prompt. Narrate per block so each voice take maps to exactly one 10-second clip.
+Use two fixed inputs intended to support consistency: one style-key image attached to every clip, and one identical STYLE descriptor pasted into every clip prompt. This is an input convention, not a consistency guarantee: inspect each completed clip for palette, rendering, and recurring-design drift. Narrate per block so each voice take maps to exactly one 10-second clip.
 
 ## STYLE descriptor
 
@@ -18,6 +18,12 @@ Examples:
 - `hand-inked black marker on off-white paper, solid jet-black fills, thin white scratch highlights, marker grain, strictly monochrome`
 - `strict monochrome minimalism, black silhouettes on white void, high contrast, lots of negative space`
 - `hand-painted storybook gouache, soft textures, warm muted palette, visible brush strokes`
+- `cut-paper diorama, layered torn paper shapes with soft drop shadows, matte paper texture, limited warm palette`
+- `soft pastel flat 2D, rounded simple shapes, muted pastel fills, minimal outlines, gentle grain`
+- `hand-drawn colored pencil sketch, visible pencil hatching, cream paper, loose wobbly outlines`
+- `smooth matte mannequin figures, neutral featureless faces, clean studio lighting, soft neutral palette`
+- `editorial mixed media collage, halftone photo cutouts, torn newsprint texture, bold accent color blocks, dynamic diagonal composition`
+- `stickman cartoon, thick uniform black strokes, white background, round white heads, minimal props`
 
 ## Style key
 

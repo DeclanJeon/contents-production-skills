@@ -11,7 +11,7 @@ All commands assume local ffmpeg and a reference at `./reference.mp4`.
 mkdir -p frames
 ffmpeg -i ./reference.mp4 -vf "fps=1/7,scale=640:-1" -frames:v 8 frames/sample_%02d.jpg
 
-# Scene-change detection — finds actual cut points
+# Scene-change detection — proposes candidate cut points for visual inspection
 ffmpeg -i ./reference.mp4 -vf "select='gt(scene,0.3)',showinfo" -vsync vfr frames/scene_%03d.jpg 2>&1 | findstr pts_time
 
 # Contact sheet — one grid image for a quick overview
@@ -21,7 +21,7 @@ ffmpeg -i ./reference.mp4 -vf "fps=1/5,scale=320:-1,tile=4x4" -frames:v 1 frames
 ffmpeg -ss 14.2 -i ./reference.mp4 -frames:v 1 -q:v 2 frames/key_14.2s.jpg
 ```
 
-If scene detection returns too many or too few cuts, adjust the threshold: `0.2` catches softer dissolves, `0.4` keeps only hard cuts.
+If scene detection returns too many or too few candidates, tune the threshold and inspect transitions. `0.2` and `0.4` are example sensitivity settings, not guarantees of detecting dissolves or only hard cuts.
 
 ## Extract audio
 
@@ -33,7 +33,7 @@ Characterize the track by listening or by waveform inspection: presence of narra
 
 ## Beat sheet format
 
-One row per distinct shot/beat. Target 4–8 beats for a 15–45s reference.
+One row per observed shot/beat. A 4–8-beat plan for a 15–45s reference is a house planning heuristic; preserve the observed structure rather than forcing that count.
 
 | t (s) | beat | subject | action | camera (size/angle/move) | grade / light | on-screen text | audio |
 |---|---|---|---|---|---|---|---|
@@ -42,11 +42,12 @@ One row per distinct shot/beat. Target 4–8 beats for a 15–45s reference.
 
 Rules:
 
-- Timestamps come from the scene-change pass, rounded to honest boundaries.
+- Record inspected shot boundaries and their method/uncertainty; scene-change timestamps are candidate evidence, not mandatory detected truth.
+- Scene scores identify candidate cuts, not ground truth. Inspect adjacent frames and transitions; for dissolves or continuous takes, record manually inspected boundaries and their uncertainty instead of inventing detection results.
 - One clear action per beat — if a beat contains two actions, split it.
 - Mark transitions: hard cut (default), dissolve, whip — assembly needs this.
 - Note any on-screen text, logos, or packaging shots; these become replacement-asset tasks (Hard rule 2).
-- From the sheet, derive **N** (shot count) and each shot's `--duration` (seedance_2_5 allows 4–30s; for any other chosen model use its limits from `higgsfield model get <jst>`. Keep every action completable inside its duration — usually 5–8s).
+- From the sheet, derive **N** (shot count) and planned shot durations. Read the selected model's current limits before mapping them to submission durations; any split/retime must preserve the approved timeline and be recorded.
 
 ## Style bible format
 
@@ -63,6 +64,8 @@ CANVAS:      16:9, 24fps (match reference unless told otherwise)
 AUDIO:       warm acoustic BGM, diegetic SFX, no narration
 TEXT/LOGO:   none in-frame, or: fictional brand on packaging (replace)
 ```
+
+Record evidence alongside each field: source file/hash, inspected timestamp or range, method (`metadata`, `visual`, `listening`, or `inference`) and confidence. A visual lens estimate such as “85mm-like” is not a measured focal length; color appearance is not a recovered LUT; sampled stills do not establish motion or audio. Leave inaccessible fields `unknown` and report the inspected scope. Keep observed reference facts separate from proposed adaptation choices; example rows above are format examples, never observations of the user's video.
 
 The STYLE descriptor used in every prompt is built from MEDIUM + LENS + LIGHTING + GRADE + MOTION, plus an explicit style-stability tail, e.g. `photorealistic cinematic live-action, no text overlays, no watermark`.
 

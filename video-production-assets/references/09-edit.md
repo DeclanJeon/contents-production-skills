@@ -28,6 +28,11 @@
 
 ## 근거와 적용 범위
 자료 ID: 04,09,10,11,12. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 절차와 템플릿은 여러 자료의 개념을 결합한 독자 설계다. 저자의 규칙을 그대로 재현한 요약이나 공식 인증된 방법론으로 표현하지 않는다.
+10 L31–33(READ-PARTIAL)은 저자의 컷 선호 순서만 직접 지원하며 L27은 트랙 수가 믹스 품질이 아님을 설명한다. 기존 L21/27을 Rule of Six의 정확 위치로 쓰지 않는다. 큐/시간/원장/권리/종료 검사 형식은 운영 설계다.
+
+E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/Cutting Rhythms Shaping the Film Edit (Karen Pearlman) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `e09d86df3f28ef5e4351e16296a0e26528dfc1ca78aff9abc2c4a7962744e49e`, 547079 bytes, L227–237(pp83–88). 신체/감정/사건 리듬은 서로 배타적인 장르가 아니라 하나의 편집 리듬을 진단하는 구분이다. 사건은 정보 공개/방향 변화이며 단순 검출 event 수가 아니다. 이 구간의 별도 guild 채점표를 패키지 자동 점수로 도입하지 않는다.
+
+소리의 보완·사전 경고·반응 샷에 걸친 대사·화면과의 counterpoint 및 컷 빈도 외의 체감 속도는 `E:/Book/06_Book/originals/콘텐츠_제작/md/Technique of Film Editing, Reissue of 2nd Edition (Karel Reisz, GAVIN MILLAR) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `0b371150dea868a263f3de41d28b9e220cad8db9a3b21f6e540ce0655a970a55`, 910909 bytes, L97–105(pp26–30, READ-PARTIAL)로 결속한다. 동기 소리가 이미 보이는 사건과 겹쳐도 질감/맥락 의미가 있을 수 있어 무조건 삭제하지 않는다. §소리의 서사 기능의 Foley 재질·공간 접착·주관 청점·제거 임팩트·음악 배치 전체는 이 구간으로 입증하지 않는다. 이들은 적용할 수 있는 craft 후보로 유지하되 개별 효과의 미결속 근거와 실제 청취 필요를 함께 밝힌다.
 
 ## 출력 템플릿
 전체 09 산출물이 요청된 경우에만 `assets/09-edit-template.md` 전체를 복사해 채운다. scoped 요청은 요청된 owner·필드에 해당하는 기존 템플릿 섹션과 기존 필드만 투영하며, 필드 의미와 검수 기준을 유지하고 적용되지 않는 열·섹션은 추가하지 않는다. 컷 구간은 `final_start_s`와 `final_end_s`를 별도의 숫자 필드로 유지한다.
@@ -128,4 +133,5 @@
 - Foley로 재질 질감을 세운다.
 - 구체적 앰비언스로 장소를 믿게 한다.
 
-레이어(대사 · 핵심 효과 · Foley · 앰비언스 · 음악 · 침묵)를 쌓되 모든 층을 계속 채우지 않는다. 침묵을 이벤트로 만들려면 먼저 소리를 세운 뒤 뺀다. 음악은 매 문장이 아니라 감정 전환을 점수화하고, 중요 장면은 음악을 꺼서 시험한다. 큐 지도는 타이밍 의도를 적고 저작권 곡의 모사를 요구하지 않는다.
+위 목록은 패키지의 선택적 기능 후보이지 검증된 기능 분류나 필수 믹스 규칙이 아니다. READ-PARTIAL 구간은 Reisz L97–105의 소리 보완·사전 경고·화면과의 counterpoint·반응 샷을 가로지르는 대사·컷 빈도 밖의 체감 속도, Murch L241–243/L249–253의 선택적 강조·앰비언스·제거 및 한 장면의 음악 지연 사례만 제한적으로 지원한다. 인물 내면 관점, 모티프가 기억을 높인다는 효과, Foley 재질, 장소의 보편적 신뢰감, 침묵/음악 제거의 관객 효과와 보편 배치는 `[BASIS-UNSTATED]`인 선택적 패키지 가설로만 둔다. 특정 큐의 기능은 실제 브리프와 청취로 확인하며 관객 효과로 일반화하지 않는다.
+Murch 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/The Conversations Walter Murch and the Art of Editing Film (Michael Ondaatje) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `b6fa76cf85df969a3e780faa6d6f185e968c9e2dd805ac64c377358a6767e595`, 558324 bytes, L241–243/L249–253. 선택적 소리 강조·앰비언스·제거와 특정 장면의 음악 지연 사례만 지원한다. Foley 재질 구현, 보편적 침묵 효과, 모든 장르의 음악 배치나 audience response의 보장은 아니다.

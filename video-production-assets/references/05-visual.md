@@ -17,7 +17,14 @@
 시각 변화가 서사 변화에 기여하는가? 색·공간·실루엣이 장면 간 일관되는가?
 
 ## 근거와 적용 범위
-자료 ID: 02,05,08,15,29,33. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 절차와 템플릿은 여러 자료의 개념을 결합한 독자 설계다. 저자의 규칙을 그대로 재현한 요약이나 공식 인증된 방법론으로 표현하지 않는다.
+자료 ID: 02,05,08,15,16,29,33. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 절차와 템플릿은 여러 자료의 개념을 결합한 독자 설계다. 저자의 규칙을 그대로 재현한 요약이나 공식 인증된 방법론으로 표현하지 않는다.
+08 L31–33의 7개 시각 요소, L51–53의 대비/유사성, L161–173의 같은 프레이밍에서 렌즈와 거리가 함께 바뀌는 예를 직접 결속했다(READ-PARTIAL). 룩/버전 잠금은 운영 설계이며 실루엣·은유의 개별 효과 전체가 이 인용으로 검증된 것은 아니다([직접 대조 구간](sources.md#직접-대조-구간--2026-10-16-w4)).
+
+E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/The Visual Story Creating the Visual Structure of Film, TV, and Digital Media Third Edition (Bruce Block) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c`, 368221 bytes, L31–37(pp15–18). 7요소와 작품 맥락으로 의미를 만드는 원리, 빨강=위험 같은 고정 색 코드의 예외를 지원한다. 규칙은 완벽한 이미지를 산출하는 수학이 아니라는 저자의 제한도 함께 적용한다.
+
+행동 포즈의 판독성은 `E:/Book/06_Book/originals/콘텐츠_제작/md/The Animators Survival Kit, Expanded Edition A Manual of Methods, Principles and Formulas for Classical, Computer, Games,… (Richard Williams) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `dd1d17e5d57695a274c531287cdf1dce76785229280b0ae68bf850a51e4ca9ef`, 390099 bytes, L525(p251 `PROFILES FOR READABILITY`, READ-PARTIAL)의 옆모습으로 행동을 빠르게 읽히게 하는 제안에 한정한다. 작은 화면 실루엣 검사 자체는 그 제안을 적용한 QA이며 모든 자세/의상 식별 효과의 검증이 아니다. 은유의 정확성·모든 관객의 동일 추론은 여전히 개별 근거 미결속이며 실제 단서를 검토해야 한다.
+추가 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/Drawn to Life 20 Golden Years of Disney Master Classes Volume 1 (Hahn, DonStanchfield, Walt) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `a765d6b75e1945ae217ed121a33ff6bbfd7acc40362bd55d8ba7210763bd586c`, 652080 bytes, L67(p15)는 검은 실루엣으로 staging 가독성을 시험하는 연습을 지원한다. 모든 포즈·의상·소품의 작은 화면 식별 효과를 보장하지 않는다.
+Block L163–165(pp81–82)는 같은 이미지 크기를 위해 렌즈와 피사체 거리를 함께 바꾼 예, L685(p342)는 작품 맥락에서 색 의미를 구축하는 예를 지원한다. 해당 rendition은 위 문단의 368221-byte, SHA-256 `403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c` 판본이다. 은유 단서가 모든 관객에게 동일하게 읽히거나 실제 원근을 수치 복원한다는 근거는 아니다.
 
 ## 출력 템플릿
 `assets/05-visual-template.md`를 복사해 채운다.

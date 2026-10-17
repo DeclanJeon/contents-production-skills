@@ -1,5 +1,7 @@
 # Troubleshooting
 
+Contract read 2026-10-17: [official CLI README](https://github.com/higgsfield-ai/cli#troubleshooting) supports auth/unknown-model lookup and workflow cost syntax; mounted `generate_video` documents unknown submission outcomes, and `job_status` documents `poll_after_seconds`. Error examples below are historical, not a current exhaustive status contract. Reconcile known jobs and follow the selected transport; no provider execution was observed.
+
 ## Authentication
 
 - `Session expired.` → `higgsfield auth login`
@@ -15,9 +17,9 @@
 
 ## Job lifecycle
 
-- `Job ended with status "failed"` — server-side failure. Often prompt content / safety. Try rephrasing.
-- `nsfw` / `ip_detected` — content policy. Rephrase.
-- `Timeout after 10m` — model is slow today. Bump `--timeout 30m` or retry.
+- Terminal `failed` — report the recorded reason; do not infer a safety cause. A corrected submission needs remaining approval.
+- `nsfw` / `ip_detected` — inspect the current status/recovery contract. Do not automatically rephrase/resubmit to bypass a restriction.
+- Wait timeout — outcome may be unknown. Inspect the original ID before any retry; extend the wait with the actual transport's documented flag.
 
 ## Rate limits
 
@@ -25,7 +27,7 @@
 
 ## CloudFlare / DataDome
 
-If `Failed to decode response. Body: <html>...captcha-delivery...` appears, the server's anti-bot fired. Wait 30s and retry. If persistent, ping the team.
+An HTML/captcha response is a transport/access failure, not proof of failed submission. Report it and reconcile any original job before retrying within approved scope; do not bypass anti-bot protection.
 
 ## Cost
 

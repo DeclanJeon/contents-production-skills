@@ -25,11 +25,11 @@
 - G. 하이브리드 — 어떤 레이어가 어떤 표현을 쓰는지 명시 정의.
 - AUTO — 레퍼런스와 콘텐츠 목표에서 추론.
 
-### 모드별 고정 사항
+### 모드별 고정 후보 (브리프에서 채택한 속성만 잠금)
 
 - 실사: 정체성 충실도·피부/머리카락·의상 재질·렌즈 거동·물리적 조명·표정 참조. 중립 정체성 참조에 극단적 그레이딩을 입히지 않는다.
 - 스타일라이즈드 실사: 해부 과장·얼굴 비율·질감 선명도·팔레트·스타일화 강도를 잠근다. 샷마다 일반 실사나 카툰으로 표류하지 않게 한다.
-- 2D: 모델 시트 비율·실루엣·선 굵기·팔레트·명암 단순화·눈/입 구조·포즈 언어. 턴어라운드와 표정 시트가 실사 질감보다 중요하다.
+- 2D: 모델 시트 비율·실루엣·선 굵기·팔레트·명암 단순화·눈/입 구조·포즈 언어를 검토한다. 필요한 시점/포즈 재현에는 턴어라운드와 표정 참조를 사용할 수 있다(아래 Culhane). 실사 질감과의 보편 우위는 없으며 질감이 핵심인 2D 브리프도 보존한다.
 - 3D: 볼륨·재질 반응·표면 거칠기/반사·헤어/털 처리·리그 친화 비율·중립 스튜디오 조명. 앞/옆/뒤/3/4 뷰가 중요하다.
 - 스톱모션/미니어처: 재질 스케일 단서·수제 표면·미니어처 심도 논리·실물 조명 느낌·프레임 간 촉각 일관성.
 - 일러스트: 붓/선 처리·형태 언어·팔레트·원근 단순화·반복 모티프 처리. 모션 생성은 통제된 image-first 워크플로가 필요할 수 있다.
@@ -107,15 +107,15 @@
 
 ## 4. 군중·스펙터클
 
-지각된 규모는 "수천 명" 요청이 아니라 위계로 만든다.
+지각된 규모를 설계할 때 인원수 문구뿐 아니라 화면의 깊이·크기·세부 차이를 함께 계획한다. 특정 군중 수나 이 절의 컷 배열이 규모감을 보장하지는 않는다.
 
 1. 히어로 이벤트와 규모 이야기를 정한다: 무엇이 무엇에 비해 커 보여야 하는가.
 2. 깊이 밴드를 만든다: 전경 앵커 · 중경 군집 · 배경 질량 · 환경 규모 단서 · 하늘/건축/지형.
-3. 군중 행동을 서로 다른 미세 행동의 군집으로 나눈다: 보기·촬영·대화·걷기·환호·대기·뒤돌기·앉기·보안/스태프·고립된 이질 존재. 안무가 의도된 게 아니면 동기화된 동작을 피한다. 개인을 모두 독립 랜덤화하지 말고 군집은 공유 맥락을 갖는다.
+3. 군중 행동의 비교안: 보기·촬영·대화·걷기·환호·대기·뒤돌기·앉기·보안/스태프·고립된 이질 존재. 군집 공유 행동·개별 변주·동기화 가운데 브리프에 맞는 것을 선택한다. 군집이나 비동기화 자체를 의무 품질 규칙으로 쓰지 않는다.
 4. 구도·빛·동작 대비·고도·깊이로 히어로 대상이 질량 위에서 읽히게 한다.
 5. 군중 흐름과 안전한 공간 논리를 설계한다: 출입구·동선·무대·장벽·차량·항공기·시선 방향.
-6. 컷 구조로 규모를 판다: 디테일/반응 → 중간 군집 → 극와이드 → 히어로 반응. 불가능한 마스터 샷 하나에 의존하지 않는다.
-7. 매우 큰 수는 생성 플레이트·복제/절차적 레이어·대기 효과·합성을 결합한다. `assets/crowd-map-template.md` 사용.
+6. 규모 공개의 선택적 컷 비교안: 디테일/반응 → 중간 군집 → 극와이드 → 히어로 반응. 단일 마스터와 비교해 브리프의 정보 공개를 선택하며 이 배열을 강제하지 않는다.
+7. 큰 수를 다룰 때 생성 플레이트·복제/절차적 레이어·대기 효과·합성을 선택 실행자의 지원/예산과 비교한다. 단일 생성의 불가능이나 합성의 우위를 가정하지 않는다. `assets/crowd-map-template.md` 사용.
 8. QA: 반복 얼굴·복제 포즈·불가능한 밀도·떠 있는 사람·스케일 점프·차량 관통·일률적 시선·전경 깊이 부재.
 
 규모 단서: 알려진 크기의 사람/차량·겹침 깊이·대기 원근·변주된 반복 구조·시차·고각 공개·소리 밀도·지연 공개·전경 가림.
@@ -127,3 +127,12 @@
 세계 규칙을 의도적으로 깨면 어느 shot/layer에서 바뀌고 ordinary space로 어떻게 돌아오는지 brief에 표시한다. portal 전후의 frame/eyeline, 방향, scale 단계와 복귀 view를 정한다. cut/dissolve/graphic wipe/composite를 비교하고 단순 cut이 더 명확하면 억지 morph를 하지 않는다. 경계 전 anchor→fantasy insert→회복 anchor를 storyboard/shot cue에 보이고, scale/방위 변화가 실제 평면도·서비스·장소 claim처럼 읽히지 않는지 inspect한다.
 
 수치 카메라·경로·3D geometry가 필요하면 `$camera-spatial-design`으로 넘긴다; 실제 장면 geometry가 필요할 때만 해당 3D review/runtime 절차를 따른다. 단일 reference frame에서 주소·지리·실제 건축·camera solve를 역산하지 않는다. 실행 가능한 공간/카메라 근거는 계획 텍스트와 구분한다.
+
+## 근거와 적용 범위
+
+SSOT 티어·뷰 수·승격·ID·버전 핀·파생 상태는 패키지 운영 규격이며 책/모델의 보장 수치가 아니다. 모드 메뉴·참조 팩·군중 행동/컷 배열은 브리프별 선택지다. 2D 참조의 실사 질감 대비 우위와 군중 군집/컷 배열의 효과는 `[BASIS-UNSTATED]`이며 필수 품질 조건으로 쓰지 않는다.
+
+자료 08 원문을 E7이 직접 읽었다(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/The Visual Story Creating the Visual Structure of Film, TV, and Digital Media Third Edition (Bruce Block) (z-library.sk, 1lib.sk, z-lib.sk).md` L95–99(인쇄 pp47–49), L103–117(pp51–58). SHA-256 `403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c`, 368221 bytes. 알려진 크기·전중후경의 크기/질감 차이·상대 운동을 깊이 단서로 쓰는 좁은 범위만 §4에 연결한다. 군중의 전경 세부와 배경의 작은 점 대비는 원문의 예지만, 이 패키지의 군중 시트/계층/모드 추천 전체나 생성 정체성 성공률의 근거는 아니다. 도판은 미검사. 정본 인덱스 통합은 [sources.md](sources.md) 소유자에게 요청한다.
+
+**F1 직접 대조 / §1 2D 참조:** `E:/Book/06_Book/originals/콘텐츠_제작/md/Animation  from script to screen (Culhane, Shamus) (z-library.sk, 1lib.sk, z-lib.sk).md`; 668243 bytes; SHA-256 `be4240f517b982d1d78c1417edf0affed31c999cd82ba399be51f85d4d393ca8`; **READ-PARTIAL L447–449 전체, 인쇄 pp200–201, Exercise: Animals**. 앞/옆/뒤 시점에서 그릴 정보, 중립 기본 모델과 얼굴/전신 감정 포즈 참조를 구별한 애니메이션 연습을 지원한다. 7뷰 수·모든 2D의 필수 팩·실사 질감 대비 우위·생성 성공률은 지원하지 않는다. OCR 텍스트만 읽고 도판은 미검사다.
+**E7 직접 읽기 / §4 군중·공간 연출(READ-PARTIAL; 도판 미검사):** Katz, `E:/Book/06_Book/originals/콘텐츠_제작/md/Film Directing Shot by Shot Visualizing from Concept to Screen (Steven D. Katz) (z-library.sk, 1lib.sk, z-lib.sk).md`, 535607 bytes, SHA-256 `e8ad5bf5ecc3659fb9b936dd081147a465b03ca09f53e6d690ca286fa4706e9a`, L521–523/L539–543: principal players and foreground/background crowd staging. Culhane, `E:/Book/06_Book/originals/콘텐츠_제작/md/Animation  from script to screen (Culhane, Shamus) (z-library.sk, 1lib.sk, z-lib.sk).md`, 668243 bytes, SHA-256 `be4240f517b982d1d78c1417edf0affed31c999cd82ba399be51f85d4d393ca8`, L411–413: subordinate reaction examples. Block L95–117 (same 368221-byte rendition above) supports qualitative depth cues only. These passages do not validate a universal crowd behavior, cut ladder, portal return recipe, safety plan, sound-scale effect, or generator result; the techniques remain brief-dependent proposals.

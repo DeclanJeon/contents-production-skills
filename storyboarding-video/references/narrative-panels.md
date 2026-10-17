@@ -13,14 +13,14 @@ Extract the synopsis or brief, requested panel count, mode, characters and objec
 
 ## Composing each panel
 
-Every panel carries one dominant action or one informational change readable in a single still; compound actions like "approaches, picks up, hands over" split into their distinct beats. Every ambiguity resolves to one specific staging choice — labeled a design proposal when the brief leaves it open — used identically in the panel row, its prompt, and the sheet prompt. A storyboard never contains "A or B."
+Every panel carries one dominant action or one informational change readable in a single still; compound actions like "approaches, picks up, hands over" split into their distinct beats. For a state-changing action, show the observable before state, action state, and after state across distinct adjacent panels as needed; state what changed in the transition/continuity field. One still may show only its actual phase, never claim both start and completion. If a necessary state change cannot be depicted from supplied facts, mark the indexed gap instead of inventing it. Every ambiguity resolves to one specific staging choice — labeled a design proposal when the brief leaves it open — used identically in the panel row, its prompt, and the sheet prompt. A storyboard never contains "A or B."
 
 Each panel answers what the viewer learns or feels and why it follows the previous one. Cause, choice, pursuit, comparison, or deliberate reveal motivate transitions; a held reaction, visual pause, or data graphic is legitimate when it serves the story.
 
-- A supplied reveal is foreshadowed through a visible cue but never shown early.
+- Preserve supplied reveal timing. Stage an existing setup cue without revealing the answer early; if no cue exists, name the setup gap instead of inventing a clue or changing the locked story.
 - Every panel earns its place — narrative, emotional, tonal, or informational function; none exist to fill a count.
 - Dialogue, captions, and sound appear only when supplied or needed to read the beat — default to none rather than inventing lines, reactions, or factual captions; mark genuinely optional creative text separately.
-- Attention is guided through framing, point of view, and composition. In a narrow narrative-panel request, leave timings/movement to the requested next owner; do not pretend a still image performs movement.
+Choose framing, point of view, and composition to support the intended focal information, then inspect the panel; this is a qualitative, package-authored review choice, not a claim that framing reliably causes an audience effect. Hu ID 45, L235–245 and L259–264, is a partial craft basis for clarity/composition and contrast—not measured attention or comprehension.
 
 ## Output format
 
@@ -28,7 +28,7 @@ Use the requested format; otherwise:
 
 1. **연속성 앵커** — the story/visual facts these panels need, plus unresolved items affecting depiction.
 2. **패널 표** — one ordered row per panel:
-   - **패널 번호 / 기능** — the beat's purpose in the sequence;
+   - **패널 번호 / 기능** — stable panel/beat/scene/shot content IDs (reuse supplied IDs; standalone exercise IDs are local, not project/artifact allocations), source sentence/beat locator, and the beat's purpose;
    - **한 프레임의 행동** — the single readable action or information change;
    - **보이는 대상·시점·구도** — the visible framing at this instant;
    - **보여줄 것 / 감출 것** — what is revealed now versus withheld;
@@ -44,9 +44,7 @@ Prompts use the user's requested language — Korean by default, even when a dow
 ## Continuity and reveals
 
 - Supplied object color, material, wear, scale, owner/hand, and presence hold constant until an explicit panel action changes them.
-- Ownership or condition changes appear as the panel event where they happen — never switched silently between prompts.
-- Established screen direction and spatial relationships persist unless a visible transition explains the change.
-- In a mystery or search, plant the clue before the discovery panel without displaying the answer early.
+- Established screen direction and spatial relationships persist unless a visible transition explains the change. This continuity check is bounded to spatial staging and axis changes; see the directly read Hu passage below.
 - Factual graphics label supplied numbers and derived arithmetic separately; a visual metaphor may clarify but never implies an unsupported cause, quantity, person, or event.
 
 ## Self-check
@@ -55,9 +53,17 @@ Prompts use the user's requested language — Korean by default, even when a dow
 - Each panel follows from the prior beat with a clear function?
 - Fixed synopsis, ending, facts, and constraints preserved?
 - Props, colors, owners, condition, and direction continuous across descriptions and prompts?
-- Reveals foreshadowed without spoiling; designated panel resolves the question?
+- Supplied setup, reveal timing, and resolution preserved without spoiling or inventing a clue or a closed ending? Missing required story inputs remain indexed gaps; deliberately unresolved endings stay unresolved.
 - Factual panels free of invented documentary-looking evidence — including anything labeled "proposal" — with unknowns still unknown?
 - Prompts in the requested language, specific enough to hold continuity, with no generation claim?
 - Technical planning stays with the requested downstream owner — this narrow format adds no unrequested shot list or media?
 
 Storyboard craft is not factual evidence for the depicted subject.
+
+## Evidence scope
+
+ID 45, Caroline Hu, *Mastering Storyboarding*, local rendition `E:/Book/06_Book/콘티_스토리보드/md/스토리보드 마스터하기 - 캐롤라인 후.md`, L235–245 (clarity/composition), L249–253 (foreground/middle/background and tonal grouping), L259–264 (balance/contrast), and L636–661 (staging/screen direction/axis), `READ-PARTIAL`. The source index records the exact file fingerprint and limits. These passages are practical guidance, not measured audience effects or universal composition rules. L650–655 has inconsistent side labels; do not use them as a fixed screen-side rule.
+
+The rules above for brief preservation, one action/information change per panel, exact-count handling, reveal timing, transition choices, continuity-ledger fields, prompts, and output structure are package-authored safeguards and operating heuristics. They are not attributed to Hu or asserted as external standards. They do not prove audience response or factual truth.
+
+Read-rendition identity: 47562 bytes; SHA-256 `cdd4f9b82b83c2ac6cc87c3d39251a79e4d02b7b57e337945bcb89efc58b5f21`. The partial reading and source inconsistency above refer to this exact copy.

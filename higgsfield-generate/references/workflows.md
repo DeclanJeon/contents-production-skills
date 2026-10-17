@@ -1,5 +1,7 @@
 # Workflow Generation
 
+Direct contract read 2026-10-17: [official CLI README, Workflows](https://github.com/higgsfield-ai/cli#workflows) supports separate discovery, draw_to_video/reframe examples, cost syntax and normal job get/wait. Optional pro-mode/reference limits below were not verified by that read; inspect `workflow get` before use. This is not an exhaustive current workflow list or evidence of a completed edit.
+
 Workflows are higher-level generation flows exposed separately from the model catalog. They still create normal generation jobs, so results are fetched with `higgsfield generate get` / `higgsfield generate wait`.
 
 ## Discover workflows

@@ -42,40 +42,41 @@ practice — and they're the eligibility bar and the scoring rubric:
   result, an obvious reason to generate again, shareable output. Artificially
   inflated usage is discounted at Higgsfield's discretion.
 
-## Entering — `higgsfield website contest` (it publishes for you)
+## Entering — `higgsfield website contest` (may auto-publish the app)
 
-An app not yet on the community feed is **published automatically by the
-entry** — no separate `higgsfield website publish` needed. The flow when the
-user asks to enter:
+Contest entry is a separate public action and can list the app on the community
+feed. Require the user's explicit contest-entry authorization, including that
+public effect, before running the command. It does not authorize remote project
+creation, asset generation/upload, pushing, or live deployment.
 
-1. **Make it listable.** The app needs a **live production deploy**
-   (`higgsfield website deploy <website_id>`) — an undeployed app is rejected
-   ("deploy first"). And because the entry lists the app on the feed, the page
-   metadata (cover + `og_title`, see `references/app-flow.md`) must be filled
-   BEFORE entering — the auto-published listing renders from it, and an empty
-   `og_title` is invisible on the feed. Deploy after changing metadata.
+When contest entry is authorized:
+
+1. **Check listability.** Use an already live deployment with complete, approved
+   cover/metadata. If the app is not live, or required metadata must change, a
+   separately authorized deployment is needed. A contest request alone does not
+   authorize `higgsfield website deploy`; stop and request that permission when
+   absent. Never run the contest command against an incomplete or undeployed app.
 2. **Get the social link(s).** The contest requires the app posted to at least
-   one **public** social platform (Instagram, TikTok, YouTube, or X) with a
-   link back to the Higgsfield app and the **`#HiggsfieldApp`** hashtag. Pass
-   one or more `--url` flags, each a link to that public post — any other host
-   is rejected. The user posts it themselves; ask for the URL(s) if you don't
-   have them, and remind them to include the app link + `#HiggsfieldApp` in the
-   post.
+   one **public** social platform (Instagram, TikTok, YouTube, or X) with a link
+   back to the Higgsfield app and the **`#HiggsfieldApp`** hashtag. Pass one or
+   more `--url` flags, each linking to that public post. The user posts it
+   themselves; request the URL(s) if missing and remind them about the app link
+   and hashtag.
 3. **Submit.** Run `higgsfield website contest <website_id>` with the `--url`
-   flag(s). There's a single active contest, so no contest id. One entry per app
-   — re-running OVERWRITES the urls (use it to fix or add links, it doesn't
-   create a second entry).
+   flag(s) only after explicit contest-entry authorization, listability, and
+   user-provided public post URLs are verified. There is a single active contest,
+   so no contest id. One entry per app — re-running overwrites the URLs; use it
+   to fix or add links, not to create a second entry.
 
 ```bash
-# after `higgsfield website deploy <website_id>` has shipped (metadata filled)
+# Only after all three gates above pass:
 higgsfield website contest <website_id> \
-  --url https://x.com/<user>/status/…   # ≥1 public post, #HiggsfieldApp
+  --url https://x.com/<user>/status/…   # public post, #HiggsfieldApp
 ```
 
-If the user asks to enter but hasn't posted anywhere yet, get the app deployed
-with real metadata, then tell them the one thing only they can do — post it
-publicly with the app link and `#HiggsfieldApp` — and enter as soon as they
-give you the URL.
+If the user authorizes entry but has not posted yet, do not submit. If an
+authorized live deploy already exists, give them the link and request their
+public post URL; if it does not, first request any missing deployment permission.
 
 ## Eligibility (relay if asked)
 

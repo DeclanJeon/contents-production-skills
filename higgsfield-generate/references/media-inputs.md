@@ -1,6 +1,6 @@
 # Media Inputs
 
-How to pass reference images, videos, audio, and videos for analysis. Mirrored from MCP server media-handling logic.
+CLI transport reference, not MCP transport. Directly read 2026-10-17: [official MODELS.md](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md), introduction and model-specific tables, documents path auto-upload and UUID inputs; mounted `generate_video` requires confirmed media/job IDs instead. Cached family rows below are not universal/current limits: verify selected-model schema before relying on any count/role/remapping or local rejection. No uploads or generation were exercised.
 
 ## Path or UUID — both work
 
@@ -95,7 +95,7 @@ higgsfield generate create seedance_2_0 \
   --wait
 ```
 
-**Do NOT pass `--generate-audio` to `seedance_2_0`** — the model schema doesn't declare it. Use the audio media role instead.
+Reference audio and generated output audio are distinct. The official `seedance_2_0` table read on 2026-10-17 declares `audio_references` (alias `--audio`) and a separate `generate_audio` boolean (default true). Inspect the selected live schema; do not reject its supported output-audio flag based on the older media-role recipe above.
 
 Seed Audio is the default text-to-audio model. It can run prompt-only, or use optional audio/image references:
 

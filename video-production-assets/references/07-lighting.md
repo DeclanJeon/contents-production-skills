@@ -8,6 +8,7 @@
 ## 실행 절차
 1. 장면에서 보이는 광원과 광원이 있다고 느낄 방향을 정한다. 자연광·실용등·표현 조명의 동기를 구분한다.
 2. 키·필·배경·분리광의 필요를 검토하되 모든 장면에 네 개를 의무 배치하지 않는다. 그림자로 무엇을 감추고 언제 드러낼지 정한다.
+감금·구속을 나타내는 조명이라면 벽에 드리운 막대 그림자로도 감옥을 읽히게 할 수 있다. 이 단서를 쓰면 최종 프레임에서 그림자 패턴이 구별되는지 확인한다; 이는 선택 가능한 표현이지 모든 장면의 의무 규칙은 아니다 (자료 02, READ-PARTIAL; `sources.md`).
 3. 광원 방향·높이·상대 크기·확산·색·피사체 거리를 기록한다. 광원 크기와 거리를 함께 고려해 그림자의 경도를 설계한다.
 4. 인물 동선 전 구간의 얼굴과 배경 분리를 확인한다. 역방향 샷에서 광원 위치와 그림자 논리가 이어지게 한다.
 5. 명암비·색온도·노출 수치는 목표값으로 표시하고 현장 측정과 테스트로 확정한다. 역사적 필름 장비·전압·감도 관행을 현대 디지털 장비에 그대로 적용하지 않는다.
@@ -21,6 +22,14 @@
 
 ## 근거와 적용 범위
 자료 ID: 02,04,08. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 절차와 템플릿은 여러 자료의 개념을 결합한 독자 설계다. 저자의 규칙을 그대로 재현한 요약이나 공식 인증된 방법론으로 표현하지 않는다.
+02 L187 `PRISON SCENES`(READ-PARTIAL)은 위 막대 그림자 단서만 직접 지원한다. 목표 수치/실측/AI 제어 구분은 운영 규격이다. 본문 없는 01을 보충 근거로 쓰지 않는다.
+
+E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/Painting With Light (John Alton) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `19beb6f8d6d3d44888e675941d30a493e4e3cf2a386b0d963d99370e74dded7f`, 560865 bytes, L137–141(p30 이후 `LIGHTING`/`THE PURPOSE OF ILLUMINATION`). 실용등에서 오는 것처럼 보이는 key 위치 선정·측광·전경/배경 명암 분리를 지원한다. 역사적 기구/필름 수치를 현대 장비에 이식하거나 네 광원을 의무화하지 않는다.
+
+광원 크기와 경도: [Blender 공식 Light Objects 문서](https://docs.blender.org/manual/en/latest/render/lights/light_object.html)의 `Point Light > Radius`, `Spot Light > Radius/Beam Shape`, `Area Light`(2026-10-17 직접 읽음, READ-PARTIAL, 페이지 표기 Blender 5.2 LTS). 큰 발광면의 부드러운 그림자, 광원 거리의 감쇠, spot cone 가장자리의 Blend와 물체 그림자의 경도는 별개라는 기술 범위만 지원한다. live 문서라 로컬 rendition/hash/bytes 없음(`N/A-live-web`), 설치 버전/렌더 실행 미확인이다. 거리와 상대 크기를 함께 적는 계획은 유지하되 이 문서만으로 거리별 경도 수치나 역방향 샷 매칭 전체를 입증하지 않는다. 역방향의 광원/그림자 논리·반사 띠의 정확한 재현은 아직 개별 원문 미결속이며 실제 인접 샷 검수가 필요하다.
+
+추가 공식 원문: [Bill Holshevnikoff, ARRI Lighting Handbook, Fourth Edition ©2016](https://www.arri.com/resource/blob/83996/409091c612f371b0c68b41d9dcb636db/arri-lighting-handbook-english-data.pdf), pp5–8 `Light Quality/Hard vs. Soft Light`, pp10–15 `A Note on Color/Basic Definitions`, pp16–17 `Shadow Edge Transfer`(2026-10-17, READ-PARTIAL, 웹 PDF 텍스트 직접 읽기, rendition=위 URL, hash/bytes=`N/A-live-web`, 도판 미검사). 확산지의 실제 조명된 면이 유효 광원이 된다는 설명, 크기와 shadow edge의 관계, 광원 색과 주변광 매칭, close-up별 key 위치와 불필요한 separation light 생략을 지원한다. 따라서 기구 출력만이 아니라 유효 발광면·그림자 경계를 비교한다. 역방향 전체 매칭과 거리별 경도 정량 법칙은 이 구간의 직접 주장이 아니며 미결속으로 유지한다.
+추가 직접 읽기(READ-PARTIAL): Alton, `E:/Book/06_Book/originals/콘텐츠_제작/md/Painting With Light (John Alton) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `19beb6f8d6d3d44888e675941d30a493e4e3cf2a386b0d963d99370e74dded7f`, 560865 bytes, L285(p103). 반사 각도와 피부결에 따라 meter reading과 보이는 반사 밝기가 달라질 수 있다는 사례다. 특정 제품의 움직이는 반사 띠, 모든 역방향 매칭, 혹은 거리별 그림자 경도 공식의 직접 근거는 아니다.
 
 ## 출력 템플릿
 `assets/07-lighting-template.md`를 복사해 채운다.

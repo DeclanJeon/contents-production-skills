@@ -1,6 +1,6 @@
 # Rofan craft evidence — optional bounded observations
 
-This optional index is consulted only when the user explicitly asks for a saved observation or its provenance; an ordinary brief or cue match never triggers lookup. It contains bounded historical notes, not procedures or QA. No observation proves a universal rule, prevalence, intent, or owner gap; coverage is partial, and absence from sampled material remains unknown.
+This optional index is consulted only when the user explicitly asks for a saved observation or its provenance; an ordinary brief or cue match never triggers lookup. An explicit request selects consultation for that task but does not change the index's optional status or make it a required evidence source for other tasks. State both facts when asked whether it is optional or required. It contains bounded historical notes, not procedures or QA. No observation proves a universal rule, prevalence, intent, or owner gap; coverage is partial, and absence from sampled material remains unknown.
 
 ## Bounded observations
 

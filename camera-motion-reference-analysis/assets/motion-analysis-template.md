@@ -4,8 +4,8 @@
 - FPS or PTS basis / resolution / shot_id:
 - Playback inspected / sampled frames / gaps:
 
-| Source time | Camera candidate and coordinate basis | Subject motion | Lens/focus candidate | Evidence | Alternatives / unknowns |
-|---|---|---|---|---|---|
+| Source time / inspected range | Camera candidate and coordinate basis | Subject motion | Lens/focus candidate | Evidence / OBSERVED or USER_REPORTED | Inference confidence / rationale | Alternatives / unknowns |
+|---|---|---|---|---|---|---|
 
 ## Timing and intended information
 Record onset, speed changes, reveal/contact/peak, stop/settle and cut; separate observation and interpretation.

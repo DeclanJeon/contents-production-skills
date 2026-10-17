@@ -8,7 +8,8 @@
 ## 실행 절차
 1. 주장·관찰·해석·가정·창작을 분리한다. 수치의 기간·모집단·분모·단위·출처 위치를 기록한다.
 2. 데이터→비교 정보→상황 해석→가능한 행동으로 연결한다. 상관관계를 인과관계로 표현하지 않는다.
-3. 비교는 막대, 시간 변화는 선 등 질문에 맞는 정확한 시각화를 사용한다. 축 절단·기간 선택·불확실성이 결론을 왜곡하는지 검토한다.
+서사형 데이터 영상이면 중심 주체(사람·사물·장소), 원하는 결과, 대립자 또는 비교 조건을 자료에서 뽑아 적는다. 이 요소는 인사이트를 설명하는 서사 틀이지, 데이터가 뒷받침하지 않는 인과 주장을 허용하지 않는다 (자료 30, READ-PARTIAL; `sources.md`).
+3. 질문에 맞게 범주 간 단일 변수 비교는 막대, 시간 변화는 선/열 차트를 검토한다. 막대처럼 길이/면적으로 값을 나타내면 값 축을 0에서 시작한다. 선처럼 점의 위치로 값을 나타내면 추세를 명료하게 보일 필요에 따라 비영점 축을 쓸 수 있으나 범위/눈금과 맥락을 명시하고 비교 차트의 척도를 맞춘다. 모든 비영점 축을 동일한 왜곡으로 처리하지 않는다. 기간 선택·불확실성·단위/분모가 결론을 왜곡하는지 검토한다(아래 ONS 직접 근거).
 4. 자료가 없으면 필요한 자료와 임시 문구를 제시한다. 가짜 차트·후기·인터뷰로 빈칸을 채우지 않는다.
 5. 시각 은유와 감정적 사례는 이해를 돕는 수단으로 사용한다. 일부 첨부 서적의 뇌과학·기억 효과 숫자를 검증된 과학 주장으로 재사용하지 않는다.
 6. 발화·차트·자막 및 요청된 CTA/고지에 같은 claim_id를 연결하고 단서가 잘리거나 발화보다 늦게 나타나지 않는지 검수한다. CTA는 요청된 목표 행동과 목적지가 있을 때만 추가한다.
@@ -28,6 +29,19 @@ CTA는 브리프에 목표 행동과 목적지가 있을 때만 주장 수신자
 
 ## 근거와 적용 범위
 자료 ID: 24,26,27,28,29,30,32,34,35. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 절차와 템플릿은 여러 자료의 개념을 결합한 독자 설계다. 저자의 규칙을 그대로 재현한 요약이나 공식 인증된 방법론으로 표현하지 않는다.
+직접 연결한 서적 범위는 §실행 절차의 중심 주체·원하는 결과·대립자/비교 조건(자료 30, W4 READ-PARTIAL, 원문 L375–376, 인쇄 p.162)이다. 정확한 판본은 [sources.md 직접 대조 구간](sources.md#직접-대조-구간--2026-10-16-w4)에 있다. 주장 원장·ID 연결·관찰/해석/창작 구분·고지/권리 차단 절차는 패키지 운영 설계다. 이 서적 구간을 차트/인과성 일반 검증의 근거로 쓰지 않는다.
+
+### 차트·인과성의 직접 근거 — E6
+
+공식 웹 rendition은 아래 URL의 reader HTML 본문이며 **2026-10-17 READ-PARTIAL**. 로컬 보관본/고정 SHA-256/bytes는 **N/A-live-web**; 도판·연결 예제·전체 통계 검증은 미검사다.
+
+- **ONS-bar / 절차 3:** [Bar chart](https://service-manual.ons.gov.uk/data-visualisation/chart-types/bar-charts), 도입부·`When to use a bar chart`·`Axis`: 범주 비교와 0 기준선; 비영점이 필요하면 dot plot 등 대안.
+- **ONS-axis / 절차 3:** [Axes and gridlines](https://service-manual.ons.gov.uk/data-visualisation/guidance/axes-and-gridlines), `Axis start point`·`Consistent axis scales`: 막대/영역과 선/산점도의 차이, 축 범위와 비교 척도. 이 구간을 “모든 축 절단 금지”로 바꾸지 않는다.
+- **ONS-principles / 절차 1·3·6:** [Principles](https://service-manual.ons.gov.uk/data-visualisation/guidance/principles), `When to use data visualisation`·`Showing the important comparison`·`What data to include`/`Using derived variables`: 본문과 차트의 정합·관련 비교/맥락·파생 변수 구분. 신경과학/기억 효과를 입증한 원문으로 쓰지 않는다.
+- **CDC-analytic / 절차 2:** [Principles of Epidemiology, Lesson 1 Section 7](https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson1/section7.html), `Analytic Epidemiology` 및 `Experimental studies`·`Observational studies`/마지막 요약: 비교 집단·실험/관찰의 차이, 단면 연구의 인과성 한계. 보건 연구의 설명을 모든 광고에 특정 실험 설계를 강제하는 법규로 확대하지 않는다. 관측 동반 변화만 있으면 “함께 변했다”로 쓰고 “때문에 개선됐다”는 별도 인과 근거 없이는 쓰지 않는다.
+
+주장별 관할 법규·광고 사전 입증 기준과 개별 불확실성 표기법 전체는 이 읽기로 검증하지 않았다. 미확인 효능/후기는 계속 차단하고 필요한 법적 원문/전문 검토는 미해결로 기록한다.
+이 모듈은 증거 목록·주장 표현·편집상 고지 검수만 수행하며 법률 자문이나 관할별 광고 규정 준수 승인을 내리지 않는다. 관할·제품 유형·주장에 적용되는 법령/가이드와 제출 전 증빙 기준은 실행 시점의 1차 법률 자료 및 자격 있는 전문가 확인이 끝나기 전까지 `blocked`로 둔다. 계획·초안은 가능하지만 `compliant`, `legally cleared` 또는 동등한 승인으로 보고하지 않는다.
 
 ## 출력 템플릿
 `assets/10-evidence-template.md`를 복사해 채운다.

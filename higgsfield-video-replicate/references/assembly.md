@@ -2,6 +2,8 @@
 
 Phase 5: turn N generated clips + audio into one finished MP4. Local ffmpeg is standard for this skill (video-explainer's ffmpeg ban applies only to its own narrated pipeline).
 
+Recipe scope: target canvas/fps, grade constants, fade length and loudness targets below are editable house defaults, not measured reference properties or universal platform requirements. Replace example timestamps/durations with the approved beat sheet. CLI/filter availability must be checked locally; successful assembly is not visual or listening approval.
+
 ## 0. Preflight
 
 ```bash
@@ -25,7 +27,7 @@ Repeat per shot (`02.mp4`, `03.mp4`, …). `-an` strips per-clip audio; the soun
 
 ## 2. Cut in beat order
 
-Same encoding everywhere → concat demuxer (instant, lossless):
+Matching stream parameters permit concat stream-copy without another encoding pass; verify codec parameters and timestamps, not only matching encoder names.
 
 ```bash
 printf "file 'norm/01.mp4'\nfile 'norm/02.mp4'\nfile 'norm/03.mp4'\n" > list.txt
@@ -44,7 +46,7 @@ Default is hard cuts. The offset equals shot 1's duration minus the fade length.
 
 ## 3. One shared grade
 
-Apply a single grade chain **after** the cut so every shot gets byte-identical treatment (this is what hides AI shot-to-shot variation):
+Apply a shared finishing grade after the cut. Identical filter settings do not guarantee matched shots or hide generation drift; inspect every beat and correct mismatched source exposure/white balance before this finishing pass.
 
 ```bash
 ffmpeg -i cuts.mp4 -vf \
@@ -52,7 +54,7 @@ ffmpeg -i cuts.mp4 -vf \
   -c:v libx264 -crf 18 -preset slow graded.mp4
 ```
 
-Tune the constants against one QC frame per beat until it matches the style bible. If a `.cube` LUT is available, use `lut3d=file.cube` inside the same `-vf` chain. Never grade clips individually.
+Tune the constants against QC frames from every beat. If a `.cube` LUT is available, use `lut3d=file.cube` inside the same `-vf` chain. Preserve the shared look; any necessary per-shot correction must be recorded separately.
 
 ## 4. Soundtrack
 
@@ -62,7 +64,7 @@ ffmpeg -i bgm.wav -t 43.5 -af "afade=t=in:d=0.5,afade=t=out:st=42.5:d=1" bgm_fit
 
 # optional: duck BGM under a SFX / VO stem
 ffmpeg -i bgm_fit.wav -i vo.wav -filter_complex \
-  "[1:a]asplit=2[vo][sc];[vo]asplit[voout][scin];[0:a][scin]sidechaincompress=threshold=0.05:ratio=8:attack=50:release=400[duck];[duck][voout]amix=inputs=2:duration=first[mix]" \
+  "[1:a]asplit=2[voout][scin];[0:a][scin]sidechaincompress=threshold=0.05:ratio=8:attack=50:release=400[duck];[duck][voout]amix=inputs=2:duration=first[mix]" \
   -map "[mix]" mixed.wav
 
 # single soundtrack, no stems → just use bgm_fit.wav
@@ -106,4 +108,4 @@ Compare each against the reference frame of the same beat (composition, grade, c
 - `format=yuv420p` missing → some players reject the file; always include it.
 - Concat error `dimensions differ` / `timebase mismatch` → a clip skipped step 1; re-normalize.
 - Audio drift over long films → you concat'd video with attached audio; keep audio separate until step 5 (as shown).
-- Output duration wrong → check `-shortest` vs beat-sheet total; total must equal the sum of shot durations.
+- Output duration wrong → compare measured duration to the approved timeline: sum of trimmed shot durations minus transition overlaps. `-shortest` can truncate the picture when audio is shorter; fit the soundtrack to the timeline before muxing.

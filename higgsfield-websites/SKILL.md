@@ -1,5 +1,5 @@
 ---
-version: 0.17.0
+version: 0.35.0
 name: higgsfield-websites
 description: |
   Build, edit, and deploy full-stack websites, apps and games via the Higgsfield CLI (`higgsfield website …`). Each is a React 19 + TanStack Start SSR app in one Cloudflare Worker (D1/R2/KV/DO/Containers). THREE product types, picked via `--type` on create: `website` (standalone, no Higgsfield integration — references/website-flow.md), `app` (Sign in with Higgsfield + fnf SDK, Quanta — references/app-flow.md), `game` (realtime multiplayer rooms — references/game-flow.md). Routes to the right flow; each carries its own rules and deploy/publish gates.
@@ -108,14 +108,17 @@ This is an explicit separate web-product lane: it loads only for a requested web
 
 For delegated production work, consume the assigned scope and return the canonical join per the shared gate: website_id/subdomain/deploy state and asset-provider locators mapped to canonical assets — never a URL as `result_asset_id`.
 
+Consent is operation-specific and inherited by every flow/reference: a local design/build request alone does not authorize remote project creation, uploads, paid assets, a live deployment, community listing or contest entry. Reuse explicit authorization already in the brief; otherwise stop before that operation and name it. A publish opt-in permits the feed listing once ready, not unrelated paid cover generation. Contest entry can auto-publish, so it requires explicit contest authorization including that public effect. Record requested operation, authorization scope and observed result separately; a create response is not a deployment, a pending deployment is not live, and a live site is not a feed listing.
+
 ## Pick the path, then follow ONE flow end-to-end
 
 1. Resolve the `--type` (ask the user if unclear — it's their choice). In the
-   SAME first question, also ask whether they want to **publish it to the
-   Higgsfield community feed (marketplace)** when it's ready (yes/no). Remember
-   the answer: if yes, publish automatically at the end (after deploy +
-   metadata), no need to ask again; if no, only deploy. Don't block the build
-   on it.
+   SAME first creative-intake round, also ask whether they want a community-feed
+   listing when ready (yes/no). A yes authorizes the listing only; it does not
+   authorize remote creation, asset generation/upload, spend, push, or live
+   deployment. Obtain each missing operation's permission at its gate; do not
+   re-ask answered creative questions. A no means no listing, not permission to
+   deploy. Continue only within the scope already authorized.
 2. Read the matching flow and follow it — it is the complete workflow for that
    type, including its own references, hard rules, editing map, and
    deploy/publish gates:
@@ -153,17 +156,20 @@ gate) — each flow restates what it needs, so you never have to read another.
 
 ## Cover + metadata — ALWAYS part of building, never publish-only
 
-Every build — website or app, no matter how small — ships with the branded
-launch cover and filled feed-card metadata, generated per
-`references/app-cover.md` and written into `app/src/app-meta.json`
-(`og_title`, `og_description`, `favicon_url`, `og_image_url`,
-`marketplace_cover_url`). This is a BUILD step, done before the work is
-presented as finished and before the deploy that ships it — NOT something
-deferred to `higgsfield website publish`. Hard rules:
+Every completed website, app, or game requires a branded launch cover and
+complete feed-card metadata in `app/src/app-meta.json` (`og_title`,
+`og_description`, `favicon_url`, `og_image_url`, `marketplace_cover_url`). Plan
+this before presenting the work as complete and before deployment; it is not a
+publish-only step. Use existing user-approved assets or create missing assets
+only through the authorized, eligible executor and scope in the package gate.
+For `type: game`, the cover follows the user's independent game brand, not the
+Higgsfield-integrated app lockup. If authorization or capability is missing,
+report the blocker; do not claim a complete build or infer permission to
+generate or upload.
 
-- **No "simple app" exception.** A utility tool, a timer, a one-page toy —
-  they all get the generated cover. A hand-authored inline-SVG favicon is
-  fine *as a favicon*; it never substitutes for the generated cover.
+- **No "simple app" exception:** even a utility or one-page product needs the
+  cover and metadata. A hand-authored inline-SVG favicon is fine as a favicon;
+  it does not replace the required cover.
 - **Cover generation is an authorized operation** — it runs inside the approved
   scope/budget from the package gate like every other asset, not "no permission
   needed". Its scene/image job follows the same eligibility rules (authorized
@@ -237,10 +243,10 @@ mechanics — then answer plainly. CLI flags and code stay English.)
 
 ## Reference index (what's in this bundle)
 
-The two flow files pull in the rest as needed — you don't read these directly
-unless a flow sends you there.
+The three flow files pull in the rest as needed — read only the references
+selected by the requested branch. This index is routing, not evidence that its entire tree has been inspected.
 
-**Both flows:** `references/app-cover.md` (launch cover + OG image),
+**Shared platform/cover references (as selected by each flow):** `references/app-cover.md` (launch cover + OG image),
 `references/runtime-and-infra.md` (TanStack routes, SSR, Worker runtime),
 `references/security.md` (Worker hardening, OWASP audit, threat model).
 
@@ -261,3 +267,7 @@ path: auth, generation submit/poll, result rendering, common Quanta components),
 `references/containers.md`, `references/cover-animator.md` (permission-gated
 ~5s cover video → `og_video_url`), `references/contest.md` (the $100k app
 contest — the entry auto-publishes the app; submit with social links).
+
+## Acceptance
+
+A website/app/game build is complete only when the chosen product type follows its matching flow, required deliverables and type-specific checks pass, and the final build/test results are observed. Deployment requires explicit user authorization and a successful live status check; report the live URL. Community-feed publication is separate and requires explicit consent. Missing credentials, failed checks, absent cover/metadata, or unavailable deployment are blockers, not completion.

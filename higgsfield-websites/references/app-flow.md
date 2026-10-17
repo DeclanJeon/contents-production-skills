@@ -59,9 +59,13 @@ there.
   image. REQUIRED before every publish (`og_image_url` +
   `marketplace_cover_url` are mandatory feed-card fields).
 
-**Higgsfield as the asset engine.** Any imagery the app itself needs (empty
-state artwork, onboarding illustration, favicon, cover) is generated with the
-Higgsfield CLI generation commands — never stock, never placeholders.
+**Separate app functionality from build-time assets.** When the requested product
+itself offers Higgsfield generation, implement the user-facing fnf feature under
+the app’s auth, submission-confirmation, and cost contracts below. That does not
+authorize the assistant to generate the app’s own design, state, icon, favicon,
+or cover assets. Build-time images follow `../SKILL.md`’s eligible-image and
+operation-specific authorization gates; use the authorized eligible image
+executor or report the missing permission/capability as a blocker.
 
 ## Non-negotiable app design rules
 
@@ -108,13 +112,14 @@ a build (it also bloats context and slows every later step). If a specific prop
 or field is genuinely missing from a guide, make the reasonable call. Once you
 have read the guides + the chosen code layout, you have enough — start writing.
 
-1. **Intake** (ONE batched round — ask the user only for what the brief doesn't
-   answer): confirm `type: "app"` is what the user wants (it is the USER'S
-   choice), what the app does (which generation models/flows), anything
-   brand-critical, and whether to **publish to the community feed
-   (marketplace)** when ready (remember it for step 8). Never a second round —
-   pick sensible defaults and state them.
-2. **Create** — `higgsfield website create --type app`.
+1. **Intake** (one creative round): confirm `type: "app"` when unclear, app
+   purpose/model needs and brand direction, plus whether to list it on the
+   community feed when ready. A listing “yes” authorizes only that listing.
+   Answered creative decisions are not reopened; any missing operation
+   authorization is requested separately at its explicit gate.
+2. **Create** — run `higgsfield website create --type app` only when remote
+   project creation is explicitly authorized. Otherwise stop before the command
+   and identify the missing permission.
 3. **Plan the screens** — pick the closest of the six code layouts in
    `app/src/layouts` (studio / preset / app-detail / ai-stylist / skin-enhancer
    / shots; see `references/app-layouts.md`) and read its code +
@@ -131,31 +136,37 @@ have read the guides + the chosen code layout, you have enough — start writing
    generation/media through server functions per `references/fnf-sdk.md` +
    `references/fnf-react.md`, product state in D1 (rules 3/3a below). Poll
    jobs, render real results.
-6. **Deploy** (`higgsfield website deploy <website_id>` — this ships the live
-   public site immediately). Report the live URL (from
-   `higgsfield website status`) in product terms, no repo/commit/deploy jargon
-   (see the SKILL.md "Talking to the user" rule).
-7. **Cover + metadata — ALWAYS, as part of building (not just at publish).**
-   Every app ships with a launch cover and filled feed-card metadata. Generate
-   them per `references/app-cover.md`: the branded 3:2 cover + stadium-capsule
-   OG image, then fill `app/src/app-meta.json` — `og_title`, `og_description`,
-   `og_image_url` (the OG file), `marketplace_cover_url` (the plain cover),
-   `favicon_url`. This is NOT optional and NOT gated on the user asking: do it
-   without prompting, the same way you write real copy. (Only the cover VIDEO,
-   `og_video_url`, needs the user's permission — it costs credits.) An app you
-   present as done with an empty cover or empty `og_title` is INCOMPLETE.
-   **Always suggest the cover video:** when you present the finished app (and
-   again at publish), proactively offer a short animated cover for the feed card
-   ("want a short cover video? it makes the feed card play on hover") — suggest
-   it every time, then only generate it if the user says yes
-   (`references/cover-animator.md`).
-8. **Publish.** If the user opted in at intake (step 1), publish automatically
-   once the app is deployed with its cover + metadata filled — run
-   `higgsfield website publish <website_id>` without waiting to be asked, and
-   share the community-feed listing URL it reports. Otherwise publish only when
-   asked. **After a successful publish, suggest entering the $100k app contest**
-   ("want to enter it in the Higgsfield app contest? you'd add a couple of
-   social links") — `higgsfield website contest`, see `references/contest.md`.
+6. **Cover + metadata — required for a complete app and before deployment.**
+   Preserve supplied, user-approved assets. Complete `og_title`,
+   `og_description`, `favicon_url`, `og_image_url`, and
+   `marketplace_cover_url` with verified content and approved assets. Create or
+   upload missing assets only when the particular eligible executor, any spend,
+   and upload/storage are authorized under `../SKILL.md`'s package gate. If
+   authorization or an eligible capability is missing, stop and report the
+   blocker instead of silently substituting or claiming completion.
+   `og_video_url` is separately permission-gated. Offer a cover video, but
+   generate it only with its specific approval (`references/cover-animator.md`).
+Before deployment, exercise the actual app in a local runtime or safely
+reachable preview with authorized access: signed-out/login handling, the
+model-specific cost confirmation path, result/history rendering, and relevant
+persistence. Do not trigger a paid generation unless that specific provider
+operation is authorized. If a path needs paid-provider authorization or no safe
+preview is available, report it blocked and do not deploy or claim that path was
+verified.
+7. **Deploy** only after the cover and metadata are ready, and only if live
+   deployment is explicitly authorized (`higgsfield website deploy <website_id>`
+   ships publicly with no preview). Report a live URL only after
+   `higgsfield website status` confirms it; otherwise hand off the prepared app
+   as not live.
+8. **Publish.** A feed-listing opt-in authorizes that listing only. Run
+   `higgsfield website publish <website_id>` after the app is live with required
+   metadata and approved assets, and only when the separately authorized project,
+   upload, push, and deployment prerequisites are satisfied. If any prerequisite
+   authorization is absent, stop before that operation and name it; do not
+   interpret the opt-in as blanket consent. Otherwise publish only when explicitly
+   asked. After a successful listing, you may suggest the contest; entry itself
+   requires separate, explicit consent, because it also publishes the app
+   (`references/contest.md`).
 
 ---
 
@@ -231,11 +242,11 @@ from client components.
 Every app is an authenticated surface. Before shipping you MUST implement the
 Higgsfield auth contract exactly as written in `references/auth.md`: the
 `GET /api/user` server proxy (returns the upstream status and JSON unchanged),
-a signed-out state that links to `/__auth/login?return=<path>`,
-`/__auth/logout?return=<path>`, and a server-side auth re-check before every
-SDK operation. Do not invent your own login UI, email/password form, or token
-handling, and do not build anonymous generation flows unless the user
-EXPLICITLY asks for an offline/mock demo.
+signed-out state that links to `/__auth/login?return=<path>`, and a server-side
+auth re-check before every SDK operation. Logout remains platform-owned; do not
+add an app logout endpoint or sign-out link. Do not invent your own login UI,
+email/password form, or token handling, and do not build anonymous generation
+flows unless the user explicitly asks for an offline/mock demo.
 
 **Sign-in on the deployed site is platform-owned — do NOT improvise a cause if
 it fails.** `/__auth/login` is a platform-injected route that hands off to
@@ -249,9 +260,11 @@ If the app also needs its own user accounts (e.g. team members of the app's
 customers), keep that separate — never replace Higgsfield auth with app-local
 auth for generation.
 
-Treat auth, profile, credits/workspace display, and a generation feed/history
-as mandatory acceptance criteria for any generation app — do not wait for the
-user to ask.
+Treat Higgsfield authentication, model-specific cost preview/confirmation, and a
+usable generation feed/history as mandatory acceptance criteria for a generation
+app. Workspace selection appears only when the selected account/SDK contract
+requires it; wallet balance, account-credit, profile, and sign-out chrome remain
+host-owned and must not be duplicated in the app.
 
 Generation history cards must render SDK `Generation.results`, not status-only
 placeholders. Compose result cards from Quanta `Media`/`Card` using the
@@ -345,84 +358,44 @@ Durable Object for strong consistency.
   Quanta's `q-` tokens ARE the theme; the app is permanently dark.
 - D1 schema → `app/migrations/000N_*.sql` (additive; see rule 5).
 
-## Deploy
+## Deploy, publication, and contest gates
 
-The trusted platform CI builds the app on **every deploy** (always with
-`HF_DESIGN_INSPECTOR=1` and `HF_ENV="production"` — the live site carries the
-design inspector), so a deploy already gives you the authoritative build
-result. The sandbox cannot deploy/migrate; the trusted platform CI does that.
+The trusted platform CI performs the authoritative build on deployment. The
+sandbox cannot deploy or migrate; a deploy ships the live public app with no
+preview.
 
-**Default: deploy** — `higgsfield website deploy <website_id>` builds via CI and
-ships the live site immediately. You don't have to lint, build, or typecheck
-locally unless you think it's necessary (e.g. to debug); just make sure you
-pushed your changes to the remote repository before deploying. Never publish/list
-on the community feed unless the user explicitly asked to publish.
+**Deploy only when explicitly authorized.** The local app build or a feed-listing
+opt-in does not grant deployment permission. Apply steps 6–8 above; check
+`higgsfield website status` before describing the app as live.
 
-**Publishing ("show in feed").** When the user asks to publish / share / put
-the app on the feed, run `higgsfield website publish <website_id>` — it lists
-the app on the Higgsfield community feed. **Publishing no longer deploys**: it
-lists whatever is already live, so run `higgsfield website deploy <website_id>`
-FIRST — and after ANY later change, deploy again to ship it (re-publishing does
-not re-deploy and won't pick up un-deployed changes). Never list the app on the
-community feed unless the user explicitly asked to publish.
+**Feed publication is separate.** `higgsfield website publish <website_id>`
+lists the currently deployed app; it does not deploy or repair metadata. A feed
+opt-in authorizes that listing only. Complete required metadata and use approved
+assets. Missing assets or permissions block publication: request only the
+missing authorization, and do not generate, spend, upload, push, deploy, or list
+without its separate scope.
 
-**HARD GATE — the cover is NOT optional. Running `higgsfield website publish` while
-`og_image_url` or `marketplace_cover_url` is empty is a BROKEN publish** (the
-feed card renders ONLY from `app/src/app-meta.json`; an empty `og_title` makes
-the listing INVISIBLE, an empty cover makes it a blank card). The publish
-sequence is: (a) READ `app/src/app-meta.json`; (b) if `og_image_url` or
-`marketplace_cover_url` is empty → STOP, read `references/app-cover.md` and
-generate + upload the cover NOW — do not skip this because the user "only asked
-to publish", the cover IS part of publishing; (c) fill ALL fields below with
-real values (never placeholders); (d) commit + push; (e) run
-`higgsfield website deploy <website_id>` to ship the pushed changes (publish no
-longer deploys — it lists what's already live); (f) only then run
-`higgsfield website publish`:
+Required metadata: `og_title`, `og_description`, `favicon_url`, `og_image_url`,
+and `marketplace_cover_url`. Reuse user-approved assets and compose them with
+the deterministic local tool in `references/app-cover.md`. Any new image,
+edit, cutout, or upscale uses an eligible executor and separate operation
+authorization; output upload/storage is also separate. Verify the actual two
+required files from the compositor; do not assume one provider generation
+returns both. `og_video_url` is optional and separately approved; offer it,
+never generate it unprompted (`references/cover-animator.md`).
 
-1. `og_title` — the card's title (also the browser tab title).
-2. `og_description` — the card's one-liner.
-3. `og_image_url` — REQUIRED: the cover image, generated per
-   `references/app-cover.md` (the branded 3:2 cover + stadium-capsule OG
-   mask) if none exists yet; upload the OG file with `higgsfield upload create`
-   and set the returned durable URL.
-4. `marketplace_cover_url` — REQUIRED: the plain (unmasked) cover, the same
-   generation's `<name>_cover.png` from `references/app-cover.md`, uploaded
-   with `higgsfield upload create`. One generation fills both this and
-   `og_image_url` — there is never a reason to have one without the other.
-5. `favicon_url` — the card's logo/icon (generate one if none exists yet).
-6. `og_video_url` — the **cover video**, OPTIONAL and permission-gated: ALWAYS
-   SUGGEST it (offer it every time — "want a short cover video for the feed
-   card? it plays on hover"), but ASK PERMISSION FIRST — generating a video
-   costs credits; never generate it unprompted. If they say yes, follow
-   `references/cover-animator.md` (the ~5s end-frame reveal of the launch cover
-   via `seedance_2_0`).
+**Contest entry is another separate public action.** It may publish the app as
+part of entry. Require explicit contest-entry authorization including that
+effect; independently gate project creation, assets, push, and deployment.
+Submit only for a live, metadata-complete app with the user's required public
+social-post URLs. Follow `references/contest.md`.
 
-(1–5 are generated without asking — they are part of the publish, not a
-separate credit decision; only the cover VIDEO (6) needs permission.)
+Local type/build checks are optional; use them only for a changed dependency or
+build configuration, to investigate a concrete build/type error, or when a
+command requires local dependencies. CI remains the authoritative deploy build.
 
-`higgsfield website deploy <website_id>` remains the way to ship the live site
-WITHOUT a feed listing.
+**Adding a dependency:** `bun add` (from `app/`); update and check the lockfile.
 
-**Entering the app contest.** If the user asks to enter the app in the
-Higgsfield contest ("enter the contest", "submit to the $100k contest"), run
-`higgsfield website contest <website_id> --url <link>` — an unpublished app is
-published automatically by the entry (it just needs a live prod deploy, and
-fill the page metadata FIRST — the auto-published listing renders from it), so
-there's no separate publish step. The submission needs one or more public
-social-media links (Instagram / TikTok / YouTube / X) with the app link and
-`#HiggsfieldApp` — the user posts those themselves, so ask for the URL(s). Full
-rules, prizes, and how the contest shapes the build are in
-`references/contest.md`.
 
-**Run the local checks only when you actually need them** — from `app/`:
-```bash
-cd app
-bun install          # only when you changed dependencies / package.json
-bun run typecheck    # tsc --noEmit — only to chase a type error on deploy
-bun run build        # local build — only to chase a build error on deploy
-```
-
-**Adding a dependency: `bun add`.**
-
-**Small edits to an existing app** (copy tweak, one component, styling fix):
-make the edit, deploy.
+**Small edits to an existing app** (copy tweak, one component, styling fix): make
+the local edit; deploy only with explicit live-deployment authorization.
