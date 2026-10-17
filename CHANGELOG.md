@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 2.29 2026-10-18
+
+- Release the merged source-scope and storyboard-evidence updates across the 24-skill package.
+
 ## 2.28 2026-10-18
 
 - Tighten source-claim boundaries and reconcile evidence ledger rows across video-production-assets; map ID 16/41 to direct use; add indexed contact-evidence packet and explicit before/action/after storyboard gates.
