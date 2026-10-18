@@ -1,5 +1,15 @@
 # 카메라 공간 계약 1.0
 
+## Blender decision boundary
+
+Use the [canonical production routing and Blender gate](../../creative-production/references/production-routing.md#blender-decision-gate). Narrative camera planning in text/ordinary 2D storyboards and simple 2D/flat graphics do not require Blender. Numeric lens/coordinate/path proposals without a geometry-verification deliverable remain design-only: apply numeric/schema analysis as appropriate and label unrendered geometry `UNVERIFIED`.
+
+**Blender trigger:** explicit Blender/previs request, or the requested result depends on validating an actual scene-specific 3D arrangement (camera path, geometry, blocking, occlusion, clearance, or contact), or a 3D-verified result is part of the requested deliverable. A camera field, camera move, storyboard, or scene ID alone is not a Blender trigger.
+
+“Scene-specific 3D camera/spatial design” means actual scene-specific 3D geometry/placement/feasibility design under this trigger. `camera-spatial-design` owns the spec; `blender-previsualization` must implement and visually inspect triggered work. Text-only/read-only work never executes Blender: return a plan with checks `PLANNED`/`UNVERIFIED` or `BLOCKED`. Missing required Blender blocks only dependent spatial completion; report the exact missing runtime/evidence, continue independent work, and never substitute another renderer or claim FINAL.
+
+Numeric/schema checks and smoke runs do not prove actual 3D scene feasibility or full requested visual inspection. Smoke is pipeline preflight only, not full-scene/all-requested-frame/contact acceptance. Completed previs preserves camera spec/version and shot/scene/panel IDs, records actual Blender version/mode, and supplies requested `.blend`, frames, numerical analysis, inspection and manifest artifacts; reopen requested outputs and inspect relevant frames. Bounding-box, center-point and ray-cast proxies do not prove full articulated visibility, hand/object contact, performance, aesthetics or final generated-video quality; claims lacking actual inspected evidence remain `UNVERIFIED`.
+
 ## 좌표·렌즈·시간
 월드 좌표는 오른손계, X/Y=수평 바닥, Z=위, 단위 m다. 피사체 position은 발/밑면 중심이다. 카메라 position은 광학 중심이며 target은 실제 월드의 바라보는 점이다. 방향 벡터는 target-position이다. 화면의 오른쪽은 월드 X와 항상 같지 않다.
 

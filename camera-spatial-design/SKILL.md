@@ -3,8 +3,8 @@ name: camera-spatial-design
 version: 1.18
 description: Design camera positions/angles, composition, lens, blocking and motivated paths
   for film, animation or AI video. Use for camera movement, shot coverage, spatial staging
-  or numeric camera specs; every scene-specific 3D design requires Blender implementation
-  and visual inspection via blender-previsualization. Exclude Blender execution.
+  or numeric camera specs; actual scene-specific 3D feasibility or explicit previs requires
+  Blender implementation and visual inspection via blender-previsualization. Exclude Blender execution.
 ---
 
 # 카메라·공간 설계
@@ -17,6 +17,14 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 
 텍스트 전용/read-only 요청에서는 좌표·렌즈·동선·카메라 경로를 채팅 계획으로만 반환한다. 이어서 “렌더된 스토리보드 스틸”을 요구해도 이 스킬은 이미지 출력 owner가 아니므로 이미지/영상 생성·Blender 실행·파일 저장을 하지 않고 담당 storyboard/image 실행 owner에 넘길 입력과 기존 no-generation 제약을 명시한다. coordinator가 로드되지 않은 단독 호출에도 이 경계가 적용된다. 아래의 명세 파일·수치 명령·Blender 필수 절차는 실제 파일/3D 실행이 허용된 범위에만 적용하며, 텍스트 계획을 렌더 검증 완료라 부르지 않는다.
 
+## Blender decision boundary
+
+Use the [canonical production routing and Blender gate](../creative-production/references/production-routing.md#blender-decision-gate). Narrative POV, shot size, composition and motivated moves in text/ordinary 2D storyboards, including simple 2D/flat graphics, do not invoke Blender. Numeric lens/coordinate/path proposals without a geometry-verification deliverable may remain design-only; apply numeric/schema analysis as appropriate and label unrendered geometry `UNVERIFIED`.
+
+**Blender trigger:** explicit Blender/previs request, or the requested result depends on validating an actual scene-specific 3D arrangement (camera path, geometry, blocking, occlusion, clearance, or contact), or a 3D-verified result is part of the requested deliverable. A camera field, camera move, storyboard, or scene ID alone is not a Blender trigger.
+
+“Scene-specific 3D camera/spatial design” means actual scene-specific 3D geometry/placement/feasibility design under this trigger. This skill owns the spec; `blender-previsualization` owns mandatory implementation and visual inspection when triggered. Text-only/read-only work remains non-executing and labels unperformed checks `PLANNED`/`UNVERIFIED` or `BLOCKED`. If required Blender is absent, report the exact missing runtime/evidence, continue independent work, and block only dependent spatial completion; no alternate renderer or FINAL claim. Numeric/schema checks and smoke runs do not prove actual 3D scene feasibility or full requested visual inspection.
+
 ## 실행
 1. [공통 공간 계약](references/spatial-contract.md)을 읽는다. 장면 목적, 관객이 알 정보, 인물 관계, 화면비, 장소·리그 제약을 확인한다. 도서 근거가 필요하면 [자료 지도](references/sources.md)를 읽는다.
 2. 피사체·장벽·동선을 미터 좌표로 배치한다. 인물간 거리를 실제 이야기 관계와 연결하되 가까움=친밀함 같은 보편 공식을 강제하지 않는다. 주목할 대상과 가림을 명시한다.
@@ -26,10 +34,10 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 6. 화면 여백·눈높이·전경/중경/배경·가림·시선·180도 축을 확인한다. 축 변경의 관객 재정위 방법과 주목 대상 전환을 적는다.
 7. `assets/camera-spec-example.json`을 복사해 실제 장면 명세를 작성한다. 예제 좌표를 아무 장면에 그대로 적용하지 않는다. 처음/중간/끝만 보지 말고 모든 프레임에서 대상 위치와 경로를 계산한다.
 8. `python scripts/spatial_spec.py camera_spec.json --out analysis.json`으로 검사한다. warnings를 실제 샷 목적과 대조하고 의도된 크롭/축 변경은 이유를 기록한다. 경고 수를 작품의 품질 점수로 해석하지 않는다.
-9. [설계·구도 판단](references/camera-design.md)을 적용하고, 장면별 3D 카메라/공간 설계는 항상 `$blender-previsualization`에 같은 명세를 인계해 실제 Blender 장면과 렌더 프레임으로 확인한다. `spatial_spec.py` 결과는 입력/사전 검사이지 3D 화면 검증 완료가 아니다. Blender가 없으면 설계 문서는 계획 상태로 반환하고 3D 검증은 BLOCKED/UNVERIFIED로 남긴다.
+9. [설계·구도 판단](references/camera-design.md)을 적용하고, 위 Blender trigger에 해당하는 실제 장면별 3D geometry/placement/feasibility 설계 또는 명시적 previs는 항상 `$blender-previsualization`에 같은 명세를 인계해 실제 Blender 장면과 렌더 프레임으로 확인한다. 서사 카메라 필드·무빙·보드만으로는 호출하지 않는다. `spatial_spec.py` 결과는 입력/사전 검사이지 3D 화면 검증 완료가 아니다. Blender가 없으면 설계 문서는 계획 상태로 반환하고 의존하는 3D 검증만 BLOCKED/UNVERIFIED로 남긴다.
 
 ## 산출물
-채워진 camera_spec.json, 후보 비교표, 분석 JSON, 샷별 선택 이유·미검증 항목을 인계한다. 장면별 3D 카메라/공간 요청에는 Blender의 .blend, 실제 검사 프레임, blender-inspection 및 manifest 증거도 필수다. 텍스트·2D 설계는 3D 실행으로 오인하지 않는다. Blender 런타임이 없으면 숫자 설계만 전달하고 3D 완료로 판정하지 않는다. 기존 ID·시간·버전을 유지한다.
+채워진 camera_spec.json, 후보 비교표, 분석 JSON, 샷별 선택 이유·미검증 항목을 인계한다. 위 trigger에 해당하는 요청에는 Blender의 .blend, 요청된 실제 검사 프레임, numerical-analysis.json, blender-inspection.json 및 manifest.json 증거도 필수다. 실제 Blender version/mode를 기록하고 요청된 .blend/이미지 출력을 다시 열어 관련 프레임을 검사한다. 텍스트·2D 설계는 3D 실행으로 오인하지 않는다. Blender 런타임이 없으면 숫자 설계만 전달하고 3D 완료로 판정하지 않는다. 기존 camera spec/version과 shot/scene/panel ID·시간을 유지한다.
 
 ## 장소 공간 계약 (v5.1)
 
@@ -46,4 +54,4 @@ Pillow가 있으면 `python scripts/render_projection.py camera_spec.json wirefr
 
 ## Acceptance
 
- A camera design is complete only when the delivered `camera_spec.json` passes `spatial_spec.py`, all scene-specific positions and dimensions identify units and mark estimates, and the selected view/path has a stated story purpose plus observable framing, visibility, and continuity checks. Every supplied door, opening, and access path has an explicit per-view disposition: visible/in frame, occluded with the blocker named, intentionally out of frame with a reason, or irrelevant with a reason; where passage matters, label the path clear or blocked. Never leave a supplied entry/exit route implicit. Every scene-specific 3D design also requires the Blender `.blend`, inspected frames and handoff manifest; without them, return the numeric design as a plan and mark 3D validation `BLOCKED` or `UNVERIFIED`.
+ A numeric camera design is complete only when the delivered `camera_spec.json` passes `spatial_spec.py`, all scene-specific positions and dimensions identify units and mark estimates, and the selected view/path has a stated story purpose plus observable framing, visibility, and continuity checks. Every supplied door, opening, and access path has an explicit per-view disposition: visible/in frame, occluded with the blocker named, intentionally out of frame with a reason, or irrelevant with a reason; where passage matters, label the path clear or blocked. Never leave a supplied entry/exit route implicit. These numeric design checks do not verify actual geometry. Every request meeting the Blender trigger also requires the Blender `.blend`, requested inspected frames, analysis/inspection artifacts and handoff manifest; without them, return the numeric design as a plan and mark dependent 3D validation `BLOCKED` or `UNVERIFIED`. Smoke is pipeline preflight only, not full-scene/all-requested-frame/contact acceptance. Bounding-box, center-point and ray-cast proxies do not prove full articulated visibility, hand/object contact, performance, aesthetics or final generated-video quality; claims without actual inspected evidence stay `UNVERIFIED`.
