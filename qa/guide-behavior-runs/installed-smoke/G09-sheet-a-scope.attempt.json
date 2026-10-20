@@ -1,0 +1,109 @@
+{
+  "id": "G09-sheet-a-scope",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "전체 image_backed 프리프로덕션의 캐릭터 시트를 설계 중이다. 가이드가 필요한 방향만 권하니 Sheet A를 정면 한 장으로 줄여도 되는가? 현재는 텍스트 검토만 요청한다.",
+  "prompt_sha256": "ba76470740d3b814ad12fb1b0d99d3fa92057df8c791ec52fdd0899b5fa92185",
+  "owner": "video-production-assets/references/20-visual-mode-ssot.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/20-visual-mode-ssot.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "c902e2f6c522560ac936daa6444aacd947fe6eb28db9a2ed11aae7e58a2a4e82",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/20-visual-mode-ssot.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "전체 image_backed 프리프로덕션의 캐릭터 시트를 설계 중이다. 가이드가 필요한 방향만 권하니 Sheet A를 정면 한 장으로 줄여도 되는가? 현재는 텍스트 검토만 요청한다."
+  ],
+  "started_at": "2026-10-20T13:11:11.468866+00:00",
+  "duration_seconds": 15.064628346008249,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "4ac8477d097c18b3d64c62657c2e378f151a52bf62bba4b76c07a1fc8f7b2065",
+  "source_after": "4ac8477d097c18b3d64c62657c2e378f151a52bf62bba4b76c07a1fc8f7b2065",
+  "trace": {
+    "final_text": "**아니요. 전체 `image_backed` 프리프로덕션의 Sheet A는 정면 1뷰로 축소할 수 없습니다.** ‘한 장’은 **7뷰를 담은 이미지 파일 한 장**이라는 뜻입니다.\n\n- **전신 4뷰:** 정면·3/4 전면·측면·후면\n- **얼굴 3뷰:** 정면·3/4·측면\n- 모두 동일 인물이며, 중립 표정·중립 스튜디오 조명·장면 서사 없음\n\n‘필요한 방향만 선택’하는 참조 팩과 샷별 최소 입력 원칙은 **전체 패키지의 Sheet A 7뷰 필수 요건을 줄이지 않습니다.**  \n[근거: `video-production-assets/references/20-visual-mode-ssot.md` §2 「이미지 기반 전체 패키지의 필수 이미지」, §3 「통합 시트의 사용 범위와 입력 뷰」]\n\n현재는 **텍스트 검토만** 진행하므로, 설계에 위 7뷰 요구를 유지하면 됩니다. 지금 이미지 생성·과금은 하지 않으며, 실제 파일 없이 이미지 완성·검수 통과로 판단하지 않습니다. 전체 `image_backed` 납품 단계에는 실제 Sheet A 파일이 필요합니다.  \n[같은 파일 §2 「정본 레코드 매핑」]",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/20-visual-mode-ssot.md",
+          "offset": null,
+          "limit": null
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/20-visual-mode-ssot.md",
+        "local_path": "video-production-assets/references/20-visual-mode-ssot.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      }
+    ],
+    "tools_called": [
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1293,
+        "output": 38,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1331,
+        "cost": {
+          "input": 0.0025859999999999998,
+          "output": 0.00038,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002966
+        }
+      },
+      {
+        "input": 7086,
+        "output": 311,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 7397,
+        "cost": {
+          "input": 0.014171999999999999,
+          "output": 0.0031100000000000004,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.017282
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "0ae4e68b754b9b744a5959fa7834eee1530e5833763a82b6d5a7974b531c0c5c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

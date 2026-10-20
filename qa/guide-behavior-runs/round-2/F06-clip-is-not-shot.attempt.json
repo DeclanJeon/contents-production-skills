@@ -1,0 +1,134 @@
+{
+  "id": "F06-clip-is-not-shot",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "생성 파일 하나 안에 와이드→손 인서트→반응 클로즈업 세 컷이 있다. 같은 입력으로 파일을 두 번 받았다. 파일 수에 맞춰 한 샷/한 테이크로 기록하면 되나?",
+  "prompt_sha256": "290e8325bf9faa1bb7020438074ec88c92d2eb9be3bc5e369349b17eb44636e1",
+  "owner": "video-production-assets/references/06-shots.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/06-shots.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "214dc765a15505fe7650a97f80ac93612b5c4e98b11ae09de00b3bbc54a5d04f",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/06-shots.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "생성 파일 하나 안에 와이드→손 인서트→반응 클로즈업 세 컷이 있다. 같은 입력으로 파일을 두 번 받았다. 파일 수에 맞춰 한 샷/한 테이크로 기록하면 되나?"
+  ],
+  "started_at": "2026-10-20T13:03:19.557503+00:00",
+  "duration_seconds": 16.878341383999214,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "아니요. **파일 수와 샷 수·테이크 수는 구분해야 합니다.**\n\n같은 입력으로 **별도 생성 결과를 두 번 받은 것**이라면:\n\n| 단위 | 기록 |\n|---|---|\n| 샷 | 와이드 / 손 인서트 / 반응 클로즈업 — **3개, 각각 ID 미배정** |\n| 클립 | 출력 파일 **2개** |\n| 테이크 | 같은 계획의 서로 다른 생성 결과 **2개** |\n\n각 샷에 **각 결과 파일 안의 해당 구간**을 연결하세요. 세 샷을 파일 하나라는 이유로 한 샷으로 합치거나, 총 6개의 새 샷으로 늘리지 않습니다. 실제 파일·타임코드는 제공되지 않아 미확인입니다.\n\n단, 별도 생성이 아니라 **동일 파일을 다시 다운로드한 것**이라면 새 테이크가 아닙니다.\n\n근거: `video-production-assets/references/06-shots.md` §참조 자료에서 샷으로 인계, `references/29-reference-driven-production.md` §제작 단위를 혼동하지 않는다.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/06-shots.md",
+          "offset": 1,
+          "limit": 2000
+        }
+      },
+      {
+        "name": "grep",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "pattern": "take|테이크|클립",
+          "limit": 15,
+          "context": 2
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/06-shots.md",
+        "local_path": "video-production-assets/references/06-shots.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      }
+    ],
+    "tools_called": [
+      "read",
+      "grep"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1294,
+        "output": 35,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1329,
+        "cost": {
+          "input": 0.002588,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002938
+        }
+      },
+      {
+        "input": 4967,
+        "output": 46,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 6165,
+        "cost": {
+          "input": 0.009934,
+          "output": 0.00046,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0105092
+        }
+      },
+      {
+        "input": 2658,
+        "output": 246,
+        "cacheRead": 6016,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 8920,
+        "cost": {
+          "input": 0.0053159999999999995,
+          "output": 0.0024600000000000004,
+          "cacheRead": 0.0006016000000000001,
+          "cacheWrite": 0,
+          "total": 0.0083776
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "2bd661877d588a96b6ed3f33777bebe0664b5b504b349c1855d36fcebf0def0d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

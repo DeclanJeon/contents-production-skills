@@ -1,0 +1,137 @@
+{
+  "id": "G06-minimal-voice-repair",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "사용자 보고: 영상 연기는 좋은데 한 단어 발음만 틀렸다. 깨끗한 승인 TTS 보이스는 있다. 직접 청취는 아직 못했다. 교정 계획만 써라.",
+  "prompt_sha256": "e5fb1ea3053fa0b55e64a28ae24eab5e84e4debee3563eae3a6fb1aee25e987e",
+  "owner": "video-production-assets/references/22-dialogue-lipsync.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/22-dialogue-lipsync.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "71e9e504ac7cea6908b2bcca248f850a6414fcc38fe2572ae63e358ee45b665b",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/22-dialogue-lipsync.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "사용자 보고: 영상 연기는 좋은데 한 단어 발음만 틀렸다. 깨끗한 승인 TTS 보이스는 있다. 직접 청취는 아직 못했다. 교정 계획만 써라."
+  ],
+  "started_at": "2026-10-20T12:55:56.903800+00:00",
+  "duration_seconds": 26.318609105976066,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "source_after": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "trace": {
+    "final_text": "## 한 단어 발음 교정 계획\n\n**현재 상태:** “연기는 좋고 한 단어만 오발음”은 사용자 보고다. 직접 청취 전이므로 발음·연기·싱크는 `unverified`로 둔다. 깨끗한 승인 TTS 보이스를 우선 사용하며, 전체 영상 재생성이나 보이스 복제는 계획하지 않는다.\n\n1. **교정 지점 확인**\n   - 문제 단어·승인된 정확한 발음·원본 타임코드를 기록한다.\n   - 실제 청취 시 앞뒤 숨·억양·감정과 보이는 입을 확인하고, 유지할 특성을 표시한다.\n\n2. **최소 교체 범위 선택**\n   - 자연스럽게 분리되면 단어만, 받침·연음·호흡이 이어지면 주변 어절이나 짧은 구절까지 교체한다.\n   - 음절 하나를 무조건 잘라 붙이거나 문장 전체를 다시 만들지 않는다.\n\n3. **승인 보이스로 교정 후보 준비**\n   - 기존 문구와 보이스 정체성을 유지하고, 확인된 발음 제어만 사용한다.\n   - 새 생성이 필요하면 기존 비용·시도 승인 범위 안에서만 진행한다. 보이스 보유를 생성 승인으로 간주하지 않는다.\n\n4. **원본을 보존한 국소 접합**\n   - 별도 트랙에서 자음·받침·들숨이 잘리지 않는 경계를 청취로 고른다.\n   - 음량·밝기·잔향·룸톤을 맞춘다. 크로스페이드 길이는 실제 소리로 결정한다.\n   - 길이가 맞지 않으면 무조건 압축하지 않고 짧은 구절 교체와 비교한다.\n\n5. **같은 기준으로 재검수**\n   - **교체 구절 → 앞뒤 문장 → 장면 전체 믹스 → 영상의 입·감정** 순서로 확인한다.\n   - 성공 기준은 정확한 발음뿐 아니라 원래 인물이 같은 숨과 감정으로 이어 말하는지다.\n   - 변경 음성에 종속된 자막·립싱크·타이밍만 재검토하고, 영향 없는 승인은 유지한다. 미청취 항목은 통과 처리하지 않는다.\n\n**근거:** `video-production-assets/references/22-dialogue-lipsync.md` — 「생성 후 — 듣기·최소 교정·재검수」, 「발음 일부만 틀렸을 때」; `video-production-assets/references/29-reference-driven-production.md` — R6.",
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/22-dialogue-lipsync.md",
+        "local_path": "video-production-assets/references/22-dialogue-lipsync.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": 112,
+        "limit": 40
+      }
+    ],
+    "tools_called": [
+      "read",
+      "grep",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1290,
+        "output": 38,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1328,
+        "cost": {
+          "input": 0.00258,
+          "output": 0.00038,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.00296
+        }
+      },
+      {
+        "input": 7964,
+        "output": 39,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 8003,
+        "cost": {
+          "input": 0.015927999999999998,
+          "output": 0.00039000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.016318
+        }
+      },
+      {
+        "input": 451,
+        "output": 35,
+        "cacheRead": 7808,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 8294,
+        "cost": {
+          "input": 0.0009019999999999999,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0.0007808000000000001,
+          "cacheWrite": 0,
+          "total": 0.0020328000000000004
+        }
+      },
+      {
+        "input": 2330,
+        "output": 576,
+        "cacheRead": 8064,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 10970,
+        "cost": {
+          "input": 0.00466,
+          "output": 0.00576,
+          "cacheRead": 0.0008064000000000001,
+          "cacheWrite": 0,
+          "total": 0.011226400000000001
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "e172e4f7400cba915ee0245427097fae35f3c13928df2c064ba9b0f9cf696f73",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-20",
+  "scope": "User-authorized scoped guide commit/push preparation and global working-tree link deployment",
+  "git_base": "08585fede18f67d8a77b8bfcfa468693b956d1f2",
+  "validated_index_tree_before_final_report_only_updates": "215c5be0ad2a6466ecbd808cefdcefb5aad91874",
+  "commit_scope": {
+    "manifest_skills": 24,
+    "package_version": "2.29",
+    "included": "GUIDE-01 procedures, owner/template integration, installer recovery, behavior runner/evidence, approved media QA and README",
+    "excluded": "Preexisting product-detail-page-builder/manifest integration, camera catalog/implementation feature, unrelated QA, .from-backup files, cache/temp files and line-ending-only changes",
+    "note": "Historical 25-skill behavior/installation records came from the working checkout. The scoped index removes unrelated additions and was separately tested; no claim of fresh model execution on the index."
+  },
+  "isolated_index_regression": {
+    "command": "PYTHONPATH=/tmp/shortdrama-guide-audit/test-deps python3 -m pytest -q -ra --basetemp=/tmp/shortdrama-guide-audit/pytest-release-all-reasons",
+    "working_directory": "/tmp/shortdrama-guide-audit/release-index",
+    "passed": 293,
+    "skipped": 13,
+    "subtests_passed": 453,
+    "skip_reason": "Real delivery fixtures in community-shorts-stills-pipeline require both ffmpeg and ffprobe; ffprobe is unavailable.",
+    "targeted": {"passed": 283, "subtests_passed": 449},
+    "initial_failure_and_repair": "One test unnecessarily pinned the dirty checkout to 25 skills; replaced with required existing-owner membership, unique IDs and no guide-specific new skill. The test now also passes the committed 24-skill baseline.",
+    "version_check": "package 2.29 / 24 skills passed",
+    "limits": "Final README/report-only updates are outside the recorded index tree; no source behavior was changed after these runs."
+  },
+  "deployment": {
+    "status": "applied_and_link_targets_verified",
+    "mode": "symlinks to current working tree, not an immutable committed release",
+    "working_manifest_skills": 25,
+    "roots": ["~/.codex/skills", "~/.claude/skills", "~/.agents/skills", "~/.pi/agent/skills"],
+    "created": 75,
+    "repointed": 1,
+    "skipped_correct_links": 24,
+    "backed_up_real_folders": 1,
+    "backup_root": "~/.skills-sync-backup/guide-release-20261020",
+    "pi_discovered_managed_skills": 25,
+    "pi_managed_name_collisions": 0,
+    "pi_all_discovered_skills_including_unrelated": 30,
+    "preserved": "Existing unrelated installed skills and local unfinished source changes; source support regenerated only from existing reserved derived payloads.",
+    "active_session": "Files and discovery paths updated. The running session's skill menu/system prompt cannot be hot-reloaded through these tools; run /reload or start a new session."
+  },
+  "no_additional_media_generation_or_spend": true,
+  "git_publication": "Commit and remote SHA verification are performed after this pre-commit validation record; this file does not predict their success."
+}

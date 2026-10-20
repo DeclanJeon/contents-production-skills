@@ -1,0 +1,43 @@
+{
+  "id": "c3c56056-90c4-4ea1-94c7-8baa166e0dcc",
+  "type": "audio",
+  "status": "completed",
+  "model": "seed_audio",
+  "params": {
+    "prompt": "전달이 끝났습니다.",
+    "voice": {
+      "id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+      "name": "Grady",
+      "type": "preset",
+      "age": "middle_aged",
+      "gender": "male",
+      "source": "https://d1xarpci4ikg0w.cloudfront.net/audio_voice/e2a2d2e6-9ed2-59cd-82af-feaa27f8a678/preview-c07e730034d0926d.mp3",
+      "waveform_url": "https://d1xarpci4ikg0w.cloudfront.net/waveform/3e6474b7-1c47-4ad7-b773-a735babf17ad.json",
+      "thumbnail_url": "https://d1xarpci4ikg0w.cloudfront.net/audio_voice/e2a2d2e6-9ed2-59cd-82af-feaa27f8a678/thumbnail-42a7c60501e92f87.webp",
+      "supported_models": [
+        "elevenlabs",
+        "minimax",
+        "seed_speech"
+      ]
+    },
+    "format": "wav",
+    "sample_rate": 24000,
+    "speech_rate": 0,
+    "loudness_rate": 0,
+    "pitch_rate": 0,
+    "expression_intensity": 5,
+    "mood": 0,
+    "batch_size": 1,
+    "voice_type": "preset",
+    "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+    "voice_as_reference": false,
+    "speaker": "S_Lluhdu342"
+  },
+  "results": {
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3J8vVixkLQHkQldTCv8Zq8WbL15/hf_20261020_134010_c3c56056-90c4-4ea1-94c7-8baa166e0dcc.wav",
+    "waveformUrl": "https://d1xarpci4ikg0w.cloudfront.net/waveform/aa975cfa-3caf-4504-b135-0237c92447b5.json",
+    "durationSec": 3.2
+  },
+  "createdAt": 1792503610.89787,
+  "liked": false
+}

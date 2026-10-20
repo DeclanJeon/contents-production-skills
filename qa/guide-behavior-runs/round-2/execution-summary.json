@@ -1,0 +1,113 @@
+{
+  "cases": [
+    {
+      "id": "F01-creature-vehicle-effect",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "F01-creature-vehicle-effect.attempt.json"
+    },
+    {
+      "id": "F02-crowd-cardinality",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "F02-crowd-cardinality.attempt.json"
+    },
+    {
+      "id": "F03-prompt-overload",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "F03-prompt-overload.attempt.json"
+    },
+    {
+      "id": "F04-hidden-provider-rewrite",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "F04-hidden-provider-rewrite.attempt.json"
+    },
+    {
+      "id": "F05-sheet-hard-gate",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "F05-sheet-hard-gate.attempt.json"
+    },
+    {
+      "id": "F06-clip-is-not-shot",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "F06-clip-is-not-shot.attempt.json"
+    },
+    {
+      "id": "G01-reference-conflict",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G01-reference-conflict.attempt.json"
+    },
+    {
+      "id": "G02-redacted-cropped-sheet",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G02-redacted-cropped-sheet.attempt.json"
+    },
+    {
+      "id": "G03-bilingual-completion",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G03-bilingual-completion.attempt.json"
+    },
+    {
+      "id": "G04-reference-is-not-extend",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G04-reference-is-not-extend.attempt.json"
+    },
+    {
+      "id": "G05-extend-full-output",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G05-extend-full-output.attempt.json"
+    },
+    {
+      "id": "G06-minimal-voice-repair",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G06-minimal-voice-repair.attempt.json"
+    },
+    {
+      "id": "G07-usable-range-missing-event",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G07-usable-range-missing-event.attempt.json"
+    },
+    {
+      "id": "G08-cost-zero-and-unknown",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G08-cost-zero-and-unknown.attempt.json"
+    },
+    {
+      "id": "G09-sheet-a-scope",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G09-sheet-a-scope.attempt.json"
+    },
+    {
+      "id": "G10-export-and-caption",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G10-export-and-caption.attempt.json"
+    },
+    {
+      "id": "G11-optics-and-annotation",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G11-optics-and-annotation.attempt.json"
+    },
+    {
+      "id": "G12-brief-remains-generic",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G12-brief-remains-generic.attempt.json"
+    }
+  ],
+  "review_status": "UNREVIEWED"
+}

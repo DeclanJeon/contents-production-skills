@@ -1,0 +1,17 @@
+{
+  "channels": 2,
+  "sample_width_bytes": 2,
+  "sample_rate_hz": 24000,
+  "frames": 76800,
+  "duration_seconds": 3.2,
+  "compression": "NONE",
+  "peak_dbfs": -8.007444366002744,
+  "rms_dbfs": -25.76503955899888,
+  "full_scale_samples": 0,
+  "non_silent_any": true,
+  "local_path": "/tmp/shortdrama-guide-audit/media-run-01/audio.wav",
+  "sha256": "9464080e331bc79147948adc05882ac866ab1d45659fa3ad0486df18491e14b9",
+  "bytes": 307244,
+  "listening_verdict": "unverified; no listening-capable input available",
+  "speech_content_verdict": "unverified; no local ASR installed"
+}

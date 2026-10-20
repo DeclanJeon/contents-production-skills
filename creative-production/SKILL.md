@@ -27,6 +27,8 @@ For recurring production, multi-stage coordination, reuse of approved resources,
 
 Read the current request and supplied or explicitly linked project material. Preserve language, exclusions, fixed facts, selected tools, continuity, source versions and actual approvals. Unreadable material stays unverified. Separate evidence, calculations, interpretation and proposals. Unrelated prior examples are not current constraints.
 
+When a request asks to apply craft already integrated into this package, use the applicable packaged procedure (for reference-driven production, [R1–R8](../video-production-assets/references/29-reference-driven-production.md)) rather than asking the user to resend the original book/guide. An unavailable original blocks only fresh quotation, source inspection or source-specific verification, not use of the integrated workflow. Before declaring an input absent, inspect the relevant supplied/local source. If only the topic/audience/learning goal is consequentially missing, ask for those missing brief choices only; do not restart intake or claim the integrated guide is unavailable.
+
 Reuse supplied/approved choices and the active interview flow. Ask only for a consequential unresolved choice unavailable from tools/sources. Open creative direction needs supplied, accepted or explicitly delegated authority; silence is not approval. A locked brief or one artifact needs no project interview.
 
 ## Select one current stage
@@ -70,6 +72,8 @@ Use the [canonical routing table](references/production-routing.md) for the requ
 ## Execution and delivery
 
 Check only the selected surface's runtime/auth. No automatic installation. Preserve source assets, isolated requested outputs and credential secrecy. Use deterministic camera/geometry for exact space, composition for critical text/logos/prices, and actual assembly/encoding tools. Inspect outputs before authorized scaling. Parallelize only independent work; dependency chains and uncertain async status never justify duplicate paid submission.
+
+For reference-heavy generated-production handoffs, apply only the relevant parts of [reference-driven production](../video-production-assets/references/29-reference-driven-production.md): attribute-level reference roles/precedence, same-state sheet inputs, synchronized submission/review language, actual new/edit/extend mode, minimal dialogue repair, and usable-range QA. This extends the existing owners and templates, not the requested scope, image route, Sheet A contract, runtime/spend authority, or canonical ledger. Source-guide screenshots and personal model preferences are not live capability or generation evidence.
 
 Use [creative-qa.md](references/creative-qa.md) for the actual requested surface: text/source checks, audio listening, video playback/timing/continuity/encoding, Blender scene/render inspection or browser inspection. Clip critique follows generation-planning §5. Schema success is not visual quality, rights clearance or user approval.
 

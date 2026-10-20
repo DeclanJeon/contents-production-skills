@@ -45,11 +45,17 @@
 
 무거운 실행 작업의 동시성은 워커/에이전트 동시성과 별도로 관리한다. 선택한 워크플로에서 실제 사용하는 자원 풀(예: 공급자 작업, GPU 추론, 브라우저 캡처, CPU 인코딩)만 구분하고, 각 상한은 검증한 실행기 제약과 실측한 장비 용량으로 정한다. 다른 프로젝트의 과거 수치를 그대로 가져오지 않는다. 가능하면 작업별 출력을 격리한다. 완료 전 임시/부분 파일을 납품물로 승격하지 말고, 작업 완료 후 디코딩 가능 여부와 의도한 작업 결과인지 확인해 원장에 등록한다. 재개 시 파일 존재만 보지 말고 실행 상태와 미디어 무결성을 확인한다. 기존 시도 이력과 에셋 원장을 사용하며 별도 큐나 프로젝트 원장을 만들지 않는다.
 
+## 채택 비용과 재개 지점 (요청된 운영 회고만)
+
+[실무 인계 R7](29-reference-driven-production.md#usable-ranges), GUIDE-01 pp93, 100–101의 공정을 일반화한다. 생성 총초수와 최종 채택 초수를 분리하고, 명시한 포함 범위의 실제 비용/채택 초수를 계산한다. 통화·구독/이미지/노동 포함 여부·무료 크레딧 사용량·중복 사용 구간을 밝힌다. 채택 0초는 N/A, 미확인 지출은 미산정이며 견적을 실제 비용으로 쓰지 않는다. 짧은 비용 보고라도 생성/채택 초수와 별개로 포함 비용 범위·통화·집계 기간의 확인 여부를 적는다. 0초라 비율을 계산할 수 없다고 해서 비용 항목/통화/기간이 확인된 것처럼 생략하지 말고 미확인으로 남긴다. 기존 운영 템플릿의 회고 칸을 채운다.
+
+재개 시 기존 원장/이력에서 당시 제출 전문·참조·설정→실제 결과/선택 구간→변경 이유/보존 조건→다음 작업/미해결 승인을 조회한다. 새 병렬 원장을 만들지 않고 `recording-production-history`의 실제 중단/재개 및 원격 상태 확인을 유지한다. 숫자가 최신인 파일을 모든 속성의 새 마스터로 취급하지 않는다.
+
 ## 입력·산출물
 확정 브리프와 해당 제작 원장을 입력받고 아래 템플릿을 채워 인계한다.
 
 ## 근거와 한계
-The scheduling, budget-record, and asset-operation procedures and schemas in this module are package-authored; no book is their direct source or operational model. If asked for the book source of this workflow, state that explicitly. Related background only: source ID 04 is Sidney Lumet, *Making Movies* (`sources.md` §자료 원장, ID 04); the directly checked L37, printed p.18, concerns production constraints such as weather, budget, departmental collaboration, and design serving theme. It does not prescribe this module's procedures or schemas. Cite ID 04 only as that limited background, never as the source of the operations framework. `04-directing.md` does not exist.
+The base scheduling, budget-record, and asset-operation procedures and schemas (steps 1–7 and film preparation/day records) are package-authored; no book is their direct source or operational model. The separately labeled GUIDE-01 supplement contributes only the page-scoped usable-cost/resumption craft examples, not these schemas or the overall operations framework. If asked for the book source of this workflow, state that explicitly. Related background only: source ID 04 is Sidney Lumet, *Making Movies* (`sources.md` §자료 원장, ID 04); the directly checked L37, printed p.18, concerns production constraints such as weather, budget, departmental collaboration, and design serving theme. It does not prescribe this module's procedures or schemas. Cite ID 04 only as that limited background, never as the source of the operations framework. `04-directing.md` does not exist.
 The source index is `video-production-assets/references/sources.md`; there is no root-level `video-production-assets/sources.md`.
 
 ## 템플릿

@@ -1,0 +1,153 @@
+{
+  "id": "G10-export-and-caption",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "타임라인에서는 정상인데 내보낸 세로 영상은 소리가 없고 손이 잘린다. 자막도 반응보다 결론을 먼저 보여 준다. 검수 계획을 써라.",
+  "prompt_sha256": "85aa63a184a8c87ce8ab98005591bb219d1dd83f173be9b8251ab09feb508829",
+  "owner": "video-production-assets/references/15-delivery.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/15-delivery.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "dd0292c0502adf25a6a144d75eabba719a8a5762ed808457f4e87021bd5a55e8",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/15-delivery.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "타임라인에서는 정상인데 내보낸 세로 영상은 소리가 없고 손이 잘린다. 자막도 반응보다 결론을 먼저 보여 준다. 검수 계획을 써라."
+  ],
+  "started_at": "2026-10-20T12:56:20.485152+00:00",
+  "duration_seconds": 33.39016886398895,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "source_after": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "trace": {
+    "final_text": "## 세로 영상 검수 계획\n\n**기준은 타임라인이 아니라 내보낸 파일이다.** 보고된 무음·손 잘림·결론 선공개를 납품 차단 항목으로 두고 검수한다. 실제 파일이 제공되지 않았으므로 현재 검사 상태는 모두 `unverified`다.\n\n### 1. 검사 대상 고정\n- 문제가 난 출력본과 수정본의 파일 ID·버전, 연결된 프로젝트·원본·자막·오디오를 기록한다.\n- 목적지의 세로 규격, 오디오 의도, 자막 방식과 UI 가림 영역을 확인한다. 미확인 규격은 추정하지 않는다.\n\n### 2. 증상별 검수\n\n| 항목 | 검사 방법·원인 분리 | 수정 및 통과 기준 |\n|---|---|---|\n| **무음** | 출력 파일의 오디오 스트림 유무를 확인하고 직접 청취한다. 타임라인 트랙 mute·출력 버스 → 내보내기 오디오 포함 설정 → 재생기 음소거·출력 장치를 각각 구분한다. 다른 재생기로 교차 확인한다. | 확인된 원인만 수정한다. 수정 출력본 전체에서 의도한 대사·음악·효과가 들리고 누락·끊김이 없어야 통과한다. |\n| **손 잘림** | 세로 출력에서 손이 등장하고 움직이며 대상과 접촉하는 구간을 재생하고 프레임 단위로 확인한다. 크롭·위치 이동·자막·목적지 UI의 가림을 구분한다. | 구간별 리프레이밍·축소 배치 등을 비교한다. 필요한 손동작과 접촉 관계가 유지되고 자막도 읽혀야 통과한다. 가로본이 있다면 별도로 검사한다. |\n| **자막의 결론 선공개** | 원문·최종 실제 발화·자막을 나란히 놓고 **반응 시점, 결론 발화 시점, 자막 노출 시점**을 기록한다. 한 자막에 뒤의 결론까지 묶였는지도 확인한다. | 자막을 의미 단위로 나누고 최종 음성에 맞춰 재타이밍한다. 반응을 보기 전에 결론이 드러나지 않으면서 발화 동기·읽기 시간을 충족해야 통과한다. 내용 변경이 필요하면 승인받는다. |\n\n근거: `video-production-assets/references/29-reference-driven-production.md` §R8, `video-production-assets/references/15-delivery.md` 「자막·출력 파일 재검수」.\n\n### 3. 수정본 회귀 검수\n- **새로 내보낸 파일 전체를 처음부터 끝까지** 시청·청취한다.\n- 첫/끝, 중간 끊김, 오디오, 손·접촉, 자막 타이밍을 다시 확인한다.\n- 실제 작은 화면과 목적지 UI 미리보기에서 자막·손 가림을 확인한다. 대표 프레임만으로 동기화 통과를 선언하지 않는다.\n- 편집·인코딩 문제는 해당 설정과 구간부터 수정하며, 전체 미디어 재생성을 기본 해결책으로 삼지 않는다.\n\n### 4. 기록·납품 판정\n각 항목에 **파일/버전·타임코드·검사 방법·관측 결과·수정 내용·재검수 결과**를 남긴다. 상태는 `pass / fail / unverified / N/A`로 구분한다. 세 차단 항목이 해결되고 실제 출력 재검수가 끝나기 전에는 납품 완료로 처리하지 않는다.\n\n기록 양식: `video-production-assets/assets/15-delivery-template.md` 「실제 출력·자막 대조」.",
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/15-delivery.md",
+        "local_path": "video-production-assets/references/15-delivery.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": 139,
+        "limit": 35
+      },
+      {
+        "path": "video-production-assets/assets/15-delivery-template.md",
+        "local_path": "video-production-assets/assets/15-delivery-template.md",
+        "success": true,
+        "offset": 1,
+        "limit": 200
+      },
+      {
+        "path": "creative-production/references/marketing-source-adaptation.md",
+        "local_path": "creative-production/references/marketing-source-adaptation.md",
+        "success": true,
+        "offset": 1,
+        "limit": 180
+      }
+    ],
+    "tools_called": [
+      "read",
+      "grep",
+      "read",
+      "read",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1285,
+        "output": 35,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1320,
+        "cost": {
+          "input": 0.00257,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.00292
+        }
+      },
+      {
+        "input": 2904,
+        "output": 41,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 4097,
+        "cost": {
+          "input": 0.005808,
+          "output": 0.00041000000000000005,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0063332
+        }
+      },
+      {
+        "input": 738,
+        "output": 111,
+        "cacheRead": 3968,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 4817,
+        "cost": {
+          "input": 0.0014759999999999999,
+          "output": 0.00111,
+          "cacheRead": 0.00039680000000000005,
+          "cacheWrite": 0,
+          "total": 0.0029828
+        }
+      },
+      {
+        "input": 3749,
+        "output": 839,
+        "cacheRead": 4608,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 9196,
+        "cost": {
+          "input": 0.0074979999999999995,
+          "output": 0.00839,
+          "cacheRead": 0.00046080000000000003,
+          "cacheWrite": 0,
+          "total": 0.0163488
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "1eeb7493c005ac01b6d7f59949d2be4e174104eca3dbd7172f409d39549278e6",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

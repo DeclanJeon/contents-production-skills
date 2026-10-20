@@ -1,0 +1,98 @@
+{
+  "id": "G08-cost-zero-and-unknown",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "생성 60초, 최종 채택 0초, 비용은 아직 모른다. 채택 1초당 비용과 상태를 보고하라.",
+  "prompt_sha256": "686b23f1c18a647474c08ce73327a7fd19c30e3c495b09f4c75c9bec50ea2223",
+  "owner": "video-production-assets/references/14-production-ops.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/14-production-ops.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "c2584019c625b464df4ba0f324379c554a8995cf1604de52df02cad8eba2b49a",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/14-production-ops.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "생성 60초, 최종 채택 0초, 비용은 아직 모른다. 채택 1초당 비용과 상태를 보고하라."
+  ],
+  "started_at": "2026-10-20T12:56:10.175961+00:00",
+  "duration_seconds": 10.308497147983871,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "source_after": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "trace": {
+    "final_text": "| 항목 | 보고 |\n|---|---|\n| 생성 총분량 | 60초 |\n| 최종 채택 분량 | 0초 |\n| 실제 비용 상태 | **미산정** — 지출 미확인 |\n| 채택 1초당 비용 | **N/A** — 채택 0초로 나눌 수 없음 |\n\n생성 60초를 채택 초수 대신 분모로 쓰거나, 미확인 비용을 0원으로 처리하지 않습니다.\n\n근거: `video-production-assets/references/14-production-ops.md` §채택 비용과 재개 지점.",
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/14-production-ops.md",
+        "local_path": "video-production-assets/references/14-production-ops.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      }
+    ],
+    "tools_called": [
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1276,
+        "output": 36,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1312,
+        "cost": {
+          "input": 0.002552,
+          "output": 0.00036,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002912
+        }
+      },
+      {
+        "input": 2764,
+        "output": 136,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 4052,
+        "cost": {
+          "input": 0.005528,
+          "output": 0.00136,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0070032
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "f3a50cce4db34c244c59390dabac30e3d791d00b08dba14c7dffb9c943fcef29",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

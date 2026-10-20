@@ -266,6 +266,105 @@ class PreflightFailureTests(unittest.TestCase):
         self.assertEqual(list(external.iterdir()), [])
 
 
+class DerivedSupportExclusionTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.base = Path(self.tmp.name)
+        self.repo = make_repo(self.base / "repo")
+        self.root = self.base / "installed"
+        self.support = self.repo / "alpha-skill" / "support"
+
+    def test_explicit_exclusion_refreshes_reserved_snapshot_and_preserves_custom(self):
+        write_file(self.support, "manifest.json", '{"version":"stale"}')
+        write_file(self.support, "qa/old.json", "old QA")
+        write_file(self.support, "examples/old.txt", "old example")
+        write_file(self.support, "CHANGELOG.md", "stale release")
+        write_file(self.support, "custom/readme.md", "custom bytes")
+        before = {p.relative_to(self.repo).as_posix(): p.read_bytes()
+                  for p in self.repo.rglob("*") if p.is_file()}
+        result = ip.install(self.root, repo_root=self.repo, exclude_derived_support=True)
+        installed = result.support_root
+        self.assertEqual(json.loads((installed / "manifest.json").read_text())["version"], "0.0-test")
+        self.assertTrue((installed / "qa/audit.json").is_file())
+        self.assertFalse((installed / "qa/old.json").exists())
+        self.assertFalse((installed / "examples/old.txt").exists())
+        self.assertFalse((installed / "CHANGELOG.md").exists())
+        self.assertEqual((installed / "custom/readme.md").read_text(), "custom bytes")
+        after = {p.relative_to(self.repo).as_posix(): p.read_bytes()
+                 for p in self.repo.rglob("*") if p.is_file()}
+        self.assertEqual(before, after)
+
+    def test_default_still_rejects_snapshot_with_no_destination_writes(self):
+        write_file(self.support, "manifest.json", "stale")
+        with self.assertRaises(ip.PreflightError):
+            ip.install(self.root, repo_root=self.repo)
+        self.assertFalse(self.root.exists())
+
+    def test_flag_never_skips_non_directory_support_parent(self):
+        write_file(self.repo / "alpha-skill", "support", "not a directory")
+        with self.assertRaises(ip.PreflightError):
+            ip.install(self.root, repo_root=self.repo, exclude_derived_support=True)
+        self.assertFalse(self.root.exists())
+
+    def test_flag_rejects_support_root_link_and_preserves_external(self):
+        external = self.base / "external"
+        external.mkdir()
+        write_file(external, "private.txt", "do not copy")
+        try:
+            self.support.symlink_to(external, target_is_directory=True)
+        except OSError as exc:
+            self.skipTest(str(exc))
+        with self.assertRaises(ip.PreflightError):
+            ip.install(self.root, repo_root=self.repo, exclude_derived_support=True)
+        self.assertFalse(self.root.exists())
+        self.assertEqual((external / "private.txt").read_text(), "do not copy")
+
+    def test_flag_rejects_links_in_custom_support(self):
+        external = write_file(self.base, "secret.txt", "private")
+        self.support.mkdir(parents=True)
+        try:
+            (self.support / "custom.txt").symlink_to(external)
+        except OSError as exc:
+            self.skipTest(str(exc))
+        with self.assertRaises(ip.PreflightError):
+            ip.install(self.root, repo_root=self.repo, exclude_derived_support=True)
+        self.assertFalse(self.root.exists())
+
+    def test_flag_does_not_follow_excluded_snapshot_links(self):
+        external = self.base / "external"
+        write_file(external, "private.txt", "private")
+        self.support.mkdir(parents=True)
+        try:
+            (self.support / "qa").symlink_to(external, target_is_directory=True)
+        except OSError as exc:
+            self.skipTest(str(exc))
+        result = ip.install(self.root, repo_root=self.repo, exclude_derived_support=True)
+        self.assertTrue((result.support_root / "qa/audit.json").is_file())
+        self.assertFalse((result.support_root / "qa/private.txt").exists())
+        self.assertEqual((external / "private.txt").read_text(), "private")
+
+    def test_flag_does_not_relax_existing_destination_or_backup_gates(self):
+        write_file(self.support, "manifest.json", "stale")
+        write_file(self.root / "alpha-skill", "SKILL.md", "user-owned")
+        backup = self.base / "backup"
+        with self.assertRaises(ip.PreflightError):
+            ip.install(self.root, repo_root=self.repo, exclude_derived_support=True)
+        self.assertEqual((self.root / "alpha-skill/SKILL.md").read_text(), "user-owned")
+        result = ip.install(self.root, repo_root=self.repo, exclude_derived_support=True,
+                            replace=True, backup_dir=backup)
+        self.assertTrue(result.installed)
+        self.assertEqual((backup / "skills/alpha-skill/SKILL.md").read_text(), "user-owned")
+
+    def test_cli_explicit_exclusion(self):
+        write_file(self.support, "manifest.json", "stale")
+        with contextlib.redirect_stdout(io.StringIO()):
+            code = ip.main(["--repo-root", str(self.repo), "--skills-root", str(self.root),
+                            "--exclude-derived-support"])
+        self.assertEqual(code, 0)
+        self.assertTrue((self.root / "alpha-skill/support/manifest.json").is_file())
+
+
 class ReplaceAndMigrationTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()

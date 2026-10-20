@@ -1,0 +1,1071 @@
+{
+  "source_id": "GUIDE-01",
+  "scope": "44-item source-to-owner/template/acceptance crosswalk; textual integration evidence, not efficacy proof.",
+  "review_round": "followup_omission_review",
+  "newly_explicit_items": [
+    "K39",
+    "K40",
+    "K41",
+    "K42",
+    "K43",
+    "K44"
+  ],
+  "items": [
+    {
+      "id": "K01",
+      "knowledge": "파일→실제 슬롯→사용 속성→제외 속성→충돌 우선순위",
+      "source_pdf_pages": "64–69, 80–82",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "reference-roles"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "활성 참조의 파일→슬롯→속성→우선 기준"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K02",
+      "knowledge": "같은 파일명도 실제 내용/버전/해시 재대조, 순서 변경 뒤 태그 갱신",
+      "source_pdf_pages": "65–68",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "reference-roles"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "첨부 삭제·순서 변경"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K03",
+      "knowledge": "실제 보낸 요청문·옵션 보존과 공급자 변환문 분리, 비노출 변환문만 NOT_EXPOSED",
+      "source_pdf_pages": "22, 69",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "reference-roles"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "클라이언트가 실제 보낸 전체 요청문"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K04",
+      "knowledge": "직전 실제 상태와 프리비즈 카메라의 속성별 분업",
+      "source_pdf_pages": "60–65, 74–75, 80–82",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "reference-roles"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "속성별로 해결"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K05",
+      "knowledge": "신규 정체성 탐색과 승인 인물 확장 분리",
+      "source_pdf_pages": "30–34",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "designing-video-character-sheets/references/character-craft.md",
+        "marker": "Reusable sheet versus generation input"
+      },
+      "template": {
+        "path": "video-production-assets/assets/character-ssot-template.md",
+        "marker": "시트/입력 뷰 인계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "신규 정체성 탐색과 기존 인물 확장"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K06",
+      "knowledge": "후보 비교 축/보기 조건 고정, 얼굴에서 전신/옷으로 확장",
+      "source_pdf_pages": "31–34",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "designing-video-character-sheets/references/character-craft.md",
+        "marker": "Reusable sheet versus generation input"
+      },
+      "template": {
+        "path": "video-production-assets/assets/character-ssot-template.md",
+        "marker": "시트/입력 뷰 인계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "필수 조건을 먼저 검사한 후보끼리"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K07",
+      "knowledge": "의상 구조·부모/상태 델타·미관측 후면 제안 분리",
+      "source_pdf_pages": "33–39",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "designing-video-character-sheets/references/character-craft.md",
+        "marker": "Reusable sheet versus generation input"
+      },
+      "template": {
+        "path": "video-production-assets/assets/character-ssot-template.md",
+        "marker": "시트/입력 뷰 인계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "미관측 후면"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K08",
+      "knowledge": "통합 시트+개별 원본과 샷별 같은 상태 입력의 분리",
+      "source_pdf_pages": "35–39",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "designing-video-character-sheets/references/character-craft.md",
+        "marker": "Reusable sheet versus generation input"
+      },
+      "template": {
+        "path": "video-production-assets/assets/character-ssot-template.md",
+        "marker": "시트/입력 뷰 인계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "통합 시트와 각 뷰의 원본"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K09",
+      "knowledge": "시트의 검증 가능/불가 질문, 얼굴 삭제/전신 잘림 한계",
+      "source_pdf_pages": "35, 38–40",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "designing-video-character-sheets/references/character-craft.md",
+        "marker": "Reusable sheet versus generation input"
+      },
+      "template": {
+        "path": "video-production-assets/assets/character-ssot-template.md",
+        "marker": "시트/입력 뷰 인계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "답할 수 없는 질문"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K10",
+      "knowledge": "바닥선/표시 축척·인물 좌우·비대칭 앵커 추적",
+      "source_pdf_pages": "36, 39",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "designing-video-character-sheets/references/character-craft.md",
+        "marker": "Reusable sheet versus generation input"
+      },
+      "template": {
+        "path": "video-production-assets/assets/character-ssot-template.md",
+        "marker": "시트/입력 뷰 인계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "비대칭 앵커"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K11",
+      "knowledge": "공유본의 반복 작은 얼굴·썸네일·첨부까지 분리 확인",
+      "source_pdf_pages": "39–40",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "designing-video-character-sheets/references/character-craft.md",
+        "marker": "Reusable sheet versus generation input"
+      },
+      "template": {
+        "path": "video-production-assets/assets/character-ssot-template.md",
+        "marker": "시트/입력 뷰 인계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "작은 전신 얼굴"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K12",
+      "knowledge": "소품 독립성·개폐/효과·그립·소유·수량·알파 검사",
+      "source_pdf_pages": "40–43",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "video-production-assets/references/20-visual-mode-ssot.md",
+        "marker": "통합 시트의 사용 범위와 입력 뷰"
+      },
+      "template": {
+        "path": "video-production-assets/assets/05-visual-template.md",
+        "marker": "참조 기반 장소·소품 설계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "집기 전/접촉/이후의 수"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K13",
+      "knowledge": "장소 외형 vs 배치·빈 장소·역방향·공간 고정 광원",
+      "source_pdf_pages": "44–47",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "space-performance"
+      },
+      "owner": {
+        "path": "video-production-assets/references/05-visual.md",
+        "marker": "장소·키 비주얼의 사용 범위"
+      },
+      "template": {
+        "path": "video-production-assets/assets/05-visual-template.md",
+        "marker": "참조 기반 장소·소품 설계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "외형 기준"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K14",
+      "knowledge": "자극→반응→억제/선택, 완료 상태/의식의 임의 되돌림 금지",
+      "source_pdf_pages": "48–50, 56–59, 82–83",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "space-performance"
+      },
+      "owner": {
+        "path": "video-production-assets/references/04-performance.md",
+        "marker": "감정 전환·사건 상태 인계"
+      },
+      "template": {
+        "path": "video-production-assets/assets/04-performance-template.md",
+        "marker": "상태·반응 대조"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "자극→최소 반응→억제/선택→후속 행동"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K15",
+      "knowledge": "키 비주얼/시트/보드 역할과 사건·신원 우선 정보 계층",
+      "source_pdf_pages": "59–61",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "space-performance"
+      },
+      "owner": {
+        "path": "video-production-assets/references/05-visual.md",
+        "marker": "장소·키 비주얼의 사용 범위"
+      },
+      "template": {
+        "path": "video-production-assets/assets/05-visual-template.md",
+        "marker": "참조 기반 장소·소품 설계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "시간 검증의 대체물이 아니다"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K16",
+      "knowledge": "실제 화면으로 카메라 의도 번역, T/f·돌리/줌·전경 가림 구분",
+      "source_pdf_pages": "50–55",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "space-performance"
+      },
+      "owner": {
+        "path": "camera-spatial-design/references/motion-timing-lens.md",
+        "marker": "생성용 촬영 표기의 한계"
+      },
+      "template": {
+        "path": "video-production-assets/assets/07-lighting-template.md",
+        "marker": "실제 f-number/T-stop"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "T값 하나로 심도를 계산하지 않는다"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K17",
+      "knowledge": "대역 대응·배치/접촉/카메라/컷/끝 순 비교와 검사 한계",
+      "source_pdf_pages": "62–64, 80–84",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "space-performance"
+      },
+      "owner": {
+        "path": "video-production-assets/references/06-shots.md",
+        "marker": "참조 자료에서 샷으로 인계"
+      },
+      "template": {
+        "path": "video-production-assets/assets/06-shots-template.md",
+        "marker": "종료 프레임"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "배치→접촉/지지→카메라 경로→컷→끝 상태"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K18",
+      "knowledge": "행동 이후 안정 구간·핸들/인서트·커버리지, 필수 사건 보존",
+      "source_pdf_pages": "63, 92",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "space-performance"
+      },
+      "owner": {
+        "path": "video-production-assets/references/06-shots.md",
+        "marker": "참조 자료에서 샷으로 인계"
+      },
+      "template": {
+        "path": "video-production-assets/assets/06-shots-template.md",
+        "marker": "종료 프레임"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "편집 핸들"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K19",
+      "knowledge": "제출문/대응 검수문 같은 버전, 요약 아닌 의미 대조",
+      "source_pdf_pages": "27–29, 64–71",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "bilingual-prompts"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "대응 검수문은 요약이 아니다"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K20",
+      "knowledge": "시제/완료·소유·잔류/이동·부정·정확한 발화 원문 대조",
+      "source_pdf_pages": "67–71",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "bilingual-prompts"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "시도 vs 완료"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K21",
+      "knowledge": "문자/토큰/비용 구분, 실제 입력창 한도 확인",
+      "source_pdf_pages": "69–70",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "bilingual-prompts"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "문자 감소는 토큰"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K22",
+      "knowledge": "문서 주석/업로드 태그/TTS 큐/IPA 문법 분리",
+      "source_pdf_pages": "70–71, 97",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "bilingual-prompts"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "색/괄호 자체는 범용 API 문법이 아니다"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K23",
+      "knowledge": "새 생성/부분 수정/프리비즈 참조/실제 Extend 경로 구분",
+      "source_pdf_pages": "19–22, 67, 72–77",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "generation-modes"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "실제 Extend 사용을 주장하지 않는다"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K24",
+      "knowledge": "실제 끝 상태·원본 포함 구조·중복/초기화/음향 접합 검사",
+      "source_pdf_pages": "75–77",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "generation-modes"
+      },
+      "owner": {
+        "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "marker": "채택 구간과 국소 수정의 검수"
+      },
+      "template": {
+        "path": "video-production-assets/assets/generated-qa-report-template.md",
+        "marker": "채택 구간·부분 수정·확장"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "원본 포함 전체 파일"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K25",
+      "knowledge": "국소 수정 영역 밖 신원·동작·시간·오디오 보존 전후 비교",
+      "source_pdf_pages": "22, 67, 92",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "generation-modes"
+      },
+      "owner": {
+        "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "marker": "채택 구간과 국소 수정의 검수"
+      },
+      "template": {
+        "path": "video-production-assets/assets/generated-qa-report-template.md",
+        "marker": "채택 구간·부분 수정·확장"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "수정 영역 밖의 얼굴"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K26",
+      "knowledge": "원래 연기 보존과 단어→어절/구절 최소 교정 단위",
+      "source_pdf_pages": "94–95",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "dialogue-repair"
+      },
+      "owner": {
+        "path": "video-production-assets/references/22-dialogue-lipsync.md",
+        "marker": "발음 일부만 틀렸을 때"
+      },
+      "template": {
+        "path": "video-production-assets/assets/performance-cue-template.md",
+        "marker": "국소 발음 교정 기록"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "최소 교체 단위"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K27",
+      "knowledge": "요청/권리 있는 샘플·단일 화자/목표 톤·길이 반복 금지",
+      "source_pdf_pages": "95–96",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "dialogue-repair"
+      },
+      "owner": {
+        "path": "video-production-assets/references/22-dialogue-lipsync.md",
+        "marker": "발음 일부만 틀렸을 때"
+      },
+      "template": {
+        "path": "video-production-assets/assets/performance-cue-template.md",
+        "marker": "국소 발음 교정 기록"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "스테레오로 복제해"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K28",
+      "knowledge": "같은 문구/보이스에서 지원 큐 한 변수 비교, TTS≠음색 변환",
+      "source_pdf_pages": "97",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "dialogue-repair"
+      },
+      "owner": {
+        "path": "video-production-assets/references/22-dialogue-lipsync.md",
+        "marker": "발음 일부만 틀렸을 때"
+      },
+      "template": {
+        "path": "video-production-assets/assets/performance-cue-template.md",
+        "marker": "국소 발음 교정 기록"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "Voice Changer만으로"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K29",
+      "knowledge": "별도 트랙·자음/받침/호흡 경계·길이/페이드/공간감",
+      "source_pdf_pages": "97",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "dialogue-repair"
+      },
+      "owner": {
+        "path": "video-production-assets/references/22-dialogue-lipsync.md",
+        "marker": "발음 일부만 틀렸을 때"
+      },
+      "template": {
+        "path": "video-production-assets/assets/performance-cue-template.md",
+        "marker": "국소 발음 교정 기록"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "받침 꼬리"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K30",
+      "knowledge": "구절→문장→전체 믹스→영상/입/감정 재검수",
+      "source_pdf_pages": "97–99",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "dialogue-repair"
+      },
+      "owner": {
+        "path": "video-production-assets/references/22-dialogue-lipsync.md",
+        "marker": "발음 일부만 틀렸을 때"
+      },
+      "template": {
+        "path": "video-production-assets/assets/performance-cue-template.md",
+        "marker": "국소 발음 교정 기록"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "영상과 입/감정"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K31",
+      "knowledge": "전체 클립/선택 구간/최종 편집 판정과 원본 in/out basis",
+      "source_pdf_pages": "91–93, 98",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "usable-ranges"
+      },
+      "owner": {
+        "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "marker": "채택 구간과 국소 수정의 검수"
+      },
+      "template": {
+        "path": "video-production-assets/assets/generated-qa-report-template.md",
+        "marker": "채택 구간·부분 수정·확장"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "전체 클립 판정·선택 구간 판정·편집 후 판정"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K32",
+      "knowledge": "성공 속성 보존·실패 층으로 회귀·한 변수와 상한",
+      "source_pdf_pages": "90–93",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "usable-ranges"
+      },
+      "owner": {
+        "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "marker": "채택 구간과 국소 수정의 검수"
+      },
+      "template": {
+        "path": "video-production-assets/assets/generated-qa-report-template.md",
+        "marker": "채택 구간·부분 수정·확장"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "단일 주요 변경"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K33",
+      "knowledge": "생성 총초수 vs 채택 초수, 포함 범위 명시 비용 회고",
+      "source_pdf_pages": "93",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "usable-ranges"
+      },
+      "owner": {
+        "path": "video-production-assets/references/14-production-ops.md",
+        "marker": "채택 비용과 재개 지점"
+      },
+      "template": {
+        "path": "video-production-assets/assets/14-production-ops-template.md",
+        "marker": "채택 비용·재개 패킷"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "0초면 비율은 N/A"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K34",
+      "knowledge": "당시 입력/실제 결과/다음 변경/보존/재개 지점",
+      "source_pdf_pages": "100–101",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "usable-ranges"
+      },
+      "owner": {
+        "path": "video-production-assets/references/14-production-ops.md",
+        "marker": "채택 비용과 재개 지점"
+      },
+      "template": {
+        "path": "video-production-assets/assets/14-production-ops-template.md",
+        "marker": "채택 비용·재개 패킷"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "기록의 조회/인계"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K35",
+      "knowledge": "시리즈/문제 묶음/이번 사건·결과·다음 잔여 상태",
+      "source_pdf_pages": "9–12",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "episode-delivery"
+      },
+      "owner": {
+        "path": "video-production-assets/references/18-episodic-series.md",
+        "marker": "사건 중심 회차 카드와 길이 확인"
+      },
+      "template": {
+        "path": "video-production-assets/assets/series-bible-template.md",
+        "marker": "이번 편 목표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "시리즈의 큰 목표"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K36",
+      "knowledge": "길이 검토·중복 설명 우선 축약·감정 쉼 보존",
+      "source_pdf_pages": "9–11",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "episode-delivery"
+      },
+      "owner": {
+        "path": "video-production-assets/references/18-episodic-series.md",
+        "marker": "사건 중심 회차 카드와 길이 확인"
+      },
+      "template": {
+        "path": "video-production-assets/assets/series-bible-template.md",
+        "marker": "이번 편 목표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "중복 설명/반응"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K37",
+      "knowledge": "실제 원문/발화/자막·말투/조사/정보 공개 타이밍",
+      "source_pdf_pages": "99",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "episode-delivery"
+      },
+      "owner": {
+        "path": "video-production-assets/references/15-delivery.md",
+        "marker": "자막·출력 파일 재검수"
+      },
+      "template": {
+        "path": "video-production-assets/assets/15-delivery-template.md",
+        "marker": "실제 출력·자막 대조"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "반응보다 이른 정보 공개"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K38",
+      "knowledge": "내보낸 파일 전체·각 화면비 크롭·mute/링크/범위 오류 진단",
+      "source_pdf_pages": "98–99",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "episode-delivery"
+      },
+      "owner": {
+        "path": "video-production-assets/references/15-delivery.md",
+        "marker": "자막·출력 파일 재검수"
+      },
+      "template": {
+        "path": "video-production-assets/assets/15-delivery-template.md",
+        "marker": "실제 출력·자막 대조"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "내보낸 파일 자체"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K39",
+      "knowledge": "복잡 생물의 관절/접지/동작 범위, 탈것 탑승/하중, 효과 생애주기·소멸 후 상태",
+      "source_pdf_pages": "43",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "marker": "복잡한 생물·탈것·효과의 조건부 인계"
+      },
+      "template": {
+        "path": "video-production-assets/assets/motion-beat-template.md",
+        "marker": "생물/탈것/효과"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "발동 전→시작→지속→소멸"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K40",
+      "knowledge": "사건상 정확한 군중 수 vs 배경 밀도, 식별 층·진출입·주인공 통로·참조 신원 제외",
+      "source_pdf_pages": "43",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "video-production-assets/references/20-visual-mode-ssot.md",
+        "marker": "정확한 인원수"
+      },
+      "template": {
+        "path": "video-production-assets/assets/crowd-map-template.md",
+        "marker": "인원 기준"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "정확한 인원수와 배경 밀도"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K41",
+      "knowledge": "소품 단일 상태·중립 기준에서 조작으로 확장, 의상 고정 장비 vs 임시 소지품",
+      "source_pdf_pages": "41–43",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "sheet-inputs"
+      },
+      "owner": {
+        "path": "video-production-assets/references/20-visual-mode-ssot.md",
+        "marker": "통합 시트의 사용 범위와 입력 뷰"
+      },
+      "template": {
+        "path": "video-production-assets/assets/05-visual-template.md",
+        "marker": "참조 기반 장소·소품 설계"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "중립 배경에서 먼저"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K42",
+      "knowledge": "부정문을 관찰 가능한 보존 상태·소유/수량·접촉 순서로 보완",
+      "source_pdf_pages": "67",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "bilingual-prompts"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "실제로 확인할 긍정 상태"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K43",
+      "knowledge": "반복 형용사→역할/행동 중복→카메라 충돌→행동 분할 제안의 과밀 입력 정리",
+      "source_pdf_pages": "77",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": "bilingual-prompts"
+      },
+      "owner": {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "marker": "참조 패킷·제출 언어·생성 방식"
+      },
+      "template": {
+        "path": "video-production-assets/assets/11-ai-handoff-template.md",
+        "marker": "참조 역할표"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "반복 형용사 제거"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    },
+    {
+      "id": "K44",
+      "knowledge": "에셋/시트·씬/샷/비트·클립/테이크·채택 설정/마스터 구분",
+      "source_pdf_pages": "6",
+      "reference": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "anchor": null
+      },
+      "owner": {
+        "path": "video-production-assets/references/06-shots.md",
+        "marker": "참조 자료에서 샷으로 인계"
+      },
+      "template": {
+        "path": "video-production-assets/assets/06-shots-template.md",
+        "marker": "종료 프레임"
+      },
+      "acceptance": {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "marker": "한 클립≠한 샷"
+      },
+      "integration_status": "owner_template_acceptance_linked",
+      "evidence_level": "source_document_contract_only",
+      "media_or_agent_effectiveness": "unverified"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "cases": [
+    {
+      "id": "F02-crowd-cardinality",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "F02-crowd-cardinality.attempt.json"
+    }
+  ],
+  "review_status": "UNREVIEWED"
+}

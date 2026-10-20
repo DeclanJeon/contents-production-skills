@@ -1,0 +1,114 @@
+{
+  "id": "G03-bilingual-completion",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "제출문을 다른 언어로 줄이되 한국어 검수문을 남겨라. 승인 내용: 배달부는 이미 상자를 건넸다. 받는 사람만 오른손에 한 상자를 든다. 원래 자리의 안내원은 남는다. 한국어 대사 '받았습니다.'를 그대로 발화한다. 실행은 하지 마라.",
+  "prompt_sha256": "73b30b354ca6fd83ba61f467a6cce9ea2cea6e17e74eaa730ab6b99edf84d993",
+  "owner": "video-production-assets/references/11-ai-handoff.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "fcaf2b8a326c5fd5aa6a0973481877f0795c2012bbe5e4b244d9cb73262a7a16",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "제출문을 다른 언어로 줄이되 한국어 검수문을 남겨라. 승인 내용: 배달부는 이미 상자를 건넸다. 받는 사람만 오른손에 한 상자를 든다. 원래 자리의 안내원은 남는다. 한국어 대사 '받았습니다.'를 그대로 발화한다. 실행은 하지 마라."
+  ],
+  "started_at": "2026-10-20T12:55:25.045126+00:00",
+  "duration_seconds": 13.518605149001814,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "source_after": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "trace": {
+    "final_text": "### 영어 제출문 · v1\nThe courier has already handed over the box. Only the recipient holds one box in their right hand. The attendant stays in their original position. The recipient says exactly in Korean: “받았습니다.”\n\n### 한국어 대응 검수문 · v1\n배달부는 이미 상자를 건넸다. 받는 사람만 자신의 오른손에 상자 한 개를 든다. 안내원은 원래 자리에 남는다. 받는 사람이 한국어로 정확히 “받았습니다.”라고 발화한다.\n\n완료 상태·소유자·수량·오른손·자리 유지·대사 원문을 보존했습니다. 실행하지 않았습니다.\n\n근거: `video-production-assets/references/29-reference-driven-production.md` §R4(대응 검수·발화 원문 보존).",
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "local_path": "video-production-assets/references/11-ai-handoff.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      }
+    ],
+    "tools_called": [
+      "read",
+      "grep"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1321,
+        "output": 35,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1356,
+        "cost": {
+          "input": 0.002642,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002992
+        }
+      },
+      {
+        "input": 1675,
+        "output": 48,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 2875,
+        "cost": {
+          "input": 0.0033499999999999997,
+          "output": 0.00048000000000000007,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.003945199999999999
+        }
+      },
+      {
+        "input": 5391,
+        "output": 182,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 5573,
+        "cost": {
+          "input": 0.010782,
+          "output": 0.0018200000000000002,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.012602
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "aca96be0aa20790367825f3c3587c4aa7ac4ed754a6599da679e3d9598d5ddbc",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

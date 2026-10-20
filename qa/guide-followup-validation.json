@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-20",
+  "review_type": "source completeness, actual read-only model behavior, temporary installation and non-submitting media preflight",
+  "source_id": "GUIDE-01",
+  "source_identity": "9dbc047ccbb9ef9e40f27cce0954e800838e35ccae32ce95b31ae6d2f5fb4a7d",
+  "coverage": {
+    "chapters_reviewed": 23,
+    "previous_knowledge_items": 38,
+    "current_knowledge_items": 44,
+    "newly_explicit_items": [
+      "K39",
+      "K40",
+      "K41",
+      "K42",
+      "K43",
+      "K44"
+    ],
+    "crosswalk": "video-production-assets/references/guide-01-coverage.json",
+    "evidence_level": "textual_owner_template_acceptance_contract_not_effectiveness",
+    "original_individual_render_review_pages": 28,
+    "additional_individual_render_review_pages": [
+      6,
+      32,
+      43,
+      67,
+      77
+    ],
+    "cumulative_individual_render_review_page_count": 33
+  },
+  "static_tests": {
+    "passed": 14,
+    "previous_passed": 13,
+    "scope": "scripts/test_guide_integration.py"
+  },
+  "targeted_regression": {
+    "paths": [
+      "scripts",
+      "video-production-assets/scripts",
+      "recording-production-history/scripts",
+      "camera-spatial-design/scripts/test_spatial_spec.py"
+    ],
+    "passed": 283,
+    "subtests_passed": 449,
+    "previous": {"passed": 262, "subtests_passed": 428}
+  },
+  "other_checks": {
+    "package_version": "2.29",
+    "skill_count": 25,
+    "version_check": "passed",
+    "scoped_diff_check": "passed with cr-at-eol",
+    "report_links": "passed",
+    "ssot_sections_0_to_33": "preserved",
+    "new_json_parse": "passed"
+  },
+  "behavior_evaluation": {
+    "initial_cases": 12,
+    "followup_cases": 6,
+    "status": "reviewed_pass_after_repairs",
+    "passed": 18,
+    "required_criteria": 76,
+    "evidence": "qa/guide-behavior-review.json",
+    "limits": "Single model/sample; coordinator review, not blinded independent or end-to-end/media benchmark."
+  },
+  "full_package_install": {
+    "status": "passed_temporary_install_not_global",
+    "skills": 25,
+    "runtime_source_matches": true,
+    "evidence": "qa/guide-installation-validation.json"
+  },
+  "media_preflight": {
+    "status": "two_generations_completed_quality_not_fully_accepted",
+    "quoted_total_credits": 15.1,
+    "observed_matching_credit_debits": 15.1,
+    "generations_submitted": 2,
+    "automatic_retries": 0,
+    "execution_approval": "user_approved_one_video_one_audio_total_cap_15_1_credits",
+    "evidence": "qa/guide-media-run-01/summary.json",
+    "historical_quote": "qa/guide-media-preflight.json"
+  },
+  "remaining_limits": [
+    "No full glyph-accurate transcription of all PDF content.",
+    "No linked original audio/video/Blender files or source-result lineage inspected.",
+    "One video and one audio generated within 15.1-credit cap; video frame-inspected, audio technically decoded but not listened to. Opening-state coverage needs revision; no controlled before/after efficacy benchmark.",
+    "Copy installer needs explicit derived-support exclusion for this checkout. Subsequent user-authorized global link deployment is recorded in qa/guide-release-validation.json; links also expose preserved unrelated working-tree changes.",
+    "Behavior review is coordinator-scored and single-sample/model; not a blinded independent expert or held-out robustness evaluation."
+  ],
+  "report": "docs/analysis/shortdrama-guide-review.md",
+  "scope_changes": {
+    "new_skill": false,
+    "project_schema_changed": false,
+    "production_media_execution": true,
+    "voice_cloning": false,
+    "external_pdf_upload": false,
+    "global_install_or_sync": true,
+    "deployment_evidence": "qa/guide-release-validation.json"
+  }
+}

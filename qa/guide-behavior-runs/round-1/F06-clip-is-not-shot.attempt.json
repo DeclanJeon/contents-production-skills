@@ -1,0 +1,144 @@
+{
+  "id": "F06-clip-is-not-shot",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "생성 파일 하나 안에 와이드→손 인서트→반응 클로즈업 세 컷이 있다. 같은 입력으로 파일을 두 번 받았다. 파일 수에 맞춰 한 샷/한 테이크로 기록하면 되나?",
+  "prompt_sha256": "290e8325bf9faa1bb7020438074ec88c92d2eb9be3bc5e369349b17eb44636e1",
+  "owner": "video-production-assets/references/06-shots.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/06-shots.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "214dc765a15505fe7650a97f80ac93612b5c4e98b11ae09de00b3bbc54a5d04f",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/06-shots.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "생성 파일 하나 안에 와이드→손 인서트→반응 클로즈업 세 컷이 있다. 같은 입력으로 파일을 두 번 받았다. 파일 수에 맞춰 한 샷/한 테이크로 기록하면 되나?"
+  ],
+  "started_at": "2026-10-20T12:57:19.364252+00:00",
+  "duration_seconds": 20.710796797997318,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "source_after": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "trace": {
+    "final_text": "아니요. **파일 수·샷 수·생성 시도(테이크)는 별개**로 기록하세요.\n\n사용자 설명대로 세 컷이 있다면:\n\n| 샷 ID | 내용 | 첫 번째 생성 결과 | 두 번째 생성 결과 |\n|---|---|---|---|\n| SH01 | 와이드 | 해당 파일의 원본 in/out | 해당 파일의 원본 in/out |\n| SH02 | 손 인서트 | 해당 파일의 원본 in/out | 해당 파일의 원본 in/out |\n| SH03 | 반응 클로즈업 | 해당 파일의 원본 in/out | 해당 파일의 원본 in/out |\n\n- **샷은 3개**입니다. 파일 하나 안에 있다고 한 샷으로 합치지 않습니다.\n- **별도 생성 두 번이면 생성 시도 2개**로 구분하고, 각각 같은 세 샷 ID에 연결합니다. 동일 결과를 두 번 다운로드한 것이라면 새 시도로 세지 않습니다.\n- 테이크 표기를 쓰더라도 각 샷의 후보가 어느 생성 결과에서 왔는지 추적되게 하세요. 같은 입력이라고 같은 동작·타이밍으로 간주하지 않습니다.\n- 실제 파일이 제공되지 않았으므로 정확한 컷 경계·채택 구간은 **미확인**입니다.\n\n근거: `video-production-assets/references/06-shots.md` §참조 자료에서 샷으로 인계 — 클립 안 여러 샷을 파일 수에 맞춰 합치지 않음. `references/21-generated-video-qa-retry.md` §3 채택 구간·§5 절차 — 원본 구간과 생성 시도를 구분해 기록.",
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/06-shots.md",
+        "local_path": "video-production-assets/references/06-shots.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      },
+      {
+        "path": "video-production-assets/assets/06-shots-template.md",
+        "local_path": "video-production-assets/assets/06-shots-template.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      },
+      {
+        "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "local_path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      }
+    ],
+    "tools_called": [
+      "read",
+      "read",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1294,
+        "output": 35,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1329,
+        "cost": {
+          "input": 0.002588,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002938
+        }
+      },
+      {
+        "input": 4864,
+        "output": 35,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 6051,
+        "cost": {
+          "input": 0.009727999999999999,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.010193199999999998
+        }
+      },
+      {
+        "input": 1518,
+        "output": 39,
+        "cacheRead": 5888,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 7445,
+        "cost": {
+          "input": 0.003036,
+          "output": 0.00039000000000000005,
+          "cacheRead": 0.0005888,
+          "cacheWrite": 0,
+          "total": 0.004014800000000001
+        }
+      },
+      {
+        "input": 7468,
+        "output": 369,
+        "cacheRead": 7296,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 15133,
+        "cost": {
+          "input": 0.014936,
+          "output": 0.00369,
+          "cacheRead": 0.0007296000000000001,
+          "cacheWrite": 0,
+          "total": 0.0193556
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "7d2e2d410c4f6f1ba209a4cd74a0253347720ea5b72488e66ae6ee7773f9655a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

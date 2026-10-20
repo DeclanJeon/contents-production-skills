@@ -17,6 +17,11 @@ Contract:
   the backup before copying. Unrelated directories are never touched.
 * The alias root is only scanned when ``--alias-root`` is passed
   explicitly. Nothing infers or mutates a second root on its own.
+* ``--exclude-derived-support`` explicitly excludes only the selected support
+  skill's reserved generated snapshot entries (manifest.json, examples, qa,
+  CHANGELOG.md), then installs the current repository support. Other support
+  files and all source bytes are preserved. Without the flag, source-support
+  collisions remain a zero-write preflight error.
 * No dependency is ever auto-installed; ``external_dependencies`` in the
   manifest are informational records only.
 
@@ -25,6 +30,7 @@ Usage::
     python scripts/install_package.py [--skills-root PATH]
                                       [--replace --backup-dir PATH]
                                       [--alias-root PATH]
+                                      [--exclude-derived-support]
 
 Default skills root: ``%CODEX_HOME%/skills`` when ``CODEX_HOME`` is set,
 else ``~/.codex/skills``. Exit 0 means the installation completed;
@@ -105,6 +111,7 @@ class InstallPlan:
     replace: bool = False
     backup_dir: Path | None = None
     alias_root: Path | None = None
+    exclude_derived_support: bool = False
 
 
 @dataclass
@@ -144,10 +151,19 @@ def _is_link(path: Path) -> bool:
     return False
 
 
-def _tree_link(root: Path):
-    """Return the first symlink/junction inside ``root``, or None."""
+def _derived_names(directory, names, support_source: Path) -> set[str]:
+    """Only the reserved generated payload at the selected support root."""
+    if Path(directory) == support_source:
+        return set(names) & set(REQUIRED_SUPPORT + OPTIONAL_SUPPORT)
+    return set()
+
+
+def _tree_link(root: Path, ignored=None):
+    """Return the first non-excluded symlink/junction; never traverse exclusions."""
     for dirpath, dirnames, filenames in os.walk(root):
-        for name in dirnames + filenames:
+        excluded = ignored(dirpath, dirnames + filenames) if ignored else set()
+        dirnames[:] = [name for name in dirnames if name not in excluded]
+        for name in dirnames + [n for n in filenames if n not in excluded]:
             candidate = Path(dirpath) / name
             if _is_link(candidate):
                 return candidate
@@ -224,6 +240,7 @@ def build_plan(
     backup_dir=None,
     alias_root=None,
     env=None,
+    exclude_derived_support: bool = False,
 ) -> InstallPlan:
     """Run the complete preflight and return an executable plan.
 
@@ -291,6 +308,11 @@ def build_plan(
         if backup_dir is not None and _paths_overlap(alias_root, backup_dir):
             problems.append(f"alias root overlaps the backup directory: {alias_root}")
 
+    # Exclusion is explicit and confined to reserved generated support payloads.
+    # Non-reserved support files remain part of the skill and retain link checks.
+    source_support = repo_root / support_skill / SUPPORT_DIR_NAME
+    derived_ignore = (lambda directory, names: _derived_names(directory, names, source_support)) if exclude_derived_support else None
+
     # Source checks.
     skill_copies: list = []
     for skill_id in skills:
@@ -301,7 +323,7 @@ def build_plan(
         if not (source / SKILL_FILE_NAME).is_file():
             problems.append(f"missing {SKILL_FILE_NAME} in skill source: {source}")
             continue
-        link = _tree_link(source)
+        link = _tree_link(source, ignored=derived_ignore)
         if link is not None:
             problems.append(f"skill source contains a symlink/junction: {link}")
             continue
@@ -330,12 +352,11 @@ def build_plan(
         if _lexists(source) and not _is_link(source) and source.is_file():
             support_copies.append(CopyItem(source, support_root / rel, f"support:{rel}"))
 
-    source_support = repo_root / support_skill / SUPPORT_DIR_NAME
-    if _lexists(source_support) and not source_support.is_dir():
-        problems.append(f"source support parent is not a directory: {source_support}")
+    if _lexists(source_support) and (_is_link(source_support) or not source_support.is_dir()):
+        problems.append(f"source support parent is not a plain directory: {source_support}")
     for item in support_copies:
         copied_destination = source_support / item.target.relative_to(support_root)
-        if _lexists(copied_destination):
+        if _lexists(copied_destination) and not exclude_derived_support:
             problems.append(f"source skill would create a support collision: {copied_destination}")
 
     # Collision detection: managed skill targets, support targets, and
@@ -404,6 +425,7 @@ def build_plan(
         replace=replace,
         backup_dir=backup_dir,
         alias_root=alias_root,
+        exclude_derived_support=exclude_derived_support,
     )
 
 
@@ -423,10 +445,18 @@ def execute_plan(plan: InstallPlan) -> InstallResult:
             attempted_backups.append(item)
             shutil.move(os.fspath(item.existing), os.fspath(item.backup))
             done_backups.append(item)
+        support_source = plan.repo_root / plan.support_root.parent.name / SUPPORT_DIR_NAME
+
+        def ignore_skill(directory, names):
+            ignored = set(COPY_IGNORE(directory, names))
+            if plan.exclude_derived_support:
+                ignored.update(_derived_names(directory, names, support_source))
+            return ignored
+
         for item in plan.skill_copies:
             attempted_targets.append(item.target)
             shutil.copytree(
-                os.fspath(item.source), os.fspath(item.target), ignore=COPY_IGNORE
+                os.fspath(item.source), os.fspath(item.target), ignore=ignore_skill
             )
         plan.support_root.mkdir(parents=True, exist_ok=True)
         for item in plan.support_copies:
@@ -460,7 +490,7 @@ def execute_plan(plan: InstallPlan) -> InstallResult:
 
 
 def install(skills_root=None, *, repo_root=None, replace=False, backup_dir=None,
-            alias_root=None, env=None) -> InstallResult:
+            alias_root=None, env=None, exclude_derived_support=False) -> InstallResult:
     """Preflight + execute in one call. Raises PreflightError/InstallError."""
     plan = build_plan(
         skills_root,
@@ -469,6 +499,7 @@ def install(skills_root=None, *, repo_root=None, replace=False, backup_dir=None,
         backup_dir=backup_dir,
         alias_root=alias_root,
         env=env,
+        exclude_derived_support=exclude_derived_support,
     )
     return execute_plan(plan)
 
@@ -506,6 +537,12 @@ def _build_parser() -> argparse.ArgumentParser:
         "duplicates are backed up and removed only with --replace",
     )
     parser.add_argument(
+        "--exclude-derived-support", action="store_true",
+        help="explicitly omit only the reserved support/manifest.json, examples, qa, "
+             "and CHANGELOG.md snapshot from the source skill, then copy current "
+             "repository support; preserve other support files and never edit source",
+    )
+    parser.add_argument(
         "--repo-root",
         type=Path,
         default=None,
@@ -523,6 +560,7 @@ def main(argv=None) -> int:
             replace=args.replace,
             backup_dir=args.backup_dir,
             alias_root=args.alias_root,
+            exclude_derived_support=args.exclude_derived_support,
         )
     except PreflightError as exc:
         print("installation preflight failed; nothing was written:", file=sys.stderr)
@@ -544,6 +582,8 @@ def main(argv=None) -> int:
                 print(f"  - {item.existing} -> {item.backup}", file=sys.stderr)
         return 1
 
+    if plan.exclude_derived_support:
+        print("Excluded reserved derived source support snapshots; installed current repository support.")
     print(
         f"Installed {len(result.installed)} skill(s) into {result.skills_root} "
         f"(package version {result.package_version})."

@@ -71,6 +71,12 @@ Per character, unless another format is requested:
 
 Several characters each get a distinct sheet plus a short relationship/contrast map — under a full SSOT assignment, the CAST DIFFERENTIATION MATRIX (Character | Face | Silhouette | Color | Personality | Decision/Behavior | Voice | Key Anchor) replaces it, resolving accidental overlap while preserving deliberately related supplied characters. Cast differentiation checks actual overlap in goal, judgment, relationship and speech/voice anchors — swapping only a type name or a face is not differentiation. Prompts keep identities separate and never merge characters into an unrequested scene illustration. Default to one image prompt per character, but honor an explicit total such as “one character image-sheet plan”; if the one character is not identified and the choice materially affects the result, ask one concise, direct question naming the candidate choices unless the user explicitly delegated representative selection. Do not invent a representative or offer a generic/placeholder plan as if it fulfilled the one-character request; deliver independent cast work, then state the blocking question. A full SSOT instead returns its A–D prompt spec block.
 
+## Reusable sheet versus generation input
+
+For actual supplied-sheet inspection or sheet-to-generation handoff, apply [R2 sheet/input scope](../../video-production-assets/references/29-reference-driven-production.md#sheet-inputs), generalized from GUIDE-01 pp30–43. State what each view can and cannot establish: a face-redacted sheet cannot verify identity; a cropped full-body view cannot establish complete proportions; a newly invented back is a proposal. Preserve approved identity before expanding body/costume and compare candidates under stable viewing conditions. Record costume closure, layering, sleeve/waist/shoe structure and track an actor-relative asymmetric anchor across views rather than trusting screen-left/right.
+
+Keep the human-readable composite and its individual source views linked; downstream input selects the needed same-state views and excludes sheet layout/background/labels. This does not waive the full image-backed package's seven-view Sheet A requirement or authorize image execution. Additional state/expression/contact references are need-driven; static sheets do not prove articulated contact or temporal identity. Shared/redacted derivatives stay separate from the approved production originals.
+
 ## Self-check
 
 - Role and agency consistent with the supplied story or audience framing?

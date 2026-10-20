@@ -1,0 +1,140 @@
+{
+  "id": "F04-hidden-provider-rewrite",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "API에 보낸 정확한 요청문과 참조 해시는 있다. 공급자 자동 보정은 켰지만 내부 변환문은 공개되지 않는다. 프롬프트 이력을 어떻게 남겨야 하나?",
+  "prompt_sha256": "762086a4e477b1eac9a766cb9c6e8ac3c8dd006aea15913db657d00aaeb546e8",
+  "owner": "video-production-assets/references/11-ai-handoff.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "fcaf2b8a326c5fd5aa6a0973481877f0795c2012bbe5e4b244d9cb73262a7a16",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "API에 보낸 정확한 요청문과 참조 해시는 있다. 공급자 자동 보정은 켰지만 내부 변환문은 공개되지 않는다. 프롬프트 이력을 어떻게 남겨야 하나?"
+  ],
+  "started_at": "2026-10-20T13:03:14.864507+00:00",
+  "duration_seconds": 17.738353747990914,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "**실제 보낸 요청문과 공급자 내부 변환문을 분리해 기록하세요.** 비공개인 내부 변환문만 `NOT_EXPOSED`로 남깁니다.\n\n기존 프롬프트 이력에 다음처럼 보존하면 됩니다.\n\n| 항목 | 기록 내용 |\n|---|---|\n| 실제 제출 요청문 | API에 보낸 **최종 전체 원문 스냅샷**. 변경분이나 요약만 남기지 않음 |\n| 제출 옵션 | 자동 보정 `ON` 및 실제 전달한 설정값 |\n| 참조 연결 | 보유 해시와 에셋 ID·버전, 실제 첨부 슬롯/태그의 대응 |\n| 참조 역할 | 가져올 속성·제외할 속성·충돌 시 우선 기준 |\n| 공급자 변환 후 본문 | `NOT_EXPOSED — 자동 보정 활성화, 공급자가 내부 변환문을 공개하지 않음` |\n\n해시는 파일 식별 근거이지 **내용 검수나 SSOT 준수의 증거는 아닙니다.** 실제 요청문과 참조 연결을 보존하되, 숨겨진 변환문이나 모델의 실제 준수까지 확인했다고 기록하지 마세요.\n\n근거: `video-production-assets/references/11-ai-handoff.md` §참조 패킷·제출 언어·생성 방식; `video-production-assets/references/29-reference-driven-production.md` §R1, 특히 1·2·5·6항.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/11-ai-handoff.md",
+          "offset": 1,
+          "limit": 2000
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "offset": 1,
+          "limit": 240
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "local_path": "video-production-assets/references/11-ai-handoff.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": 1,
+        "limit": 240
+      }
+    ],
+    "tools_called": [
+      "read",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1286,
+        "output": 36,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1322,
+        "cost": {
+          "input": 0.002572,
+          "output": 0.00036,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002932
+        }
+      },
+      {
+        "input": 1720,
+        "output": 35,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 2907,
+        "cost": {
+          "input": 0.00344,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0039052
+        }
+      },
+      {
+        "input": 10112,
+        "output": 332,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 10444,
+        "cost": {
+          "input": 0.020224,
+          "output": 0.0033200000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.023544
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "ee8e700ea0e090f0b01e80f3fd026ebb2b789f27667ea5572fd1f9d81c80300c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

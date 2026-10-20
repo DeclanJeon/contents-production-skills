@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Add isolated read-only Pi behavior evaluation with non-overwriting hash-bound raw responses, file-read traces and separately reviewed verdicts. Repair observed speaker/slot/ID invention, unnecessary source re-request, incomplete cost/range reporting and omitted crowd-duplication checks; distinguish model-case evidence from media effectiveness.
+- Add explicit installer `--exclude-derived-support` recovery for reserved stale source snapshots only; retain default zero-write collision refusal, user support files, source immutability and backed-up destination replacement.
+
+- Close guide-integration follow-up gaps: creature/vehicle/effect lifecycles, exact crowd count versus density, neutral prop/gear separation, constructive constraints, overload reduction and clip/shot/take distinctions. Wire narrow performance/camera/lighting/edit owners and writable templates, preserve actual request snapshots separately from hidden provider rewrites, and add a 44-item source-to-owner/template/acceptance audit.
+
+- Generalize the user-supplied 101-page image-only production guide into existing reference, character-sheet, bilingual-prompt, generation-mode, dialogue-repair, QA, operations and delivery owners. Add page-level extraction/scan evidence and scoped templates; preserve existing approvals, image routing, Sheet A, schema and ledger contracts. Exclude drama-specific assets and unverified provider/performance claims.
+
+
 ## 2.29 2026-10-18
 
 - Release the merged source-scope and storyboard-evidence updates across the 24-skill package.

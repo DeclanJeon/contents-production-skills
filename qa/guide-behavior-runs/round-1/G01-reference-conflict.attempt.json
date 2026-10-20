@@ -1,0 +1,121 @@
+{
+  "id": "G01-reference-conflict",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "텍스트 인계만. 승인 얼굴 A, 다른 얼굴의 의상 B, 옛 지도 C, 새 카메라 프리비즈 D, 채택 직전 클립 E가 있다. 자료별 역할과 충돌 해결을 써라.",
+  "prompt_sha256": "47cc410100cee512dccc97850db0676f77c1dcb03f8592c4b9a90fc983b4c163",
+  "owner": "video-production-assets/references/11-ai-handoff.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "fcaf2b8a326c5fd5aa6a0973481877f0795c2012bbe5e4b244d9cb73262a7a16",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "텍스트 인계만. 승인 얼굴 A, 다른 얼굴의 의상 B, 옛 지도 C, 새 카메라 프리비즈 D, 채택 직전 클립 E가 있다. 자료별 역할과 충돌 해결을 써라."
+  ],
+  "started_at": "2026-10-20T12:55:25.044281+00:00",
+  "duration_seconds": 33.15607033998822,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "source_after": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "trace": {
+    "final_text": "## 텍스트 인계 — 참조 역할과 충돌 해결\n\n실물은 제공되지 않았으므로 아래는 **사용자가 설명한 역할에 따른 인계**이며, 파일·버전·실제 내용은 미검증이다.\n\n| 자료 | 가져올 속성 | 제외할 속성 | 충돌 시 기준 |\n|---|---|---|---|\n| **A 승인 얼굴** | 인물의 얼굴 정체성 | 별도 승인되지 않은 의상·배경·카메라 | **얼굴은 A**. B·D·E의 다른 얼굴로 대체하지 않는다. |\n| **B 다른 얼굴의 의상** | 의상 디자인·색·재질·여밈·겹침 등 | B의 얼굴·신원·체격 | **의상 디자인은 B**. A의 인물에게 적용하며 B의 인물을 복제하지 않는다. |\n| **C 옛 지도** | 기존 공간 관계·위치·경로 중 현재 승인된 항목 | 지도 문자·화살표·도형 색의 화면 전사, 폐기된 배치 | 오래됐다는 이유만으로 버리지도, 기존 지도라는 이유만으로 정본 취급하지도 않는다. **공간·소품 위치는 현재 승인 배치**로 확정한다. |\n| **D 새 카메라 프리비즈** | 지정 카메라 위치·방향·경로·컷·타이밍 | 대역 얼굴·체형·임시 색·질감·음향 | **카메라는 승인된 D 명세**. ‘최신’만으로 승인 간주하지 않는다. 블로킹은 승인된 범위만 가져온다. |\n| **E 직전 채택 클립** | 실제 채택 종료 시점의 자세·시선·소유·소품 손·의상 상태·진행 방향 | 완료 동작 재연, 불필요한 원본 소리, 우연한 생성 오류 | **다음 샷 시작 상태는 E의 채택 종료 상태**를 잇되, 승인 기준 위반은 먼저 해결한다. |\n\n### 충돌 해결 지시\n- **A ↔ B/D/E:** 얼굴은 A로 고정한다. E에 얼굴 오류가 있어도 정본으로 승격하지 않는다.\n- **B ↔ E:** B는 의상 **디자인**, E는 직전의 **착용·젖음·손상 등 연속 상태**를 담당한다. E가 승인 디자인을 위반했다면 오류 수용 또는 수정 승인을 먼저 받는다.\n- **C ↔ D:** 공간 배치와 카메라를 분리한다. 승인 배치를 유지하면서 D의 카메라를 적용한다. 카메라 때문에 소품 위치를 몰래 바꾸지 않는다.\n- **D ↔ E:** 시작 자세·소유·진행 방향은 E, 이후 카메라는 승인된 D를 따른다. 연결이 불가능하면 조정안을 승인받기 전 **실행 보류**한다.\n- 속성마다 우선 기준은 하나만 둔다. 미해결 충돌은 실행 blocker다. 실제 인계 시 파일·버전·슬롯을 연결하며, 현재 A–E는 자료 식별자이지 업로드 태그가 아니다.\n\n**근거:** `video-production-assets/references/29-reference-driven-production.md` §R1(속성별 역할·우선순위), §R3(공간/카메라 분리), §R5(채택 종료 상태 확인); `video-production-assets/references/11-ai-handoff.md` §참조 패킷.",
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "local_path": "video-production-assets/references/11-ai-handoff.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": 1,
+        "limit": 220
+      }
+    ],
+    "tools_called": [
+      "read",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1295,
+        "output": 36,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1331,
+        "cost": {
+          "input": 0.00259,
+          "output": 0.00036,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.00295
+        }
+      },
+      {
+        "input": 1650,
+        "output": 35,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 2837,
+        "cost": {
+          "input": 0.0033,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0037652000000000002
+        }
+      },
+      {
+        "input": 7237,
+        "output": 786,
+        "cacheRead": 2688,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 10711,
+        "cost": {
+          "input": 0.014473999999999999,
+          "output": 0.00786,
+          "cacheRead": 0.00026880000000000003,
+          "cacheWrite": 0,
+          "total": 0.0226028
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "d9d46930911e1cc3f59e86c813878dc1c5f851eb9424e86fa1ab597d7022a051",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

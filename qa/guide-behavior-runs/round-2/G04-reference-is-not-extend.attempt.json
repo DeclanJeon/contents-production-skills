@@ -1,0 +1,164 @@
+{
+  "id": "G04-reference-is-not-extend",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "이전 영상 마지막 프레임을 올리고 '이어서'라고 썼다. 실제 사이트는 일반 생성만 제공한다. Extend로 기록해도 되나?",
+  "prompt_sha256": "b5d451e22bbe115227ef50c897f55c2f59b86720d8bcd183048ab190543cff76",
+  "owner": "video-production-assets/references/11-ai-handoff.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "fcaf2b8a326c5fd5aa6a0973481877f0795c2012bbe5e4b244d9cb73262a7a16",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "이전 영상 마지막 프레임을 올리고 '이어서'라고 썼다. 실제 사이트는 일반 생성만 제공한다. Extend로 기록해도 되나?"
+  ],
+  "started_at": "2026-10-20T13:01:51.226618+00:00",
+  "duration_seconds": 19.377731138985837,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "아니요. **마지막 프레임 첨부와 ‘이어서’라는 요청만으로 Extend로 기록하면 안 됩니다.** 실제 사이트가 일반 생성만 제공한다면 다음처럼 기록하세요.\n\n- **생성 방식:** 새 생성\n- **참조:** 이전 영상 마지막 프레임\n- **의도:** 직전 끝 상태를 이어가는 후속 클립\n- **Extend:** 미사용 — 해당 기능 미지원\n- **연결 방식:** 생성 후 편집 연결 예정(완료와 구분)\n\n접합부의 자세·소품 손·진행 방향·광원·음향 연속성은 별도 검수하며, 확인 전에는 통과로 기록하지 않습니다.\n\n근거: `video-production-assets/references/29-reference-driven-production.md` §R5, `references/11-ai-handoff.md` §참조 패킷·제출 언어·생성 방식.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/11-ai-handoff.md",
+          "offset": 1,
+          "limit": 2000
+        }
+      },
+      {
+        "name": "grep",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "pattern": "generation-modes",
+          "context": 3
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "offset": 92,
+          "limit": 47
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "local_path": "video-production-assets/references/11-ai-handoff.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": 92,
+        "limit": 47
+      }
+    ],
+    "tools_called": [
+      "read",
+      "grep",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1277,
+        "output": 36,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1313,
+        "cost": {
+          "input": 0.002554,
+          "output": 0.00036,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002914
+        }
+      },
+      {
+        "input": 1711,
+        "output": 38,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 2901,
+        "cost": {
+          "input": 0.0034219999999999997,
+          "output": 0.00038,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0039172
+        }
+      },
+      {
+        "input": 430,
+        "output": 35,
+        "cacheRead": 2688,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 3153,
+        "cost": {
+          "input": 0.00086,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0.00026880000000000003,
+          "cacheWrite": 0,
+          "total": 0.0014788000000000002
+        }
+      },
+      {
+        "input": 2352,
+        "output": 201,
+        "cacheRead": 2944,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 5497,
+        "cost": {
+          "input": 0.004704,
+          "output": 0.00201,
+          "cacheRead": 0.0002944,
+          "cacheWrite": 0,
+          "total": 0.0070084
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "48a2d621ab95047a20a1bbcf7ebc7302ea2408af8dbb4ad617987073ceb59f96",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

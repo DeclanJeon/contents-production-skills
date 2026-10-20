@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-20",
+  "historical_snapshot": true,
+  "superseded_by": "qa/guide-followup-validation.json",
+  "scope": "Static source integration and targeted existing Python regressions; not model behavior or media quality.",
+  "source_id": "GUIDE-01",
+  "scan": {
+    "ocr_pages": 101,
+    "contact_sheet_overview_pages": 101,
+    "individual_render_review_pages": 28,
+    "chapters_dispositioned": 23,
+    "knowledge_items": 38
+  },
+  "static_contract_tests": {
+    "passed": 8,
+    "initial_failure": "One literal expectation mismatch, corrected in the test; rerun passed."
+  },
+  "targeted_regression": {
+    "directories": [
+      "scripts",
+      "video-production-assets/scripts",
+      "recording-production-history/scripts"
+    ],
+    "passed": 243,
+    "subtests_passed": 345,
+    "initial_run_subtests_passed": 347
+  },
+  "version_check": {
+    "status": "passed",
+    "package_version": "2.29",
+    "skills": 25
+  },
+  "scoped_diff_check": "passed with cr-at-eol; unrelated preexisting whitespace warnings retained",
+  "behavior_scenarios": {
+    "count": 12,
+    "status": "not_executed"
+  },
+  "full_package_install": {
+    "status": "blocked_preflight_no_writes",
+    "destination": "temporary /tmp directory, not user global skills",
+    "reason": "Preexisting video-production-assets/support collisions: manifest.json, examples, qa, CHANGELOG.md"
+  },
+  "media_execution": false,
+  "global_install_or_sync": false,
+  "limits": [
+    "No original linked audio/video/Blender files inspected.",
+    "No live provider capability or price verification.",
+    "No full repository regression or agent-behavior benchmark."
+  ]
+}

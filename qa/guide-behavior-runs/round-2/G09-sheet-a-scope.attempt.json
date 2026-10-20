@@ -1,0 +1,109 @@
+{
+  "id": "G09-sheet-a-scope",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "전체 image_backed 프리프로덕션의 캐릭터 시트를 설계 중이다. 가이드가 필요한 방향만 권하니 Sheet A를 정면 한 장으로 줄여도 되는가? 현재는 텍스트 검토만 요청한다.",
+  "prompt_sha256": "ba76470740d3b814ad12fb1b0d99d3fa92057df8c791ec52fdd0899b5fa92185",
+  "owner": "video-production-assets/references/20-visual-mode-ssot.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/20-visual-mode-ssot.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "c902e2f6c522560ac936daa6444aacd947fe6eb28db9a2ed11aae7e58a2a4e82",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/20-visual-mode-ssot.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "전체 image_backed 프리프로덕션의 캐릭터 시트를 설계 중이다. 가이드가 필요한 방향만 권하니 Sheet A를 정면 한 장으로 줄여도 되는가? 현재는 텍스트 검토만 요청한다."
+  ],
+  "started_at": "2026-10-20T13:02:23.238845+00:00",
+  "duration_seconds": 15.255092637991766,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "**아니요. 전체 `image_backed` 프리프로덕션이라면 Sheet A를 정면 1뷰로 축소할 수 없습니다.** ‘필요한 방향만 선택’은 샷별 참조 입력·추가 참조 팩에 관한 원칙이지, 필수 마스터 축소 허용이 아닙니다.\n\nSheet A는 인물당 **한 이미지 안에 7뷰**를 담도록 설계하세요.\n- 전신: 정면·3/4 전면·측면·후면\n- 얼굴: 정면·3/4·측면\n- 모두 동일 인물, 중립 표정·중립 스튜디오 조명, 장면 서사 없음\n\n현재는 **텍스트 설계 검토만** 진행하면 됩니다. 이미지를 생성하거나 과금할 필요는 없으며, 실제 Sheet A 파일 확보·이미지 QA는 미완료로 남깁니다. B/C/D도 추가 생성 승인이 아니라 프롬프트 스펙입니다.\n\n근거: `video-production-assets/references/20-visual-mode-ssot.md` §2 「이미지 기반 전체 패키지의 필수 이미지」, §3 「통합 시트의 사용 범위와 입력 뷰」.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/20-visual-mode-ssot.md",
+          "offset": null,
+          "limit": null
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/20-visual-mode-ssot.md",
+        "local_path": "video-production-assets/references/20-visual-mode-ssot.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      }
+    ],
+    "tools_called": [
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1298,
+        "output": 38,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1336,
+        "cost": {
+          "input": 0.002596,
+          "output": 0.00038,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002976
+        }
+      },
+      {
+        "input": 7023,
+        "output": 275,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 7298,
+        "cost": {
+          "input": 0.014046,
+          "output": 0.0027500000000000003,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.016796
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "d30e0bd9d2e9190c22bfe68a8c4aff5407c4f3126d2e6265a88a87db91eb4fd9",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

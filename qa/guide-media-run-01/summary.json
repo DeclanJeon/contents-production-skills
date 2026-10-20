@@ -1,0 +1,89 @@
+{
+  "completed_at": "2026-10-20T13:46:08.655Z",
+  "purpose": "Bounded generated-media diagnostic, not a full production efficacy benchmark",
+  "approval": {
+    "user_text": "응 진행해",
+    "scope": "One approved 5-second text-to-video request plus one approved Korean preset-voice request",
+    "credit_cap": 15.1,
+    "automatic_retries": 0
+  },
+  "status": "both_generations_completed_quality_not_fully_accepted",
+  "jobs": {
+    "video": {
+      "id": "a8257b83-ff67-4201-963a-840079328492",
+      "status": "completed",
+      "model": "seedance_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3J8vVixkLQHkQldTCv8Zq8WbL15/hf_20261020_134008_a8257b83-ff67-4201-963a-840079328492.mp4",
+      "technical_qa": "video-technical-qa.json",
+      "qa_verdict": "needs_revision_for_full_initial_state_coverage",
+      "local_path": "/tmp/shortdrama-guide-audit/media-run-01/video.mp4"
+    },
+    "audio": {
+      "id": "c3c56056-90c4-4ea1-94c7-8baa166e0dcc",
+      "status": "completed",
+      "model": "seed_audio",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3J8vVixkLQHkQldTCv8Zq8WbL15/hf_20261020_134010_c3c56056-90c4-4ea1-94c7-8baa166e0dcc.wav",
+      "technical_qa": "audio-technical-qa.json",
+      "qa_verdict": "technical_decode_pass_user_reports_sounds_correct_assistant_listening_unverified",
+      "local_path": "/tmp/shortdrama-guide-audit/media-run-01/audio.wav"
+    }
+  },
+  "cost": {
+    "quoted_credits": 15.1,
+    "observed_matching_transaction_debits": 15.1,
+    "attribution": "Matched model names and submission timestamps; transaction rows have no job ID.",
+    "evidence": "credit-debits.json",
+    "cash_equivalent": "unverified",
+    "retry_submissions": 0,
+    "credit_purchases": 0
+  },
+  "video_observations": {
+    "inspection_mode": "All 121 decoded frames viewed in five contact sheets; frames 0,82,86,92,120 additionally inspected at native 854x480. Not realtime playback.",
+    "initial_state": {
+      "interval_seconds": [
+        0,
+        0.75
+      ],
+      "finding": "Only the blue cube is initially visible. The red cube first appears partially at the left edge around frame 18 / PTS 0.75s. Its initial separate position is not visually established.",
+      "verdict": "insufficient_evidence_for_full_opening_state"
+    },
+    "approach_contact_settle": {
+      "finding": "Red cube moves right toward the blue cube. A small gap remains at frame 82 / PTS 3.4167s; apparent surface adjacency is present at frame 86 / PTS 3.5833s. Both remain adjacent through the end.",
+      "contact_time_evidence": "Contact lies between inspected frame 82 and frame 86; no single exact collision timestamp or physical response inferred.",
+      "verdict": "visually_supported_in_inspected_frames"
+    },
+    "duplication": "No obvious extra red/blue cube or duplication observed in the 121 decoded frames.",
+    "static_camera": "Blue cube/background framing appears stable across inspected frames; not a numerical solved camera.",
+    "penetration": "No obvious interpenetration in the inspected native frames; actual 3D collision/physical geometry is not verified.",
+    "duration": "121 frames at 24 fps; last PTS 5.0s, final-frame display end approximately 5.041667s; container summary rounds to 5.04s.",
+    "candidate_range": {
+      "source_in_s": 2,
+      "source_out_s_exclusive": 5.041666667,
+      "basis": "Original video PTS, 24 fps, time_base 1/90000",
+      "status": "provisional only; not trimmed, accepted or tested in an edit",
+      "reason": "Both cubes are fully visible before approach/contact/settle; cannot by itself validate original opening state."
+    },
+    "next_change_proposal": "If a separate retry is approved, change only initial framing: both whole cubes visible from first frame, separated within frame with sufficient edge margin. Preserve the successful contact-and-settle portion. No retry submitted."
+  },
+  "audio_observations": {
+    "requested_text": "전달이 끝났습니다.",
+    "technical": "3.2s stereo WAV, signed 16-bit PCM at 24000 Hz; complete decode; nonzero signal; no full-scale PCM samples; peak approximately -8.01 dBFS.",
+    "limits": "Signal/decode checks do not establish intelligibility, correct Korean words, pronunciation, naturalness or Grady voice identity. No audio-listening modality or local ASR was available; no claim of listening or transcript verification.",
+    "user_listening_feedback": {"verbatim": "응 제대로 들리는 것 같은데? 다 됐어?", "interpretation": "Positive user-reported listening feedback; not an independent assistant audition, detailed pronunciation rubric or formal production adoption."},
+    "required_review": "User reports the audio seems correct. Independent assistant listening remains unavailable; additional detailed review is only needed if production acceptance requires it."
+  },
+  "acceptance": {
+    "video_final_adopted_seconds": 0,
+    "audio_final_adopted_seconds": 0,
+    "cost_per_adopted_second": "N/A — no final adopted output",
+    "user_acceptance": "positive_audio_listening_feedback_recorded; video_full_quality_and_production_adoption_not_approved",
+    "overall_quality_pass": false
+  },
+  "limits": [
+    "No controlled old/new workflow comparison; this does not prove improved media quality, failure rate, working time or production cost.",
+    "No original guide media was uploaded or reproduced.",
+    "Generated binaries and contact sheets retained in temporary local storage; repository contains requests, IDs, technical results and review, not redistributed source-guide media.",
+    "A nonterminal status response incorrectly labeled the video as type=image; terminal response and actual MP4 decode confirm video. No image generation tool was called.",
+    "No global skill installation/sync or publishing performed during this approved media audition."
+  ]
+}

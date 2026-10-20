@@ -1,6 +1,6 @@
 # Contents Production Skills
 
-콘텐츠 제작과 영상 제작을 하나의 브리프·승인 흐름으로 조율하는 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`, 패키지 버전은 **2.5**이다.
+콘텐츠 제작과 영상 제작을 하나의 브리프·승인 흐름으로 조율하는 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`이며, 현재 패키지 버전의 정본은 [manifest.json](manifest.json)의 `version`이다.
 
 저장소: [DeclanJeon/contents-production-skills](https://github.com/DeclanJeon/contents-production-skills).
 
@@ -32,9 +32,15 @@ Exhaustive all-source/all-shot 또는 cross-source craft extraction에는 [archi
 - **Semantic coverage:** current master is 34/44 materialized and 10 unmaterialized; `source_occurrence_count=30` conflicts with 44 rows. The selected ledger records 468 shots, 44 scenes, 39 events, 650 dispositions and `visual_semantic_craft_closed`; its 0.2-second sampling is not full-rate playback, and machine audio was not human-listened. Five archive-global gates remain OPEN. This does not establish all-44 analysis, viewing, or archive completion. See [current design and exact gates](docs/superpowers/specs/2026-10-13-rofan-archive-craft-crosswalk-design.md).
 - **Crosswalk validation:** V4 bounded known-model output **PASS** ([result](qa/rofan-archive-crosswalk-known-model-v4-results.md)). Initial smoke and follow-up/known-model v1–v3 failures or incomplete outcomes remain preserved and linked in the [test-plan history](docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md).
 - **Unrelated brief:** [baker baseline/current-package comparison](qa/rofan-unrelated-brief-baseline-with-skill.md) has one sample per arm; it passes the brief/scope check in both, but is descriptive—not causal or statistical evidence.
-설치 목록은 **총 23개: 핵심 14개 + 조건부 Higgsfield 9개**다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
+설치 스킬 목록은 [manifest.json](manifest.json)의 `skills`가 정본이다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
 
 캐릭터 시트를 새로 작성하거나 심화하면 페르소나·표현 연결·발화 역할의 음성 설계가 기본 포함된다. 새 허구 인물의 위임된 창작에서는 MBTI/에니어그램을 제안으로 사용할 수 있으며, 공급된 유형·승인 설정·명시적 `none`을 우선한다. 무언 역할은 음성 N/A; 실제 음성 후보·생성·청취 승인은 별도다. 구체적인 요청과 수정 경계는 [사용 가이드](USAGE_GUIDE.md#캐릭터와-시리즈)를 따른다.
+
+## 제작 경험서에서 반영한 범용 공정
+
+101페이지 이미지형 제작 가이드의 노하우는 새 드라마 전용 스킬이 아니라 [참조 기반 실무 인계](video-production-assets/references/29-reference-driven-production.md)와 기존 오너/템플릿에 통합했다. 참조 속성·우선순위, 시트/입력 뷰 분리, 다국어 제출 검수, 새 생성/부분 수정/실제 확장 구분, 연기를 보존하는 발음 교정, 채택 구간·비용·재개 기록을 필요한 작업에만 적용한다. 기존 Sheet A·실행 승인·단일 원장 계약은 유지한다. [23장 추출·반영 대조표](docs/analysis/shortdrama-guide-extraction.md)에서 페이지 근거와 제외 항목을 확인할 수 있다. [후속 누락 점검](docs/analysis/shortdrama-guide-review.md)에서 추가 보완한 생물/탈것/효과·군중·과밀 입력·단독 전문 경로와 44항목의 오너/템플릿/검수 연결을 확인한다. 원문 PDF·페이지 이미지·전체 OCR은 패키지에 포함하지 않는다.
+
+이번 통합의 제한된 행동평가는 **18종·필수 기준 76개**, 지정 범위 회귀는 **283 passed / 449 subtests passed**다. 무관한 미커밋 기능을 제외한 커밋 대상의 격리 전체 회귀는 **293 passed / 13 skipped / 453 subtests passed**이며 [릴리스 검증](qa/guide-release-validation.json)에 범위를 기록한다. 사용자 승인으로 영상·음성 각 1건을 생성해 총 15.1크레딧을 사용했다. 영상은 시작 구도의 관측 공백으로 전체 통과 보류, 음성은 기술 검사 정상·사용자 청취상 정상이다. 이는 제작 품질 향상의 통제된 비교 실험이 아니다. [실제 응답/판정](qa/guide-behavior-review.json), [미디어 시험](qa/guide-media-run-01/review.md)을 구분해 확인한다.
 
 ## 제작 흐름
 
@@ -123,21 +129,23 @@ python scripts/install_package.py --skills-root $skillRoot --replace --backup-di
 # 추가 검색 루트도 이전할 때만 --alias-root (Join-Path $HOME '.agents/skills') 지정
 ```
 
+소스 스킬에 이전 설치의 파생 `support` 스냅샷이 있으면 기본 설치는 충돌로 중단한다. 이때만 `--exclude-derived-support`를 명시하면 예약 항목 `support/{manifest.json,examples,qa,CHANGELOG.md}`의 소스 복사를 제외하고 현재 저장소의 지원 자료로 설치한다. 원본·사용자 support 파일은 변경하지 않으며 기존 목적지의 백업/충돌 보호도 유지한다.
+
 지원 자료는 `video-production-assets/support/`에 복사된다. 무관한 스킬, 외부 실행기, 키/OAuth, 모델 가중치, 호스트 설정은 변경하지 않는다. I/O 실패는 실제 적용 경로와 남은 백업을 보고하며 여러 폴더의 원자적 설치를 보장하지 않는다. 설치 후 에이전트의 스킬 목록을 새로고침한다.
 
-이 프로젝트 업데이트 자체는 사용자 전역 스킬 설치본을 덮어쓰지 않는다. 정본은 저장소이며 설치는 위 명령으로 별도 수행한다.
+이 프로젝트 업데이트 자체는 사용자 전역 스킬 설치본을 덮어쓰지 않는다. 정본은 저장소이며 설치는 위 명령으로 별도 수행한다. 아래 링크 동기화를 명시적으로 실행한 경우에는 작업 트리 변경(미커밋 변경 포함)이 설치 루트에도 바로 보인다. 커밋/배포 버전 고정이 필요하면 깨끗한 별도 체크아웃에서 복사 설치한다.
 
 ## 검증
 
-전체 회귀 검증에는 `pytest`와 `Pillow`가 필요하다. 저장소 루트에서 실행한다. Windows에서는 UTF-8 모드를 명시해 UTF-8 fixture를 시스템 기본 cp949로 읽지 않도록 한다.
+전체 회귀 검증에는 `pytest`, `Pillow`, `pydantic` v2가 필요하다. 저장소 루트에서 실행한다. Windows에서는 UTF-8 모드를 명시해 UTF-8 fixture를 시스템 기본 cp949로 읽지 않도록 한다.
 
 ```powershell
-python -m pip install pytest Pillow
+python -m pip install pytest Pillow "pydantic>=2,<3"
 python scripts/check_versions.py
 python -X utf8 -m pytest -q
 ```
 
-커밋 직전 전체 실행 결과는 **258 passed, 217 subtests passed**다. Windows subprocess 출력 디코딩 경고 2건이 남았으며 테스트를 건너뛰거나 오류를 억제하지 않았다. 버전 검사는 package `2.5`와 23개 스킬의 일치를 확인했다. 격리 설치본에서도 이미지 기반 FINAL 패키지 성공, 손상 입력 거부와 history lifecycle을 실행했다. [최종 검증 원본](docs/evidence/production-v51-final-verification.json)과 [설치본·독립 검증 기록](docs/evidence/production-v51-qa-remediation.md)을 참조한다.
+이전 패키지 `2.8` 회귀 기록은 **254 passed, 8 skipped, 214 subtests passed**이며 현재 변경의 재검증 결과가 아니다. 당시 Windows 링크 권한과 PATH에서 발견되지 않은 Blender 때문에 건너뛴 검사, subprocess 디코딩 경고 등은 해당 시점의 환경 기록이다. 이전 격리 설치본의 FINAL 패키지·손상 입력 거부·history lifecycle 증거는 [최종 검증 원본](docs/evidence/production-v51-final-verification.json)과 [설치본·독립 검증 기록](docs/evidence/production-v51-qa-remediation.md)에 보존한다.
 
 전체 이미지 기반 프리프로덕션은 출처/시놉 MD → active LOOK 바이블 → 관련 잠금 Master/Scene State → 연결된 기술 콘티 → 읽을 수 있는 실제 시트들(시트당 최대 8패널) → 씬/패널 이미지 분할이 필수다. [정본 계약](video-production-assets/references/contract.md#전체-프리프로덕션-패키지)과 [Character SSOT 0–33](designing-video-character-sheets/references/character-ssot-master-prompt.md)를 따른다. FINAL 자산 게이트와 실제 검수는 별개다. 텍스트-only 요청에 이미지 생성·지출을 추가하지 않는다.
 
@@ -182,6 +190,8 @@ python scripts/install_hooks.py
 - GitHub Actions (`.github/workflows/ci.yml`): push/PR 시 `check_versions.py`와 pytest로 검증합니다.
 - 파생 산출물 `video-production-assets/support/`는 싱크 시 재생성되며 gitignore됩니다.
 - 기존 복사본은 `~/.skills-sync-backup/<타임스탬프>/`에 백업됩니다.
+- 기본 동기화 루트는 `~/.codex/skills`, `~/.claude/skills`, `~/.agents/skills`입니다. `--root <경로>`를 반복 지정하면 기본 목록을 대체합니다. 미리 `--dry-run`으로 변위를 확인하세요.
+- 현재 Pi도 공용 `~/.agents/skills`를 탐색합니다. 링크 반영 후 실행 중인 Pi에서 `/reload`를 한 번 실행하거나 새 세션을 시작하세요. 파일 배포와 실행 중 시스템 프롬프트/스킬 목록의 재로딩은 별개입니다.
 
 ## 출처와 재사용
 

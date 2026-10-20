@@ -1,0 +1,1130 @@
+{
+  "source_id": "GUIDE-01",
+  "scan_date": "2026-10-20",
+  "source_basename": "AI 숏드라마 '야장시단' 제작 가이드북_20261020.pdf",
+  "source_bytes": 43462504,
+  "source_sha256": "9dbc047ccbb9ef9e40f27cce0954e800838e35ccae32ce95b31ae6d2f5fb4a7d",
+  "page_count": 101,
+  "embedded_file_count": 0,
+  "direct_text_nonwhitespace_chars": 0,
+  "rendered_page_count": 101,
+  "ocr_read_page_count": 101,
+  "contact_sheet_overview_page_count": 101,
+  "individual_render_review_pages": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    22,
+    35,
+    36,
+    38,
+    39,
+    52,
+    65,
+    69,
+    70,
+    75,
+    76,
+    80,
+    81,
+    82,
+    83,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    101
+  ],
+  "render_method": {
+    "tool": "pdftoppm",
+    "pages_1_4": "PNG long edge 1400px",
+    "pages_5_101": "JPEG long edge 1600px quality 85"
+  },
+  "ocr_method": {
+    "engine": "Tesseract 5.5.0",
+    "languages": [
+      "kor",
+      "eng"
+    ],
+    "psm": "default",
+    "external_upload": false,
+    "system_install": false
+  },
+  "limits": [
+    "Not a glyph-accurate transcription; watermark, Chinese text, small UI and column order have OCR errors.",
+    "Contact-sheet overview is not individual full-size inspection.",
+    "Linked original video/audio/Blender/prompt files were not fetched, played, listened to or executed.",
+    "No live provider capability, pricing, cloning, generation or performance test.",
+    "Raw OCR and rendered pages are temporary and not redistributed."
+  ],
+  "chapters": [
+    {
+      "chapter": 1,
+      "start_page": 3,
+      "end_page": 5,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 2,
+      "start_page": 5,
+      "end_page": 9,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 3,
+      "start_page": 9,
+      "end_page": 12,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 4,
+      "start_page": 12,
+      "end_page": 16,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 5,
+      "start_page": 16,
+      "end_page": 26,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 6,
+      "start_page": 26,
+      "end_page": 30,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 7,
+      "start_page": 30,
+      "end_page": 34,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 8,
+      "start_page": 34,
+      "end_page": 40,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 9,
+      "start_page": 40,
+      "end_page": 44,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 10,
+      "start_page": 44,
+      "end_page": 48,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 11,
+      "start_page": 48,
+      "end_page": 50,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 12,
+      "start_page": 50,
+      "end_page": 56,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 13,
+      "start_page": 56,
+      "end_page": 60,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 14,
+      "start_page": 60,
+      "end_page": 64,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 15,
+      "start_page": 64,
+      "end_page": 69,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 16,
+      "start_page": 69,
+      "end_page": 72,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 17,
+      "start_page": 72,
+      "end_page": 77,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 18,
+      "start_page": 77,
+      "end_page": 84,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 19,
+      "start_page": 84,
+      "end_page": 90,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 20,
+      "start_page": 90,
+      "end_page": 94,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 21,
+      "start_page": 94,
+      "end_page": 98,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 22,
+      "start_page": 98,
+      "end_page": 100,
+      "disposition": "documented in guide-01-extraction.md"
+    },
+    {
+      "chapter": 23,
+      "start_page": 100,
+      "end_page": 101,
+      "disposition": "documented in guide-01-extraction.md"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "render_sha256": "c73c0f74298e6f6c86458264bd77690b54714193780eccf99eed53b5e87ff733",
+      "ocr_sha256": "3afece20d97b7d7b49bb0b1d38285a668927cce4afc325f7ff1ef7fef2c5f482",
+      "ocr_nonwhitespace_chars": 89,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 2,
+      "render_sha256": "0e76c532678f57817b41bfe745408837d2314ecd5125c049ff831754b676d3dc",
+      "ocr_sha256": "132af08dda7dee053a4e92d9d88c69e6a8a41784e70c21008b68d71846bb6321",
+      "ocr_nonwhitespace_chars": 429,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 3,
+      "render_sha256": "53400d6ad8504943c5657814154f0e90f3609a2cf3fb553d197deb146e6ef71b",
+      "ocr_sha256": "b9d132d454722e08dbfbd2a845e13bf796c0716350ebff7251c1196c02b87b48",
+      "ocr_nonwhitespace_chars": 832,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 4,
+      "render_sha256": "edcf629a3a6950526bfad32214bd0baa019daeb77373279d63dfca7662cacc59",
+      "ocr_sha256": "ab3709c57d24b57a322be2145940e52e0f5b186ede6ed52991f5511bddab6d88",
+      "ocr_nonwhitespace_chars": 424,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 5,
+      "render_sha256": "eb130a93432895711bc2b20df64ca0fdbcace34aa173165bf068edbf488f34c3",
+      "ocr_sha256": "e0f41b7f14c0694821603e33b96b0876b8e1580045403f025cd9f9e0c1e09ffe",
+      "ocr_nonwhitespace_chars": 619,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 6,
+      "render_sha256": "0946bfc8170d4694e41267ab8442206fa1ac0271c2b488f51d67f1cb6d83aa61",
+      "ocr_sha256": "af8a72981e5fd271658dddb0bd62197a6ab91169b9bfdb28221aafbec021c9bd",
+      "ocr_nonwhitespace_chars": 1252,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 7,
+      "render_sha256": "6f7c28b0c815bb6f26bbac3f2479402100f4acef5c22a0a9855431c31e58f160",
+      "ocr_sha256": "2d050f66e269c07c5e79b57bb4fa541269b18309b3aba50bd77faf8df2021e40",
+      "ocr_nonwhitespace_chars": 454,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 8,
+      "render_sha256": "59f6ca739576e884d6aa4d1c1bd195af682efc238fc43786119c87ca84ceb15f",
+      "ocr_sha256": "4ff19f28859abc792fca431fbfe5eb150701a89fec38293ea0d0bdb86266db78",
+      "ocr_nonwhitespace_chars": 861,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 9,
+      "render_sha256": "c4bcda3ec60fe7c8c67015abaf85edad5167435a808a97210a18b485bdf9dc74",
+      "ocr_sha256": "d7d22271cdb04a01db21c6a1afd401d281dc578cdd61daceceb61d3890ca0c74",
+      "ocr_nonwhitespace_chars": 671,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 10,
+      "render_sha256": "24c6969d3f8424b74066ccf016251de8e010ba9374af5ea6bed08d803725939f",
+      "ocr_sha256": "61b6b037a44412753b08c804fae0007501aefc78df2b2fe55f465f8910fae52a",
+      "ocr_nonwhitespace_chars": 572,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 11,
+      "render_sha256": "993aeac002f7d0bb9517bf39d7549ca8a379ed739a3a9c3438de3efb6f83800c",
+      "ocr_sha256": "e7082e56b7601e1d44e994bd82b65bc5c0aace5da1f360622d45ee35cf4cd310",
+      "ocr_nonwhitespace_chars": 918,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 12,
+      "render_sha256": "474ce7dd4d771cfa70003d0187f6b23d540f1efc9140b520b9300e03f934d8e4",
+      "ocr_sha256": "7c5d69df2140f9741b12bc37135adbfad205910bbbba877b49844c267efe2f4b",
+      "ocr_nonwhitespace_chars": 1112,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 13,
+      "render_sha256": "315f928b4034a696a5109c753047048a10377289ef67c1c1098af0eee687fc0c",
+      "ocr_sha256": "3bdecb5ddc0eaa12d3c82051960df53e0d8e0cce805855c4e5e07aba2c18ee6b",
+      "ocr_nonwhitespace_chars": 941,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 14,
+      "render_sha256": "46a79b790526fea5a30d58f4401eb388dcaa983d2de09211514e83950726dafa",
+      "ocr_sha256": "bfcbe77e859812379b489c1514012ef3c0718ed462f938d44a893e46924c199f",
+      "ocr_nonwhitespace_chars": 1738,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 15,
+      "render_sha256": "c7d821439ba42adcf0196050ade1a957e8b634bcfee5b029ff52b09b06e8ee9a",
+      "ocr_sha256": "54431034cebf63e4b7758bef875cb12a839926b6eee2d174bfa3d49e803abeed",
+      "ocr_nonwhitespace_chars": 892,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 16,
+      "render_sha256": "b3e8382a2cf75a633adbd65b9d38bce09d5a63d1ba17969f4b9be677ebbb379c",
+      "ocr_sha256": "d7c77f37e20bb9b27b56bbf5b4bac7763582aac05de57fd6e1f7e94d5d849ee8",
+      "ocr_nonwhitespace_chars": 557,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 17,
+      "render_sha256": "368dbd496d4b0a5816aee73aefb1fc790aa91606e3bd0d438a7250064a98e157",
+      "ocr_sha256": "4bc0a1cc5b0764a86c0f24959d57bb6e2aada4359dab3ce4cb470bf2f0f8d172",
+      "ocr_nonwhitespace_chars": 345,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 18,
+      "render_sha256": "a44c9957b1a79a1b732b035848148ed5fc162b69eb6ae78ad2804cc21e16fc20",
+      "ocr_sha256": "b0a9a1dce6967a27ca423d8d83038abd25d3d1d00d22869be5787ddc725d1326",
+      "ocr_nonwhitespace_chars": 94,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 19,
+      "render_sha256": "cdb81cfa594cdc5c8a6b52761a388ec54992b64043773cf59ac38a91fbab4f64",
+      "ocr_sha256": "5499c3116714cee8f40b0b5905f9844973cf1afdc23fb37b51aab567729f5221",
+      "ocr_nonwhitespace_chars": 186,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 20,
+      "render_sha256": "cf16e8ed20802f181edc86a8712d8da63e10151a635efaa093cea9b29c15e5d3",
+      "ocr_sha256": "dc15fc4335380069bbec247e8beb30917eda35aa1240525295bbf7ecc3ff9390",
+      "ocr_nonwhitespace_chars": 149,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 21,
+      "render_sha256": "516b9b1272b121d06c7cddfdca91ab5ab427450fa0d042c82c0c1e5ae80f2a40",
+      "ocr_sha256": "975dcca9e87c3ddf68f0f0c4299b1dac5f1129efc4ffb819eb2d47e1a41056d6",
+      "ocr_nonwhitespace_chars": 312,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 22,
+      "render_sha256": "07ccd037dfd830940ca704aacec93ee58fbd7eaf1de980d8d33f26920ffaef4a",
+      "ocr_sha256": "a4c49b488e58aae7696c7a0572de519466e0d489df3b750fb12d870112e06c40",
+      "ocr_nonwhitespace_chars": 901,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 23,
+      "render_sha256": "5fab5bfc4d7814d415d65d3441c8a01d49ad7a91ccef4bc3058f99a63290713b",
+      "ocr_sha256": "87a0d6041d574f509ca0dfd04c4126acbc0fa352a626ac1670b625464597d2d1",
+      "ocr_nonwhitespace_chars": 293,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 24,
+      "render_sha256": "6fb0a25a0bc4991e2efbc1eacfaa3a031c4917dbae781e37014d04f579dcda6f",
+      "ocr_sha256": "d9610980b173eaffbf2adab843b857db25cc253d91efb0f4b486f4b26d10b493",
+      "ocr_nonwhitespace_chars": 541,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 25,
+      "render_sha256": "3ee4fb2b64d8e0153d446b84abbaab03f87fd19ed005c9ca5a88065d7275635d",
+      "ocr_sha256": "df228fac5e3e32cd17099628cb58086daf548d4ab9f32a6f87f0f6dbd84d9d09",
+      "ocr_nonwhitespace_chars": 605,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 26,
+      "render_sha256": "d1181756506ae7d0a6dfedd939e6b98c2b571b962fa49fda72d64d04973fdc51",
+      "ocr_sha256": "e5c09ce3ff7800d637b9bcac24cb3dc96acaa11ab91fda335b7f78eef0f9a36e",
+      "ocr_nonwhitespace_chars": 327,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 27,
+      "render_sha256": "56fad06c74050d3f23436430aeb9874c9cb6b1ecae1dd9d09460be6b63b729f2",
+      "ocr_sha256": "ace917d4deb07b9b68851adc6b19a8eaf20c78f8c3adf66e50a5994a463a38bf",
+      "ocr_nonwhitespace_chars": 803,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 28,
+      "render_sha256": "d7ed502819d59c60a323dcdfbfc00f1fc03aef5e106d33d4399362619bcca872",
+      "ocr_sha256": "8b33cf7c9f4c3e729eba076eb539927cc48215d5d0fb4fe02e0b220d14d46400",
+      "ocr_nonwhitespace_chars": 774,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 29,
+      "render_sha256": "cc8fb878b44c73a9ea8790360269e2cba29fe1b39d10e15014d06565cc0c4d5f",
+      "ocr_sha256": "de11af7fdf5894ee4e64d7ae104dd830e890d153fd25a4d00c7bceaf27841b3c",
+      "ocr_nonwhitespace_chars": 992,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 30,
+      "render_sha256": "99800bebc479210178a6f3f7186de9931cca15003f113c1a4ad0ed72d6bf1786",
+      "ocr_sha256": "ab2666c1ef2991c3869125d8897e79f805022f28d4ca7235739d41a3de44feae",
+      "ocr_nonwhitespace_chars": 700,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 31,
+      "render_sha256": "4150c8002f0af73e287208180fdb86be66798f8e6f835c9231934af06b9c4762",
+      "ocr_sha256": "dc9a8d712a93522b0ca159787aa878627e7e9f862a68b4d1c5e6b2b7ae48fc28",
+      "ocr_nonwhitespace_chars": 716,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 32,
+      "render_sha256": "8b6b147097a2754a5f8175a2e8ed0534ebc60d992750a0739356c8cffbb917aa",
+      "ocr_sha256": "b2353fcd996c27fabd9b97aa90a4db3e4ab6a9f64afc5c722808c4a111958876",
+      "ocr_nonwhitespace_chars": 1140,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 33,
+      "render_sha256": "510ed802ddd480f507395ccbd5d5661e8baa82a93f82306fbaaa656aaf1780f1",
+      "ocr_sha256": "040ebe9961e67c7fcdf595529d27cc9c9da18c0742aa1e39774b445161c3b0bd",
+      "ocr_nonwhitespace_chars": 1314,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 34,
+      "render_sha256": "e44793cb111a83ffa880ed6f83e6ca817489f5edd175f5478b5d93cde473fc8b",
+      "ocr_sha256": "490b7c6b49b7f5942901a21a8ac3b7de0fe1f0dddefbf7d47fed9503844751dc",
+      "ocr_nonwhitespace_chars": 671,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 35,
+      "render_sha256": "273acffab34de6be89751862c130d25ffe66c02499ff9f98338184c6d7427187",
+      "ocr_sha256": "756538054350128ce0fbc246202cf42ec3a9759568462004abde60cbe56f3388",
+      "ocr_nonwhitespace_chars": 577,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 36,
+      "render_sha256": "4a1500b10f3a7633d95832bc2746673e4fd4529e87377fd535b20e071530a629",
+      "ocr_sha256": "68cce4e2cb11f4a4baeeec02e0618f2781a42dcbdf0b6d808a85dbb5ba402479",
+      "ocr_nonwhitespace_chars": 1029,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 37,
+      "render_sha256": "53272a90f1e0e21483c96b58bcad126c2b776a735282227d09b6c11562604558",
+      "ocr_sha256": "5d970b97d3899387db713cceb49e48ce2440162307d6b5b5c613023885941081",
+      "ocr_nonwhitespace_chars": 621,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 38,
+      "render_sha256": "944dab11f46378bc112830820c47113a12b814af0225a774d47e076175168694",
+      "ocr_sha256": "57e2b60f56b1181a3c96b21df7a14d554a237ccd43fbaace26b385e8d797169b",
+      "ocr_nonwhitespace_chars": 870,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 39,
+      "render_sha256": "bd54f3213a51021428d9a25b15934aaa2da13eb03ad11e40690ee72e0c9dcfa5",
+      "ocr_sha256": "0770315b79851fd2374cd045b1e0b0dc19d895da47cccc6c403b56a058c03c4d",
+      "ocr_nonwhitespace_chars": 1077,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 40,
+      "render_sha256": "a10917990f85b3b2169da5e55af0bfda42fe8da632eac8de0d42ba37eace99d3",
+      "ocr_sha256": "250d6d24f7e896317b4e7c8cb43351957dd063c3707a384882c8de1ae8a4c16d",
+      "ocr_nonwhitespace_chars": 523,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 41,
+      "render_sha256": "a0d37972e32cb6fd33c6845da578e18c4e93a7dfe5abc186b59c10c59cb31ab4",
+      "ocr_sha256": "029154f392af3c8d347fc15d178a5e69f190a8c5a68dd8924ed1ae4b7a94b3da",
+      "ocr_nonwhitespace_chars": 449,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 42,
+      "render_sha256": "6a35fdb96fdcf087b16e88c1df6e986a4118c2667ef021c65f291a09a4c2fc59",
+      "ocr_sha256": "98a8c7993be716b72380a3dc4f6e0f99ef71d66210666ee211b7e47d6e251305",
+      "ocr_nonwhitespace_chars": 1219,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 43,
+      "render_sha256": "760a0462d05bd91b13c6c9e89efb566afd19f6f36410f0e625d77189d8f46fa3",
+      "ocr_sha256": "dad3d15c2ac4a53ffa8b4bea4579558c8a28ae8e57fef80d3968a2d0c4bffd8d",
+      "ocr_nonwhitespace_chars": 1125,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 44,
+      "render_sha256": "bb4efc708353fa8504177f6a11d258979f052199a1e8dd4b762abc1854395117",
+      "ocr_sha256": "918c99cc2ff9bda7bb84e67535b8acc27301c842408411a9001fe17b0639dace",
+      "ocr_nonwhitespace_chars": 340,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 45,
+      "render_sha256": "c944c3499fab8072d8c9e88be0e10a30f7515b2c4d79f1710d57a30347a5247b",
+      "ocr_sha256": "085badbaed1ddd77443a18f12bec4c5cb88357d35c2b2f1feee8602e4da7e533",
+      "ocr_nonwhitespace_chars": 1017,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 46,
+      "render_sha256": "1d65baac3a5a95743e864449bd627d13485a97d640c8dd0bcc12a8464f51ddb0",
+      "ocr_sha256": "21fe7243b26bde47a5b2d5d8c348c8cc044746d25e0f401996632b08590bb7f4",
+      "ocr_nonwhitespace_chars": 743,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 47,
+      "render_sha256": "d7a8ce264d12b413183bdb0d6a6c5816bd6fb58d04d0e948c0cb0b2384c9486b",
+      "ocr_sha256": "dbe262e8cb250d3e85db3bdf9bb257aac89cbe4ae11e9b5d5f186e99e5040f39",
+      "ocr_nonwhitespace_chars": 1092,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 48,
+      "render_sha256": "1197e6ec5a4027c58a109c8241d24894618c7486f7ecfe3818206894d0b83d4f",
+      "ocr_sha256": "1fbf0aa848dc2fddc08d4dce7774876cca1ebf765b31080205b8e774fe5f151b",
+      "ocr_nonwhitespace_chars": 600,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 49,
+      "render_sha256": "5da4cc6fc94d344992cb922142cf57dd3dbd89853689b10d0928d7b6d6048843",
+      "ocr_sha256": "abba5ff887e533cc3f52a99dcb7d3fb2fb13eb3b4a25e2951632bf9179ed2bac",
+      "ocr_nonwhitespace_chars": 579,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 50,
+      "render_sha256": "e17fd8cba1a5967cbd5a7b547c3b27d7afe4e5a6f62af92c1b6742ca4e0320c8",
+      "ocr_sha256": "2d6634c50741bf6f4cf484990748650f702fb12a17645c0aa222f7da26426781",
+      "ocr_nonwhitespace_chars": 561,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 51,
+      "render_sha256": "8d97e9373788b7b285c8f696aff5e8917faa71f9d92953091c3c53c115a86925",
+      "ocr_sha256": "12268263611a61f9c2e8e5be6e28baa6377d653786e37b07552c829205049b7e",
+      "ocr_nonwhitespace_chars": 738,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 52,
+      "render_sha256": "2426cfaabf0366df8cbcbdcb7befeb596ff85b105ff539c1976c474e2b1598d9",
+      "ocr_sha256": "32c2fca42b0629b170f93e22a965ece69f70825c425e83d1f77701ebdd444364",
+      "ocr_nonwhitespace_chars": 1244,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 53,
+      "render_sha256": "d9e961688958ddca71bb7736bfb52cdf4e9a91d93f8e6e6ec2913611f6d56ea4",
+      "ocr_sha256": "64eea5e5a2fc833adf8e25eee92e7ee3d47eea60fb68043c656b9728e5ca5f4f",
+      "ocr_nonwhitespace_chars": 495,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 54,
+      "render_sha256": "a09ee28007a0a6ebf6b30ea5a23e8c5fcba684712d8ab874837900ac21012441",
+      "ocr_sha256": "4a692999dad8b3bd2f37c46b49f79ae0c8380ecf00629bdf82620f780488a5f8",
+      "ocr_nonwhitespace_chars": 518,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 55,
+      "render_sha256": "2ea6cc26c25b3cf3fbf322c2245bd0530305aa7d120eb2929ec6c8c466e14c44",
+      "ocr_sha256": "aac7b3637d0ef99516891c083549665dc82ddb2fa24a6cf5d12d2e1b956c4413",
+      "ocr_nonwhitespace_chars": 903,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 56,
+      "render_sha256": "65c09e85e9032b2276de408069b6e193b3405dfa29e8e5b25a49a3cb8a5c4af0",
+      "ocr_sha256": "6af820d9afac16036e3a02b1a98338d96b6433f7abc159e0011dc0ceb54f1dce",
+      "ocr_nonwhitespace_chars": 684,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 57,
+      "render_sha256": "fc07368bb55f5be6919d3539b6eaf04385740e7163d2392c30f82def6f3714c8",
+      "ocr_sha256": "dfb3186c7d08c5f74f1949eb48df4144818477c56ba06e69fb42feb1a4446ad6",
+      "ocr_nonwhitespace_chars": 502,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 58,
+      "render_sha256": "0c6d7f65651706be7bbace4e1d1e428f0a0d2c59fb2ef1ca3fb412c7b2da0ce8",
+      "ocr_sha256": "78c7d1419b043c61612be150774e6aa2750c0e0bc4368a2ed7e1130d37b7b821",
+      "ocr_nonwhitespace_chars": 557,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 59,
+      "render_sha256": "a33c7b8a0bb146e6268a4256fb6df1cb499fdfd5cc256d0241d4514e0e57c746",
+      "ocr_sha256": "cb6ee7f03b16addbbf4be631a563b8be084e7359e4412acce2b238983d3d4448",
+      "ocr_nonwhitespace_chars": 923,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 60,
+      "render_sha256": "21a331434c1050b877efe27b700a026009f488cbbefbfa4bce637662428f4b08",
+      "ocr_sha256": "9989ef647a11f3784e584b6540f203fa5ef507feb0ec1a85d666e68adc0f6a00",
+      "ocr_nonwhitespace_chars": 776,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 61,
+      "render_sha256": "098fec230b4bf627e0d9f5fe2f47efcf885a7b40efe7843ea3a28d4df03c1663",
+      "ocr_sha256": "b3381036c96a40a927bad97491b4612d7fb0044bc2a35d94b568d3aa8df7a35e",
+      "ocr_nonwhitespace_chars": 938,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 62,
+      "render_sha256": "e65280b190d36a6f52a465d75c244a4450cf0d20f196f8449bedec70d1c5b4a6",
+      "ocr_sha256": "027c0710b59f3733477938d4eee6bc6579a63f5b1c664d22e323813fe4a524e7",
+      "ocr_nonwhitespace_chars": 727,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 63,
+      "render_sha256": "10c9827e1dacf604f02ee27f462ee5ea99a66d14d5bd571f5021a38021691c56",
+      "ocr_sha256": "48912d1dfdd43eb1c1769ea42b71752503d799fbfbecbaef2617ff6f0eb895e7",
+      "ocr_nonwhitespace_chars": 634,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 64,
+      "render_sha256": "3f8059a28da6a4685cb80dc838a86b8430c9e9ec51ac580fe53f59c190a08b5b",
+      "ocr_sha256": "8e3f9ef44595960daa150db328b20f93721dd05b8def70e261197819ab3bd395",
+      "ocr_nonwhitespace_chars": 851,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 65,
+      "render_sha256": "62f8c0d1159dbf8469eb6a96e8f3c76f44903b612a80a2952b3ba9d20464aba4",
+      "ocr_sha256": "2b702cc3950eae703f829f9f73749e61e06c45e7e944d045c21149471082617c",
+      "ocr_nonwhitespace_chars": 947,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 66,
+      "render_sha256": "258fa76108890c785975bb6b0d87c510782b26c7fb236828c79116c107d86b79",
+      "ocr_sha256": "e9b518a0092924be61c8b05ed4343b78d398b096d447bd2a70f8e39470b8a925",
+      "ocr_nonwhitespace_chars": 830,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 67,
+      "render_sha256": "7f278cb44584c599e59cd655ce2bb17a06779e837cbd4c09c857e37da70e57ce",
+      "ocr_sha256": "d13e76198269ee941b8a565ce2165260cf34306c1d3055416ef805c8e1111c92",
+      "ocr_nonwhitespace_chars": 1260,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 68,
+      "render_sha256": "ba13afcba79a7e7a688f26d598df73d2b44b395965f8f38b9a681023df189402",
+      "ocr_sha256": "11ba05768c1749c13e18d63cbd6dca58d0dedb10370e4340abe1a499f0f8d0ac",
+      "ocr_nonwhitespace_chars": 775,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 69,
+      "render_sha256": "bb99e32045320d8e51f4748585de861c097f701cc1313485c5810fdd3f440438",
+      "ocr_sha256": "17a4b05805b8944070f4f3c8455f2e66c824335456368cff70777d3a9cebf506",
+      "ocr_nonwhitespace_chars": 875,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 70,
+      "render_sha256": "7ceda6c8e5532a8c51c5fb61c614f2fecfe69cd8d47af9cacb27338396e97d1c",
+      "ocr_sha256": "89e1dd94a208e8b2b78956e587a274f3cf06f236eee444c670a87e8748a09241",
+      "ocr_nonwhitespace_chars": 1150,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 71,
+      "render_sha256": "59cb77d5664e2e9db95940eeba60a93cab8e60b1a3a47afd8c1977dda71f3e57",
+      "ocr_sha256": "ee80a7cf73028daaf7625d8b793ab890055cb63817a2363a5452a0cb23dde738",
+      "ocr_nonwhitespace_chars": 902,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 72,
+      "render_sha256": "7a65c467fb9df4a29c16adea6604b44fbd950d8644b7c76475daabd33f33d60b",
+      "ocr_sha256": "36bdb676a7750c10557a9514d8acfab1ceeb500bccccf117c9aa76f3b033375f",
+      "ocr_nonwhitespace_chars": 524,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 73,
+      "render_sha256": "4c3f527888d88f4a177b3af98ad9da13c49ab4838bccd9c8f3d367c61e6a1620",
+      "ocr_sha256": "e9bc308cfb12d3c738248fb762f28c29f98ed124da54446d657b4f0bc2a9d578",
+      "ocr_nonwhitespace_chars": 1114,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 74,
+      "render_sha256": "d7b5d0ea003520c131142574f0ceb558bf1379877467e6de1742928e5f11f892",
+      "ocr_sha256": "63fd7e6c826e76fb9256c34a58b0bdf2f367037b3f0885607c100da880b90504",
+      "ocr_nonwhitespace_chars": 544,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 75,
+      "render_sha256": "f89d0ac5d0c6654f4ff50a9a76f5306f3a11fa468713359be0f57cbf0e4b7942",
+      "ocr_sha256": "29351c1b4ef9fead9d1b5215bf99c19a4693d7c8e93441cf432708ef6a8da3c1",
+      "ocr_nonwhitespace_chars": 1110,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 76,
+      "render_sha256": "c51efb33b1a40fc1dfa31a5afec256452621b91d27d0d9d62e01fd00f2744531",
+      "ocr_sha256": "b394dba27c6f069da79651254d390f86a87387c19989b58a04288cd1817bb834",
+      "ocr_nonwhitespace_chars": 992,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 77,
+      "render_sha256": "ba899a07e6c6810d9763d2709ebae522a4f9b2e4310bedd741337b309a694704",
+      "ocr_sha256": "bf0edba3ec15e70fbfdf4c1004abf22340ecdc362b87a4fe3b647864b8f3d1b9",
+      "ocr_nonwhitespace_chars": 805,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 78,
+      "render_sha256": "a188a2b978dbd32dbf08a9bb914727da5931f5daaa23289ab0594df5379e00d6",
+      "ocr_sha256": "bb8dfb0f964c68e96eebdf54376c4fb36236fcbc1703bd797527ec5dcca7e343",
+      "ocr_nonwhitespace_chars": 103,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 79,
+      "render_sha256": "c1adea5fea8828cee4a2270ccb96919bbe1c4622e046844154aaac6a41dac498",
+      "ocr_sha256": "28fd7db700a564b35a4056e31aef520cc5253d86f9bafcc47333f94c76a55ae7",
+      "ocr_nonwhitespace_chars": 261,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 80,
+      "render_sha256": "738882f0e5246e25fbf2305f0e51ac038762d0b19574afd0e477e02ef0d31151",
+      "ocr_sha256": "da7575580ae08b8a9edf8b7bbc16c8d0d072d8513b5512c648f0500808678b8f",
+      "ocr_nonwhitespace_chars": 626,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 81,
+      "render_sha256": "0d41537e9233932d4f18c046937ea541f43b6fc1464f12ec2736e284ec880688",
+      "ocr_sha256": "3813d89ca39ccf1b1fadd5279c927f3bbd44c131cac73f349826f6e62081fe58",
+      "ocr_nonwhitespace_chars": 744,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 82,
+      "render_sha256": "4ea65e226c50e35bc9a9fd9af104927079fdbd3f7f12a915c0c1e975fa373f20",
+      "ocr_sha256": "63431a2f76545845c5536aa6215423006b0d0fa6cc5ffc891fa3997f432654c1",
+      "ocr_nonwhitespace_chars": 1011,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 83,
+      "render_sha256": "ed943151996f029d0a0a07a5b0f0beb342da9c434ca3221deb5ab878faf82fd3",
+      "ocr_sha256": "f8fa0df18d114cb243f2800f4f68b7c1aa53a5bd9428f098434c19270c0a3cca",
+      "ocr_nonwhitespace_chars": 533,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 84,
+      "render_sha256": "3c44ef3d5821e275eb7fccc1cd8c67748ea60ae8feec88e655478e4d7e9ed66b",
+      "ocr_sha256": "88b22aabe745ce6f238a9c4089e89d8bfc35d507d54ba9cf6a3e305bad63a8ed",
+      "ocr_nonwhitespace_chars": 743,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 85,
+      "render_sha256": "24b607a98a85c304a7089e8071a4da23789b8e7b62b0da5f1f9bddde613c6af6",
+      "ocr_sha256": "7a0d052e6b41791d1470fcc437e33277dd7dbbc7acfb88d2d65f1a6c949319e8",
+      "ocr_nonwhitespace_chars": 335,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 86,
+      "render_sha256": "17f22ba00a6489631ee6b071a4f77e13722e8569b9ec27a71c7791d6816f0a41",
+      "ocr_sha256": "558484a4e4eb75ff963f8fd2bb78a4874f40fec01d8d05263a809871355a1a84",
+      "ocr_nonwhitespace_chars": 289,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 87,
+      "render_sha256": "5a50c16e3a1bb56f921b4cbb2d36bdcdce96681ec0ce3585d85c8211ec80fec9",
+      "ocr_sha256": "90b8937674b8dfc22bb5b04214ca76a376bd99cbd436cf316b5a4cbaa68ebdd7",
+      "ocr_nonwhitespace_chars": 858,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 88,
+      "render_sha256": "b8969635a6a56322ceaaca33832f9866181b17823a4ce1166952a7cfdd2c51f0",
+      "ocr_sha256": "503d91902bd100c313153f65f2bb0431fd5267ce9fa3d39637da4c1569cf6158",
+      "ocr_nonwhitespace_chars": 592,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 89,
+      "render_sha256": "e81af74c177ffdf9b753cd5a5781e8b85aca48e5b4eb7035aefcad9c410d3e57",
+      "ocr_sha256": "a00b193e55a25dac215fd4baf4d959e3c12a6b57b3cc937eeb29456610c1529c",
+      "ocr_nonwhitespace_chars": 756,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 90,
+      "render_sha256": "71a3c7fa248351fe4ffd71d4723778e7199d5851ab2a102149a362d5b8973581",
+      "ocr_sha256": "8bfedcaaf1f3b6d15e72cc548ca88254a331dd5c28978ebe9c8939c75ac18ae2",
+      "ocr_nonwhitespace_chars": 501,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 91,
+      "render_sha256": "bb34714ed23a80c6eceb4854ba2ba6cad6ce08209df5400c37a0c934d343be7c",
+      "ocr_sha256": "47058de4fe44111e9d9dea4b5a477d00a9af5bc7d781fdc8a0ce745c96893925",
+      "ocr_nonwhitespace_chars": 840,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 92,
+      "render_sha256": "47db78ab9b8a304808a39bb7a13991cab9cc330081177983752befe7a17746b3",
+      "ocr_sha256": "69338417bc154686dcbb68632070053662a53ea5ba741affb2dddd718e4296b7",
+      "ocr_nonwhitespace_chars": 1010,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 93,
+      "render_sha256": "143622b72fe8feba14f8b716d8725d031e667e660ac695c3665b793f0cdd1412",
+      "ocr_sha256": "38850129fd4b39a1ebba5a1acae4e6a8df2a93e845ee05377b135a4f62ac9971",
+      "ocr_nonwhitespace_chars": 674,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 94,
+      "render_sha256": "3bf55f78068f4e88b7560aa81a3c238de2ad462f2ff9057019b7ee96773f2f08",
+      "ocr_sha256": "2bf639c900e191cd023178459f0079adabedb05fe885199e856faa78019b0044",
+      "ocr_nonwhitespace_chars": 598,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 95,
+      "render_sha256": "a0fdd2e4eb8e11c3a11484c3ac6cafbc2829161940fa717ab8443273b79043f8",
+      "ocr_sha256": "328bc284fea5b4ab8b624bac1a9fb52b7119c6b3bcdee2caa24530f3359d9e52",
+      "ocr_nonwhitespace_chars": 949,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 96,
+      "render_sha256": "6b711d6fae4aaa542d3299496bbc24cb12b6e658d76b102408522c75874410cb",
+      "ocr_sha256": "74c0c83cbcb664e6d8a43289f9ecc9521f2f8ced52a3540cd230c6f0d911971f",
+      "ocr_nonwhitespace_chars": 675,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 97,
+      "render_sha256": "38799265df4528608142260b4f6777f2f0667ad9e2ea1524e91f5d23375aed36",
+      "ocr_sha256": "8d2466c1a3d60fba454531cf9f06c32658cbecb251233176faba18cb548a2707",
+      "ocr_nonwhitespace_chars": 1211,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 98,
+      "render_sha256": "8347521d7eb3d42d4744f81b7d158e64b33535b7fb86428d7cedfad4dce1d66d",
+      "ocr_sha256": "4a372c4a9c1018e34a2c4de83e93f20c9365e44c7e85206deadde674a577aff5",
+      "ocr_nonwhitespace_chars": 572,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 99,
+      "render_sha256": "884863e8c421406488f9a583e91ff4b59104eef1b5063a64c17ddcade4006488",
+      "ocr_sha256": "71c9345258813bc115413a6ddc474c9952f95add9d3ee4cc0b87feef2e75ae16",
+      "ocr_nonwhitespace_chars": 1184,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    },
+    {
+      "page": 100,
+      "render_sha256": "0d370d2b907f8acaf57e74cd65c5758cd9b18541a37abb22d7d8d09767033488",
+      "ocr_sha256": "5bcd15e05ee661619bba0e531447c0e1d99da5713d295a50920bbef66f4b6fa2",
+      "ocr_nonwhitespace_chars": 412,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": false
+    },
+    {
+      "page": 101,
+      "render_sha256": "41d652d8b098b4258030b7ab2d7344a1f6709b2b325bfddb3e6bc3ea6bbcd067",
+      "ocr_sha256": "ba4746a7a7d1a6d9a1e78a07de61ad613442d9fce982056237d7563889aef584",
+      "ocr_nonwhitespace_chars": 784,
+      "ocr_read": true,
+      "contact_sheet_overview": true,
+      "individual_render_review": true
+    }
+  ],
+  "followup_reviews": [
+    {
+      "purpose": "User-requested omission and owner/template coverage review",
+      "individual_render_review_pages": [
+        6,
+        32,
+        43,
+        67,
+        77
+      ],
+      "cumulative_individual_render_review_page_count": 33,
+      "limits": "This extends the original 28-page individual review; it is not a full glyph-accurate 101-page transcription."
+    }
+  ]
+}

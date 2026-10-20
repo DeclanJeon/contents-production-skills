@@ -1,0 +1,39 @@
+{
+  "state": "response_received",
+  "at": "2026-10-20T13:40:11.313Z",
+  "params": {
+    "get_cost": false,
+    "model": "seed_audio",
+    "count": 1,
+    "prompt": "전달이 끝났습니다.",
+    "voice_type": "preset",
+    "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+    "format": "wav",
+    "sample_rate": 24000,
+    "speech_rate": 0,
+    "loudness_rate": 0,
+    "pitch_rate": 0,
+    "use_unlim": false
+  },
+  "response": {
+    "results": [
+      {
+        "id": "c3c56056-90c4-4ea1-94c7-8baa166e0dcc",
+        "type": "audio",
+        "status": "pending",
+        "model": "seed_audio",
+        "params": {
+          "prompt": "전달이 끝났습니다.",
+          "voice_type": "preset",
+          "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+          "format": "wav",
+          "sample_rate": 24000,
+          "speech_rate": 0,
+          "loudness_rate": 0,
+          "pitch_rate": 0
+        }
+      }
+    ]
+  },
+  "automatic_retry": false
+}

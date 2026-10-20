@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-10-20T13:40:05.704Z",
+  "purpose": "User-approved diagnostic media audition, not a full production project",
+  "user_approval": "응 진행해 (in reply to video 1 + audio 1 / total 15.1 credits / no auto retry)",
+  "credit_cap": 15.1,
+  "rechecked_quote": 15.1,
+  "automatic_retries": 0,
+  "provider_project": "not created; saved auto_create_project=false",
+  "publication": false,
+  "voice_cloning": false,
+  "requests": [
+    {
+      "kind": "video",
+      "params": {
+        "get_cost": false,
+        "model": "seedance_2_5",
+        "mode": "t2v",
+        "duration": 5,
+        "resolution": "480p",
+        "aspect_ratio": "16:9",
+        "generate_audio": false,
+        "count": 1,
+        "prompt": "A fixed camera shows one red cube and one blue cube on a plain gray floor. The red cube starts separate, slides toward the stationary blue cube, makes visible surface contact, and stops without penetration or duplication. Both cubes remain in place after contact. No text, speech or music.",
+        "use_unlim": false
+      },
+      "submission_state": "not_submitted"
+    },
+    {
+      "kind": "audio",
+      "params": {
+        "get_cost": false,
+        "model": "seed_audio",
+        "count": 1,
+        "prompt": "전달이 끝났습니다.",
+        "voice_type": "preset",
+        "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+        "format": "wav",
+        "sample_rate": 24000,
+        "speech_rate": 0,
+        "loudness_rate": 0,
+        "pitch_rate": 0,
+        "use_unlim": false
+      },
+      "submission_state": "not_submitted"
+    }
+  ]
+}

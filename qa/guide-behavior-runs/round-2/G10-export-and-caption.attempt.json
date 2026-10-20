@@ -1,0 +1,196 @@
+{
+  "id": "G10-export-and-caption",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "타임라인에서는 정상인데 내보낸 세로 영상은 소리가 없고 손이 잘린다. 자막도 반응보다 결론을 먼저 보여 준다. 검수 계획을 써라.",
+  "prompt_sha256": "85aa63a184a8c87ce8ab98005591bb219d1dd83f173be9b8251ab09feb508829",
+  "owner": "video-production-assets/references/15-delivery.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/15-delivery.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "dd0292c0502adf25a6a144d75eabba719a8a5762ed808457f4e87021bd5a55e8",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/15-delivery.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "타임라인에서는 정상인데 내보낸 세로 영상은 소리가 없고 손이 잘린다. 자막도 반응보다 결론을 먼저 보여 준다. 검수 계획을 써라."
+  ],
+  "started_at": "2026-10-20T13:02:29.650044+00:00",
+  "duration_seconds": 33.217015064001316,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "## 세로 영상 출력 검수 계획\n\n**판정 대상은 타임라인이 아니라 내보낸 파일 자체다.** 제보된 무음·손 잘림·결론 선공개를 납품 차단 항목으로 등록한다. 현재 실제 파일은 제공되지 않았으므로 검사 상태는 모두 `unverified`다.\n\n### 1. 검수 준비\n- 문제 출력본과 수정본의 버전, 편집 프로젝트·원본·최종 음성·자막을 연결한다.\n- 납품 목적지의 화면비·해상도·오디오 조건과 자막 모드를 확인한다. 미확인 규격은 임의로 정하지 않는다.\n\n### 2. 증상별 진단 및 통과 기준\n\n| 항목 | 검사·수정 순서 | 통과 기준 |\n|---|---|---|\n| **소리 없음** | 출력 파일의 오디오 스트림 유무 확인 → 타임라인 트랙·마스터 mute 확인 → 내보내기 오디오 포함·트랙 설정 확인 → 다른 재생기에서도 청취해 재생 환경 문제 분리 | 의도한 대사·음악·효과가 실제 출력에서 들리고, 전체 재생 중 누락·끊김이 없음 |\n| **손 잘림** | 세로 출력 전체에서 손동작·물체 접촉 구간을 표시하고 동작 전후까지 확인. 원본과 비교해 크롭·위치 이동 원인을 구분. 리프레이밍이나 축소 배치로 수정하고, 필요하면 여백/배경 처리 검토 | 중요한 손동작과 접촉 관계가 보존되고 자막·목적지 UI에도 가리지 않음 |\n| **결론 선공개 자막** | 원문·최종 발화·자막을 나란히 대조. 결론 자막 시작, 실제 발화, 인물 반응 시점을 기록. 긴 자막을 의미 단위로 나누고 해당 정보가 공개되는 시점에 맞춰 재배치 | 자막이 반응이나 의도된 정보 공개를 앞질러 결론을 누설하지 않으며, 발화 동기와 읽기 시간도 충족 |\n\n원본 하드 자막이 있다면 실제 문구·타이밍·가독성부터 확인한다. 검사 없이 삭제·가림·대체를 확정하거나 새 자막을 겹치지 않는다.\n\n### 3. 수정 출력 재검수\n1. 먼저 문제 구간을 시험 출력해 세 증상을 재확인한다.\n2. 최종 출력본은 **처음부터 끝까지 영상·소리를 함께 재생**한다. 첫/끝, 중간 끊김, 자막 동기, 작은 화면과 목적지 UI 가림을 확인한다.\n3. 가로본도 납품한다면 별도 파일로 검사한다. 세로본 통과를 가로본에 대신 적용하지 않는다.\n4. 편집·인코딩 문제는 해당 설정과 구간을 수정한다. 이를 이유로 전체 미디어를 재생성하지 않는다.\n\n### 4. 기록과 완료 조건\n`파일 버전 | 타임코드 | 증상 | 확인된 원인/가설 | 수정 내용 | 재검수 근거 | pass/fail/unverified`로 기록한다.\n\n**세 차단 항목이 해소되고 최종 파일 전체 재생이 통과해야 납품 가능으로 판정한다.** 파일·도구가 없어 확인하지 못한 항목은 통과가 아니라 `unverified`로 남긴다. 사용자 수락·게시 승인은 별도다.\n\n근거: `video-production-assets/references/15-delivery.md` 「자막·출력 파일 재검수」, `references/29-reference-driven-production.md` 「R8」, `assets/15-delivery-template.md` 「실제 출력·자막 대조」; `creative-production/references/marketing-source-adaptation.md` §4.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/15-delivery.md",
+          "offset": 1,
+          "limit": 2000
+        }
+      },
+      {
+        "name": "grep",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "pattern": "episode-delivery",
+          "context": 2
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "offset": 139,
+          "limit": 35
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/assets/15-delivery-template.md",
+          "offset": 1,
+          "limit": 220
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "creative-production/references/marketing-source-adaptation.md",
+          "offset": 1,
+          "limit": 220
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/15-delivery.md",
+        "local_path": "video-production-assets/references/15-delivery.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": 139,
+        "limit": 35
+      },
+      {
+        "path": "video-production-assets/assets/15-delivery-template.md",
+        "local_path": "video-production-assets/assets/15-delivery-template.md",
+        "success": true,
+        "offset": 1,
+        "limit": 220
+      },
+      {
+        "path": "creative-production/references/marketing-source-adaptation.md",
+        "local_path": "creative-production/references/marketing-source-adaptation.md",
+        "success": true,
+        "offset": 1,
+        "limit": 220
+      }
+    ],
+    "tools_called": [
+      "read",
+      "grep",
+      "read",
+      "read",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1285,
+        "output": 35,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1320,
+        "cost": {
+          "input": 0.00257,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.00292
+        }
+      },
+      {
+        "input": 2904,
+        "output": 38,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 4094,
+        "cost": {
+          "input": 0.005808,
+          "output": 0.00038,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0063032
+        }
+      },
+      {
+        "input": 307,
+        "output": 111,
+        "cacheRead": 3968,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 4386,
+        "cost": {
+          "input": 0.000614,
+          "output": 0.00111,
+          "cacheRead": 0.00039680000000000005,
+          "cacheWrite": 0,
+          "total": 0.0021208
+        }
+      },
+      {
+        "input": 3830,
+        "output": 862,
+        "cacheRead": 4096,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 8788,
+        "cost": {
+          "input": 0.007659999999999999,
+          "output": 0.008620000000000001,
+          "cacheRead": 0.00040960000000000004,
+          "cacheWrite": 0,
+          "total": 0.0166896
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "0b39ed3804a3dc28f73e2c6642c06213bbb79f78d17f1877b1299a1805317822",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

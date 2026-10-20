@@ -1,0 +1,137 @@
+{
+  "id": "G02-redacted-cropped-sheet",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "얼굴 삭제된 시트와 머리가 잘린 전신 그림만 있다. 이것으로 같은 인물과 전신 비율을 검증했다고 해도 되나?",
+  "prompt_sha256": "38a1384500985dd3790507d368f8b3b4b62c65a4bdf3f5128a0ef31d3be39eff",
+  "owner": "designing-video-character-sheets/references/character-craft.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner designing-video-character-sheets/references/character-craft.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "d9d4c5eedff452b4f159fed012970ac29ca63b9859882dbf517d6c4a899584dd",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner designing-video-character-sheets/references/character-craft.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "얼굴 삭제된 시트와 머리가 잘린 전신 그림만 있다. 이것으로 같은 인물과 전신 비율을 검증했다고 해도 되나?"
+  ],
+  "started_at": "2026-10-20T12:55:25.044709+00:00",
+  "duration_seconds": 20.60638462199131,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "source_after": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "trace": {
+    "final_text": "**아니요. 두 자료를 합쳐도 ‘동일 인물·전신 비율 검증 완료’라고 할 수 없습니다.**\n\n- **얼굴 삭제 시트:** 보이는 의상·몸통 구조 등은 검토할 수 있지만, 신원은 검증할 수 없습니다.\n- **머리가 잘린 전신 그림:** 보이는 신체 구간은 검토할 수 있지만, 머리를 포함한 전체 비율은 검증할 수 없습니다.\n- 서로의 누락을 추정으로 채워 검증했다고 해서는 안 됩니다.\n\n기록은 이렇게 남기세요.\n> **동일 인물 여부 및 전체 신체 비율: 미검증. 현재 자료는 얼굴 삭제·머리 잘림으로 검증 범위가 제한됨.**\n\n추가로 **승인된 얼굴 원본**과 **머리부터 발끝까지 잘림 없는 동일 인물·동일 상태의 전신 뷰**가 필요합니다. 전신끼리는 같은 바닥선·표시 축척에서 비교하세요. 얼굴 삭제 공유본은 승인 원본과 분리합니다.\n\n근거: `designing-video-character-sheets/references/character-craft.md` §Reusable sheet versus generation input; `video-production-assets/references/29-reference-driven-production.md` §R2 항목 4–6 및 공유본 규칙.",
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "designing-video-character-sheets/references/character-craft.md",
+        "local_path": "designing-video-character-sheets/references/character-craft.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": 35,
+        "limit": 32
+      }
+    ],
+    "tools_called": [
+      "read",
+      "grep",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1278,
+        "output": 37,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1315,
+        "cost": {
+          "input": 0.0025559999999999997,
+          "output": 0.00037000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.0029259999999999998
+        }
+      },
+      {
+        "input": 5121,
+        "output": 51,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 5172,
+        "cost": {
+          "input": 0.010242,
+          "output": 0.00051,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.010752
+        }
+      },
+      {
+        "input": 840,
+        "output": 35,
+        "cacheRead": 4992,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 5867,
+        "cost": {
+          "input": 0.0016799999999999999,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0.0004992,
+          "cacheWrite": 0,
+          "total": 0.0025291999999999997
+        }
+      },
+      {
+        "input": 6417,
+        "output": 293,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 7862,
+        "cost": {
+          "input": 0.012834,
+          "output": 0.0029300000000000003,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0158792
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "0248a8d93bffcc9434ce95ddf7ba657b7a8709fa5cd5923e00fa99a1e16a2612",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

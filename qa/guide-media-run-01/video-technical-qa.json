@@ -1,0 +1,26 @@
+{
+  "file": "/tmp/shortdrama-guide-audit/media-run-01/video.mp4",
+  "sha256": "20638a0bebb410c065f4fe77e6aa401111ceb31e37e224257e274f18c7124168",
+  "bytes": 163442,
+  "container_duration_seconds": 5.04,
+  "decoded_frame_count": 121,
+  "first_pts_seconds": 0.0,
+  "last_pts_seconds": 5.0,
+  "frame_rate": 24,
+  "time_base": "1/90000",
+  "resolution": [
+    854,
+    480
+  ],
+  "codec": "h264 High / yuv420p",
+  "audio_stream_present": false,
+  "decode_to_png": "all frames decoded successfully; no generated/replaced frames",
+  "contact_sheets": [
+    "/tmp/shortdrama-guide-audit/media-run-01/contact-1.jpg",
+    "/tmp/shortdrama-guide-audit/media-run-01/contact-2.jpg",
+    "/tmp/shortdrama-guide-audit/media-run-01/contact-3.jpg",
+    "/tmp/shortdrama-guide-audit/media-run-01/contact-4.jpg",
+    "/tmp/shortdrama-guide-audit/media-run-01/contact-5.jpg"
+  ],
+  "limits": "Frame inspection does not prove 3D physics or realtime playback quality. Local binaries/contact sheets stay in temporary storage, not redistributed in skill sources."
+}

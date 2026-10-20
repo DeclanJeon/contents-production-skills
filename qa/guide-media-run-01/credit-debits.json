@@ -1,0 +1,21 @@
+{
+  "credit_cap": 15.1,
+  "matching_transactions": [
+    {
+      "display_name": "Seed Audio 1.0",
+      "credits": -0.1,
+      "action": "spend",
+      "created_at": "2026-10-20T13:40:11.021273Z"
+    },
+    {
+      "display_name": "Seedance 2.5",
+      "credits": -15,
+      "action": "spend",
+      "created_at": "2026-10-20T13:40:08.386962Z"
+    }
+  ],
+  "total_credits_debited": 15.1,
+  "attribution": "Provider transaction rows matched by model and submission timestamp; rows do not expose job IDs.",
+  "automatic_retries": 0,
+  "credit_purchases": 0
+}

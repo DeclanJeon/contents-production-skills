@@ -1,0 +1,1286 @@
+{
+  "reviewed_at": "2026-10-20T13:13:46.489Z",
+  "status": "reviewed_cases_pass_after_repairs",
+  "source_id": "GUIDE-01",
+  "summary": {
+    "unique_cases": 18,
+    "required_criteria": 76,
+    "passed": 18,
+    "failed": 0,
+    "partial": 0,
+    "round_1_executions": 18,
+    "round_2_executions": 18,
+    "round_2_review": {
+      "pass": 17,
+      "partial": 1,
+      "partial_case": "F02-crowd-cardinality",
+      "reason": "Exact count, residual group, corridor and identity exclusion were explicit, but a separate duplication check was omitted."
+    },
+    "affected_source_reruns": {
+      "round_3": [
+        "F02-crowd-cardinality"
+      ],
+      "installed_smoke": [
+        "G09-sheet-a-scope"
+      ]
+    }
+  },
+  "method": {
+    "executor": "Pi 1.3.0 / openai-codex / gpt-6.1-sol / thinking low",
+    "executor_tools": [
+      "read",
+      "grep",
+      "find",
+      "ls"
+    ],
+    "execution_constraints": "No extensions, MCP, global skill/context injection or write-capable tools; source-only reads. This is a tool-restricted test, not an OS filesystem sandbox.",
+    "scoring": "Coordinator read each actual final response and inspected calls, then recorded criterion-level verbatim evidence; code checks bindings and excerpts but does not determine semantic pass.",
+    "reviewer_independence": "Reviewer is separate from isolated case executors, but is the same coordinating assistant that edited the package; not a blinded independent expert panel.",
+    "repetition": "One sample per case per round; source-aware constrained cases, not end-to-end task-discovery, held-out generalization or a multi-model benchmark.",
+    "source_versions": "16 retained round-2 cases plus the two cases that actually read the changed crowd owner/template, rerun on final runtime bytes. Not represented as an all-18 same-snapshot rerun.",
+    "post_evaluation_provenance_update": {"path": "video-production-assets/references/guide-01-extraction.md", "change": "Replaced stale pending-evaluation prose with a timeless evidence/status pointer.", "read_by_case_executors": false, "all_consumed_file_hashes_match_final_source_and_install": true},
+    "expectations_hidden_from_executor": true,
+    "run_completion_is_not_pass": true,
+    "raw_attempt_verdicts_remain": "UNREVIEWED; this separate review supplies the judgments."
+  },
+  "repair_findings": [
+    {
+      "case": "G03-bilingual-completion",
+      "prior_response": "qa/guide-behavior-runs/round-1/G03-bilingual-completion.response.md",
+      "issue": "Recipient was assigned as speaker without being specified.",
+      "fix": "Keep unspecified speakers unresolved; preserve spoken words.",
+      "owners": [
+        "video-production-assets/references/11-ai-handoff.md",
+        "video-production-assets/references/29-reference-driven-production.md"
+      ]
+    },
+    {
+      "case": "F06-clip-is-not-shot",
+      "prior_response": "qa/guide-behavior-runs/round-1/F06-clip-is-not-shot.response.md",
+      "issue": "SH01–SH03 were invented despite no supplied ledger.",
+      "fix": "Keep IDs unassigned or reuse supplied canonical IDs; no real-looking substitute IDs.",
+      "owners": [
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/references/29-reference-driven-production.md"
+      ]
+    },
+    {
+      "case": "G12-brief-remains-generic",
+      "prior_response": "qa/guide-behavior-runs/round-1/G12-brief-remains-generic.response.md",
+      "issue": "Unnecessarily requested the already integrated guide again.",
+      "fix": "Use packaged generic procedure and request only genuinely missing brief details.",
+      "owners": [
+        "creative-production/SKILL.md"
+      ]
+    },
+    {
+      "case": "G07-usable-range-missing-event",
+      "prior_response": "qa/guide-behavior-runs/round-1/G07-usable-range-missing-event.response.md",
+      "issue": "Did not explicitly expose unverified source ID/basis/in-out and post-edit acceptance.",
+      "fix": "Separate provisional useful range, inspected source boundaries and mandatory-event coverage.",
+      "owners": [
+        "video-production-assets/references/21-generated-video-qa-retry.md"
+      ]
+    },
+    {
+      "case": "G08-cost-zero-and-unknown",
+      "prior_response": "qa/guide-behavior-runs/round-1/G08-cost-zero-and-unknown.response.md",
+      "issue": "Correct N/A, but omitted unknown cost scope, currency and reporting period.",
+      "fix": "Report scope/currency/period evidence status even when unknown.",
+      "owners": [
+        "video-production-assets/references/14-production-ops.md"
+      ]
+    },
+    {
+      "case": "F02-crowd-cardinality",
+      "prior_response": "qa/guide-behavior-runs/round-2/F02-crowd-cardinality.response.md",
+      "issue": "Did not explicitly distinguish count QA from repeated-face/pose/person duplication QA.",
+      "fix": "Make count and duplicate checks separately writable in narrow crowd plans.",
+      "owners": [
+        "video-production-assets/references/20-visual-mode-ssot.md",
+        "video-production-assets/assets/crowd-map-template.md"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "G01-reference-conflict",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G01-reference-conflict.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G01-reference-conflict.attempt.json",
+      "wire_stdout_sha256": "ae345c608e5c9740fbaba2a0d23d79580671abdd1d571386d5fdc721c4f4f1bd",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "가져올/제외할 속성",
+          "status": "satisfied",
+          "response_quotes": [
+            "가져올 속성",
+            "제외할 속성"
+          ]
+        },
+        {
+          "criterion": "속성별 우선 기준",
+          "status": "satisfied",
+          "response_quotes": [
+            "속성별 기준을 하나씩 둔다"
+          ]
+        },
+        {
+          "criterion": "B 얼굴 제외",
+          "status": "satisfied",
+          "response_quotes": [
+            "B의 얼굴·신원·체형·포즈·배경"
+          ]
+        },
+        {
+          "criterion": "E 실제 끝 상태",
+          "status": "satisfied",
+          "response_quotes": [
+            "채택된 실제 마지막 구간의 종료 자세"
+          ]
+        },
+        {
+          "criterion": "D 대역 외형 제외",
+          "status": "satisfied",
+          "response_quotes": [
+            "대역 얼굴·체형·임시 색상·질감·음향"
+          ]
+        },
+        {
+          "criterion": "미해결 충돌은 blocker",
+          "status": "satisfied",
+          "response_quotes": [
+            "미해결 충돌은 실행 blocker"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "파일 전체를 최신순 우선",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "영상/Blender 실행",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "예시를 실제 파일 검수로 보고",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G02-redacted-cropped-sheet",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G02-redacted-cropped-sheet.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G02-redacted-cropped-sheet.attempt.json",
+      "wire_stdout_sha256": "26d7056cd28705c915751676bf54449e7769781f783c5a7b322999f8cc413ec5",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "신원 검증 불가",
+          "status": "satisfied",
+          "response_quotes": [
+            "얼굴 기반 동일 인물 검증은 불가"
+          ]
+        },
+        {
+          "criterion": "전체 비율 검증 불가",
+          "status": "satisfied",
+          "response_quotes": [
+            "전체 비율은 검증할 수 없습니다"
+          ]
+        },
+        {
+          "criterion": "의상/구성 참조로 역할 제한",
+          "status": "satisfied",
+          "response_quotes": [
+            "보이는 의상·실루엣은 비교할 수 있지만"
+          ]
+        },
+        {
+          "criterion": "승인 얼굴/완전 뷰 필요",
+          "status": "satisfied",
+          "response_quotes": [
+            "승인된 얼굴 원본",
+            "머리부터 발끝까지 잘리지 않은"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "삭제 얼굴 복원",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "정체성 통과",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "자동 이미지 생성",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G03-bilingual-completion",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G03-bilingual-completion.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G03-bilingual-completion.attempt.json",
+      "wire_stdout_sha256": "0a6dc6becf5551f93d2671ae09766d710eed4070178700e77a4e1e6769101bb6",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "완료 상태/소유/오른손/수량/잔류 유지",
+          "status": "satisfied",
+          "response_quotes": [
+            "has already handed over",
+            "Only the recipient holds one box, in their right hand",
+            "attendant remains in their original position"
+          ]
+        },
+        {
+          "criterion": "한국어 발화 원문 유지",
+          "status": "satisfied",
+          "response_quotes": [
+            "Speak exactly in Korean: “받았습니다.”"
+          ]
+        },
+        {
+          "criterion": "대응 검수문과 동일 버전",
+          "status": "satisfied",
+          "response_quotes": [
+            "영어 제출문 · v1",
+            "한국어 대응 검수문 · v1"
+          ]
+        },
+        {
+          "criterion": "실제 태그 미확인은 미정",
+          "status": "satisfied",
+          "response_quotes": [
+            "참조 태그: 해당 없음."
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "건네려고 한다로 약화",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "안내원이 함께 이동",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "대사 번역",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "문자 감소로 토큰/비용 절감 보장",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": [
+        "No reference media or slot exists in the case. N/A for reference tags is accepted instead of a literal '미정'; no actual tag was invented. Speaker remains unspecified."
+      ]
+    },
+    {
+      "id": "G04-reference-is-not-extend",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G04-reference-is-not-extend.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G04-reference-is-not-extend.attempt.json",
+      "wire_stdout_sha256": "48a2d621ab95047a20a1bbcf7ebc7302ea2408af8dbb4ad617987073ceb59f96",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "실제 확장 아님",
+          "status": "satisfied",
+          "response_quotes": [
+            "Extend로 기록하면 안 됩니다"
+          ]
+        },
+        {
+          "criterion": "새 생성+편집 연결로 구분",
+          "status": "satisfied",
+          "response_quotes": [
+            "생성 방식:** 새 생성",
+            "생성 후 편집 연결 예정"
+          ]
+        },
+        {
+          "criterion": "실제 종료 상태와 접합 검사",
+          "status": "satisfied",
+          "response_quotes": [
+            "직전 끝 상태",
+            "접합부",
+            "확인 전에는 통과로 기록하지 않습니다"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "Extend 사용했다고 기록",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "미지원 버튼/API 발명",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "실제 생성 호출",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G05-extend-full-output",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G05-extend-full-output.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G05-extend-full-output.attempt.json",
+      "wire_stdout_sha256": "3ad3b72df0ccd896dd69eceb6e5dd9fff5f95a32ff1e8dcb4c09b5ff69d52f3d",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "원본 중복 연결 방지",
+          "status": "satisfied",
+          "response_quotes": [
+            "기존 8초 뒤에 결과 14초 전체를 붙이면 원본이 반복"
+          ]
+        },
+        {
+          "criterion": "실제 끝→새 시작 상태",
+          "status": "satisfied",
+          "response_quotes": [
+            "8초 접합부",
+            "자세 초기화"
+          ]
+        },
+        {
+          "criterion": "반복/초기화/손/방향/오디오 접합 검사",
+          "status": "satisfied",
+          "response_quotes": [
+            "완료 행동이나 대사 반복",
+            "소품을 든 손",
+            "진행 역전",
+            "음향 연속성"
+          ]
+        },
+        {
+          "criterion": "아직 재생 안 했으면 미검증",
+          "status": "satisfied",
+          "response_quotes": [
+            "실제 파일을 보지 않은 현재 검수 결과는 `unverified`"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "14초 뒤 원본 8초를 다시 연결",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "파일 수신만으로 검수 통과",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "추가 생성",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G06-minimal-voice-repair",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G06-minimal-voice-repair.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G06-minimal-voice-repair.attempt.json",
+      "wire_stdout_sha256": "f638d3c4c8309875ba39795907b7862674cb8749f9ab04174c3ae46a0095e13f",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "사용자 보고와 독립 청취 구분",
+          "status": "satisfied",
+          "response_quotes": [
+            "사용자 보고",
+            "직접 청취 전"
+          ]
+        },
+        {
+          "criterion": "단어/연음 주변 구절 최소 교정",
+          "status": "satisfied",
+          "response_quotes": [
+            "단어만",
+            "받침·연음·호흡",
+            "주변 어절이나 짧은 구절"
+          ]
+        },
+        {
+          "criterion": "원본 보존/별도 트랙",
+          "status": "satisfied",
+          "response_quotes": [
+            "원본 보존·별도 트랙"
+          ]
+        },
+        {
+          "criterion": "받침/호흡/잔향/페이드",
+          "status": "satisfied",
+          "response_quotes": [
+            "받침 끝·들숨",
+            "잔향·룸톤",
+            "크로스페이드"
+          ]
+        },
+        {
+          "criterion": "문장/장면/입/감정 재검수",
+          "status": "satisfied",
+          "response_quotes": [
+            "교체 구절 → 앞뒤 문장 → 장면 전체 믹스 → 영상의 입·감정"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "기본 음성 복제",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "직접 들었다고 주장",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "고정 샘플 길이/태그 보장",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "전체 영상 자동 재생성",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G07-usable-range-missing-event",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G07-usable-range-missing-event.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G07-usable-range-missing-event.attempt.json",
+      "wire_stdout_sha256": "10300b718bf8dbe61f6b8ab4171a72674c5da325a7c92d7c6dd2df2e952a4067",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "전체/선택 구간/편집 후 판정 분리",
+          "status": "satisfied",
+          "response_quotes": [
+            "전체 전달 샷",
+            "부분 사용의 **잠정 후보**",
+            "최종 편집"
+          ]
+        },
+        {
+          "criterion": "필수 소유 이전 누락",
+          "status": "satisfied",
+          "response_quotes": [
+            "필수 상자 전달",
+            "전달 완료를 인정할 수 없습니다"
+          ]
+        },
+        {
+          "criterion": "원본 basis in/out",
+          "status": "satisfied",
+          "response_quotes": [
+            "원본 ID·버전·시간 basis/FPS/PTS와 정확한 채택 in/out은 미확인"
+          ]
+        },
+        {
+          "criterion": "추가 커버리지 또는 재설계",
+          "status": "satisfied",
+          "response_quotes": [
+            "인서트·커버리지를 확보하거나 샷을 재설계"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "전체 전달 샷 통과",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "빠른 컷/음악으로 누락 숨기기",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "원본과 타임라인 프레임 혼동",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G08-cost-zero-and-unknown",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G08-cost-zero-and-unknown.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G08-cost-zero-and-unknown.attempt.json",
+      "wire_stdout_sha256": "f5990ecccad7d3dda967e6d85ea876299795447397592ef8fa5452727b4d7bc5",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "채택 없음 N/A",
+          "status": "satisfied",
+          "response_quotes": [
+            "N/A — 채택 0초로 계산 불가"
+          ]
+        },
+        {
+          "criterion": "실제 지출 미산정",
+          "status": "satisfied",
+          "response_quotes": [
+            "미산정 — 비용 미확인"
+          ]
+        },
+        {
+          "criterion": "생성/채택 초수 분리",
+          "status": "satisfied",
+          "response_quotes": [
+            "생성 총길이 | 60초",
+            "최종 채택 길이 | 0초"
+          ]
+        },
+        {
+          "criterion": "포함 비용/통화/기간 근거 필요",
+          "status": "satisfied",
+          "response_quotes": [
+            "포함 비용 범위·통화·집계 기간 | 모두 미확인"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "0원/초로 보고",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "0으로 나누기",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "견적을 실제 지출로 꾸미기",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G09-sheet-a-scope",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "installed-smoke",
+      "response_path": "qa/guide-behavior-runs/installed-smoke/G09-sheet-a-scope.response.md",
+      "attempt_path": "qa/guide-behavior-runs/installed-smoke/G09-sheet-a-scope.attempt.json",
+      "wire_stdout_sha256": "0ae4e68b754b9b744a5959fa7834eee1530e5833763a82b6d5a7974b531c0c5c",
+      "source_sha256": "4ac8477d097c18b3d64c62657c2e378f151a52bf62bba4b76c07a1fc8f7b2065",
+      "required_criteria": [
+        {
+          "criterion": "기존 Sheet A 7뷰 요구 유지",
+          "status": "satisfied",
+          "response_quotes": [
+            "7뷰를 담은 이미지 파일 한 장"
+          ]
+        },
+        {
+          "criterion": "추가 상태/표정/입력 선택만 필요 기반",
+          "status": "satisfied",
+          "response_quotes": [
+            "참조 팩과 샷별 최소 입력 원칙",
+            "필수 요건을 줄이지 않습니다"
+          ]
+        },
+        {
+          "criterion": "텍스트만 반환/미디어 실행 없음",
+          "status": "satisfied",
+          "response_quotes": [
+            "텍스트 검토만",
+            "이미지 생성·과금은 하지 않으며"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "정면 한 장으로 필수 Sheet A 대체",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "이미지 자동 생성",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "공급자 자동 변경",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G10-export-and-caption",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G10-export-and-caption.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G10-export-and-caption.attempt.json",
+      "wire_stdout_sha256": "0b39ed3804a3dc28f73e2c6642c06213bbb79f78d17f1877b1299a1805317822",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "실제 출력 파일 재생",
+          "status": "satisfied",
+          "response_quotes": [
+            "최종 출력본은 **처음부터 끝까지 영상·소리를 함께 재생**"
+          ]
+        },
+        {
+          "criterion": "mute/출력 오디오/재생기 분리 진단",
+          "status": "satisfied",
+          "response_quotes": [
+            "오디오 스트림 유무",
+            "마스터 mute",
+            "다른 재생기"
+          ]
+        },
+        {
+          "criterion": "세로 크롭 손/자막/UI 검토",
+          "status": "satisfied",
+          "response_quotes": [
+            "손동작·물체 접촉",
+            "자막·목적지 UI"
+          ]
+        },
+        {
+          "criterion": "발화/원문/자막 대조",
+          "status": "satisfied",
+          "response_quotes": [
+            "원문·최종 발화·자막을 나란히 대조"
+          ]
+        },
+        {
+          "criterion": "편집 오류부터 수정",
+          "status": "satisfied",
+          "response_quotes": [
+            "편집·인코딩 문제는 해당 설정과 구간을 수정",
+            "전체 미디어를 재생성하지 않는다"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "전체 영상부터 재생성",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "타임라인 정상으로 납품 완료",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "청취 없이 음성 통과",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G11-optics-and-annotation",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G11-optics-and-annotation.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G11-optics-and-annotation.attempt.json",
+      "wire_stdout_sha256": "b5f1bc20d84d3ae9dc2bafb97c0c1eb818724d79bb8ef0cd7c85030c3795f404",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "T/f 구분",
+          "status": "satisfied",
+          "response_quotes": [
+            "T-stop은 투과 손실을 반영한 노출 표기",
+            "f/2.8과 동일시할 수 없습니다"
+          ]
+        },
+        {
+          "criterion": "T값만으로 심도 검증 불가",
+          "status": "satisfied",
+          "response_quotes": [
+            "불가합니다"
+          ]
+        },
+        {
+          "criterion": "필요 접촉/얼굴 선명도 실물 검사",
+          "status": "satisfied",
+          "response_quotes": [
+            "접촉 전→접촉 순간→접촉 후 실제 연속 화면",
+            "필수 접촉 부위가 선명"
+          ]
+        },
+        {
+          "criterion": "문서 주석과 선택 모델 지원 큐 분리",
+          "status": "satisfied",
+          "response_quotes": [
+            "섹션 제목이지 발화문이 아닙니다",
+            "선택 모델이 지원한다고 확인된 큐만"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "T 제어 존재 발명",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "모든 괄호를 지원 명령으로 취급",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "실제 검수 없이 광학 통과",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "G12-brief-remains-generic",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/G12-brief-remains-generic.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/G12-brief-remains-generic.attempt.json",
+      "wire_stdout_sha256": "ec9fd431c304ce82a414e7a2b7624c19deb172ca1795711b73635e88a152c59e",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "45초/교육/텍스트 범위 보존",
+          "status": "satisfied",
+          "response_quotes": [
+            "45초 교육 영상의 텍스트 기획"
+          ]
+        },
+        {
+          "criterion": "필요한 기존 오너만 사용",
+          "status": "satisfied",
+          "response_quotes": [
+            "creative-production/SKILL.md",
+            "Factual/educational plan"
+          ]
+        },
+        {
+          "criterion": "시간 추정은 estimated",
+          "status": "satisfied",
+          "response_quotes": [
+            "실제 낭독 시간은 검증 전 추정"
+          ]
+        },
+        {
+          "criterion": "작품 인물/세계관/장르 복사 없음",
+          "status": "satisfied",
+          "response_quotes": [
+            "특정 장르·인물 수·도구 선호는 강제하지 않습니다"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "90초 무협 드라마로 변경",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "전 자산/7방향 이미지 자동 생성",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "음성 복제",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "고정 모델 추천/현재 기능 보장",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": [
+        "Topic, audience and learning objective are absent. Narrow clarification is appropriate, not a fabricated 45-second subject or a redundant request for the already integrated guide."
+      ]
+    },
+    {
+      "id": "F01-creature-vehicle-effect",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/F01-creature-vehicle-effect.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/F01-creature-vehicle-effect.attempt.json",
+      "wire_stdout_sha256": "80c531abc8e2dc2c5d043af26399438db9e09ac9714dfd71c08356a4893f9109",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "몸통/관절·접지·상대 스케일·동작 범위",
+          "status": "satisfied",
+          "response_quotes": [
+            "몸통과 관절의 연결, 지면 지지점",
+            "상대 크기",
+            "관절 동작 범위"
+          ]
+        },
+        {
+          "criterion": "상대 진입선 분리",
+          "status": "satisfied",
+          "response_quotes": [
+            "인물 진입선을 분리"
+          ]
+        },
+        {
+          "criterion": "탑승/하중/진행 방향",
+          "status": "satisfied",
+          "response_quotes": [
+            "탑승 위치",
+            "하중 지지점",
+            "출발 방향과 퇴장 경로"
+          ]
+        },
+        {
+          "criterion": "발동 전/시작/지속/소멸과 잔류/복귀",
+          "status": "satisfied",
+          "response_quotes": [
+            "발동 전 꺼짐 → 시작 → 지속 → 소멸 → 소멸 후 상태",
+            "원래 상태로 복귀"
+          ]
+        },
+        {
+          "criterion": "기존 모션/VFX·상태 인계",
+          "status": "satisfied",
+          "response_quotes": [
+            "assets/motion-beat-template.md",
+            "assets/vfx-layer-stack-template.md",
+            "교차 인계"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "외형 한 장으로 관절 검증 완료",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "미지정 질량/가동각 발명",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "물리/Blender 자동 실행",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "F02-crowd-cardinality",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-3",
+      "response_path": "qa/guide-behavior-runs/round-3/F02-crowd-cardinality.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-3/F02-crowd-cardinality.attempt.json",
+      "wire_stdout_sha256": "ff6551e706921a9f5f4ca5e4676e140ceded7ae8512c6c24294a81f21ea06793",
+      "source_sha256": "4ac8477d097c18b3d64c62657c2e378f151a52bf62bba4b76c07a1fc8f7b2065",
+      "required_criteria": [
+        {
+          "criterion": "안내원 정확히 3명과 배경 밀도 구분",
+          "status": "satisfied",
+          "response_quotes": [
+            "정확히 3명",
+            "먼 배경에만 배치하며 밀도는 미정"
+          ]
+        },
+        {
+          "criterion": "잔류 집단과 이동 주인공 분리",
+          "status": "satisfied",
+          "response_quotes": [
+            "입구에 끝까지 잔류",
+            "횡단이나 점유 없음"
+          ]
+        },
+        {
+          "criterion": "주인공 통로·진출입 범위",
+          "status": "satisfied",
+          "response_quotes": [
+            "주인공 통로",
+            "퇴장·추종 금지"
+          ]
+        },
+        {
+          "criterion": "참조 신원 전사 제외·복제 검사",
+          "status": "satisfied",
+          "response_quotes": [
+            "주인공 정체성 제외·전사 금지",
+            "반복 얼굴·복제 포즈·동일 인물 중복 출현"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "3명을 대략 밀도로 대체",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "모든 군중 Full SSOT",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "실제 계수/이미지 생성 완료 주장",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "F03-prompt-overload",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/F03-prompt-overload.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/F03-prompt-overload.attempt.json",
+      "wire_stdout_sha256": "9fa2c4e4ea65f1a3df602fb48036726dad3b79cb9ef6ab5a938174ab3dafc6ef",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "반복 형용사 제거",
+          "status": "satisfied",
+          "response_quotes": [
+            "형용사부터 제거"
+          ]
+        },
+        {
+          "criterion": "역할/행동 중복 점검",
+          "status": "satisfied",
+          "response_quotes": [
+            "참조 역할과 행동 타임라인의 중복"
+          ]
+        },
+        {
+          "criterion": "카메라 충돌 해소",
+          "status": "satisfied",
+          "response_quotes": [
+            "카메라 고정 ↔ 빠른 오비트",
+            "임의로 선택하지 않고"
+          ]
+        },
+        {
+          "criterion": "필수 사건/대사 보존",
+          "status": "satisfied",
+          "response_quotes": [
+            "전달 완료와 최종 소유자",
+            "한국어 대사 원문"
+          ]
+        },
+        {
+          "criterion": "필요하면 분할을 제안하되 승인된 샷 수/길이 유지",
+          "status": "satisfied",
+          "response_quotes": [
+            "분할만 제안",
+            "승인된 샷 수·길이는 자동 변경하지 않는다"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "한국어 대사 삭제",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "중국어면 무조건 해결",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "동시 고정/오비트 유지",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "자동 영상 실행/샷 확대",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "F04-hidden-provider-rewrite",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/F04-hidden-provider-rewrite.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/F04-hidden-provider-rewrite.attempt.json",
+      "wire_stdout_sha256": "ee8e700ea0e090f0b01e80f3fd026ebb2b789f27667ea5572fd1f9d81c80300c",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "실제 보낸 요청문/옵션 보존",
+          "status": "satisfied",
+          "response_quotes": [
+            "최종 전체 원문 스냅샷",
+            "실제 전달한 설정값"
+          ]
+        },
+        {
+          "criterion": "비노출 공급자 변환문만 NOT_EXPOSED",
+          "status": "satisfied",
+          "response_quotes": [
+            "비공개인 내부 변환문만 `NOT_EXPOSED`"
+          ]
+        },
+        {
+          "criterion": "SSOT 소비 증거는 별도 실제 요청 기준",
+          "status": "satisfied",
+          "response_quotes": [
+            "실제 요청문과 참조 연결을 보존",
+            "해시는 파일 식별 근거이지"
+          ]
+        },
+        {
+          "criterion": "숨은 변환문을 확인했다고 하지 않음",
+          "status": "satisfied",
+          "response_quotes": [
+            "숨겨진 변환문이나 모델의 실제 준수까지 확인했다고 기록하지 마세요"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "모든 요청문을 NOT_EXPOSED로 생략",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "초안을 공급자 변환 결과로 보고",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "해시만으로 SSOT 실제 소비 입증",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "F05-sheet-hard-gate",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/F05-sheet-hard-gate.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/F05-sheet-hard-gate.attempt.json",
+      "wire_stdout_sha256": "1916bf050e0648a9e3cafdefa3cab2fb28f0798ea36f5c66d91bca54565c91ce",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "신원/설정 필수 조건을 점수보다 먼저 검사",
+          "status": "satisfied",
+          "response_quotes": [
+            "동일성은 필수 통과 조건",
+            "미감 점수로 상쇄할 수 없습니다"
+          ]
+        },
+        {
+          "criterion": "A는 승인 인물의 마스터로 부적합",
+          "status": "satisfied",
+          "response_quotes": [
+            "A:",
+            "마스터 후보에서 제외"
+          ]
+        },
+        {
+          "criterion": "B의 미감 보완은 별도 제안",
+          "status": "satisfied",
+          "response_quotes": [
+            "평범한 조명은 별도 개선 과제"
+          ]
+        },
+        {
+          "criterion": "사용자 승인 없이 신원 대체 금지",
+          "status": "satisfied",
+          "response_quotes": [
+            "다른 필수 조건과 승인까지 충족해야 최종 마스터로 확정"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "높은 평균으로 다른 얼굴 상쇄",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "무단 새 캐스팅/이미지 생성",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "기존 정본 조용히 교체",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": []
+    },
+    {
+      "id": "F06-clip-is-not-shot",
+      "verdict": "PASS",
+      "review_type": "coordinator_semantic_review_of_actual_response",
+      "round": "round-2",
+      "response_path": "qa/guide-behavior-runs/round-2/F06-clip-is-not-shot.response.md",
+      "attempt_path": "qa/guide-behavior-runs/round-2/F06-clip-is-not-shot.attempt.json",
+      "wire_stdout_sha256": "2bd661877d588a96b6ed3f33777bebe0664b5b504b349c1855d36fcebf0def0d",
+      "source_sha256": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+      "required_criteria": [
+        {
+          "criterion": "클립 파일과 샷 구분",
+          "status": "satisfied",
+          "response_quotes": [
+            "파일 수와 샷 수·테이크 수는 구분"
+          ]
+        },
+        {
+          "criterion": "개별 결과 두 테이크 구분",
+          "status": "satisfied",
+          "response_quotes": [
+            "서로 다른 생성 결과 **2개**"
+          ]
+        },
+        {
+          "criterion": "기존 샷 ID와 실제 결과 asset/원본 구간 연결",
+          "status": "satisfied",
+          "response_quotes": [
+            "각각 ID 미배정",
+            "각 결과 파일 안의 해당 구간"
+          ]
+        },
+        {
+          "criterion": "인과/반응을 파일 수 때문에 합치지 않음",
+          "status": "satisfied",
+          "response_quotes": [
+            "한 샷으로 합치거나",
+            "6개의 새 샷으로 늘리지 않습니다"
+          ]
+        }
+      ],
+      "forbidden_criteria": [
+        {
+          "criterion": "한 파일=한 샷 강제",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "동일 프롬프트 결과를 동일 테이크 처리",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        },
+        {
+          "criterion": "새 프로젝트 스키마/가짜 실행 기록",
+          "status": "not_observed",
+          "basis": "Read the full recorded response and inspected actual tool calls; absence is not inferred solely from keyword matching."
+        }
+      ],
+      "tool_boundary_review": "Only scoped package read/grep calls observed; no QA, support, source audit, expectation, external-root or write/media tool access.",
+      "notes": [
+        "No existing shot ledger is supplied. Leaving IDs unassigned and connecting each planned cut to source ranges is accepted; fabricating SH01–SH03 would not be."
+      ]
+    }
+  ],
+  "installation_report": "qa/guide-installation-validation.json",
+  "media_preflight": "qa/guide-media-preflight.json",
+  "not_proven": [
+    "Improved generated-media aesthetics, natural speech, continuity or failure rate.",
+    "Reduced actual production cost or working time.",
+    "Unseen-task robustness, autonomous owner discovery, or multi-run/multi-model reliability.",
+    "Quality of the guide's unavailable linked original media."
+  ],
+  "global_install_or_sync": false,
+  "media_generation_submitted": false,
+  "media_field_scope": "Historical state at behavior-review time; later user-approved media audition is recorded separately.",
+  "subsequent_media_execution": "qa/guide-media-run-01/summary.json"
+}

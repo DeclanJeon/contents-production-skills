@@ -1,0 +1,109 @@
+{
+  "id": "G07-usable-range-missing-event",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "8초 클립 중 0–5초 얼굴은 안정적이지만 상자를 넘겨주는 필수 동작은 6초 이후 실패했다. 앞부분만 채택하면 전달 샷 전체 통과인가?",
+  "prompt_sha256": "51216f4f29816e88f1e7a0e1378cb8a7d3740abe714c7d8824f2266ca945e01e",
+  "owner": "video-production-assets/references/21-generated-video-qa-retry.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/21-generated-video-qa-retry.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "9474f5449bc46f8a004dc541757e930ce3bdb6828613be531c0a654c814089c5",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/21-generated-video-qa-retry.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "8초 클립 중 0–5초 얼굴은 안정적이지만 상자를 넘겨주는 필수 동작은 6초 이후 실패했다. 앞부분만 채택하면 전달 샷 전체 통과인가?"
+  ],
+  "started_at": "2026-10-20T13:02:10.605076+00:00",
+  "duration_seconds": 12.633041345019592,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "아니요. **앞부분 채택과 전달 샷 전체 통과는 별개**입니다.\n\n- **전체 전달 샷:** 제공하신 설명대로 필수 상자 전달이 6초 이후 실패했다면 `needs_revision`입니다. 얼굴 안정성이 필수 행동 실패를 상쇄하지 않습니다.\n- **0–5초:** 부분 사용의 **잠정 후보**일 뿐입니다. 이 구간만으로 전달 완료를 인정할 수 없습니다.\n- **보완:** 전달 동작을 보여주는 인서트·커버리지를 확보하거나 샷을 재설계하고, 최종 편집에서 전달·접촉·전후 연속성을 재검수해야 합니다.\n\n실제 파일은 검사하지 않았으므로 위 시간은 사용자 제공 기준이며, 원본 ID·버전·시간 basis/FPS/PTS와 정확한 채택 in/out은 미확인입니다.\n\n근거: `video-production-assets/references/21-generated-video-qa-retry.md` §3 「채택 구간과 국소 수정의 검수」「상태·인과 검수」.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+          "offset": 1,
+          "limit": 2000
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "local_path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "success": true,
+        "offset": 1,
+        "limit": 2000
+      }
+    ],
+    "tools_called": [
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1291,
+        "output": 39,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1330,
+        "cost": {
+          "input": 0.002582,
+          "output": 0.00039000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.0029720000000000002
+        }
+      },
+      {
+        "input": 7598,
+        "output": 238,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 8988,
+        "cost": {
+          "input": 0.015196,
+          "output": 0.00238,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0176912
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "10300b718bf8dbe61f6b8ab4171a72674c5da325a7c92d7c6dd2df2e952a4067",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

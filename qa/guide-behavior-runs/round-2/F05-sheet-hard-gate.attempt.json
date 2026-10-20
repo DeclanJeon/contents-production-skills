@@ -1,0 +1,164 @@
+{
+  "id": "F05-sheet-hard-gate",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "캐릭터 후보 A는 멋지지만 승인 얼굴과 다르고 후보 B는 같은 얼굴이나 조명이 평범하다. A의 평균 미감 점수가 더 높다. 촬영 마스터로 A를 고를 수 있나? 새 이미지는 만들지 마라.",
+  "prompt_sha256": "8359ea6f8e3620803907e6ccdccc46ca5f3fa1d0dc6224e4ebfe5716f91199b8",
+  "owner": "designing-video-character-sheets/references/character-craft.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner designing-video-character-sheets/references/character-craft.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "d9d4c5eedff452b4f159fed012970ac29ca63b9859882dbf517d6c4a899584dd",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner designing-video-character-sheets/references/character-craft.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "캐릭터 후보 A는 멋지지만 승인 얼굴과 다르고 후보 B는 같은 얼굴이나 조명이 평범하다. A의 평균 미감 점수가 더 높다. 촬영 마스터로 A를 고를 수 있나? 새 이미지는 만들지 마라."
+  ],
+  "started_at": "2026-10-20T13:03:19.115070+00:00",
+  "duration_seconds": 21.16461835001246,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "**아니요. 주어진 조건이라면 A를 촬영 마스터로 고르면 안 됩니다.** 승인 얼굴의 동일성은 필수 통과 조건이며, 높은 평균 미감 점수로 상쇄할 수 없습니다.\n\n- **A:** 승인 얼굴과 다르므로 마스터 후보에서 제외.\n- **B:** 동일성을 유지하므로 우선 검토. 평범한 조명은 별도 개선 과제이지 신원 탈락 사유는 아닙니다. 다만 다른 필수 조건과 승인까지 충족해야 최종 마스터로 확정할 수 있습니다.\n\n판정 순서는 **신원·해부·설정 확인 → 통과 후보끼리 장면 적합성·미감 비교**입니다. 새 이미지는 만들지 않습니다.\n\n근거: `video-production-assets/references/29-reference-driven-production.md` §R2.1; `designing-video-character-sheets/references/character-craft.md` §Reusable sheet versus generation input.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "designing-video-character-sheets/references/character-craft.md",
+          "offset": null,
+          "limit": null
+        }
+      },
+      {
+        "name": "grep",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "pattern": "identity|미감|평균|gate|Gate",
+          "limit": 25
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "offset": 28,
+          "limit": 34
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "designing-video-character-sheets/references/character-craft.md",
+        "local_path": "designing-video-character-sheets/references/character-craft.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": 28,
+        "limit": 34
+      }
+    ],
+    "tools_called": [
+      "read",
+      "grep",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1301,
+        "output": 37,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1338,
+        "cost": {
+          "input": 0.0026019999999999997,
+          "output": 0.00037000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002972
+        }
+      },
+      {
+        "input": 5144,
+        "output": 46,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 5190,
+        "cost": {
+          "input": 0.010288,
+          "output": 0.00046,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.010748
+        }
+      },
+      {
+        "input": 4267,
+        "output": 35,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 5454,
+        "cost": {
+          "input": 0.008534,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.008999199999999999
+        }
+      },
+      {
+        "input": 2254,
+        "output": 212,
+        "cacheRead": 4992,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 7458,
+        "cost": {
+          "input": 0.004508,
+          "output": 0.0021200000000000004,
+          "cacheRead": 0.0004992,
+          "cacheWrite": 0,
+          "total": 0.0071272
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "1916bf050e0648a9e3cafdefa3cab2fb28f0798ea36f5c66d91bca54565c91ce",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,76 @@
+{
+  "historical_snapshot": true,
+  "execution_followup": "qa/guide-media-run-01/summary.json",
+  "checked_at": "2026-10-20T13:12:14.909Z",
+  "status": "quote_only_awaiting_explicit_media_execution_and_credit_cap_approval",
+  "source_id": "GUIDE-01",
+  "provider": "Higgsfield MCP",
+  "live_checks": [
+    "Video model recommendation and parameter catalog",
+    "Seed Audio model get and built-in preset voice list",
+    "Account balance/plan read; values retained only in temporary local log",
+    "generate_video get_cost:true",
+    "generate_audio get_cost:true"
+  ],
+  "proposed_scope": "Optional diagnostic audition only, not a full image-backed production package or benchmark of all 44 extracted items.",
+  "requests": [
+    {
+      "kind": "video",
+      "context": "Estimate one bounded nonhuman motion QA sample without submitting a generation.",
+      "params": {
+        "get_cost": true,
+        "model": "seedance_2_5",
+        "mode": "t2v",
+        "duration": 5,
+        "resolution": "480p",
+        "aspect_ratio": "16:9",
+        "generate_audio": false,
+        "count": 1,
+        "prompt": "A fixed camera shows one red cube and one blue cube on a plain gray floor. The red cube starts separate, slides toward the stationary blue cube, makes visible surface contact, and stops without penetration or duplication. Both cubes remain in place after contact. No text, speech or music."
+      },
+      "cost": {
+        "credits": 15,
+        "credits_exact": 15
+      }
+    },
+    {
+      "kind": "audio",
+      "context": "Estimate one bounded Korean speech audition without submitting a generation.",
+      "params": {
+        "get_cost": true,
+        "model": "seed_audio",
+        "count": 1,
+        "prompt": "전달이 끝났습니다.",
+        "voice_type": "preset",
+        "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+        "format": "wav",
+        "sample_rate": 24000,
+        "speech_rate": 0,
+        "loudness_rate": 0,
+        "pitch_rate": 0
+      },
+      "cost": {
+        "credits": 0.1,
+        "credits_exact": 0.1
+      }
+    }
+  ],
+  "quoted_total_credits": 15.1,
+  "quote_currency": "provider credits; cash conversion/tax not verified",
+  "quote_expiry": "not provided; recheck before execution",
+  "max_proposed_generations": 2,
+  "automatic_retries": 0,
+  "execution_approval": "not granted",
+  "generations_submitted": 0,
+  "uploads": 0,
+  "voice_cloning": false,
+  "charged_media_spend": 0,
+  "unlimited_opt_in": false,
+  "unverified": [
+    "Grady preset's Korean pronunciation, acting and suitability have not been auditioned.",
+    "No output exists; contact, usable seconds, actual voice and output playback quality remain unverified.",
+    "No linked original media or Blender source-result lineage was obtained.",
+    "A diagnostic audition is not before/after evidence of improved production quality; that requires a separate controlled baseline and output review.",
+    "No image model is selected or called; existing codex-imagen routing is unchanged."
+  ]
+}

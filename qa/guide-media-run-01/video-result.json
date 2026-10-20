@@ -1,0 +1,33 @@
+{
+  "id": "a8257b83-ff67-4201-963a-840079328492",
+  "type": "video",
+  "status": "completed",
+  "model": "seedance_2_5",
+  "params": {
+    "prompt": "A fixed camera shows one red cube and one blue cube on a plain gray floor. The red cube starts separate, slides toward the stationary blue cube, makes visible surface contact, and stops without penetration or duplication. Both cubes remain in place after contact. No text, speech or music.",
+    "aspect_ratio": "16:9",
+    "duration": 5,
+    "medias": [],
+    "width": 854,
+    "height": 480,
+    "genre": "auto",
+    "resolution": "480p",
+    "generate_audio": false,
+    "multi_shots": false,
+    "multi_shot_mode": "custom",
+    "multi_prompt": [],
+    "speedramp": "auto",
+    "reference_elements": [],
+    "prompt_language": "en",
+    "model": "default",
+    "extension_mode": null,
+    "bitrate_mode": "standard",
+    "draft": false,
+    "draft_job_id": null
+  },
+  "results": {
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3J8vVixkLQHkQldTCv8Zq8WbL15/hf_20261020_134008_a8257b83-ff67-4201-963a-840079328492.mp4"
+  },
+  "createdAt": 1792503608.233319,
+  "liked": false
+}

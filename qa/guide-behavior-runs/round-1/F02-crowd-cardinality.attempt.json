@@ -1,0 +1,121 @@
+{
+  "id": "F02-crowd-cardinality",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "사건상 안내원 3명이 끝까지 입구에 남아야 하고 멀리 승객들은 분위기 배경이다. 주인공은 비어 있는 통로로 지나간다. 군중 계획만 써라.",
+  "prompt_sha256": "a9dc68a33d27d18c9e45eac9fdee998759a54be3b425a7f0ea124a88d461b22c",
+  "owner": "video-production-assets/references/20-visual-mode-ssot.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/20-visual-mode-ssot.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "c902e2f6c522560ac936daa6444aacd947fe6eb28db9a2ed11aae7e58a2a4e82",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/20-visual-mode-ssot.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "사건상 안내원 3명이 끝까지 입구에 남아야 하고 멀리 승객들은 분위기 배경이다. 주인공은 비어 있는 통로로 지나간다. 군중 계획만 써라."
+  ],
+  "started_at": "2026-10-20T12:56:45.077967+00:00",
+  "duration_seconds": 21.056620540999575,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "source_after": "441c4efafc5f1f4dc87dd6e281db903ffd013550255ca5ed1e9caf032c13037b",
+  "trace": {
+    "final_text": "## 군중 계획\n\n| 구역 | 인원·식별 기준 | 배치·행동 | 동선 제한 |\n|---|---|---|---|\n| 입구 안내원 | **정확히 3명**, 서로 구분 가능하게 유지 | 시작부터 끝까지 입구에 잔류. 세 사람의 위치 관계를 유지 | 이탈·추가·교체 금지. 주인공 통로에 진입하지 않음 |\n| 먼 승객 | 정확한 수 대신 **원경의 낮은~중간 밀도 제안**. 개별 신원 불필요 | 통로 밖 먼 배경에서 대기·작은 움직임으로 분위기만 형성 | 전경 접근·주인공 추종·통로 횡단 금지 |\n| 주인공 통로 | 주인공 외 **0명** | 지나갈 구간을 처음부터 끝까지 비워 둠 | 안내원·승객 유입 및 신체·짐의 침범 금지 |\n\n- **참조 경계:** 군중 참조에서는 배치·밀도·배경 행동만 취하고, 참조 인물의 얼굴·의상을 주인공 정체성으로 전사하지 않는다. 배경 인물별 Full SSOT는 만들지 않는다.\n- **출력 검수 기준:** 안내원 3명의 잔류·수량, 빈 통로 유지, 먼 승객의 배경 역할을 확인한다. 가려져 계수할 수 없는 구간은 **미검증**으로 남긴다. 현재는 계획이며 실제 출력 검증은 하지 않았다.\n\n근거: `video-production-assets/references/20-visual-mode-ssot.md` §4; `video-production-assets/assets/crowd-map-template.md`.",
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/20-visual-mode-ssot.md",
+        "local_path": "video-production-assets/references/20-visual-mode-ssot.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      },
+      {
+        "path": "video-production-assets/assets/crowd-map-template.md",
+        "local_path": "video-production-assets/assets/crowd-map-template.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      }
+    ],
+    "tools_called": [
+      "read",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1295,
+        "output": 38,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1333,
+        "cost": {
+          "input": 0.00259,
+          "output": 0.00038,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.00297
+        }
+      },
+      {
+        "input": 7020,
+        "output": 34,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 7054,
+        "cost": {
+          "input": 0.014039999999999999,
+          "output": 0.00034,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.014379999999999999
+        }
+      },
+      {
+        "input": 6136,
+        "output": 383,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 7671,
+        "cost": {
+          "input": 0.012272,
+          "output": 0.0038300000000000005,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0162172
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "1c5e5c4e7c372c2823f8278199c1ea518ce83e36611368dbf079f77377ea038e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

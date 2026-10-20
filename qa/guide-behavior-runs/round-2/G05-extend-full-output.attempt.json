@@ -1,0 +1,134 @@
+{
+  "id": "G05-extend-full-output",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "승인된 확장 결과가 왔다. 파일에는 원본 8초와 추가 6초가 모두 들어 있다. 편집에 어떻게 넣고 무엇을 검사할지 텍스트로만 설명하라.",
+  "prompt_sha256": "4d3417e0ac1a374de5eb80d96044d0a0757e9b39756385b7279cf5dd64907fc1",
+  "owner": "video-production-assets/references/09-edit.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/09-edit.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "70fae6b9a9a5ae47f29fed098aa519fb812870fbde82bfa729c0d1dc7a895ae4",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/09-edit.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "승인된 확장 결과가 왔다. 파일에는 원본 8초와 추가 6초가 모두 들어 있다. 편집에 어떻게 넣고 무엇을 검사할지 텍스트로만 설명하라."
+  ],
+  "started_at": "2026-10-20T13:01:53.491716+00:00",
+  "duration_seconds": 24.46090292200097,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "## 편집에 넣는 방법\n제공 조건상 결과는 **원본 8초를 포함한 총 14초**다. 다음 중 하나로 넣는다.\n\n- **전체 교체:** 기존 8초 클립 자리를 확장 결과의 0–14초로 교체한다.\n- **추가분만 연결:** 기존 8초를 유지하고 확장 결과의 **8–14초만** 뒤에 붙인다. 실제 프레임 경계를 확인해 중복·누락 없이 연결한다.\n\n**기존 8초 뒤에 결과 14초 전체를 붙이면 원본이 반복되므로 안 된다.** 원본은 보존하고 확장 결과는 별도 테이크·버전으로 관리한다.  \n근거: `video-production-assets/references/29-reference-driven-production.md` §R5.\n\n## 검사할 것\n1. **8초 접합부:** 정속 재생·프레임 단위·청취로 자세 초기화, 완료 행동이나 대사 반복, 동작 끊김·진행 역전을 확인한다.\n2. **시각 연속성:** 얼굴·크기·위치·시선·의상·소품을 든 손·카메라·광원·배경이 갑자기 바뀌지 않는지 본다.\n3. **음향 연속성:** 대사 중복·잘림, 음량·환경음·음악·잔향의 점프와 화면 싱크를 듣는다.\n4. **추가 6초와 편집 전체:** 필수 행동과 끝 상태가 완결되는지, 앞뒤 컷에 붙였을 때 리듬과 연속성이 유지되는지 전체를 소리와 함께 재생한다. 원본의 통과를 추가분의 자동 통과로 취급하지 않는다.\n\n원본 파일·버전, `source_in_s/source_out_s`, FPS/PTS 등 시간 기준을 남기고 **전체 클립·채택 구간·편집 후 판정은 따로 기록**한다. 실제 파일을 보지 않은 현재 검수 결과는 `unverified`다.  \n근거: 위 문서 §R5·R7; `video-production-assets/references/09-edit.md` §채택 구간·음성 교정의 편집 인계, §실행 가능한 편집·사운드 큐.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/09-edit.md",
+          "offset": null,
+          "limit": null
+        }
+      },
+      {
+        "name": "grep",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "pattern": "usable-ranges|R5|R7|확장",
+          "context": 8,
+          "limit": 40
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/09-edit.md",
+        "local_path": "video-production-assets/references/09-edit.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      }
+    ],
+    "tools_called": [
+      "read",
+      "grep"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1286,
+        "output": 33,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1319,
+        "cost": {
+          "input": 0.002572,
+          "output": 0.00033000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002902
+        }
+      },
+      {
+        "input": 6586,
+        "output": 51,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 7789,
+        "cost": {
+          "input": 0.013172,
+          "output": 0.00051,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.013797199999999999
+        }
+      },
+      {
+        "input": 9235,
+        "output": 519,
+        "cacheRead": 7552,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 17306,
+        "cost": {
+          "input": 0.01847,
+          "output": 0.00519,
+          "cacheRead": 0.0007552,
+          "cacheWrite": 0,
+          "total": 0.0244152
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "3ad3b72df0ccd896dd69eceb6e5dd9fff5f95a32ff1e8dcb4c09b5ff69d52f3d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

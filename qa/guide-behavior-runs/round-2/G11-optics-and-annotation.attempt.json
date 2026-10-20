@@ -1,0 +1,140 @@
+{
+  "id": "G11-optics-and-annotation",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "UI에는 f/2.8만 있고 T 입력은 없다. T2.8 지시만으로 접촉 부위 심도 검증이 되나? 그리고 영상 프롬프트의 [카메라] 제목과 (숨을 삼키며)를 그대로 TTS에 넣어도 되나?",
+  "prompt_sha256": "53c2e69c311d44920266cfa4e8cfa2a8c7265022a50b1d149482e14df243edc6",
+  "owner": "camera-spatial-design/references/motion-timing-lens.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner camera-spatial-design/references/motion-timing-lens.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "9c0f976eaf1d6c78384c190535acba196902a3de6a926849fe673dfacb960369",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner camera-spatial-design/references/motion-timing-lens.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "UI에는 f/2.8만 있고 T 입력은 없다. T2.8 지시만으로 접촉 부위 심도 검증이 되나? 그리고 영상 프롬프트의 [카메라] 제목과 (숨을 삼키며)를 그대로 TTS에 넣어도 되나?"
+  ],
+  "started_at": "2026-10-20T13:02:30.353625+00:00",
+  "duration_seconds": 19.267976761009777,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "**둘 다 그대로는 안 됩니다.**\n\n### 1. T2.8 지시만으로 접촉 부위 심도 검증?\n- **불가합니다.** T-stop은 투과 손실을 반영한 노출 표기이며, T2.8을 f/2.8과 동일시할 수 없습니다.\n- UI가 f만 지원하면 실제 설정은 **f/2.8**로 기록하고, T2.8은 원래 의도 표기로 별도 보존합니다. T 제어가 실행됐다고 쓰면 안 됩니다.\n- 센서/유효 게이트·초점거리·피사체 거리·초점 대상/거리를 확인하고, **접촉 전→접촉 순간→접촉 후 실제 연속 화면**에서 필수 접촉 부위가 선명하고 가려지지 않는지 검사해야 합니다. 출력 미검사 상태는 **미검증**입니다.\n\n근거: `camera-spatial-design/references/motion-timing-lens.md` — 「렌즈·초점」「생성용 촬영 표기의 한계」.\n\n### 2. `[카메라]`와 `(숨을 삼키며)`를 그대로 TTS에 입력?\n- **`[카메라]`는 제외**합니다. 영상 프롬프트의 섹션 제목이지 발화문이 아닙니다.\n- **`(숨을 삼키며)`는 연기 메모로 분리**합니다. 괄호만으로 TTS가 연기 지시로 해석한다고 보장할 수 없습니다.\n- TTS에는 **실제 대사와 선택 모델이 지원한다고 확인된 큐만** 넣습니다. 지원 여부가 불명확하면 대사만 전달하고 메모는 별도로 유지합니다. 실제 청취로 메모 낭독·큐 무시 여부를 확인해야 합니다.\n\n근거: `video-production-assets/references/29-reference-driven-production.md` — **R4.6**.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "camera-spatial-design/references/motion-timing-lens.md",
+          "offset": null,
+          "limit": null
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "offset": null,
+          "limit": null
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "camera-spatial-design/references/motion-timing-lens.md",
+        "local_path": "camera-spatial-design/references/motion-timing-lens.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      }
+    ],
+    "tools_called": [
+      "read",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1308,
+        "output": 37,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1345,
+        "cost": {
+          "input": 0.002616,
+          "output": 0.00037000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002986
+        }
+      },
+      {
+        "input": 2368,
+        "output": 35,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 3555,
+        "cost": {
+          "input": 0.004736,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0052012000000000004
+        }
+      },
+      {
+        "input": 7432,
+        "output": 428,
+        "cacheRead": 3328,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 11188,
+        "cost": {
+          "input": 0.014863999999999999,
+          "output": 0.00428,
+          "cacheRead": 0.0003328,
+          "cacheWrite": 0,
+          "total": 0.0194768
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "b5f1bc20d84d3ae9dc2bafb97c0c1eb818724d79bb8ef0cd7c85030c3795f404",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

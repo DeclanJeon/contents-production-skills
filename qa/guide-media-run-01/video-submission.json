@@ -1,0 +1,35 @@
+{
+  "state": "response_received",
+  "at": "2026-10-20T13:40:08.690Z",
+  "params": {
+    "get_cost": false,
+    "model": "seedance_2_5",
+    "mode": "t2v",
+    "duration": 5,
+    "resolution": "480p",
+    "aspect_ratio": "16:9",
+    "generate_audio": false,
+    "count": 1,
+    "prompt": "A fixed camera shows one red cube and one blue cube on a plain gray floor. The red cube starts separate, slides toward the stationary blue cube, makes visible surface contact, and stops without penetration or duplication. Both cubes remain in place after contact. No text, speech or music.",
+    "use_unlim": false
+  },
+  "response": {
+    "results": [
+      {
+        "id": "a8257b83-ff67-4201-963a-840079328492",
+        "type": "video",
+        "status": "pending",
+        "model": "seedance_2_5",
+        "params": {
+          "prompt": "A fixed camera shows one red cube and one blue cube on a plain gray floor. The red cube starts separate, slides toward the stationary blue cube, makes visible surface contact, and stops without penetration or duplication. Both cubes remain in place after contact. No text, speech or music.",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "mode": "t2v",
+          "resolution": "480p",
+          "generate_audio": false
+        }
+      }
+    ]
+  },
+  "automatic_retry": false
+}

@@ -1,0 +1,188 @@
+{
+  "id": "F01-creature-vehicle-effect",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "只做文本规划：一个机械生物靠近推车，人物乘车离开，光效先出现再消失。给出生物/车/特效的交接检查，不要生成媒体。",
+  "prompt_sha256": "841a48860dbd5a617ef3cecf92d990130e3ff107dfaaa64ed197253283db20b8",
+  "owner": "video-production-assets/references/21-generated-video-qa-retry.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/21-generated-video-qa-retry.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "9474f5449bc46f8a004dc541757e930ce3bdb6828613be531c0a654c814089c5",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/21-generated-video-qa-retry.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "只做文本规划：一个机械生物靠近推车，人物乘车离开，光效先出现再消失。给出生物/车/特效的交接检查，不要生成媒体。"
+  ],
+  "started_at": "2026-10-20T13:02:49.622177+00:00",
+  "duration_seconds": 29.934319299994968,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "## 텍스트 전용 인계 체크\n\n미디어 생성·실행은 하지 않습니다. 아래는 **설계안**이며 실제 동작 검수는 모두 `unverified`입니다.\n\n### 1. 기계 생물 → 수레 접근\n- **구조:** 몸통과 관절의 연결, 지면 지지점, 유지할 부품·실루엣을 명시.\n- **동선:** 수레·인물 대비 상대 크기, 접근 방향·경로·정지 지점, 관절 동작 범위와 인물 진입선을 분리.\n- **접촉:** 접근만으로 충돌·밀기·공격을 추가하지 않음. 접촉이 필요하면 대상과 양쪽 응답을 별도 명시.\n- **검사 예정:** 발 미끄러짐, 관통, 부품 분리, 불가능한 균형. 미제공 질량·관절 각도는 미정.\n\n### 2. 인물 → 수레 탑승·이탈\n- **비트:** 탑승 준비 → 지지점 확보 → 체중 이동 → 탑승 안정 → 수레 이동 → 인물과 함께 퇴장.\n- **지지:** 탑승 위치, 발판·좌석 등 실제 하중 지지점, 필요한 손 접촉을 지정.\n- **이동:** 출발 방향과 퇴장 경로를 고정하고, 이동 중 인물의 탑승 위치·수레 구조를 유지.\n- **검사 예정:** 탑승 순간 관통·순간이동, 인물만 뒤처짐, 출발 전 지지 상실.\n- 수레의 구동 주체는 확인 필요. 생물이 끈다고 임의 설정하지 않음. 정확한 무미끄럼 검사는 승인된 물리적 굴림 요구가 있을 때만 적용.\n\n### 3. 광효과 → 등장·소멸\n- **상태:** 발동 전 꺼짐 → 시작 → 지속 → 소멸 → 소멸 후 상태.\n- **확인 필요:** 발동 원인·위치, 접근/탑승/출발 중 어느 시점에 켜지고 꺼지는지.\n- **소멸 후:** 잔광·입자·표면 변화가 남는지, 원래 상태로 복귀하는지 명시. 빛이 사라져도 인물·수레가 사라지는 것은 아님.\n- **레이어 메모:** 가림 순서, 필요한 조명·반사 변화, 소멸 시 함께 종료할 영향 기록.\n\n### 교차 인계\n다음 컷에는 **생물의 마지막 위치·수레 진행 방향·인물 탑승 상태·광효과 잔류 여부**를 넘깁니다. 가림이나 컷 전환을 상태 리셋으로 취급하지 않습니다.\n\n**기록 위치·근거:**  \n- `assets/motion-beat-template.md` — 초기 지지점·궤적·접촉·체중 이동·최종 정착  \n- `assets/vfx-layer-stack-template.md` — 효과 행의 `메모`  \n- `references/21-generated-video-qa-retry.md` §1 ‘복잡한 생물·탈것·효과의 조건부 인계’  \n- `references/29-reference-driven-production.md` R2, `references/26-state-causality-continuity.md` ‘후속 유지 범위·결합 응답’",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+          "offset": null,
+          "limit": null
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "offset": null,
+          "limit": null
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/assets/motion-beat-template.md",
+          "offset": null,
+          "limit": null
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/assets/vfx-layer-stack-template.md",
+          "offset": null,
+          "limit": null
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/26-state-causality-continuity.md",
+          "offset": null,
+          "limit": null
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "local_path": "video-production-assets/references/21-generated-video-qa-retry.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      },
+      {
+        "path": "video-production-assets/assets/vfx-layer-stack-template.md",
+        "local_path": "video-production-assets/assets/vfx-layer-stack-template.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      },
+      {
+        "path": "video-production-assets/references/26-state-causality-continuity.md",
+        "local_path": "video-production-assets/references/26-state-causality-continuity.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      },
+      {
+        "path": "video-production-assets/assets/motion-beat-template.md",
+        "local_path": "video-production-assets/assets/motion-beat-template.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      }
+    ],
+    "tools_called": [
+      "read",
+      "read",
+      "read",
+      "read",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1289,
+        "output": 38,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1327,
+        "cost": {
+          "input": 0.002578,
+          "output": 0.00038,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.002958
+        }
+      },
+      {
+        "input": 7595,
+        "output": 146,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 8893,
+        "cost": {
+          "input": 0.015189999999999999,
+          "output": 0.0014600000000000001,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.016765199999999997
+        }
+      },
+      {
+        "input": 10602,
+        "output": 761,
+        "cacheRead": 8576,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 19939,
+        "cost": {
+          "input": 0.021204,
+          "output": 0.0076100000000000004,
+          "cacheRead": 0.0008576,
+          "cacheWrite": 0,
+          "total": 0.0296716
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "80c531abc8e2dc2c5d043af26399438db9e09ac9714dfd71c08356a4893f9109",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

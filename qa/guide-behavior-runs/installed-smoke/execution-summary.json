@@ -1,0 +1,11 @@
+{
+  "cases": [
+    {
+      "id": "G09-sheet-a-scope",
+      "status": "completed",
+      "verdict": "UNREVIEWED",
+      "record": "G09-sheet-a-scope.attempt.json"
+    }
+  ],
+  "review_status": "UNREVIEWED"
+}

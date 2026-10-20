@@ -1,0 +1,140 @@
+{
+  "id": "G01-reference-conflict",
+  "status": "completed",
+  "verdict": "UNREVIEWED",
+  "prompt": "텍스트 인계만. 승인 얼굴 A, 다른 얼굴의 의상 B, 옛 지도 C, 새 카메라 프리비즈 D, 채택 직전 클립 E가 있다. 자료별 역할과 충돌 해결을 써라.",
+  "prompt_sha256": "47cc410100cee512dccc97850db0676f77c1dcb03f8592c4b9a90fc983b4c163",
+  "owner": "video-production-assets/references/11-ai-handoff.md",
+  "system_prompt": "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+  "system_sha256": "fcaf2b8a326c5fd5aa6a0973481877f0795c2012bbe5e4b244d9cb73262a7a16",
+  "command": [
+    "/home/declan/.nvm/versions/node/v24.22.0/bin/pi",
+    "--mode",
+    "json",
+    "--provider",
+    "openai-codex",
+    "--model",
+    "gpt-6.1-sol",
+    "--thinking",
+    "low",
+    "--tools",
+    "read,grep,find,ls",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-context-files",
+    "--no-session",
+    "--no-approve",
+    "--offline",
+    "--append-system-prompt",
+    "You are executing one isolated package QA case. The user prompt below is replayed verbatim. This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. Only read package instruction/reference/template files under the current working directory. Do not inspect qa/, tests, support/, *.from-backup, evaluation expectations, extraction audits or coverage/scan ledgers. Begin by reading the current checkout owner video-production-assets/references/11-ai-handoff.md; follow only relevant craft/contract/template links needed for the request. Use local checkout sources, not global similarly named skills. Treat named production assets in a case as supplied hypothetical facts unless an actual file is provided; do not invent paths or claim inspection of unavailable assets. Return the requested usable answer in Korean with concise package file/section citations, not a test score. Do not recite the entire pipeline for a narrow question. Existing scope, approval and unverified-evidence boundaries still apply.",
+    "--print",
+    "--",
+    "텍스트 인계만. 승인 얼굴 A, 다른 얼굴의 의상 B, 옛 지도 C, 새 카메라 프리비즈 D, 채택 직전 클립 E가 있다. 자료별 역할과 충돌 해결을 써라."
+  ],
+  "started_at": "2026-10-20T13:01:33.891820+00:00",
+  "duration_seconds": 29.317136971018044,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_before": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "source_after": "b5b98ecd5b918801c8907678efbe3fae403c94e8a0ef073d42bf16c07da429de",
+  "trace": {
+    "final_text": "## 텍스트 인계 — 참조 역할과 충돌 해결\n\n실물 파일은 제공되지 않았으므로 아래는 **역할 지정안**이다. 파일·버전·실제 내용은 미검증이며, 업로드 슬롯/태그는 미배정이다.\n\n| 자료 | 가져올 속성 | 제외할 속성 | 충돌 시 기준 |\n|---|---|---|---|\n| **A 승인 얼굴** | 승인 인물의 얼굴·정체성 | 지정되지 않은 의상·포즈·배경 | 얼굴은 **A 우선**. B·D·E의 다른 얼굴을 섞지 않는다. |\n| **B 다른 얼굴의 의상** | 의상 구조·색·재질·여밈·겹침·신발 등 확인 가능한 의상 속성 | B의 얼굴·신원·체형·포즈·배경 | 의상은 **B 기준으로 지정**하되, A 인물에게 적용한다. B의 의상 승인 여부는 별도 확인한다. |\n| **C 옛 지도** | 위치·경로·공간 관계의 기존 계획 | 화살표·문자·도형 색상, 오래됐다는 이유만으로 유지할 수 없는 배치 | **현재 승인 배치**가 우선. C가 현재 승인 배치인지 확인 전에는 잠정 참조다. |\n| **D 새 카메라 프리비즈** | 제안된 카메라 위치·방향·경로·컷·타이밍 | 대역 얼굴·체형·임시 색상·질감·음향 | 카메라는 **승인된 카메라 명세** 우선. D는 새 자료라는 이유만으로 승인 기준이 되지 않는다. |\n| **E 채택 직전 클립** | 채택된 실제 마지막 구간의 종료 자세·시선·위치·소품 소유/손·진행 방향·의상 상태 | 완료 동작 재연, 불필요한 원본 소리, 우연한 생성 오류 | 다음 샷 시작 상태의 기준. 단, A/B·승인 배치와 어긋난 오류는 자동 정본으로 승격하지 않는다. |\n\n### 충돌 처리 지시\n- **얼굴 A / 의상 B / 공간은 현재 승인 배치 / 카메라는 승인 명세 / 시작 상태는 E의 채택 끝**으로 속성별 기준을 하나씩 둔다.\n- **C와 D 충돌:** 카메라 이동과 인물·소품 이동을 분리한다. 새 카메라 때문에 공간 배치를 임의로 바꾸지 않는다.\n- **E와 승인 기준 충돌:** 오류를 수용할지 수정할지 먼저 승인받는다. 잘못된 끝을 그대로 이어 고착시키지 않는다.\n- B의 의상 승인, C의 현행성, D의 카메라 승인 등 **미해결 충돌은 실행 blocker**로 남긴다.\n- E 참조는 실제 Extend 사용을 뜻하지 않는다. 이번 인계는 텍스트만이며 생성·수정·확장을 실행하지 않는다.\n\n**근거:** `video-production-assets/references/29-reference-driven-production.md` §R1 참조 역할·속성별 우선순위, §R3 공간/카메라 분리, §R5 직전 종료 상태·확장 구분; `video-production-assets/references/11-ai-handoff.md` 「참조 패킷·제출 언어·생성 방식」.",
+    "final_stop_reason": "stop",
+    "tool_calls": [
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/11-ai-handoff.md",
+          "offset": null,
+          "limit": null
+        }
+      },
+      {
+        "name": "read",
+        "args": {
+          "path": "video-production-assets/references/29-reference-driven-production.md",
+          "offset": null,
+          "limit": null
+        }
+      }
+    ],
+    "settled": true,
+    "aborted": false,
+    "protocol_errors": [],
+    "tool_errors": [],
+    "reads": [
+      {
+        "path": "video-production-assets/references/11-ai-handoff.md",
+        "local_path": "video-production-assets/references/11-ai-handoff.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      },
+      {
+        "path": "video-production-assets/references/29-reference-driven-production.md",
+        "local_path": "video-production-assets/references/29-reference-driven-production.md",
+        "success": true,
+        "offset": null,
+        "limit": null
+      }
+    ],
+    "tools_called": [
+      "read",
+      "read"
+    ],
+    "usage_per_assistant_message": [
+      {
+        "input": 1295,
+        "output": 35,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1330,
+        "cost": {
+          "input": 0.00259,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0.00294
+        }
+      },
+      {
+        "input": 1728,
+        "output": 35,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 2915,
+        "cost": {
+          "input": 0.003456,
+          "output": 0.00035000000000000005,
+          "cacheRead": 0.00011520000000000001,
+          "cacheWrite": 0,
+          "total": 0.0039212
+        }
+      },
+      {
+        "input": 7432,
+        "output": 763,
+        "cacheRead": 2688,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 10883,
+        "cost": {
+          "input": 0.014863999999999999,
+          "output": 0.0076300000000000005,
+          "cacheRead": 0.00026880000000000003,
+          "cacheWrite": 0,
+          "total": 0.0227628
+        }
+      }
+    ],
+    "observed_models": [
+      "gpt-6.1-sol"
+    ]
+  },
+  "wire_stdout_sha256": "ae345c608e5c9740fbaba2a0d23d79580671abdd1d571386d5fdc721c4f4f1bd",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
