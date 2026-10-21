@@ -1,0 +1,293 @@
+{
+  "scope": "Leader byte/hash recomputation for distinct accessible local source-derived renditions; identity is not semantic support",
+  "checks": [
+    {
+      "path": "E:/Book/06_Book/originals/시놉시스/Story Substance, Structure, Style and the Principles of Screenwriting (Robert McKee) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 839168,
+      "sha256": "6271c7cab58a80824c95317730b31428e328d2a9da0ed24e32e246402b20e3a2",
+      "expected_bytes": "839168",
+      "expected_sha256": "6271c7cab58a80824c95317730b31428e328d2a9da0ed24e32e246402b20e3a2",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/마케팅/Obviously Awesome How to Nail Product Positioning so Customers Get It, Buy It, Love It (April Dunford) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 201161,
+      "sha256": "8f010e119d1f0cb67c1b7b09349b8ca31f43a41524ee056cb5ac93530081ecd2",
+      "expected_bytes": "201161",
+      "expected_sha256": "8f010e119d1f0cb67c1b7b09349b8ca31f43a41524ee056cb5ac93530081ecd2",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/The Visual Story Creating the Visual Structure of Film, TV, and Digital Media Third Edition (Bruce Block) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 368221,
+      "sha256": "403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c",
+      "expected_bytes": "368221",
+      "expected_sha256": "403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Film Directing Shot by Shot Visualizing from Concept to Screen (Steven D. Katz) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 535607,
+      "sha256": "e8ad5bf5ecc3659fb9b936dd081147a465b03ca09f53e6d690ca286fa4706e9a",
+      "expected_bytes": "535607",
+      "expected_sha256": "e8ad5bf5ecc3659fb9b936dd081147a465b03ca09f53e6d690ca286fa4706e9a",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Acting for Animators (Ed Hooks) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 337169,
+      "sha256": "78d7a71fd3f530ae501d8cef6d77db97edded4c0e4ad8f9406af3fbd8944740a",
+      "expected_bytes": "337169",
+      "expected_sha256": "78d7a71fd3f530ae501d8cef6d77db97edded4c0e4ad8f9406af3fbd8944740a",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/콘티_스토리보드/md/스토리보드 마스터하기 - 캐롤라인 후.md",
+      "bytes": 47562,
+      "sha256": "cdd4f9b82b83c2ac6cc87c3d39251a79e4d02b7b57e337945bcb89efc58b5f21",
+      "expected_bytes": "47562",
+      "expected_sha256": "cdd4f9b82b83c2ac6cc87c3d39251a79e4d02b7b57e337945bcb89efc58b5f21",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Painting With Light (John Alton) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 560865,
+      "sha256": "19beb6f8d6d3d44888e675941d30a493e4e3cf2a386b0d963d99370e74dded7f",
+      "expected_bytes": "560865",
+      "expected_sha256": "19beb6f8d6d3d44888e675941d30a493e4e3cf2a386b0d963d99370e74dded7f",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Making Movies (Sidney Lumet) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 387668,
+      "sha256": "d659269b667d5e48c3669c2aade7c20069a28429715513dfc230ef3cd1ff977f",
+      "expected_bytes": "387668",
+      "expected_sha256": "d659269b667d5e48c3669c2aade7c20069a28429715513dfc230ef3cd1ff977f",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/In the Blink of an Eye (Walter Murch etc.) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 227147,
+      "sha256": "ecc02566dc1d780867bf328590673ad92bcab03646cb20b03845dda796ce7039",
+      "expected_bytes": "227147",
+      "expected_sha256": "ecc02566dc1d780867bf328590673ad92bcab03646cb20b03845dda796ce7039",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/The Animators Survival Kit, Expanded Edition A Manual of Methods, Principles and Formulas for Classical, Computer, Games,… (Richard Williams) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 390099,
+      "sha256": "dd1d17e5d57695a274c531287cdf1dce76785229280b0ae68bf850a51e4ca9ef",
+      "expected_bytes": "390099",
+      "expected_sha256": "dd1d17e5d57695a274c531287cdf1dce76785229280b0ae68bf850a51e4ca9ef",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Story Substance, Structure, Style and the Principles of Screenwriting (Robert McKee) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 856699,
+      "sha256": "2ebf099c352fe0814e00ef15d285bbb4545f216d18d5b9df440ec9e1b11ec5da",
+      "expected_bytes": "856699",
+      "expected_sha256": "2ebf099c352fe0814e00ef15d285bbb4545f216d18d5b9df440ec9e1b11ec5da",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/감정과 서사 - 틸만 하버마스.md",
+      "bytes": 952320,
+      "sha256": "4e7dc3f8b2a1f448fc00df883fa2e5a475b0f590b84af583603ed6a5caa325aa",
+      "expected_bytes": "952320",
+      "expected_sha256": "4e7dc3f8b2a1f448fc00df883fa2e5a475b0f590b84af583603ed6a5caa325aa",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/생성형 인공지능 데이터 스토리텔링 - 안젤리카 로 두카.md",
+      "bytes": 648867,
+      "sha256": "d25ff3e24574e2b16953eddcb3a8b33aae6a72e07e057ead47380e49b1940791",
+      "expected_bytes": "648867",
+      "expected_sha256": "d25ff3e24574e2b16953eddcb3a8b33aae6a72e07e057ead47380e49b1940791",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/마케팅/md/A Technique for Producing Ideas (James Webb Young) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 40774,
+      "sha256": "e73cb9bba2335def493ccc04ab5a9acb8730dd4e4431193b55b869d3f61fde1a",
+      "expected_bytes": "40774",
+      "expected_sha256": "e73cb9bba2335def493ccc04ab5a9acb8730dd4e4431193b55b869d3f61fde1a",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/마케팅/md/Aaker on branding  20 principles that drive success (Aaker, David A., author) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 440816,
+      "sha256": "d37966ea5780b12422a2736a8f818d2879d75b35e6ef37dc14d3cd080dacc08e",
+      "expected_bytes": "440816",
+      "expected_sha256": "d37966ea5780b12422a2736a8f818d2879d75b35e6ef37dc14d3cd080dacc08e",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/마케팅/md/Absolute Value What Really Influences Customers in the Age of (Itamar Simonson, Emanuel Rosen) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 458739,
+      "sha256": "3fdc625884349b4d8ad253a30dc49affc0c3cead04e4cca384ea15b6abe521f2",
+      "expected_bytes": "458739",
+      "expected_sha256": "3fdc625884349b4d8ad253a30dc49affc0c3cead04e4cca384ea15b6abe521f2",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/마케팅/md/Customer experience 3.0  high-profit strategies in the age of techno service (Goodman, John A) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 520178,
+      "sha256": "784b5e4300add5b5b254a75d7b617e495d903811e0a5227bce05f06fe45ae4b9",
+      "expected_bytes": "520178",
+      "expected_sha256": "784b5e4300add5b5b254a75d7b617e495d903811e0a5227bce05f06fe45ae4b9",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/감정구조/md/The mind and its stories narrative universals and human emotion (Patrick Colm Hogan) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 805530,
+      "sha256": "ea9238ff350663ae04dc12bb2cbfdaf2fbf6e44a0012511fe52aec4501ecd04b",
+      "expected_bytes": "805530",
+      "expected_sha256": "ea9238ff350663ae04dc12bb2cbfdaf2fbf6e44a0012511fe52aec4501ecd04b",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/감정구조/md/Emotion and Adaptation (Richard S. Lazarus) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 1803443,
+      "sha256": "c51effed567756f6b32bde4beb1e80976b90165929d8de4a31f22470af4b3afb",
+      "expected_bytes": "1803443",
+      "expected_sha256": "c51effed567756f6b32bde4beb1e80976b90165929d8de4a31f22470af4b3afb",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/콘텐츠_제작/md/비주얼 스토리 - 브루스 블록.md",
+      "bytes": 368221,
+      "sha256": "403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c",
+      "expected_bytes": "368221",
+      "expected_sha256": "403172711929152d7019ccbab9043fc0ba8c512606fc14375ef6e78cc410392c",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Technique of Film Editing, Reissue of 2nd Edition (Karel Reisz, GAVIN MILLAR) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 910909,
+      "sha256": "0b371150dea868a263f3de41d28b9e220cad8db9a3b21f6e540ce0655a970a55",
+      "expected_bytes": "910909",
+      "expected_sha256": "0b371150dea868a263f3de41d28b9e220cad8db9a3b21f6e540ce0655a970a55",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/SNS/pdf/Building a StoryBrand 2.0 Clarify Your Message So Customers Will Listen (Donald Miller) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 400763,
+      "sha256": "9a85987a81e82ec275fac69bbb5b40faebe056cbacde5983b5d3007bee57c2df",
+      "expected_bytes": "400763",
+      "expected_sha256": "9a85987a81e82ec275fac69bbb5b40faebe056cbacde5983b5d3007bee57c2df",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/마케팅/Made to Stick Why Some Ideas Survive and Others Die (Chip Heath, Dan Heath) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 577086,
+      "sha256": "6e78a1bccc8c4db25cc41f1581744fd5b0d1068b0fa4a758bce6921532d73656",
+      "expected_bytes": "577086",
+      "expected_sha256": "6e78a1bccc8c4db25cc41f1581744fd5b0d1068b0fa4a758bce6921532d73656",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Cutting Rhythms Shaping the Film Edit (Karen Pearlman) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 547079,
+      "sha256": "e09d86df3f28ef5e4351e16296a0e26528dfc1ca78aff9abc2c4a7962744e49e",
+      "expected_bytes": "547079",
+      "expected_sha256": "e09d86df3f28ef5e4351e16296a0e26528dfc1ca78aff9abc2c4a7962744e49e",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/마음을 담아 쓰기 - 씨에이 메이슨.md",
+      "bytes": 243115,
+      "sha256": "ed4d32cf9e5c369d6269cd99c1024a546a5e8bac9c3c034aff08a8d2f127b684",
+      "expected_bytes": "243115",
+      "expected_sha256": "ed4d32cf9e5c369d6269cd99c1024a546a5e8bac9c3c034aff08a8d2f127b684",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Drawn to Life 20 Golden Years of Disney Master Classes Volume 1 (Hahn, DonStanchfield, Walt) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 652080,
+      "sha256": "a765d6b75e1945ae217ed121a33ff6bbfd7acc40362bd55d8ba7210763bd586c",
+      "expected_bytes": "652080",
+      "expected_sha256": "a765d6b75e1945ae217ed121a33ff6bbfd7acc40362bd55d8ba7210763bd586c",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Master shots 100 advanced camera techniques to get an expensive look on your low-budget movie (Christopher Kenworthy) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 530649,
+      "sha256": "fcfc5a01f7b6231ce1cbaf4bad37f390cea882e4e4fb4b6d9b69e83a3626e618",
+      "expected_bytes": "530649",
+      "expected_sha256": "fcfc5a01f7b6231ce1cbaf4bad37f390cea882e4e4fb4b6d9b69e83a3626e618",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Master Shots Volume 2 Shooting Great Dialogue Scenes (Christopher Kenworthy) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 204606,
+      "sha256": "86512c9fea5c50550832c5b5fae45ff9906dfb3763066d3560f918557cfcf97b",
+      "expected_bytes": "204606",
+      "expected_sha256": "86512c9fea5c50550832c5b5fae45ff9906dfb3763066d3560f918557cfcf97b",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/디자인/md/디자인 오브 에브리데이 싱스 - 도널드 노먼.md",
+      "bytes": 762430,
+      "sha256": "265118cafd52ef01321ccbf1df282cef924a6e8e168df6153f7258243939cc2a",
+      "expected_bytes": "762430",
+      "expected_sha256": "265118cafd52ef01321ccbf1df282cef924a6e8e168df6153f7258243939cc2a",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/광고_상세페이지/md/The Copywriters Handbook (Robert W. Bly) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 758778,
+      "sha256": "69f3f49d661c63321ad6481107258fdf79623813d22a894eead8df85e82141f3",
+      "expected_bytes": "758778",
+      "expected_sha256": "69f3f49d661c63321ad6481107258fdf79623813d22a894eead8df85e82141f3",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Directing Actors Creating Memorable Performances for Film  Television (Judith Weston) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 1188745,
+      "sha256": "12e8076b67188754817d02aee4ba243d6e56da58c98b5eeb262c8f193c059eac",
+      "expected_bytes": "1188745",
+      "expected_sha256": "12e8076b67188754817d02aee4ba243d6e56da58c98b5eeb262c8f193c059eac",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/마케팅/epub/마케팅 원론 - 필립 코틀러, 게리 암스트롱.md",
+      "bytes": 3360340,
+      "sha256": "94eadd714234e1c329f0fd42c3002e0dc88f71a8d76114253504a3763db14c3e",
+      "expected_bytes": "3360340",
+      "expected_sha256": "94eadd714234e1c329f0fd42c3002e0dc88f71a8d76114253504a3763db14c3e",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/시놉시스/Save the Cat® Writes for TV The Last Book on Creating Binge-Worthy Content Youll Ever Need (Jamie Nash) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 422398,
+      "sha256": "20dcd63b23e7a18a0988d9c20b2e03933db48f83aeedf0b3fb4dfae020e9cc1c",
+      "expected_bytes": "422398",
+      "expected_sha256": "20dcd63b23e7a18a0988d9c20b2e03933db48f83aeedf0b3fb4dfae020e9cc1c",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/광고_상세페이지/md/Building a StoryBrand 2.0 Clarify Your Message So Customers Will Listen (Donald Miller) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 414893,
+      "sha256": "966e58202cbd3a7b465dc2dfd6c11918ebc689a88c569592a2558437e9f27bcd",
+      "expected_bytes": "414893",
+      "expected_sha256": "966e58202cbd3a7b465dc2dfd6c11918ebc689a88c569592a2558437e9f27bcd",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/콘텐츠_제작/md/Animation  from script to screen (Culhane, Shamus) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 668243,
+      "sha256": "be4240f517b982d1d78c1417edf0affed31c999cd82ba399be51f85d4d393ca8",
+      "expected_bytes": "668243",
+      "expected_sha256": "be4240f517b982d1d78c1417edf0affed31c999cd82ba399be51f85d4d393ca8",
+      "matches": true
+    },
+    {
+      "path": "E:/Book/06_Book/originals/마케팅/md/Strategic Brand Management (Kevin Lane Keller, Vanitha Swaminathan) (z-library.sk, 1lib.sk, z-lib.sk).md",
+      "bytes": 2583958,
+      "sha256": "ab37f2b8d583706796380f04944513a87831f099886eaee93faf83c9b93a46c6",
+      "expected_bytes": "2583958",
+      "expected_sha256": "ab37f2b8d583706796380f04944513a87831f099886eaee93faf83c9b93a46c6",
+      "matches": true
+    }
+  ]
+}

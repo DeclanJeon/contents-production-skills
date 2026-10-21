@@ -1,0 +1,18 @@
+{
+  "source_summary": "Synthetic QA fixture supplied by this smoke, not a user brand approval.",
+  "typography": {
+    "display": {
+      "family": "Georgia",
+      "source": "C:/Windows/Fonts/georgiab.ttf",
+      "weight": 700,
+      "style": "normal"
+    },
+    "body": {
+      "family": "Arial",
+      "source": "C:/Windows/Fonts/arial.ttf",
+      "weight": 400,
+      "style": "normal"
+    },
+    "font_links": []
+  }
+}

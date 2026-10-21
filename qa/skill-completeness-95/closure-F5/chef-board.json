@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.1",
+  "project_id": "F5-synthetic-chef",
+  "version": "1",
+  "aspect_ratio": "16:9",
+  "target_duration_s": 4,
+  "fps": 24,
+  "audio_mode": "no_audio",
+  "scenes": [
+    {
+      "id": "S01",
+      "purpose": "plate attention then service gaze"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "locked_traits": {
+        "apron": "charcoal",
+        "hair": "short dark",
+        "plate": "left hand throughout"
+      }
+    }
+  ],
+  "claims": [],
+  "artifacts": [
+    {
+      "id": "SYN01",
+      "type": "synopsis",
+      "version": "1",
+      "status": "draft",
+      "dependencies": [],
+      "dependency_versions": {}
+    },
+    {
+      "id": "CAM01",
+      "type": "camera_spec",
+      "version": "1",
+      "status": "draft",
+      "dependencies": [],
+      "dependency_versions": {}
+    },
+    {
+      "id": "BOARD01",
+      "type": "storyboard",
+      "version": "1",
+      "status": "draft",
+      "dependencies": [
+        "SYN01",
+        "CAM01"
+      ],
+      "dependency_versions": {
+        "SYN01": "1",
+        "CAM01": "1"
+      }
+    }
+  ],
+  "asset_registry": [
+    {
+      "id": "IM01",
+      "kind": "image",
+      "version": "1",
+      "status": "planned"
+    },
+    {
+      "id": "IM02",
+      "kind": "image",
+      "version": "1",
+      "status": "planned"
+    }
+  ],
+  "audio_cues": [],
+  "captions": [],
+  "issues": [],
+  "delivery_spec": {},
+  "delivery_checks": [],
+  "shots": [
+    {
+      "id": "SH01",
+      "scene_id": "S01",
+      "character_ids": [
+        "CH01"
+      ],
+      "asset_ids": [],
+      "start_s": 0,
+      "end_s": 4,
+      "source_duration_s": 4,
+      "source_duration_status": "estimated",
+      "purpose": "attention shifts from dish to opening",
+      "start_state": "plate level left hand; eyes down",
+      "end_state": "same plate left hand; gaze at opening",
+      "beat_ids": [
+        "B01",
+        "B02"
+      ],
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye-level impression",
+        "framing": "face torso and plate; plate then eyes; no crop",
+        "movement": "static",
+        "start": "(0,-2.5,1.5) target (0,.35,1.25), 50mm FF",
+        "end": "unchanged; speed 0"
+      },
+      "spatial": {
+        "mode": "numeric",
+        "artifact_id": "CAM01"
+      },
+      "vfx": {
+        "enabled": false,
+        "description": "gaze-only scene; no compositing effect"
+      },
+      "speech": [],
+      "audio_cue_ids": []
+    }
+  ],
+  "storyboard": {
+    "synopsis_artifact_id": "SYN01",
+    "beats": [
+      {
+        "id": "B01",
+        "synopsis_locator": "SYN01 v1 P1/S1",
+        "event": "Mira holds plated dish and looks down",
+        "emotion": "attentive"
+      },
+      {
+        "id": "B02",
+        "synopsis_locator": "SYN01 v1 P2/S1",
+        "event": "Mira raises gaze without moving plate",
+        "emotion": "ready attention"
+      }
+    ],
+    "panels": [
+      {
+        "id": "P01",
+        "shot_id": "SH01",
+        "frame_time_s": 0,
+        "role": "start",
+        "beat_ids": [
+          "B01"
+        ],
+        "visible_character_ids": [
+          "CH01"
+        ],
+        "audio_cue_ids": [],
+        "speech_ids": [],
+        "visual_action": "Mira looks down at completed dish; level plate left hand",
+        "reveals": "dish and gaze direction",
+        "withholds": "no later delivery depicted",
+        "continuity": "charcoal apron; short dark hair; right hand empty; plate same position and owner",
+        "image_asset_id": "IM01"
+      },
+      {
+        "id": "P02",
+        "shot_id": "SH01",
+        "frame_time_s": 3.9583333333333335,
+        "role": "end",
+        "beat_ids": [
+          "B02"
+        ],
+        "visible_character_ids": [
+          "CH01"
+        ],
+        "audio_cue_ids": [],
+        "speech_ids": [],
+        "visual_action": "Mira looks toward service opening; plate unchanged in left hand",
+        "reveals": "dish and gaze direction",
+        "withholds": "no later delivery depicted",
+        "continuity": "charcoal apron; short dark hair; right hand empty; plate same position and owner",
+        "image_asset_id": "IM02"
+      }
+    ]
+  }
+}

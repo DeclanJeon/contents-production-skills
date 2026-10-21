@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-20T16:29:07.753624+00:00",
+  "work_order": "docs/superpowers/plans/2026-10-20-social-search-work-order.md",
+  "status": "implemented_offline_tests_pass_live_partial_expected_platform_failure",
+  "skill": "searching-social-media",
+  "skill_version": "1.0.0",
+  "package_version": "2.29",
+  "working_manifest_skills": 26,
+  "adapter_runtime": "Flucto 1.19.0",
+  "source_sha256": {
+    "searching-social-media/SKILL.md": "240e1bfb1426dc07cb8ba016d45614cf7570004ebb742f92e4dde5078f2322ca",
+    "searching-social-media/references/flucto-contract.md": "9f02f63183341e0e78338892dbc0f5c2c3aec91dffd8a8ada67dd9d67937480a",
+    "searching-social-media/references/search-workflow.md": "ba714e6303fc4a4fff3e4a90b417335b14adf8bb789f42fd9e8d621e756933d5",
+    "searching-social-media/scripts/social_search.py": "6c438284c333f23f4c78c645aa0ed638565b36142618d9b445c3f8334fb8d7af",
+    "searching-social-media/scripts/test_social_search.py": "e76e09f5ff9e0d118da56f739843d31238b22790422a8d0b828ffbfa2e62f6e6"
+  },
+  "offline_tests": {
+    "command": "python3 -m unittest discover -s searching-social-media/scripts -p 'test_*.py' -q",
+    "passed": 41,
+    "skipped": 0,
+    "scope": "normalization, provenance, true-zero/missing metrics, Reddit/info metric ambiguity, URL boundaries and injection, dedup/date/exclusion/caps, partial/failed/empty/protocol states, timeout process-group termination, new-file-only output and fake executable E2E; no network calls"
+  },
+  "targeted_regression": {
+    "command": "PYTHONPATH=/tmp/shortdrama-guide-audit/test-deps python3 -m pytest -q scripts searching-social-media/scripts video-production-assets/scripts recording-production-history/scripts camera-spatial-design/scripts/test_spatial_spec.py --basetemp=/tmp/social-search-validation/pytest-regression",
+    "passed": 324,
+    "subtests_passed": 480,
+    "scope": "specified paths, not all repository tests"
+  },
+  "live_search": {
+    "evidence": "qa/social-search/live-search-01.json",
+    "command": "python3 searching-social-media/scripts/social_search.py --query 'product photography' --platform youtube --platform instagram --per-search 3 --limit 6 --max-calls 2 --timeout 30 --total-timeout 75 --mode reference --output qa/social-search/live-search-01.json",
+    "exit_code": 3,
+    "status": "partial",
+    "network_cli_calls": 2,
+    "candidate_count": 3,
+    "platforms": [
+      {
+        "platform": "youtube",
+        "state": "ok",
+        "candidate_rows": 3,
+        "error": null
+      },
+      {
+        "platform": "instagram",
+        "state": "failed",
+        "candidate_rows": 0,
+        "error": "Public video indexes could not serve Instagram results (Google: human-verification page | DuckDuckGo: page.evaluate: Error: ddg-http-403     at fetchDdgVideos (eval at evaluate (:311:30), <anonymous>:8:15)     at async <anonymous>:337:30 | Bing: results served but none scoped to Instagram)."
+      }
+    ],
+    "claims_not_made": [
+      "Instagram availability or search success",
+      "All-platform or exhaustive SNS coverage",
+      "Publication-date/language/region verification",
+      "Video/body inspection or demand/creative-quality prediction"
+    ],
+    "source_timing_note": "Live run preceded final report-field/Markdown hardening. Final code was separately offline-tested and hash-compared with the temporary install; no additional live retry was submitted."
+  },
+  "temporary_install": {
+    "command": "python3 scripts/install_package.py --skills-root /tmp/social-search-validation/installed-skills --exclude-derived-support",
+    "installed_skills": 26,
+    "new_skill_source_bytes_match": true,
+    "installed_plan_status": "planned_not_executed",
+    "global": false
+  },
+  "version_check": "passed: package 2.29, 26 skills",
+  "other_checks": {
+    "pi_skill_file_discovery": {"skill_count": 1, "diagnostics": 0, "global_deployment": false},
+    "source_hashes": "matched final implementation and temporary installed copy",
+    "documentation_links": "passed for new skill/references/work order",
+    "scoped_whitespace": "passed",
+    "manifest_and_owner_routes": "passed"
+  },
+  "scope_guards": {
+    "download": false,
+    "transcript": false,
+    "cookie_extraction": false,
+    "login": false,
+    "automatic_install_or_update": false,
+    "publication": false,
+    "paid_generation_or_purchase": false,
+    "new_production_schema_or_ledger": false,
+    "new_global_deployment": false,
+    "git_commit_or_push": false,
+    "existing_global_links_follow_edits_to_existing_skill_files": true
+  },
+  "remaining_limits": [
+    "Only YouTube/Instagram received live search calls; remaining declared sites are contract-tested, not live-verified.",
+    "Optional info retrieval uses a reviewed non-provisioning contract and fake tests; no live info/identity lookup was run.",
+    "No independent skill-aware agent behavior evaluation performed.",
+    "Most upstream search rows omit publication dates; time-window requests can have no eligible candidates.",
+    "Flucto internal fallback/HTTP retries are outside the wrapper call counter.",
+    "Only reviewed 1.19.0 runs; upgrading Flucto requires adapter review."
+  ]
+}

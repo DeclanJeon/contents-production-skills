@@ -1,0 +1,20 @@
+{
+  "package_version": "2.11",
+  "source_scope": "24 owner skill directories plus root README; all Markdown files; fenced code excluded by CommonMark parser; external and absolute targets excluded",
+  "source_files_scanned": 219,
+  "source_relative_links_checked": 544,
+  "source_external_or_absolute_skipped": 68,
+  "source_missing_files": [],
+  "source_unresolved_heading_fragments": [],
+  "source_scan_method": "markdown-it CommonMark token parser; relative paths and heading fragments resolved against source tree",
+  "isolated_install_scope": "Temporary copy of current package source excluded only the pre-existing generated video-production-assets/support directory; install destination was a fresh temporary skills root.",
+  "isolated_install_exit": 0,
+  "installed_owners": 24,
+  "installed_core_files_compared": 301,
+  "installed_core_file_mismatches": 0,
+  "installed_skill_and_reference_links_checked": 492,
+  "installed_missing_files": [],
+  "installed_unresolved_heading_fragments": [],
+  "temporary_staging_tree_removed": true,
+  "source_checkout_preflight": "blocked_without_writes by existing generated video-production-assets/support files colliding with installer support destinations"
+}

@@ -1,0 +1,23 @@
+{
+  "source_summary": "Synthetic QA fixture supplied by this smoke, not a user brand approval.",
+  "palette": {
+    "colors": [
+      {
+        "hex": "#F7F7F5",
+        "name": "Paper",
+        "role": "background"
+      },
+      {
+        "hex": "#101820",
+        "name": "Ink",
+        "role": "text"
+      },
+      {
+        "hex": "#00AEEF",
+        "name": "Signal",
+        "role": "accent"
+      }
+    ],
+    "gradients": []
+  }
+}

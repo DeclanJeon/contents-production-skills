@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "series": "supplemental-final-05-targeted-timeout-retries",
+  "scenarios": [
+    {
+      "id": "F2-ORCHESTRATION-CONFLICT",
+      "owner": "orchestrating-video-preproduction",
+      "prompt": "creative-production이 맡긴 일회성 텍스트 기획 패킷입니다. 프로젝트 P-Rain, 입력 BRIEF@3, 출력 PLAN@1 제안으로 반환하세요. 한국 성인 자전거 출퇴근자 대상 30초 9:16 한국어 무대사 허구 단편입니다. 도달 확대가 목적입니다. 내 채널의 같은 주 30초 Shorts 첫 7일 한국 조회수는 빗길 배달 A 12,000, 자전거 수리 B 4,000(캡처 2026-10-15, 홍보 없음), 둘 다 제작 가능하지만 채널 적합도는 B가 높습니다. 새 소재 C 우체통은 측정이 없습니다. 이 자료로 소재를 선택하고 하나의 공유 스파인, 콘셉트·시놉시스·비트, 인물 시트, 비주얼 바이블, 일반 제작용 스토리보드, 일관성 검토와 인계까지 실제 텍스트로 작성하세요. 후보 선택과 허구 인물·사건·미술의 빈칸 설계는 위임합니다. 편집장 승인 APP-7은 30초/9:16/무대사/희극 아닌 잔잔함/마지막에는 물건이 주인에게 돌아옴/CTA 없음에만 적용되고 아직 소재와 시놉시스 승인은 없습니다. 렌즈, 공간 치수, 카메라 경로, 음향 명세 및 조명 측정 자료는 없습니다. 이미지·Blender·영상·파일 생성과 지출은 금지입니다. 질문으로 멈추지 말고 이번 텍스트 범위를 완성해 주세요.",
+      "required_reads": [
+        "orchestrating-video-preproduction/SKILL.md",
+        "orchestrating-video-preproduction/references/video-direction.md",
+        "orchestrating-video-preproduction/references/stage-execution.md",
+        "topic-demand-selection/SKILL.md",
+        "developing-video-synopses/SKILL.md",
+        "designing-video-character-sheets/SKILL.md",
+        "designing-character-personas/SKILL.md",
+        "storyboarding-video/SKILL.md",
+        "video-production-assets/references/storyboard-contract.md"
+      ],
+      "checks": [
+        "Demand and fit conflict is resolved by canonical priority, not stale fit-first policy; unknown candidate remains unknown",
+        "Returns every requested actual text artifact with stable beat/scene/shot/panel mappings",
+        "Reuses APP-7 constraints without converting proposals into approved topic/synopsis",
+        "Technical gaps form one indexed requirement packet; board is not falsely final or silently narrowed",
+        "Returns supplied IDs and versions plus dependency proposal and evidence/proposal status",
+        "No generated files/media, second coordinator, spend or acceptance claims"
+      ],
+      "source_group": "F2"
+    },
+    {
+      "id": "F5-CAST-SSOT",
+      "owner": "designing-video-character-sheets",
+      "prompt": "Read qa/skill-completeness-95/closure-F5/delegation-inputs.md and execute Cast and protagonist sheet assignment, consuming Persona assignment and locked SYN01. Return the four compact sheets, matrix, and actual full CH01 0..33 SSOT with its prompt specs in this response. Text only; no paid execution or media. Do not merely summarize planned work.",
+      "required_reads": [
+        "qa/skill-completeness-95/closure-F5/delegation-inputs.md",
+        "designing-video-character-sheets/SKILL.md",
+        "designing-video-character-sheets/references/character-craft.md",
+        "designing-video-character-sheets/references/character-ssot-master-prompt.md",
+        "designing-character-personas/SKILL.md",
+        "designing-character-personas/assets/persona-template.md",
+        "designing-character-personas/references/mbti-lens.md",
+        "designing-character-personas/references/enneagram-lens.md",
+        "designing-character-personas/references/expression-voice-bridge.md",
+        "video-production-assets/assets/character-ssot-template.md"
+      ],
+      "checks": [
+        "All four actual compact character sheets and differentiation matrix present; goals/judgments/relationships/voice differ beyond type names",
+        "CH01 sections 0 through 33 complete, not a compact seam or empty headings",
+        "Counts: anchors 3–7, traits 5–7 developed, likes/dislikes 5–10 each, habits at least 10, contradictions at least 3, locks 5–15",
+        "English master description 150–300 words and prefix 60–120, A–D use exact prefix and negatives",
+        "Sheet A includes full body front/three-quarter/side/back plus face front/three-quarter/side",
+        "Provenance supplied/proposed/undecided clear; no invented observations, approvals or files",
+        "Persona and full active lens integrated; voice identity/style/per-line fields and exact CS01 v1 seam preserved",
+        "Invariants/variants coherent; all required expressions and turnaround/proportion coverage present",
+        "No extra story events, selected voices or actual image claims; actual media QA remains unverified"
+      ],
+      "source_group": "F5"
+    }
+  ]
+}

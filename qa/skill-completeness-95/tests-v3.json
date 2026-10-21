@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python",
+    "-X",
+    "utf8",
+    "-m",
+    "pytest",
+    "-q",
+    "--basetemp=C:/Users/Declan/AppData/Local/Temp/pytest-cps95-final-v3",
+    "-o",
+    "cache_dir=C:/Users/Declan/AppData/Local/Temp/pytest-cps95-final-v3-cache"
+  ],
+  "environment_overrides": {
+    "BLENDER_EXECUTABLE": "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe",
+    "PYTHONUTF8": "1"
+  },
+  "exit_code": 0,
+  "stdout": ".............................................. [ 15%]\n................................s......................... [ 35%]\n............s........................................... [ 55%]\n.............s..............................s........................................... [ 85%]\n..........................................                                                 [100%]\n286 passed, 7 skipped, 235 subtests passed in 88.99s (0:01:28)\n",
+  "stderr": "",
+  "recorded_at": "2026-10-16T15:57:14.559439+00:00"
+}

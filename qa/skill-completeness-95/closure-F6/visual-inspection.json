@@ -1,0 +1,20 @@
+{
+  "board": {
+    "title": "Synthetic Corner — Brandkit draft",
+    "text": "ESSENTIAL REVIEW\nSynthetic Corner\n\nAn angular corner mark with quiet supporting typography.\n\nPalette\nPaper\n#F7F7F5\nInk\n#101820\nSignal\n#00AEEF\nGEORGIA + ARIAL\n\nSynthetic Corner\n\nLocal fixture. No products, claims, or customer approvals.\n\nCombined presentation of the separately approved logo, palette, and typography.",
+    "width": 1440,
+    "viewport": 1440,
+    "fonts": [
+      {
+        "family": "Georgia",
+        "status": "loaded",
+        "weight": "700"
+      },
+      {
+        "family": "Arial",
+        "status": "loaded",
+        "weight": "400"
+      }
+    ]
+  }
+}

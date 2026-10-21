@@ -1,0 +1,26 @@
+{
+  "package_version": "2.10",
+  "isolated_skills_root": "C:\\Users\\Declan\\AppData\\Local\\Temp\\cps95-installed-ny5gtu32\\skills",
+  "original_checkout_install": "refused before writes due pre-existing generated support collisions",
+  "clean_source_policy": "byte-preserving current skill source snapshot excluding only ignored generated video-production-assets/support and Python caches; original support left untouched",
+  "copied_skill_files_identical": 299,
+  "installed_skills": 24,
+  "relative_links_checked": 461,
+  "missing_link_files": [],
+  "actual_cli_smokes": {
+    "installed_education_plan": {
+      "exit_code": 0,
+      "valid": true
+    },
+    "installed_camera_spec": {
+      "exit_code": 0,
+      "valid": true,
+      "shots": [
+        "SH01",
+        "SH02"
+      ],
+      "duration_s": 4.0
+    }
+  },
+  "limit": "No global installation; no live provider or artistic/approval proof. QA support copied at installation checkpoint, not claimed as final arm snapshot."
+}

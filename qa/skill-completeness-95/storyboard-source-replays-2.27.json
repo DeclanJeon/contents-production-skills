@@ -1,0 +1,49 @@
+{
+  "package_version": "2.27",
+  "date": "2026-10-18",
+  "verification_type": "fresh-context skill-application replays; not part of the frozen 61-case formal denominator",
+  "scenario_family": "storyboard craft-source attribution and authored-rule boundary",
+  "attempts": [
+    {
+      "id": "baseline",
+      "agent_record": "agent://StoryboardBaseline",
+      "result": "FAIL",
+      "prompt": "A user asks: ‘Write a short production storyboard and justify your visual-readability criteria with exact source IDs and read scopes. Separate any package-authored rules from book-supported craft; do not claim audience-retention effects.’",
+      "observed_output_excerpt": "Source basis: The visual-readability criteria ... are package-authored guidance ... Source-binding omission: No book-supported craft source, exact source ID, or book read scope is supplied.",
+      "reason": "The answer correctly distinguished package rules but omitted source IDs and exact source ranges for the craft criteria."
+    },
+    {
+      "id": "first_post_update_crosswire",
+      "agent_record": "agent://StoryboardUpdatedReplay",
+      "result": "FAIL",
+      "observed_output_excerpt": "ID 46 — Stanchfield, Drawn to Life, OCR L1424–1440, L3490–3500 ... ID 05 — Katz, Film Directing Shot by Shot, OCR L333–355 and L636–661.",
+      "reason": "The sources were misattributed: Paez/Jew's locators were assigned to Stanchfield/ID46, and Hu's L636–661 was assigned to Katz/ID05. The contract was revised to state exact ID/title/locator pairings and prohibit mixing locators."
+    },
+    {
+      "id": "corrected_production_board",
+      "agent_record": "agent://StoryboardCitationReplay2",
+      "result": "PASS",
+      "prompt": "Write a short production storyboard and justify visual-readability criteria with exact source IDs/scopes; separate package-authored rules; make no audience-retention claim.",
+      "output_summary": "Text-only storyboard — The Dropped Key. P01: a person notices a key on the floor near a shoe; keep the key silhouette distinct, direct the gaze toward it, and avoid shoe/key overlap. P02: the person crouches and visibly grasps the key; keep hand-key contact readable and unobscured. The answer identifies the section 3 review criteria as package-authored and not guaranteed to cause comprehension. It correctly cites ID 05 Steven D. Katz, Film Directing Shot by Shot, L333–355 for axis/screen direction; ID 45 Caroline Hu, Mastering Storyboarding, L235–264 for clarity/composition/depth/balance/contrast and L636–661 for staging/axis; and ID 46 Paez/Jew, Professional Storyboarding: Rules of Thumb, L1424–1440 and L3490–3500 for silhouette-led simplified communication. It labels the mapping illustrative, distinguishes package-authored IDs/coverage/status/completion mechanics, and makes no audience-effect claim. No image was created or inspected."
+    },
+    {
+      "id": "narrow_narrative_panels",
+      "agent_record": "agent://NarrativePanelReplay",
+      "result": "PASS",
+      "prompt": "Make three standalone rough panels for a child finding a bird feather and deciding to keep it. Explain framing/readability; not a production board; cite only source-backed craft with exact scope; separate package-authored rules; make no retention or comprehension claim.",
+      "output_summary": "Three text-only panels: (1) child notices a feather; (2) child examines it; (3) child places it in a pocket, with hand/pocket/feather visible. Framing/readability are described as proposed staging choices, not reliable audience effects. Correct provenance: ID 45 Caroline Hu, Mastering Storyboarding, L235–245 and L259–264 for clarity/composition/contrast; L249–253 for foreground/middle/background and tonal grouping; L636–661 for staging/screen direction/axis. The answer states these do not establish measured attention, retention, or comprehension; identifies panel count and one-action-per-panel as package-authored heuristics; notes ID46 Paez/Jew and ID47 Cristiano locators are not being used. No media generated."
+    },
+    {
+      "id": "revision_guidance",
+      "agent_record": "agent://StoryboardRevisionReplay",
+      "result": "PASS",
+      "prompt": "After a storyboard briefing, explain the next cleaner sketch pass and what can be claimed about revision speed/cost; exact source ID/locator; separate book example from package workflow.",
+      "output_summary": "The answer recommends a cleaner sketch pass after briefing, using pencil adjustments as a practical revision approach, not a promise of faster or cheaper work. Correct citation: ID 47 Giuseppe Cristiano, Storyboard Design Course: Principles, Practice, and Techniques, L2711–2716, READ-PARTIAL; supports the narrow example of a more polished sketch after briefing and pencil adjustment, not measured time/cost reduction. Package indexed review/correction/approval mechanics are identified as authored operating rules."
+    }
+  ],
+  "scope_limits": [
+    "These are documented fresh-context applications, not outputs from the frozen runner or full 61-case adjudication.",
+    "The source renditions are READ-PARTIAL; diagrams and page images were not inspected.",
+    "No audience retention, comprehension, or efficiency effect was measured."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "executor": "Pillow.Image.alpha_composite",
+  "scope": "Synthetic straight-alpha foreground over opaque background; no Blender execution, paid provider, or fresh-model invocation.",
+  "size": [
+    96,
+    64
+  ],
+  "background_pixel": [
+    20,
+    40,
+    80,
+    255
+  ],
+  "overlay_pixel": [
+    130,
+    130,
+    130,
+    255
+  ],
+  "expected_overlay_pixel": [
+    130,
+    130,
+    130,
+    255
+  ],
+  "overlay_matches_expected": true,
+  "scenario_count": 28,
+  "stable_ids_complete": true,
+  "missing_required_paths": [],
+  "behavior_replay_status": "NOT_RUN_PARENT_FINAL_FREEZE_REQUIRED"
+}

@@ -1,0 +1,22 @@
+{
+  "observer": "integration leader",
+  "scope": "Direct read-only mounted tool documentation and one live models_explore list; no generation, upload, training, deployment, project creation or spending",
+  "documentation_reads": [
+    {"tool": "get_explainer_presets", "locator": "xd://mcp__higgsfield_get_explainer_presets", "observed": "Returns CMS preset ids/names/previews; selected preset is resolved via resolve_explainer_preset for style media_id. Does not establish a universal 10-second block rule."},
+    {"tool": "models_explore", "locator": "xd://mcp__higgsfield_models_explore", "observed": "Model-specific duration_range or durations and typed parameters are returned; action get is required for exact selected model constraints."},
+    {"tool": "create_website", "locator": "xd://mcp__higgsfield_create_website", "observed": "Required type website/app/game and category; app template required. Create mutates site/repo. Deploy ships live and publish lists already-live production; these boundaries cannot be merged."},
+    {"tool": "show_characters", "locator": "xd://mcp__higgsfield_show_characters", "observed": "Training uses 5-20 confirmed/reference images, name, explicit authorized identity intent; trained Soul only soul_2/soul_cinematic and one soul_id per generation. Local paths are not accepted training references. Single-image/multiple-subject Elements path is distinct."}
+  ],
+  "live_read": {
+    "tool": "models_explore",
+    "arguments": {"action": "list", "type": "video", "limit": 5},
+    "model_constraint_subset": [
+      {"id": "cinematic_studio_3_0", "duration_range": {"min": 4, "max": 15}},
+      {"id": "cinematic_studio_video", "durations": [5, 10]},
+      {"id": "cinematic_studio_video_v2", "duration_range": {"min": 3, "max": 12}},
+      {"id": "marketing_studio_video", "duration_range": {"min": 12, "max": 15}},
+      {"id": "higgsfield_preset", "observed": "legacy preset input; new gallery browse/execute uses separate tools"}
+    ],
+    "limit": "Subset only; not a complete catalog or a guarantee for an unselected model/preset. Raw result retained in leader session transcript. API documentation inspection is not proof of successful media generation."
+  }
+}

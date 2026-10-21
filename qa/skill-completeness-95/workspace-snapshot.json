@@ -1,0 +1,1454 @@
+{
+  "created_at": "2026-10-16T14:49:07.133104+00:00",
+  "head": "fed92759473d22ff4988c91ef76d2c21c64ca167",
+  "branch": "skill-completeness-95-loop",
+  "source_branch": "main",
+  "skills": [
+    "creative-production",
+    "topic-demand-selection",
+    "video-production-assets",
+    "camera-spatial-design",
+    "camera-motion-reference-analysis",
+    "ai-camera-control",
+    "blender-previsualization",
+    "orchestrating-video-preproduction",
+    "developing-video-synopses",
+    "designing-video-character-sheets",
+    "designing-character-personas",
+    "storyboarding-video",
+    "storytelling-with-still-images",
+    "recording-production-history",
+    "higgsfield-brandkit",
+    "higgsfield-generate",
+    "higgsfield-marketplace-cards",
+    "higgsfield-product-photoshoot",
+    "higgsfield-soul-id",
+    "higgsfield-video-explainer",
+    "higgsfield-video-replicate",
+    "higgsfield-websites",
+    "higgsfield-youtube-thumbnail",
+    "community-shorts-stills-pipeline"
+  ],
+  "content_files": [
+    {
+      "path": "creative-production/evals/evals.json",
+      "bytes": 31295,
+      "sha256": "38f418af7fb0b78f27b334bc8dd4a178e392cbf2f4b056a7d628762cd375dc1f"
+    },
+    {
+      "path": "creative-production/references/creative-qa.md",
+      "bytes": 6925,
+      "sha256": "b724a9df72c22cb2f81b43104cbf81382e620358b4408c1a86e482b5a21677ae"
+    },
+    {
+      "path": "creative-production/references/marketing-source-adaptation.md",
+      "bytes": 10567,
+      "sha256": "850a245c57265367b989c4babcce163897af41cd9178b0ba1c1ea350e50e68e3"
+    },
+    {
+      "path": "creative-production/references/production-routing-optional.md",
+      "bytes": 13769,
+      "sha256": "fab5b088e86843c30b8bdcb3869b2ce1171c247782a3e68909491512f466b7ac"
+    },
+    {
+      "path": "creative-production/references/production-routing.md",
+      "bytes": 7878,
+      "sha256": "f378c2b922997a06c36e8529c74ba96a5b89a22d4a67255d8cadf3c162e91db0"
+    },
+    {
+      "path": "creative-production/references/video-generation-planning.md",
+      "bytes": 10926,
+      "sha256": "712afe1ccc8f8c55b977c3ebd7ef2d7bcdaf3a0641dd01b65c0768e46c00f54c"
+    },
+    {
+      "path": "creative-production/references/video-prompt-dialects.json",
+      "bytes": 2490,
+      "sha256": "f028ffba90d867895e047881c11702c1097b74241adc3ee0196bd60f696e187f"
+    },
+    {
+      "path": "creative-production/references/workspace-integration.md",
+      "bytes": 3576,
+      "sha256": "b9ff877567f7a503eaf104f1cd3d4ba0a4199b9e421b4a3458cd4c885d51a14f"
+    },
+    {
+      "path": "creative-production/SKILL.md",
+      "bytes": 17016,
+      "sha256": "2f326eee20220abb5b52b5156e3c6bf3a19d514ff5f94943ac7bfafdfedffc59"
+    },
+    {
+      "path": "topic-demand-selection/SKILL.md",
+      "bytes": 6526,
+      "sha256": "d8f799e40400599b5e6211136285f3d8c5752b58395d008186f7937079867a8b"
+    },
+    {
+      "path": "video-production-assets/assets/01-brief-template.md",
+      "bytes": 2335,
+      "sha256": "208346c48cb999beff81b1f4d14b14e5a5452c76822c49e6c2799da9efc41251"
+    },
+    {
+      "path": "video-production-assets/assets/02-story-template.md",
+      "bytes": 1677,
+      "sha256": "72183c82114f11806378be7911c672032aaa487903fbb1bd5fb2f4fbcc9f14d2"
+    },
+    {
+      "path": "video-production-assets/assets/03-screenplay-template.md",
+      "bytes": 1718,
+      "sha256": "7f5c68e7c44f6072afadcece04e1f1be2b7aeec9335010ba2647c7b29a3b1ad6"
+    },
+    {
+      "path": "video-production-assets/assets/04-performance-template.md",
+      "bytes": 389,
+      "sha256": "2f64e5874afb2a8f8fd3740c2a50292fb5a133ef7a3f1a3312226bcb65ec45c5"
+    },
+    {
+      "path": "video-production-assets/assets/05-visual-template.md",
+      "bytes": 404,
+      "sha256": "c3c640cde77f9a31098d7d719f2fd1ff8c4d3aa0b44690bc5b2414abeb3f966a"
+    },
+    {
+      "path": "video-production-assets/assets/06-shots-template.md",
+      "bytes": 4978,
+      "sha256": "506c83f3814c04ed1ebb429301d0f92ee9644e30207de74d03a4d032e18ae860"
+    },
+    {
+      "path": "video-production-assets/assets/07-lighting-template.md",
+      "bytes": 431,
+      "sha256": "d311833f2b41b026fa1d7f20a232b24e11b3522b7481f988751b53f9192adea7"
+    },
+    {
+      "path": "video-production-assets/assets/08-animation-template.md",
+      "bytes": 706,
+      "sha256": "e69e2b652b9adc18371ce6ed14eaddce907d38ec573dceb8a426a0514c1ee6cf"
+    },
+    {
+      "path": "video-production-assets/assets/09-edit-template.md",
+      "bytes": 2557,
+      "sha256": "73096a18ed9b607cb1750d884c471c39e7cdc1a672f2dbb22b9d409629a3deb0"
+    },
+    {
+      "path": "video-production-assets/assets/10-evidence-template.md",
+      "bytes": 396,
+      "sha256": "f3ba08a84fa771c8df2ce766f29e50c4223fe560f8239c261bf7bb8065d0a1eb"
+    },
+    {
+      "path": "video-production-assets/assets/11-ai-handoff-template.md",
+      "bytes": 973,
+      "sha256": "33a112598d985ff6cf75140f1442b9b10c16ec51dd58060358b7156c3051a3f9"
+    },
+    {
+      "path": "video-production-assets/assets/12-qa-template.md",
+      "bytes": 1227,
+      "sha256": "daab960ae648502c52129503ba4a294ce7dc15cadb055ad0f0dcd1912cf1733b"
+    },
+    {
+      "path": "video-production-assets/assets/13-ideation-brand-template.md",
+      "bytes": 514,
+      "sha256": "ac13a90aa0635099b3f9dccf8c1dd7c07572bd13ccf8be51bbcdae4559e5cede"
+    },
+    {
+      "path": "video-production-assets/assets/14-production-ops-template.md",
+      "bytes": 3026,
+      "sha256": "8b8965a68dcb8bd3016e565e406b18da309de315c03a3a45fbc6340ffeb95444"
+    },
+    {
+      "path": "video-production-assets/assets/15-delivery-template.md",
+      "bytes": 1168,
+      "sha256": "eb3131b37b3f5aafdc4ba5ad2c9b6de088f95d43a4bf3b28446da169e830eb18"
+    },
+    {
+      "path": "video-production-assets/assets/adaptation-map-template.md",
+      "bytes": 1191,
+      "sha256": "1a51f5f81b5b83e8b3b9926b28904ae11ef814792901b75796687f68fbf685b6"
+    },
+    {
+      "path": "video-production-assets/assets/archive-audit-template.md",
+      "bytes": 5998,
+      "sha256": "333e6f844ac79878b7a948761abc19c50dc57d0ee38d105bc3a50f5b1c15e487"
+    },
+    {
+      "path": "video-production-assets/assets/archive-craft-crosswalk-template.md",
+      "bytes": 11486,
+      "sha256": "e5ba2456b9db0726fb2a420f62fbc51a472b96a3a58de5e9f4e5321df8064f58"
+    },
+    {
+      "path": "video-production-assets/assets/asset-gate.csv",
+      "bytes": 91,
+      "sha256": "e10f1fc2a9305628bfb8393fe155b7e242927809d66dc8505f7b634a143224d9"
+    },
+    {
+      "path": "video-production-assets/assets/asset-provenance.csv",
+      "bytes": 245,
+      "sha256": "590d5f4b089d6551887f9ad3b37b6d1875f311b7e11789b83486516d231fed41"
+    },
+    {
+      "path": "video-production-assets/assets/asset-registry.csv",
+      "bytes": 66,
+      "sha256": "bcab663b57704f655257fcfc8ec409ad46b92d17b8996847f48453f6d8a5fcce"
+    },
+    {
+      "path": "video-production-assets/assets/camera-motion-qa-template.md",
+      "bytes": 604,
+      "sha256": "0fbb5fabf772e151ff1b4130d00d549b41bc0685a66d3a95a830424cb7044bde"
+    },
+    {
+      "path": "video-production-assets/assets/character-ssot-template.md",
+      "bytes": 14878,
+      "sha256": "5f086cdbaa7c05660e84993b8d63dc852442a4927bd199bfb5b54f0520439657"
+    },
+    {
+      "path": "video-production-assets/assets/claim-ledger.csv",
+      "bytes": 112,
+      "sha256": "d46e16f125d7af0d8c02cd8e0f45ef5f8cd2bcb0137af29a451744abc871db16"
+    },
+    {
+      "path": "video-production-assets/assets/continuity-ledger.csv",
+      "bytes": 124,
+      "sha256": "cad901c0dc6b9ab4a209c095489062697282f2010c95dde5957da08a42066dc9"
+    },
+    {
+      "path": "video-production-assets/assets/crowd-map-template.md",
+      "bytes": 152,
+      "sha256": "c35e7b058f6588b321482584138475ccfb2b71b726a86f1ef81e565dc7abc588"
+    },
+    {
+      "path": "video-production-assets/assets/dependency-graph.csv",
+      "bytes": 51,
+      "sha256": "e0567100c8e6a2deac3549f3f2be1c5e397eafaf2a0a95a245c0963c63b26cea"
+    },
+    {
+      "path": "video-production-assets/assets/film-distribution-template.md",
+      "bytes": 3927,
+      "sha256": "b93173aec0491af6ede5a83bad26d86c4316900c0c927119f62da90ca830a20c"
+    },
+    {
+      "path": "video-production-assets/assets/film-postproduction-template.md",
+      "bytes": 4427,
+      "sha256": "ca1aa8828c28da28a09b4029ffef0e388e06e1a57001ec6f508d8aeaee41560d"
+    },
+    {
+      "path": "video-production-assets/assets/film-production-day-template.md",
+      "bytes": 3781,
+      "sha256": "61c977f712e994150feadced5c4164934f3532dd2fa9bf6fd8b90c64d250c86b"
+    },
+    {
+      "path": "video-production-assets/assets/generated-qa-report-template.md",
+      "bytes": 1192,
+      "sha256": "2009ec6d5eff63833a7ddbdd3eec089f7c332ffe2861a4cb6509fcff44f09688"
+    },
+    {
+      "path": "video-production-assets/assets/motion-beat-template.md",
+      "bytes": 808,
+      "sha256": "0475273756c48cfee2b1b438ba9c673720c667ae0c16cb6a7083540c1545ca33"
+    },
+    {
+      "path": "video-production-assets/assets/performance-cue-template.md",
+      "bytes": 3260,
+      "sha256": "7a3abcf4e6d0e8cffc7d9d0a94d3f3c51a049ddac3c59122c53d715a318ae3f8"
+    },
+    {
+      "path": "video-production-assets/assets/product-ssot-template.md",
+      "bytes": 683,
+      "sha256": "216f640fb659809b7fb87d05f1e8398d633554ded6af149390f243f28ab63487"
+    },
+    {
+      "path": "video-production-assets/assets/production-budget.csv",
+      "bytes": 87,
+      "sha256": "a0961fdf0c40d39a2b7bcf8cbc1f1422b250f65747931c0e48a3ada33df53f27"
+    },
+    {
+      "path": "video-production-assets/assets/project-template.json",
+      "bytes": 457,
+      "sha256": "15b141bcf267fbc9a7f83f363f31d2f3585e3c418bf17920cf61024808cfd1e1"
+    },
+    {
+      "path": "video-production-assets/assets/prompt-ledger.csv",
+      "bytes": 60,
+      "sha256": "e75d993482b0737625416dec6cd9b9efd51d4c8d8c5af6139a4a2b98f4ff8a78"
+    },
+    {
+      "path": "video-production-assets/assets/series-bible-template.md",
+      "bytes": 1117,
+      "sha256": "dd93f0941745c8e20d243abe410ca27afa8ff035e82d8707a833d30b7d4100a8"
+    },
+    {
+      "path": "video-production-assets/assets/shot-dna-template.md",
+      "bytes": 4959,
+      "sha256": "5dbc0b305ad97da240baf19cf92db5962fd1824b48448a73f57fc0600f9ab3fa"
+    },
+    {
+      "path": "video-production-assets/assets/shot-list.csv",
+      "bytes": 165,
+      "sha256": "443a4c4c3fc03bee2295a669ba782e2df6360206c3349488325df84faede6737"
+    },
+    {
+      "path": "video-production-assets/assets/sound-cues.csv",
+      "bytes": 168,
+      "sha256": "a4674da7f6ac61289693cbddc6ea05ca64df22bf3e80270398eaf269c39da722"
+    },
+    {
+      "path": "video-production-assets/assets/state-transition-template.md",
+      "bytes": 2679,
+      "sha256": "5eee2856cc06d8320ea26729579dbbdb6cc85ff19fa88a84570b4a156c5a47c6"
+    },
+    {
+      "path": "video-production-assets/assets/storyboard-panel-manifest.csv",
+      "bytes": 78,
+      "sha256": "ef182146b50419385b66cab4a2a8f3c9fb7a13eceab3263c79ec5747b2ec8696"
+    },
+    {
+      "path": "video-production-assets/assets/storyboard-panels.csv",
+      "bytes": 255,
+      "sha256": "ba6b4ffc7bf251fba21d19c7cae416fe697e909b3ffc5b458a64e98d139af214"
+    },
+    {
+      "path": "video-production-assets/assets/style-world-bible-template.md",
+      "bytes": 1455,
+      "sha256": "e02468f56d31b1107a77cee4d27e2d935bad7bb25ad68c06c9d25964caff8bf8"
+    },
+    {
+      "path": "video-production-assets/assets/vfx-layer-stack-template.md",
+      "bytes": 171,
+      "sha256": "888a02fae2fd03302cad37246f9ef3540a872689bc02c3811edd2140cf748c92"
+    },
+    {
+      "path": "video-production-assets/assets/video-model-routing-template.md",
+      "bytes": 693,
+      "sha256": "2c2a58c227a35cf614f16e5a049b27ec2ff9aaf15bb51ae4045c5bc0d205d612"
+    },
+    {
+      "path": "video-production-assets/references/01-brief.md",
+      "bytes": 5543,
+      "sha256": "e2cf821b6fb61410e15c0028f012a96d48e0933d7f074b1b6ca94f5bfd640852"
+    },
+    {
+      "path": "video-production-assets/references/02-story.md",
+      "bytes": 4399,
+      "sha256": "7a98b02fe2b3dd6246300f694363704cc21aa65ddb80f3cc700db84d4fa053ca"
+    },
+    {
+      "path": "video-production-assets/references/03-screenplay.md",
+      "bytes": 3759,
+      "sha256": "c70f76d69228a9451b4bf9fc281b53c8046a249d0a10f4cc8daec34f16cd270b"
+    },
+    {
+      "path": "video-production-assets/references/04-performance.md",
+      "bytes": 2569,
+      "sha256": "10e467a5ff7b6163c6e1fe27f50d48d78b9d6dbb9e24c92d7e07e7e37718e569"
+    },
+    {
+      "path": "video-production-assets/references/05-visual.md",
+      "bytes": 1954,
+      "sha256": "fd99bca18ef2493780e6a73767e8ec68f5d727d1e5ad8923fa53dbd4a885e55a"
+    },
+    {
+      "path": "video-production-assets/references/06-shots.md",
+      "bytes": 11833,
+      "sha256": "a62ba0b1a32b467aa989fb295e7171d28bfa547df9ee549abacf44985883eefe"
+    },
+    {
+      "path": "video-production-assets/references/07-lighting.md",
+      "bytes": 3452,
+      "sha256": "9c50124aa7f77fe34bc49e14d15bfd3c02956349efb4f469937c62723148afc1"
+    },
+    {
+      "path": "video-production-assets/references/08-animation.md",
+      "bytes": 5126,
+      "sha256": "f15e3642835e6ccbc84713f5c41d0579a76ba8eb2b05f6577db268a82cbe0081"
+    },
+    {
+      "path": "video-production-assets/references/09-edit.md",
+      "bytes": 19902,
+      "sha256": "0dcbf3784dd478d3b5e25f5a5388353269c002cee28b614bfad5b5e35cdf8a0e"
+    },
+    {
+      "path": "video-production-assets/references/10-evidence.md",
+      "bytes": 4149,
+      "sha256": "d2db526abf6b7c64ddd33e5abe05e7535e8a053806ce437abdc138152f25efb8"
+    },
+    {
+      "path": "video-production-assets/references/11-ai-handoff.md",
+      "bytes": 3385,
+      "sha256": "f008f7c41c235ffad3a31954afb5f4a0338547e2070a4eb55e201a1a2cb5deee"
+    },
+    {
+      "path": "video-production-assets/references/12-qa.md",
+      "bytes": 8184,
+      "sha256": "44fe63f2799c21536eedc9b87746409861c76f0a74ee489dcc8730989928920c"
+    },
+    {
+      "path": "video-production-assets/references/13-ideation-brand.md",
+      "bytes": 3236,
+      "sha256": "38058a0bc3c4d566d3b2b90a585f49eb96be74568f7e3bdfc3f0218a78639421"
+    },
+    {
+      "path": "video-production-assets/references/14-production-ops.md",
+      "bytes": 8138,
+      "sha256": "1087afa6a58b62bda41a8226c159fbd7a6e506019dadcb9b988a7b500cc8e39a"
+    },
+    {
+      "path": "video-production-assets/references/15-delivery.md",
+      "bytes": 6843,
+      "sha256": "27dfb712498fd6f018b5dd6bc16dff09a4579892e6c138a61cd33375c8172c64"
+    },
+    {
+      "path": "video-production-assets/references/16-concept-emotion-retention.md",
+      "bytes": 13417,
+      "sha256": "61ad41e3a5b32966b7010548c115f065ea601a409abc9b8f1bb38e9978b1ddaf"
+    },
+    {
+      "path": "video-production-assets/references/17-genre-comedy.md",
+      "bytes": 4967,
+      "sha256": "4c06e69f2d3de23ae455067013bd17fb5a0c57ea41ce19a91ca5bea0fbffd4c4"
+    },
+    {
+      "path": "video-production-assets/references/18-episodic-series.md",
+      "bytes": 6044,
+      "sha256": "898f46af7a4a850070669f2813e83cab2f94cf003ea1f4db1882ed48b1b923aa"
+    },
+    {
+      "path": "video-production-assets/references/19-brand-product-integration.md",
+      "bytes": 10334,
+      "sha256": "8fdde3138d0ae65cf91bc13b49679207a173511bcf10bb232600d27f51f855b2"
+    },
+    {
+      "path": "video-production-assets/references/20-visual-mode-ssot.md",
+      "bytes": 14722,
+      "sha256": "1eef11bb9932ed1cc33d3a210ca2b723f5f346715e32fa3b5fc4c756ccb0eb09"
+    },
+    {
+      "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+      "bytes": 18418,
+      "sha256": "e0bb91871885bfa8c9e87c74165755572ee56b4a6e52036678f7a814fcad9f76"
+    },
+    {
+      "path": "video-production-assets/references/22-dialogue-lipsync.md",
+      "bytes": 19228,
+      "sha256": "5d946d887b953529c16fb173e92d4d67e882d0645f56f5888125846af4d3a2c8"
+    },
+    {
+      "path": "video-production-assets/references/23-finishing-platform.md",
+      "bytes": 8285,
+      "sha256": "502c1aa7c65b3ae7fb808d3191d710041bba216be2a02695d548a2bdaf9ff615"
+    },
+    {
+      "path": "video-production-assets/references/24-production-execution.md",
+      "bytes": 19715,
+      "sha256": "2bacc670dc56b12129865dabc4ce890cadeecc96f628f42300f7c5431d3673ab"
+    },
+    {
+      "path": "video-production-assets/references/25-reference-video-analysis.md",
+      "bytes": 24750,
+      "sha256": "5c76f54369a210ab729221ce01d8906a63bb47379cd580c7c92467b39ecc180e"
+    },
+    {
+      "path": "video-production-assets/references/26-state-causality-continuity.md",
+      "bytes": 8803,
+      "sha256": "82e9405074801cac1242c351f45d24c273ea792e4b8120b0e6255aa29b7a4dea"
+    },
+    {
+      "path": "video-production-assets/references/27-camera-motion-qa.md",
+      "bytes": 3282,
+      "sha256": "388c2a4cc5ce440c139a70833cbce9f3488e28b9ba394f70c93241c721fae7fd"
+    },
+    {
+      "path": "video-production-assets/references/28-film-production-lifecycle.md",
+      "bytes": 15431,
+      "sha256": "511e84715bc978c08b09f6dc6bc32b3099815bd936b90be0847b75afe0f3809f"
+    },
+    {
+      "path": "video-production-assets/references/contract.md",
+      "bytes": 30667,
+      "sha256": "7a7c0f2454e788d8ccd01f243a0ea5b30b8e64b0e970179b70e75376c18cd5ce"
+    },
+    {
+      "path": "video-production-assets/references/preproduction-review.md",
+      "bytes": 15111,
+      "sha256": "b1eb6d1e28493e14573a8fecede608cee7bf17eaf2a0975c27724968e3a02f47"
+    },
+    {
+      "path": "video-production-assets/references/rofan-craft-examples.md",
+      "bytes": 10227,
+      "sha256": "a2c94814fd7cf7cb0a0614290b7cd68c4a1a154e99a40a34263efd4a76b35600"
+    },
+    {
+      "path": "video-production-assets/references/sources.md",
+      "bytes": 16043,
+      "sha256": "66ead532132dacd5080c0d48f86e18dd08667f44e70d8af19bf15a32ade924f4"
+    },
+    {
+      "path": "video-production-assets/references/storyboard-contract.md",
+      "bytes": 29568,
+      "sha256": "f9926767f518f0ebea12e77f4663a84a225d47ea5f20368846bd50b4d6a7b585"
+    },
+    {
+      "path": "video-production-assets/references/storyboard-sheet-user-guide.md",
+      "bytes": 17813,
+      "sha256": "b94c0b291f0029afe1c6b74bdaca3a3df2fb53b93515498c425e5aa9ae6c0c2f"
+    },
+    {
+      "path": "video-production-assets/references/workspace-integration.md",
+      "bytes": 3576,
+      "sha256": "b9ff877567f7a503eaf104f1cd3d4ba0a4199b9e421b4a3458cd4c885d51a14f"
+    },
+    {
+      "path": "video-production-assets/scripts/asset_gate.py",
+      "bytes": 34103,
+      "sha256": "2e45716fdfca6a717678933545ca2e91feed1bf7e861d532f80506de43c77572"
+    },
+    {
+      "path": "video-production-assets/scripts/package_production.py",
+      "bytes": 26962,
+      "sha256": "71e85e65b731de012488a9c734f146823a62a4f8d9efe3e43bb5739cbf2e49c7"
+    },
+    {
+      "path": "video-production-assets/scripts/project_index.py",
+      "bytes": 9031,
+      "sha256": "79223f7d49f9b21465b850681750af4a5a4b8becd075fd304d02e36b3cb12fd0"
+    },
+    {
+      "path": "video-production-assets/scripts/render_storyboard_sheet.py",
+      "bytes": 36272,
+      "sha256": "e0f2e777dd76155e8030bb4d6b06db2208febd15a9466234dd31171d7d382c41"
+    },
+    {
+      "path": "video-production-assets/scripts/split_storyboard.py",
+      "bytes": 31146,
+      "sha256": "fcd84dcbec8ceee49fa227c0f06f302fbc7c7fbcafdaad98e9d35ec87021f297"
+    },
+    {
+      "path": "video-production-assets/scripts/test_asset_gate.py",
+      "bytes": 43767,
+      "sha256": "495722c68325d86c85246f41e4ae94462dda71ab31af92ad22ddc21c82cae756"
+    },
+    {
+      "path": "video-production-assets/scripts/test_project_handoff.py",
+      "bytes": 19686,
+      "sha256": "4dba6eed633c0ca020b9df11763305af469dfe589d90d7e504f3e341395c8c2c"
+    },
+    {
+      "path": "video-production-assets/scripts/test_render_storyboard_sheet.py",
+      "bytes": 14361,
+      "sha256": "5517160dd69231c15973fdc71a68f8fba6a1f77d91f43c234707a3ad1adfd80c"
+    },
+    {
+      "path": "video-production-assets/scripts/test_split_storyboard.py",
+      "bytes": 24799,
+      "sha256": "74a6d7ff17b0d36396e9ece9c80ed545ba69f599638c7c8685244bce88b19006"
+    },
+    {
+      "path": "video-production-assets/scripts/test_validate_preproduction.py",
+      "bytes": 25613,
+      "sha256": "a78f5a0e0a7977f1c48eed844d46c617d141fcdbfd5d8990276467fdc92343d9"
+    },
+    {
+      "path": "video-production-assets/scripts/test_validate_project.py",
+      "bytes": 14259,
+      "sha256": "08c65da414b141a4452fe1799d63ae04b8afabad732bf66033693fe897ca3feb"
+    },
+    {
+      "path": "video-production-assets/scripts/test_validate_storyboard.py",
+      "bytes": 23059,
+      "sha256": "6f173755b49840a3d60ae15027028a4e777fa7b9b9226205b2ecd7bb42ec75f7"
+    },
+    {
+      "path": "video-production-assets/scripts/update_project.py",
+      "bytes": 14591,
+      "sha256": "45d4eb8443834d7f3fe784e263ac224dfab5264dbc6d1519f6ae99df225b87be"
+    },
+    {
+      "path": "video-production-assets/scripts/validate_preproduction.py",
+      "bytes": 10013,
+      "sha256": "c6ddc8b3aeba10f7bd1f86b9e78ab26919a38dbce4ee7efa4e8477b4b75e0eb8"
+    },
+    {
+      "path": "video-production-assets/scripts/validate_project.py",
+      "bytes": 22764,
+      "sha256": "046ebf6676c0fd07d209eb009bbcf4bd9cf4703487a8e020dcd2d0249aedbad5"
+    },
+    {
+      "path": "video-production-assets/scripts/validate_storyboard.py",
+      "bytes": 27134,
+      "sha256": "7becf4a8f9ec0aa6b1c5574c9b4999331bf04da00fa4dac68e24ac10a0a9e0ac"
+    },
+    {
+      "path": "video-production-assets/SKILL.md",
+      "bytes": 22575,
+      "sha256": "0d92e14ca7616b7d4d2383dc82095f21adc78955903c05b00f4d488fae31b363"
+    },
+    {
+      "path": "camera-spatial-design/assets/camera-comparison.csv",
+      "bytes": 178,
+      "sha256": "d2683640eeaf51512e89a9cf34e6afc8d4db3babfbb45256c7d83ba048cced2a"
+    },
+    {
+      "path": "camera-spatial-design/assets/camera-spec-example.json",
+      "bytes": 3622,
+      "sha256": "90345bf845c5876e5b684bc0b67baa333c8751b14e394c84ef2d193344b380a3"
+    },
+    {
+      "path": "camera-spatial-design/assets/motion-timing-template.md",
+      "bytes": 688,
+      "sha256": "e7651ea543052d5fc14735e8e29bf72cd1e33dce934184f6aa716a6083d0dbed"
+    },
+    {
+      "path": "camera-spatial-design/assets/spatial-review-template.md",
+      "bytes": 443,
+      "sha256": "db2ab0f822e603da13cff1fbc68a0831ba53e6eb7290a191f60fcad2a0b16de3"
+    },
+    {
+      "path": "camera-spatial-design/references/camera-design.md",
+      "bytes": 2208,
+      "sha256": "2384b5d27ed833b3eb27735d0f35daec30966ffca4e98aabcbd7a79e61659ffa"
+    },
+    {
+      "path": "camera-spatial-design/references/camera-programs.md",
+      "bytes": 2922,
+      "sha256": "0b0525d1a0b30701667eaece9558d2dea343ae5223ca8661596381bf437ff4f7"
+    },
+    {
+      "path": "camera-spatial-design/references/motion-timing-lens.md",
+      "bytes": 5304,
+      "sha256": "6b9f452dfc9f09cba6a0afeb22f355e46f58fc6d08d824511006d8f2140bb7a0"
+    },
+    {
+      "path": "camera-spatial-design/references/sources.md",
+      "bytes": 2444,
+      "sha256": "006722fdc97386171e407b671f22f95fd108b4d3ea59c2aa63e53ab4bb54728b"
+    },
+    {
+      "path": "camera-spatial-design/references/spatial-contract.md",
+      "bytes": 5232,
+      "sha256": "a5364018692ae0d27cb2d4bf35361b06da0d64bccf6fc3f066c2727f59cdec0b"
+    },
+    {
+      "path": "camera-spatial-design/references/workspace-integration.md",
+      "bytes": 3576,
+      "sha256": "b9ff877567f7a503eaf104f1cd3d4ba0a4199b9e421b4a3458cd4c885d51a14f"
+    },
+    {
+      "path": "camera-spatial-design/scripts/render_projection.py",
+      "bytes": 2742,
+      "sha256": "3d217d57648b190245e4396c78e60e3d17e610d07b5e09c56aa52fdcfc279e6d"
+    },
+    {
+      "path": "camera-spatial-design/scripts/spatial_spec.py",
+      "bytes": 18968,
+      "sha256": "4fa9f658e93de0a9748089a63901a74abc8405a2f437e997ae4714c8885e71e8"
+    },
+    {
+      "path": "camera-spatial-design/scripts/test_spatial_spec.py",
+      "bytes": 6673,
+      "sha256": "bf9c909aaed26cb1c88503a8419b28f996df483bb089bce31d5275616c643caf"
+    },
+    {
+      "path": "camera-spatial-design/SKILL.md",
+      "bytes": 7639,
+      "sha256": "374c504d8fdd7e34e053bf0d51db031e11c759c268defe9151105b4bb44f05b8"
+    },
+    {
+      "path": "camera-motion-reference-analysis/assets/motion-analysis-template.md",
+      "bytes": 708,
+      "sha256": "9cfe3facdcd23ea5de3c66f6916f73aa57ddc5e4970eef0c8361afae2316d45a"
+    },
+    {
+      "path": "camera-motion-reference-analysis/references/motion-analysis.md",
+      "bytes": 1904,
+      "sha256": "2b8676763ac2e25e956d6647070e4fe1eb3167b310efbb9524e52f5a8b91d715"
+    },
+    {
+      "path": "camera-motion-reference-analysis/references/programs.md",
+      "bytes": 2922,
+      "sha256": "0b0525d1a0b30701667eaece9558d2dea343ae5223ca8661596381bf437ff4f7"
+    },
+    {
+      "path": "camera-motion-reference-analysis/SKILL.md",
+      "bytes": 3973,
+      "sha256": "9e72f288146f9b2b3827336ab308e80ae6cff989cb7a7b4b57c49924d47f0c8b"
+    },
+    {
+      "path": "ai-camera-control/assets/camera-control-template.md",
+      "bytes": 771,
+      "sha256": "2ceba9802e9bfec475f423f0b0073db56e67879523a20956d087ccbd15f21bc3"
+    },
+    {
+      "path": "ai-camera-control/references/control-contract.md",
+      "bytes": 1567,
+      "sha256": "2498f52ce8cd8b377362abf24e8acd10c621e6d20d6be01927e77fbf1192de73"
+    },
+    {
+      "path": "ai-camera-control/references/programs.md",
+      "bytes": 2922,
+      "sha256": "0b0525d1a0b30701667eaece9558d2dea343ae5223ca8661596381bf437ff4f7"
+    },
+    {
+      "path": "ai-camera-control/SKILL.md",
+      "bytes": 3775,
+      "sha256": "a271434c5c0ee8ff5fd6a5ca57498894c6bfb0db10f460a206e5c677895af1e3"
+    },
+    {
+      "path": "blender-previsualization/assets/previs-handoff-template.md",
+      "bytes": 982,
+      "sha256": "4f0dade2e1931097833a72394c21da0df5b1286bea240270218473c8490b4801"
+    },
+    {
+      "path": "blender-previsualization/references/blender-workflow.md",
+      "bytes": 3518,
+      "sha256": "57ae6f3cf85c6a23797c796e8378d76eb787776b5ca92fc34b3998a74e50fdf6"
+    },
+    {
+      "path": "blender-previsualization/scripts/build_previs.py",
+      "bytes": 16119,
+      "sha256": "dea1d52eea0b8245383faf8cdba5112cc2ae3854edc6d0b5e20960deebc1186c"
+    },
+    {
+      "path": "blender-previsualization/scripts/test_build_previs.py",
+      "bytes": 3663,
+      "sha256": "f32d2b3991536f56f568eb28be557df4ed406417634983ebb0f6e5b65edafde4"
+    },
+    {
+      "path": "blender-previsualization/scripts/test_camera_orientation_in_blender.py",
+      "bytes": 1818,
+      "sha256": "c94200dc591fbfba4693c9e033d0b5195608f04a33ed0e03657fbdfd3ef13791"
+    },
+    {
+      "path": "blender-previsualization/SKILL.md",
+      "bytes": 5949,
+      "sha256": "9f5bd181b0ad32469428dabbb9e283622d65f6fc19e4afd68339f9b0f52fbc0a"
+    },
+    {
+      "path": "orchestrating-video-preproduction/evals/evals.json",
+      "bytes": 5879,
+      "sha256": "8926a0396ec6012c2ec26c09f691a98659465fc9957e5934b88b69861b5dd326"
+    },
+    {
+      "path": "orchestrating-video-preproduction/references/stage-execution.md",
+      "bytes": 12911,
+      "sha256": "73b3c8940d98ea7d4ba5a22f4ee1bf7260a709c0a7f3ad90128bd1864a955515"
+    },
+    {
+      "path": "orchestrating-video-preproduction/references/video-direction.md",
+      "bytes": 10183,
+      "sha256": "278e1463cff16dd4724812a57b29c9a295e5956fbbdb67dd6e852172bbb38e36"
+    },
+    {
+      "path": "orchestrating-video-preproduction/SKILL.md",
+      "bytes": 7030,
+      "sha256": "a14d4605519434d35d3d1a9e7bf128f85d9654cf982eff8168b884e571e29050"
+    },
+    {
+      "path": "developing-video-synopses/evals/evals.json",
+      "bytes": 3412,
+      "sha256": "7e9d931d6976f9fab8c104f16ea6814ca101374a310180a825c237ba8b8ed202"
+    },
+    {
+      "path": "developing-video-synopses/references/synopsis-craft.md",
+      "bytes": 5745,
+      "sha256": "0d2235e95736b1ce737744787949309ee27b27338f6b224a6ab2d2511db7b1d2"
+    },
+    {
+      "path": "developing-video-synopses/SKILL.md",
+      "bytes": 5414,
+      "sha256": "fe4cae3ab5269e67bd42ed67bada874f1b8ae59d6c2cd612e6bfcd6f86f3b82f"
+    },
+    {
+      "path": "designing-video-character-sheets/evals/evals.json",
+      "bytes": 3641,
+      "sha256": "55b69563808b6dfb4c6757fda35c88480dcfffb00e7dc05d0191ce6ff9257745"
+    },
+    {
+      "path": "designing-video-character-sheets/references/character-craft.md",
+      "bytes": 14778,
+      "sha256": "0837a5df6736a09b92691decf9064b1f4556d2355986917a5bfb3caae62c8fc3"
+    },
+    {
+      "path": "designing-video-character-sheets/references/character-ssot-master-prompt.md",
+      "bytes": 25997,
+      "sha256": "673561793559e98c1d54b21976a877dc47106b23ed02b7e8d87df4ef9edd19c1"
+    },
+    {
+      "path": "designing-video-character-sheets/SKILL.md",
+      "bytes": 11199,
+      "sha256": "9150c9a308c6f33732ab3508e083098d4a37458382f4bf9f58a1c2ab5a60ccde"
+    },
+    {
+      "path": "designing-character-personas/assets/persona-template.md",
+      "bytes": 8612,
+      "sha256": "07bdf75e35152ccb56d357a99baacb9fc6b541bf5314efd42627d2ef7065a6a8"
+    },
+    {
+      "path": "designing-character-personas/evals/evals.json",
+      "bytes": 11711,
+      "sha256": "dd8ff6b97dcae83aa25a801f3a4b05fa13299f11a29957078b800dd82d08eb12"
+    },
+    {
+      "path": "designing-character-personas/references/enneagram-lens.md",
+      "bytes": 3061,
+      "sha256": "69f7e85e6d16ee7f33b3c38b73370dce57436683289607353c6de12e9ec77dc7"
+    },
+    {
+      "path": "designing-character-personas/references/expression-voice-bridge.md",
+      "bytes": 3132,
+      "sha256": "af1f2f88557faf0a5832d7cde2738459e6faf3c524ae6722c9d1990ff0d6457d"
+    },
+    {
+      "path": "designing-character-personas/references/mbti-lens.md",
+      "bytes": 3753,
+      "sha256": "17db66276ef9196435d575536233d0fe3c699a694a92c20455e1b5ac5301197e"
+    },
+    {
+      "path": "designing-character-personas/references/sources.md",
+      "bytes": 3488,
+      "sha256": "1378af1af2a3c9aea361ecb4ebb1fc577d3b1ddc0b91967f296ecb92f022688f"
+    },
+    {
+      "path": "designing-character-personas/SKILL.md",
+      "bytes": 8252,
+      "sha256": "8505dd4b9d634a550137acbd3778eb1412d6ec6d1b70fa9798479f7e90045e47"
+    },
+    {
+      "path": "storyboarding-video/evals/evals.json",
+      "bytes": 8276,
+      "sha256": "c489ec571c60b21ec707264c85acd169f004927c1681d984750bfeefa1194a84"
+    },
+    {
+      "path": "storyboarding-video/references/narrative-panels.md",
+      "bytes": 6297,
+      "sha256": "b13c72b79f05580aa1927a768ebbc8a66d7709a20cb4cb582be345b25204bb20"
+    },
+    {
+      "path": "storyboarding-video/SKILL.md",
+      "bytes": 7319,
+      "sha256": "f2b1d95e2a48178e932de2e07bd5907e9c25b6a044c729225687491f54d436e2"
+    },
+    {
+      "path": "storytelling-with-still-images/evals/evals.json",
+      "bytes": 4227,
+      "sha256": "42fa1c268b8e4f2cc0e6a02ab551742d73b779c915148d75c2cbc5eee4641151"
+    },
+    {
+      "path": "storytelling-with-still-images/SKILL.md",
+      "bytes": 4065,
+      "sha256": "7c40e4deaf4461ebb78ce12cb8dc1aa5599f216cc4193e3b37f334c849b1bb89"
+    },
+    {
+      "path": "recording-production-history/scripts/production_history.py",
+      "bytes": 38373,
+      "sha256": "dd12e21db0bf5b0853d215d027a8a6f7a66323b28f016760a76b8afcc13efa8a"
+    },
+    {
+      "path": "recording-production-history/scripts/test_production_history.py",
+      "bytes": 44033,
+      "sha256": "57241a7aec3365300fc3873661987470f8114aaab41bfabbb5868f2cd2357545"
+    },
+    {
+      "path": "recording-production-history/SKILL.md",
+      "bytes": 9255,
+      "sha256": "b97ddab2a6554689c6dfc5ef8e53d2b0cdf8f6a438ed1c2bd8504d86a31dce95"
+    },
+    {
+      "path": "higgsfield-brandkit/references/asset-analysis.md",
+      "bytes": 7834,
+      "sha256": "55f41b878384cd8b318f473de1b1c5632b40e1e4e247b1725f7e144277abbe58"
+    },
+    {
+      "path": "higgsfield-brandkit/references/brand-lock.md",
+      "bytes": 6423,
+      "sha256": "fb96f548446d71523bcb5ff70cc0ab41361765ce5b57ad01ed979684e5968637"
+    },
+    {
+      "path": "higgsfield-brandkit/references/brandbook.md",
+      "bytes": 5064,
+      "sha256": "b3000e2ec9315605b21a7e97c16f05b7026ab6e6404802179591eafa290f487c"
+    },
+    {
+      "path": "higgsfield-brandkit/references/brandkit-design-brain.md",
+      "bytes": 8485,
+      "sha256": "606ac9b7d87bb5e69cebeb7c74b8df16048f682eeaaaf6897aada6c453840989"
+    },
+    {
+      "path": "higgsfield-brandkit/references/concept-boards.md",
+      "bytes": 7345,
+      "sha256": "cc01bb869d86933a1887574987a7d99e25de0f921bfe0e06f26997b4b26402de"
+    },
+    {
+      "path": "higgsfield-brandkit/references/handoff.md",
+      "bytes": 5065,
+      "sha256": "b1e68066824f6cc879c702b1f0f6d04348f5474e7027921915b2d2f7d751f7c5"
+    },
+    {
+      "path": "higgsfield-brandkit/references/inline-widgets.md",
+      "bytes": 2800,
+      "sha256": "077a7c05b526eecc87f39968140d063d9f99623915e8cb08a91f6bcda5e4b157"
+    },
+    {
+      "path": "higgsfield-brandkit/references/intake.md",
+      "bytes": 3459,
+      "sha256": "3c19ec73e6ae10a3832888ebe74781f432d8525ff6ed10590cd8fc5e031ec827"
+    },
+    {
+      "path": "higgsfield-brandkit/references/logo-export-payloads.md",
+      "bytes": 728,
+      "sha256": "7f569d1476935218a5e5e56e42fdae26451aab622815635801d9dc9c47b173b7"
+    },
+    {
+      "path": "higgsfield-brandkit/references/logo-prompt-enhancer.md",
+      "bytes": 9985,
+      "sha256": "33eedf49d4fff3a423dfba779070754c9ae52474df54604771a5520c9b48cb1b"
+    },
+    {
+      "path": "higgsfield-brandkit/references/logo.md",
+      "bytes": 10567,
+      "sha256": "059cb96ce1394ec8f3ed02e3834410dbda07060358071fac7c27c84b94be468f"
+    },
+    {
+      "path": "higgsfield-brandkit/references/merchandise.md",
+      "bytes": 1075,
+      "sha256": "6be42e49319aab9187baaf360a020d2e609c26d977b5c56744c34bd590b974e5"
+    },
+    {
+      "path": "higgsfield-brandkit/references/mockups.md",
+      "bytes": 11321,
+      "sha256": "b2fba9449d99150f37646177bcb0518066e2623ff27e5ddc6a5d2bac6c7c6c54"
+    },
+    {
+      "path": "higgsfield-brandkit/references/packaging.md",
+      "bytes": 1343,
+      "sha256": "ba2b19a44565b8df796620ea444518fa69b76e0a63c10b6de6be6b9a64ad411f"
+    },
+    {
+      "path": "higgsfield-brandkit/references/palette.md",
+      "bytes": 1076,
+      "sha256": "2f5ee543783f8d7dd0b2878f20394e5dbc2d8dcbe45ab8a50454cc6cfe16ade5"
+    },
+    {
+      "path": "higgsfield-brandkit/references/posters-banners.md",
+      "bytes": 1123,
+      "sha256": "e06e56f6a4c2928ea9aeb16a751a9250bdd9f82562bce21fd1531c1692108538"
+    },
+    {
+      "path": "higgsfield-brandkit/references/prerequisites.md",
+      "bytes": 3025,
+      "sha256": "8a54bd93b10bcf9b631fd305c9b6dff74a482ab30832a8e9e8ed9e11d2042312"
+    },
+    {
+      "path": "higgsfield-brandkit/references/presentation-deck.md",
+      "bytes": 1638,
+      "sha256": "80684f56c52129e130a5a249d4aaffcc91fb9333af6854a5e89ca2db9409d7d7"
+    },
+    {
+      "path": "higgsfield-brandkit/references/preview-payloads.md",
+      "bytes": 3055,
+      "sha256": "aa9446ab2b81b3856d715d4f7fb9301f3724f816b960fc0a9a7e1f2b7229c3f1"
+    },
+    {
+      "path": "higgsfield-brandkit/references/qa-and-iteration.md",
+      "bytes": 7098,
+      "sha256": "561e5c6af2b9a98a4488da0e2f7966bac9d76b1cc57b31f5664f5a2c5ebb01bd"
+    },
+    {
+      "path": "higgsfield-brandkit/references/signage.md",
+      "bytes": 1023,
+      "sha256": "9d005a78556e13c3d18af09e291dcc774495bdbb008aee2203da3b36210c5c1d"
+    },
+    {
+      "path": "higgsfield-brandkit/references/social-templates.md",
+      "bytes": 4515,
+      "sha256": "adafeeb3ae36ca6599fa808bde3291ee8cee2f419705717915f2317397a5849a"
+    },
+    {
+      "path": "higgsfield-brandkit/references/state-payloads.md",
+      "bytes": 3256,
+      "sha256": "7a28ad60dfae2ee069fceec713eddd888beffcc3e677b390f646d613511a9ce9"
+    },
+    {
+      "path": "higgsfield-brandkit/references/typography.md",
+      "bytes": 4487,
+      "sha256": "0b6e3eb021ebf855f6f4dfe107fd346fec82aa67c62a2ea7c78819e4dae83df4"
+    },
+    {
+      "path": "higgsfield-brandkit/scripts/brandkit.py",
+      "bytes": 57588,
+      "sha256": "2fadfea7d88056336972fd733229f5f31389a34e987e2f5c2f8cf99dc48cd989"
+    },
+    {
+      "path": "higgsfield-brandkit/scripts/build_brandbook.py",
+      "bytes": 38738,
+      "sha256": "7c328842d5f7a9736d1ee395376b8926acc44e48946e7fc3fccc11275259e5aa"
+    },
+    {
+      "path": "higgsfield-brandkit/scripts/render_brandbook_pdf.py",
+      "bytes": 5479,
+      "sha256": "821a89cdbde1f9ea9d5ca87453669ca7dca883c2637d3caefa1c50f47a84c1f4"
+    },
+    {
+      "path": "higgsfield-brandkit/SKILL.md",
+      "bytes": 15128,
+      "sha256": "2591910e9d6bb55b27d99667cbd46d1c9c6785e37bf34c9f3652429bcc996f2c"
+    },
+    {
+      "path": "higgsfield-generate/references/image-branches.md",
+      "bytes": 3527,
+      "sha256": "328c95245f2d35abb3a28047428bcb128c92ea51f39b20b0139a78995598ccfd"
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-ad-references.md",
+      "bytes": 4413,
+      "sha256": "51ecd110b059d78ec7411fa0a305ba5c2925636af1edb67dd46ba61dea7982e7"
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-avatars.md",
+      "bytes": 1441,
+      "sha256": "0fc1bab974e7b651d652e9bc3f2ff9b37d25cfcfde8986599bab7215d29e90da"
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-brand-kits.md",
+      "bytes": 2629,
+      "sha256": "858d23282bba031ca6095cc88ef35fadf008588baea9a498c40b4e44336ee2f0"
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-dtc-ads.md",
+      "bytes": 4786,
+      "sha256": "4f063300ab84190866f1a63b260a9ac801d2f8c340a4d3438f250383b4b9cacc"
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-modes.md",
+      "bytes": 3383,
+      "sha256": "4614d3df586bad9305de666c060c4f9db6bfda7f91c192be0f1075cbfc6f9f12"
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-products.md",
+      "bytes": 1562,
+      "sha256": "3f10b476ada995379ccd75a5c27010a676da2ed23e5b2c25c7caf24cea7b01be"
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-setup-items.md",
+      "bytes": 2703,
+      "sha256": "ef0c04bfa364333fb2a5ce881f4e3bc0774820da46eef772ca7e403e1a13d1f9"
+    },
+    {
+      "path": "higgsfield-generate/references/marketing-studio.md",
+      "bytes": 7758,
+      "sha256": "578cebaba0a3b81d59c22230c59c4354731ecb985bf9c1307ec4ecb196ea0eae"
+    },
+    {
+      "path": "higgsfield-generate/references/media-inputs.md",
+      "bytes": 7749,
+      "sha256": "ec56e0946d6b980e15d49031e48864a8cd547d3cc4f73a4c3da04ea69162d366"
+    },
+    {
+      "path": "higgsfield-generate/references/model-catalog.md",
+      "bytes": 21893,
+      "sha256": "fcf3a58b63b029767fd884b9a584f08067d4a2f7cec46defb99a56f746790cd8"
+    },
+    {
+      "path": "higgsfield-generate/references/package-gate.md",
+      "bytes": 7445,
+      "sha256": "2b3fa2850efb07d9453abae5c0e9bd42c486351778fdd92c96d7dac3cb4280ea"
+    },
+    {
+      "path": "higgsfield-generate/references/prompt-engineering.md",
+      "bytes": 1601,
+      "sha256": "2875fad7bfc58fcdff9d0b901478a460577f2cbb061f1e85fef80af6c327b956"
+    },
+    {
+      "path": "higgsfield-generate/references/troubleshooting.md",
+      "bytes": 1627,
+      "sha256": "e2ba558cbb8d88f9aadd29e4cac6d8aadf78c069743cfc4f677913971416c7c1"
+    },
+    {
+      "path": "higgsfield-generate/references/workflows.md",
+      "bytes": 3155,
+      "sha256": "ca99193c4813e6713cc8d0c4c1e0237a082fdc4f3d6f1210ccc6fa2b4dc02197"
+    },
+    {
+      "path": "higgsfield-generate/SKILL.md",
+      "bytes": 19194,
+      "sha256": "3ecf00807211896cfbbed86111568d017717fcca10c306e55e8ca99ec183d001"
+    },
+    {
+      "path": "higgsfield-marketplace-cards/SKILL.md",
+      "bytes": 6505,
+      "sha256": "b9b27e0a348c92f76113e58fb9ee5114b335ddc2a41cae8602d7ee105f27e7d9"
+    },
+    {
+      "path": "higgsfield-product-photoshoot/references/modes.md",
+      "bytes": 4625,
+      "sha256": "24b9b03c3c754e9c900c0ee7d245eaf6f2f1d9308b9ef82fe9e524cadfdbb584"
+    },
+    {
+      "path": "higgsfield-product-photoshoot/SKILL.md",
+      "bytes": 8074,
+      "sha256": "9bcaeb4747db0f1fe4b9ca476a2f64886846d516e6b30800d1463cd2a8898dc5"
+    },
+    {
+      "path": "higgsfield-soul-id/references/photo-guide.md",
+      "bytes": 757,
+      "sha256": "d6dc7c1df8cb1034171b39a2fc19d00b39751743988ceaaf4d8c8d6d0f7caeeb"
+    },
+    {
+      "path": "higgsfield-soul-id/references/troubleshooting.md",
+      "bytes": 562,
+      "sha256": "b499b51999220e865b462e83875f6cdd971ec530d053c1bdffa38f8aad3f3066"
+    },
+    {
+      "path": "higgsfield-soul-id/SKILL.md",
+      "bytes": 5639,
+      "sha256": "f275ceb1c3df067f395a7afea30c43d91df6869c0564aa21de3209cb8fa47fdd"
+    },
+    {
+      "path": "higgsfield-video-explainer/references/prompts.md",
+      "bytes": 5572,
+      "sha256": "9af730b628abb7593dd6e00a303ebb8feca943e9da958246696c92e21ff1655f"
+    },
+    {
+      "path": "higgsfield-video-explainer/SKILL.md",
+      "bytes": 17945,
+      "sha256": "4c03200bc6ce3d5c33915b8e678b268400d8658418ee3c682488b975bfc1c134"
+    },
+    {
+      "path": "higgsfield-video-replicate/references/analysis.md",
+      "bytes": 4253,
+      "sha256": "6508d03e152b68a78304613d63c0cc9bc152e090cb9ca509082b120d2a71b86b"
+    },
+    {
+      "path": "higgsfield-video-replicate/references/assembly.md",
+      "bytes": 4143,
+      "sha256": "139cb12d83d9be14baf17c1e0f81e78e28fe263393c1e014c2371dbebd0195c9"
+    },
+    {
+      "path": "higgsfield-video-replicate/references/consistency.md",
+      "bytes": 5250,
+      "sha256": "906672c33bdc6a0beb573db507b28caeb10163e58037a04ca71e8c25584f63b8"
+    },
+    {
+      "path": "higgsfield-video-replicate/references/prompts.md",
+      "bytes": 3835,
+      "sha256": "685ad10914fe462b689afee43a0fcd1c82dcbd08178dfdfab51bac7100fc5b75"
+    },
+    {
+      "path": "higgsfield-video-replicate/SKILL.md",
+      "bytes": 15288,
+      "sha256": "647d2429c36e7d6f130af58b4872ff7d49b3ff7ddac93658f45b1b9615fca193"
+    },
+    {
+      "path": "higgsfield-websites/references/app-cover.md",
+      "bytes": 35617,
+      "sha256": "eb4c99226ca5916f47146c0210d9ac198a86878737802b71195bc0d76ac8b55e"
+    },
+    {
+      "path": "higgsfield-websites/references/app-flow.md",
+      "bytes": 26333,
+      "sha256": "76a5e27e04c46162940d30daa5be9bfee2c2b55430d9f3192509b8f0850f5235"
+    },
+    {
+      "path": "higgsfield-websites/references/app-layouts.md",
+      "bytes": 12333,
+      "sha256": "28462545e37bee0f171ade6851297cdc44fc6db46d6e5b67bf766fa8b1e0e8c4"
+    },
+    {
+      "path": "higgsfield-websites/references/app-quickstart.md",
+      "bytes": 12080,
+      "sha256": "0da28330284223cc9db17c6e67457af18d83a8af0a346f96a91f85a9642584e1"
+    },
+    {
+      "path": "higgsfield-websites/references/asset-system.md",
+      "bytes": 14337,
+      "sha256": "7f1f22246c5c64763fa5d57b1f6492263f671353e63d81b9c85276b092234c45"
+    },
+    {
+      "path": "higgsfield-websites/references/auth.md",
+      "bytes": 14974,
+      "sha256": "e91ec8d5fb9dd3bd38da30b2894538a3bed8abe078707ee0477c806540d56ccd"
+    },
+    {
+      "path": "higgsfield-websites/references/containers.md",
+      "bytes": 16504,
+      "sha256": "0541dfbbc5c00d59f2ffb8ee82654e99d83b10ae794fac3e9de6d708a98323d1"
+    },
+    {
+      "path": "higgsfield-websites/references/contest.md",
+      "bytes": 4719,
+      "sha256": "3802dd956880f04844d7d086affc1e07a7812cf2d3677b6c5eab43dda9be7c49"
+    },
+    {
+      "path": "higgsfield-websites/references/cover-animator.md",
+      "bytes": 4846,
+      "sha256": "9dd7259d515ff6e2d3c6a6320a288b061d86c898787f7ec17a1c567de6e6c402"
+    },
+    {
+      "path": "higgsfield-websites/references/design-recipe.md",
+      "bytes": 11048,
+      "sha256": "d22f28573b1722b13a86f5b68c491f8275204f6cab17b669577ca72f2226d0c4"
+    },
+    {
+      "path": "higgsfield-websites/references/design-taste-frontend.md",
+      "bytes": 88898,
+      "sha256": "f2dc692f6fb899576672fd2da85ed5e73913b410cc7f48f77191b4c9c68d101d"
+    },
+    {
+      "path": "higgsfield-websites/references/fnf-react.md",
+      "bytes": 13290,
+      "sha256": "e008b23e19c8b53c74b48a83a64feb7a612fa3f1dcd7679a7b61de48a952cd5d"
+    },
+    {
+      "path": "higgsfield-websites/references/fnf-sdk.md",
+      "bytes": 36901,
+      "sha256": "d1c8dcf592ebda982df344bb0c02f06b819bb276b3c45164a82b45a97b5b4c93"
+    },
+    {
+      "path": "higgsfield-websites/references/game-2d-animation.md",
+      "bytes": 18397,
+      "sha256": "bcfa28fee1e0912dc339138fbf2c17ef1449dea9ecaf22d30d1595796c67d475"
+    },
+    {
+      "path": "higgsfield-websites/references/game-3d-animation.md",
+      "bytes": 14153,
+      "sha256": "eb69a3f52d13ed11632239f0d22e1406857a437eb1acd519b561492a1b7e9b3c"
+    },
+    {
+      "path": "higgsfield-websites/references/game-audio.md",
+      "bytes": 3445,
+      "sha256": "dde3004d74f934a9bff0a22c09905107ee1dd03b0bd7b7e4016b8229d7d23c93"
+    },
+    {
+      "path": "higgsfield-websites/references/game-design-system.md",
+      "bytes": 16359,
+      "sha256": "d9eb5306f43b558ceaab2a31e9a66468934b8858490265744bc40f4488bcbcdd"
+    },
+    {
+      "path": "higgsfield-websites/references/game-flow.md",
+      "bytes": 5487,
+      "sha256": "7b7982eee0ce8f1293ae5eb9a4b2a4b0a4e0b693d7632835681c86e8b6660388"
+    },
+    {
+      "path": "higgsfield-websites/references/game-meshy-api.md",
+      "bytes": 8260,
+      "sha256": "5fbc4143017955ed0a77bc13e9fb3736a0f69986be4a1b198c0c500a8193ead3"
+    },
+    {
+      "path": "higgsfield-websites/references/game-meshy-input-rules.md",
+      "bytes": 4770,
+      "sha256": "ab5ede8e66018ad383ab77b11ee60ebbedf997677867d3bf4d852a6335e24f46"
+    },
+    {
+      "path": "higgsfield-websites/references/game-procedural-animation.md",
+      "bytes": 6271,
+      "sha256": "7817670240a3f245297c657b1410032e2899258abf87ba658499cefe3abd285f"
+    },
+    {
+      "path": "higgsfield-websites/references/game-stylization.md",
+      "bytes": 12875,
+      "sha256": "7d878cd67e3a76dce55473dffad1b55ec039e67bb1254280029ddc580a7a7c29"
+    },
+    {
+      "path": "higgsfield-websites/references/game-textures.md",
+      "bytes": 12568,
+      "sha256": "cd80317ab50e42fdd97dedc44c20ea6d6e310fca76506a530f05135ba2cd0a97"
+    },
+    {
+      "path": "higgsfield-websites/references/image-to-code.md",
+      "bytes": 6672,
+      "sha256": "c240e981031d97394624cfcf6952c831a2dd4b0b0802635015da6de66259ea33"
+    },
+    {
+      "path": "higgsfield-websites/references/quanta-design.md",
+      "bytes": 35394,
+      "sha256": "994ca84cc243a7dfdd47ebcda02d5a7e04f4102efae29682e515eb87ab49a321"
+    },
+    {
+      "path": "higgsfield-websites/references/reference-boards.md",
+      "bytes": 7365,
+      "sha256": "74eb7dae7010672bb249363b6e56874e2c522ea68e4a00078676e784ef54b8a5"
+    },
+    {
+      "path": "higgsfield-websites/references/review-rubric.md",
+      "bytes": 8858,
+      "sha256": "a89dad8bfc5dd83ab0e6f8cc7b42478e7937b2480987c65a85611c8500f63379"
+    },
+    {
+      "path": "higgsfield-websites/references/runtime-and-infra.md",
+      "bytes": 10935,
+      "sha256": "ae54fa64db84d4906b1a2b8cbd36bca87ff8fe6e03861f51d5eed638a37c9f59"
+    },
+    {
+      "path": "higgsfield-websites/references/scroll-scrub-asset-css.md",
+      "bytes": 5993,
+      "sha256": "a0849540798a257b1caa94566b038ef5c7b96dc2a0dba3f793594632a4c1a2c3"
+    },
+    {
+      "path": "higgsfield-websites/references/scroll-scrub-asset-react.md",
+      "bytes": 21562,
+      "sha256": "ceee8a7a22c303f645443d515709325a9293262216890e4b80a37b18fe0fe137"
+    },
+    {
+      "path": "higgsfield-websites/references/scroll-scrub-asset-video.md",
+      "bytes": 2106,
+      "sha256": "9ed91012c970bde7018ade27f2f1467c35d477d364d02963b655c2d7a62acc9e"
+    },
+    {
+      "path": "higgsfield-websites/references/scroll-scrub.md",
+      "bytes": 21062,
+      "sha256": "6518f4cba4209afb0d82c252f7838e2cf796a19126d84477b8f12f36e24c4050"
+    },
+    {
+      "path": "higgsfield-websites/references/security.md",
+      "bytes": 39226,
+      "sha256": "3c56006b1665d9968fb94a35c60f5e1f66c616ac70f2ba9e62c370b9fa412c77"
+    },
+    {
+      "path": "higgsfield-websites/references/seo.md",
+      "bytes": 37533,
+      "sha256": "d983e063084a61b1438c07fee9e3822632e1a4897a89706a8fa9c094080e4ede"
+    },
+    {
+      "path": "higgsfield-websites/references/website-flow.md",
+      "bytes": 31219,
+      "sha256": "2b04322556e3dc39771793b5a9c7e75d4603a94f58d705efa63e9c031cc179bc"
+    },
+    {
+      "path": "higgsfield-websites/references/wow-catalog.md",
+      "bytes": 7964,
+      "sha256": "ed9d57d0880e49482a4574f5238edbb34f39dfdf6dd981b82b55f71f7422669b"
+    },
+    {
+      "path": "higgsfield-websites/references/wow-maker.md",
+      "bytes": 22495,
+      "sha256": "8c52067e223919b224599eca3bac47f2898240b2ee98b49ce80b43ebf00edf16"
+    },
+    {
+      "path": "higgsfield-websites/scripts/fbx2glb.py",
+      "bytes": 6284,
+      "sha256": "195fe17208105250e20d4a6f59ef6eafddbc7471e3493ef0fefa7e44fe5a4053"
+    },
+    {
+      "path": "higgsfield-websites/scripts/glb_inspect.py",
+      "bytes": 4887,
+      "sha256": "aca15371baed6c2f608f3e21ac12656730cce9bce877d1daf742c3a30b405d35"
+    },
+    {
+      "path": "higgsfield-websites/scripts/glb_merge_anims.py",
+      "bytes": 8428,
+      "sha256": "9fa64fb76ad67ce95ca3d81ea4c3be26aa0174d9edb96e640a2de243aea89c4c"
+    },
+    {
+      "path": "higgsfield-websites/scripts/glb_patch.py",
+      "bytes": 2812,
+      "sha256": "6e346e4c5e16ee7dcd6cc05c4ad5786ab19dbe559813d49ba6184d64a306dfc2"
+    },
+    {
+      "path": "higgsfield-websites/scripts/merge_anim_glbs.py",
+      "bytes": 6229,
+      "sha256": "8ecde7010d436d2ba47da439e695816f7f48a8c4afc22b12b38d56d49015a8bf"
+    },
+    {
+      "path": "higgsfield-websites/scripts/pipeline.py",
+      "bytes": 12207,
+      "sha256": "406e9406616fac06c2e6c46833acde5127e1ded8bb098eda00a96b0af1946b71"
+    },
+    {
+      "path": "higgsfield-websites/scripts/proc_anim_dragon.py",
+      "bytes": 6856,
+      "sha256": "5c735152ee97862933d2300da97283a2ee80585346a1c8d12463a6ab361d9953"
+    },
+    {
+      "path": "higgsfield-websites/scripts/proc_rig_dragon.py",
+      "bytes": 5003,
+      "sha256": "61c3690975eae898a264cb5833f4727ed94d097760da572d43f0d47bf6dc7787"
+    },
+    {
+      "path": "higgsfield-websites/scripts/proc_weights.py",
+      "bytes": 2809,
+      "sha256": "8ad96d9c56f3713223e1efe724674e8c2b0adab166670126a5444329d93207d2"
+    },
+    {
+      "path": "higgsfield-websites/scripts/rig_transfer.py",
+      "bytes": 8543,
+      "sha256": "8614f400030ccc0daed1f8abb9b3946276cd226084976a99cdffb4346bbebbfd"
+    },
+    {
+      "path": "higgsfield-websites/scripts/seamless.py",
+      "bytes": 2597,
+      "sha256": "0acfa0a91460d22d8b0d39a2d180d2c75b5598b1670c648a7c8e4c19c5b50756"
+    },
+    {
+      "path": "higgsfield-websites/SKILL.md",
+      "bytes": 17700,
+      "sha256": "b9494bc639c8abd8ca28f77a0598a86fc7eb4dc7aae78e518c80ce5b2578f939"
+    },
+    {
+      "path": "higgsfield-youtube-thumbnail/references/prompt-contract.md",
+      "bytes": 6237,
+      "sha256": "c70cbcb7805c28c4a67bba04b46edb02c12ceb8bacdce8b43a7311eb19e0daeb"
+    },
+    {
+      "path": "higgsfield-youtube-thumbnail/references/text-overlay-bake.md",
+      "bytes": 11641,
+      "sha256": "6144d9034df6c76b0da239dcd9071c7417bbc2de76e60b7dce73ad07d7b48e3d"
+    },
+    {
+      "path": "higgsfield-youtube-thumbnail/references/thumbnail-frameworks.md",
+      "bytes": 4109,
+      "sha256": "509e2fb8da0ba5b8ec0eb7f4d18a6e76b80c84ba5606a451bb350ed8a7a4dc13"
+    },
+    {
+      "path": "higgsfield-youtube-thumbnail/SKILL.md",
+      "bytes": 9515,
+      "sha256": "19e56e768d3a6704500892bbc32f860e29805723b0f202473e282744b2e13257"
+    },
+    {
+      "path": "community-shorts-stills-pipeline/references/delivery-speed.md",
+      "bytes": 2564,
+      "sha256": "6dc0d895923030216f186a5239252bee416016221c0db03aee8cbd527349edcd"
+    },
+    {
+      "path": "community-shorts-stills-pipeline/references/measured-geometry.md",
+      "bytes": 2581,
+      "sha256": "9dac1780800985bfa0def4b6a8cd8f1f9482ec7598c5b856e323ff6f3c303b94"
+    },
+    {
+      "path": "community-shorts-stills-pipeline/references/pipeline-stages.md",
+      "bytes": 9621,
+      "sha256": "cd01804a29fd30cfed65d90f374057a2b6e7b4679f96b596efa3aaf274203d73"
+    },
+    {
+      "path": "community-shorts-stills-pipeline/references/server-operation.md",
+      "bytes": 11387,
+      "sha256": "78acb1094cae4b3953aaaca1523d48212ca06e5d7f2ac3bd0d0b9c0106d5f7fb"
+    },
+    {
+      "path": "community-shorts-stills-pipeline/scripts/render_webtoon_stills.py",
+      "bytes": 24638,
+      "sha256": "b082a60f5d6c0b260255bd874802b3c5a325a335886b81fbf8ee284c79b5b360"
+    },
+    {
+      "path": "community-shorts-stills-pipeline/scripts/verify_delivery.py",
+      "bytes": 5990,
+      "sha256": "5adcbc597be458475b30201f5dabc5feab196e4f2e66553d067f9b66fc03e5a4"
+    },
+    {
+      "path": "community-shorts-stills-pipeline/SKILL.md",
+      "bytes": 4546,
+      "sha256": "538720e671f2ed1daf476f4290919d0d3c4f5426d1b86fa65456aa051b729a85"
+    }
+  ],
+  "skill_tree_sha256": "ca4ccfe0f075e12f8cd6e501a631be271b55d0a8be891cf5d49d48b6f5bff0b0",
+  "frozen_hash_checks": [
+    {
+      "file": "baseline-prompts.md",
+      "match": true
+    },
+    {
+      "file": "baseline-prompts-exact.md",
+      "match": true
+    },
+    {
+      "file": "baseline-matrix.md",
+      "match": true
+    },
+    {
+      "file": "baseline-matrix-vpa.md",
+      "match": true
+    }
+  ],
+  "unrelated_changes": "Pre-existing dirty tree retained; initial git status is in session transcript. No commit, reset, revert or installation."
+}

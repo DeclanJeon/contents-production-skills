@@ -1,0 +1,148 @@
+[
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "state",
+      "--state-file",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\state.json",
+      "--action",
+      "get_status"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"brandbook_element_keys\":[],\"approved_slots\":{\"logo\":false,\"palette\":false,\"typography\":false},\"complete_kit\":false,\"essential_kit\":false,\"locked_slots\":{\"logo\":null,\"palette\":null,\"typography\":null},\"logo_revision\":null,\"palette_revision\":null,\"typography_revision\":null,\"visual_axes\":null,\"version\":0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "logo-inspect",
+      "--source",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\fixture-symbol.svg"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"background_removed\":false,\"geometry_fingerprint\":\"a19ce3f57b7056050426f97d858d31c1e7521b54953e13687b18a43a3813d97f\",\"source_colors\":[\"#101820\"]}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "state",
+      "--state-file",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\state.json",
+      "--action",
+      "lock_authoritative_palette",
+      "--input",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\official-palette.json"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"invalidated_brandbook_elements\":[],\"invalidated_generated_logo\":null,\"revision\":1,\"saved\":\"authoritative_palette\",\"version\":1,\"state_snapshot\":{\"brandbookElements\":[],\"essentialKitApproved\":false,\"version\":1,\"palette\":{\"colors\":[{\"hex\":\"#f7f7f5\",\"name\":\"Paper\",\"role\":\"background\"},{\"hex\":\"#101820\",\"name\":\"Ink\",\"role\":\"text\"},{\"hex\":\"#00aeef\",\"name\":\"Signal\",\"role\":\"accent\"}],\"gradients\":[],\"approvalSummary\":\"Synthetic QA fixture supplied by this smoke, not a user brand approval.\",\"origin\":\"user_supplied\",\"revision\":1}}}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "state",
+      "--state-file",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\state.json",
+      "--action",
+      "lock_authoritative_logo",
+      "--input",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\official-logo.json"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"invalidated_brandbook_elements\":[],\"revision\":1,\"saved\":\"authoritative_logo\",\"version\":2,\"state_snapshot\":{\"brandbookElements\":[],\"essentialKitApproved\":false,\"palette\":{\"approvalSummary\":\"Synthetic QA fixture supplied by this smoke, not a user brand approval.\",\"colors\":[{\"hex\":\"#f7f7f5\",\"name\":\"Paper\",\"role\":\"background\"},{\"hex\":\"#101820\",\"name\":\"Ink\",\"role\":\"text\"},{\"hex\":\"#00aeef\",\"name\":\"Signal\",\"role\":\"accent\"}],\"gradients\":[],\"origin\":\"user_supplied\",\"revision\":1},\"version\":2,\"logo\":{\"asset\":{\"path\":\"C:\\\\Users\\\\Declan\\\\Documents\\\\Projects\\\\Skills-and-Automation\\\\contents-production-skills\\\\qa\\\\skill-completeness-95\\\\closure-F6\\\\synthetic-brand\\\\fixture-symbol.svg\"},\"name\":\"Synthetic Corner symbol\",\"geometryFingerprint\":\"a19ce3f57b7056050426f97d858d31c1e7521b54953e13687b18a43a3813d97f\",\"approvalSummary\":\"Synthetic QA fixture supplied by this smoke, not a user brand approval.\",\"origin\":\"user_supplied\",\"revision\":1}}}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "state",
+      "--state-file",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\state.json",
+      "--action",
+      "lock_authoritative_typography",
+      "--input",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\official-typography.json"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"invalidated_brandbook_elements\":[],\"revision\":1,\"saved\":\"authoritative_typography\",\"version\":3,\"state_snapshot\":{\"brandbookElements\":[],\"essentialKitApproved\":true,\"logo\":{\"approvalSummary\":\"Synthetic QA fixture supplied by this smoke, not a user brand approval.\",\"asset\":{\"path\":\"C:\\\\Users\\\\Declan\\\\Documents\\\\Projects\\\\Skills-and-Automation\\\\contents-production-skills\\\\qa\\\\skill-completeness-95\\\\closure-F6\\\\synthetic-brand\\\\fixture-symbol.svg\"},\"geometryFingerprint\":\"a19ce3f57b7056050426f97d858d31c1e7521b54953e13687b18a43a3813d97f\",\"name\":\"Synthetic Corner symbol\",\"origin\":\"user_supplied\",\"revision\":1},\"palette\":{\"approvalSummary\":\"Synthetic QA fixture supplied by this smoke, not a user brand approval.\",\"colors\":[{\"hex\":\"#f7f7f5\",\"name\":\"Paper\",\"role\":\"background\"},{\"hex\":\"#101820\",\"name\":\"Ink\",\"role\":\"text\"},{\"hex\":\"#00aeef\",\"name\":\"Signal\",\"role\":\"accent\"}],\"gradients\":[],\"origin\":\"user_supplied\",\"revision\":1},\"version\":3,\"typography\":{\"body\":{\"family\":\"Arial\",\"source\":\"C:/Windows/Fonts/arial.ttf\",\"style\":\"normal\",\"weight\":400},\"display\":{\"family\":\"Georgia\",\"source\":\"C:/Windows/Fonts/georgiab.ttf\",\"style\":\"normal\",\"weight\":700},\"fontLinks\":[],\"approvalSummary\":\"Synthetic QA fixture supplied by this smoke, not a user brand approval.\",\"origin\":\"user_supplied\",\"revision\":1}}}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "state",
+      "--state-file",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\state.json",
+      "--action",
+      "get_essential_kit"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"approved_slots\":{\"logo\":true,\"palette\":true,\"typography\":true},\"complete\":true,\"logo\":{\"approvalSummary\":\"Synthetic QA fixture supplied by this smoke, not a user brand approval.\",\"asset\":{\"path\":\"C:\\\\Users\\\\Declan\\\\Documents\\\\Projects\\\\Skills-and-Automation\\\\contents-production-skills\\\\qa\\\\skill-completeness-95\\\\closure-F6\\\\synthetic-brand\\\\fixture-symbol.svg\"},\"geometryFingerprint\":\"a19ce3f57b7056050426f97d858d31c1e7521b54953e13687b18a43a3813d97f\",\"name\":\"Synthetic Corner symbol\",\"origin\":\"user_supplied\",\"revision\":1},\"palette\":{\"approvalSummary\":\"Synthetic QA fixture supplied by this smoke, not a user brand approval.\",\"colors\":[{\"hex\":\"#f7f7f5\",\"name\":\"Paper\",\"role\":\"background\"},{\"hex\":\"#101820\",\"name\":\"Ink\",\"role\":\"text\"},{\"hex\":\"#00aeef\",\"name\":\"Signal\",\"role\":\"accent\"}],\"gradients\":[],\"origin\":\"user_supplied\",\"revision\":1},\"typography\":{\"approvalSummary\":\"Synthetic QA fixture supplied by this smoke, not a user brand approval.\",\"body\":{\"family\":\"Arial\",\"source\":\"C:/Windows/Fonts/arial.ttf\",\"style\":\"normal\",\"weight\":400},\"display\":{\"family\":\"Georgia\",\"source\":\"C:/Windows/Fonts/georgiab.ttf\",\"style\":\"normal\",\"weight\":700},\"fontLinks\":[],\"origin\":\"user_supplied\",\"revision\":1},\"visual_axes\":null,\"version\":3,\"approved\":true}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "preview",
+      "--input",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\reviews.json",
+      "--output-dir",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\reviews"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"files\":[{\"file\":\"C:\\\\Users\\\\Declan\\\\Documents\\\\Projects\\\\Skills-and-Automation\\\\contents-production-skills\\\\qa\\\\skill-completeness-95\\\\closure-F6\\\\synthetic-brand\\\\reviews\\\\brandkit-review-1-synthetic-corner.html\",\"name\":\"Synthetic Corner\",\"stage\":\"essential\"}],\"next\":\"Screenshot each HTML board per references/inline-widgets.md, then show the local PNG previews with editable HTML paths.\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "logo-export",
+      "--input",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\export.json",
+      "--output-dir",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\export"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "rsvg-convert is unavailable in the local environment\n"
+  },
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "brandbook-build",
+      "--state-file",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\state.json",
+      "--input",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\brandbook.json",
+      "--output-dir",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\brandbook"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "rsvg-convert is unavailable in the local environment\n"
+  },
+  {
+    "command": [
+      "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\higgsfield-brandkit\\scripts\\brandkit.py",
+      "preview",
+      "--input",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\bad-reviews.json",
+      "--output-dir",
+      "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\bad-reviews"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "input requires one to three reviews\n"
+  }
+]

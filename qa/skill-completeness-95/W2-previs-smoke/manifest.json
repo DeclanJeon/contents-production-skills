@@ -1,0 +1,40 @@
+{
+  "project_id": "dialogue-distance-previs",
+  "blender_version": "5.2.2 LTS",
+  "engine": "CYCLES CPU",
+  "mode": "smoke",
+  "status": "generated",
+  "files": [
+    "SH01\\frame_000001.png",
+    "previs.blend",
+    "numerical-analysis.json",
+    "blender-inspection.json"
+  ],
+  "rendered": {
+    "SH01": [
+      {
+        "frame": 0,
+        "png": "SH01\\frame_000001.png",
+        "label": "smoke_first_frame",
+        "panels": []
+      }
+    ]
+  },
+  "camera_spec": {
+    "version": "1.0",
+    "artifact_id": "CAM01",
+    "sha256": "90345bf845c5876e5b684bc0b67baa333c8751b14e394c84ef2d193344b380a3"
+  },
+  "shot_links": {
+    "SH01": {
+      "scene_id": "S01",
+      "beat_ids": []
+    }
+  },
+  "scope": "smoke: first shot, one low-resolution frame; narrow pipeline check only, not whole-spec render verification; box proxy previs",
+  "smoke_max_dimension": 320,
+  "smoke_resolution": [
+    320,
+    180
+  ]
+}

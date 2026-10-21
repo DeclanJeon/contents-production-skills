@@ -1,0 +1,59 @@
+[
+  {
+    "scenario": "valid",
+    "returncode": 0,
+    "report": {
+      "ok": true,
+      "problems": [],
+      "runtime_seconds": 15.0,
+      "frames": 450,
+      "speed": 4.0,
+      "video_sha256": "3f09588fa15830060f366b93007b69c9a7407350fc6831bc50944fc9cc36c087",
+      "size": 35026
+    },
+    "stderr": ""
+  },
+  {
+    "scenario": "missing-hash",
+    "returncode": 1,
+    "report": {
+      "ok": false,
+      "problems": [
+        "the QA sidecar is missing the matching SHA-256 for these bytes"
+      ],
+      "runtime_seconds": 15.0,
+      "frames": 450,
+      "speed": 4.0,
+      "video_sha256": "3f09588fa15830060f366b93007b69c9a7407350fc6831bc50944fc9cc36c087",
+      "size": 35026
+    },
+    "stderr": ""
+  },
+  {
+    "scenario": "zero-speed",
+    "returncode": 1,
+    "report": {
+      "ok": false,
+      "problems": [
+        "QA speed 0 is outside 0.25..4.0"
+      ]
+    },
+    "stderr": ""
+  },
+  {
+    "scenario": "contradictory-approval",
+    "returncode": 1,
+    "report": {
+      "ok": false,
+      "problems": [
+        "an unapproved render claims to be publishable"
+      ],
+      "runtime_seconds": 15.0,
+      "frames": 450,
+      "speed": 4.0,
+      "video_sha256": "3f09588fa15830060f366b93007b69c9a7407350fc6831bc50944fc9cc36c087",
+      "size": 35026
+    },
+    "stderr": ""
+  }
+]

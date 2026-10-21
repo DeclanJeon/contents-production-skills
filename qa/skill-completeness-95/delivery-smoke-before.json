@@ -1,0 +1,26 @@
+[
+  {
+    "scenario": "valid",
+    "returncode": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"problems\": [],\n  \"runtime_seconds\": 15.0,\n  \"frames\": 450,\n  \"speed\": 4.0,\n  \"video_sha256\": \"3f09588fa15830060f366b93007b69c9a7407350fc6831bc50944fc9cc36c087\",\n  \"size\": 35026\n}\n",
+    "stderr": ""
+  },
+  {
+    "scenario": "missing-hash",
+    "returncode": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"problems\": [],\n  \"runtime_seconds\": 15.0,\n  \"frames\": 450,\n  \"speed\": 4.0,\n  \"video_sha256\": \"3f09588fa15830060f366b93007b69c9a7407350fc6831bc50944fc9cc36c087\",\n  \"size\": 35026\n}\n",
+    "stderr": ""
+  },
+  {
+    "scenario": "zero-speed",
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\community-shorts-stills-pipeline\\scripts\\verify_delivery.py\", line 126, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\community-shorts-stills-pipeline\\scripts\\verify_delivery.py\", line 114, in main\n    report = verify(args.video)\n             ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\community-shorts-stills-pipeline\\scripts\\verify_delivery.py\", line 64, in verify\n    expected = BASE_DURATION_S / speed\n               ~~~~~~~~~~~~~~~~^~~~~~~\nZeroDivisionError: float division by zero\n"
+  },
+  {
+    "scenario": "contradictory-approval",
+    "returncode": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"problems\": [],\n  \"runtime_seconds\": 15.0,\n  \"frames\": 450,\n  \"speed\": 4.0,\n  \"video_sha256\": \"3f09588fa15830060f366b93007b69c9a7407350fc6831bc50944fc9cc36c087\",\n  \"size\": 35026\n}\n",
+    "stderr": ""
+  }
+]

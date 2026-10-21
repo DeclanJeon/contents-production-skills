@@ -1,0 +1,70 @@
+{
+  "scope": "first-shot frame-zero proxy checks only",
+  "spec_version": "1.0",
+  "spec_sha256": "90345bf845c5876e5b684bc0b67baa333c8751b14e394c84ef2d193344b380a3",
+  "shots": [
+    {
+      "shot_id": "SH01",
+      "scene_id": "S01",
+      "beat_ids": [],
+      "checks": [
+        {
+          "frame": 0,
+          "subject_id": "CH01",
+          "point": "center",
+          "ndc": [
+            0.3461654484272003,
+            0.49999964237213135,
+            5.055936813354492
+          ],
+          "proxy_point_visible": true,
+          "first_hit": "SH01_CH01"
+        },
+        {
+          "frame": 0,
+          "subject_id": "CH01",
+          "point": "head",
+          "ndc": [
+            0.34263333678245544,
+            0.7645631432533264,
+            4.942456245422363
+          ],
+          "proxy_point_visible": true,
+          "first_hit": "SH01_CH01"
+        },
+        {
+          "frame": 0,
+          "subject_id": "CH02",
+          "point": "center",
+          "ndc": [
+            0.6538345813751221,
+            0.49999964237213135,
+            5.055936813354492
+          ],
+          "proxy_point_visible": true,
+          "first_hit": "SH01_CH02"
+        },
+        {
+          "frame": 0,
+          "subject_id": "CH02",
+          "point": "head",
+          "ndc": [
+            0.6573666334152222,
+            0.7645631432533264,
+            4.942456245422363
+          ],
+          "proxy_point_visible": true,
+          "first_hit": "SH01_CH02"
+        }
+      ],
+      "rendered": [
+        {
+          "frame": 0,
+          "png": "SH01\\frame_000001.png",
+          "label": "smoke_first_frame",
+          "panels": []
+        }
+      ]
+    }
+  ]
+}

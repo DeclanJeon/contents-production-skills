@@ -1,0 +1,46 @@
+# F5 evidence-closure handoff
+
+No score or behavioral PASS declaration. All new files are confined to qa/skill-completeness-95/closure-F5/. No existing skill/reference, shared source index, manifest, README, CHANGELOG, runner, parser, frozen assertion or another owner's file changed. Existing package metadata unchanged. No commits/push/reset, installation, authentication/configuration, paid operations, uploads, training, remote create/deploy/publish, whole-suite tests/build/lint/formatting performed.
+
+## Defects and disposition
+
+Review-source-2 did not assign numeric defect IDs; the F5 labels below address its exact sections, not invented upstream IDs.
+
+| Local defect ID / original locator | Actual response | Remaining adjudication |
+|---|---|---|
+| F5-D-PERSONA / review-source-2:86–91 | persona-packet.md:1–70 contains an authored complete active ISTJ/6 packet: all four axis grounds/interpretations/behaviors/exceptions, personal Enneagram strategy/states/limits, complete three utterance cue rows and separated voice identity. Inputs explicitly fictional and delegated. | Parent fresh-model BOTH/NONE/REAL-PERSON replay required. Manual artifact is not fresh invocation evidence. |
+| F5-D-SSOT / review-source-2:60–65 | character-ssot.md:1–210 returns four compact cast sheets/matrix and CH01 full sections 0..33; consumes the complete persona packet by explicit section mapping. Includes supplied/proposed provenance, all count-bearing lists, invariants/states, Sheet A seven-view and B–D specs, exact prefix/negative constants, voice pin CS01 v1. | Parent must independently inspect actual output from F5-CAST-SSOT after freeze; authored output alone does not establish model compliance. |
+| F5-D-BOARD / review-source-2:114–119 | chef-board.md:1–71 contains all six production-board return parts, exact source/beat/shot/panel links, full technical slots, two prompts, counts and seven-column indexed review table. Actual CLI on chef-board.json returned valid true/exit0; missing spatial-reference variant returned valid false/exit1. | Fresh-model normal/missing-input board replay and manual full-slot inspection pending. No pixels exist, so image-only gate unverified. |
+
+Decision: retain the existing owned instructions. Inspection found their normal-path contracts already explicitly require the missing artifacts; the independent review describes exercised-evidence gaps, not a missing instruction rule. Renaming templates or adding another compact seam would not close them. No borrowed craft relabeled as authored. QA artifacts are new authored applications of existing contracts; source-derived staging/action principles remain explicitly bounded.
+
+## Prepared independent replay
+
+smoke-prompts.json:1–8 supplies six NEW supplemental scenarios, never frozen-61 replacements: F5-PERSONA-BOTH, F5-PERSONA-NONE, F5-REAL-PERSON, F5-CAST-SSOT, F5-CHEF-BOARD, F5-BOARD-MISSING. Each has owner, synthetic request, explicit checkout required_reads and observable checks. No original-book read is requested during replay. Required input file delegation-inputs.md:1–32 supplies coherent complete fictional delegation, locked source scene, numeric owner plan expressly labeled proposed, cast details and boundary overrides. No source passages or expected answers injected in prompts. The authored output artifacts are not required replay reads, preventing answer injection. No model CLI invoked by this employee.
+
+## Direct source/contract reads and entailment
+
+- Work order lines178–409 including358–360, fixed rubric-definition lines1–34, assigned review-source-2 lines1–238, runner-profile-v3 lines1–34 directly read.
+- Owned SKILL.md files, persona template, both active typology lenses, expression bridge, persona sources, character craft/master SSOT, board narrative guide and shared storyboard contract directly read at the ranges used. Shared validator implementation lines1–113 and existing fixture construction lines1–84 plus base fixture1–19 inspected for actual schema usage; tests were not executed.
+- Hooks exact original: E:/Book/06_Book/originals/콘텐츠_제작/md/Acting for Animators (Ed Hooks) (z-library.sk, 1lib.sk, z-lib.sk).md, 337169 bytes, SHA256 78d7a71fd3f530ae501d8cef6d77db97edded4c0e4ad8f9406af3fbd8944740a. READ-PARTIAL L99–103, including full raw reread of initially truncated lines. Supports action/objective/obstacle as theatrical craft. Does not support empirical typology, SSOT schema/counts, guaranteed identity, or permission to add conflict to locked SYN01. No passage copied into QA.
+- Hu exact original: E:/Book/06_Book/콘티_스토리보드/md/스토리보드 마스터하기 - 캐롤라인 후.md, 47562 bytes, SHA256 cdd4f9b82b83c2ac6cc87c3d39251a79e4d02b7b57e337945bcb89efc58b5f21. READ-PARTIAL L636–661, printed pp59–61. Supports staging relations and axis-change disorientation risk; does not prove the six-part contract, timing validator or all camera/coverage craft. L650 side-label inconsistency not adopted. No passage copied into QA.
+- source-identities.json:1–14 contains newly calculated exact byte/hash identities, not copied historical metadata. Typology web-source readings remain attributed existing records in sources.md; not represented as independently reread by F5. No changed empirical typology/API claim made. No new mandatory craft rule introduced.
+- claims.tsv:1–5 is the required 16-column slice with four unique F5-prefixed IDs. Authored contracts are distinguished from actual original source support.
+
+## Actual program observations
+
+Command executed: `python -X utf8 qa/skill-completeness-95/closure-F5/board-smoke.py` (exit0, 1.34s observed tool wall time). It writes the owned synthetic structured files, invokes the actual existing `video-production-assets/scripts/validate_storyboard.py` through Python on each file, captures stdout/stderr/exit, and calculates source identities.
+
+Normal record validator-result.json:1–12: CLI exit0; stdout JSON `valid: true`, `errors: []`; stderr empty. Input SHA256 49365d3c0a04b07a89c1864d12e7e01e29d59bba64a230428701cca97888893d. No --require-images used. Boundary record validator-boundary-result.json:1–10: exit1; `valid: false`; error `SH01: spatial numeric mode needs a valid artifacts reference`. This is a deliberately different missing-input case, not rerunning a user failure to confirm it.
+
+Exact narrow scope: draft plan references, beat/scene/shot/panel coverage and timing, camera string slots, numeric spatial artifact reference, VFX and speech/audio structural requirements. It does not parse/validate all six prose sections, prove coordinates/FOV/contact/occlusion, decode actual media, judge plot semantics, voice/lipsync, rights, approvals or image-only readability. Planned CAM01 has an artifact pointer but no executed camera file; success is not geometric verification. The real structured file is a projection of the authored board, not a claim the schema captures every technical detail.
+
+Command executed: `python -X utf8 qa/skill-completeness-95/closure-F5/inspect-handoff.py` (exit0). It parsed six supplemental scenarios, checked required paths exist, parsed four claim rows with exactly16 columns, inventoried SSOT section labels and measured English prompt text. Observed 34 labels0..33, §28 173 whitespace words, §29 83. This checks handoff formats/counts, not behavioral compliance or a source-text regression test. handoff-inspection.json records observations. The original source book text is not included.
+
+## Text inspection and limitations
+
+Author inspection: active lens contains four independent axis rows and Enneagram rationale/limits; three line rows each have required performance fields. SSOT has 6 anchors, 5 developed traits, 5 likes/5 dislikes, 10 habits, 3 conditioned contradictions, 8 explicit identity locks, 12 expression mechanics, four prompt specs and seven-view A. Persona and voice are incorporated by explicit references to the complete adjacent packet rather than dropping fields. Prompt specs use defined exact PREFIX/NEGATIVES constants, not claimed generated image prompts executed against a provider. Parent should inspect this consumption seam rather than infer completeness from headings/counts alone. Four cast members differ in face/silhouette/color/motive/decision/voice anchors, while intentionally shared checking remains.
+
+Text board preserves gaze-only change, level plate in left hand, empty right hand, single visible CH01, same static camera and no_audio. Actual image count0, generated0, extracted0, inspected0. All future media actions unperformed. Text-only camera planning does not establish contact/visibility. No voice candidate/control/listening result. No new approved artifact/source/version exists beyond the explicitly synthetic delegated packet.
+
+Handoff: parent freezes final root, independently invokes six supplemental prompts with source-confirmed checkout reads and actual final responses per runner-profile-v3, then inspects full SSOT/persona/board sections and error traces. ERROR is not PASS. Formal61 and independent scoring remain parent responsibilities. No missing original/access/budget request is needed for this text/structural scope. Remaining exact limitation is unexecuted independent model behavior and unperformed media QA, not paid-generation prerequisite.

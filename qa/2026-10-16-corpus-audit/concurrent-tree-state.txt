@@ -1,0 +1,17 @@
+12	0	CHANGELOG.md
+7	3	README.md
+7	3	community-shorts-stills-pipeline/SKILL.md
+58	1	community-shorts-stills-pipeline/references/pipeline-stages.md
+78	0	community-shorts-stills-pipeline/references/server-operation.md
+1	1	creative-production/SKILL.md
+1	1	creative-production/references/creative-qa.md
+24	0	creative-production/references/marketing-source-adaptation.md
+52	0	creative-production/references/production-routing-optional.md
+1	1	higgsfield-video-explainer/SKILL.md
+6	0	higgsfield-video-explainer/references/prompts.md
+1	1	manifest.json
+3	3	video-production-assets/SKILL.md
+20	0	video-production-assets/references/08-animation.md
+18	1	video-production-assets/references/23-finishing-platform.md
+fed9275 docs(community-shorts): record label byte authority and OnUnitInactiveSec first-run requirement
+04:37:43

@@ -1,0 +1,5 @@
+{
+  "status": "unverified",
+  "schema_status": "pass",
+  "scope": "smoke skips full-frame numerical analysis; only first-frame proxy checks run"
+}

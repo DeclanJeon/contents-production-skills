@@ -1,0 +1,4 @@
+{
+  "id": "Scoring",
+  "answer": "I can’t determine PASS/FAIL for any row from the supplied material. The referenced `baseline-matrix.md` and `baseline-matrix-vpa.md` assertions—and the row responses to evaluate—aren’t included. The skill scorecard and inventory don’t establish whether those assertions were satisfied or whether a response caused a side effect. I won’t infer missing evidence."
+}

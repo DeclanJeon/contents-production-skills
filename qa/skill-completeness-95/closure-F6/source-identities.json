@@ -1,0 +1,30 @@
+[
+  {
+    "path": "E:\\Book\\06_Book\\originals\\마케팅\\md\\Strategic Brand Management (Kevin Lane Keller, Vanitha Swaminathan) (z-library.sk, 1lib.sk, z-lib.sk).md",
+    "bytes": 2583958,
+    "sha256": "ab37f2b8d583706796380f04944513a87831f099886eaee93faf83c9b93a46c6",
+    "read_state": "READ-PARTIAL",
+    "locator": "L309-L315, L333-L337; printed pp154-157,166-168"
+  },
+  {
+    "url": "https://www.adobe.com/express/learn/blog/best-logos-for-brand.md",
+    "bytes": 35656,
+    "sha256": "a918969d73a9849ca9378b934a630ac954bafe6fc68abbc637c66d0a27c1f6b5",
+    "read_state": "READ-PARTIAL",
+    "locator": "Tips for choosing logo fonts; Text-only logo fonts; Text and icon logo fonts; Monogram logo fonts"
+  },
+  {
+    "url": "https://www.adobe.com/express/learn/blog/10-ways-to-pair-fonts-for-maximum-impact.md",
+    "bytes": 49418,
+    "sha256": "589b02214c56565e65b431b294d757ae8f0094769ead220b5f4c3ada975dd8d4",
+    "read_state": "READ-PARTIAL",
+    "locator": "1. Event flyers; 2. Social media ads; 5. Resumes"
+  },
+  {
+    "url": "https://www.adobe.com/express/learn/blog/how-to-design-a-logo.md",
+    "bytes": 50201,
+    "sha256": "cd4d25aac10c0514d510ece19e3f8edabb7b1be18c1bee4bed8e99830bd3ab89",
+    "read_state": "READ-PARTIAL",
+    "locator": "What are the different types of logos?; Core components; Steps 1,3,5,7,8; Logo design best practices / Own one thing"
+  }
+]

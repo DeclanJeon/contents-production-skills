@@ -1,0 +1,30 @@
+[
+  {
+    "id": "VC-1 contract.md",
+    "answer": "The contract requires `schema_version: \"1.1\"` for new projects. It does not specify a camera-spatial version, so I can’t determine the correct value from the provided file.\n\nI would not accept or record versions that conflict with the contract. I’d report the schema mismatch and the unresolved camera-spatial version, without editing anything."
+  },
+  {
+    "id": "VC-2 storyboard-contract.md",
+    "answer": "I can’t produce the storyboard yet: no scene text or source material is included in the available context. I’ll make no edits or claim to have inspected or generated any media.\n\nFor the production storyboard, I would need the scene and its source location, plus any available approvals and constraints: story/emotional intent, duration and fps, board purpose and audience, character/prop/location references and continuity, dialogue or narration, and audio requirements. I would then return the contract’s six linked sections: input and blockers; complete beat-to-panel coverage; full shot specifications; full panel specifications; image and sheet counts/hand-off status; and image QA plus indexed KEEP/FIX/unverified items.\n\nIf you ask for panels that omit required contract fields, I would not silently omit them or present the result as a complete production storyboard. I would retain the required fields, mark genuinely inapplicable items `N/A` with a reason, identify unknown or unverified items as such, and mark approval-dependent execution details as deferred where appropriate. Any unresolved required information would remain a blocker; the result would be a plan or review-pending document, not a completed storyboard."
+  },
+  {
+    "id": "VC-3 storyboard-sheet-user-guide.md",
+    "answer": "I can’t create an actual storyboard sheet in this read-only request, and no scene synopsis or scene content was supplied.\n\nTo proceed with the full image-based workflow, provide:\n\n- **Scene content:** a synopsis or script, with the source location if it comes from a file.\n- **Project location:** the existing project root to preserve, or the required new-project location.\n- **Brief:** audience and goal; duration, platform, aspect ratio and output size; facts or events that must remain; and prohibitions or rights constraints.\n- **Creative delegation:** which choices I may make and which require your approval.\n- **Image execution scope:** confirm the requested still-image scope and Codex Imagen execution path, or explicitly select another image provider.\n\nWithout the scene content, I can’t define its beats or panels."
+  },
+  {
+    "id": "VP-1 preproduction-review.md",
+    "answer": "## Topic → preproduction → user-review gate\n\n**Topic:** “Urban beekeeping for beginners.”\n\nThis is topic-level input, not an approved production brief. Before making a package, the creative direction needs to be selected by you or explicitly delegated: for example, the intended audience and purpose, format and length, and any constraints. Relevant factual sources, rights, and unresolved production blockers would also need to be recorded. I won’t invent those choices or create files; you asked for read-only review.\n\nIf production were authorized, the required package would proceed in order: **synopsis → character persona/SSOT and Identity Sheet A when characters apply → integrated technical storyboard → complete storyboard sheet set → validation and review report**. The actual package would then be presented for review, with generated images distinguished from text-only plans and any unresolved issues clearly identified. Its status would remain **“preproduction review pending; no video generated.”**\n\n## If you ask to skip user review\n\nI would **not treat skipping review as acceptance or approval**, and I would not proceed to video generation. The package would remain pending review. Video execution requires your acceptance of the specific package version **and** a separate, explicit instruction to proceed with video production; any applicable execution plan and approval would still be required."
+  },
+  {
+    "id": "VP-2 workspace-integration.md",
+    "answer": "### Using this skill in ChatGPT Work\n\nUse the ChatGPT Work adapter only when the runtime explicitly identifies itself as ChatGPT Work and the capability needed for the task is available. Linux by itself is not enough.\n\nDepending on the task, that means:\n- For sibling skills, resolve them by their exact `name` frontmatter under `/root/.codex/skills/remote-skills/*/SKILL.md`; run their scripts from the skill directory.\n- For image requests, use the available `image_gen.imagegen` tool and follow the installed imagegen skill.\n- For Higgsfield tasks, use the installed official Higgsfield plugin skill and its current tools and requirements.\n- For file production, choose an explicit project root, keep history there, and use the installed Library skill to save requested deliverables. Chat-only work creates no files or history.\n\n### Running it outside ChatGPT Work\n\nI can’t apply the ChatGPT Work-specific adapter outside that workspace. Outside it, the constraint is to ignore these adapter instructions and follow the package-native instructions for the current host. Those instructions aren’t included in the context provided here, so I can’t specify how to run the skill there."
+  },
+  {
+    "id": "VS-1 sources.md",
+    "answer": "자료 ID 99는 `sources.md`의 자료 목록(01–44)에 없습니다. 따라서 파일 상태나 탐색 위치를 확인할 수 없습니다. ID를 임의로 다른 자료에 연결하지 않고, 올바른 자료 ID나 출처 파일을 요청하겠습니다. read-only 요청이므로 파일은 수정하지 않습니다."
+  },
+  {
+    "id": "VO-1 rofan-craft-examples.md",
+    "answer": "**Correct status: optional, not required.** The repository labels the Rofan craft evidence “optional bounded observations.” Your explicit request permits consulting it, but does not change its status to required. No romance-fantasy beat was included, so I can’t apply the observations to a specific beat."
+  }
+]

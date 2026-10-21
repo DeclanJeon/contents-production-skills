@@ -1,0 +1,22 @@
+{
+  "technical_smoke": true,
+  "timebase_s": 60,
+  "speed": 4,
+  "template": {
+    "channel_label": "CPS95 local fixture",
+    "episode_title": "로컬 렌더 검증",
+    "meta_label": "합성 입력 · 게시 금지"
+  },
+  "scenes": [
+    {
+      "image": "panel-1.png",
+      "body": "첫 번째 합성 패널입니다.",
+      "duration_s": 30
+    },
+    {
+      "image": "panel-2.png",
+      "body": "두 번째 합성 패널입니다.",
+      "duration_s": 30
+    }
+  ]
+}

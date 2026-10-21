@@ -1,0 +1,109 @@
+{
+  "plan": "docs/superpowers/plans/2026-10-16-skill-completeness-95-work-order.md",
+  "branch": "skill-completeness-95-loop",
+  "target": {"skills": 24, "minimum_total": 114, "maximum_total": 120, "formal_cases": 61},
+  "status": "package 2.27; full suite and version check pass; 61-case formal run adjudicated 51 PASS / 10 FAIL / 0 INDETERMINATE; current-tree supplemental pending; 95% score threshold remains unproven",
+  "rulings": [
+    "Preserve the existing dirty checkout on a new non-main branch; an empty worktree would omit approved uncommitted skill changes. No commit/reset/revert/global install.",
+    "Current W1-W6 implementation dispatch (2026-10-17) failed before file access: all six jobs returned `No model selected`, with no edits. The four 2.11 owner updates and latest M-08 compactness change were integrated directly by the leader. The W0-W6 employee rows below are earlier audit-wave records, not this failed dispatch.",
+    "No legacy before/after comparability claim without a matching historical tree, runtime and actual file-read evidence. Exploratory context-injected results are not the formal arm.",
+    "All implementation workers skip builds, tests, linters and formatters during shared edits; integration owner runs checks after the wave. Actual read-only contract inspections and local smoke observations are permitted."
+  ],
+  "integration_owner": "leader",
+  "shared_files": ["manifest.json", "README.md", "CHANGELOG.md", "qa/skill-completeness-95/claim-ledger.tsv", "qa/skill-completeness-95/scorecard.json"],
+  "employees": {
+    "W0": {"job": "bg_4", "brief": "brief-W0.md", "status": "review", "report": "report-W0.md"},
+    "W1": {"job": "bg_5", "brief": "brief-W1.md", "status": "review", "report": "report-W1.md"},
+    "W2": {"job": "bg_6", "brief": "brief-W2.md", "status": "review", "report": "report-W2.md"},
+    "W3": {"job": "bg_7", "brief": "brief-W3.md", "status": "review", "report": "report-W3.md"},
+    "W4": {"job": "bg_8", "brief": "brief-W4.md", "status": "review", "report": "report-W4.md"},
+    "W5": {"job": "bg_9", "brief": "brief-W5.md", "status": "review", "report": "report-W5.md"},
+    "W6": {"job": "bg_10", "brief": "brief-W6.md", "status": "review", "report": "report-W6.md"},
+    "E1": {"job": "bg_14", "brief": "brief-E1.md", "status": "review", "report": "report-E1.md"},
+    "E2": {"job": "bg_15", "brief": "brief-E2.md", "status": "review", "report": "report-E2.md"},
+    "E3": {"job": "bg_16", "brief": "brief-E3.md", "status": "review", "report": "report-E3.md"},
+    "E4": {"job": "bg_17", "brief": "brief-E4.md", "status": "review", "report": "report-E4.md"},
+    "E5": {"job": "bg_20", "brief": "brief-E5.md", "status": "reviewed", "report": "report-E5.md"},
+    "E6": {"job": "bg_21", "brief": "brief-E6.md", "status": "reviewed", "report": "report-E6.md"},
+    "E7": {"job": "bg_22", "brief": "brief-E7.md", "status": "reviewed", "report": "report-E7.md"},
+    "R1": {"job": "bg_11", "status": "changes_requested", "evidence": "review-wave1.md"},
+    "R2": {"job": "bg_13", "status": "changes_requested", "evidence": "review-wave2.md"},
+    "R3": {"job": "bg_25", "status": "addressed", "brief": "brief-rereview.md", "evidence": "review-corrections.md"},
+    "P1": {"job": "bg_37", "status": "accepted", "brief": "brief-P1.md", "report": "report-P1.md"},
+    "P2": {"job": "bg_38", "status": "accepted", "brief": "brief-P2.md", "report": "report-P2.md"},
+    "R4": {"job": "bg_41", "status": "accepted-scoped", "brief": "brief-trace-review-v3.md", "evidence": "review-trace-v3.md"},
+    "S1": {"job": "bg_91", "status": "completed", "evidence": "video-production-assets/references/sources.md#E5 residual-claim direct reads"},
+    "S2": {"job": "bg_92", "status": "completed", "evidence": "video-production-assets/references/sources.md#E6 residual-claim direct reads"},
+    "S3": {"job": "bg_93", "status": "completed", "evidence": "video-production-assets/references/20-visual-mode-ssot.md; 21-generated-video-qa-retry.md; 27-camera-motion-qa.md; source audit"}
+  },
+  "historical_wave_2_20": {
+    "package_version": "2.20",
+    "worker_dispatch": {"status": "failed_before_edits", "failure": "No model selected", "jobs": ["RemediateW1CorePlanning", "RemediateW2CameraPlanning", "RemediateW3CharacterStory", "RemediateW4AssetPipeline", "RemediateW5HiggsfieldContracts", "RemediateW6VideoWebCommunity"]},
+    "direct_changes": ["2.11 evidence-scope and compact-plan corrections", "2.12 live model discovery/exact schema gate and historical catalog demotion", "2.12 current-contract eligibility wording for Soul ID", "2.13 conditional endpoint/workflow route gates", "2.13 FFmpeg SAR concat guidance bounded to observed normalization"],
+    "diagnostic_formal": {"run": "omp-final-2.11-01", "tree": "befb7651e9461143afa05f852d6b0aee994a49420881e9d40d72cd3494b81682", "completed_unreviewed": 55, "errors": 6},
+    "targeted_smoke": {"run": "omp-compact-m08-01", "case": "M-08", "verdict": "PASS", "duration_seconds": 148.812, "evidence": "All requested artifacts routed; spend approval refused; 1901 whitespace-delimited words; no tool/protocol/read errors."},
+    "package_tests": {"run": "2026-10-17 full pytest with external basetemp/cache; scripts/check_versions.py", "passed": 289, "skipped": 8, "subtests_passed": 238, "version_check": "package 2.20; 24 skills consistent"},
+    "targeted_route_gate": {"run": "pipeline-route-smoke-2.13-01", "scenario": "E1-P05-ROUTE-GATE", "verdict": "PASS", "attempt_seconds": 55.906, "adjudication": "adjudication.json"},
+    "final_evaluations": {"formal": {"run": "no 2.20 final-tree formal run", "status": "pending", "count": 61}, "supplemental": {"run": "supplemental-final-09 plus dedicated F5 retry", "status": "adjudicated", "count": 64, "verdicts": {"PASS": 64, "FAIL": 0, "ERROR": 0, "INDETERMINATE": 0}, "records": ["runs/supplemental-final-09-shard0-adjudication.json", "runs/supplemental-final-09-shard1-adjudication.json", "runs/supplemental-final-09-shard2-adjudication.json", "runs/supplemental-F5-CAST-SSOT-stable/adjudication.json"]}},
+    "current_owner_review_jobs": {"status": "completed; formal-61 rerun still pending", "jobs": [], "supplemental_shard0": "22/22 PASS", "supplemental_shard1": "20/21 PASS; original F5 timeout closed by dedicated stable PASS rerun", "supplemental_shard2": "21/21 PASS"},
+    "owner_review_jobs": {"completed": ["ReviewSkillEdits", "ReviewR1CorePlanning", "ReviewR2CameraPlanning", "ReviewR3CharacterStory", "ReviewR4AssetPipeline", "ReviewR5HiggsfieldContracts", "ReviewR6VideoWebCommunity"], "running": []}
+  },
+  "historical_tasks_2_20": {
+    "T0": {"status": "accepted", "evidence": ["workspace-snapshot.json", "case-manifest.json"], "verification": "61 unique IDs; all prompt source slices and hashes verified by leader"},
+    "T1": {"status": "accepted", "owner": "W0/P1/P2/leader", "evidence": ["case-manifest.json", "environment.md", "runner-profile-v3.md", "review-trace-v3.md", "tests-v3.json"], "verification": "31 targeted tests and 286 full-suite tests passed; real S1a JSONL proves exactly two successful required local reads and no external reads. Formal execution status is not an assertion PASS."},
+    "T2": {"status": "accepted", "owners": ["W1", "W2", "W3", "W4", "W5", "W6"], "verification": "Source-gap audit and initial 7 correction waves completed; exact source scope and remaining effects bound in consumer files and claim ledger."},
+    "T3": {"status": "in_progress", "owners": ["leader", "reviewer"], "verification": "2.20 source state; brandkit legacy-binding reconciliation and W4 ledger corrections applied; remaining production-asset source gaps remain. Independent review upgraded four exercised 4s to 5 and Brandkit 3 to 4: provisional 104/120, 10 points below threshold. Formal 61-case final-tree adjudication and ≥114 gate remain pending."},
+    "T4": {"status": "in_progress", "owners": ["leader", "reviewer"], "evidence": ["smoke-results.md", "runs/supplemental-final-09-shard0-adjudication.json", "runs/supplemental-final-09-shard1-adjudication.json", "runs/supplemental-final-09-shard2-adjudication.json", "runs/supplemental-F5-CAST-SSOT-stable/adjudication.json", "scorecard-preliminary.json", "agent://ReviewProvisionalScorecard"], "verification": "64/64 supplemental cases adjudicated PASS across final-09 plus dedicated stable F5 rerun; full current package pytest 289 passed, 8 skipped, 238 subtests; package version 2.20 consistent. Provisional score 104/120; formal 61-case run remains pending."},
+    "T5": {"status": "pending", "owner": "leader"}
+  },
+  "latest_iteration": {
+    "package_version": "2.27",
+    "source_changes": [
+      "video-production-assets/references/storyboard-contract.md",
+      "video-production-assets/references/sources.md",
+      "video-production-assets/SKILL.md",
+      "storyboarding-video/references/narrative-panels.md",
+      "storyboarding-video/SKILL.md",
+      "CHANGELOG.md"
+    ],
+    "validation": {
+      "pytest": {"passed": 289, "skipped": 8, "subtests_passed": 238, "duration_seconds": 63.39},
+      "version_check": "package 2.27, 24 skills consistent"
+    },
+    "storyboard_replays": {
+      "baseline": "source IDs/scopes omitted",
+      "first_update": "citation title/locator crosswire caught",
+      "post_correction": [
+        "production board: exact ID 05/45/46 scope; authored mechanics separated",
+        "narrow narrative panels: exact ID 45 scope; authored heuristics separated",
+        "revision guidance: ID 47 L2711-L2716; no quantitative efficiency claim"
+      ]
+    },
+    "formal": {
+      "run": "qa/skill-completeness-95/runs/omp-final-2.27-01",
+      "status": "complete; all 61 outputs independently adjudicated against frozen assertions",
+      "output_counts": {"completed": 61, "PASS": 51, "FAIL": 10, "INDETERMINATE": 0, "runner_errors": 0},
+      "duration_seconds": 1522.59,
+      "frozen_hashes_verified": true,
+      "adjudication": "qa/skill-completeness-95/runs/omp-final-2.27-01/final-adjudication.json"
+    },
+    "prior_2_26_formal": {
+      "status": "incomplete, not adjudicated",
+      "completed_case_outputs": 29,
+      "expected_cases": 61
+    },
+    "supplemental": "current-tree run not yet completed",
+    "history_review": {
+      "decision": "retain recording-production-history at 4 per agent://HistoryScoreAdjudication",
+      "evidence": "Windows output-junction containment smoke passed; focused prompt-redaction tests 2 passed; earlier Windows host smoke covered known-folder lookup, two writers, crash-before-event-publication and directory junctions",
+      "remaining": "file-symlink rejection and POSIX fcntl locking/crash recovery were not exercised; WSL failed before distro startup with WSL/Service/CreateInstance/MountDisk/HCS/ERROR_PATH_NOT_FOUND"
+    },
+    "score": {
+      "last_provisional_total": 106,
+      "maximum": 120,
+      "threshold": 114,
+      "threshold_met": false,
+      "storyboarding_review": "provisional 4-to-5 approved by agent://StoryboardScoreReview; replay evidence persisted; duplicate-axis and narrow ownership wording risks noted"
+    }
+  }
+}

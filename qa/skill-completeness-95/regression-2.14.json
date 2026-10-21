@@ -1,0 +1,82 @@
+{
+  "series": "supplemental-regression-2.14",
+  "scope": "Three targeted reruns for observed 2.13 gaps; not part of the frozen 61-case denominator or the 64-case supplemental denominator.",
+  "sources": [
+    {
+      "path": "qa/skill-completeness-95/supplemental-manifest.json",
+      "case_ids": ["F3-KITCHEN-TEXT", "F5-PERSONA-BOTH", "F5-CAST-SSOT"]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "F3-KITCHEN-TEXT",
+      "owner": "camera-spatial-design",
+      "prompt": "Text-only kitchen camera plan: synthetic room 4m east-west by 3m north-south, ceiling 2.6m. Origin southwest floor corner; X east, Y north, Z up. Door on south wall at x=0.5m; counter on north wall; kettle at (2,2.6,0.9)m. A fictional cook stands at (2,1.8,0)m and notices steam before reaching for the kettle. Compare two camera choices for showing that discovery and the reach. All unspecified dimensions may be labeled estimates. Chat only; no rendering, files or generation.",
+      "required_reads": [
+        "camera-spatial-design/SKILL.md",
+        "camera-spatial-design/references/workspace-integration.md",
+        "camera-spatial-design/references/spatial-contract.md",
+        "camera-spatial-design/references/camera-design.md"
+      ],
+      "checks": [
+        "Two purpose-linked camera alternatives with units and labeled estimates",
+        "Door/counter/blocking and contact visibility considered",
+        "Framing/tonal criteria contextual rather than universal ratios",
+        "No render or validation completion claim; text plan remains unverified in 3D",
+        "No writes or generation"
+      ],
+      "source_group": "F3"
+    },
+    {
+      "id": "F5-PERSONA-BOTH",
+      "owner": "designing-character-personas",
+      "prompt": "Read qa/skill-completeness-95/closure-F5/delegation-inputs.md sections Persona assignment and SYN01. Execute the fictional persona assignment in Korean as the delegated input to CS01 v1. Return the complete text packet now. Budget 0, no media or remote operations.",
+      "required_reads": [
+        "qa/skill-completeness-95/closure-F5/delegation-inputs.md",
+        "designing-character-personas/SKILL.md",
+        "designing-character-personas/assets/persona-template.md",
+        "designing-character-personas/references/mbti-lens.md",
+        "designing-character-personas/references/enneagram-lens.md",
+        "designing-character-personas/references/expression-voice-bridge.md"
+      ],
+      "checks": [
+        "All packet slots actually returned",
+        "All four MBTI axes contain provenance/grounds, character interpretation, behavior and exception; supplied type not assessment",
+        "Enneagram personal desire/avoidance, securing strategy, pressure/settled, rationale and limits present; wing optional",
+        "Core choices include costs and exceptions; supplied behavior preserved",
+        "All delivered utterances have exact text, intent, subtext, pressure, stress, pause, breath, pace and cue; fixed voice separate",
+        "No type-derived anatomy/timbre, real-person diagnosis, invented selected voice or source observation"
+      ],
+      "source_group": "F5"
+    },
+    {
+      "id": "F5-CAST-SSOT",
+      "owner": "designing-video-character-sheets",
+      "prompt": "Read qa/skill-completeness-95/closure-F5/delegation-inputs.md and execute Cast and protagonist sheet assignment, consuming Persona assignment and locked SYN01. Return the four compact sheets, matrix, and actual full CH01 0..33 SSOT with its prompt specs in this response. Text only; no paid execution or media. Do not merely summarize planned work.",
+      "required_reads": [
+        "qa/skill-completeness-95/closure-F5/delegation-inputs.md",
+        "designing-video-character-sheets/SKILL.md",
+        "designing-video-character-sheets/references/character-craft.md",
+        "designing-video-character-sheets/references/character-ssot-master-prompt.md",
+        "designing-character-personas/SKILL.md",
+        "designing-character-personas/assets/persona-template.md",
+        "designing-character-personas/references/mbti-lens.md",
+        "designing-character-personas/references/enneagram-lens.md",
+        "designing-character-personas/references/expression-voice-bridge.md",
+        "video-production-assets/assets/character-ssot-template.md"
+      ],
+      "checks": [
+        "All four actual compact character sheets and differentiation matrix present; goals/judgments/relationships/voice differ beyond type names",
+        "CH01 sections 0 through 33 complete, not a compact seam or empty headings",
+        "Counts: anchors 3–7, traits 5–7 developed, likes/dislikes 5–10 each, habits at least 10, contradictions at least 3, locks 5–15",
+        "English master description 150–300 words and prefix 60–120, A–D use exact prefix and negatives",
+        "Sheet A includes full body front/three-quarter/side/back plus face front/three-quarter/side",
+        "Provenance supplied/proposed/undecided clear; no invented observations, approvals or files",
+        "Persona and full active lens integrated; voice identity/style/per-line fields and exact CS01 v1 seam preserved",
+        "Invariants/variants coherent; all required expressions and turnaround/proportion coverage present",
+        "No extra story events, selected voices or actual image claims; actual media QA remains unverified"
+      ],
+      "source_group": "F5"
+    }
+  ]
+}

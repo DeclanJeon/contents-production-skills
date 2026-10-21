@@ -1,0 +1,8 @@
+{
+  "command": "python -X utf8 -m pytest -q --basetemp=C:/Users/Declan/AppData/Local/Temp/cps95-pytest-final-13 --override-ini=cache_dir=C:/Users/Declan/AppData/Local/Temp/cps95-pytest-cache-final-13",
+  "exit_code": 0,
+  "result": "287 passed, 8 skipped, 235 subtests passed in 57.60s",
+  "recorded_after": "final auth and cover contract corrections",
+  "stderr": "",
+  "limitations": "Existing environment-specific pytest cache permission issue required unique basetemp/cache paths; the default shared pytest temp location was not used."
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "F3-MOTION-AB",
+    "owner": "camera-motion-reference-analysis",
+    "prompt": "Read-only analysis of two synthetic reference clips: qa/skill-completeness-95/closure-F3/media/A.mp4 and B.mp4. The same directory contains A-contact.png, B-contact.png, timing.json and A/ and B/ frame sequences. Compare the apparent movement and its possible causes, with timecodes, observation versus inference, confidence, alternatives and unseen ranges. Use only these media and the applicable checkout skill/references; do not open fixture scripts, ground-truth, measurements or reports. No generation or writes.",
+    "required_reads": ["camera-motion-reference-analysis/SKILL.md", "camera-motion-reference-analysis/references/motion-analysis.md", "camera-motion-reference-analysis/assets/motion-analysis-template.md", "qa/skill-completeness-95/closure-F3/media/timing.json", "qa/skill-completeness-95/closure-F3/media/A-contact.png", "qa/skill-completeness-95/closure-F3/media/B-contact.png"],
+    "checks": ["Actual media reads precede visual claims", "Depth-dependent relative growth in A distinguished from approximately uniform growth in B", "Translation and zoom/crop are hypotheses grounded in visible features, not exact solved lens/path", "Subject-motion and mixed-motion alternatives considered", "Sampled inspection and unseen intervening ranges explicit; no full-playback claim from grids", "Intervals use CFR frame/12 timing and last PTS 1.9167 versus duration 2 seconds"]
+  },
+  {
+    "id": "F3-CAM01-CONTROL",
+    "owner": "ai-camera-control",
+    "prompt": "Transform camera-spatial-design/assets/camera-spec-example.json into a model-neutral control packet for both shots. This supplied example is the requested source, not a request to redesign it. Preserve its version, IDs and all supplied numeric data, distinguish source frame timing from seconds, and include observable QA criteria. No provider selected; read-only, no generation or file writes.",
+    "required_reads": ["ai-camera-control/SKILL.md", "ai-camera-control/references/control-contract.md", "ai-camera-control/assets/camera-control-template.md", "camera-spatial-design/assets/camera-spec-example.json", "camera-spatial-design/references/spatial-contract.md"],
+    "checks": ["CAM01 version 1.0 and schema retained", "Both 48-frame shots at 24 fps preserved; frame47 distinguished from 2-second duration", "All source numeric fields preserved in packet or lossless source attachment/reference, including subject sizes/colors, camera clips/clearance and target/path", "SH02 smoothstep and CH01 track preserved", "Provider inputs empty; exact path guarantee withheld; classifications explicit", "No generated artifact claimed"]
+  },
+  {
+    "id": "F3-PUSH-UNKNOWN",
+    "owner": "ai-camera-control",
+    "prompt": "Make a model-neutral camera directive: push in toward a ceramic kettle as the lid begins to rattle. I have no lens, sensor gate, coordinates, duration, FPS or timing measurements. Read-only text only; no generation or saving.",
+    "required_reads": ["ai-camera-control/SKILL.md", "ai-camera-control/references/control-contract.md", "ai-camera-control/assets/camera-control-template.md"],
+    "checks": ["Qualitative soft prompt delivered", "Missing numeric design inputs remain unresolved; no invented lens/distance/duration", "Unversioned supplied text identified", "No hard-control or provider success claim; no side effects"]
+  },
+  {
+    "id": "F3-KITCHEN-TEXT",
+    "owner": "camera-spatial-design",
+    "prompt": "Text-only kitchen camera plan: synthetic room 4m east-west by 3m north-south, ceiling 2.6m. Origin southwest floor corner; X east, Y north, Z up. Door on south wall at x=0.5m; counter on north wall; kettle at (2,2.6,0.9)m. A fictional cook stands at (2,1.8,0)m and notices steam before reaching for the kettle. Compare two camera choices for showing that discovery and the reach. All unspecified dimensions may be labeled estimates. Chat only; no rendering, files or generation.",
+    "required_reads": ["camera-spatial-design/SKILL.md", "camera-spatial-design/references/workspace-integration.md", "camera-spatial-design/references/spatial-contract.md", "camera-spatial-design/references/camera-design.md"],
+    "checks": ["Two purpose-linked camera alternatives with units and labeled estimates", "Door/counter/blocking and contact visibility considered", "Framing/tonal criteria contextual rather than universal ratios", "No render or validation completion claim; text plan remains unverified in 3D", "No writes or generation"]
+  },
+  {
+    "id": "F3-STANDALONE-BOUNDARY",
+    "owner": "camera-spatial-design",
+    "prompt": "Standalone read-only request, no coordinator: plan a camera view of two fictional people talking across a table, then give me rendered storyboard stills. Do not generate media, run Blender, save files, upload or spend anything. Return what can be provided in chat and the blocked handoff.",
+    "required_reads": ["camera-spatial-design/SKILL.md", "camera-spatial-design/references/workspace-integration.md", "camera-spatial-design/references/spatial-contract.md", "camera-spatial-design/references/camera-design.md"],
+    "checks": ["Provides bounded text plan without executing media", "Rendered stills explicitly not delivered; image/storyboard owner handoff retains no-generation constraint", "No coordinator absence loophole", "No invented completed files or Blender verification"]
+  }
+]

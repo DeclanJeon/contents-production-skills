@@ -1,0 +1,23 @@
+{
+  "fps": 12,
+  "timebase": "CFR; zero-based frame index / 12",
+  "clips": {
+    "A": {
+      "frames": 24,
+      "duration_seconds": 2
+    },
+    "B": {
+      "frames": 24,
+      "duration_seconds": 2
+    }
+  },
+  "sampled_frames": [
+    0,
+    4,
+    9,
+    14,
+    19,
+    23
+  ],
+  "last_frame_pts_seconds": 1.9166666666666667
+}

@@ -1,0 +1,69 @@
+{
+  "series": "supplemental-regression-2.18",
+  "scope": "Targeted compact-cast and full-SSOT output checks; not part of frozen or 64-case supplemental denominators.",
+  "sources": [
+    {
+      "path": "qa/skill-completeness-95/case-manifest.json",
+      "case_ids": ["M-10"]
+    },
+    {
+      "path": "qa/skill-completeness-95/supplemental-manifest.json",
+      "case_ids": ["F5-CAST-SSOT"]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "M10-FOUR-CHARACTER-CAST",
+      "owner": "designing-video-character-sheets",
+      "prompt": "Read-only, no edits. Build a cast bible for a 4-character drama and one character image-sheet plan. State which persona input you consume. Then: no persona is supplied. State the dependency and any stated assumption you make.",
+      "required_reads": [
+        "designing-video-character-sheets/SKILL.md",
+        "designing-video-character-sheets/references/character-craft.md",
+        "designing-character-personas/SKILL.md",
+        "designing-character-personas/assets/persona-template.md",
+        "designing-character-personas/references/mbti-lens.md",
+        "designing-character-personas/references/enneagram-lens.md",
+        "designing-character-personas/references/expression-voice-bridge.md",
+        "creative-production/SKILL.md"
+      ],
+      "checks": [
+        "Returns a usable four-character cast bible with distinct, filmable roles/behavior and a differentiation map",
+        "Names and consumes the persona specialist packet slots and states that no separate persona input is supplied",
+        "States missing story/persona dependency and labels any proceed-with-assumption choices",
+        "Honors the singular request with exactly one named character image-sheet plan, not one per cast member",
+        "Returns text plans only; no image, file, generation, selected voice, or approval is claimed",
+        "For explicitly delegated fictional characters, reads both active typology references and gives concise labeled both-mode proposals unless user chose another mode"
+      ],
+      "source_group": "character-cast"
+    },
+    {
+      "id": "F5-CAST-SSOT",
+      "owner": "designing-video-character-sheets",
+      "prompt": "Read qa/skill-completeness-95/closure-F5/delegation-inputs.md and execute Cast and protagonist sheet assignment, consuming Persona assignment and locked SYN01. Return the four compact sheets, matrix, and actual full CH01 0..33 SSOT with its prompt specs in this response. Text only; no paid execution or media. Do not merely summarize planned work.",
+      "required_reads": [
+        "qa/skill-completeness-95/closure-F5/delegation-inputs.md",
+        "designing-video-character-sheets/SKILL.md",
+        "designing-video-character-sheets/references/character-craft.md",
+        "designing-video-character-sheets/references/character-ssot-master-prompt.md",
+        "designing-character-personas/SKILL.md",
+        "designing-character-personas/assets/persona-template.md",
+        "designing-character-personas/references/mbti-lens.md",
+        "designing-character-personas/references/enneagram-lens.md",
+        "designing-character-personas/references/expression-voice-bridge.md",
+        "video-production-assets/assets/character-ssot-template.md"
+      ],
+      "checks": [
+        "All four actual compact character sheets and differentiation matrix present; goals/judgments/relationships/voice differ beyond type names",
+        "CH01 sections 0 through 33 complete, not a compact seam or empty headings",
+        "Counts: anchors 3–7, traits 5–7 developed, likes/dislikes 5–10 each, habits at least 10, contradictions at least 3, locks 5–15",
+        "English master description 150–300 words and prefix 60–120, A–D use exact prefix and negatives",
+        "Sheet A includes full body front/three-quarter/side/back plus face front/three-quarter/side",
+        "Provenance supplied/proposed/undecided clear; no invented observations, approvals or files",
+        "Persona and full active lens integrated; voice identity/style/per-line fields and exact CS01 v1 seam preserved",
+        "Invariants/variants coherent; all required expressions and turnaround/proportion coverage present",
+        "No extra story events, selected voices or actual image claims; actual media QA remains unverified"
+      ],
+      "source_group": "F5"
+    }
+  ]
+}

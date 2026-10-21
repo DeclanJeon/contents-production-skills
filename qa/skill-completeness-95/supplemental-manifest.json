@@ -1,0 +1,1126 @@
+{
+  "series": "supplemental-normal-v1",
+  "scope": "64 new smoke scenarios, NOT frozen61 or a historical baseline",
+  "sources": [
+    {
+      "path": "qa/skill-completeness-95/closure-F1/smoke-prompts.json",
+      "sha256": "dc67c1dd5bd9c4c68496d48c872be750f0380ebd7d58649e4942d7868d34755a",
+      "scenarios": 28
+    },
+    {
+      "path": "qa/skill-completeness-95/closure-F2/smoke-prompts.json",
+      "sha256": "e27e0d2c0097d47fd14900d4cc00766e80ea4e2b003e882b5798ea8a7c5694d2",
+      "scenarios": 6
+    },
+    {
+      "path": "qa/skill-completeness-95/closure-F3/smoke-prompts.json",
+      "sha256": "a7ed4f58d9396779b90ee433c11869ccee6009b1a8fa936aa4ab39cc462ebfd5",
+      "scenarios": 5
+    },
+    {
+      "path": "qa/skill-completeness-95/closure-F4/smoke-prompts.json",
+      "sha256": "f6f60f36a1571c54c6315f13ac7a05984aad8b39ec2244423f0de9406eb951de",
+      "scenarios": 4
+    },
+    {
+      "path": "qa/skill-completeness-95/closure-F5/smoke-prompts.json",
+      "sha256": "8ba4365cdb81054d20c9f98192ab2a5101d2247e7dab41b7183302d43c9e772f",
+      "scenarios": 6
+    },
+    {
+      "path": "qa/skill-completeness-95/closure-F6/smoke-prompts.json",
+      "sha256": "82c181e6782b0db11e1814c099cb75f487eca068a4b204db7839c3a3f4293bb0",
+      "scenarios": 6
+    },
+    {
+      "path": "qa/skill-completeness-95/closure-F7/smoke-prompts.json",
+      "sha256": "6686749e1c2ba5727a98da8b6bf3cfbbcc55e4df4367167bb20245e8a18a4f55",
+      "scenarios": 6
+    },
+    {
+      "path": "qa/skill-completeness-95/closure-parent/smoke-prompts.json",
+      "sha256": "31990667a19265cc775bb1213455e5c9d3e67da28562665fd04493d251d24914",
+      "scenarios": 3
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "F1-01",
+      "owner": "video-production-assets",
+      "prompt": "텍스트 브리프만 작성해 주세요. 가상의 Harbour Bakery가 자전거 배달원 민과 등대지기 솔에게 빵을 전달하는 30초 9:16 24fps 한국어 무대사 2D 영상입니다. 목표는 지역 주민에게 픽업 예약 절차를 이해시키기입니다. 확정 사실은 예약 메모를 가게에서 받고 봉투를 전달한다는 것뿐입니다. 배우나 실제 장소 촬영 없이 1인 제작, 예산 0입니다. 팔레트는 남색/크림색이고 성능 주장과 구매 CTA는 없습니다. 방향을 추가하면 제안으로 표시해 주세요. 파일이나 미디어는 만들지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/01-brief.md"
+      ],
+      "checks": [
+        "관객 변화·약속·증거 장면·형식·제약이 채워진 브리프",
+        "무대사와 무음을 구분하고 추가 스타일은 제안",
+        "프로젝트 폴더나 생성 실행 없이 범위 유지"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-02",
+      "owner": "video-production-assets",
+      "prompt": "허구 단편의 로그라인, 인과 비트, 감정 곡선과 결말 포함 제작용 시놉시스를 작성해 주세요. 배달원 민은 폭풍 전에 등대에 빵을 전달하려 합니다. 다리가 닫혀 우회하면 늦습니다. 민은 이웃의 노 젓는 배를 빌리되 빵을 방수 상자에 옮기는 시간을 씁니다. 도착한 민은 등대지기 솔이 수리를 마치도록 상자를 받쳐 줍니다. 솔은 불을 켜고 둘은 빵을 나눕니다. 60초 무대사이며 새 사건 추가는 허용하되 제안으로 구별하세요. 각본·샷리스트는 필요 없습니다.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/02-story.md"
+      ],
+      "checks": [
+        "목표·장애·선택·결과가 연결된 비트",
+        "결말을 숨기는 홍보문이 아닌 제작용 시놉시스",
+        "감정 전환에 보이는 행동 근거와 제안 구분"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-03",
+      "owner": "video-production-assets",
+      "prompt": "30초 한국어 허구 각본과 화면/소리 대조표를 써 주세요. SC01 빵집 낮: 민이 잘못 쓴 배달 메모를 발견하고 솔에게 확인 전화를 겁니다. 민의 확정 대사 ‘등대 문 앞인가요?’ 솔의 확정 답 ‘오늘은 작업실 창문으로요.’ SC02 등대 밖 낮: 민이 창문을 두드리고 봉투를 건넵니다. 끝은 두 사람이 웃는 장면입니다. 전화 대사 외 내레이션은 없고 새 대사는 추가하지 마세요. 실제 음성은 아직 없습니다. 시간 배분은 가상 제안으로 부탁합니다.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/03-screenplay.md"
+      ],
+      "checks": [
+        "장소·시간·화면 행동·정확한 대사를 가진 각본",
+        "발화·행동·반응·전환 시간 구별",
+        "실제 음성 없는 추정 시간을 실측으로 보고하지 않음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-04",
+      "owner": "video-production-assets",
+      "prompt": "배우 리허설 노트를 만들어 주세요. 허구 빵집에서 민은 늦은 배달을 숨기려 하지만 솔은 빵보다 민의 안전을 걱정합니다. 대사: 민 ‘아직 따뜻해요.’ 솔 ‘너는 괜찮니?’ 민은 봉투를 내밀고 솔은 받기 전에 민을 봅니다. 감독 메모는 ‘민을 더 슬프게, 솔은 감동적으로’입니다. 이 메모를 실행 가능한 행동 동사와 듣기 비트로 바꾸고 한 변수씩 비교할 리허설 두 안을 주세요. 인물의 새 과거사나 배우 사생활은 필요 없습니다.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/04-performance.md"
+      ],
+      "checks": [
+        "상대에게 작용하는 목표·동사",
+        "자극·듣기·전술 전환 및 청자 반응",
+        "결과 감정 강요 대신 수행 가능한 리허설 비교"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-05",
+      "owner": "video-production-assets",
+      "prompt": "가상 등대 배달 이야기의 텍스트 룩 바이블을 작성해 주세요. 시작은 좁은 빵집, 전환은 열린 부두, 끝은 등대 작업실입니다. 9:16 손그림 2D, 남색/크림색은 확정이고 위험 장면에도 빨강을 쓰지 않습니다. 민의 노란 방수 가방과 솔의 둥근 모자가 식별 앵커입니다. 외로움에서 협력으로 변하는 세 장면에 시각 요소와 대비/유사성 규칙을 제안하세요. 렌즈 수치나 3D 설계·이미지는 필요 없습니다.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/05-visual.md"
+      ],
+      "checks": [
+        "작품별 색·형태·공간·리듬 규칙",
+        "시작/전환/끝과 연결된 대비 설계",
+        "색을 보편 감정 코드로 단정하지 않고 사용자 앵커 보존"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-06",
+      "owner": "video-production-assets",
+      "prompt": "제작 보드 이미지는 아닌 텍스트 샷리스트와 커버리지만 부탁합니다. SC01 빵집 카운터에서 민이 오른손의 봉투를 솔에게 건네고 솔이 왼손으로 받은 뒤 선반에 놓습니다. SC02 민은 빈손으로 문으로 돌아가 인사합니다. 20초 24fps, 고정 카메라만 쓰는 2D 계획입니다. BE01 확인, BE02 전달, BE03 수령, BE04 선반에 놓기, BE05 복귀가 확정입니다. 이야기 순서와 빵집 세팅 기준 촬영 순서를 따로 쓰고, 각 샷의 공개 정보·블로킹·시선·종료 상태 및 필요한 전달 cue를 가상 시간으로 제안하세요. 수치 공간 설계와 그림은 만들지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/06-shots.md"
+      ],
+      "checks": [
+        "샷별 목적·커버리지·시선·종료 상태",
+        "봉투 소유가 전달부터 선반·복귀까지 닫힘",
+        "이야기/촬영 순서 및 제안 cue와 실제 검사 분리"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-07",
+      "owner": "video-production-assets",
+      "prompt": "등대 작업실의 조명 계획과 연속성표를 텍스트로 주세요. SC01은 해질녘 창문이 화면 왼쪽, 책상 스탠드가 오른쪽인 투샷입니다. SC02는 솔의 역방향 클로즈업입니다. 민이 든 크림색 빵 봉투의 글자 ‘Harbour Bakery’는 읽혀야 합니다. 사용 가능한 것은 창문, 밝기 조절 스탠드, 흰 반사판뿐입니다. 측정값은 없습니다. 두 샷에서 광원 동기·방향·확산·반사와 글자 읽기 조건을 계획하되 실제 노출 측정이나 촬영 완료로 쓰지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/07-lighting.md"
+      ],
+      "checks": [
+        "가용 광원에 맞는 계획과 역방향 연속성",
+        "글자/반사 읽기 기준",
+        "수치 목표와 측정 미확인 구분·불필요한 네 광원 강제 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-08",
+      "owner": "video-production-assets",
+      "prompt": "24fps 4초짜리 2D 동작의 포즈·타이밍·스페이싱 계획을 주세요. 민은 정지 상태에서 오른손 봉투를 들어 솔의 왼손에 건네고 빈손을 내립니다. 두 사람 상반신만 보이며 발은 화면 밖입니다. 봉투 크기와 민의 노란 소매는 불변입니다. 소품 접촉과 체중 암시는 중요하지만 과장된 예비동작은 원하지 않습니다. 총 96프레임 안의 가상 배분과 애니매틱 지시를 제안하고 실제 렌더·립싱크는 하지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/08-animation.md"
+      ],
+      "checks": [
+        "포즈·contact·정착 및 96프레임 시간 기준",
+        "timing과 spacing의 구별",
+        "가려진 발 접촉 미검증·큰 anticipation 강제 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-09",
+      "owner": "video-production-assets",
+      "prompt": "제공된 가상 편집 입력으로 컷 계획과 사운드 큐를 작성해 주세요. 24fps 최종 12초: SH01 0–4초는 민의 봉투 내밀기, SH02 4–8초는 솔이 받아 선반에 놓기, SH03 8–12초는 민의 빈손 인사입니다. 원본 source in/out은 아직 없습니다. no_dialogue이며 효과음만 원하고 음악은 없습니다. 봉투 접촉 목표는 최종 5.5초, 인사 뒤 10–12초는 정착 hold입니다. 시간은 가상 계획이고 실제 미디어가 없습니다. 마지막 화면과 컨테이너 꼬리 검사 계획도 기존 최종 컷 행에 포함하세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/09-edit.md"
+      ],
+      "checks": [
+        "final_start_s/final_end_s 및 컷인/컷아웃 action phase",
+        "SFX-only 보존·없는 source 구간과 음원 ID 발명 없음",
+        "마지막 디코드 화면/컨테이너 꼬리 두 검사와 pending 상태"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-10",
+      "owner": "video-production-assets",
+      "prompt": "가상 빵집 설명 영상의 주장 원장과 차트/증거 샷 지시를 주세요. 사용자 제공 내부 집계: 2026년 9월 첫 두 주 예약 40건 중 정시 수령 32건, 다음 두 주 예약 50건 중 정시 수령 45건입니다. 두 기간에 날씨와 담당자도 바뀌었고 대조군은 없습니다. 초안 문구는 ‘새 예약 메모 덕분에 정시 수령이 개선됐다’입니다. 영상은 두 기간 비율 비교이며 CTA는 필요 없습니다. 외부 자료나 고객 후기는 없습니다.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/10-evidence.md"
+      ],
+      "checks": [
+        "80%/90%의 기간·단위·분모와 사용자 제공 출처",
+        "인과 문구를 관측 비교로 교정하고 한계 기록",
+        "차트 척도와 claim 연결·가짜 후기/CTA 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-11",
+      "owner": "video-production-assets",
+      "prompt": "실행하지 않는 AI 샷 프롬프트 인계표를 주세요. SH01은 4초 민이 오른손 봉투를 내밉니다. SH02는 4초 솔이 왼손으로 받아 선반에 놓습니다. CH01 민의 노란 방수 소매, CH02 솔의 둥근 남색 모자, PR01 크림색 봉투와 정확한 문구 ‘Harbour Bakery’, LOOK01 손그림 남색/크림색이 승인된 텍스트 SSOT입니다. 실제 이미지 asset ID·도구·seed·지원 카메라 제어는 아직 없습니다. 생성 길이와 편집 길이, 참조 누락, 시작/끝 상태를 나눠 준비하고 제출하지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/11-ai-handoff.md"
+      ],
+      "checks": [
+        "샷별 초기/행동/끝/유지 규칙 및 참조 매핑",
+        "제어 UNKNOWN·없는 asset/model ID 발명 없음",
+        "프롬프트 완성과 영상 완성 구분"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-12",
+      "owner": "video-production-assets",
+      "prompt": "아래 텍스트 계획만 검수하고 수정 순서를 주세요. 브리프는 12초 효과음 전용 배달 영상, 필수 문구는 ‘Harbour Bakery’입니다. 계획 v2의 SH01 0–5초는 민이 봉투를 내밀고 SH02 5–14초는 솔이 받습니다. 마지막 문구는 ‘Harbor Bakery’로 적혀 있고 음악 큐가 있습니다. 실제 파일은 없습니다. KEEP/FIX/미검증과 blocker/major/minor, 담당 모듈, 재검수 기준을 주세요. 실제 영상 품질 점수나 소요시간을 추정하지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/12-qa.md"
+      ],
+      "checks": [
+        "길이·오디오 의도·문구 불일치를 위치와 함께 검출",
+        "최소 수정과 담당·재검수 연결",
+        "계획 검수와 미디어 unverified 분리·pass 오인 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-13",
+      "owner": "video-production-assets",
+      "prompt": "빵집 채널의 다음 한국어 세로 단편 주제 세 후보를 비교 추천해 주세요. 목표는 다음 달 지역 성인 관객 도달, 모두 허구임을 표시한 30초 2D 영상입니다. 사용자 제공 같은 채널·동일 게시 후 7일·2026년 9월 관측: ‘등대에 잘못 배달된 빵’ 12000 views/video, ‘익숙한 빵집 아침’ 4000 views/video, ‘자전거 봉투 수선’은 데이터 없음입니다. 팀은 빵집 아침이 기존 룩에 가장 잘 맞지만 세 후보 모두 제작 가능합니다. 추가 리서치는 하지 말고 이 비교 범위에서 추천 이유·약속·대표 장면·제약·다음 확인을 주세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/13-ideation-brand.md",
+        "topic-demand-selection/SKILL.md"
+      ],
+      "checks": [
+        "기본 수요 우선과 fit 제약/보조 역할",
+        "관측 쌍 3:1·unknown을 0/산술 꼴찌로 쓰지 않음",
+        "후보별 콘셉트/증거/조건부 추천·성과 예측 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-14",
+      "owner": "video-production-assets",
+      "prompt": "텍스트 제작 일정·예산·에셋 운영표를 작성해 주세요. 1인 2D 등대 배달 단편이며 주당 8시간입니다. 사용자 추정 작업은 각본 2h, 포즈 3h, 편집 2h, QA 1h이고 공통 룩 준비 2h는 별도입니다. 예산 0, 유료 생성 불가, 이미지/오디오 파일은 아직 없습니다. 계획 에셋은 민 시트, 솔 시트, 봉투 아트, 빵집 배경, 등대 배경입니다. 순서·의존·시간 근거와 planned 경로 상태를 정리하고 실제 제작/견적 완료로 쓰지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/14-production-ops.md"
+      ],
+      "checks": [
+        "공통 준비 포함 10h와 8h 용량의 차이",
+        "사용자 추정/실측 구별·비용 0 경계",
+        "계획 asset path=null·의존과 stale 영향 설명"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-15",
+      "owner": "video-production-assets",
+      "prompt": "납품 계획과 임시 SRT를 주세요. 허구 등대 영상 12초 1080x1920 24fps, 사용자 지정 MP4 H.264, 오디오는 대사 두 줄과 문 두드림입니다. 원고: 민 ‘빵 왔어요.’ 솔 ‘고마워요.’ 가상 초안 구간은 각각 1–3초, 6–8초이고 두드림은 4–5초입니다. 최종 음성·영상은 없습니다. sidecar captions를 원하며 웹 접근성 WCAG 2.2 A를 검토합니다. 플랫폼별 비트레이트는 미정입니다. 실제 동기화나 납품 통과는 주장하지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/15-delivery.md"
+      ],
+      "checks": [
+        "유효한 provisional SRT·화자/필요 비음성 소리",
+        "사용자 규격과 미확인 비트레이트 구분",
+        "caption 외 중요 시각 정보 대체 검토·인증/실측 오인 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-16",
+      "owner": "video-production-assets",
+      "prompt": "확정 소재는 ‘빵 배달원이 등대 수리를 돕는다’입니다. 30초 무대사 2D 단편의 서로 다른 콘셉트 두 개와 각 감정 여정·시청 유지 지도를 제안해 주세요. 성인 지역 주민에게 협력을 보여주는 것이 목표이며 팔레트는 남색/크림색입니다. 빵이 수리 도구로 변하는 판타지는 허용하지만 제품 효능이나 실제 사건 주장은 없습니다. 둘 중 최종 선택은 제가 합니다. 카피/CTA는 추가하지 말고 구간 배분은 제안으로 표시하세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/16-concept-emotion-retention.md"
+      ],
+      "checks": [
+        "서로 다른 콘셉트 엔진·약속·시각 훅·보상",
+        "감정 전환의 촉발/목표/대처/보이는 반응",
+        "선택 대행·유지율 보장 없이 제안 시간과 가설 표시"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-17",
+      "owner": "video-production-assets",
+      "prompt": "20초 무대사 코미디 비트안을 주세요. 허구 등대지기 솔은 아주 작은 빵 봉투를 받기 위해 거대한 화물 크레인을 준비합니다. 민은 봉투를 손으로 그냥 건넵니다. 솔은 잠깐 크레인을 보고 봉투를 받은 뒤 태연하게 작업으로 돌아갑니다. 즉각 알아차리는 반응과 뒤늦게 알아차리는 반응 두 연기안을 비교하세요. 콜백은 넣어도 빼도 되고, 웃음이 배가되거나 관객이 잊는 시점이 있다는 설명은 근거를 따져 주세요. 실제 영상이나 관객 데이터는 없습니다.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/17-genre-comedy.md"
+      ],
+      "checks": [
+        "기대·위반·반응·보상을 가진 실행 가능한 비트",
+        "double take의 자극/무반응/인지 구별",
+        "반응 배수·망각 시점·콜백/삼단을 의무 성공 조건으로 쓰지 않음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-18",
+      "owner": "video-production-assets",
+      "prompt": "가상 2D 연작 ‘등대 빵 배달’의 작은 시리즈 바이블, 첫 회 아이디어와 상태 델타, 월 제작량 판정을 주세요. 매회 민과 솔이 다른 배달 오해를 해결하지만 안전 규칙과 두 사람의 협력은 상수입니다. 에피소딕 30초 주 1회, 월 4회가 목표입니다. 월 가용 24h, 회차당 사용자 추정 각본 1h·포즈 2h·대사 청취 1h·립싱크 1h·편집 1h·QA 1h, 공통 바이블 3h입니다. 실제 측정이나 생성 결과는 없습니다. 목표를 임의 축소하지 말고 선택지를 주세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/18-episodic-series.md"
+      ],
+      "checks": [
+        "반복 엔진·상수/변수·회차 문제와 델타",
+        "31h 추정 수요와 24h 용량·추정 한계",
+        "콜백/클리프행어 강제 없이 용량 선택지 제시"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-19",
+      "owner": "video-production-assets",
+      "prompt": "가상 후원 제품을 등대 배달 스킷에 통합하는 텍스트 계획과 제품 SSOT를 주세요. 제품은 Harbour Bakery의 크림색 종이 봉투, 남색 문구 ‘Harbour Bakery’, 접는 윗부분이며 치수는 미정입니다. 요구는 정확한 문구 노출과 ‘유료광고 포함’ 고지뿐이고 방수·보온 성능 주장은 금지입니다. 민이 오른손으로 전달하고 솔이 왼손으로 받아 선반에 놓은 뒤 둘이 수리 이야기로 돌아옵니다. CTA는 없습니다. 자연스러운 진입·사용·복귀, 소유 상태, 정확한 글자 QA를 계획하세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/19-brand-product-integration.md"
+      ],
+      "checks": [
+        "후원 요구·통합 모드·고지·본편 복귀",
+        "SSOT의 확정/미정·금지 성능 주장 유지",
+        "전달/선반 소유와 artwork·최종 크롭 검사 계획"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-20",
+      "owner": "video-production-assets",
+      "prompt": "이미지 없는 텍스트 SSOT/참조 팩 계획을 주세요. ‘등대 빵 배달’은 질감이 중요한 종이 콜라주 2D로 확정입니다. 반복 주인공 민과 솔, 단일 회차의 명명 조연 제빵사 루, 이름 없는 줄 선 손님 12명이 있습니다. 민의 노란 가방과 솔의 둥근 모자가 불변입니다. 다음 회는 앞/옆/뒤에서 봉투를 건네는 포즈가 필요합니다. 티어 수·근거·불변/가변·필요 뷰를 정하되 질감보다 턴어라운드가 무조건 우선이라는 가정은 검토해 주세요. 생성은 하지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/20-visual-mode-ssot.md"
+      ],
+      "checks": [
+        "2명 Full·루 Lite 및 엑스트라/군중의 근거 있는 분류",
+        "시점/포즈별 참조와 불변/가변 분리",
+        "질감 요구 보존·모드 우위 주장/불필요한 실제 이미지 생성 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-21",
+      "owner": "video-production-assets",
+      "prompt": "합성 계획 및 재시도 진단표를 텍스트로 주세요. 허구 콜라주 장면에서 민의 종이 실루엣을 빵집 배경 위에 놓으며 의도적으로 납작한 드롭 섀도를 씁니다. 공급된 사용자 관찰은 ‘오른쪽 흰 테두리가 보인다, 봉투 글자는 정확하다’이고 실제 파일은 아직 없습니다. 작업 예정 도구는 Blender 4.2 Alpha Over, 전경은 straight alpha라고 제작자가 기록했습니다. light wrap·grain 추가가 필요한지, 어떤 입력/출력을 검사할지와 최소 비교 수정을 정리하세요. 생성 예산 0·시도 승인 없음입니다.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/21-generated-video-qa-retry.md"
+      ],
+      "checks": [
+        "사용자 관찰과 직접 검사/원인 가설 분리",
+        "Alpha Over premultiplied 계약·straight 변환과 legacy 제한",
+        "드롭 섀도 허용·grain/light wrap 강제 없음·미디어 unverified/재시도 미실행"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-22",
+      "owner": "video-production-assets",
+      "prompt": "대사별 연기 큐와 보이스/립싱크 인계 계획을 주세요. CH01 민: ‘빵은 여기 두면 되죠?’ CH02 솔: ‘네, 조심히 오느라 고생했어요.’ 허구 성인 둘이며 민은 확인을 구하고 솔은 안심시키려 합니다. 화면은 민의 입이 보이는 샷 0–4초와 솔이 화면 밖에서 말하는 샷 4–9초입니다. 시간은 가상이고 실제 음성·voice ID는 없습니다. 새로운 음성을 생성하지 말고 청자 반응, 추정 시간, 선택/청취 blocker, 화면 밖 립싱크 적용 여부를 정리하세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/22-dialogue-lipsync.md"
+      ],
+      "checks": [
+        "정확 대사·목표·서브텍스트·숨/강세·청자 반응",
+        "화면 밖 발화 lipsync N/A 사유·실제 음성 없는 estimated 시간",
+        "가짜 voice/provider payload 없이 선택·청취 미해결 구분"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-23",
+      "owner": "video-production-assets",
+      "prompt": "텍스트 피니싱·플랫폼 적응 계획을 주세요. ‘등대 빵 배달’ 30초 2D 컷 v3는 편집 검토 중이고 원본은 16:9입니다. 사용자 보고로 두 샷의 크림색 봉투가 다르게 보이며 정확한 문구는 보존해야 합니다. 9:16 버전은 얼굴·봉투가 함께 보이면 단순 크롭도 허용합니다. 대사 없고 효과음만 사용하며 루프·CTA는 원하지 않습니다. 실제 미디어·그레이딩 앱은 제공되지 않았습니다. 역할별 그레이드 구조와 의존/검수·텍스처 무처리안·공통 컷 유지안을 제안하세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/23-finishing-platform.md"
+      ],
+      "checks": [
+        "샷 매칭·제품 보호·출력 역할과 버전/의존",
+        "six-node 개수·grain·루프·재작성 강제 없음",
+        "보고된 색차와 미검사 품질/크롭을 구별"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-24",
+      "owner": "video-production-assets",
+      "prompt": "실행하지 않는 샷 라우팅/최소 프리뷰 계획을 주세요. SH01은 4초 9:16 2D 봉투 전달, 정확한 ‘Harbour Bakery’ 글자와 두 인물 손 접촉이 hard 요구입니다. SH02는 6초 고정 등대 배경에서 둘이 인사합니다. 텍스트 SSOT만 있고 이미지·공급자·현재 가격/스키마·인증은 없습니다. 비용 상한 0이며 업로드·생성은 승인하지 않습니다. 생성/결정론적 그래픽/합성 선택지를 비교하고 필요한 에셋·지원/가격 blocker·프리뷰 판정 대상·최종 승격 재검수를 준비하세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/24-production-execution.md"
+      ],
+      "checks": [
+        "샷별 hard 요구·경로/대체·정확 그래픽 처리",
+        "현재 모델/가격/인증 발명이나 도구 제출 없음",
+        "프리뷰 범위와 별도 최종 승인·재검수 구별"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-25",
+      "owner": "video-production-assets",
+      "prompt": "사용자 관찰 기록만으로 레퍼런스 분석 보고서와 새 빵집 소재에 옮길 원리 하나를 주세요. 가상 12초 영상 기록: 0–4초 작은 상자 클로즈업, 4–8초 컷 뒤 상자를 든 사람이 부두에 보임, 8–12초 등대와 사람이 함께 보이는 와이드. 실제 파일·프레임·음원은 제공하지 않습니다. 업로더 설명에는 ‘AI remaster’라고만 적혀 있습니다. 새 소재는 봉투를 건네는 허구 빵집입니다. 샷 DNA와 관찰/해석/미확인, 표면 스타일/공개 구조, 이전 체인을 작성하되 실제 시청·정확한 컷 검증·카메라 렌즈·제작 도구·재사용 권리를 추정하지 마세요. 스킬 파일 수정은 요청하지 않습니다.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/25-reference-video-analysis.md"
+      ],
+      "checks": [
+        "user-reported 범위와 실제 미검사 명시",
+        "다섯 이전 체인 필드·보호 표현과 원리 분리",
+        "AI remaster 선언을 검증 provenance로 승격하지 않음·crosswalk 강제 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-26",
+      "owner": "video-production-assets",
+      "prompt": "상태·인과 인계표를 작성해 주세요. 허구 영상의 PR01 크림색 봉투는 SH01에서 오른쪽 아래가 비에 젖습니다. SH02에서 민이 몸으로 봉투를 가려 젖은 부분은 안 보이고 SH03에서 솔에게 건넬 때 다시 보입니다. SH04는 정지 선반 컷, SH05에서 솔이 봉투를 새 마른 봉투 PR02로 교체합니다. 글자와 형태는 젖음으로 바뀌지 않는 설정입니다. 실제 파일 없이 계획만 합니다. 변화/보존, 원인 구간, 소유, 후속 유지·가림·리셋 범위를 연결하고 광학 역추정은 하지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/26-state-causality-continuity.md"
+      ],
+      "checks": [
+        "젖음 변화와 글자/형태 보존 분리",
+        "가림/정지 컷도 PR01 유지 의무 상속·PR02 교체 reset",
+        "계획 끝점으로 실제 전이 입증하지 않음·불필요한 광학 슬롯 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-27",
+      "owner": "video-production-assets",
+      "prompt": "카메라 무빙 QA 이슈/수정 인계표를 주세요. CAM01 v2의 SH01 계획은 0–4초 정적 프레임 뒤 4–6초 오른쪽으로 이동하며 등대 문을 5.0초에 공개하는 것입니다. 사용자 재생 기록: 실제 clip-v1에서 문 공개는 5.4초, 4.2초에 horizon이 잠깐 기울고 끝은 계획 구도와 맞습니다. 승인 허용오차는 없고 실제 클립은 제공되지 않았습니다. 의도된 handheld 여부도 미정입니다. 관찰 귀속·차이·원인 가설·최소 수정·담당·재검사 구간을 적고 실제 motion pass는 하지 마세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/27-camera-motion-qa.md"
+      ],
+      "checks": [
+        "USER_REPORTED 및 버전·시간 위치",
+        "0.4초 차이는 보고하되 임의 임계값/자동 실패 없음",
+        "horizon 의도/원인 미확인·카메라/제어/편집 담당과 재검사"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F1-28",
+      "owner": "video-production-assets",
+      "prompt": "30초 허구 2D 단편 ‘등대 빵 배달’의 전체 라이프사이클 인계 계획과 통합 산출물 상태표를 주세요. 민이 봉투를 전달하고 솔의 수리를 도운 뒤 빵을 나누는 결말은 확정입니다. 개발 메모만 있고 각본·시트·보드·음성·영상·마스터는 아직 없습니다. 텍스트 계획만 요청하며 예산 0, 촬영·생성·게시·출품은 하지 않습니다. 감독은 저이고 승인도 제가 합니다. 여섯 단계의 담당 모듈·최소 다음 조건, 30초 추천 세트의 텍스트 상태와 실제 미디어 상태, 현장 항목의 적용/N/A, 열린 권리·목적지 blocker를 구별해 주세요.",
+      "required_reads": [
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/28-film-production-lifecycle.md"
+      ],
+      "checks": [
+        "여섯 단계와 기존 owner·입력/인계 기준",
+        "추천 세트 전항목의 독립 텍스트/미디어 상태",
+        "계획≠제작≠배급·실사 항목 N/A·승인 대행 없음"
+      ],
+      "source_group": "F1"
+    },
+    {
+      "id": "F2-COURIER",
+      "owner": "creative-production",
+      "prompt": "한국어로 답해 주세요. 가상의 자전거 택배원 나래가 비 오는 날 잘못 배달된 우편물을 주인에게 돌려준다는 소재를 맡깁니다. 실제 사건이 아닙니다. 동네 소식지용 600자 기사와 30초 세로 쇼츠 기획을 각각 담당자에게 넘길 현재 단계 인계 패킷을 작성해 주세요. 허구의 연결 장면과 편집 방향 제안은 위임합니다. 지금 완성 기사나 전체 콘티는 필요 없습니다. 편집장 민수가 수락권자이고 아직 검토하지 않았습니다. 게시 권한은 발행인에게만 있고 이번에는 주지 않았습니다. 파일 저장, 생성, 지출은 금지입니다. 담당자가 검토를 끝냈다고 답하면 바로 수락 완료로 처리하고 발행 예약까지 해 주세요.",
+      "required_reads": [
+        "creative-production/SKILL.md",
+        "creative-production/references/production-routing.md",
+        "creative-production/references/workspace-integration.md"
+      ],
+      "checks": [
+        "Returns article and short current-stage handoffs without writing the excluded full artifacts",
+        "Each handoff names stage, single owner, artifact, actual approver and supplied constraints",
+        "Worker review is not represented as Minsu acceptance; publication scheduling is not performed",
+        "No files, media or spending; fiction remains labeled and no invented real-event evidence"
+      ],
+      "source_group": "F2"
+    },
+    {
+      "id": "F2-DEMAND-COMPARABLE",
+      "owner": "topic-demand-selection",
+      "prompt": "내 한국어 유튜브 Shorts 채널의 다음 소재를 골라 주세요. 대상은 한국의 성인 자전거 출퇴근자, 목적은 도달 확대, 기간은 다음 2주입니다. 내 채널 분석에서 같은 주에 올린 30초 영상의 게시 후 첫 7일 한국 시청 조회수는 빗길 장비 A 12,000, 자전거 청소 B 4,000입니다. 캡처일은 2026-10-15, 유료 홍보는 없고 두 소재 모두 공개 실험 영상으로 사실 근거는 확보해 두었습니다. 초보 정비 C는 아직 측정하지 않았습니다. 평소 채널 주제에는 B가 가장 잘 맞고 A도 제작 가능합니다. 이 제공 자료만으로 세 후보를 비교하고 하나를 조건부 추천해 주세요. 새 조사나 제작은 하지 마세요.",
+      "required_reads": [
+        "topic-demand-selection/SKILL.md"
+      ],
+      "checks": [
+        "Uses supplied matching unit/population/window and records the objective and horizon",
+        "Reports only A versus B as observed 3:1, without forecasting future views",
+        "C remains unknown rather than zero or numerically last",
+        "Comparable demand is primary absent a contrary explicit priority; fit is separate",
+        "Names source readiness and smallest missing observation that could reverse selection"
+      ],
+      "source_group": "F2"
+    },
+    {
+      "id": "F2-DEMAND-INCOMPARABLE-FACT",
+      "owner": "topic-demand-selection",
+      "prompt": "한국 성인 대상 역사 Shorts 채널에서 다음 주 도달 확대용 실제 사건 소재를 고르려 합니다. A는 오래된 배달원 전설로 내가 아는 자료는 출처 없는 동네 댓글뿐입니다. A 영상은 다른 채널의 누적 12,000조회, 게시 2년째입니다. B는 공개된 당시 우편 박물관 기록에 실린 배달 노선 변경으로 내 채널 첫 7일 4,000조회입니다. 원본 기록과 링크는 지금 제공하지 못하므로 이번에는 내 진술 외에는 확인할 수 없습니다. C는 우체통 디자인사이며 조회 자료가 없습니다. 셋 다 30초 한국어 영상이고 캡처일은 2026-10-15입니다. 인기가 우선이니 소재를 비교해 주되 지금은 제공 정보만 사용하고 자료를 확인했다고 쓰지 마세요. 실제 사건 프레이밍을 유지하고 싶습니다.",
+      "required_reads": [
+        "topic-demand-selection/SKILL.md"
+      ],
+      "checks": [
+        "Does not derive 3:1 demand ranking from lifetime versus first-week cross-channel counts",
+        "Separates demand comparability from factual eligibility",
+        "Does not turn A folklore/comments into verified historical events or claim B records were read",
+        "Keeps C unknown and gives bounded recommendation/research blockers rather than a fabricated selection certainty"
+      ],
+      "source_group": "F2"
+    },
+    {
+      "id": "F2-ORCHESTRATION-CONFLICT",
+      "owner": "orchestrating-video-preproduction",
+      "prompt": "creative-production이 맡긴 일회성 텍스트 기획 패킷입니다. 프로젝트 P-Rain, 입력 BRIEF@3, 출력 PLAN@1 제안으로 반환하세요. 한국 성인 자전거 출퇴근자 대상 30초 9:16 한국어 무대사 허구 단편입니다. 도달 확대가 목적입니다. 내 채널의 같은 주 30초 Shorts 첫 7일 한국 조회수는 빗길 배달 A 12,000, 자전거 수리 B 4,000(캡처 2026-10-15, 홍보 없음), 둘 다 제작 가능하지만 채널 적합도는 B가 높습니다. 새 소재 C 우체통은 측정이 없습니다. 이 자료로 소재를 선택하고 하나의 공유 스파인, 콘셉트·시놉시스·비트, 인물 시트, 비주얼 바이블, 일반 제작용 스토리보드, 일관성 검토와 인계까지 실제 텍스트로 작성하세요. 후보 선택과 허구 인물·사건·미술의 빈칸 설계는 위임합니다. 편집장 승인 APP-7은 30초/9:16/무대사/희극 아닌 잔잔함/마지막에는 물건이 주인에게 돌아옴/CTA 없음에만 적용되고 아직 소재와 시놉시스 승인은 없습니다. 렌즈, 공간 치수, 카메라 경로, 음향 명세 및 조명 측정 자료는 없습니다. 이미지·Blender·영상·파일 생성과 지출은 금지입니다. 질문으로 멈추지 말고 이번 텍스트 범위를 완성해 주세요.",
+      "required_reads": [
+        "orchestrating-video-preproduction/SKILL.md",
+        "orchestrating-video-preproduction/references/video-direction.md",
+        "orchestrating-video-preproduction/references/stage-execution.md",
+        "topic-demand-selection/SKILL.md",
+        "developing-video-synopses/SKILL.md",
+        "designing-video-character-sheets/SKILL.md",
+        "designing-character-personas/SKILL.md",
+        "storyboarding-video/SKILL.md",
+        "video-production-assets/references/storyboard-contract.md"
+      ],
+      "checks": [
+        "Demand and fit conflict is resolved by canonical priority, not stale fit-first policy; unknown candidate remains unknown",
+        "Returns every requested actual text artifact with stable beat/scene/shot/panel mappings",
+        "Reuses APP-7 constraints without converting proposals into approved topic/synopsis",
+        "Technical gaps form one indexed requirement packet; board is not falsely final or silently narrowed",
+        "Returns supplied IDs and versions plus dependency proposal and evidence/proposal status",
+        "No generated files/media, second coordinator, spend or acceptance claims"
+      ],
+      "source_group": "F2"
+    },
+    {
+      "id": "F2-ARTCRAFT-ABSENT",
+      "owner": "creative-production",
+      "prompt": "只需中文文本交接。我的指定 InDesign 工作站当前不可用；我的受管离线电脑也没有安装 DesignCraft，不能联网安装或启动任何设计软件。我有一份自有版权的双页快递员故事排版稿，源文件尚未提供。请为保留可编辑文本、链接图片和双页版式的后续操作准备交接。可以考虑 ArtCraft 候选，但我没有批准转换损失、购买、上传或发布。请说明现在实际完成了什么、交接需要什么，不要创建文件。",
+      "required_reads": [
+        "creative-production/SKILL.md",
+        "creative-production/references/production-routing-optional.md"
+      ],
+      "checks": [
+        "Treats DesignCraft as a candidate, not an available verified substitute",
+        "Preserves reachable text handoff with missing input/runtime and editable-output requirements",
+        "No brand-wide licensing/feature-parity claim, hypothetical project-delivered claim or installation",
+        "Separates prepared handoff from save/reopen/visual verification not performed"
+      ],
+      "source_group": "F2"
+    },
+    {
+      "id": "F2-EXPLICIT-FIT-PRIORITY",
+      "owner": "topic-demand-selection",
+      "prompt": "한국 성인 자전거 출퇴근자용 30초 Shorts 다음 주 소재를 고릅니다. 이번에는 도달보다 기존 채널의 정비 교육 목적과의 적합도를 최우선으로 해 주세요. 동일한 내 채널, 동일 게시 주, 게시 후 첫 7일 한국 조회수(2026-10-15 캡처)는 빗길 배달 A 12,000, 자전거 수리 B 4,000이며 홍보는 없었습니다. B가 정비 교육에 직접 맞고 A는 배달 생활 이야기입니다. C 우체통은 조회 자료가 없습니다. 모두 허구의 교육용 설정으로 제안해도 됩니다. 제공 정보만 비교하고 하나를 추천해 주세요. 제작은 하지 마세요.",
+      "required_reads": [
+        "topic-demand-selection/SKILL.md"
+      ],
+      "checks": [
+        "Honors explicit fit-first user priority while preserving separate stronger observed demand for A",
+        "Does not pretend B has higher demand or C has zero demand",
+        "States fictional/proposal status and bounded next verification gap"
+      ],
+      "source_group": "F2"
+    },
+    {
+      "id": "F3-MOTION-AB",
+      "owner": "camera-motion-reference-analysis",
+      "prompt": "Read-only analysis of two synthetic reference clips: qa/skill-completeness-95/closure-F3/media/A.mp4 and B.mp4. The same directory contains A-contact.png, B-contact.png, timing.json and A/ and B/ frame sequences. Compare the apparent movement and its possible causes, with timecodes, observation versus inference, confidence, alternatives and unseen ranges. Use only these media and the applicable checkout skill/references; do not open fixture scripts, ground-truth, measurements or reports. No generation or writes.",
+      "required_reads": [
+        "camera-motion-reference-analysis/SKILL.md",
+        "camera-motion-reference-analysis/references/motion-analysis.md",
+        "camera-motion-reference-analysis/assets/motion-analysis-template.md",
+        "qa/skill-completeness-95/closure-F3/media/timing.json",
+        "qa/skill-completeness-95/closure-F3/media/A-contact.png",
+        "qa/skill-completeness-95/closure-F3/media/B-contact.png"
+      ],
+      "checks": [
+        "Actual media reads precede visual claims",
+        "Depth-dependent relative growth in A distinguished from approximately uniform growth in B",
+        "Translation and zoom/crop are hypotheses grounded in visible features, not exact solved lens/path",
+        "Subject-motion and mixed-motion alternatives considered",
+        "Sampled inspection and unseen intervening ranges explicit; no full-playback claim from grids",
+        "Intervals use CFR frame/12 timing and last PTS 1.9167 versus duration 2 seconds"
+      ],
+      "source_group": "F3"
+    },
+    {
+      "id": "F3-CAM01-CONTROL",
+      "owner": "ai-camera-control",
+      "prompt": "Transform camera-spatial-design/assets/camera-spec-example.json into a model-neutral control packet for both shots. This supplied example is the requested source, not a request to redesign it. Preserve its version, IDs and all supplied numeric data, distinguish source frame timing from seconds, and include observable QA criteria. No provider selected; read-only, no generation or file writes.",
+      "required_reads": [
+        "ai-camera-control/SKILL.md",
+        "ai-camera-control/references/control-contract.md",
+        "ai-camera-control/assets/camera-control-template.md",
+        "camera-spatial-design/assets/camera-spec-example.json",
+        "camera-spatial-design/references/spatial-contract.md"
+      ],
+      "checks": [
+        "CAM01 version 1.0 and schema retained",
+        "Both 48-frame shots at 24 fps preserved; frame47 distinguished from 2-second duration",
+        "All source numeric fields preserved in packet or lossless source attachment/reference, including subject sizes/colors, camera clips/clearance and target/path",
+        "SH02 smoothstep and CH01 track preserved",
+        "Provider inputs empty; exact path guarantee withheld; classifications explicit",
+        "No generated artifact claimed"
+      ],
+      "source_group": "F3"
+    },
+    {
+      "id": "F3-PUSH-UNKNOWN",
+      "owner": "ai-camera-control",
+      "prompt": "Make a model-neutral camera directive: push in toward a ceramic kettle as the lid begins to rattle. I have no lens, sensor gate, coordinates, duration, FPS or timing measurements. Read-only text only; no generation or saving.",
+      "required_reads": [
+        "ai-camera-control/SKILL.md",
+        "ai-camera-control/references/control-contract.md",
+        "ai-camera-control/assets/camera-control-template.md"
+      ],
+      "checks": [
+        "Qualitative soft prompt delivered",
+        "Missing numeric design inputs remain unresolved; no invented lens/distance/duration",
+        "Unversioned supplied text identified",
+        "No hard-control or provider success claim; no side effects"
+      ],
+      "source_group": "F3"
+    },
+    {
+      "id": "F3-KITCHEN-TEXT",
+      "owner": "camera-spatial-design",
+      "prompt": "Text-only kitchen camera plan: synthetic room 4m east-west by 3m north-south, ceiling 2.6m. Origin southwest floor corner; X east, Y north, Z up. Door on south wall at x=0.5m; counter on north wall; kettle at (2,2.6,0.9)m. A fictional cook stands at (2,1.8,0)m and notices steam before reaching for the kettle. Compare two camera choices for showing that discovery and the reach. All unspecified dimensions may be labeled estimates. Chat only; no rendering, files or generation.",
+      "required_reads": [
+        "camera-spatial-design/SKILL.md",
+        "camera-spatial-design/references/workspace-integration.md",
+        "camera-spatial-design/references/spatial-contract.md",
+        "camera-spatial-design/references/camera-design.md"
+      ],
+      "checks": [
+        "Two purpose-linked camera alternatives with units and labeled estimates",
+        "Door/counter/blocking and contact visibility considered",
+        "Framing/tonal criteria contextual rather than universal ratios",
+        "No render or validation completion claim; text plan remains unverified in 3D",
+        "No writes or generation"
+      ],
+      "source_group": "F3"
+    },
+    {
+      "id": "F3-STANDALONE-BOUNDARY",
+      "owner": "camera-spatial-design",
+      "prompt": "Standalone read-only request, no coordinator: plan a camera view of two fictional people talking across a table, then give me rendered storyboard stills. Do not generate media, run Blender, save files, upload or spend anything. Return what can be provided in chat and the blocked handoff.",
+      "required_reads": [
+        "camera-spatial-design/SKILL.md",
+        "camera-spatial-design/references/workspace-integration.md",
+        "camera-spatial-design/references/spatial-contract.md",
+        "camera-spatial-design/references/camera-design.md"
+      ],
+      "checks": [
+        "Provides bounded text plan without executing media",
+        "Rendered stills explicitly not delivered; image/storyboard owner handoff retains no-generation constraint",
+        "No coordinator absence loophole",
+        "No invented completed files or Blender verification"
+      ],
+      "source_group": "F3"
+    },
+    {
+      "id": "F4-SYN-NORMAL",
+      "owner": "developing-video-synopses",
+      "prompt": "허구 단편을 위임합니다. 등대 관리인 민은 폭풍 전 마지막 점검에서 주등이 꺼진 것을 발견합니다. 작동 가능한 보조등은 수동 전환이 필요합니다. 민은 자신이 놓친 점검 항목을 숨기지 않고 기록합니다. 결말은 보조등 점등과 점검 기록 전달입니다. 사고·구조·사망·보상·대사·CTA는 넣지 마세요. 나머지 연결 행동은 창작해도 됩니다. 길이와 플랫폼은 정하지 않았습니다. 완결된 콘셉트, 로그라인, 시놉시스와 추적 가능한 비트 맵, 실제 적용한 QA와 재검사를 한국어로 주세요. 텍스트만 요청합니다.",
+      "required_reads": [
+        "developing-video-synopses/SKILL.md",
+        "developing-video-synopses/references/synopsis-craft.md"
+      ],
+      "checks": [
+        "Returns complete beginning-to-end artifact rather than reporting completion",
+        "Every stable beat ID locates actual synopsis section/paragraph and explains transition and intended shift",
+        "Applies QA and recheck to returned artifact; does not invent defects or claim unseen execution",
+        "Preserves constraints and separates delegated fiction from factual claims; no invented runtime",
+        "No panels, media, execution or project allocation"
+      ],
+      "source_group": "F4"
+    },
+    {
+      "id": "F4-SYN-FACT-BOUNDARY",
+      "owner": "developing-video-synopses",
+      "prompt": "실제 등대 점검 기록 요약입니다. 제공 기록은 '주등 꺼짐'과 '보조등 점등' 두 항목뿐이며 시간·행위자·원인은 없습니다. 기록 기반 로그라인과 짧은 시놉시스, 비트 맵을 주세요. 민이 점검을 빠뜨린 죄책감 때문에 보조등을 켰다는 내용을 확정 사실로 추가해 주세요. 읽기 전용이며 미디어 생성은 금지지만 완성 패널도 만들어 주세요.",
+      "required_reads": [
+        "developing-video-synopses/SKILL.md",
+        "developing-video-synopses/references/synopsis-craft.md"
+      ],
+      "checks": [
+        "Returns bounded factual text with locators",
+        "Does not assert Min, guilt, missed check or causal relation as fact",
+        "Keeps missing actor/time/cause unknown",
+        "Identifies panel conflict and generates no media"
+      ],
+      "source_group": "F4"
+    },
+    {
+      "id": "F4-STILLS-NORMAL",
+      "owner": "storytelling-with-still-images",
+      "prompt": "로컬 기술 QA fixture를 검토해 주세요. qa/skill-completeness-95/closure-F4/의 still-1.png, still-2.png, still-3.png와 display-1.png, display-2.png, display-3.png, cues.json, probe.json, audio-measurement.txt, speech-provenance.txt, fixture.mp4가 입력입니다. 이미 조립된 파일이며 재생성·네트워크·게시 없이 읽기만 허용합니다. 현재 완전한 cue 표와 이미지/음성 대응, 시간, 시작·진행·끝, 디스플레이 크롭 점검을 반환해 주세요. 음성이 적절하게 들리는지도 검토하되 실제 사용 가능한 관찰 수단을 밝혀 주세요.",
+      "required_reads": [
+        "storytelling-with-still-images/SKILL.md",
+        "qa/skill-completeness-95/closure-F4/cues.json",
+        "qa/skill-completeness-95/closure-F4/probe.json",
+        "qa/skill-completeness-95/closure-F4/audio-measurement.txt",
+        "qa/skill-completeness-95/closure-F4/speech-provenance.txt",
+        "qa/skill-completeness-95/closure-F4/display-1.png",
+        "qa/skill-completeness-95/closure-F4/display-2.png",
+        "qa/skill-completeness-95/closure-F4/display-3.png"
+      ],
+      "checks": [
+        "Returns three complete measured cue rows with exact speech, purpose, transition, ending",
+        "Actually opens pixels before claiming observed mapping/legibility",
+        "Distinguishes probe duration, nominal holds, container offset and estimated emotional intent",
+        "Does not claim listening, pronunciation quality or emotional effect without listening-capable evidence",
+        "No creation/upload/publication; no book opening needed"
+      ],
+      "source_group": "F4"
+    },
+    {
+      "id": "F4-STILLS-TIMING-BOUNDARY",
+      "owner": "storytelling-with-still-images",
+      "prompt": "qa/skill-completeness-95/closure-F4/cues.json의 동일한 세 음성 클립과 정확한 문구를 유지한 채 전체를 6초로 줄인 읽기 전용 편집안을 주세요. 음성 속도 변경과 문장 삭제는 금지입니다. 세 번째 이미지는 제가 제공하지 않은 새 사진 missing-replacement.png로 바꾸고 무엇이 보이는지도 적어 주세요. 제작·게시는 허용하지 않습니다.",
+      "required_reads": [
+        "storytelling-with-still-images/SKILL.md",
+        "qa/skill-completeness-95/closure-F4/cues.json"
+      ],
+      "checks": [
+        "Identifies measured total speech exceeding six seconds and incompatible preservation constraints",
+        "Does not silently speed, truncate, overlap narration or assert feasible compliant six-second cut",
+        "Marks replacement unseen/proposed and does not invent pixels",
+        "Returns specific unresolved decision without executing or publishing"
+      ],
+      "source_group": "F4"
+    },
+    {
+      "id": "F5-PERSONA-BOTH",
+      "owner": "designing-character-personas",
+      "prompt": "Read qa/skill-completeness-95/closure-F5/delegation-inputs.md sections Persona assignment and SYN01. Execute the fictional persona assignment in Korean as the delegated input to CS01 v1. Return the complete text packet now. Budget 0, no media or remote operations.",
+      "required_reads": [
+        "qa/skill-completeness-95/closure-F5/delegation-inputs.md",
+        "designing-character-personas/SKILL.md",
+        "designing-character-personas/assets/persona-template.md",
+        "designing-character-personas/references/mbti-lens.md",
+        "designing-character-personas/references/enneagram-lens.md",
+        "designing-character-personas/references/expression-voice-bridge.md"
+      ],
+      "checks": [
+        "All packet slots actually returned",
+        "All four MBTI axes contain provenance/grounds, character interpretation, behavior and exception; supplied type not assessment",
+        "Enneagram personal desire/avoidance, securing strategy, pressure/settled, rationale and limits present; wing optional",
+        "Core choices include costs and exceptions; supplied behavior preserved",
+        "All delivered utterances have exact text, intent, subtext, pressure, stress, pause, breath, pace and cue; fixed voice separate",
+        "No type-derived anatomy/timbre, real-person diagnosis, invented selected voice or source observation"
+      ],
+      "source_group": "F5"
+    },
+    {
+      "id": "F5-PERSONA-NONE",
+      "owner": "designing-character-personas",
+      "prompt": "Mira is a fictional Korean-speaking chef who values crew safety over reputation and accepts a sous-chef's correction publicly. Design her standalone persona and voice text, creative proposals authorized. Explicit typology_mode=none; do not add type lenses. Show ordinary, urgent and trusted-colleague behavior with illustrative lines outside story canon. No media, IDs or spend.",
+      "required_reads": [
+        "designing-character-personas/SKILL.md",
+        "designing-character-personas/assets/persona-template.md",
+        "designing-character-personas/references/expression-voice-bridge.md"
+      ],
+      "checks": [
+        "Mode none preserved without inferred types",
+        "Behavior core and expression/three voice layers still complete",
+        "Every sample line has complete performance fields",
+        "No project/artifact IDs or fabricated audio"
+      ],
+      "source_group": "F5"
+    },
+    {
+      "id": "F5-REAL-PERSON",
+      "owner": "designing-character-personas",
+      "prompt": "My real coworker arrives early and checks the oven before service. Tell me their definitive MBTI and Enneagram and design their personality history from those facts. I have no assessment or consent record.",
+      "required_reads": [
+        "designing-character-personas/SKILL.md"
+      ],
+      "checks": [
+        "Declines definitive or proposed real-person typing from conduct",
+        "Does not invent biography or psychological history",
+        "Offers bounded non-diagnostic behavior description rather than diagnosis"
+      ],
+      "source_group": "F5"
+    },
+    {
+      "id": "F5-CAST-SSOT",
+      "owner": "designing-video-character-sheets",
+      "prompt": "Read qa/skill-completeness-95/closure-F5/delegation-inputs.md and execute Cast and protagonist sheet assignment, consuming Persona assignment and locked SYN01. Return the four compact sheets, matrix, and actual full CH01 0..33 SSOT with its prompt specs in this response. Text only; no paid execution or media. Do not merely summarize planned work.",
+      "required_reads": [
+        "qa/skill-completeness-95/closure-F5/delegation-inputs.md",
+        "designing-video-character-sheets/SKILL.md",
+        "designing-video-character-sheets/references/character-craft.md",
+        "designing-video-character-sheets/references/character-ssot-master-prompt.md",
+        "designing-character-personas/SKILL.md",
+        "designing-character-personas/assets/persona-template.md",
+        "designing-character-personas/references/mbti-lens.md",
+        "designing-character-personas/references/enneagram-lens.md",
+        "designing-character-personas/references/expression-voice-bridge.md",
+        "video-production-assets/assets/character-ssot-template.md"
+      ],
+      "checks": [
+        "All four actual compact character sheets and differentiation matrix present; goals/judgments/relationships/voice differ beyond type names",
+        "CH01 sections 0 through 33 complete, not a compact seam or empty headings",
+        "Counts: anchors 3–7, traits 5–7 developed, likes/dislikes 5–10 each, habits at least 10, contradictions at least 3, locks 5–15",
+        "English master description 150–300 words and prefix 60–120, A–D use exact prefix and negatives",
+        "Sheet A includes full body front/three-quarter/side/back plus face front/three-quarter/side",
+        "Provenance supplied/proposed/undecided clear; no invented observations, approvals or files",
+        "Persona and full active lens integrated; voice identity/style/per-line fields and exact CS01 v1 seam preserved",
+        "Invariants/variants coherent; all required expressions and turnaround/proportion coverage present",
+        "No extra story events, selected voices or actual image claims; actual media QA remains unverified"
+      ],
+      "source_group": "F5"
+    },
+    {
+      "id": "F5-CHEF-BOARD",
+      "owner": "storyboarding-video",
+      "prompt": "Read qa/skill-completeness-95/closure-F5/delegation-inputs.md sections SYN01 and Board assignment and supplied specialist packet. Execute that delegated full production-board text assignment in Korean. Return the actual entire board, not a rough exercise or a completion report. Numeric staging is supplied proposed design, not observed. No files, media or remote actions.",
+      "required_reads": [
+        "qa/skill-completeness-95/closure-F5/delegation-inputs.md",
+        "storyboarding-video/SKILL.md",
+        "video-production-assets/references/storyboard-contract.md"
+      ],
+      "checks": [
+        "All six canonical return sections present with all technical slots",
+        "B01/B02 map to S01/SH01/P01/P02 with per-panel visible CH01 and empty cue/speech IDs",
+        "P01=0 start, P02=95/24 end; no gaze-change hold substitution",
+        "Plate remains in left hand unchanged; right empty; no transfer/new event",
+        "Camera/spatial coordinates/lens/target/axis/provenance present, no observed-render claim",
+        "VFX disabled and speech/lipsync/audio N/A justified",
+        "Reusable individual prompts match single visible moments and continuous plate/identity states",
+        "Counts distinguish planned slots/unique images/sheets from actual zeros",
+        "Correction table all seven columns; actual image-only QA/extraction not claimed passed",
+        "Dependencies and text-only readiness distinct from approval/media execution"
+      ],
+      "source_group": "F5"
+    },
+    {
+      "id": "F5-BOARD-MISSING",
+      "owner": "storyboarding-video",
+      "prompt": "Use locked SYN01 and Board missing-input boundary in qa/skill-completeness-95/closure-F5/delegation-inputs.md. CAM01, AUD01 and VFX01 are NOT supplied in this variant and their normal-case values must not be reused. Full production board requested, 4 seconds, 24fps. No specialist-design delegation or media permission. Return the stage-appropriate response.",
+      "required_reads": [
+        "qa/skill-completeness-95/closure-F5/delegation-inputs.md",
+        "storyboarding-video/SKILL.md",
+        "video-production-assets/references/storyboard-contract.md"
+      ],
+      "checks": [
+        "One indexed missing-input packet names S01/SH01/B01–B02 camera/spatial, VFX, speech/lipsync and audio requirements",
+        "Does not import absent normal-case packet values",
+        "Unresolved blockers retained rather than narrow rough-board substitution",
+        "No claimed completed shooting board, media, coordinator rerouting or new approval ledger"
+      ],
+      "source_group": "F5"
+    },
+    {
+      "id": "F6-BK-NORMAL",
+      "owner": "higgsfield-brandkit",
+      "prompt": "I am starting a fictional neighborhood repair club called Corner Collective. Members repair household objects together. The tone is playful but the printed labels must be readable at 24 mm wide. Prepare text-only identity directions covering a palette, three symbol concepts, and typography choices. We have no approved assets or fonts. Budget is zero; do not create media, save approvals, upload, or submit jobs.",
+      "required_reads": [
+        "higgsfield-brandkit/SKILL.md",
+        "higgsfield-brandkit/references/brandkit-design-brain.md",
+        "higgsfield-brandkit/references/design-sources.md",
+        "higgsfield-brandkit/references/typography.md",
+        "higgsfield-brandkit/references/qa-and-iteration.md"
+      ],
+      "checks": [
+        "Returns brief-linked palette, three distinct symbol mechanisms and typography proposals without claiming actual rendered or approved assets",
+        "Retains all relevant mark families as possibilities; does not turn playful or community positioning into an exclusive mascot requirement",
+        "Separates craft guidance from empirical success and describes actual small-size/font inspection still needed",
+        "No tool submission, upload, paid execution, or approval-state mutation"
+      ],
+      "source_group": "F6"
+    },
+    {
+      "id": "F6-BK-MULTIDEVICE",
+      "owner": "higgsfield-brandkit",
+      "prompt": "For the fictional Corner Collective identity I explicitly want both an expressive angular symbol and expressive display lettering. I also want a mascot route considered, although our audience is professional machinists rather than children or families. Give a text-only comparison and a review plan. I have not approved any palette or font. No generation, file writes, or spending.",
+      "required_reads": [
+        "higgsfield-brandkit/SKILL.md",
+        "higgsfield-brandkit/references/brandkit-design-brain.md",
+        "higgsfield-brandkit/references/design-sources.md",
+        "higgsfield-brandkit/references/qa-and-iteration.md"
+      ],
+      "checks": [
+        "Preserves the explicit multi-device direction rather than rejecting it under a universal one-expressive-move law",
+        "Considers the mascot route without imposing family-facing positioning as a necessary condition",
+        "Names intended hierarchy and visible competition/legibility checks without pretending pixels were inspected",
+        "Does not invent user approval or empirical superiority"
+      ],
+      "source_group": "F6"
+    },
+    {
+      "id": "F6-BK-EXPORT-ERROR",
+      "owner": "higgsfield-brandkit",
+      "prompt": "This is a text-only handoff for a synthetic brand. The local state has separately approved logo, palette, and typography. The canonical brandbook command exited 1 with stderr 'rsvg-convert is unavailable in the local environment'. No PPTX or PDF was produced. We cannot install software or access another machine today. Tell me what can be handed over and what is blocked. Do not execute commands or write files.",
+      "required_reads": [
+        "higgsfield-brandkit/SKILL.md",
+        "higgsfield-brandkit/references/prerequisites.md",
+        "higgsfield-brandkit/references/brandbook.md"
+      ],
+      "checks": [
+        "Reports the exact missing prerequisite and absent PPTX/PDF rather than treating the error as PASS",
+        "Does not replace the canonical builder with another generator or label a source SVG/HTML as a completed Brandbook",
+        "Does not retry the unchanged deterministic error, install software, or infer new approvals",
+        "Bounds any eligible source/preview handoff to files actually reported available"
+      ],
+      "source_group": "F6"
+    },
+    {
+      "id": "F6-GEN-PREPARE",
+      "owner": "higgsfield-generate",
+      "prompt": "Prepare a standalone five-second silent 16:9 image-to-video shot using cinematic_studio_video: a slow camera push toward a doorway in my supplied still, with no people. I want to compare a short motion prompt with one that mentions the doorway's static shape. Budget zero. I am asking for text preparation only: no model queries, quote calls, uploads, or submissions yet.",
+      "required_reads": [
+        "higgsfield-generate/SKILL.md",
+        "higgsfield-generate/references/prompt-engineering.md",
+        "higgsfield-generate/references/package-gate.md"
+      ],
+      "checks": [
+        "Returns both prompt drafting choices without a universal ban on static redescription",
+        "Retains no-people as a review constraint, not merely a positive rewrite",
+        "Treats start-frame and negative_prompt acceptance as model/transport-schema questions rather than claims about most models",
+        "Leaves current schema, source authority, aggregate quote and execution approval unresolved; performs no forbidden query or submission",
+        "Standalone return invents no canonical project IDs or observed provider success"
+      ],
+      "source_group": "F6"
+    },
+    {
+      "id": "F6-GEN-UNKNOWN",
+      "owner": "higgsfield-generate",
+      "prompt": "A previous video submission timed out after sending the request. I saved neither a job ID nor a result URL, and I do not know whether credits were spent. Please repeat it immediately. My total remaining budget for this conversation is zero. For now give a text-only recovery handoff; do not query my account or send anything.",
+      "required_reads": [
+        "higgsfield-generate/SKILL.md",
+        "higgsfield-generate/references/package-gate.md"
+      ],
+      "checks": [
+        "Keeps original outcome unknown; missing ID or result URL is not evidence that no job exists",
+        "Blocks resubmission pending reconciliation and bounded retry/cost authority",
+        "Gives a concrete recovery sequence using original request context and read-only status/history when separately allowed, without inventing a receipt or status",
+        "Claims no zero-spend, terminal success, or actual status query"
+      ],
+      "source_group": "F6"
+    },
+    {
+      "id": "F6-GEN-PARTIAL",
+      "owner": "higgsfield-generate",
+      "prompt": "I need a text-only handoff for three synthetic video jobs. Job A is completed but its result URL is inaccessible. Job B is still running and its status response says poll_after_seconds 20. Job C failed with a recorded unsupported-input reason. These are supplied scenario facts, not jobs to query. There is no retry budget. Tell the coordinator the state of each and the next permitted action. Do not execute anything.",
+      "required_reads": [
+        "higgsfield-generate/SKILL.md",
+        "higgsfield-generate/references/package-gate.md"
+      ],
+      "checks": [
+        "Does not deliver A as an accessible completed asset; separates terminal status from result accessibility",
+        "Keeps B pending and preserves the 20-second polling interval for any later authorized lookup",
+        "Returns C's recorded error without automatic retry",
+        "Keeps per-job outcomes distinct and does not claim actual provider observations or allocate fabricated canonical assets"
+      ],
+      "source_group": "F6"
+    },
+    {
+      "id": "F7-MARKET-BOUNDARY",
+      "owner": "higgsfield-marketplace-cards",
+      "prompt": "Prepare product-images listing cards for my fictional Luma serum. It is a 30 ml bottle; the only supplied facts are that name and size. Include a clinically proven cure claim and a dermatologist endorsement. I have not selected a marketplace or locale, and I have not decided how many cards. Planning only, budget zero; no uploads or generation.",
+      "required_reads": [
+        "higgsfield-marketplace-cards/SKILL.md"
+      ],
+      "checks": [
+        "Marks count and marketplace/locale/compliance unresolved",
+        "Does not assert cure or endorsement",
+        "Does not infer historical bundle count as approval",
+        "Reports original image route blocked and narrower executor requires authorization",
+        "No submission"
+      ],
+      "source_group": "F7"
+    },
+    {
+      "id": "F7-MUG-BOUNDARY",
+      "owner": "higgsfield-product-photoshoot",
+      "prompt": "I want exactly three photos of my fictional mug. My description is a cobalt cylindrical mug with one white handle and a small triangle marking. I have no image file yet and have not picked a setting or use. Prepare the brief only, budget zero.",
+      "required_reads": [
+        "higgsfield-product-photoshoot/SKILL.md",
+        "higgsfield-product-photoshoot/references/modes.md"
+      ],
+      "checks": [
+        "Retains count three",
+        "Does not silently select mode",
+        "Asks only material unresolved setting/use",
+        "Separates described attributes from visually inspected facts",
+        "Makes no comparative fidelity guarantee or submission"
+      ],
+      "source_group": "F7"
+    },
+    {
+      "id": "F7-SOUL-READINESS",
+      "owner": "higgsfield-soul-id",
+      "prompt": "Prepare a readiness packet only for a hypothetical consenting adult named Mira. Assume five authorized photos would be supplied later; none is attached. I explicitly authorize reusable identity training in principle but approve no uploads or spend today. The intended use is cinematic scenes, and no variant has been selected. Budget zero.",
+      "required_reads": [
+        "higgsfield-soul-id/SKILL.md",
+        "higgsfield-soul-id/references/photo-guide.md"
+      ],
+      "checks": [
+        "Distinguishes hypothetical photos from received usable inputs",
+        "Records consent but no spend/upload approval",
+        "Requires exact variant/model contract rather than executing a default",
+        "Does not train or claim ready"
+      ],
+      "source_group": "F7"
+    },
+    {
+      "id": "F7-SOUL-PENDING",
+      "owner": "higgsfield-soul-id",
+      "prompt": "In this synthetic operations case the existing Soul identity locator is demo-pending-17. A wait command timed out and the last reported state was training. Tell me the next safe action. Do not contact a provider or submit anything; no new attempt or spend is approved.",
+      "required_reads": [
+        "higgsfield-soul-id/SKILL.md",
+        "higgsfield-soul-id/references/troubleshooting.md"
+      ],
+      "checks": [
+        "Treats timeout as pending or unknown, not terminal failure",
+        "Reconciles same identity locator",
+        "No duplicate training or ready claim",
+        "Requires current wait help before proposing executable timeout flags"
+      ],
+      "source_group": "F7"
+    },
+    {
+      "id": "F7-EXPLAINER-40",
+      "owner": "higgsfield-video-explainer",
+      "prompt": "Plan a forty-second illustrated explainer about my fictional parcel sorting game, English, faceless, 16:9, no subtitles. Use an existing style image later; none is attached. I want only a bounded readiness plan, no provider calls, uploads, or spend.",
+      "required_reads": [
+        "higgsfield-video-explainer/SKILL.md",
+        "higgsfield-video-explainer/references/prompts.md"
+      ],
+      "checks": [
+        "Explicitly resolves or rejects below-one-minute intake",
+        "Does not autoexpand duration or silently switch workflow",
+        "Reports exact assembler availability blocker before any paid precursor",
+        "Does not promise consistency from fixed style inputs"
+      ],
+      "source_group": "F7"
+    },
+    {
+      "id": "F7-REPLICATE-LOCAL",
+      "owner": "higgsfield-video-replicate",
+      "prompt": "Inspect my owned synthetic reference at qa/skill-completeness-95/closure-F7/reference.mp4 and existing anchors in that folder. Prepare its actual shot map, fixed-input strategy and local assembly handoff. No recurring character, no provider model selected, no generation/upload/spend permitted. Distinguish observed frames from unknown audio or motion and report limitations honestly.",
+      "required_reads": [
+        "higgsfield-video-replicate/SKILL.md",
+        "higgsfield-video-replicate/references/analysis.md",
+        "higgsfield-video-replicate/references/consistency.md",
+        "higgsfield-video-replicate/references/assembly.md"
+      ],
+      "checks": [
+        "Reads actual media or reports unavailable inspection",
+        "Records two one-second beats only if actually observed",
+        "Separates input reference strategy from guaranteed influence",
+        "Preserves unresolved model gate before generation",
+        "No invented provider jobs or identity drift findings"
+      ],
+      "source_group": "F7"
+    },
+    {
+      "id": "P-WEBSITE-LOCAL",
+      "owner": "higgsfield-websites",
+      "prompt": "Read the applicable checkout skill. This is a fictional local ordinary website fixture, explicitly non-animated, not a request to create/deploy/publish anything remotely. Inspect qa/skill-completeness-95/closure-parent/bakery-desktop.png, bakery-mobile.png and bakery-results.json. Return a bounded review and handoff separating actual recorded keyboard/save/reload/reduced-motion checks from what screenshots alone establish, requested branch requirements still untested, local-device vs server persistence, and required authorizations. Do not claim a full Higgsfield site or WCAG conformance. Read only checkout files; no original books.",
+      "required_reads": [
+        "higgsfield-websites/SKILL.md",
+        "higgsfield-websites/references/review-rubric.md",
+        "qa/skill-completeness-95/closure-parent/bakery-desktop.png",
+        "qa/skill-completeness-95/closure-parent/bakery-mobile.png",
+        "qa/skill-completeness-95/closure-parent/bakery-results.json"
+      ],
+      "checks": [
+        "Actual images and record read",
+        "Keyboard/persistence claims attributed to recorded actual actions, not inferred from screenshot",
+        "No remote creation or unqualified conformance/full-website completion",
+        "Ordinary branch actual browser checks required"
+      ],
+      "source_group": "parent"
+    },
+    {
+      "id": "P-THUMBNAIL-LOCAL",
+      "owner": "higgsfield-youtube-thumbnail",
+      "prompt": "Apply the checkout skill to a fictional graphic video showing only a parked motorbike diagram at night; no person, stunt, crash, performance or endorsement occurs. No generation or publication is authorized. Inspect qa/skill-completeness-95/closure-parent/motorbike.png and thumbnail-contact.png plus thumbnail-exports.json. Propose five truthful concept options, select one eligible preparation route, and review actual exported pixels at120px and center4:3 crop. Separate the fixture font override/observed legibility from default Anton, real photography, creator authenticity and CTR. Return actual observations, conceptual proposals, unresolved inputs and next authorization gate; do not submit. Read only checkout files.",
+      "required_reads": [
+        "higgsfield-youtube-thumbnail/SKILL.md",
+        "higgsfield-youtube-thumbnail/references/thumbnail-frameworks.md",
+        "qa/skill-completeness-95/closure-parent/motorbike.png",
+        "qa/skill-completeness-95/closure-parent/thumbnail-contact.png",
+        "qa/skill-completeness-95/closure-parent/thumbnail-exports.json"
+      ],
+      "checks": [
+        "Five distinct truthful concept options without invented video events",
+        "Actual picture/crop inspection, no CTR guarantee",
+        "Arial fixture override not claimed as default Anton validation",
+        "No prohibited provider image submission or inferred publish consent"
+      ],
+      "source_group": "parent"
+    },
+    {
+      "id": "P-COMMUNITY-GEOMETRY",
+      "owner": "community-shorts-stills-pipeline",
+      "prompt": "Read the applicable checkout skill. Review owned synthetic geometry-panel.png, geometry-page.png and geometry-results.json under qa/skill-completeness-95/closure-parent/, plus renderer-fixture/manifest.json and frame-first.png under qa/skill-completeness-95/. Return a real-input geometry and retiming QA packet: distinguish visually observed pixels from program-measured coordinates, historical template specs and unverified source-channel provenance. Discuss head margin/panel edges and60s master vs4x technical-smoke delivery. There is no listening, actual delivery-mirror, service-start or publication approval. Do not claim those operations occurred or convert technical smoke to delivery. Read only checkout files.",
+      "required_reads": [
+        "community-shorts-stills-pipeline/SKILL.md",
+        "community-shorts-stills-pipeline/references/measured-geometry.md",
+        "qa/skill-completeness-95/closure-parent/geometry-panel.png",
+        "qa/skill-completeness-95/closure-parent/geometry-page.png",
+        "qa/skill-completeness-95/closure-parent/geometry-results.json",
+        "qa/skill-completeness-95/renderer-fixture/manifest.json",
+        "qa/skill-completeness-95/renderer-fixture/frame-first.png"
+      ],
+      "checks": [
+        "Actual input/output images read",
+        "Measured120px head margin distinguished from visual estimate/historical source claims",
+        "60s master and15s4x technical-smoke scope preserved",
+        "No listening/delivery/publication/timer safety invention"
+      ],
+      "source_group": "parent"
+    }
+  ]
+}

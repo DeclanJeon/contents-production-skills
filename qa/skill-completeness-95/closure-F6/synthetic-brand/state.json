@@ -1,0 +1,56 @@
+{
+  "brandbookElements": [],
+  "essentialKitApproved": true,
+  "logo": {
+    "approvalSummary": "Synthetic QA fixture supplied by this smoke, not a user brand approval.",
+    "asset": {
+      "path": "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\fixture-symbol.svg"
+    },
+    "geometryFingerprint": "a19ce3f57b7056050426f97d858d31c1e7521b54953e13687b18a43a3813d97f",
+    "name": "Synthetic Corner symbol",
+    "origin": "user_supplied",
+    "revision": 1
+  },
+  "palette": {
+    "approvalSummary": "Synthetic QA fixture supplied by this smoke, not a user brand approval.",
+    "colors": [
+      {
+        "hex": "#f7f7f5",
+        "name": "Paper",
+        "role": "background"
+      },
+      {
+        "hex": "#101820",
+        "name": "Ink",
+        "role": "text"
+      },
+      {
+        "hex": "#00aeef",
+        "name": "Signal",
+        "role": "accent"
+      }
+    ],
+    "gradients": [],
+    "origin": "user_supplied",
+    "revision": 1
+  },
+  "typography": {
+    "approvalSummary": "Synthetic QA fixture supplied by this smoke, not a user brand approval.",
+    "body": {
+      "family": "Arial",
+      "source": "C:/Windows/Fonts/arial.ttf",
+      "style": "normal",
+      "weight": 400
+    },
+    "display": {
+      "family": "Georgia",
+      "source": "C:/Windows/Fonts/georgiab.ttf",
+      "style": "normal",
+      "weight": 700
+    },
+    "fontLinks": [],
+    "origin": "user_supplied",
+    "revision": 1
+  },
+  "version": 3
+}

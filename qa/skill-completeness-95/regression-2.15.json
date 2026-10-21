@@ -1,0 +1,61 @@
+{
+  "series": "supplemental-regression-2.15",
+  "scope": "Targeted regression reruns for compact full-SSOT delivery and thumbnail route-only reference loading; not part of frozen or supplemental denominators.",
+  "sources": [
+    {
+      "path": "qa/skill-completeness-95/supplemental-manifest.json",
+      "case_ids": ["F5-CAST-SSOT"]
+    },
+    {
+      "path": "qa/skill-completeness-95/case-manifest.json",
+      "case_ids": ["M-23"]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "F5-CAST-SSOT",
+      "owner": "designing-video-character-sheets",
+      "prompt": "Read qa/skill-completeness-95/closure-F5/delegation-inputs.md and execute Cast and protagonist sheet assignment, consuming Persona assignment and locked SYN01. Return the four compact sheets, matrix, and actual full CH01 0..33 SSOT with its prompt specs in this response. Text only; no paid execution or media. Do not merely summarize planned work.",
+      "required_reads": [
+        "qa/skill-completeness-95/closure-F5/delegation-inputs.md",
+        "designing-video-character-sheets/SKILL.md",
+        "designing-video-character-sheets/references/character-craft.md",
+        "designing-video-character-sheets/references/character-ssot-master-prompt.md",
+        "designing-character-personas/SKILL.md",
+        "designing-character-personas/assets/persona-template.md",
+        "designing-character-personas/references/mbti-lens.md",
+        "designing-character-personas/references/enneagram-lens.md",
+        "designing-character-personas/references/expression-voice-bridge.md",
+        "video-production-assets/assets/character-ssot-template.md"
+      ],
+      "checks": [
+        "All four actual compact character sheets and differentiation matrix present; goals/judgments/relationships/voice differ beyond type names",
+        "CH01 sections 0 through 33 complete, not a compact seam or empty headings",
+        "Counts: anchors 3–7, traits 5–7 developed, likes/dislikes 5–10 each, habits at least 10, contradictions at least 3, locks 5–15",
+        "English master description 150–300 words and prefix 60–120, A–D use exact prefix and negatives",
+        "Sheet A includes full body front/three-quarter/side/back plus face front/three-quarter/side",
+        "Provenance supplied/proposed/undecided clear; no invented observations, approvals or files",
+        "Persona and full active lens integrated; voice identity/style/per-line fields and exact CS01 v1 seam preserved",
+        "Invariants/variants coherent; all required expressions and turnaround/proportion coverage present",
+        "No extra story events, selected voices or actual image claims; actual media QA remains unverified"
+      ],
+      "source_group": "F5"
+    },
+    {
+      "id": "M23-THUMBNAIL-ROUTE-ONLY",
+      "owner": "higgsfield-youtube-thumbnail",
+      "prompt": "Read-only, hypothetical, no side effects. Make a YouTube thumbnail for a video titled \"I rebuilt a 1970s motorbike\". Do not generate. State the thumbnail inputs and which still-image route is used. Then: I ask you to generate it now. What do you do?",
+      "required_reads": [
+        "higgsfield-youtube-thumbnail/SKILL.md",
+        "higgsfield-generate/references/package-gate.md"
+      ],
+      "checks": [
+        "States the missing thumbnail inputs and routes the actual image request to an eligible still-image executor",
+        "Refuses execution under the read-only no-side-effect boundary and the package gate",
+        "Does not invent generation, quote, provider capability, authentication, or upload",
+        "Does not read concept-framework or prompt-composition references when no concept or prompt is requested"
+      ],
+      "source_group": "thumbnail-route-only"
+    }
+  ]
+}

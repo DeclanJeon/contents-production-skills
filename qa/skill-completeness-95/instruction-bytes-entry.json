@@ -1,0 +1,125 @@
+{
+  "scope": "Exact current UTF-8 file bytes of each entry SKILL.md; conditional/cross-owner references reported separately after actual trace collection",
+  "entries": [
+    {
+      "skill": "creative-production",
+      "entry_bytes": 17523,
+      "sha256": "7f8575617ddb292caf2a00403c9f1f6b8f62f4fdcb5e9c21b870bae49000ce9e"
+    },
+    {
+      "skill": "topic-demand-selection",
+      "entry_bytes": 7467,
+      "sha256": "2272f708f344ba18e1b73a7d0cb1e65a4acb0c8ca1bd62caeeb75667aedca742"
+    },
+    {
+      "skill": "video-production-assets",
+      "entry_bytes": 23388,
+      "sha256": "29119c88529d4657c89c861d37e2111e218231919e1d08d76a12c415afacdff8"
+    },
+    {
+      "skill": "camera-spatial-design",
+      "entry_bytes": 8335,
+      "sha256": "aae94f495e8bdb035892ec9695a5da07ab687af2a46a6e07fc59b5e987205384"
+    },
+    {
+      "skill": "camera-motion-reference-analysis",
+      "entry_bytes": 4042,
+      "sha256": "fb6f80139c772642ee6a16e73c9671f57082b3ac334bc0f62725e1a544b49a79"
+    },
+    {
+      "skill": "ai-camera-control",
+      "entry_bytes": 3899,
+      "sha256": "6bddd68663f65c5ac307eac2d8354954a09aadfdca5187c41e8edbc17d33b7d6"
+    },
+    {
+      "skill": "blender-previsualization",
+      "entry_bytes": 5949,
+      "sha256": "1fb618697a2e6d06c5dab09f78ad6cd49ac981efa26965538d7db9f9230498d2"
+    },
+    {
+      "skill": "orchestrating-video-preproduction",
+      "entry_bytes": 7544,
+      "sha256": "37eb18f2725edd0bb06fdd6d73c2c31f976af0ebfbe5a8dde61d4de83248250a"
+    },
+    {
+      "skill": "developing-video-synopses",
+      "entry_bytes": 5704,
+      "sha256": "1af6496890497d3daaeb18fe846b20fbed0a55e1d958a58b7350c2d77e67bbc1"
+    },
+    {
+      "skill": "designing-video-character-sheets",
+      "entry_bytes": 11591,
+      "sha256": "723107058e1948974f3ea357335e1dda003814c3149bd97d16ef8e69492ac39e"
+    },
+    {
+      "skill": "designing-character-personas",
+      "entry_bytes": 8550,
+      "sha256": "68daf729dc2ca741dd7758744197d45160403fe8be1e8efb6fc8877ae8423a73"
+    },
+    {
+      "skill": "storyboarding-video",
+      "entry_bytes": 7319,
+      "sha256": "4c3d004c171f2d2f8becf8e5558cc6ebc2b876d74fe5fbcef8a128d59298b214"
+    },
+    {
+      "skill": "storytelling-with-still-images",
+      "entry_bytes": 7176,
+      "sha256": "2702fe6b74addc0757fec806d60317ada3966968e3f4370903bf642b7b8c3659"
+    },
+    {
+      "skill": "recording-production-history",
+      "entry_bytes": 9553,
+      "sha256": "a9c29a98bc9b594fb614bb2fbe039c1e3257c69913527c63ab0dce1b80aaaa7e"
+    },
+    {
+      "skill": "higgsfield-brandkit",
+      "entry_bytes": 15710,
+      "sha256": "8db0207a361a505a0a81f9fad1c53fdfff51f1609525c07730ce440a079f91d7"
+    },
+    {
+      "skill": "higgsfield-generate",
+      "entry_bytes": 20179,
+      "sha256": "8ef15296cdcb6ff8214458f11a2483e262f5c85c54c06d6cb17ec86886f2d9bb"
+    },
+    {
+      "skill": "higgsfield-marketplace-cards",
+      "entry_bytes": 7967,
+      "sha256": "d0dd5be65ac0063e5d8fef7d47c7bcc860750beffd7a50276dda37854b055025"
+    },
+    {
+      "skill": "higgsfield-product-photoshoot",
+      "entry_bytes": 9552,
+      "sha256": "8636c9d41979064321e7c3919dfcaea2e8fc7a51be2647dedbd2134b4cc15320"
+    },
+    {
+      "skill": "higgsfield-soul-id",
+      "entry_bytes": 8581,
+      "sha256": "72b4d95bdbfb18c99f8574fc6bfef54062891bfe70e5580a912777f817081bca"
+    },
+    {
+      "skill": "higgsfield-video-explainer",
+      "entry_bytes": 19626,
+      "sha256": "03c30d50b3838aedea9fd7d7df3326004e35a6b11907aba33f9572a5c7a077fc"
+    },
+    {
+      "skill": "higgsfield-video-replicate",
+      "entry_bytes": 15288,
+      "sha256": "9a8e0b2f3feaae05b88f42400a07da7038923e2cc5e16a43074c8c3e1aa866d2"
+    },
+    {
+      "skill": "higgsfield-websites",
+      "entry_bytes": 18546,
+      "sha256": "64a86d83b8f6d78b514c4a44d0a29b0568728bd61dc85aad0366905974b2895e"
+    },
+    {
+      "skill": "higgsfield-youtube-thumbnail",
+      "entry_bytes": 10056,
+      "sha256": "ac92167b429b5ce30da373c88fc7606cf2fea98c2536ad5a841d54b8f3437d39"
+    },
+    {
+      "skill": "community-shorts-stills-pipeline",
+      "entry_bytes": 4546,
+      "sha256": "5ad358bbbc4b4b247e6553128be256b3c4688253fceeb09589e2df3f896103f8"
+    }
+  ]
+}

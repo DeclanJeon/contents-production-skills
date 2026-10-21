@@ -1,0 +1,48 @@
+{
+  "reviews": [
+    {
+      "stage": "essential",
+      "name": "Synthetic Corner",
+      "premise": "An angular corner mark with quiet supporting typography.",
+      "keywords": [
+        "angular",
+        "clear"
+      ],
+      "palette": [
+        {
+          "hex": "#F7F7F5",
+          "name": "Paper",
+          "role": "background"
+        },
+        {
+          "hex": "#101820",
+          "name": "Ink",
+          "role": "text"
+        },
+        {
+          "hex": "#00AEEF",
+          "name": "Signal",
+          "role": "accent"
+        }
+      ],
+      "logo_ideas": [],
+      "logo_svg": "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\fixture-symbol.svg",
+      "display_font": {
+        "family": "Georgia",
+        "source": "C:/Windows/Fonts/georgiab.ttf",
+        "weight": 700,
+        "style": "normal"
+      },
+      "body_font": {
+        "family": "Arial",
+        "source": "C:/Windows/Fonts/arial.ttf",
+        "weight": 400,
+        "style": "normal"
+      },
+      "headline": "Synthetic Corner",
+      "body": "Local fixture. No products, claims, or customer approvals.",
+      "background_color": "#F7F7F5",
+      "text_color": "#101820"
+    }
+  ]
+}

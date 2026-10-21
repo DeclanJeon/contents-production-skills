@@ -1,0 +1,22 @@
+{
+  "scope": "Temporary clean isolated install from a staged copy of the current package; staging excludes only the pre-existing generated video-production-assets/support directory from the checkout.",
+  "package_version": "2.11",
+  "install_command_exit": 0,
+  "owner_skills": 24,
+  "installed_core_files_compared": 301,
+  "installed_core_file_bytes_identical": true,
+  "core_file_mismatch_count": 0,
+  "installed_skill_and_reference_markdown_links_checked": 492,
+  "missing_core_targets": 0,
+  "broken_core_heading_anchors": 0,
+  "isolated_install_directory_removed": true,
+  "direct_checkout_install": {
+    "status": "blocked_preflight_without_writes",
+    "reason": "The checkout already contains generated video-production-assets/support files that collide with installer support destinations; current source tree was staged without only that generated support folder for the isolated install.",
+    "existing_user_content_preserved": true
+  },
+  "limitations": [
+    "This does not overwrite or refresh any global user-agent installation.",
+    "The support changelog and QA archive are not per-skill reference payloads and are excluded from the core-link and hash comparisons."
+  ]
+}

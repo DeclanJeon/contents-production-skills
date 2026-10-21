@@ -1,0 +1,12 @@
+{
+  "command": [
+    "C:\\Users\\Declan\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\video-production-assets\\scripts\\validate_storyboard.py",
+    "C:\\Users\\Declan\\Documents\\Projects\\Skills-and-Automation\\contents-production-skills\\qa\\skill-completeness-95\\closure-F5\\chef-board.json"
+  ],
+  "exit_code": 0,
+  "stdout": "{\n  \"valid\": true,\n  \"errors\": [],\n  \"scope\": \"storyboard coverage, references and timing; no media decoding, artistic or approval verification\"\n}\n",
+  "stderr": "",
+  "input_sha256": "49365d3c0a04b07a89c1864d12e7e01e29d59bba64a230428701cca97888893d",
+  "scope": "real CLI on synthetic structured plan; not full prose, pixels, rights, approvals, voice or camera-fit validation"
+}

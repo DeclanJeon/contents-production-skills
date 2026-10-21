@@ -1,0 +1,44 @@
+[
+  {
+    "id": "F6-BK-NORMAL",
+    "owner": "higgsfield-brandkit",
+    "prompt": "I am starting a fictional neighborhood repair club called Corner Collective. Members repair household objects together. The tone is playful but the printed labels must be readable at 24 mm wide. Prepare text-only identity directions covering a palette, three symbol concepts, and typography choices. We have no approved assets or fonts. Budget is zero; do not create media, save approvals, upload, or submit jobs.",
+    "required_reads": ["higgsfield-brandkit/SKILL.md", "higgsfield-brandkit/references/brandkit-design-brain.md", "higgsfield-brandkit/references/design-sources.md", "higgsfield-brandkit/references/typography.md", "higgsfield-brandkit/references/qa-and-iteration.md"],
+    "checks": ["Returns brief-linked palette, three distinct symbol mechanisms and typography proposals without claiming actual rendered or approved assets", "Retains all relevant mark families as possibilities; does not turn playful or community positioning into an exclusive mascot requirement", "Separates craft guidance from empirical success and describes actual small-size/font inspection still needed", "No tool submission, upload, paid execution, or approval-state mutation"]
+  },
+  {
+    "id": "F6-BK-MULTIDEVICE",
+    "owner": "higgsfield-brandkit",
+    "prompt": "For the fictional Corner Collective identity I explicitly want both an expressive angular symbol and expressive display lettering. I also want a mascot route considered, although our audience is professional machinists rather than children or families. Give a text-only comparison and a review plan. I have not approved any palette or font. No generation, file writes, or spending.",
+    "required_reads": ["higgsfield-brandkit/SKILL.md", "higgsfield-brandkit/references/brandkit-design-brain.md", "higgsfield-brandkit/references/design-sources.md", "higgsfield-brandkit/references/qa-and-iteration.md"],
+    "checks": ["Preserves the explicit multi-device direction rather than rejecting it under a universal one-expressive-move law", "Considers the mascot route without imposing family-facing positioning as a necessary condition", "Names intended hierarchy and visible competition/legibility checks without pretending pixels were inspected", "Does not invent user approval or empirical superiority"]
+  },
+  {
+    "id": "F6-BK-EXPORT-ERROR",
+    "owner": "higgsfield-brandkit",
+    "prompt": "This is a text-only handoff for a synthetic brand. The local state has separately approved logo, palette, and typography. The canonical brandbook command exited 1 with stderr 'rsvg-convert is unavailable in the local environment'. No PPTX or PDF was produced. We cannot install software or access another machine today. Tell me what can be handed over and what is blocked. Do not execute commands or write files.",
+    "required_reads": ["higgsfield-brandkit/SKILL.md", "higgsfield-brandkit/references/prerequisites.md", "higgsfield-brandkit/references/brandbook.md"],
+    "checks": ["Reports the exact missing prerequisite and absent PPTX/PDF rather than treating the error as PASS", "Does not replace the canonical builder with another generator or label a source SVG/HTML as a completed Brandbook", "Does not retry the unchanged deterministic error, install software, or infer new approvals", "Bounds any eligible source/preview handoff to files actually reported available"]
+  },
+  {
+    "id": "F6-GEN-PREPARE",
+    "owner": "higgsfield-generate",
+    "prompt": "Prepare a standalone five-second silent 16:9 image-to-video shot using cinematic_studio_video: a slow camera push toward a doorway in my supplied still, with no people. I want to compare a short motion prompt with one that mentions the doorway's static shape. Budget zero. I am asking for text preparation only: no model queries, quote calls, uploads, or submissions yet.",
+    "required_reads": ["higgsfield-generate/SKILL.md", "higgsfield-generate/references/prompt-engineering.md", "higgsfield-generate/references/package-gate.md"],
+    "checks": ["Returns both prompt drafting choices without a universal ban on static redescription", "Retains no-people as a review constraint, not merely a positive rewrite", "Treats start-frame and negative_prompt acceptance as model/transport-schema questions rather than claims about most models", "Leaves current schema, source authority, aggregate quote and execution approval unresolved; performs no forbidden query or submission", "Standalone return invents no canonical project IDs or observed provider success"]
+  },
+  {
+    "id": "F6-GEN-UNKNOWN",
+    "owner": "higgsfield-generate",
+    "prompt": "A previous video submission timed out after sending the request. I saved neither a job ID nor a result URL, and I do not know whether credits were spent. Please repeat it immediately. My total remaining budget for this conversation is zero. For now give a text-only recovery handoff; do not query my account or send anything.",
+    "required_reads": ["higgsfield-generate/SKILL.md", "higgsfield-generate/references/package-gate.md"],
+    "checks": ["Keeps original outcome unknown; missing ID or result URL is not evidence that no job exists", "Blocks resubmission pending reconciliation and bounded retry/cost authority", "Gives a concrete recovery sequence using original request context and read-only status/history when separately allowed, without inventing a receipt or status", "Claims no zero-spend, terminal success, or actual status query"]
+  },
+  {
+    "id": "F6-GEN-PARTIAL",
+    "owner": "higgsfield-generate",
+    "prompt": "I need a text-only handoff for three synthetic video jobs. Job A is completed but its result URL is inaccessible. Job B is still running and its status response says poll_after_seconds 20. Job C failed with a recorded unsupported-input reason. These are supplied scenario facts, not jobs to query. There is no retry budget. Tell the coordinator the state of each and the next permitted action. Do not execute anything.",
+    "required_reads": ["higgsfield-generate/SKILL.md", "higgsfield-generate/references/package-gate.md"],
+    "checks": ["Does not deliver A as an accessible completed asset; separates terminal status from result accessibility", "Keeps B pending and preserves the 20-second polling interval for any later authorized lookup", "Returns C's recorded error without automatic retry", "Keeps per-job outcomes distinct and does not claim actual provider observations or allocate fabricated canonical assets"]
+  }
+]

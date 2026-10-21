@@ -1,0 +1,14 @@
+# Frozen prompt manifest (baseline)
+
+baseline-prompts.md	2485B	sha256=cf4fbf0bd0604e5acf7b193a1180612e9ed4676b766ab727bbdefc06cf8200b8
+baseline-prompts-exact.md	16869B	sha256=36ebdab6506d18ed2086c5b9f364f3e77ce510cbec1c72a5070a1b8d963b84fa
+baseline-matrix.md	8547B	sha256=d4597fa53ef6ac675ab6486c3fc35fa159cf2cea67a01b17556de10cee1ed537
+baseline-matrix-vpa.md	8136B	sha256=7239e7d2cd57da45e8cf971c723c39f6dda75c96e3624f5873596637e4749bf3
+
+baseline-prompts.md: 2 text blocks
+baseline-prompts-exact.md: 59 text blocks
+baseline-matrix.md: 0 text blocks
+baseline-matrix-vpa.md: 0 text blocks
+
+# NOTE: baseline-matrix.md re-hashed after (a) its Axis-2/coverage edit and (b) the M-03/M-14 assertion corrections; summary columns changed, frozen prompt blocks did not. Frozen prompt bytes still equal baseline-prompts-exact.md above.
+# NOTE: baseline-matrix.md has 0 fenced text blocks (tables only); its probe column is a summary, the byte-exact prompt lives in baseline-prompts-exact.md.

@@ -1,0 +1,52 @@
+[
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\bad-reviews.json",
+    "bytes": 21,
+    "sha256": "b1f7c7c6133857325d6687eabe69142e79f8268a40ebc4a3a89e463fb3c19fd1"
+  },
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\brandbook.json",
+    "bytes": 265,
+    "sha256": "2c86514810f89484922f0d7d2dde694523dbfd12093873afbdf7e014c8ceb077"
+  },
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\export.json",
+    "bytes": 296,
+    "sha256": "3d1244176be69d9e359e6fd4d7429112be4aecbb86b554c4ebb5e3fe53f43186"
+  },
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\fixture-symbol.svg",
+    "bytes": 117,
+    "sha256": "99e3cfb0cd27ea8fe0af3f61f713f605779ef32a977ecd6080e4c1db0e9ba0b2"
+  },
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\official-logo.json",
+    "bytes": 461,
+    "sha256": "9290f6cc05dd41a11ce47becedf89334ea0366c4972ec2e371771c89c8493ed6"
+  },
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\official-palette.json",
+    "bytes": 461,
+    "sha256": "2d7bd2ecdc4ee4a8e83bead66ce91cf059a6e3135582c6c9357eae74cb0852ad"
+  },
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\official-typography.json",
+    "bytes": 440,
+    "sha256": "2e71e6239f5f596f79ff34d87c4bacbc6bddbffc9b23b4a46e02e2b1d0eb71b5"
+  },
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\reviews.json",
+    "bytes": 1329,
+    "sha256": "875acee93cbc887ed042d9395a6f1c22772745fb67c108baefee90cfd36a09fa"
+  },
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\state.json",
+    "bytes": 1599,
+    "sha256": "7248942c127dbc5acf0f9bb67d055a3687ac96a0d34a6b9b5453341c738f1163"
+  },
+  {
+    "path": "qa\\skill-completeness-95\\closure-F6\\synthetic-brand\\reviews\\brandkit-review-1-synthetic-corner.html",
+    "bytes": 2763,
+    "sha256": "d2ad225dadbc75aa5a0cf5491cd8a180be9fd31275f33ce55102c43ddbfbc279"
+  }
+]

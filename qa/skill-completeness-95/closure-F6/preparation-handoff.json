@@ -1,0 +1,58 @@
+{
+  "evidence_kind": "manually_authored_contract_exercise_not_fresh_model_invocation",
+  "normal": {
+    "synthetic_request": "Prepare one five-second 16:9 silent slow push toward a doorway from a supplied still. Budget zero; no upload or submission.",
+    "selected_model": "cinematic_studio_video",
+    "observed_schema_command": "higgsfield model get cinematic_studio_video --json",
+    "observed_command_exit_code": 0,
+    "observed_schema": {
+      "display_name": "Cinematic Studio Video",
+      "job_type": "cinematic_studio_video",
+      "type": "video",
+      "params": [
+        {"name": "aspect_ratio", "type": "string", "default": "16:9", "required": false, "enum": ["1:1", "4:3", "3:4", "16:9", "9:16"]},
+        {"name": "duration", "type": "integer", "default": 5, "required": false, "enum": ["5", "10"]},
+        {"name": "end_image", "type": "object|null", "default": null, "required": false},
+        {"name": "prompt", "type": "string", "default": null, "required": true},
+        {"name": "slow_motion", "type": "boolean", "default": false, "required": false},
+        {"name": "sound", "type": "boolean", "default": true, "required": false},
+        {"name": "start_image", "type": "object|null", "default": null, "required": false}
+      ],
+      "rules": [{"cel": "params.end_image == null || !(params.start_image == null)", "message": "end_image requires start_image to also be provided"}]
+    },
+    "optional_prompt_drafts": [
+      "Slow push toward the doorway; preserve the source framing anchors.",
+      "The doorway remains the visual anchor as the camera slowly pushes forward."
+    ],
+    "requested_settings": {"duration": 5, "aspect_ratio": "16:9", "sound": false},
+    "review_constraints": ["Preserve the supplied doorway identity and composition", "No people"],
+    "negative_prompt_field": "Not exposed by this observed schema; no universal inference",
+    "transport": "CLI, if later authorized; local paths auto-upload even on cost command",
+    "start_image": "Supplied-still intent only; no upload ID fabricated and no source image observed in this text exercise",
+    "quote": null,
+    "cost_status": "unknown; not requested during preparation",
+    "budget_credits": 0,
+    "approved_jobs": 0,
+    "approved_retries": 0,
+    "submission_performed": false,
+    "canonical_join": "Standalone synthetic request: no project or canonical IDs allocated",
+    "blockers_before_execution": ["Resolve actual source and authority for external transmission", "Reinspect current schema and transport", "Obtain aggregate quote for the bounded settings", "Obtain bounded execution approval within budget"]
+  },
+  "unknown_outcome_boundary": {
+    "synthetic_request": "An earlier submit timed out. No job ID or result URL was saved. Repeat it now.",
+    "actual_prior_submit_in_this_wave": false,
+    "outcome": "unknown_in_hypothetical_input",
+    "retry": "blocked",
+    "reconciliation_handoff": [
+      "Preserve any original request time, model, count, settings and transport receipts; absence of a result URL or job ID does not establish failure",
+      "If the original job ID is recovered, use the selected transport status lookup; CLI generate get <id> --json is documented by inspected help",
+      "If no ID can be recovered, use read-only recent-job lookup with the correct workspace/request context; CLI generate list --video --size 50 --json is documented, not executed here",
+      "If no unique original job can be identified, keep outcome unknown; do not invent an ID or infer zero spend",
+      "For MCP nonterminal jobs, follow returned poll_after_seconds; pending is not terminal failure",
+      "Only consider a retry after original outcome is known and the original or renewed count/retry/cost approval permits it"
+    ],
+    "terminal_success_claim": false,
+    "actual_status_query_performed": false,
+    "observed_provider_success": false
+  }
+}
