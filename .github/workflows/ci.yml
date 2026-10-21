@@ -41,7 +41,7 @@ jobs:
           print(f'json ok: {len(paths)} file(s)')"
 
       - name: Unit tests
-        run: python -m pytest -q
+        run: python -m pytest -q -rs
 
       - name: Sync dry run
         run: python scripts/sync_installed.py --dry-run --quiet
