@@ -154,6 +154,17 @@ python scripts/install_package.py --skills-root $skillRoot --replace --backup-di
 
 이 프로젝트 업데이트 자체는 사용자 전역 스킬 설치본을 덮어쓰지 않는다. 정본은 저장소이며 설치는 위 명령으로 별도 수행한다. 아래 링크 동기화를 명시적으로 실행한 경우에는 작업 트리 변경(미커밋 변경 포함)이 설치 루트에도 바로 보인다. 커밋/배포 버전 고정이 필요하면 깨끗한 별도 체크아웃에서 복사 설치한다.
 
+### 로컬 잔여물 정리
+
+설치 도구는 교체한 파일을 `<파일>.from-backup`으로, 브랜치를 `<브랜치>.from-backup`으로 남기고 git 객체 저장소 안에도 사본을 남긴다. 이 사본들은 git 히스토리와 중복되어 검토 대상이 아니고 계속 쌓인다. 설치·동기화 후 다음 스크립트로 정리한다(기본은 dry run, 삭제하려면 `--apply`).
+
+```bash
+python scripts/clean_local_artifacts.py            # dry run
+python scripts/clean_local_artifacts.py --apply
+```
+
+커밋된 리포트·원장·연락시트는 남고, 대용량 원시 평가 캡처(`qa/skill-completeness-95/runs/`)와 추출 분석 미디어(`docs/analysis/*/evidence/`)만 추가로 제거한다. 후속으로 `git gc --prune=now`를 실행하면 객체 저장소도 정리된다.
+
 ## 검증
 
 전체 회귀 검증에는 `pytest`, `Pillow`, `pydantic` v2가 필요하다. 저장소 루트에서 실행한다. Windows에서는 UTF-8 모드를 명시해 UTF-8 fixture를 시스템 기본 cp949로 읽지 않도록 한다.

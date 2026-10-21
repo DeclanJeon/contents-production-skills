@@ -36,6 +36,8 @@
 ## Unreleased
 
 - chore(repo): drop local backup copies and bulk raw artifacts. Remove the install tooling's `*.from-backup` file copies and the `main.from-backup` / `skill-completeness-95-loop.from-backup` branch snapshots, the raw evaluation captures under `qa/skill-completeness-95/`, and the extracted analysis media under `docs/analysis/*/evidence/`; all of it is redundant with git history or regenerable, and the curated reports, ledgers and contact sheets stay tracked.
+- Add `scripts/clean_local_artifacts.py` so the install tooling's leftover `*.from-backup` file copies, mirrored `*.from-backup` branches, stale remote-tracking refs and git object-store copies can be removed in one dry-run-by-default step, together with the ignored bulk evaluation captures and extracted analysis media; the curated reports, ledgers and contact sheets stay tracked. Document it in the install section of the README and cover the symbolic-ref deletion rule with a test.
+- Install ffmpeg and ffprobe in CI so the real delivery-regression tests run there instead of skipping, and the CI test count matches a local run with the same tools.
 
 ## 2.29 2026-10-18
 
