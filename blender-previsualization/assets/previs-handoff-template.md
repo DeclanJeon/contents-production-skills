@@ -18,3 +18,6 @@ Blender version / engine / 실행 명령·mode·render-map: {실제 기록}
 - 직전 채택 클립의 실제 종료 상태 / 외형·장소 기준 / 충돌 시 속성별 우선 기준: {각 ID/버전 또는 미해결}
 - 대응 시점 비교: {배치→접촉/지지→카메라 경로→컷→끝 상태; 실제 검사 범위만}
 - 움직이는 출력: {별도 승인·실제 파일이 없으면 미실행; 정지 프레임을 영상 검사로 보고하지 않음}
+
+camera-intent artifact ID/version / selected camera-language catalog IDs: {해당 시}
+기법별 구현 상태(현재 어댑터 / 확장 필요 / 편집 단계 / unsupported·unverified)와 근거: {구현표 ID·증거}

@@ -3,6 +3,8 @@
 - Expected specification and clip IDs/versions:
 - Actual inspected playback / frame or PTS basis / gaps:
 - Scope and outcome (plan inspection vs actual video inspection):
+- Camera-language catalog IDs / camera-intent artifact ID and version:
+- Blender implementation-map status and inspected artifact/frame evidence (if applicable):
 
 | Issue | Shot/panel | Evidence time/type | Expected vs actual | Severity | Cause hypothesis | Minimum fix / owner | Reinspection and scope change |
 |---|---|---|---|---|---|---|---|

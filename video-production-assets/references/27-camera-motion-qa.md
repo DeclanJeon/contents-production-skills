@@ -11,6 +11,7 @@ camera_spec와 companion timing/lens 계획의 현재 버전, 원본/생성 클�
 5. focus 대상과 전환 시점, 필수 행동·제품·표정의 가독성, 렌즈 호흡·블러·노출 변화가 의도에 맞는지 본다. 랙 포커스를 카메라 이동 성공으로 기록하지 않는다.
 6. 180도 축/시선·피사체 순서·이동 방향·매치 액션·샷 간 상대 속도가 이어지는지 본다. 의도된 축 변경은 관객 재정위 단서를 검사한다.
 7. 승인된 공개/접촉 목표와 실제 timecode/PTS를 비교한다. 오차 허용이 없으면 measured difference로 보고하고 임의 pass 임계값을 만들지 않는다. source reference timing은 새 제작의 승인 목표와 구분한다. 숫자 유사도/flow 점수만으로 미학 통과나 자동 재생성을 하지 않는다.
+요청된 기법이 카메라 카탈로그 항목이면 [`camera-language-catalog`](../../camera-spatial-design/references/camera-language-catalog.md)에서 의도와 기대 결과를 확인하고, Blender 프리비즈 결과를 주장할 때는 [`camera-technique-implementation`](../../blender-previsualization/references/camera-technique-implementation.md)의 현 지원 경계와 실제 렌더/검사 범위를 대조한다. 지원되지 않거나 편집에서 처리할 항목은 해당 구현 evidence가 없으면 pass로 판정하지 않는다.
 
 ## 결과와 수정 담당
 issue_id / severity / shot·panel ID / actual clip version / source evidence time / OBSERVED 또는 USER_REPORTED / expected vs actual / impact(interpretation) / cause hypothesis / minimum fix / owner / affected dependents / reinspection range를 적는다.
