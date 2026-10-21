@@ -1,6 +1,6 @@
 ---
 name: camera-spatial-design
-version: 1.18
+version: 1.19
 description: Design camera positions/angles, composition, lens, blocking and motivated paths
   for film, animation or AI video. Use for camera movement, shot coverage, spatial staging
   or numeric camera specs; actual scene-specific 3D feasibility or explicit previs requires
@@ -26,7 +26,7 @@ Use the [canonical production routing and Blender gate](../creative-production/r
 “Scene-specific 3D camera/spatial design” means actual scene-specific 3D geometry/placement/feasibility design under this trigger. This skill owns the spec; `blender-previsualization` owns mandatory implementation and visual inspection when triggered. Text-only/read-only work remains non-executing and labels unperformed checks `PLANNED`/`UNVERIFIED` or `BLOCKED`. If required Blender is absent, report the exact missing runtime/evidence, continue independent work, and block only dependent spatial completion; no alternate renderer or FINAL claim. Numeric/schema checks and smoke runs do not prove actual 3D scene feasibility or full requested visual inspection.
 
 ## 실행
-1. [공통 공간 계약](references/spatial-contract.md)을 읽는다. 장면 목적, 관객이 알 정보, 인물 관계, 화면비, 장소·리그 제약을 확인한다. 도서 근거가 필요하면 [자료 지도](references/sources.md)를 읽는다.
+1. [공통 공간 계약](references/spatial-contract.md)을 읽는다. 장면 목적, 관객이 알 정보, 인물 관계, 화면비, 장소·리그 제약을 확인한다. 카메라 기법 선택이 포함되면 [구도·움직임·전환 카탈로그](references/camera-language-catalog.md)를 읽고, 샷별 의도는 [camera-intent 양식](assets/camera-intent-template.md)에 `shot_id`와 camera-spec 버전을 연결한다. 도서 근거가 필요하면 [자료 지도](references/sources.md)를 읽는다.
 2. 피사체·장벽·동선을 미터 좌표로 배치한다. 인물간 거리를 실제 이야기 관계와 연결하되 가까움=친밀함 같은 보편 공식을 강제하지 않는다. 주목할 대상과 가림을 명시한다.
 3. 설계가 미확정이면 최소 두 카메라 후보를 비교한다. 각 후보에 크기·시점·높이·좌표·target·피사체 거리·렌즈/유효 게이트·구도를 기록한다. `assets/camera-comparison.csv`를 채운다. 창작 취향을 계산된 성과로 표현하지 않는다. 잠긴 카메라 명세를 위임받았으면 새 후보를 만들지 않고 검증·재사용하며, 승인된 설계가 깨진 것이 발견될 때만 변경 이유와 함께 부모에 돌려보낸다.
 4. 원근은 시점·거리, 프레이밍은 시점·렌즈·출력 게이트의 결합으로 설계한다. 줌과 돌리를 구분하고, 카메라 이동이 꼭 필요한지 정지 샷/컷 대안과 비교한다.
@@ -34,10 +34,10 @@ Use the [canonical production routing and Blender gate](../creative-production/r
 6. 화면 여백·눈높이·전경/중경/배경·가림·시선·180도 축을 확인한다. 축 변경의 관객 재정위 방법과 주목 대상 전환을 적는다.
 7. `assets/camera-spec-example.json`을 복사해 실제 장면 명세를 작성한다. 예제 좌표를 아무 장면에 그대로 적용하지 않는다. 처음/중간/끝만 보지 말고 모든 프레임에서 대상 위치와 경로를 계산한다.
 8. `python scripts/spatial_spec.py camera_spec.json --out analysis.json`으로 검사한다. warnings를 실제 샷 목적과 대조하고 의도된 크롭/축 변경은 이유를 기록한다. 경고 수를 작품의 품질 점수로 해석하지 않는다.
-9. [설계·구도 판단](references/camera-design.md)을 적용하고, 위 Blender trigger에 해당하는 실제 장면별 3D geometry/placement/feasibility 설계 또는 명시적 previs는 항상 `$blender-previsualization`에 같은 명세를 인계해 실제 Blender 장면과 렌더 프레임으로 확인한다. 서사 카메라 필드·무빙·보드만으로는 호출하지 않는다. `spatial_spec.py` 결과는 입력/사전 검사이지 3D 화면 검증 완료가 아니다. Blender가 없으면 설계 문서는 계획 상태로 반환하고 의존하는 3D 검증만 BLOCKED/UNVERIFIED로 남긴다.
+9. [설계·구도 판단](references/camera-design.md)을 적용한다. 카탈로그 기법을 선택한 경우 구현 상태·요청된 검사 방법을 함께 정한다. 위 Blender trigger에 해당하는 실제 장면별 3D geometry/placement/feasibility 설계 또는 명시적 previs는 항상 `$blender-previsualization`에 같은 명세를 인계하고 [기법별 Blender 구현표](../blender-previsualization/references/camera-technique-implementation.md)에 따라 실제 Blender 장면과 렌더 프레임으로 확인한다. 서사 카메라 필드·무빙·보드만으로는 호출하지 않는다. `spatial_spec.py` 결과는 입력/사전 검사이지 3D 화면 검증 완료가 아니다. Blender가 없으면 설계 문서는 계획 상태로 반환하고 의존하는 3D 검증만 BLOCKED/UNVERIFIED로 남긴다.
 
 ## 산출물
-채워진 camera_spec.json, 후보 비교표, 분석 JSON, 샷별 선택 이유·미검증 항목을 인계한다. 위 trigger에 해당하는 요청에는 Blender의 .blend, 요청된 실제 검사 프레임, numerical-analysis.json, blender-inspection.json 및 manifest.json 증거도 필수다. 실제 Blender version/mode를 기록하고 요청된 .blend/이미지 출력을 다시 열어 관련 프레임을 검사한다. 텍스트·2D 설계는 3D 실행으로 오인하지 않는다. Blender 런타임이 없으면 숫자 설계만 전달하고 3D 완료로 판정하지 않는다. 기존 camera spec/version과 shot/scene/panel ID·시간을 유지한다.
+채워진 camera_spec.json, 필요 시 camera-intent.md, 후보 비교표, 분석 JSON, 샷별 선택 이유·미검증 항목을 인계한다. 위 trigger에 해당하는 요청에는 Blender의 .blend, 요청된 실제 검사 프레임, numerical-analysis.json, blender-inspection.json 및 manifest.json 증거도 필수다. 실제 Blender version/mode를 기록하고 요청된 .blend/이미지 출력을 다시 열어 관련 프레임을 검사한다. 텍스트·2D 설계는 3D 실행으로 오인하지 않는다. Blender 런타임이 없으면 숫자 설계만 전달하고 3D 완료로 판정하지 않는다. 기존 camera spec/version과 shot/scene/panel ID·시간을 유지한다.
 
 ## 장소 공간 계약 (v5.1)
 

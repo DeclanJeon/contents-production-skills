@@ -32,6 +32,19 @@ Direct contract read 2026-10-17: [official MODELS.md](https://github.com/higgsfi
 - Default for everything else → GPT Image 2.5: graphic design, UI, banners, typography, product concepts, editing, high-fidelity general generation.
 - Cheaper or faster on user request → Nano Banana 2 Lite (`nano_banana_2_lite`) for reference edits, Z Image for drafts.
 
+## 작업 종류별 모델 선택 관찰 (GUIDE-01, craft 참고)
+
+아래는 사용자 제공 제작 가이드북(GUIDE-01, 통합 기록은 [video-production-assets 출처 등록](../../video-production-assets/references/sources.md))이 **실제 제작에서 역할별로 골랐다고 기록한** 이미지 모델의 역할이다. 이 표는 **선택 craft 참고**이며 capability·품질·가격 주장이 아니다. 같은 출처도 모델명이 바뀌는 것(예: GPT Image 2.5의 Flare와 Sunburst을 혼동해 한쪽만 고른 사례)을 경고하므로, 어떤 모델을 쓰든 현재 `higgsfield model get <jst> --json` 계약으로 확인하기 전에는 실재 모델·입력 필드를 단정하지 않는다. **출처의 서비스·모델 기본값을 이 패키지의 기본값으로 채택하지 않는다.**
+
+| 작업 | 가이드북이 기록한 선택 | 관찰된 이유 |
+|---|---|---|
+| 캐릭터 시트·수정·기본 | GPT Image 2.5 / Nano Banana Pro | 캐릭터 시트·수정의 기본 모델 |
+| 실감 조명·배치가 중요한 장면 | WAN 2.7 Image Pro | 실감 조명과 인물 배치 |
+| 강한 감정의 키 비주얼 | Seedream 5 Pro | 강한 인물의 키 비주얼 |
+| 참고/가져오기 | Nano Banana Pro | Google Nano Banana 모델과 서비스 이름을 구분해 호출 |
+
+이 표는 패키지 정책(Higgsfield 이미지 생성 제외)과 별개로 **다른 이미지 실행 소유자**(`codex-imagen` 기본 경로 등)가 같은 작업 분할을 참고할 수 있게 한다. 어느 경우에도 모델을 바꾸면 동일 인물의 얼굴이 달라질 수 있으므로, 한 프로젝트에서 정체성을 유지해야 하는 이미지는 한 모델·하나의 시트 흐름 안에 묶고, 모델을 갈아탄 순간을 원장에 기록한다. 모델 선택은 프로젝트 단위 결정이며, 위 역할을 기본 라우팅으로 고정하지 않는다.
+
 ## CLI shapes (craft reference)
 
 ```bash

@@ -11,6 +11,8 @@
 | 스킬 | 책임 | 경계 |
 |---|---|---|
 | [creative-production](creative-production/SKILL.md) | 단일 총괄: 원고·소셜·캠페인·이미지·오디오·영상 요청 라우팅, QA/납품; 이미지 기반 전체 프리프로덕션은 text worker handoff 뒤 실제 still/sheet/extraction까지 조정 | 요청 범위·단일 project.json/.history writer·사전검토/사용자수락/영상실행 승인을 분리한다. |
+| [product-detail-page-builder](product-detail-page-builder/SKILL.md) | 한국 marketplace 상품 사실·모듈·이미지·한글 조판·파일 검증 specialist | `creative-production`의 단일 총괄 경계를 유지한다. storefront UI·업로드/게시·광고 주장을 자동으로 만들지 않는다. |
+| [searching-social-media](searching-social-media/SKILL.md) | Flucto로 SNS 영상 게시물 후보·레퍼런스·공개 수요 근거 검색 | 검색 범위·색인/직접 조회·플랫폼 실패·지표 단위·미확인을 보존한다. 자동 다운로드·분석·주제 선정·게시 없음. |
 | [topic-demand-selection](topic-demand-selection/SKILL.md) | 주제 선택·순위·인기/검색 수요 검증 | 주제 후보를 고르기 전에 audience-demand 근거와 사실/자료 게이트를 별도로 평가한다. |
 | [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품; 영화 제작 6단계 참조; 대사·립싱크(22)의 TTS 전 다국어 대사 현지화·각색과 기존 보이스·립싱크 | 15개 선택형 모듈과 통합 전문 참조. 영화 경로는 명시적 전체/단계 간 요청에만 적용하고, 실제 렌더·권리 승인·게시와 구분한다. |
 | [orchestrating-video-preproduction](orchestrating-video-preproduction/SKILL.md) | 콘셉트→시놉시스→필요한 캐릭터→스토리보드의 텍스트 기획 | 총괄의 내부 text-only worker. 배정된 텍스트만 반환하며 이미지·영상·폴더·원장을 만들지 않는다; 총괄은 handoff 뒤 이미지 기반 전체 package를 계속할 수 있다. |
@@ -20,7 +22,7 @@
 | [storyboarding-video](storyboarding-video/SKILL.md) | 전체 이야기·기술 슬롯을 연결한 완전한 제작 콘티; 명시적 러프 패널은 좁은 형식 | 텍스트 기획은 실제 이미지/검수/실행과 구분한다. |
 | [storytelling-with-still-images](storytelling-with-still-images/SKILL.md) | 정지 이미지 전용 영상의 서사·큐 타이밍·음향·검수 계획 | 스틸만 화면 소스로 사용. 새 스틸 생성과 영상 조립을 분리한다. |
 | [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | 모든 장면별 3D 카메라/공간 작업은 Blender 구현·화면 검수까지 필수다. `camera-spatial-1.0`은 설계·사전 검사 계약이다. |
-| [blender-previsualization](blender-previsualization/SKILL.md) | 카메라·피사체 움직임, 구도·공간 배치의 실제 Blender 프록시·프리비즈·기하 검사 | 장면별 3D 카메라/공간 설계의 필수 구현·시각 검수 경로. Blender 런타임 필요; 최종 영상 품질을 보증하지 않는다. |
+| [blender-previsualization](blender-previsualization/SKILL.md) | 카메라·피사체 움직임, 구도·공간 배치의 실제 Blender 프록시·프리비즈·기하 검사 | 장면별 3D 카메라/공간 설계의 필수 구현·시각 검수 경로. Blender 런타임 필요; 최종 영상 품질을 보증하지 않는다. 기준 경로는 Blender CLI이며, 같은 어댑터를 호출하는 선택형 MCP 서버(`blender-previsualization/mcp/`)를 함께 배포한다. |
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
 The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills.
@@ -34,7 +36,24 @@ Exhaustive all-source/all-shot 또는 cross-source craft extraction에는 [archi
 - **Unrelated brief:** [baker baseline/current-package comparison](qa/rofan-unrelated-brief-baseline-with-skill.md) has one sample per arm; it passes the brief/scope check in both, but is descriptive—not causal or statistical evidence.
 설치 스킬 목록은 [manifest.json](manifest.json)의 `skills`가 정본이다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
 
+유료 데스크톱 앱이 필요하지만 이 시스템에 없으면 [ArtCraft 폴백](creative-production/references/production-routing-optional.md#desktop-app-fallback-artcraft)으로 같은 craft를 계속한다: Photoshop→PhotoCraft, Illustrator→VectorCraft, After Effects→EffectCraft, Premiere Pro→FilmCraft 등. 설치된 앱이 우선이며, 실제로 실행된 앱과 산출 형식을 결과에 명시하고 Adobe 파일과 동일하다고 주장하지 않는다. TouchDesigner·DaVinci Resolve에는 대응 앱이 없어 미설치 상태를 그대로 보고한다.
+
+Higgsfield MCP 카탈로그(`higgsfield.ai/ko/mcp`)의 번들·프리셋은 새 스킬이 아니라 공급자 기능이다. [조건부 라우팅](creative-production/references/production-routing-optional.md#higgsfield-mcp-preset-inventory)의 표로 기존 오너(Blender·피니싱·모션 그래픽·광고 변형·faceless/UGC)에만 연결하고, 총괄·승인 원장을 새로 만들지 않는다.
+
 캐릭터 시트를 새로 작성하거나 심화하면 페르소나·표현 연결·발화 역할의 음성 설계가 기본 포함된다. 새 허구 인물의 위임된 창작에서는 MBTI/에니어그램을 제안으로 사용할 수 있으며, 공급된 유형·승인 설정·명시적 `none`을 우선한다. 무언 역할은 음성 N/A; 실제 음성 후보·생성·청취 승인은 별도다. 구체적인 요청과 수정 경계는 [사용 가이드](USAGE_GUIDE.md#캐릭터와-시리즈)를 따른다.
+
+## Flucto SNS 검색
+
+SNS에서 공개 영상 게시물 후보를 찾을 때는 [searching-social-media](searching-social-media/SKILL.md)를 사용한다. 일반 검색·레퍼런스 탐색·수요 근거 수집을 지원하되, SNS 전체 텍스트/이미지/댓글 수집이나 인기 예측은 하지 않는다. 현재 어댑터는 검토된 Flucto 1.19.0만 실행하며 다른 버전·누락 런타임·인증/접근 실패는 명시적으로 보고한다. 기본은 YouTube 1곳·최대 10개 후보·네트워크 CLI 6회·전체 120초, 자동 재시도/설치/다운로드 없음이다.
+
+```bash
+# 준비만: 외부 호출 없음
+python searching-social-media/scripts/social_search.py --query "제품 촬영" --platform youtube --mode reference --plan
+# 사용자 요청에 따른 실제 검색; stdout JSON, --output을 지정한 새 파일만 저장
+python searching-social-media/scripts/social_search.py --query "제품 촬영" --platform youtube --limit 5
+```
+
+언어·지역은 조사 의도이며 서버 필터 적용을 보장하지 않는다. 기간은 게시일 후처리만 하며 날짜 미상은 충족으로 간주하지 않는다. 색인 결과를 영상 시청으로, Reddit 점수를 조회수로, `info`의 모호한 수치를 검증된 조회수로 승격하지 않는다. [작업지시서](docs/superpowers/plans/2026-10-20-social-search-work-order.md)와 [검증 기록](qa/social-search-validation.json)에서 구현/실측 범위를 구분한다.
 
 ## 제작 경험서에서 반영한 범용 공정
 
@@ -146,6 +165,8 @@ python -X utf8 -m pytest -q
 ```
 
 이전 패키지 `2.8` 회귀 기록은 **254 passed, 8 skipped, 214 subtests passed**이며 현재 변경의 재검증 결과가 아니다. 당시 Windows 링크 권한과 PATH에서 발견되지 않은 Blender 때문에 건너뛴 검사, subprocess 디코딩 경고 등은 해당 시점의 환경 기록이다. 이전 격리 설치본의 FINAL 패키지·손상 입력 거부·history lifecycle 증거는 [최종 검증 원본](docs/evidence/production-v51-final-verification.json)과 [설치본·독립 검증 기록](docs/evidence/production-v51-qa-remediation.md)에 보존한다.
+
+95% 개선 작업의 현재 실행·검토는 [작업지시서](docs/superpowers/plans/2026-10-16-skill-completeness-95-work-order.md), [실행 환경](qa/skill-completeness-95/environment.md), [실제 스모크](qa/skill-completeness-95/smoke-results.md)로 구분한다. 새 평가 러너는 행동 59개와 별도 S1a/S1b의 정확한 원문 바이트를 검증하고, 실제 파일을 읽는 제한 도구 프로필에서 실행한다. 과거 Codex arm이나 문맥 주입 대체 응답과 동등하다고 주장하지 않는다. Blender 키프레임·로컬 렌더·납품 검사 증거는 최종 미감·전체 재생·권리·사용자 수락·공급자 생성 성공을 대신하지 않으며, 최종 61개 판정과 독립 점수 없이 95% 달성을 선언하지 않는다.
 
 전체 이미지 기반 프리프로덕션은 출처/시놉 MD → active LOOK 바이블 → 관련 잠금 Master/Scene State → 연결된 기술 콘티 → 읽을 수 있는 실제 시트들(시트당 최대 8패널) → 씬/패널 이미지 분할이 필수다. [정본 계약](video-production-assets/references/contract.md#전체-프리프로덕션-패키지)과 [Character SSOT 0–33](designing-video-character-sheets/references/character-ssot-master-prompt.md)를 따른다. FINAL 자산 게이트와 실제 검수는 별개다. 텍스트-only 요청에 이미지 생성·지출을 추가하지 않는다.
 

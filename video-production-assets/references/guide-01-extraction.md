@@ -118,6 +118,18 @@ R7의 0초/미확인 비용 처리·중복 초수 명시, R4의 provisional 표�
 - **작품:** 인물 이름·얼굴·의상 디자인·무기/특수 능력·지형·고유 타이밍·대사·전용 프롬프트는 범용 실행 지침에 옮기지 않는다. 개인 이력/연락처/계정/워터마크도 전사하지 않는다.
 - **입증:** 책의 특정 생성 결과와 프롬프트 사이의 계보, 사용자 발음 보고의 독립 청취, 서비스의 ‘현재’ 기능/검열/성능, 모든 세부 글리프는 확인하지 않았다. 과거 서적 근거를 새 경험서 전체의 근거로 교차 인용하지 않는다.
 
+## 2026-10-21 보충: 카메라·AI 제어·프리비즈 소비처
+
+같은 출처(GUIDE-01)의 3장(pp9–12)·11장(pp48–50)·13장(pp56–60)·14장(pp60–83)·17장(pp72–76)이 기존 오너 밖의 스킬에서도 쓰이므로, 해당 오너에 일반화해 반영했다. **작품 고유 인물·대사·회차·전문 프롬프트는 옮기지 않았고, 수치는 예시로만 적었다.**
+
+- `camera-spatial-design/references/camera-language-catalog.md` — C2 예시 리듬·감정 프로필. 90초 3구간·4초 컷·12–18초 감정 유지·감정→몸짓→키 비주얼을 **예시로만** 두고, 고정 90초·구간 배분 강제하지 않음을 명시.
+- `ai-camera-control/assets/camera-control-template.md`·`references/control-contract.md` — 참조 슬롯 역할표, shot-local 구간 행동표, 보존 제약, 오디오/대사 분리. 이는 17장(pp72–76)의 참조·보존·금지 카드에서 온다.
+- `camera-spatial-design/assets/camera-intent-template.md` — 보존 제약 행(근거 ID·검증 방법).
+- `blender-previsualization/scripts/build_previs.py`·`references/camera-technique-implementation.md` — 프록시 모드·초점 맵·룩 카드·엔진 선택과 프리비즈 카드 연결. 14장(pp60–83)의 실물 Blender 프리비즈 절차를 따른다.
+- `higgsfield-generate/references/image-branches.md` — 5장(pp16)·18장(pp77–83)의 작업별 이미지 모델 역할. 서비스·모델 기본값을 채택하지 않고 현재 계약 확인을 전제로 한다.
+
+[K-item 표와 44항목 연결표](guide-01-coverage.json)는 건드리지 않았다. 새 항목이 아니라 기존 K03·K11·K13이 이미 가리킨 소유 절차의 보강이기 때문이다.
+
 ## 검증 구분
 
 저장소의 `scripts/test_guide_integration.py` 정적 회귀 검사는 페이지/장/필드/오너 링크·범위 보호 문구·설치 가능 provenance 연결을 검사한다. 저장소의 `qa/guide-integration-scenarios.json`과 `qa/guide-followup-scenarios.json`은 별도 행동평가 입력이며 입력/기대값 자체는 실행 또는 통과 증거가 아니다. 정적 검사 통과는 에이전트의 실제 행동 개선·생성 성공·청취/시청·품질 향상 벤치마크가 아니다. 실제 실행·별도 채점·설치·미디어 시험의 최신 상태는 저장소의 `docs/analysis/shortdrama-guide-review.md`와 `qa/guide-behavior-review.json`을 참조한다(설치 스킬에는 저장소 docs/qa/scripts가 없을 수 있다).

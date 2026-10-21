@@ -28,6 +28,8 @@ camera: sensor_width_mm, lens_mm, clip_start_m, clip_end_m, roll_deg, clearance_
 subject_tracks: [{subject_id, interpolation, keyframes:[{frame,position}]}]. 없는 트랙은 기본 위치를 유지한다.
 axis: null 또는 {a_subject_id,b_subject_id,allowed_side: positive/negative/either,exception_reason}. 바닥면 A→B 벡터와 A→카메라 벡터의 2D 외적 부호로 측면을 판정한다. 이는 180도 룰의 기하 보조값이며 시선·이동 축·중립 샷은 사람이 확인한다. 의도적으로 넘으면 exception_reason에 관객 재정위 방법을 기록한다.
 
+**스키마 밖 선택 입력(프리비즈 어댑터 전용):** 초점 거리 키프레임·f-number(`--focus-map`), 승인 룩 카드 이미지(`--look-cards`), 렌더 엔진(`--engine`)은 이 스키마에 필드가 없다. 명세 파일에 추가하지 않고 CLI로만 전달하며, `camera-spatial-1.0` 정본은 좌표·렌즈·타이밍의 단일 원장이다. 이 입력은 프리비즈 미리보기 범위에만 쓰고 수치 설계의 근거로 삼지 않는다.
+
 ## 검사 범위
 validator는 자료형·고유 ID·유효 참조·프레임·양의 렌즈·위치/타겟 퇴화 등을 검사한다. analyze는 모든 프레임의 거리·화각·카메라 속도·직육면체 화면 경계·축·대역 장애물과의 충돌 가능성을 계산한다. 후면·프레임 외 대역은 경고이며, 인서트/클로즈업에서 의도된 크롭이면 설계 노트로 설명한다. clearance_radius_m은 구형 카메라 리그 대역이다. 충돌 검사는 이를 둘러싼 AABB의 보수적 중첩이고 움직이는 대역도 고려한다. 실제 리그·운영자·케이블의 이동 가능성을 증명하지 않는다.
 
