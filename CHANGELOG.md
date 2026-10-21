@@ -1,6 +1,26 @@
 # Changelog
 
-## Unreleased
+## 2.30 2026-10-21
+
+- Make the focus plan a derived handoff instead of a second source of truth: the camera motion/lens companion now carries the focus target, start/pull-finish distances, f-number and what must stay sharp, and states that the Blender `--focus-map` JSON is derived from it, must be regenerated when the companion changes, and never overrides it. Verified the documented derivation end to end (companion plan → derived map → rack-focus render).
+
+- Keep the guide-derived pacing and emotion craft as an optional example profile and move only the generalizable method into the canonical runtime guide: R3 now states that a cut must change information/action/reaction/emotion/gaze and that emotion works as emotion → body → decisive frame, and R8 states that an episode is segmented by when audience knowledge changes. Fixed 90-second length, segment allocation, character/location counts and cut-rhythm seconds are not adopted as specs. Cite the source by its `GUIDE-01` id and pages in the camera catalog, the Blender technique table and the Higgsfield image-branch note, and record the additional camera/AI/previs consumers in the GUIDE-01 extraction log.
+
+- Make the Blender MCP surface location-independent: ship a global `blender-mcp-server` launcher plus `install_global_launcher.py`, record the resolved skill root in `~/.config/blender-mcp/skill_root`, and let the server resolve its adapter through `BLENDER_PREVIS_ADAPTER` → `BLENDER_PREVIS_SKILL_ROOT` → recorded root → installed skill roots. MCP registrations now point at the PATH command instead of a checkout path, so moving the repository no longer breaks them.
+
+- Remove the stray `%TEMP%pytest-skill-final/` pytest artifact directory from the repository root and ignore that pattern, so the working tree stays clean.
+
+- Add a `pytest.ini` that excludes only the generated `video-production-assets/support/` payload, so a local `python -m pytest -q` collects exactly what CI collects (the derived tree duplicates committed `qa/` test module basenames).
+
+- Add adapter-local previs options that keep the `camera-spatial-1.0` spec unchanged: `--focus-map` (per-shot focus distance keyframes and f-number for a rack-focus preview), `--look-cards` (approved look as a camera-facing flat card inside the framing, proving no depth, occlusion order, pose or contact) and `--engine cycles|eevee` (cycles stays the reference look, eevee is a faster preview and not a quality claim). Record engine, focus map and look cards in the manifest and scope.
+- Ship `blender-previsualization/mcp/blender_mcp_server.py`, a restricted MCP surface over the same adapter (`blender_version`, `blender_previs`, `blender_previs_inspect`) that runs no user-supplied command, installs nothing, refuses to overwrite an existing output folder and requires absolute paths, with its own test module. The CLI stays the canonical path; the MCP surface is only accepted when it produces the identical five artifacts.
+- Add an opt-in stylized figure proxy to the Blender previs adapter (`--proxy box|figure`) so framing, headroom, eyeline height and silhouette overlap can be read as a body in frame; box stays the default, the `camera-spatial-1.0` schema is unchanged, and the manifest records `proxy_mode` plus the proxy-only scope. Add unit coverage for the derived proxy parts, the closed sphere mesh and the CLI flag.
+- Extend the AI camera control packet with the slots a real generation card needs: reference-role table (slot tag → file/version → import/exclude attributes → conflict priority), shot-local action-beat table, preservation-constraint list, and an audio/dialogue channel that stays out of the visual prompt. Mirror the preservation-constraint slot in the camera-intent handoff.
+- Add an optional, clearly labeled pacing and emotion profile (90s three-segment structure, cut rhythm, emotion duration, emotion → body → key-visual chain) to the camera-language catalog, sourced from the user-supplied '야장시단' production guidebook; it is an example profile, not a project rule.
+- Record the role-based image-model selection observed in the same guidebook as craft/reference routing notes in `higgsfield-generate`, with the model-name drift warning and no capability or quality claim.
+- Refresh the Blender runtime record with an independent 2026-10-21 Linux run (Blender 5.2.2 LTS, 30 executed tests, real smoke/stills/figure-proxy/focus/look-card/eevee renders) and state that the skill is CLI-driven with an optional MCP surface.
+
+- Add `searching-social-media`: bounded, anonymous Flucto 1.19.0 video-post search with query/source provenance, URL/ID deduplication, missing/date/metric-unit safeguards, optional non-provisioning metadata inspection and JSON/Markdown reports. Route collection separately from topic-demand decisions and media analysis; no auto-download, cookies, install/update or publication.
 
 - Add isolated read-only Pi behavior evaluation with non-overwriting hash-bound raw responses, file-read traces and separately reviewed verdicts. Repair observed speaker/slot/ID invention, unnecessary source re-request, incomplete cost/range reporting and omitted crowd-duplication checks; distinguish model-case evidence from media effectiveness.
 - Add explicit installer `--exclude-derived-support` recovery for reserved stale source snapshots only; retain default zero-write collision refusal, user support files, source immutability and backed-up destination replacement.
@@ -9,6 +29,11 @@
 
 - Generalize the user-supplied 101-page image-only production guide into existing reference, character-sheet, bilingual-prompt, generation-mode, dialogue-repair, QA, operations and delivery owners. Add page-level extraction/scan evidence and scoped templates; preserve existing approvals, image routing, Sheet A, schema and ledger contracts. Exclude drama-specific assets and unverified provider/performance claims.
 
+- Deliver SmartStore product-detail pages as individually ordered module images with a stitched QA preview; reserve long-page slices for profiles that require them.
+- Add `product-detail-page-builder` with evidence-linked page specs, Korean marketplace profiles, deterministic rendering/slicing, and output validation.
+- Add a complete camera-language catalog, shot-intent handoff, and a per-technique Blender/editor support map; route camera design, AI control, editing, and motion QA through their applicable references.
+
+## Unreleased
 
 ## 2.29 2026-10-18
 
