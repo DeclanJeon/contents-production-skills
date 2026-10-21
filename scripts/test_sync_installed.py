@@ -61,8 +61,7 @@ def run_sync(repo: Path, roots: list[Path], *extra: str):
     for root in roots:
         cmd += ["--root", str(root)]
     cmd += list(extra)
-    return subprocess.run(cmd, capture_output=True, text=True)
-
+    return subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
 
 def summary_counts(output: str) -> dict:
     for line in output.splitlines():

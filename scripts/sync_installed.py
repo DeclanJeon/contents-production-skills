@@ -153,10 +153,12 @@ def _create_link(link: Path, target: Path) -> None:
         # only; both properties hold for skill roots next to the repo.
         proc = subprocess.run(
             ["cmd", "/c", "mklink", "/J", os.fspath(link), os.fspath(target)],
-            capture_output=True, text=True,
+            capture_output=True,
         )
         if proc.returncode != 0:
-            detail = (proc.stderr or proc.stdout or "").strip()
+            detail = (proc.stderr or proc.stdout or b"").decode(
+                "utf-8", errors="replace"
+            ).strip()
             raise SyncError(f"mklink failed for {link}: {detail}")
     else:
         os.symlink(os.fspath(target), os.fspath(link), target_is_directory=True)
