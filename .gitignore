@@ -2,6 +2,25 @@ __pycache__/
 *.pyc
 video-production-assets/support/
 
+# Backup copies written by the local skill-install tooling next to the file
+# they replace. They are redundant with the source and never reviewed.
+*.from-backup
+
+# Bulky raw evaluation captures and render sequences from the skill-completeness
+# runs. They are regenerated evidence, not review material; the curated reports
+# (environment.md, report-W2.md, smoke-results.md, closure-F3/) stay tracked.
+qa/skill-completeness-95/runs/
+qa/skill-completeness-95/camera-spatial-sequence/
+qa/skill-completeness-95/integration-previs-stills/
+qa/skill-completeness-95/closure-F2/
+qa/skill-completeness-95/closure-F4/
+qa/skill-completeness-95/closure-F7/
+qa/skill-completeness-95/closure-parent/
+
+# Stray pytest basetemp directories (a previous run used a literal
+# "%TEMP%..." path). They only hold regenerable test fixtures.
+*pytest-skill-final*/
+
 
 .omx/
 delta-parts.json
