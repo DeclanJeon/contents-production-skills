@@ -9,6 +9,7 @@
 - **Spatial/runtime boundary:** [camera-spatial-design](../camera-spatial-design/SKILL.md) designs numeric space; [blender-previsualization](../blender-previsualization/SKILL.md) is REQUIRED to implement and visually inspect every scene-specific 3D camera/spatial task. If Blender is unavailable, the 3D result stays blocked/unverified.
 - **File storage and audit mechanics:** [recording-production-history](../recording-production-history/SKILL.md), called by the coordinator for actual saved production. Owns Documents/studio_production and append-only `.history` events, never artifact approval or stage orchestration.
 - **Persona craft and character SSOT:** [designing-character-personas](../designing-character-personas/SKILL.md) supplies motives, optional typology lenses, conditional behavior and visual/voice direction. [designing-video-character-sheets](../designing-video-character-sheets/SKILL.md) consumes that packet into the existing character SSOT; no second bible or canonical schema is added.
+- **Korean marketplace product-detail pages:** [product-detail-page-builder](../product-detail-page-builder/SKILL.md) owns evidence-linked module plans, independent module-image assets, a stitched review preview, and profile-gated long-page slices. `creative-production` retains coordination, image-execution, storage/history, and review authority; this specialist does not upload or publish.
 
 Installed IDs come from [manifest.json](../manifest.json). No duplicate global coordinator, budget database, SSOT database or provider-manifest source of truth is added.
 
@@ -17,6 +18,7 @@ Installed IDs come from [manifest.json](../manifest.json). No duplicate global c
 | Requested output | Bundled owner/reference | Boundary |
 |---|---|---|
 | Source-grounded article, blog or social draft | Coordinator; [marketing/source adaptation](../creative-production/references/marketing-source-adaptation.md) when applicable | Actual requested text. No implied CTA, campaign, media or publishing. |
+| Korean marketplace product-detail page or image set | `product-detail-page-builder` via `creative-production` | Requires platform, product name/category, and real product photo; exact text stays code-composed; seller-only export rules and human visual review remain explicit. |
 | Campaign copy or strategy | Marketing/source reference; requested deeper specialist | Supported facts, requested channel/variant count/voice; no forced website, SEO or brand-kit deliverables. |
 | Source-derived Shorts/interview adaptation | Source inspection tool plus marketing/source reference | Actual source context, timecodes, caption/framing choices; transcript is not proof of visual/audio observations. |
 | Text concept/synopsis/character/panels | Text planning lane and requested specialists | Text and generic prompts. No automatic folder, images or footage. |
@@ -38,6 +40,8 @@ The following maps active skill roles, not a claim that every runtime or resourc
 | Active capability | 2.0 treatment |
 |---|---|
 | `creative-production` | Maintained single bundled coordinator; current scope/review/execution/publication behavior retained. |
+| `searching-social-media` | Public SNS video-post candidate retrieval via bounded Flucto search; source/method/error/metric provenance retained; no universal SNS crawl, automatic download, topic-selection authority or publication. |
+| `product-detail-page-builder` | Korean marketplace asset specialist; fact-linked module plan, Pillow-composed module files, stitched QA preview, optional profile-driven slices, and seller-profile warnings; no second coordinator or ledger. |
 | `content-production-marketing` | Generic campaign/copy/source-caption/framing workflow integrated; deeper platform/channel workflow optional. |
 | `video-prompt`, `video-shotlist`, `video-model-router`, `video-pipeline` | Integrated into generation planning; no additional install ID or obligatory generic external planning skill. Runtime/node/model files are not bundled. |
 | `video-critique` | Integrated into canonical actual-media QA and bounded repair routing, not a second score/attempt ledger. |

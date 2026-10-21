@@ -9,6 +9,7 @@ The update compares currently active content/video skill instructions with this 
 | Material | Treatment | Reason |
 |---|---|---|
 | Existing eight core skill folders, templates, examples and validators | Retained and updated where the requested workflow needs it | Preserve working artifact and installation contracts |
+| `product-detail-page-builder` specialist and authored compositor/validator | Added as a package-owned specialist with authored schema, Korean marketplace profiles, Pillow rendering, and synthetic tests | No upstream prompts, code, images, or demonstrations are vendored; preserve the single coordinator, existing production storage/history, and no-reuse-license boundary |
 | Active content/marketing/source-adaptation/image/audio/video planning instructions | Compare and author package-owned operational guidance; keep specialized live tool execution conditional | Preserve usable creation workflows without vendor-specific credentials or duplicate coordinators |
 | Supplied v6 concept, emotion, retention, series, style, identity, product, physics, VFX, sound, finishing and quality guidance | Merge into the existing production owner as selective modules/references | Preserve unique craft with lower discovery and maintenance overhead |
 | v6 coordinator, global state ledger, independent budget/asset manifests and repeated agent metadata | Retire after their useful fields/rules are mapped to existing owners | One coordinator, one canonical project.json, one approval history; no second installable aliases |

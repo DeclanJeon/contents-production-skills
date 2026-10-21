@@ -5,7 +5,9 @@
   "support_skill": "video-production-assets",
   "skills": [
     "creative-production",
+    "product-detail-page-builder",
     "topic-demand-selection",
+    "searching-social-media",
     "video-production-assets",
     "camera-spatial-design",
     "camera-motion-reference-analysis",
@@ -33,6 +35,17 @@
   "blender_render_included": false,
   "examples": 4,
   "external_dependencies": [
+    {
+      "lane": "public SNS video-post search",
+      "skills": ["searching-social-media"],
+      "required_when": "actual requested SNS candidate search via the Flucto adapter",
+      "runtime": "Python 3.10+ standard library and already installed Flucto CLI; reviewed adapter 1.19.0 only; some public-index sources need installed Chrome/Chromium",
+      "auth": "anonymous public search only; no cookie extraction or login",
+      "upstream": null,
+      "upstream_version": "1.19.0",
+      "verified": false,
+      "auto_install": false
+    },
     {
       "lane": "marketing and source-derived conversion",
       "skills": [
@@ -175,6 +188,19 @@
       ],
       "required_when": "the host's matching capability is used and needed for the current work; never a baseline requirement",
       "runtime": "the host's own dialogue/tooling runtime (e.g. OMX); no runtime is installed by this package",
+      "auth": null,
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "product-detail raster composition",
+      "skills": [
+        "product-detail-page-builder"
+      ],
+      "required_when": "running the page-spec compositor, slice exporter, or output validator",
+      "runtime": "Python 3.10+, Pillow, Pydantic 2, and an installed Korean-capable font",
       "auth": null,
       "upstream": null,
       "upstream_version": null,

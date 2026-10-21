@@ -14,6 +14,10 @@ Use audience demand and audience fit to choose topics, with demand the default p
 - Also use when a user asks for the popular, searchable, trending, high-view, viral, or audience-favorite subject.
 - Do not run discovery for a topic the user has locked and asks only to draft or transform; a request to assess that topic's prospects does invoke this skill.
 
+## Retrieval handoff
+
+When fresh public SNS video-post evidence is requested and not already supplied, use sibling [`searching-social-media`](../searching-social-media/SKILL.md) for bounded Flucto retrieval. Its source states, capture dates, publication-date unknowns, and metric units remain evidence inputs here—not a demand verdict. Reddit score/upvotes are not views; Flucto info counts can be ambiguous. Search-only requests do not invoke topic selection or a production interview. Missing runtime does not invalidate supplied evidence or authorize automatic installation/download.
+
 ## Decision Procedure
 
 1. **Fix the comparison.** Record the decision objective (e.g. reach, qualified conversions, or retention), audience, platform, format (e.g. Shorts vs. long-form), language/region, evidence scope, and decision horizon. Compare like with like. Reuse the user's channel analytics and supplied research before collecting substitutes. An evidence-only comparison request fixes that comparison's objective, not a production-topic selection or a forecast.
@@ -55,7 +59,7 @@ For verification, supply two comparable counts and one missing observation. The 
 | Treat archived folklore as a verified historical event. | Label it as a recorded/regionally transmitted story and keep history claims separate. |
 | Score candidates precisely despite sparse, incomparable evidence. | Use evidence labels and state what is missing; no numeric confidence theater. |
 | Start scripting while the audience-demand claim is only a guess. | Mark it as a hypothesis or finish the minimum comparable check before committing. |
- 
+
 ## Acceptance
 
 The recommendation is complete only when each candidate has a comparable demand observation or is explicitly `unknown`; the comparison basis includes the decision objective, audience, platform, format, geography, evidence scope, and time horizon; factual eligibility is assessed separately from demand; and the ranking names evidence, caveats, and the next verification gap. Missing audience, decision objective, or evidence scope blocks final topic selection. Research preparation, labeled hypotheses, and comparisons of supplied observations may still be returned within their stated limits; do not silently substitute maximizing views or invent metrics to complete a selection.

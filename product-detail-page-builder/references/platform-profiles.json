@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "researched_at": "2026-10-19",
+  "profiles": [
+    {
+      "id": "smartstore",
+      "display_name": "네이버 스마트스토어",
+      "locale": "ko-KR",
+      "output_mode": "module_images",
+      "default_width_px": 860,
+      "slice_height_px": null,
+      "format": "jpg",
+      "quality": 92,
+      "max_file_bytes": 20971520,
+      "total_height_warning_px": 4000,
+      "initial_visible_height_px": 3000,
+      "text_in_detail_images": "allowed",
+      "synthetic_visuals": "seller_review_required",
+      "evidence_level": "official_partial",
+      "requires_seller_confirmation": true,
+      "verified_at": "2026-10-19",
+      "sources": [
+        {
+          "title": "상세설명 주요사항 - 권장 폭 860px",
+          "url": "https://help.sell.smartstore.naver.com/faq/content.help?faqId=5767",
+          "publisher": "네이버 스마트스토어 고객센터"
+        },
+        {
+          "title": "상세설명 규격, 이미지별 20MB, 4000px 초과 접힘 동작",
+          "url": "https://help.sell.smartstore.naver.com/faq/content.help?faqId=3923",
+          "publisher": "네이버 스마트스토어 고객센터"
+        },
+        {
+          "title": "상세설명 권장 폭 848px",
+          "url": "https://help.sell.smartstore.naver.com/faq/content.help?faqId=3923",
+          "publisher": "네이버 스마트스토어 고객센터"
+        },
+        {
+          "title": "SmartEditorONE 여러 이미지와 그룹 레이아웃/순서 편집",
+          "url": "https://help.sell.smartstore.naver.com/faq/content.help?faqId=5450",
+          "publisher": "네이버 스마트스토어 고객센터"
+        }
+      ],
+      "warnings": [
+        "공식 FAQ에 권장 폭 848px와 860px가 함께 존재한다. 860px는 작업 기본값이며 판매자센터에서 확인하기 전 upload-ready로 표시하지 않는다.",
+        "공식 FAQ는 상세설명 길이가 4000px를 넘으면 초기 3000px 이후가 접힘 영역으로 노출된다고 안내한다. 총 높이 초과는 경고한다.",
+        "이미지를 그룹으로 삽입하면 간격이 제거될 수 있고 파일명/선택 순서가 최종 배치 순서를 보장하지 않는다. 판매자센터에서 모듈 순서를 수동 조정하고 미리보기를 확인한다.",
+        "SmartStore output mode는 독립 module images다. 3000px는 초기 노출 안내이며 단일 파일 slice 제한이 아니다."
+      ]
+    },
+    {
+      "id": "coupang",
+      "display_name": "쿠팡 마켓플레이스",
+      "locale": "ko-KR",
+      "output_mode": "module_images",
+      "default_width_px": null,
+      "slice_height_px": null,
+      "format": "jpg",
+      "quality": 92,
+      "max_file_bytes": null,
+      "total_height_warning_px": null,
+      "initial_visible_height_px": null,
+      "text_in_detail_images": "seller_confirmation_required",
+      "synthetic_visuals": "seller_review_required",
+      "evidence_level": "seller_backend_confirmation",
+      "requires_seller_confirmation": true,
+      "verified_at": "2026-10-19",
+      "sources": [
+        {
+          "title": "상품 등록 가이드 — 상세설명은 여러 이미지/에디터/HTML로 등록하고 미리보기 가능",
+          "url": "https://marketplace.coupang.com/register?rf=MARKETPLACE",
+          "publisher": "쿠팡 마켓플레이스"
+        }
+      ],
+      "warnings": [
+        "공개 공식 가이드에서 상품 대표이미지 규격과 상세설명 이미지 규격을 구분해 안내한다. 대표이미지 규격을 상세설명에 적용하지 않는다.",
+        "상세설명 이미지의 고정 폭·파일 제한은 공개 자료에서 확인되지 않았다. 실제 WING 입력 화면을 확인해 width, slice height, file limit, text policy를 명시한 뒤 업로드용 설정을 만든다."
+      ]
+    },
+    {
+      "id": "custom",
+      "display_name": "사용자 지정 플랫폼",
+      "locale": "ko-KR",
+      "output_mode": "long_page_slices",
+      "default_width_px": null,
+      "slice_height_px": null,
+      "format": "jpg",
+      "quality": 92,
+      "max_file_bytes": null,
+      "total_height_warning_px": null,
+      "initial_visible_height_px": null,
+      "text_in_detail_images": "seller_confirmation_required",
+      "synthetic_visuals": "seller_review_required",
+      "evidence_level": "seller_backend_confirmation",
+      "requires_seller_confirmation": true,
+      "verified_at": "2026-10-19",
+      "sources": [],
+      "warnings": [
+        "사용자가 확인한 플랫폼 규격과 source를 page-spec에 기록하기 전에는 upload-ready로 표시하지 않는다."
+      ]
+    }
+  ]
+}

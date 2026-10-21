@@ -7,6 +7,8 @@ Select the narrowest requested output. The coordinator reads this map once; work
 | Current request | Owner / required read | Stop boundary |
 |---|---|---|
 | Article/blog/social text | Coordinator and actual supplied evidence | Requested text; no implied CTA, video, saving or publication |
+| Korean marketplace product-detail page, copy, or image package | `product-detail-page-builder` under coordinator scope | Requires platform, product name/category, and real product photo; fact-linked copy/modules only; seller-only export rules remain explicit; no storefront UI, upload, or publishing |
+| SNS/social-media public video-post search or reference discovery | `searching-social-media` | Bounded Flucto candidate retrieval; per-source failures/metrics/unknowns retained; no automatic download, transcript, body/video analysis, topic choice or publication. Demand-based topic selection still requires `topic-demand-selection`. |
 | One synopsis/concept/beat map | `developing-video-synopses` and its stage guide | Stable beats/source locators; no automatic character/board stage |
 | One character/voice-profile sheet | `designing-video-character-sheets` and its stage guide; REQUIRED `designing-character-personas` for persona/voice design | One integrated character SSOT, preserved approved identity/voice, voice N/A for silent roles; no training/rendering |
 | One persona, fictional typology design, or persona-to-acting/voice direction | `designing-character-personas` | Text persona packet only; no forced full sheet, real-person typing, new SSOT database or actual audio |
