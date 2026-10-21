@@ -35,6 +35,8 @@
 
 ## Unreleased
 
+- chore(repo): drop local backup copies and bulk raw artifacts. Remove the install tooling's `*.from-backup` file copies and the `main.from-backup` / `skill-completeness-95-loop.from-backup` branch snapshots, the raw evaluation captures under `qa/skill-completeness-95/`, and the extracted analysis media under `docs/analysis/*/evidence/`; all of it is redundant with git history or regenerable, and the curated reports, ledgers and contact sheets stay tracked.
+
 ## 2.29 2026-10-18
 
 - Release the merged source-scope and storyboard-evidence updates across the 24-skill package.
