@@ -1,15 +1,17 @@
 ---
 name: creative-production
 version: 1.21
-description: Use for content creation or adaptation, including articles, social posts,
-  campaigns, scripts, storyboards, audio, images, and video planning, AI-video prompt
-  composition, model routing, generation critique, editing, QA or delivery; for explicit
-  film/short/animation/AI-movie lifecycle coordination; also hybrid 3D/web creative
-  productions. Applies to single artifacts and full productions, not ordinary UI styling
-  or unrelated application development.
+description: Use only when the user explicitly requests video production or creation of
+  a storyboard sheet for a video. Do not use for other content creation/adaptation,
+  standalone writing, social posts, campaigns, audio, images, ordinary design, or
+  unrelated application development.
 ---
 
 # Creative Production
+
+## Activation boundary
+
+Use this coordinator only for an explicit video-production request or a request to create a storyboard sheet for a video. A video-related subject or incidental mention of content is not enough. Do not activate, initialize a project, create directories/files, or invoke production workers for standalone writing, social-media copy, campaigns, audio, image generation, product pages, ordinary UI/brand work, or any other non-video task. Route those requests to their applicable specialist or answer directly. Do not create workspace folders as a side effect of loading or considering this skill; project initialization is allowed only after confirming that the requested deliverable is within this activation boundary and actually requires persisted project output.
 
 ## Workspace integration
 
