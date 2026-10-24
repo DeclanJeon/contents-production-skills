@@ -34,6 +34,18 @@ When a request supplies a cast and explicitly asks for a one-character sheet or 
 Ask one concise selection question instead of choosing only when the user forbids assumptions, explicitly reserves the choice, or the missing information makes even a useful provisional plan impossible. In those cases, still return the independent cast artifact and name the exact blocker. A prompt/specification is text planning only: it neither generates media nor authorizes generation, spend, or provider execution. Preserve the supplied fictional-delegation boundary and the prohibition on inventing facts about real people.
 
 
+## Character Bible Designer compatibility
+
+When a supplied character bible / character skill is provided, treat it as an input SSOT and preserve its identifiers and approved decisions. Record which parts were inspected and which are in scope; do not silently replace it with a newly invented design. If the supplied bible conflicts with project-locked facts, surface the conflict for resolution rather than choosing one.
+
+For recurring characters, maintain one versioned Character SSOT as the single source of truth for observable appearance, face proportions/landmarks, fixed identity traits, and the approved Identity Master. Keep reference originals immutable and highest priority when real/reference photos are supplied. Distinguish observed details from creative proposals. For new fictional characters, use the approved Identity Master as the identity lock; scene-level clothing, expression, and props are controlled derivatives, not edits to identity.
+
+Record needed identity references explicitly: front, 45-degree, profile, rear, and neutral/expression references. Mark views that are generated or inferred rather than supplied/observed. Variation requests should use these eight independent categories: hair, clothing, accessories, makeup, shoes, hats/headwear, props, and expression. Each variant needs a stable ID, description, intended use, identity-preservation constraints, and asset/version reference when available. Only change the requested category; do not let a style variant redefine the face or other identity locks.
+
+The SSOT integrates persona (personality, observable behavior, relationships, habits, dialogue style) and voice design (pitch range, delivery, emotional range, TTS direction, sample lines) without claiming a designed voice is a real recording or an approved voice selection. Track character ID, Identity Master/reference version, variant IDs, derivative/master links, and unresolved approvals for continuity. QA covers face identity, anatomy, age appearance, image quality, data/ID consistency, and rights/provenance; unverified image identity remains review-needed, not passed.
+
+Pipeline handoff: synopsis/story design establishes character facts and open choices; this skill owns the Character Bible/SSOT; storyboard/continuity consumes its stable IDs, identity locks, allowed variants, and unresolved choices; image/video generation receives those as constraints. This is a planning and handoff contract, not authorization to generate media. Keep the SSOT as the sole character record rather than creating a competing persona bible.
+
 ## IDs
 
 Every sheet gives each character a stable `character_id` (existing spine IDs first, otherwise sequential `CH01`-style IDs) used verbatim by panels, prompts, and the relationship map; under delegation, any assigned character/sheet-artifact IDs in the packet are used instead of new ones. Standalone text allocates no project or artifact IDs — `character_id` is a content ID inside the artifact, not allocated artifact identity.
