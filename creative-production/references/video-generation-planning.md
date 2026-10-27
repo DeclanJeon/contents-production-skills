@@ -32,13 +32,29 @@ Read [video-prompt-dialects.json](video-prompt-dialects.json) for narrative, pro
 Composition rules:
 
 1. Never emit a prompt for a feature the model lacks (dialogue on a silent model, 30s on an 8s cap).
-2. Prefer one coherent primary camera action per shot; split incompatible moves or unmanageable beats while preserving the requested sequence. This is a planning default, not a universal one-move model limit.
+2. Prefer one coherent camera intention at a time. A continuous take may progress through several motivated movement/framing segments; do not turn this into a rule that the entire take must be a locked wide shot. Propose a split only when needed, preserving the sequence and obtaining approval for changed shot count, form and cost.
 3. Use concrete physical action rather than abstract intent when the endpoint's guide recommends it (e.g. "the woman smiles and waves", not "embodies joyful greeting").
 4. For image-to-video endpoints with a motion-focused guide, let the input image carry its static appearance and describe motion/change in text. Do not generalize this to endpoints that require identity or scene restatement.
 5. Use negative instructions only for a known failure and only where supported. Runway Gen-4's guide explicitly rejects negative phrasing; use a positive target such as "locked camera" there, not a minimal negative list.
 6. API-level controls (seed, aspect, duration, motion strength, structured camera params) belong in parameters when the endpoint exposes them, not prompt text.
 
 When a local prompt corpus is configured, inspect its real layout before lookup. `VIDEO_PROMPT_CORPUS` may identify the corpus root; record actual example paths and reuse structure, not source content. An absent corpus does not block a normal prompt, and historical inventory totals, frequency statistics or host paths are not bundled evidence.
+
+### 3a. Camera intent must survive the final request
+
+Before submission, compare the current board/camera specification with the **actual final provider request**, not merely a referenced file or an earlier draft. When movement or framing progression is required, use this compact correspondence table inside the existing handoff; it is not a new project schema or approval ledger:
+
+| Source shot/panel IDs and version | Shot-local interval | Start framing / visible subject | Movement, trigger and target | Deceleration / settle / end framing | Exact final-request clause | Control status / limitation |
+|---|---|---|---|---|---|---|
+
+- Preserve every required move, reveal, close/medium/reaction composition and speaking-face visibility interval. Missing clauses, reordered reveals, or unapproved all-wide/static replacements are **FIX / submission blocked**; a plausible overall story or a low quote does not cure missing camera direction.
+- Distinguish a generation job, scene, shot, panel and framing segment. **One generation is not automatically one take; one take is not one framing.** A no-cut take uses one continuous physical camera path with timed reframings, not shot/reverse-shot cuts disguised as one take. Several key panels can describe that same take.
+- State start -> movement -> settle/end for each necessary segment, with its action/reveal motivation and local time basis. Keep the action axis and screen direction legible. Distinguish dolly/truck/arc from pan/tilt, optical zoom and focus pull; focus alone is not camera travel. Do not prescribe incompatible simultaneous moves or invent scene geometry to imply verified feasibility.
+- If the user requires movement/varied framing, reject global clauses such as "locked camera", "static medium-wide throughout" or "all three visible throughout" when they contradict the schedule. Brief intentional settles remain valid and should have an interval/reason. Do not fix a contradiction by dropping the required movement.
+- Use HARD_CONTROL only for the current transport's exposed control; otherwise retain the instruction as SOFT_PROMPT or explicitly unsupported/unverified. Neither first/last frames nor numbered keyframe prose guarantees a middle trajectory. Product-page keyframe features do not create CLI fields.
+- Treat the quote and prompt-length checks as later execution gates, not reasons to erase camera coverage. A single long generation is cheaper only if an equal-duration/equal-resolution live comparison shows it; do not assume a per-job overhead. Validate the exact model/mode duration and actual-reference quote, then obtain the existing bounded approval.
+- Record the complete submitted camera schedule and native-audio/dialogue section in the existing request snapshot/history. For native audio, keep dialogue in an AUDIO section of the same supported request; separation from visual action does not require an external dubbing job.
+- Check the returned moving footage for framing changes, motion onset/settle, reveal order, face visibility and unwanted cuts. Static boards, a populated table, or structural tests are not evidence that the generated camera moved correctly.
 
 ## 4. Shot decomposition and hybrid pipelines
 

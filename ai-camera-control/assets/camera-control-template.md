@@ -25,6 +25,15 @@ Split the shot into the time segments the story actually changes in (e.g. 0–2s
 | Segment (local time basis) | Subject action | Camera state | New information / emotion | Cut or settle |
 |---|---|---|---|---|
 
+### Camera schedule carried into the final prompt
+
+One take means one continuous shot, not one locked framing. Link required medium/close/reaction compositions and motivated moves to the actual final request. Brief purposeful settles are allowed; an all-wide/static replacement requires explicit approval when it removes required coverage. A generation job, scene, shot and framing segment are not interchangeable.
+
+| Source shot/panel ID + version | Local interval / time basis | Start framing + visible subject | Trigger -> move -> target | Deceleration / settle -> end framing | Exact final-provider-request clause | Control status / limitation |
+|---|---|---|---|---|---|---|
+
+Missing required rows or clauses, reveal-order changes, contradictory global locked-wide instructions, or a cut disguised as a no-cut transition are FIX / submission blocked. Distinguish physical dolly/truck/arc, pan/tilt, optical zoom and focus pull. A SOFT_PROMPT must remain explicit, not be deleted for lack of hard control. Do not claim unrendered geometry or generated motion is verified.
+
 ## Preservation constraints (do-not-change)
 List what must survive the generation: identity and costume, prop state and hand ownership, an already-established room or set layout, light direction, the screen-direction/axis anchor, and a motion that must continue instead of restarting. Every entry names the constant, its source (shot/beat/panel ID or approved reference), and how it is checked against the approved frame. A negative instruction never replaces a positive plan: if a thing must not change, the thing that does change in that segment is stated in the beat table above.
 
@@ -33,6 +42,8 @@ List what must survive the generation: identity and costume, prop state and hand
 
 ## Audio and dialogue (separate channel)
 Dialogue, SFX, ambience and music are edit-timeline items with their own cue IDs and timing. Record them here only as an execution constraint, not as visual action: a sound cue does not describe a visible move, and "on the beat" is not a visual instruction. If the selected provider exposes an audio field, list it in the provider table with its verified field name; otherwise mark it `UNSUPPORTED` and hand it to the edit owner. Generated sound is not evidence that the visual action happened at that time.
+
+For a verified native-audio model, this separate AUDIO section travels inside the same provider request. Do not infer an extra dubbing job or invent an audio toggle/reference field the current transport does not expose.
 
 ## Actual provider inputs
 Include only supported fields; leave empty for model-neutral work.
