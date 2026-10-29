@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 1.21
+version: 1.22
 description: Use only when the user explicitly requests video production or creation of
   a storyboard sheet for a video. Do not use for other content creation/adaptation,
   standalone writing, social posts, campaigns, audio, images, ordinary design, or
@@ -68,6 +68,8 @@ Each storyboard sheet has at most eight panels; use fewer for readable dense car
 Keep video-model/endpoint choice unresolved during preproduction. Current-version review acceptance/readiness is not user acceptance, execution approval, or permission to run video. Only a separate proceed request opens the live-verified bounded plan under [video-generation-planning.md](references/video-generation-planning.md); actual submission waits for explicit execution and applicable spend approval. Never run video generation, video render, or publication during this preproduction route. Free/local samples and moving animatics need the same gate; preview does not authorize final production unless both were explicitly covered.
 
 Apply [selected-runtime gate](references/production-routing.md#selected-runtime-gate) only to actual requested execution. For every requested generated still image—including character sheets, SSOT/identity sheets, influencer sheets, portraits, boards and review images—**REQUIRED SUB-SKILL: `codex-imagen`** is the first and primary image-generation route. Read and follow that skill before any image-generation call. Do not route these requests to Higgsfield image or AI Influencer generation, or substitute another provider; if Codex Imagen is unavailable, report the exact blocker rather than silently switching providers. Codex Imagen still-image calls do not require price, usage, quota, or cost-approval checks. Missing runtime/auth/capability is a named blocker, not permission for a silent substitution or fake equivalent result. Changed inputs invalidate affected dependent approvals, not unrelated work.
+
+For a production storyboard and its later video prompts, preserve per-utterance speaking-face/listener-reaction coverage under the storyboard contract. Before any duration grouping or final video request, REQUIRED: read [storyboard timing to prompt](references/storyboard-timing-to-prompt.md) and reconcile all board intervals with the actual submitted VISUAL/AUDIO schedule. A 5/10/20/30-second job changes grouping and local timestamps, not the approved cuts, expression beats or dialogue.
 
 ## Camera motion lane
 

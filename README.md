@@ -63,6 +63,8 @@ python searching-social-media/scripts/social_search.py --query "제품 촬영" -
 
 ## 제작 흐름
 
+대사 보드는 [발화 얼굴·청자 반응](video-production-assets/references/storyboard-contract.md#대사별-발화-얼굴과-청자-반응)을 분리하고, 영상 실행에서는 [스토리보드 시간→실제 요청문](creative-production/references/storyboard-timing-to-prompt.md)으로 모든 컷·표정·대사의 타임스탬프를 전달한다. 생성 길이별 묶음과 최종 요청문 대응, 실제 결과 검수는 구분한다.
+
 1. 요청한 산출물과 제외 사항을 확정하고, 공급된 출처·제품 정보·SSOT·승인을 보존한다.
 2. 목적과 형식에 맞는 레인만 로드한다. 원고 한 편이나 프롬프트 하나를 전체 제작으로 확대하지 않는다.
 3. 실제 원고·기획·모듈 에셋을 작성한다. 사실, 계산, 해석, 창작 제안, 미확인을 구분한다.

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Require per-utterance speaking-face and separate listener-reaction coverage in production boards. Carry observable expression triggers, peaks and settles into panels.
+- Add a shared storyboard-to-final-request timing procedure with global/shot-local/generation-local conversion, handles, 5/10/20/30-second grouping examples and actual VISUAL/AUDIO request correspondence. Connect the coordinator, storyboard, video-planning, AI-handoff template and generated-media QA without changing project schema, execution authority or provider capabilities.
+
 ## 2.30 2026-10-21
 
 - Make the focus plan a derived handoff instead of a second source of truth: the camera motion/lens companion now carries the focus target, start/pull-finish distances, f-number and what must stay sharp, and states that the Blender `--focus-map` JSON is derived from it, must be regenerated when the companion changes, and never overrides it. Verified the documented derivation end to end (companion plan → derived map → rack-focus render).
