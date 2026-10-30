@@ -4,8 +4,9 @@
 Reads the optional storyboard extension: each panel's registered clean image
 or source-sheet crop (EXIF orientation applied, content preserved), verified
 against current file hashes, plus shot/scene/beat/character metadata, and
-writes output PNG(s) whose captions live OUTSIDE the clean pixels. v5.1 caps
-every sheet at 8 panels; boards with more panels render an ordered sheet set
+writes output PNG(s) whose captions live OUTSIDE the clean pixels. Paginated
+output defaults to 4 panels per sheet; v5.1 caps every sheet at 8 panels.
+Boards with more panels than the selected density render an ordered sheet set
 (`<stem>_sNN.png`). Each sheet records deterministic panel/scene crop bounds
 in PNG text metadata so split_storyboard can extract clean panel images and
 per-scene overview bands without guessing. The caller registers the returned
@@ -75,6 +76,7 @@ LINE_SPACING = 6
 CAPTION_MAX_LINES = 40
 MAX_COLUMNS = 4                # v5.1 grid caps at 4 columns (7–8 panels = 2x4)
 MAX_PANELS_PER_SHEET = 8       # v5.1 absolute maximum panels per sheet
+DEFAULT_PANELS_PER_SHEET = 4   # Production reading density, not a story quota.
 MAX_PANELS = 400
 MAX_SHEET_PIXELS = 64_000_000  # Bound decoded sheet memory before allocation.
 
@@ -738,7 +740,7 @@ def _render_one(project, base, jobs, ctx, font, sheet_index, sheet_count, out):
 
 
 def _render(project, base_dir, output, *, font_path=None, single=False,
-            panels_per_sheet=MAX_PANELS_PER_SHEET):
+            panels_per_sheet=DEFAULT_PANELS_PER_SHEET):
     """Shared driver: preflight, resolve outputs, render each sheet."""
     if not isinstance(panels_per_sheet, int) or isinstance(panels_per_sheet, bool) \
             or not 1 <= panels_per_sheet <= MAX_PANELS_PER_SHEET:
@@ -804,9 +806,9 @@ def _render(project, base_dir, output, *, font_path=None, single=False,
 
 
 def render_sheets(project, base_dir, output, *, font_path=None,
-                  panels_per_sheet=MAX_PANELS_PER_SHEET):
-    """Render the board to one or more PNG sheets (v5.1: at most 8 panels per
-    sheet, rows break at scene boundaries). Returns {'sheets': [...]};
+                  panels_per_sheet=DEFAULT_PANELS_PER_SHEET):
+    """Render PNG sheets at the selected density (default 4, v5.1 maximum 8).
+    Rows break at scene boundaries. Returns {'sheets': [...]};
     raises ValueError and writes nothing on any failure."""
     return {'sheets': _render(project, base_dir, output,
                               font_path=font_path, single=False,
@@ -814,9 +816,9 @@ def render_sheets(project, base_dir, output, *, font_path=None,
 
 
 def render_sheet(project, base_dir, output, *, font_path=None):
-    """Strict single-sheet render: raises when the board needs pagination."""
+    """Explicit single-sheet render up to the tool limit; never paginates."""
     return _render(project, base_dir, output, font_path=font_path,
-                   single=True)[0]
+                   single=True, panels_per_sheet=MAX_PANELS_PER_SHEET)[0]
 
 
 def main():
@@ -827,8 +829,8 @@ def main():
                         help='project-relative output PNG path '
                              '(suffixed _sNN when the board paginates)')
     parser.add_argument('--font', help='explicit Korean-capable .ttf/.otf/.ttc path')
-    parser.add_argument('--panels-per-sheet', type=int, default=MAX_PANELS_PER_SHEET,
-                        help='readability-based panel limit, 1 through 8')
+    parser.add_argument('--panels-per-sheet', type=int, default=DEFAULT_PANELS_PER_SHEET,
+                        help='readability-based panel limit, 1 through 8 (default: 4)')
     args = parser.parse_args()
     try:
         project = json.loads(Path(args.project).read_text(encoding='utf-8'))

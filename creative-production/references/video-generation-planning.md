@@ -58,7 +58,7 @@ Before submission, compare the current board/camera specification with the **act
 
 ## 4. Shot decomposition and hybrid pipelines
 
-For every production-board-to-video handoff or duration change, REQUIRED: apply [storyboard timing to final prompt](storyboard-timing-to-prompt.md). Preserve the board's separate speaking-face/listener-reaction coverage and translate every interval to generation-local time for the actual supported duration, whether 5, 10, 20, 30 seconds or another length. The correspondence table must point to clauses in the actual final request, not just to the board file; longer jobs do not erase internal cuts. This reference owns the translation procedure and worked duration examples, not another schema.
+For every production-board-to-video handoff or duration change, REQUIRED: apply [storyboard timing to final prompt](storyboard-timing-to-prompt.md). Preserve the board's on/offscreen speaker mapping and consequential reactions in its chosen shared framing, held listener shots or separate cuts; translate every interval to generation-local time for the actual supported duration, whether 5, 10, 20, 30 seconds or another length. The correspondence table must point to clauses in the actual final request, not just to the board file; longer jobs do not erase internal cuts. This reference owns the translation procedure and worked duration examples, not another schema.
 
 Use the selected endpoint's verified duration limit and controllable action complexity to decompose the sequence. A **production storyboard** already includes the [complete contract](../../video-production-assets/references/storyboard-contract.md)'s integrated shot/camera/spatial/VFX/speech/audio specifications and clean-panel mapping; narrative panels still are not timed model clips. Preserve their order, IDs, reveal timing and continuity anchors.
 
@@ -98,6 +98,12 @@ Applies only to authorized actual media submission; text-only prompt/plan work e
 - Async jobs follow that tool's own wait/poll rule. Track the actual request/job/result IDs and pending status in the linked execution artifact; when an attempt is resolved, retain these details in `generation_attempts.notes` with its actual result. Unknown submit status is resolved through the tool's status check — never by resubmitting, which risks duplicate spend. Report failures and partial successes as they are.
 - Inspect actual output before reporting success. Distinguish your own viewing/listening from user-reported observations.
 - Targeted revision changes one primary variable at a time and names the preserved successful attributes (`generation_attempts.changes`, `preserve`), staying inside the approved retry/spend caps — see [QA/retry §5](../../video-production-assets/references/21-generated-video-qa-retry.md). Preserve historical attempt records; changed inputs make only affected dependent artifacts and approvals stale, not a new status field on attempts.
+
+### Real-time state checkpoints (supported, authorized sessions only)
+
+For a runtime that actually supports live steering, link each bounded directive to the current session/request and source shot/asset versions in the existing execution history. Keep the directive-submission time, acknowledgement/accepted time, runtime-reported effective time when exposed, and observed-response time distinct, with their clock/PTS basis. Unexposed times stay UNKNOWN/NOT_EXPOSED; an acknowledgement is not proof that the requested change is visible. Do not assume zero latency or resubmit an unacknowledged directive as a fresh paid action.
+
+For each change, preserve the current world/identity/prop state and continuous audio, then state the allowed change, required closing state and actual observed state/segment. Check the returned stream before treating that state as the next starting point; an absent response stays pending/unverified. Use only supported steering controls, not batch-prompt syntax or an invented interactive runtime. This adds no project schema, second ledger or execution authority.
 
 ## 7. Evidence scope at this consumer
 

@@ -358,7 +358,8 @@ class PackagingTests(unittest.TestCase):
         for panel in p['storyboard']['panels']:
             panel['asset_version_refs'] = {
                 aid: '1' for aid in shots[panel['shot_id']].get('asset_ids', []) + ['LOOK']}
-        sheet = render_sheets(p, root, '04_STORYBOARDS/sheets/final.png', font_path=font)['sheets'][0]
+        sheet = render_sheets(p, root, '04_STORYBOARDS/sheets/final.png',
+                              font_path=font, panels_per_sheet=8)['sheets'][0]
         current = next(a for a in p['asset_registry'] if a['id'] == 'SHEETIMG')
         current.update(path=Path(sheet['relative_path']).as_posix(), sha256=sheet['sha256'],
                        panel_ids=sheet['panel_ids'], source_asset_ids=sheet['source_asset_ids'],
@@ -397,7 +398,8 @@ class PackagingTests(unittest.TestCase):
 
         font = resolve_font()[1]
         sheet = render_sheets(
-            p, root, '04_STORYBOARDS/sheets/repeated.png', font_path=font)['sheets'][0]
+            p, root, '04_STORYBOARDS/sheets/repeated.png',
+            font_path=font, panels_per_sheet=8)['sheets'][0]
         sheet_asset = next(a for a in p['asset_registry'] if a['id'] == 'SHEETIMG')
         sheet_asset.update(
             path=Path(sheet['relative_path']).as_posix(), sha256=sheet['sha256'],

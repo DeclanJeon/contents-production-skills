@@ -83,6 +83,78 @@
         "Consistent hand/ownership/space states across ledgers, panel prompts and shot specifications; contradictions are FIX.",
         "Keeps actual image-only quality and Blender execution unverified, distinguishes text planning from finished artwork, and invents no labor time."
       ]
+    },
+    {
+      "id": 8,
+      "prompt": "제작용 텍스트 콘티: 같은 방에서 A가 B에게 '갈 거야?', '지금?', '알았어.'라고 말하고 B는 마지막 말 뒤에만 문손잡이에서 손을 놓는다. B의 얼굴과 손을 함께 보는 고정 MS를 유지하고 A는 화면 밖에 두는 연출을 위임한다. 대사마다 화자 얼굴/반응 싱글을 확보하라는 이전 제안을 검토해 수정해줘. 대사·행동은 잠금, 생성/저장 없음.",
+      "expected_output": "A dialogue coverage repair preserving the held listener framing and offscreen speaker without a cut pair per utterance.",
+      "expectations": [
+        "Maps all three utterances to A, their planned picture/audio intervals and offscreen status without inventing B speech.",
+        "Preserves the meaningful final hand release; does not add a facial change or reaction cut for each preceding line.",
+        "Records how the face and handle/hand are readable together, with panel evidence planned rather than inspected.",
+        "Offscreen A receives reasoned lipsync non-applicability; shared framing is not rejected for lacking separate face shots.",
+        "Links the scene progression and hold/cut reasons to existing scene-intent, shot and edit fields; no media or actual timing pass is claimed."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "업로드 전 텍스트 콘티 QA만 해줘. S01/SH01은 먼 와이드인데 메시지가 인물의 눈에 잠깐 고이는 눈물이다. S02/SH02는 외딴 대합실의 빈 의자들과 혼자 남은 사람으로 고립을 전달하는 와이드다. '감정은 모두 CU'라는 수정안을 검토하고 두 씬의 화면 거리와 리듬을 보완해줘. 사건·장소 추가, 이미지 생성, 파일 저장 없음.",
+      "expected_output": "Selective expressive-distance corrections rather than a universal close-up treatment.",
+      "expectations": [
+        "Flags the stated mismatch between a tiny facial detail and SH01's distant framing as a text-design finding, not an inspected pixel failure.",
+        "Proposes readable framing for the tear and its consequential timing while preserving the approved event.",
+        "Retains SH02's spatial isolation when it serves the message and explains what an unnecessary close-up would lose.",
+        "Compares the neighboring scenes' expressive distance, information and transition rather than imposing wide-medium-close order or shot-size quotas.",
+        "Separates design review from actual image readability and timed playback, both unavailable here."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "12초 무대사 원테이크 제작 콘티를 텍스트로 작성해줘. 카메라는 고정 투샷, A와 B는 책상을 사이에 두고 시작한다. A가 화해의 뜻으로 책상 옆을 돌아 B와 같은 쪽에 서고 둘은 말없이 잠시 머문다. 거리/배치로 관계가 바뀌는 것이 핵심이다. 추가 컷·카메라 이동·대사·실제 생성/저장 없이 연출을 설계해줘.",
+      "expected_output": "A static single-take board with within-shot rhythm and legible spatial relationship change.",
+      "expectations": [
+        "Preserves the locked static two-shot and single take; adds no cut or camera movement merely for variety.",
+        "Connects the initial desk barrier, A's path and final shared side to the relationship change with visible planned states and consistent IDs.",
+        "Designs within-shot anticipation, action and final hold without requiring new gestures during every held interval.",
+        "Keeps the requested 12-second duration as a planning constraint, labels proposed timing as estimated and avoids universal pacing numbers.",
+        "No Blender, image readability or real rhythm playback is claimed; necessary execution evidence is planned/unverified."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "제작용 콘티 S01/SH01~SH04는 같은 인물의 같은 표정을 같은 거리에서 매번 오비트한다. 목적은 처음에 손안의 반지를 숨겼다가 손을 펼치는 순간 공개하고 상대가 알아보는 것이다. 오비트의 공개/추적 이유는 없고 반지가 먼저 보일 위험이 있다는 기획 메모만 있다. 기존 사건을 유지해 텍스트 수정안을 내줘. 정지로 바꿔도 되고 실제 생성·렌더·저장은 하지 마.",
+      "expected_output": "A motivated reveal and reaction plan repairing gratuitous camera repetition without a movement quota.",
+      "expectations": [
+        "Identifies absent movement motivation and possible premature reveal as planning issues, not observed footage defects.",
+        "Replaces or motivates orbit choices using the concealed ring, hand opening, recognition and relevant start/end framing and cue order.",
+        "Records why each remaining cut or hold exists; static framing can be the recommended repair.",
+        "Does not solve repetition by cycling through unrelated lenses, angles or transition techniques, or by adding new story events.",
+        "Preserves healthy story/identity anchors and leaves actual image/motion and timed playback unverified."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "콘티 QA: 텍스트 표에는 SH01~SH06이 각각 3초이고 시작/정점/끝 패널 ID가 있다. 실제 그림·음성·애니매틱은 아직 없다. 중요한 반응이 어느 순간 시작하고 어디서 컷되는지는 적혀 있지 않다. '등간격이라 지루하다'와 '패널이 다 있으니 리듬 통과' 중 어떤 판정이 맞는지 검토하고 최소 보완안을 줘. 파일/미디어 생성 없음.",
+      "expected_output": "An evidence-scoped rhythm review rejecting both automatic failure for equal durations and automatic approval from panel counts.",
+      "expectations": [
+        "Neither equal three-second durations nor complete panel IDs alone determine rhythm quality.",
+        "Reports missing reaction onset, readable peak/hold and cut reasons by the supplied shot IDs without inventing inspected media observations.",
+        "Proposes within-shot and between-shot cue decisions in existing scene/shot/edit fields rather than a mandatory faster-cut formula.",
+        "Separates text design, actual image readability and timed playback, preserving missing evidence as unverified.",
+        "Names the needed scoped animatic or timed board-playback check without executing or claiming one."
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "같은 장갑을 돌려주는 승인 이야기의 러프 서사 패널 연습만 정확히 4개로 구성해줘. 발견→주인을 알아봄→돌려줌→안도의 순서와 결말은 고정이다. 화면 크기·거리·포즈와 여백으로 리듬을 만들되 제작 사양·샷 타이밍·카메라 경로 분해·프로젝트 원장·실제 이미지/파일 생성은 필요 없어. 구체 staging은 위임한다.",
+      "expected_output": "A narrow four-panel visual sequence with expressive composition and continuity, without expanding into a production plan.",
+      "expectations": [
+        "Returns exactly four ordered panels preserving all supplied beats and ending.",
+        "Uses readable framing, posture and spatial relationships to distinguish the beats rather than filling every panel with the same neutral pose.",
+        "Maintains the glove's visible ownership and handoff continuity, making a specific staging choice within the delegated scope.",
+        "Explains each panel's emotional/informational function and transition without requiring a close-up or camera move in every panel.",
+        "Adds no production slot table, precise timing, camera-path decomposition, ledger, media or file creation, and claims no actual rhythm playback."
+      ]
     }
   ]
 }

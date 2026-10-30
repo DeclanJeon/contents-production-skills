@@ -127,6 +127,8 @@ This on-demand reference covers provider routing and cost controls for media gen
 5. 고비용/고실패 샷은 대체 경로를 포함한다.
 6. 선택 경로와 제약을 [생성 영상 QA·재시도](21-generated-video-qa-retry.md)의 재시도 절차로 인계한다.
 
+모델 발표/출시일, 공급자 UI 제공과 선택 endpoint·모드·계정/지역의 현재 사용 가능성을 분리한다. 같은 요청에서 허용되는 입력 조합과 배타 조건, first/middle/last 및 reference가 공유하는 합산 한도·개별 한도를 확인해 실제 첨부 수와 대조한다. 각 입력이 따로 지원돼도 동시 사용이 지원된다는 뜻은 아니다. 충돌하면 필수 참조를 조용히 버리지 말고 지원되는 모드나 분리 경로를 제안하며, 새 작업/비용은 기존 승인에 대조한다. 수집표의 모델 목록·출시일 필터·상한은 현재 지원의 근거가 아니다.
+
 ### 라우팅 우선순위
 
 정체성/제품 충실도 → 행동·상호작용 실현 가능성 → 요구 제어 모드 → 샷 간 연속성 → 목표 시각 품질 → 오디오/대사 필요 → 무추가비용 적격 → 속도.
@@ -165,6 +167,14 @@ When a supplied or creator-described work is called AI, remastered, restored, or
 For a new authorized package, connect actual input IDs/versions to derivatives in the existing `asset_registry` provenance fields and versioned execution artifacts. Record declared information and evidence-backed process separately; leave unsupported stages/owners unknown. A later regeneration, cleanup, upscale, or composite does not erase the original source/derivation chain. This is provenance, not permission to reuse a reference work or a claim that any particular editing technique was used.
 
 품질 규칙: 프로필·전신·의상·소품 상호작용이 중요한데 뷰티 이미지 하나로 충분하다고 보지 않는다. seed를 정체성 제어로 의존하지 않는다. 임시 샷 조명을 정규 정체성 참조에 굽지 않는다 — 의도된 룩 일부일 때만. 정체성 참조·스타일 참조·포즈/구도 참조를 분리한다. 로고·주장·성분 사실·패키지 텍스트를 지어내지 않는다.
+
+### 프레임 프롬프트·실제 에셋·추출 프레임의 구분
+
+First/Last 또는 중간 프레임을 사용하는 작업에만 적용한다. 목표 shot/panel ID·시각과 시작/변화/끝 상태를 먼저 연결하고, 이미지 프롬프트와 실제 파일을 구분한다. 실제 파일은 기존 역할표·asset_registry에 ID/버전·파일/해시·픽셀 크기·자료 유형·검사/승인 근거를 연결한다. 자료 유형은 제공 참조, 계획 도식, 생성 정지 이미지, 실제 영상에서 추출한 프레임 등 실제 근거에 맞춰 기존 provenance/실행 산출물에 기록하며 새 프로젝트 enum을 만들지 않는다. 없는 파일은 미생성/미확인이다.
+
+First/Last 두 이미지는 정체성·수량·공간·물성 변화와 승인된 카메라 진행에 맞아야 하지만, 같은 구도나 두 끝점만으로 중간 인과·정확한 경로·실제 영상 성공이 입증되지 않는다. 최종 입력용 뷰는 도식의 라벨/격자와 분리해 원하는 비주얼 모드에 맞춰 검사한다. 스타일화 작업에 포토리얼을 강제하지 않으며, 지원하지 않는 Last 입력은 QA 목표로만 두고 제출 슬롯을 발명하지 않는다.
+
+링크나 셀의 GENERATED/CONCEPT/EXTRACTED 표기가 서로 충돌하면 자동으로 최신 표기를 채택하지 않는다. 실제 파일·생성/추출 이력으로 확인하기 전 자료 유형과 검수 상태를 미확인으로 유지하고 활성 생성 참조로 승격하지 않는다. 공식 모델 문서는 기능 근거일 수 있지만 개별 장면/프롬프트의 외부 원문 출처는 아니다. 실제 읽은 source locator와 편집/독립 재구성을 구분해 기록한다.
 
 ## 5. 최소 충분 프리뷰와 최종 제작
 

@@ -24,7 +24,7 @@
       "condition": "The endpoint supports the exact requested edit and confirmed source input type."
     },
     "interactive": {
-      "structure": "Describe the current scene state and one bounded steering change at a time.",
+      "structure": "Describe the current scene state and one bounded steering change at a time. For authorized live sessions, follow video-generation-planning.md section 6: distinguish submission, acceptance/effective time and observed response; preserve world, prop and continuous audio state. These are execution-history requirements, not provider API field names.",
       "example": "Continue forward along the path with a level horizon; stop before the gate.",
       "condition": "The selected runtime explicitly supports interactive steering; this is not a batch clip-generation instruction."
     }

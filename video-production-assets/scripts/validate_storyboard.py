@@ -10,8 +10,9 @@ generated-image or approval quality; --require-images only checks registered
 status and that real files exist inside --base-dir.
 Final boards additionally require per-panel ``asset_version_refs`` pinning every
 referenced critical asset (shot ``asset_ids`` + active LOOK) to its registered
-version. ``--panels-per-sheet`` (default 8, must match the renderer) caps panel
-coverage per registered ``kind=storyboard_sheet`` asset and expects each sheet
+version. ``--panels-per-sheet`` defaults to the supported ceiling of 8, not
+the renderer's reading density of 4. It caps panel coverage per registered
+``kind=storyboard_sheet`` asset and expects each sheet
 to carry ``panel_ids``/``sheet_index``/``sheet_count``.
 """
 import argparse
@@ -510,7 +511,7 @@ def main():
     parser.add_argument('--base-dir')
     parser.add_argument('--require-images', action='store_true')
     parser.add_argument('--panels-per-sheet', type=int, default=8,
-                        help='max panels per storyboard_sheet asset (match the renderer setting)')
+                        help='allowed panel ceiling per storyboard_sheet asset (default: 8; renderer may use fewer)')
     args = parser.parse_args()
     try:
         p = json.loads(Path(args.project).read_text(encoding='utf-8'))

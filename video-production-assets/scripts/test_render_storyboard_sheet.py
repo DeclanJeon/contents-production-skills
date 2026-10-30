@@ -147,7 +147,8 @@ class MultiSheetTests(unittest.TestCase):
     def test_paginates_at_eight_panels_and_covers_all(self):
         with tempfile.TemporaryDirectory() as root:
             p = _multi_scene_package(root)
-            result = render_sheets(p, root, 'board.png', font_path=self.font())
+            result = render_sheets(p, root, 'board.png', font_path=self.font(),
+                                   panels_per_sheet=8)
             sheets = result['sheets']
             self.assertEqual(len(sheets), 2)
             self.assertEqual([len(s['panel_ids']) for s in sheets], [8, 2])
@@ -181,7 +182,7 @@ class MultiSheetTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as root:
             p = _multi_scene_package(root)
             sheets = render_sheets(p, root, 'board.png',
-                                   font_path=self.font())['sheets']
+                                   font_path=self.font(), panels_per_sheet=8)['sheets']
             s2 = sheets[1]
             self.assertEqual(s2['scene_ids'], ['S02'])
             with Image.open(Path(root) / s2['relative_path']) as im:
@@ -197,6 +198,30 @@ class MultiSheetTests(unittest.TestCase):
                 for panel in p['storyboard']['panels'][:5]:
                     with Image.open(Path(root) / assets[panel['image_asset_id']]['path']) as source:
                         self.assertNotIn(source.getpixel((0, 0)), colors)
+
+    def test_default_density_preserves_nine_and_ten_panels(self):
+        for count in (9, 10):
+            with self.subTest(count=count), tempfile.TemporaryDirectory() as root:
+                # Given: canonical panels, including a nine-panel story.
+                p = _multi_scene_package(root)
+                if count == 9:
+                    p['storyboard']['panels'].pop(7)  # Remove an intermediate pose.
+                expected = [panel['id'] for panel in p['storyboard']['panels']]
+
+                # When: no density override is supplied.
+                sheets = render_sheets(p, root, 'board.png',
+                                       font_path=self.font())['sheets']
+
+                # Then: reading density changes pages, never story coverage.
+                self.assertEqual([len(s['panel_ids']) for s in sheets],
+                                 [4, 4, count - 8])
+                self.assertEqual([pid for s in sheets for pid in s['panel_ids']],
+                                 expected)
+                for sheet in sheets:
+                    with Image.open(Path(root) / sheet['relative_path']) as im:
+                        bounds = json.loads(im.info['storyboard_sheet.panel_bounds'])
+                        self.assertEqual([b['panel_id'] for b in bounds],
+                                         sheet['panel_ids'])
 
     def test_single_render_refuses_pagination(self):
         with tempfile.TemporaryDirectory() as root:
