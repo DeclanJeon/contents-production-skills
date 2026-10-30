@@ -2,7 +2,12 @@
 
 ## Unreleased
 
-- Require per-utterance speaking-face and separate listener-reaction coverage in production boards. Carry observable expression triggers, peaks and settles into panels.
+## 2.31 2026-10-30
+
+- Audit all 55 tabs of the supplied prompt workbook and record source-row coverage, reusable owners and exclusions. Add conditional loop-seam, real-time checkpoint, spatial-audio, mask-alignment and frame-provenance procedures; strengthen endpoint-mode compatibility and allowed-state deltas. Align native-audio transport, soft camera control, continuous-take decomposition, utterance mapping and the remaining stale default-eight clause. Keep source scenarios, static capability claims, numerical recipes and design scores out of universal policy.
+- Default paginated production storyboard rendering to four panels per sheet while retaining the eight-panel tool limit and explicit denser layouts. Keep strict single-sheet rendering available up to that limit. Document detail/overview density choices, delivery-size readability checks and preserving all canonical panels rather than filling a 3x3 grid.
+- Map every utterance to its on/offscreen speaker and picture interval, and stage consequential reactions without requiring a speaking-face/reaction cut pair per line. Preserve shared framing, held listener shots and intentional withholding through prompt handoff and generated-media QA.
+- Connect scene rhythm, expressive distance and spatial relationships to the canonical storyboard contract, scene-intent and edit templates, and QA. Separate text design, actual image readability and timed playback; accept motivated static/repeated framing without technique quotas. Add targeted storyboard evaluation cases for mechanical coverage, unmotivated movement, unreadable emotions and premature rhythm approval.
 - Add a shared storyboard-to-final-request timing procedure with global/shot-local/generation-local conversion, handles, 5/10/20/30-second grouping examples and actual VISUAL/AUDIO request correspondence. Connect the coordinator, storyboard, video-planning, AI-handoff template and generated-media QA without changing project schema, execution authority or provider capabilities.
 
 ## 2.30 2026-10-21

@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "release": "2.31",
+  "date": "2026-10-30",
+  "base_commit": "8e0e3b41da7962dc94f43335d99840783c6acd44",
+  "review_tree": "/tmp/contents-production-skills-release-231-1793349016727",
+  "status": "passed",
+  "feature_candidate": {
+    "version": "2.30",
+    "passed": 402,
+    "subtests": 518,
+    "duration_s": 28.06,
+    "log": "/tmp/skill-release-2.31-qa/feature-full-check.log"
+  },
+  "final_candidate": {
+    "version": "2.31",
+    "passed": 402,
+    "subtests": 518,
+    "duration_s": 32.12,
+    "log": "/tmp/skill-release-2.31-qa/release-full-check.log"
+  },
+  "static_checks": {
+    "json_files": 118,
+    "json_errors": [],
+    "link_errors": [],
+    "snapshot_mismatches": [],
+    "line_ending_note": "storyboarding-video/SKILL.md has six CRLF lines normalized to LF in the isolated QA snapshot; all files match after line-ending normalization.",
+    "final_json_files_including_validation_record": 119
+  },
+  "installed_sync": {
+    "exit_code": 0,
+    "created": 0,
+    "repointed": 0,
+    "skipped": 78,
+    "backed_up": 0,
+    "support_version": "2.31",
+    "roots": [
+      "~/.codex/skills",
+      "~/.claude/skills",
+      "~/.agents/skills"
+    ]
+  },
+  "manual_qa_matrix": [
+    {
+      "id": "feature-regression",
+      "scenario": "First atomic feature candidate, old manifest/changelog",
+      "command": "python3 scripts/check_versions.py && python3 -m pytest -q -rs && python3 scripts/sync_installed.py --dry-run --quiet",
+      "observed": "402 passed, 518 subtests passed; exit 0",
+      "verdict": "PASS",
+      "artifact": "/tmp/skill-release-2.31-qa/feature-full-check.log"
+    },
+    {
+      "id": "release-regression",
+      "scenario": "Final release manifest/changelog 2.31",
+      "command": "python3 scripts/check_versions.py && python3 -m pytest -q -rs && python3 scripts/sync_installed.py --dry-run --quiet",
+      "observed": "402 passed, 518 subtests passed; exit 0",
+      "verdict": "PASS",
+      "artifact": "/tmp/skill-release-2.31-qa/release-full-check.log"
+    },
+    {
+      "id": "real-cli",
+      "scenario": "Nine canonical panels at default4 and explicit8, split extraction and two failure paths",
+      "command": "python3 /tmp/storyboard-density-layout-qa.py /tmp/contents-production-skills-release-231-1793349016727",
+      "observed": "Default 4+4+1; explicit 8+1; all nine panels re-extracted in order; density9 and output collision exit2 without writes",
+      "verdict": "PASS",
+      "artifact": "/tmp/skill-release-2.31-qa/renderer-cli.log"
+    },
+    {
+      "id": "visual-pages",
+      "scenario": "All 5 generated synthetic layout pages inspected at native/default and common viewing widths",
+      "command": "Read every preview emitted by the real CLI fixture",
+      "observed": "Korean captions and panel order legible; no overlap/clipping; overview8 visibly denser at equal viewing width",
+      "verdict": "PASS",
+      "artifacts": [
+        "/tmp/storyboard-density-qa-webeghcp/default-view-01.png",
+        "/tmp/storyboard-density-qa-webeghcp/default-view-02.png",
+        "/tmp/storyboard-density-qa-webeghcp/default-view-03.png",
+        "/tmp/storyboard-density-qa-webeghcp/overview-view-01.png",
+        "/tmp/storyboard-density-qa-webeghcp/overview-view-02.png"
+      ]
+    },
+    {
+      "id": "json-links-coverage",
+      "scenario": "JSON parse, changed local links/anchors, complete 55-tab audit assignments",
+      "command": "Resident-kernel parsing/link resolution and audit range checks",
+      "observed": "118 JSON inputs, no JSON/link errors; source audit 55 tabs/3105 rows/zero unassigned",
+      "verdict": "PASS",
+      "artifact": "/tmp/skill-release-2.31-qa/static-checks.json"
+    },
+    {
+      "id": "installed-support",
+      "scenario": "Actual local installed support refresh, not only a dry run",
+      "command": "python3 scripts/sync_installed.py --quiet",
+      "observed": "exit0; 78 existing links preserved; support manifest2.31 regenerated",
+      "verdict": "PASS",
+      "artifact": "/tmp/skill-release-2.31-qa/installed-sync.log"
+    }
+  ],
+  "renderer": {
+    "repository": "/tmp/contents-production-skills-release-231-1793349016727",
+    "root": "/tmp/storyboard-density-qa-webeghcp",
+    "captures": [
+      {
+        "mode": "default",
+        "sheet": 1,
+        "panel_ids": [
+          "P01",
+          "P02",
+          "P03",
+          "P04"
+        ],
+        "native_size": [
+          1168,
+          1913
+        ],
+        "preview": "/tmp/storyboard-density-qa-webeghcp/default-view-01.png"
+      },
+      {
+        "mode": "default",
+        "sheet": 2,
+        "panel_ids": [
+          "P05",
+          "P06",
+          "P07",
+          "P09"
+        ],
+        "native_size": [
+          1168,
+          1890
+        ],
+        "preview": "/tmp/storyboard-density-qa-webeghcp/default-view-02.png"
+      },
+      {
+        "mode": "default",
+        "sheet": 3,
+        "panel_ids": [
+          "P10"
+        ],
+        "native_size": [
+          592,
+          992
+        ],
+        "preview": "/tmp/storyboard-density-qa-webeghcp/default-view-03.png"
+      },
+      {
+        "mode": "overview",
+        "sheet": 1,
+        "panel_ids": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05",
+          "P06",
+          "P07",
+          "P09"
+        ],
+        "native_size": [
+          2320,
+          2811
+        ],
+        "preview": "/tmp/storyboard-density-qa-webeghcp/overview-view-01.png"
+      },
+      {
+        "mode": "overview",
+        "sheet": 2,
+        "panel_ids": [
+          "P10"
+        ],
+        "native_size": [
+          592,
+          992
+        ],
+        "preview": "/tmp/storyboard-density-qa-webeghcp/overview-view-02.png"
+      }
+    ],
+    "rejected_without_writes": {
+      "existing_output": {
+        "exit_code": 2,
+        "stderr": ""
+      },
+      "unsupported_density": {
+        "exit_code": 2,
+        "stderr": ""
+      }
+    }
+  },
+  "gate_review": {
+    "verdict": "APPROVE",
+    "confidence": "medium-high",
+    "blockers": [],
+    "independent_tests": {
+      "passed": 50,
+      "subtests": 19
+    },
+    "independent_audit_rows": 3105,
+    "independent_image_hashes": 27,
+    "captures_inspected": 5,
+    "report_sha256": "f2e9f9ffb36af1b450cdbb73602eb179fd1307c08e812786b363d0c4fb27c2c9",
+    "report": "# Release 2.31 final gate review\n\nrecommendation: APPROVE\nconfidence: Medium-high for the release candidate; not certification of external source media, provider behavior, or completed publication.\nblockers: []\n\n## Original intent and desired outcome\n\noriginalIntent: Finish integrating the remaining generalizable material from the supplied workbook, preserve the previously accepted storyboard/camera direction, finish QA, and then commit and push the update.\n\ndesiredOutcome: A release-ready 2.31 package with reusable procedures in existing owners, a complete source-text disposition audit, readable default-four pagination with an eight-panel ceiling, preserved canonical content and extraction safety, and honest evidence boundaries. The parent performs the authorized two commits and push after this gate; this reviewer does not certify those future operations as completed.\n\nuserOutcomeReview: The inspected candidate meets that release-readiness outcome. The additions cover loop seams, real-time checkpoints, spatial audio, mask alignment/polarity, frame provenance, endpoint input compatibility, allowed state changes, native-audio transport, continuous-take decomposition, and soft camera control. The canonical contract and its consumers preserve shared/offscreen dialogue and consequential reactions without imposing a cut pair per line. Scene rhythm, emotional distance and spatial relationships remain contextual design choices. Actual playback and image quality are explicitly distinct from text planning and structural checks.\n\n## Candidate and review boundary\n\n- Reviewed tree: `/tmp/contents-production-skills-release-231-1793349016727`.\n- Observed HEAD: `8e0e3b41da7962dc94f43335d99840783c6acd44`.\n- Observed candidate: 30 tracked modified files and three untracked audit/release records, matching the supplied file list. No commit or push was performed.\n- The implementation worktree was not edited. The installed support manifest was read only as installation evidence.\n- No JS eval tool is exposed in this reviewer. The equivalent SDK status call was made through Bun in the review tree. It returned `ULW_LOOP_PLAN_MISSING`, so the authorized fallback report location is used.\n- The report is this reviewer's only authored artifact. Bounded repository tests used their disposable synthetic fixtures; no provider/media-generation service, source spreadsheet write, dependency installation, or publication was invoked.\n\n## Criterion assessment\n\nThe following IDs label the criteria supplied in the review brief; they are not new product requirements.\n\n| Criterion | Assessment and evidence |\n|---|---|\n| G1: Complete source-text audit and generalizable integration | PASS. Independently parsed the audit and checked every disposition range: 55 tabs, 235 ranges, 3,105 assigned rows, no overlapping assignments, and each tab's assignment count equals its declared nonempty-row count. The audit distinguishes 55 headers from 3,050 data rows. Read the integration report, closure list, limitations, and sampled detailed dispositions; inspected the production owners for all 11 listed closures. External source-text research was not repeated. |\n| G2: Default four, supported ceiling eight, explicit single-sheet capacity eight | PASS. `video-production-assets/scripts/render_storyboard_sheet.py:78-79,742-819,832-839` separates the default from the ceiling and explicitly passes the ceiling in `render_sheet`. Existing CLI artifacts reproduce 4+4+1 and 8+1 for the same nine canonical panels. `validate_storyboard.py:513-519` retains its supported ceiling rather than rejecting denser explicit layouts. |\n| G3: Preserve IDs/order, source provenance, split extraction, and safe output behavior | PASS. Runtime changes are limited to density selection and documentation, not pixel processing or atomic output mechanics. Independently verified the two retained extraction manifests' nine-panel order and all 27 sheet/scene/panel SHA-256 values. Inspected the unchanged hard-link no-overwrite path and rollback at renderer lines 701-722 and 794-802. The independently passing affected suites exercise corruption, path escape, dangling links, existing output, malformed density, simulated post-preflight collision, scene bands, extraction, and final packaging. |\n| G4: Preserve scene/shot/panel/sheet distinction and contextual craft | PASS. `storyboard-contract.md:48-111,123-134`, the storyboard skill, shot/edit templates, timing handoff, and QA consumers retain canonical content, held/shared/offscreen framing, intentional static/repeated treatment, and separate text/image/playback evidence. No new scene or panel quota is introduced. |\n| G5: No schema, parallel production ledger, static vendor catalog, or new execution authority | PASS. Added tables are explicitly existing-document handoff slots; project schema and runtime registries are not changed. Provider-specific support remains conditional on actual endpoint verification. No dependency or executable integration with a new provider is introduced. |\n| G6: Release metadata and historical evidence | PASS. `manifest.json:3` is 2.31; `CHANGELOG.md:5-11` is the dated promoted release section. Version checker reports package 2.31 with 26 consistent skills. The source audit deliberately retains package 2.30 historical validation. No unrelated skill-frontmatter bump was made. |\n| G7: QA evidence is present and accurately scoped | PASS with the evidence limitations below. Both full-suite logs exist and record exit 0, 402 passed and 518 subtests. The actual CLI script, log, retained split manifests and all five captures exist. I opened all five captures: ordering and Korean captions are visible without observed clipping; the eight-panel preview is substantially denser. These are synthetic layout fixtures, not art, rhythm, linked-media, or provider-quality certification. |\n\n## Independent verification\n\n1. `PYTHONDONTWRITEBYTECODE=1 python3 scripts/check_versions.py`: reported `version check OK: package 2.31, 26 skill(s) consistent`.\n2. `PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q -p no:cacheprovider video-production-assets/scripts/test_render_storyboard_sheet.py video-production-assets/scripts/test_asset_gate.py`: exit 0, **50 passed, 19 subtests passed in 22.70s**. An earlier background invocation's completion output was unavailable in this tool surface; the directly captured bounded run is the evidence used here.\n3. Parsed all 286 JSON paths returned by the candidate's tracked/untracked Git inventory: zero parse failures. This inventory is broader than the executor's 118-input static-check selection; the counts are not presented as equal scopes.\n4. Recomputed audit assignment coverage from its actual JSON ranges: 55 tabs / 235 ranges / 3,105 assigned rows; zero duplicate assignments and zero per-tab count discrepancies.\n5. Recomputed retained CLI artifact hashes and extraction ordering: default 4+4+1, explicit eight 8+1, nine extracted panel IDs in the expected order for each mode, and **27 matching SHA-256 values**.\n6. Read the installed support manifest at `/home/declan/.codex/skills/video-production-assets/support/manifest.json`: version 2.31. The supplied installed-sync log records exit 0 and 78 preserved links; I did not rerun installation or independently recount all 78 links.\n7. Attempted Python language-server inspection: `basedpyright-langserver` is unavailable. No type-check success is claimed and no tooling was installed.\n\n## Direct remove-ai-slops / programming review\n\nLoaded `/home/declan/.omo/binary-runtime/5.1.35/plugin/skills/remove-ai-slops/SKILL.md`, `/home/declan/.omo/binary-runtime/5.1.35/plugin/skills/programming/SKILL.md`, and its Python reference. Applied their review criteria directly; their implementation/refactoring instructions do not override the read-only task or the explicit rule that pre-existing issues are notes.\n\n- Excessive/useless tests: no finding in the addition. One test covers two adjacent canonical panel counts using real renderer output and input-derived expected order.\n- Deletion-only/requested-removal tests: none added. No assertions merely pin the removal of the old dialogue policy.\n- Tautological/implementation-mirroring tests: no new blocker. The default-density test checks observable sheet sizes and canonical IDs, not a constant or a source-code string. It would fail under the previous eight-panel default. PNG-bound metadata checks additionally observe the produced artifact.\n- Prose-pinning: none added. The six JSON evaluation cases specify behavior under concrete prompts; they are not executable assertions requiring exact documentation wording, nor are they claimed as executed behavioral results.\n- Test weakening: the explicit-eight updates retain the original single-sheet packaging fixture and explicit denser-layout assertions. The default behavior has separate coverage. No test was skipped, deleted, or disabled to pass.\n- Determinism/mocks: the added test uses isolated temporary directories and no sleeps, polling, time assumptions, or mocks. The pre-existing collision test injects a deterministic late-output collision and asserts actual filesystem preservation/rollback; it is not evidence of a broad real-process concurrency stress test.\n- Production extraction/parsing/normalization: none added. No new wrapper, parser, normalization path, dependency, fallback, or secondary ledger was introduced. The shared default constant is used at the paginated API and CLI seams; the explicit single-sheet entry point remains intentional.\n- Maintenance/scope: existing untyped large renderer/validator modules and broad cleanup catches remain pre-existing characteristics, not a justification for an out-of-scope refactor. No newly introduced concrete safety or maintenance regression was found.\n- Secrets/dependencies: no new credentials, secret-bearing config, dependency declarations, or network execution code was found in the supplied change and inspected candidate sections.\n\nA separate code-review report and notepad path were not supplied and were not located in the review evidence. Therefore I cannot confirm another report explicitly includes the same skill-perspective/overfit checklist. This is an exact process-evidence gap, not a demonstrated failure of a stated product criterion; the direct review above is independently performed and does not claim that missing report exists.\n\n## Nonblocking notes and exact evidence gaps\n\n- The source audit records snapshot and review hashes, not a locally supplied complete raw workbook/segment-review archive. The gate verifies the audit's assignments, production integrations and honest boundaries, not an independent semantic reread of every external cell. No linked source media or live-provider verification is claimed.\n- Full-suite 402/518 results and changed-link/anchor checks were inspected in the supplied logs/static record, not rerun in their entirety. The affected runtime suites, broad JSON parsing, audit coverage, retained image hashes and five visual captures were independently checked as described above.\n- The six new storyboard evaluation prompts have no supplied response/transcript result set. They are evaluation definitions, not proof of measured agent improvement; the release documentation does not claim otherwise.\n- `video-production-assets/assets/06-shots-template.md:36` retains a pre-existing example-level statement that camera direction stays DESIGN_PROPOSAL until support is checked. The updated canonical handoff at `references/11-ai-handoff.md:11` and its template distinguish adopted soft instructions from unchosen alternatives more precisely. This legacy wording is a note, not a newly caused regression under the supplied gate rule.\n- Commit identities and remote push verification necessarily remain outside this pre-commit read-only gate. APPROVE means the reviewed candidate is suitable to proceed, not that the user's overall commit/push request is already complete.\n\n## Checked artifact paths\n\nPaths below are relative to the reviewed tree unless absolute. Changed sections were read directly; the large audit JSON was structurally checked in full and semantically sampled rather than described as a full external research reproduction.\n\n- `CHANGELOG.md`\n- `README.md`\n- `USAGE_GUIDE.md`\n- `manifest.json`\n- `ai-camera-control/references/control-contract.md`\n- `creative-production/references/storyboard-timing-to-prompt.md`\n- `creative-production/references/video-generation-planning.md`\n- `creative-production/references/video-prompt-dialects.json`\n- `storyboarding-video/SKILL.md`\n- `storyboarding-video/evals/evals.json`\n- `video-production-assets/assets/06-shots-template.md`\n- `video-production-assets/assets/09-edit-template.md`\n- `video-production-assets/assets/11-ai-handoff-template.md`\n- `video-production-assets/assets/video-model-routing-template.md`\n- `video-production-assets/references/06-shots.md`\n- `video-production-assets/references/08-animation.md`\n- `video-production-assets/references/09-edit.md`\n- `video-production-assets/references/11-ai-handoff.md`\n- `video-production-assets/references/12-qa.md`\n- `video-production-assets/references/21-generated-video-qa-retry.md`\n- `video-production-assets/references/23-finishing-platform.md`\n- `video-production-assets/references/24-production-execution.md`\n- `video-production-assets/references/26-state-causality-continuity.md`\n- `video-production-assets/references/29-reference-driven-production.md`\n- `video-production-assets/references/storyboard-contract.md`\n- `video-production-assets/references/storyboard-sheet-user-guide.md`\n- `video-production-assets/scripts/render_storyboard_sheet.py`\n- `video-production-assets/scripts/test_asset_gate.py`\n- `video-production-assets/scripts/test_render_storyboard_sheet.py`\n- `video-production-assets/scripts/validate_storyboard.py`\n- `docs/analysis/2026-10-30-prompt-sheet-integration.md`\n- `qa/2026-10-30-prompt-sheet-integration.json`\n- `qa/release-2.31-validation.json`\n- `/tmp/skill-release-2.31-qa/feature-full-check.log`\n- `/tmp/skill-release-2.31-qa/release-full-check.log`\n- `/tmp/skill-release-2.31-qa/renderer-cli.log`\n- `/tmp/skill-release-2.31-qa/static-checks.json`\n- `/tmp/skill-release-2.31-qa/installed-sync.log`\n- `/tmp/storyboard-density-layout-qa.py`\n- `/tmp/storyboard-density-qa-webeghcp/default-extracts/split-manifest.json`\n- `/tmp/storyboard-density-qa-webeghcp/overview-extracts/split-manifest.json`\n- `/tmp/storyboard-density-qa-webeghcp/default-view-01.png`\n- `/tmp/storyboard-density-qa-webeghcp/default-view-02.png`\n- `/tmp/storyboard-density-qa-webeghcp/default-view-03.png`\n- `/tmp/storyboard-density-qa-webeghcp/overview-view-01.png`\n- `/tmp/storyboard-density-qa-webeghcp/overview-view-02.png`\n- `/home/declan/.codex/skills/video-production-assets/support/manifest.json`\n"
+  },
+  "limits": [
+    "Synthetic layout fixtures are not final story artwork or a creative-quality benchmark.",
+    "No external linked source media, current provider capability, paid generation, voice or publication was tested.",
+    "basedpyright and biome language servers unavailable; executable tests and strict JSON parsing used.",
+    "Repository source-text audit artifacts from package2.30 remain historical evidence, not rewritten as a new media-quality claim."
+  ]
+}
