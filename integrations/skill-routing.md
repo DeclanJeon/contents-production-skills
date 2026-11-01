@@ -9,7 +9,6 @@
 - **Spatial/runtime boundary:** [camera-spatial-design](../camera-spatial-design/SKILL.md) designs numeric space; [blender-previsualization](../blender-previsualization/SKILL.md) is REQUIRED to implement and visually inspect every scene-specific 3D camera/spatial task. If Blender is unavailable, the 3D result stays blocked/unverified.
 - **File storage and audit mechanics:** [recording-production-history](../recording-production-history/SKILL.md), called by the coordinator for actual saved production. Owns Documents/studio_production and append-only `.history` events, never artifact approval or stage orchestration.
 - **Persona craft and character SSOT:** [designing-character-personas](../designing-character-personas/SKILL.md) supplies motives, optional typology lenses, conditional behavior and visual/voice direction. [designing-video-character-sheets](../designing-video-character-sheets/SKILL.md) consumes that packet into the existing character SSOT; no second bible or canonical schema is added.
-- **Korean marketplace product-detail pages:** [product-detail-page-builder](../product-detail-page-builder/SKILL.md) owns evidence-linked module plans, independent module-image assets, a stitched review preview, and profile-gated long-page slices. `creative-production` retains coordination, image-execution, storage/history, and review authority; this specialist does not upload or publish.
 
 Installed IDs come from [manifest.json](../manifest.json). No duplicate global coordinator, budget database, SSOT database or provider-manifest source of truth is added.
 
@@ -17,9 +16,6 @@ Installed IDs come from [manifest.json](../manifest.json). No duplicate global c
 
 | Requested output | Bundled owner/reference | Boundary |
 |---|---|---|
-| Source-grounded article, blog or social draft | Coordinator; [marketing/source adaptation](../creative-production/references/marketing-source-adaptation.md) when applicable | Actual requested text. No implied CTA, campaign, media or publishing. |
-| Korean marketplace product-detail page or image set | `product-detail-page-builder` via `creative-production` | Requires platform, product name/category, and real product photo; exact text stays code-composed; seller-only export rules and human visual review remain explicit. |
-| Campaign copy or strategy | Marketing/source reference; requested deeper specialist | Supported facts, requested channel/variant count/voice; no forced website, SEO or brand-kit deliverables. |
 | Source-derived Shorts/interview adaptation | Source inspection tool plus marketing/source reference | Actual source context, timecodes, caption/framing choices; transcript is not proof of visual/audio observations. |
 | Text concept/synopsis/character/panels | Text planning lane and requested specialists | Text and generic prompts. No automatic folder, images or footage. |
 | Standalone character persona, fictional MBTI/Enneagram lens, or persona-to-acting/voice design | [designing-character-personas](../designing-character-personas/SKILL.md) | Text packet; supplied/approved settings preserved, no real-person typing or media execution. Character-sheet requests consume it through the existing sheet owner. |
@@ -41,7 +37,7 @@ The following maps active skill roles, not a claim that every runtime or resourc
 |---|---|
 | `creative-production` | Maintained single bundled coordinator; current scope/review/execution/publication behavior retained. |
 | `searching-social-media` | Public SNS video-post candidate retrieval via bounded Flucto search; source/method/error/metric provenance retained; no universal SNS crawl, automatic download, topic-selection authority or publication. |
-| `product-detail-page-builder` | Korean marketplace asset specialist; fact-linked module plan, Pillow-composed module files, stitched QA preview, optional profile-driven slices, and seller-profile warnings; no second coordinator or ledger. |
+| `product-detail-page-builder` | Moved to the independent non-video pack; not bundled or coordinated by video production. |
 | `content-production-marketing` | Generic campaign/copy/source-caption/framing workflow integrated; deeper platform/channel workflow optional. |
 | `video-prompt`, `video-shotlist`, `video-model-router`, `video-pipeline` | Integrated into generation planning; no additional install ID or obligatory generic external planning skill. Runtime/node/model files are not bundled. |
 | `video-critique` | Integrated into canonical actual-media QA and bounded repair routing, not a second score/attempt ledger. |
@@ -105,3 +101,6 @@ Use structural validators only for the records they actually check. Actual visua
 
 Detailed boards use `video-production-assets/scripts/validate_storyboard.py` in addition to existing project checks; `--require-images --base-dir` checks declared actual files, not visual storytelling. `split_storyboard.py` derives indexed clean cuts from registered sheets/crops or images and reports hashes/ID associations for the same asset registry. Actual image-only full-sequence review and version-bound user acceptance remain mandatory and distinct from code validation.
 
+## Video-only package boundary (2.33)
+
+This manifest bundles video production and directly consumed support only. Standalone writing/social operations, brand identity, product pages/photos/cards and websites keep their own non-video owner and do not invoke `creative-production`. Five moved specialists live in [the independent sibling pack](../../non-video-production-skills/README.md); discovery of an optional specialist never auto-installs it. Historical 2.0 mappings above describe prior consolidation, not current activation authority.

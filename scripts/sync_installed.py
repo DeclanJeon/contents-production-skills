@@ -33,6 +33,9 @@ Exit codes: 0 synced (or clean dry run), 2 preflight failure, 1 I/O
 failure after mutations began (applied actions are reported honestly).
 """
 
+# Package boundary: consume this repository's manifest only. The independent
+# non-video sibling pack has its own installer/manifest; never auto-install,
+# remove or repoint its skills as a side effect of video-pack installation.
 from __future__ import annotations
 
 import argparse

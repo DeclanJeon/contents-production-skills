@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 1.23
+version: 1.24
 description: Use only when the user explicitly requests video production or creation of
   a storyboard sheet for a video. Do not use for other content creation/adaptation,
   standalone writing, social posts, campaigns, audio, images, ordinary design, or
@@ -40,7 +40,6 @@ As the sole coordinator and canonical state writer, `creative-production` uses [
 - Whenever the user asks to discover, compare, rank, choose, recommend, or validate content topics, **REQUIRED SUB-SKILL: `topic-demand-selection`** runs before candidate selection (including upstream of synopsis/script work). Preserve supplied audience/channel scope and requested candidate count. A user-locked topic used only for drafting skips topic discovery; evaluating its audience prospects does not. Apply this trigger to short-form, long-form, social, campaigns, and other audience-facing formats.
 - For requested SNS/social-media video-post search or reference discovery, use **`searching-social-media`** for bounded Flucto retrieval and evidence packaging. Search alone does not select a topic, inspect media, download or publish; demand-based topic choices still require `topic-demand-selection`.
 - For a requested still-image video or still-only edit with narration, dialogue, music or sound, use **REQUIRED SUB-SKILL: `storytelling-with-still-images`**. New or existing still-image cuts stay image-only; use `codex-imagen` only if new stills are requested, never a video model for assembly.
-- For a Korean marketplace product-detail page or product-detail image set, route the specialist handoff to **`product-detail-page-builder`**. Preserve `creative-production` as the sole coordinator: it owns intake scope, approval and image-execution authority, production root/history, and the final review. Text-only copy/page-plan requests stop before image generation; storefront UI, seller-center upload, and publishing stay out of this route.
 
 An ordinary **콘티/storyboard defaults to a complete production plan**, including canonical full coverage and technical slots. Explicit rough-panel/prompt-only exercises stay narrow. Text-only means no media/files/spend, not omission of technical planning. Missing applicable specialist inputs return one indexed requirement packet; integrate returned specifications before finalizing the board.
 

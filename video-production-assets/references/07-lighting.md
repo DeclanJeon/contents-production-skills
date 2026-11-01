@@ -37,3 +37,5 @@ E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/P
 
 ## 출력 템플릿
 `assets/07-lighting-template.md`를 복사해 채운다.
+
+조명 이름의 비교·번역이 필요할 때만 [조명 표현 선택표](lighting-language-catalog.md)를 읽는다. 선택한 화면 조건을 기존 07 행과 11의 `조명·룩`/`유지 규칙`/`도구 지원 확인`에 기록하고 실제 결과의 그림자·가독성·인접 샷을 QA한다.

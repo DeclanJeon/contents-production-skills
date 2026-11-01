@@ -35,3 +35,5 @@ Block L163–165(pp81–82)는 같은 이미지 크기를 위해 렌즈와 피�
 
 ## 심화 참조
 표현 모드 선택·모드별 불변·SSOT 티어·참조 팩·군중 규모는 [비주얼 모드·SSOT](20-visual-mode-ssot.md), 레퍼런스 분해는 [레퍼런스 영상 분해](25-reference-video-analysis.md).
+
+외부 팔레트·영화 스틸·헤어/의상 예시를 비교할 때만 [참조 색인](production-reference-index.md)과 필요한 외형 선택표를 읽고, 선택한 속성을 LOOK/SSOT와 11의 실제 제출문·참조 역할에 연결한다.

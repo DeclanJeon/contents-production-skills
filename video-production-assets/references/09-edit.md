@@ -150,3 +150,5 @@ E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/C
 
 위 목록은 패키지의 선택적 기능 후보이지 검증된 기능 분류나 필수 믹스 규칙이 아니다. READ-PARTIAL 구간은 Reisz L97–105의 소리 보완·사전 경고·화면과의 counterpoint·반응 샷을 가로지르는 대사·컷 빈도 밖의 체감 속도, Murch L241–243/L249–253의 선택적 강조·앰비언스·제거 및 한 장면의 음악 지연 사례만 제한적으로 지원한다. 인물 내면 관점, 모티프가 기억을 높인다는 효과, Foley 재질, 장소의 보편적 신뢰감, 침묵/음악 제거의 관객 효과와 보편 배치는 `[BASIS-UNSTATED]`인 선택적 패키지 가설로만 둔다. 특정 큐의 기능은 실제 브리프와 청취로 확인하며 관객 효과로 일반화하지 않는다.
 Murch 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/The Conversations Walter Murch and the Art of Editing Film (Michael Ondaatje) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `b6fa76cf85df969a3e780faa6d6f185e968c9e2dd805ac64c377358a6767e595`, 558324 bytes, L241–243/L249–253. 선택적 소리 강조·앰비언스·제거와 특정 장면의 음악 지연 사례만 지원한다. Foley 재질 구현, 보편적 침묵 효과, 모든 장르의 음악 배치나 audience response의 보장은 아니다.
+
+컷·전환·음향 예시를 비교할 때만 [편집·음향 표현 선택표](edit-sound-language-catalog.md)를 읽는다. 외부 실제 파일을 사용할 때는 [참조 색인](production-reference-index.md)의 행위별 권리 표를 기존 권리/믹스 문서에 연결한다.

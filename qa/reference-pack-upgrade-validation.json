@@ -1,0 +1,81 @@
+{
+  "video_pack_version": "2.33",
+  "non_video_pack_version": "1.0",
+  "validation_scope": "local structure, deterministic contracts, source/reference and isolated temporary copy installations; no cloud generation or publication; no independent LLM evaluation",
+  "video_regression": {
+    "command": "python3 -m pytest -q -rs --ignore=blender-previsualization/scripts/test_camera_orientation_in_blender.py",
+    "passed": 396,
+    "subtests_passed": 518,
+    "seconds": 39.64
+  },
+  "initial_full_regression": {
+    "passed": 396,
+    "subtests_passed": 518,
+    "failed": 1,
+    "failure": "Existing Blender orientation integration subprocess timed out after 180 seconds after fixture PNG/.blend output; PulseAudio permission warning present; not retried, not a media-quality pass"
+  },
+  "boundary_tests": {
+    "passed": 3,
+    "seconds": 0.36
+  },
+  "non_video_existing_tests": {
+    "passed": 13,
+    "seconds": 0.79
+  },
+  "new_decision_contract_tests": {
+    "passed": 8,
+    "included_in_video_regression": true,
+    "coverage": [
+      "camera mechanism selection and unresolved ambiguity",
+      "action-specific rights evidence",
+      "caption/frames/metadata vs playback/listening",
+      "inspected supported parameter vs soft intent/unsupported/unverified"
+    ]
+  },
+  "temporary_copy_installations": {
+    "video_skills": 22,
+    "non_video_skills": 5,
+    "required_markdown_links": "all resolve inside each isolated installed root"
+  },
+  "package_versions": "both checks passed",
+  "project_schema": "1.1 unchanged",
+  "native_camera_and_audio_contracts": "preserved; covered by existing regression",
+  "source_video_playback": false,
+  "source_audio_listening": false,
+  "cloud_media_generated": false,
+  "real_skill_installation": false,
+  "remote_operations": false,
+  "pending": null,
+  "application": {
+    "completed": true,
+    "video_root": "/home/declan/Documents/Projects/Skills-and-Automation/contents-production-skills",
+    "non_video_root": "/home/declan/Documents/Projects/Skills-and-Automation/non-video-production-skills",
+    "moved_skills": [
+      "product-detail-page-builder",
+      "higgsfield-brandkit",
+      "higgsfield-marketplace-cards",
+      "higgsfield-product-photoshoot",
+      "higgsfield-websites"
+    ],
+    "preserved_original_files": 107,
+    "existing_symlinks_repointed": 15,
+    "new_installs": 0,
+    "checksums": "all written and moved files matched reviewed stage",
+    "backup_root": "/tmp/video-skill-upgrade-0yr4i0k_/original-file-backup",
+    "journal": "/tmp/video-skill-upgrade-0yr4i0k_/apply-journal.json"
+  },
+  "post_apply_checks": {
+    "targeted_contract_and_boundary_tests": {
+      "passed": 11,
+      "seconds": 0.43
+    },
+    "required_markdown_links": {
+      "video": 0,
+      "non_video": 0
+    },
+    "moved_file_hashes_verified": 107,
+    "existing_moved_links_verified": 15,
+    "git_diff_check": "pass",
+    "derived_support_manifest": "2.33; 22 video skills; only affected generated metadata refreshed"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "scope": "Authored decision-contract scenarios and source/template review; not independent LLM evaluation or actual media QA",
+  "media_generated": false,
+  "source_videos_played": false,
+  "source_audio_listened": false,
+  "cases": [
+    {
+      "request": "카메라가 인물 쪽으로 이동하는 접근과 줌을 비교",
+      "result": "병진이면 dolly; 이동 없는 확대면 zoom/crop; 단순 가까이만 주어지면 미정",
+      "owner": "camera-spatial-design/references/camera-language-catalog.md"
+    },
+    {
+      "request": "상업 사용 가능 효과음을 생성기에 업로드",
+      "result": "작품 사용 근거는 업로드 근거가 아님. 업로드 미확인만 차단; 소리 없는 설계 계속",
+      "owner": "video-production-assets/references/production-reference-index.md"
+    },
+    {
+      "request": "X 본문과 오디오 스트림 정보만으로 영상/음향 평가",
+      "result": "본문 설명만 확인됨. 움직임/청취 품질은 미검증",
+      "owner": "video-production-assets/references/25-reference-video-analysis.md"
+    },
+    {
+      "request": "현재 모델 스키마 없이 정확한 카메라 궤적 파라미터 작성",
+      "result": "정확한 제어는 미확인. qualitative intent만 보존하고 파라미터를 만들지 않음",
+      "owner": "ai-camera-control/references/control-contract.md"
+    },
+    {
+      "request": "가르마만 바꾸는 허용된 캐릭터 변형",
+      "result": "§6/§24의 허용 변화만 제안; §5 얼굴·의상·master 참조 보존, 실제 이미지 미검증",
+      "owner": "designing-video-character-sheets/references/appearance-language-catalog.md"
+    }
+  ]
+}

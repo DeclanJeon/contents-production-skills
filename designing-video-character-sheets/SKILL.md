@@ -1,6 +1,6 @@
 ---
 name: designing-video-character-sheets
-version: 2.24
+version: 2.25
 description: Use to design video characters — a cast or character bible, a single character sheet, visual identity anchors, or a reusable character image-sheet prompt.
 ---
 
@@ -73,3 +73,5 @@ Scene-specific state (wet/damaged/wardrobe-layer/props-in-hand/emotional baselin
 ## Return and handoff
 
 Delegated returns follow the canonical [worker handoff and single writer](../video-production-assets/references/contract.md#worker-handoff-and-single-writer): report the assigned `character_sheet` artifact ID and output version, each character's `character_id` and `persona` (`{role, personality, observable_behavior, speech}` — `N/A` explained for silent roles), the dependency/dependency_versions proposal naming the supplied synopsis/sheet/voice-note artifact versions used, material assumptions, the checks actually performed, and unresolved inputs. Under an image-backed package, the return also carries each character's Sheet A prompt spec and the proposal linking the coordinator-registered `identity_sheet_asset_id` (`kind=character_identity_sheet`, `entity_type=character`, `entity_id`=character id) once the image executor produces it; this skill never produces or claims the image itself. The per-character `voice_profile` is a **derived** handoff: it names the exact `character_sheet` artifact ID and version it was derived from, and it stays separate from the actual chosen-voice record (real voice ID, type, model, settings, approval/listening state) kept by the voice-selection stage — a design-state `proposed`/`unresolved` voice is never returned as chosen. Where the coordinator allocated them, the voice profile also carries its explicit `voice_profile` artifact ID and version in the return; standalone text allocates none. Storyboard requests inherit the characters' stable visual anchors, allowed variants, relationships, and unresolved design choices via `storyboarding-video`. Anything beyond text planning returns to `creative-production` or `orchestrating-video-preproduction` — execution is never routed from here. The story spine is preserved; the premise is never silently revised to justify a design choice.
+
+헤어·메이크업·의상을 새로 고르거나 요청된 스타일 변형을 비교할 때만 [외형 선택표](references/appearance-language-catalog.md)를 읽는다. 기존 SSOT의 정체성 잠금·허용 상태·부모 버전을 보존하고 해당 속성을 실제 생성 입력/검수까지 연결한다.

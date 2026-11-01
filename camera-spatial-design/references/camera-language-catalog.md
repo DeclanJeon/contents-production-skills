@@ -574,3 +574,17 @@
 - **어떤 상황에?** 이전 장면의 소리가 이어질 때
 - **느낌:** 부드러운 연결, 여운, 감정 지속
 - **예시:** 화면은 바뀌었지만 이전 대사가 잠시 이어짐
+
+## 외부 예시 선택과 혼동 판별
+
+예시를 비교할 때만 [참조 색인](../../video-production-assets/references/production-reference-index.md)의 Eyecandy/StudioBinder/X 행을 읽는다. 아래 판별 단서는 자체 작성한 관찰 가이드며 특정 영상의 실제 메커니즘을 확정하지 않는다.
+
+| 혼동 | 관찰 단서·불확실성 | 인계/QA |
+|---|---|---|
+| Dolly / zoom / digital crop | 깊이별 시차·배경/대상 관계와 화면 확대를 구분. 한 프레임/변형된 AI 배경만으로 확정하지 않음 | B03/B04 의도·경로/렌즈를 분리, 실제 재생에서 확인 |
+| Pan / truck | 고정 위치 회전과 병진을 구분. 피사체 이동을 카메라 이동으로 단정하지 않음 | 배경 특징·주목점·시작/끝 프레이밍 |
+| Orbit / subject turn | 인물 회전인지 공간 시차를 가진 카메라 경로인지 비교 | camera/subject channel과 기준 방향 분리 |
+| Rack focus / push-in | 선명 대상 변화와 카메라 위치 변화를 분리 | B09는 focus 채널; 초점 변화만으로 이동 통과 금지 |
+| Whip pan / edit transition | 샷 안 패닝과 컷으로 잇는 두 샷을 구분 | B19와 [편집 선택](../../video-production-assets/references/edit-sound-language-catalog.md)을 연결 |
+
+선택을 camera intent·현재 spec 버전에 묶고 실제 제출문까지 기존 ai-camera-control 계약으로 보존한다. 정의/이미지 예시에서 미터·속도·초점거리 수치를 발명하지 않는다. 효과 설명은 가능한 연출 의도이며 보편적 관객 반응이 아니다. B17–24의 편집 상세는 09의 정본 절차를 따른다.

@@ -1,17 +1,16 @@
 # Contents Production Skills
 
-콘텐츠 제작과 영상 제작을 하나의 브리프·승인 흐름으로 조율하는 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`이며, 현재 패키지 버전의 정본은 [manifest.json](manifest.json)의 `version`이다.
+영상 제작과 직접 필요한 기획·참조·정체성·음향·3D·납품 기능을 모은 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`이며, 현재 패키지 버전의 정본은 [manifest.json](manifest.json)의 `version`이다.
 
 저장소: [DeclanJeon/contents-production-skills](https://github.com/DeclanJeon/contents-production-skills).
 
-`creative-production`이 유일한 총괄이다. 기존 영상 제작·텍스트 기획·카메라·Blender 전문 스킬을 유지하고, 현재 적용된 콘텐츠/영상 스킬의 범용 절차와 memorable-video v6의 유효한 제작 기법은 필요한 때만 읽는 참조로 통합한다. 중복 총괄·상태 원장·28개 마이크로 스킬을 함께 설치하지 않는다.
+`creative-production`이 유일한 총괄이다. 기존 영상 제작·텍스트 기획·카메라·Blender 전문 스킬을 유지하고, 영상 제작에 필요한 범용 절차와 memorable-video v6의 유효한 제작 기법은 필요한 때만 읽는 참조로 통합한다. 중복 총괄·상태 원장·28개 마이크로 스킬을 함께 설치하지 않는다.
 
 ## 스킬 라우팅과 조건부 실행 모듈
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|
-| [creative-production](creative-production/SKILL.md) | 단일 총괄: 원고·소셜·캠페인·이미지·오디오·영상 요청 라우팅, QA/납품; 이미지 기반 전체 프리프로덕션은 text worker handoff 뒤 실제 still/sheet/extraction까지 조정 | 요청 범위·단일 project.json/.history writer·사전검토/사용자수락/영상실행 승인을 분리한다. |
-| [product-detail-page-builder](product-detail-page-builder/SKILL.md) | 한국 marketplace 상품 사실·모듈·이미지·한글 조판·파일 검증 specialist | `creative-production`의 단일 총괄 경계를 유지한다. storefront UI·업로드/게시·광고 주장을 자동으로 만들지 않는다. |
+| [creative-production](creative-production/SKILL.md) | 단일 총괄: 명시적인 영상·영상 콘티 요청 라우팅, QA/납품; 이미지 기반 전체 프리프로덕션은 text worker handoff 뒤 실제 still/sheet/extraction까지 조정 | 요청 범위·단일 project.json/.history writer·사전검토/사용자수락/영상실행 승인을 분리한다. |
 | [searching-social-media](searching-social-media/SKILL.md) | Flucto로 SNS 영상 게시물 후보·레퍼런스·공개 수요 근거 검색 | 검색 범위·색인/직접 조회·플랫폼 실패·지표 단위·미확인을 보존한다. 자동 다운로드·분석·주제 선정·게시 없음. |
 | [topic-demand-selection](topic-demand-selection/SKILL.md) | 주제 선택·순위·인기/검색 수요 검증 | 주제 후보를 고르기 전에 audience-demand 근거와 사실/자료 게이트를 별도로 평가한다. |
 | [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품; 영화 제작 6단계 참조; 대사·립싱크(22)의 TTS 전 다국어 대사 현지화·각색과 기존 보이스·립싱크 | 15개 선택형 모듈과 통합 전문 참조. 영화 경로는 명시적 전체/단계 간 요청에만 적용하고, 실제 렌더·권리 승인·게시와 구분한다. |
@@ -126,7 +125,7 @@ Q01~Q23 구현과 검증 결과는 [작업지시서](docs/superpowers/plans/2026
 
 ## Production v5.1 구현 상태
 
-**Q01~Q23 구현과 Windows CLI/API 검증을 완료했다.** 패키지 버전은 `2.4`, 프로젝트 schema는 `1.1`을 유지한다. 독립 코드 리뷰 2건은 최종 `APPROVE`다. 구현·검토 완료는 실제 미디어 생성·과금·게시·배포 승인이 아니다.
+**Q01~Q23 구현과 Windows CLI/API 검증을 완료했다.** 이 절은 당시 패키지 `2.4`의 검증 기록이며 현재 패키지 버전은 manifest를 따른다. 프로젝트 schema는 `1.1`을 유지한다. 독립 코드 리뷰 2건은 최종 `APPROVE`다. 구현·검토 완료는 실제 미디어 생성·과금·게시·배포 승인이 아니다.
 
 공통 검증과 저장 도구는 다음 경계를 검사한다:
 
@@ -249,3 +248,11 @@ python scripts/install_hooks.py
 ## 출처와 재사용
 
 이 저장소에는 재사용 라이선스가 없다. 공개 저장소, 출처 표기, AI 판단은 재배포 허가가 아니다. 기존 서적·원문·Notion 자료, 개인 서버/계정 설정, 인증 자료, 모델 가중치와 사용자 프로젝트 산출물은 새 패키지에 반입하지 않는다. 현재 스킬에서 검토한 범용 제작 절차는 패키지의 기존 계약에 맞춘 운영 지침으로 정리하며 외부 helper/코드의 라이선스를 임의로 전용하지 않는다.
+
+## 영상 전용 팩과 분리 위치
+
+현재 manifest의 22개는 영상 제작 또는 직접 소비하는 지원 기능이다. 주제 수요/SNS 검색은 영상 주제·레퍼런스 입력, 제작 이력은 공통 저장, Soul ID는 별도 동의가 필요한 영상 인물 정체성 준비, 썸네일은 영상 납품/유통에 사용하므로 유지한다. 이 번들은 일반 소셜 계정 운영·자동 게시를 하지 않는다.
+
+비영상 스킬 5개는 [../non-video-production-skills](../non-video-production-skills/README.md)로 실제 분리했다: `product-detail-page-builder`, `higgsfield-brandkit`, `higgsfield-marketplace-cards`, `higgsfield-product-photoshoot`, `higgsfield-websites`. 원본 이력은 이 저장소에 남고 이동 해시·설치 링크 대응은 [이동 기록](integrations/non-video-migration.json)에 둔다. 기존 설치 링크의 대상만 수정하며 새 설치·배포는 하지 않는다. 영상 팩의 설치/동기화는 영상 manifest만 사용하고 형제 팩을 자동 설치하거나 삭제하지 않는다.
+
+표현 선택은 [제작 참조 색인](video-production-assets/references/production-reference-index.md)을 필요할 때만 읽는다. 시각 용어/교육 자료와 원본 에셋을 구분하고 선택→기존 오너 필드→실제 제출문→QA를 연결한다. 출처 열람, 작품 사용, 원본 재배포, 생성기 업로드, AI 학습 권리는 각각 기록하며 현재 미검증 자료를 검증됨으로 승격하지 않는다. 프로젝트 schema 1.1·캐릭터 SSOT·시간·버전·사운드 큐·카메라 QA는 유지한다.

@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 2.33
+
+- Keep the video pack focused; relocate five independent non-video skills with migration hashes and existing-link repoints.
+- Add evidence-scoped reference, appearance, lighting and edit/sound catalogs with existing-owner prompt and QA bindings.
+- Separate action-specific rights, actual inspection and endpoint-supported controls; preserve project schema 1.1 and existing production QA.
+
+
 ## 2.32 2026-11-01
 
 - Integrate all eight guides and adjacent runtime assets from MIT-licensed `Moh4696/open-3d-skills` at commit `7b04ab491d5bcbd920cbffbf06ebae3f9429d8e3` as on-demand references under one `open-3d-production` specialist. Preserve source/license provenance and avoid registering eight rival pipelines.

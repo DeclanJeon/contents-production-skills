@@ -1,0 +1,705 @@
+{
+  "source_package_version": "2.32",
+  "video_package_version": "2.33",
+  "source_commit": "1488e36a9e2d0a998af7d4800e879656b1eaa112",
+  "destination": "../non-video-production-skills",
+  "new_git_repository_created": false,
+  "remote_operations": false,
+  "moves": [
+    {
+      "skill": "product-detail-page-builder",
+      "from": "product-detail-page-builder",
+      "to": "../non-video-production-skills/product-detail-page-builder",
+      "reason": "standalone product-detail pages",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "source_sha256": "289caeb0f1496110de96cb3cce87c754d43e74e4ce0170964e8a0744a83d390d",
+          "destination_sha256": "f7a781b68fd30eb3ffb906c83eca7695e992648f14f02fb49d17eb9f97510818",
+          "modified": true
+        },
+        {
+          "path": "references/category-playbooks.md",
+          "source_sha256": "0faee22a90d46f4c954bea009d9f54cb8c4c6428ef1baad45c0e047847f8b3d8",
+          "destination_sha256": "0faee22a90d46f4c954bea009d9f54cb8c4c6428ef1baad45c0e047847f8b3d8",
+          "modified": false
+        },
+        {
+          "path": "references/codex-imagen-prompt-pipeline.md",
+          "source_sha256": "b663922b616f1e8f802e2daef8eab837a3a27eadabdf8f5567a3b953a83a1b40",
+          "destination_sha256": "e0eb309f1a35922babe5c1f8edef114b92ef12966d852f20ab750add83be7615",
+          "modified": true
+        },
+        {
+          "path": "references/page-spec.schema.json",
+          "source_sha256": "f04baa4e50c0bf9b45b1d643f264ee49a6658a229ebac10d260de291ba606fb5",
+          "destination_sha256": "f04baa4e50c0bf9b45b1d643f264ee49a6658a229ebac10d260de291ba606fb5",
+          "modified": false
+        },
+        {
+          "path": "references/platform-profiles.json",
+          "source_sha256": "dd0c7b246dda7085062c4cf645960beec551ded6f3409bb0cd76da1607a6c7f0",
+          "destination_sha256": "dd0c7b246dda7085062c4cf645960beec551ded6f3409bb0cd76da1607a6c7f0",
+          "modified": false
+        },
+        {
+          "path": "references/platform-source-policy.md",
+          "source_sha256": "7afcdcf86cf34cb0b6ecc9995bbc47143f67b33fe15e712c13667bae1701d48c",
+          "destination_sha256": "7afcdcf86cf34cb0b6ecc9995bbc47143f67b33fe15e712c13667bae1701d48c",
+          "modified": false
+        },
+        {
+          "path": "references/production-workflow.md",
+          "source_sha256": "39687c7141bd268b5984a2d81bbaf98165072e84428f76772f19d6381c3c4525",
+          "destination_sha256": "5f0877348ab7a4c7f88d840b5ec5b2d1e2af61480703de394af6c0ac3fe2494e",
+          "modified": true
+        },
+        {
+          "path": "references/prompt-recipes.md",
+          "source_sha256": "88ea169d82cc2be08a08ff737d1c0854d6d52e2a326d0d888c90ac0879183e5e",
+          "destination_sha256": "88ea169d82cc2be08a08ff737d1c0854d6d52e2a326d0d888c90ac0879183e5e",
+          "modified": false
+        },
+        {
+          "path": "scripts/builder.py",
+          "source_sha256": "067da0150a57aeb513ebe1a9e21e59bba05afae410222a5c631a604d1b9236aa",
+          "destination_sha256": "067da0150a57aeb513ebe1a9e21e59bba05afae410222a5c631a604d1b9236aa",
+          "modified": false
+        },
+        {
+          "path": "scripts/compose_detail_page.py",
+          "source_sha256": "468f9f6c47de62bc8f3ebf242e33c68cc5337c60c65393f3f5cc9f71700dff06",
+          "destination_sha256": "468f9f6c47de62bc8f3ebf242e33c68cc5337c60c65393f3f5cc9f71700dff06",
+          "modified": false
+        },
+        {
+          "path": "scripts/errors.py",
+          "source_sha256": "1e7ef15b8ef0fe7b1eae60be7be5b386df08e061a835d78a0efeaf10d6708a0a",
+          "destination_sha256": "1e7ef15b8ef0fe7b1eae60be7be5b386df08e061a835d78a0efeaf10d6708a0a",
+          "modified": false
+        },
+        {
+          "path": "scripts/export_slices.py",
+          "source_sha256": "f88845f1b19b054b4a67b3cc0b09827da9692e6f3bb2af63faab9fb647fbf318",
+          "destination_sha256": "f88845f1b19b054b4a67b3cc0b09827da9692e6f3bb2af63faab9fb647fbf318",
+          "modified": false
+        },
+        {
+          "path": "scripts/output_checks.py",
+          "source_sha256": "2a2d21329658d910e79affa49c28b9dea684dfc2512d2fc3cb16fe8a3c05790d",
+          "destination_sha256": "2a2d21329658d910e79affa49c28b9dea684dfc2512d2fc3cb16fe8a3c05790d",
+          "modified": false
+        },
+        {
+          "path": "scripts/output_manifest.py",
+          "source_sha256": "81abe37ff4cdcf4e5555bc4a59af5f981f2bbb4719332b333d739175c87d409d",
+          "destination_sha256": "81abe37ff4cdcf4e5555bc4a59af5f981f2bbb4719332b333d739175c87d409d",
+          "modified": false
+        },
+        {
+          "path": "scripts/page_builder_test_support.py",
+          "source_sha256": "1f1edd6ce7c2889994b8c328e826809a468cc04454e1b801d1acba10b3308999",
+          "destination_sha256": "1f1edd6ce7c2889994b8c328e826809a468cc04454e1b801d1acba10b3308999",
+          "modified": false
+        },
+        {
+          "path": "scripts/page_facts.py",
+          "source_sha256": "4fc6760b3b994f684014229b807094c27bad30b1408d7d80b38057e0dfb16ce2",
+          "destination_sha256": "4fc6760b3b994f684014229b807094c27bad30b1408d7d80b38057e0dfb16ce2",
+          "modified": false
+        },
+        {
+          "path": "scripts/page_spec.py",
+          "source_sha256": "d80627992e62ff6f7cda5f3c74fda29e134d347b6990ad16f16bea8b37b95eb3",
+          "destination_sha256": "d80627992e62ff6f7cda5f3c74fda29e134d347b6990ad16f16bea8b37b95eb3",
+          "modified": false
+        },
+        {
+          "path": "scripts/platform_profiles.py",
+          "source_sha256": "54fe0952c53eb7a5139d0e3506c152bdaab8c11e72b2562e01324c41ae0d1e67",
+          "destination_sha256": "54fe0952c53eb7a5139d0e3506c152bdaab8c11e72b2562e01324c41ae0d1e67",
+          "modified": false
+        },
+        {
+          "path": "scripts/rendering.py",
+          "source_sha256": "029818d706c9d9d5f5342fd19de50e1a56bcfe170e6418e2bcaa93f8cf6dcc44",
+          "destination_sha256": "029818d706c9d9d5f5342fd19de50e1a56bcfe170e6418e2bcaa93f8cf6dcc44",
+          "modified": false
+        },
+        {
+          "path": "scripts/test_page_builder.py",
+          "source_sha256": "7ddb0bdcdbde180a6089163166fc1c23dffe8e8a7e7dabaf35eea8a236703600",
+          "destination_sha256": "7ddb0bdcdbde180a6089163166fc1c23dffe8e8a7e7dabaf35eea8a236703600",
+          "modified": false
+        },
+        {
+          "path": "scripts/test_page_export.py",
+          "source_sha256": "648b9d70e418e5eeb2ec9c282dc605798779cdcf4b985c7f7f365294f5b9c4e5",
+          "destination_sha256": "648b9d70e418e5eeb2ec9c282dc605798779cdcf4b985c7f7f365294f5b9c4e5",
+          "modified": false
+        },
+        {
+          "path": "scripts/test_page_output.py",
+          "source_sha256": "6f33f90358fe4ea967aa7bd1b058db3c3afce72205f02b47e94de92d3f588f1d",
+          "destination_sha256": "6f33f90358fe4ea967aa7bd1b058db3c3afce72205f02b47e94de92d3f588f1d",
+          "modified": false
+        },
+        {
+          "path": "scripts/test_page_spec.py",
+          "source_sha256": "4b11a55fff7918fdbfae1d22925d4313a8a75cc877a8e7b8d6b4db709ad6767e",
+          "destination_sha256": "4b11a55fff7918fdbfae1d22925d4313a8a75cc877a8e7b8d6b4db709ad6767e",
+          "modified": false
+        },
+        {
+          "path": "scripts/text_layout.py",
+          "source_sha256": "a5cf5019b5d8233fd3f8423d7860b5f50aae54863666054949dea2d666d6d3af",
+          "destination_sha256": "a5cf5019b5d8233fd3f8423d7860b5f50aae54863666054949dea2d666d6d3af",
+          "modified": false
+        },
+        {
+          "path": "scripts/validate_output.py",
+          "source_sha256": "879bde106c1eb4a6e75d9d68b732a76d5487ca6660f6966fdc9364f7fcc679bb",
+          "destination_sha256": "879bde106c1eb4a6e75d9d68b732a76d5487ca6660f6966fdc9364f7fcc679bb",
+          "modified": false
+        }
+      ]
+    },
+    {
+      "skill": "higgsfield-brandkit",
+      "from": "higgsfield-brandkit",
+      "to": "../non-video-production-skills/higgsfield-brandkit",
+      "reason": "general brand systems and applications",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "source_sha256": "976c734bdf60764baba88d9478133ef14b9a170d39ea12459d1ccc2dddb56a2a",
+          "destination_sha256": "bce87493e34da471faf6ef335c37ebace8f900621000c2fc2af32af42b6456f6",
+          "modified": true
+        },
+        {
+          "path": "agents/openai.yaml",
+          "source_sha256": "f932b588c1a907a11ecbeb1cbae72aded4a30b29025c1b2749bf75d4e0bb1d4f",
+          "destination_sha256": "f932b588c1a907a11ecbeb1cbae72aded4a30b29025c1b2749bf75d4e0bb1d4f",
+          "modified": false
+        },
+        {
+          "path": "references/asset-analysis.md",
+          "source_sha256": "187cdb5c3f758f08c0e8fc264674032b2db034d5cefad7a89d5a764a5a3e24ea",
+          "destination_sha256": "187cdb5c3f758f08c0e8fc264674032b2db034d5cefad7a89d5a764a5a3e24ea",
+          "modified": false
+        },
+        {
+          "path": "references/brand-lock.md",
+          "source_sha256": "143c269a278eeac88814f851f600c59a9b9eb0ce8842432b6b618043db05e924",
+          "destination_sha256": "143c269a278eeac88814f851f600c59a9b9eb0ce8842432b6b618043db05e924",
+          "modified": false
+        },
+        {
+          "path": "references/brandbook.md",
+          "source_sha256": "7ffc004e83a26aec51c15a76270b22a3ba1bb7e5993d8f5d7e38f68148fcac06",
+          "destination_sha256": "7ffc004e83a26aec51c15a76270b22a3ba1bb7e5993d8f5d7e38f68148fcac06",
+          "modified": false
+        },
+        {
+          "path": "references/brandkit-design-brain.md",
+          "source_sha256": "bfb81b955d3bf190ab372b029c7c7b9732732ab06e0ba3f681bfa28aa1b86d13",
+          "destination_sha256": "bfb81b955d3bf190ab372b029c7c7b9732732ab06e0ba3f681bfa28aa1b86d13",
+          "modified": false
+        },
+        {
+          "path": "references/concept-boards.md",
+          "source_sha256": "7e0f307cb47593e34ccea800f485cf79bf9a2f08042e435c9a445f8d5cc0bf01",
+          "destination_sha256": "7e0f307cb47593e34ccea800f485cf79bf9a2f08042e435c9a445f8d5cc0bf01",
+          "modified": false
+        },
+        {
+          "path": "references/design-sources.md",
+          "source_sha256": "1bfad0556803bfe916a9e8d6c1a23947bcb0ca64b30e480fb794ea2f114c09c0",
+          "destination_sha256": "1bfad0556803bfe916a9e8d6c1a23947bcb0ca64b30e480fb794ea2f114c09c0",
+          "modified": false
+        },
+        {
+          "path": "references/handoff.md",
+          "source_sha256": "be174013f113106980b92f90252bb15f270ebc5ad4be7b15361aad417579546c",
+          "destination_sha256": "d4c16af9f86a2b7e140abadee7c6ea9dbca16eb75a5ef53d21132f3d24f8e4fc",
+          "modified": true
+        },
+        {
+          "path": "references/inline-widgets.md",
+          "source_sha256": "273cf25b5c4f4f4c4395eb942c6b7b57876a06dbb91ac891c28d8cab161b232e",
+          "destination_sha256": "273cf25b5c4f4f4c4395eb942c6b7b57876a06dbb91ac891c28d8cab161b232e",
+          "modified": false
+        },
+        {
+          "path": "references/intake.md",
+          "source_sha256": "b6486ba21a9e7dd304d9ca202f00d9e31c531fb7ae2159cba3c9002097428de1",
+          "destination_sha256": "b6486ba21a9e7dd304d9ca202f00d9e31c531fb7ae2159cba3c9002097428de1",
+          "modified": false
+        },
+        {
+          "path": "references/logo-export-payloads.md",
+          "source_sha256": "0dde5091f8bb015fac012ddadc632178c004afa9fd83634da99beae07363cc25",
+          "destination_sha256": "0dde5091f8bb015fac012ddadc632178c004afa9fd83634da99beae07363cc25",
+          "modified": false
+        },
+        {
+          "path": "references/logo-prompt-enhancer.md",
+          "source_sha256": "36e2c69342b4147d74d630efb42650ce5a011a4382b90a62334aefecabb64c24",
+          "destination_sha256": "36e2c69342b4147d74d630efb42650ce5a011a4382b90a62334aefecabb64c24",
+          "modified": false
+        },
+        {
+          "path": "references/logo.md",
+          "source_sha256": "cf98ac911ded4b9318d9c9a88a7e3f590def47253e1e0753f035037a59002f76",
+          "destination_sha256": "cf98ac911ded4b9318d9c9a88a7e3f590def47253e1e0753f035037a59002f76",
+          "modified": false
+        },
+        {
+          "path": "references/merchandise.md",
+          "source_sha256": "2ea7529381411bb4de4f2d34e58121776f5a3dfddb5015476b26135f6687f4c6",
+          "destination_sha256": "2ea7529381411bb4de4f2d34e58121776f5a3dfddb5015476b26135f6687f4c6",
+          "modified": false
+        },
+        {
+          "path": "references/mockups.md",
+          "source_sha256": "b4733990ae79f9cf48375e6f712a4fbe904ea0ef62aabdb2cbc2e0f502b251df",
+          "destination_sha256": "b4733990ae79f9cf48375e6f712a4fbe904ea0ef62aabdb2cbc2e0f502b251df",
+          "modified": false
+        },
+        {
+          "path": "references/packaging.md",
+          "source_sha256": "829f41907200308997d7a14f9ba23a01804d6bad1e0cc3aaab03542c6f960ade",
+          "destination_sha256": "829f41907200308997d7a14f9ba23a01804d6bad1e0cc3aaab03542c6f960ade",
+          "modified": false
+        },
+        {
+          "path": "references/palette.md",
+          "source_sha256": "5b0bcd85031bdd69b965b1dd5fabb65d00b1ef64693a371d2ab9350c662062c7",
+          "destination_sha256": "5b0bcd85031bdd69b965b1dd5fabb65d00b1ef64693a371d2ab9350c662062c7",
+          "modified": false
+        },
+        {
+          "path": "references/posters-banners.md",
+          "source_sha256": "c762054cf5b41a27a071aaaabed38bac85a99851febbc24de2c8e81e41bde2cd",
+          "destination_sha256": "c762054cf5b41a27a071aaaabed38bac85a99851febbc24de2c8e81e41bde2cd",
+          "modified": false
+        },
+        {
+          "path": "references/prerequisites.md",
+          "source_sha256": "cec03829bc1a41429bc7952c9f41d204705071d6eab6204f4f8629957a1b7101",
+          "destination_sha256": "cec03829bc1a41429bc7952c9f41d204705071d6eab6204f4f8629957a1b7101",
+          "modified": false
+        },
+        {
+          "path": "references/presentation-deck.md",
+          "source_sha256": "e21c3a227671b405ee5bac145e02742b52a4679a83402b3c2bd2fb98602cd103",
+          "destination_sha256": "e21c3a227671b405ee5bac145e02742b52a4679a83402b3c2bd2fb98602cd103",
+          "modified": false
+        },
+        {
+          "path": "references/preview-payloads.md",
+          "source_sha256": "d134a0ef463b34a8b9f0621c3b5b75e8d93cb4cfe25378e5c3d42e5c33285265",
+          "destination_sha256": "d134a0ef463b34a8b9f0621c3b5b75e8d93cb4cfe25378e5c3d42e5c33285265",
+          "modified": false
+        },
+        {
+          "path": "references/qa-and-iteration.md",
+          "source_sha256": "be25e4ae710acb09894f70a1019343224983c60fb4f743ef55a9bda5e3a6a535",
+          "destination_sha256": "be25e4ae710acb09894f70a1019343224983c60fb4f743ef55a9bda5e3a6a535",
+          "modified": false
+        },
+        {
+          "path": "references/signage.md",
+          "source_sha256": "0cdc7b42d6c099dcb0c9db0cb74f1b22b32ea329ca482711c741ceedbbfac408",
+          "destination_sha256": "0cdc7b42d6c099dcb0c9db0cb74f1b22b32ea329ca482711c741ceedbbfac408",
+          "modified": false
+        },
+        {
+          "path": "references/social-templates.md",
+          "source_sha256": "dd9b804c4f1a40fa3a80cd2ef2906d68024a35e861a769a7e592ba97ac76364c",
+          "destination_sha256": "dd9b804c4f1a40fa3a80cd2ef2906d68024a35e861a769a7e592ba97ac76364c",
+          "modified": false
+        },
+        {
+          "path": "references/state-payloads.md",
+          "source_sha256": "9f727270dd9a668292b13cbf1dafc681ad3206960e8e87dedb9e7c69b38fda2e",
+          "destination_sha256": "9f727270dd9a668292b13cbf1dafc681ad3206960e8e87dedb9e7c69b38fda2e",
+          "modified": false
+        },
+        {
+          "path": "references/typography.md",
+          "source_sha256": "126a98a00224c5d0a0234be83d833039b06c508d3687973de7242bdd90ea790e",
+          "destination_sha256": "126a98a00224c5d0a0234be83d833039b06c508d3687973de7242bdd90ea790e",
+          "modified": false
+        },
+        {
+          "path": "scripts/brandkit.py",
+          "source_sha256": "e643f465a7f3d78129e1f24591226f31210a0076d276e8d059879487cc43bd54",
+          "destination_sha256": "e643f465a7f3d78129e1f24591226f31210a0076d276e8d059879487cc43bd54",
+          "modified": false
+        },
+        {
+          "path": "scripts/build_brandbook.py",
+          "source_sha256": "17c36a877d24d4a96c6ec7de114e96ac114d9c324bb6414b92ce06fc68a5e9d8",
+          "destination_sha256": "17c36a877d24d4a96c6ec7de114e96ac114d9c324bb6414b92ce06fc68a5e9d8",
+          "modified": false
+        },
+        {
+          "path": "scripts/render_brandbook_pdf.py",
+          "source_sha256": "474ae06c2d43443b4d05d92d71c79ca2a8048ba3b1ea2a31f1677fdb908a45f0",
+          "destination_sha256": "474ae06c2d43443b4d05d92d71c79ca2a8048ba3b1ea2a31f1677fdb908a45f0",
+          "modified": false
+        }
+      ]
+    },
+    {
+      "skill": "higgsfield-marketplace-cards",
+      "from": "higgsfield-marketplace-cards",
+      "to": "../non-video-production-skills/higgsfield-marketplace-cards",
+      "reason": "marketplace listing still images",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "source_sha256": "7742b90f4cfa0dc347f56ebdeb73816de8df24ac29bc18b3530e7ddac31bc124",
+          "destination_sha256": "08565b7d71b4f2e6441977d493567176298b6c735d4d85f4068903b393400ef3",
+          "modified": true
+        }
+      ]
+    },
+    {
+      "skill": "higgsfield-product-photoshoot",
+      "from": "higgsfield-product-photoshoot",
+      "to": "../non-video-production-skills/higgsfield-product-photoshoot",
+      "reason": "standalone product photography",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "source_sha256": "36c76a70222253cf9135618473bec43b153c7cda7a61b54b89c0d16642e2c4ac",
+          "destination_sha256": "ec6c356db1e476f4c80c191cc8069ba9c2013c8c0a21e708a27e71033d658538",
+          "modified": true
+        },
+        {
+          "path": "references/modes.md",
+          "source_sha256": "a12a45777b5cef4fa2ba4c148efd2da36e5f64b19db46a5b090d456827a16134",
+          "destination_sha256": "a12a45777b5cef4fa2ba4c148efd2da36e5f64b19db46a5b090d456827a16134",
+          "modified": false
+        }
+      ]
+    },
+    {
+      "skill": "higgsfield-websites",
+      "from": "higgsfield-websites",
+      "to": "../non-video-production-skills/higgsfield-websites",
+      "reason": "website/app/game lifecycle",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "source_sha256": "13522f7874a402b2e17f865b95194530dac49451448a94d9ae58fc15a4d0b706",
+          "destination_sha256": "b3e7e5dffbd87e8d253d5c426193ed7afd63cca9f6cfd02d97e3a789496012f7",
+          "modified": true
+        },
+        {
+          "path": "references/app-cover.md",
+          "source_sha256": "26851e916f6d24471c42ab9b9bf23fdb130a81fa31cc042bcc1eba41c97971eb",
+          "destination_sha256": "26851e916f6d24471c42ab9b9bf23fdb130a81fa31cc042bcc1eba41c97971eb",
+          "modified": false
+        },
+        {
+          "path": "references/app-flow.md",
+          "source_sha256": "7d0dfa3c2aa265eb9499194c30ae3f0fe5f6277ad6e3f656efa16fc39a79c1b2",
+          "destination_sha256": "7d0dfa3c2aa265eb9499194c30ae3f0fe5f6277ad6e3f656efa16fc39a79c1b2",
+          "modified": false
+        },
+        {
+          "path": "references/app-layouts.md",
+          "source_sha256": "a1611e9d55635aaf71fdcc52127b37e40c3318de9f5ad1dfe5087e402284eba6",
+          "destination_sha256": "a1611e9d55635aaf71fdcc52127b37e40c3318de9f5ad1dfe5087e402284eba6",
+          "modified": false
+        },
+        {
+          "path": "references/app-quickstart.md",
+          "source_sha256": "a7253fb3f75352248f705a60a8e8b0f328dced0900cc8fd54ceeced3a6fab5ff",
+          "destination_sha256": "a7253fb3f75352248f705a60a8e8b0f328dced0900cc8fd54ceeced3a6fab5ff",
+          "modified": false
+        },
+        {
+          "path": "references/asset-system.md",
+          "source_sha256": "0af04ab723138abb426c631612afea944dd6904b69d2bcb34be573a23cfd4e73",
+          "destination_sha256": "0af04ab723138abb426c631612afea944dd6904b69d2bcb34be573a23cfd4e73",
+          "modified": false
+        },
+        {
+          "path": "references/auth.md",
+          "source_sha256": "be3a761b1bde54d64725d5fe30962d64adaa1f55c599c8cee2f87146930af499",
+          "destination_sha256": "be3a761b1bde54d64725d5fe30962d64adaa1f55c599c8cee2f87146930af499",
+          "modified": false
+        },
+        {
+          "path": "references/containers.md",
+          "source_sha256": "b8de81c027443c10a711f193234c62409486ab7465028b12d57e15d2af4725ba",
+          "destination_sha256": "b8de81c027443c10a711f193234c62409486ab7465028b12d57e15d2af4725ba",
+          "modified": false
+        },
+        {
+          "path": "references/contest.md",
+          "source_sha256": "6dffefcf72cb1db6f03583890d121b63c03707ba2041eca44864ff9b6c29e921",
+          "destination_sha256": "6dffefcf72cb1db6f03583890d121b63c03707ba2041eca44864ff9b6c29e921",
+          "modified": false
+        },
+        {
+          "path": "references/cover-animator.md",
+          "source_sha256": "ea4c467817f7668156ca0c6a69fc37c8834cb458c7457af506de36e0ebffbefc",
+          "destination_sha256": "ea4c467817f7668156ca0c6a69fc37c8834cb458c7457af506de36e0ebffbefc",
+          "modified": false
+        },
+        {
+          "path": "references/design-recipe.md",
+          "source_sha256": "da80f52610433b77d113c49af9b3dab9a326062f8f23a643fa07e9421c255060",
+          "destination_sha256": "da80f52610433b77d113c49af9b3dab9a326062f8f23a643fa07e9421c255060",
+          "modified": false
+        },
+        {
+          "path": "references/design-taste-frontend.md",
+          "source_sha256": "51273b86edd657ce24c357dc379802299d5329a710744b130a62a3574452eee8",
+          "destination_sha256": "51273b86edd657ce24c357dc379802299d5329a710744b130a62a3574452eee8",
+          "modified": false
+        },
+        {
+          "path": "references/fnf-react.md",
+          "source_sha256": "35c0424d7ccbf49556ca934d307e2d2d17b4d5c2ab61630daa43c68746a9da50",
+          "destination_sha256": "35c0424d7ccbf49556ca934d307e2d2d17b4d5c2ab61630daa43c68746a9da50",
+          "modified": false
+        },
+        {
+          "path": "references/fnf-sdk.md",
+          "source_sha256": "53e7e529fb1af9e3cbcfd27414a747e497c040d04f3baf41b3847957c950c6e4",
+          "destination_sha256": "53e7e529fb1af9e3cbcfd27414a747e497c040d04f3baf41b3847957c950c6e4",
+          "modified": false
+        },
+        {
+          "path": "references/game-2d-animation.md",
+          "source_sha256": "bd6ba4df1e017192a4ad9bef2c0f8137843bd3e3cbf9a2c51bb558da9559af8b",
+          "destination_sha256": "bd6ba4df1e017192a4ad9bef2c0f8137843bd3e3cbf9a2c51bb558da9559af8b",
+          "modified": false
+        },
+        {
+          "path": "references/game-3d-animation.md",
+          "source_sha256": "98af49b5c194a5ba712d4a00bca1b6cd30a86ff3777a4601a40f8b1efaeef16e",
+          "destination_sha256": "98af49b5c194a5ba712d4a00bca1b6cd30a86ff3777a4601a40f8b1efaeef16e",
+          "modified": false
+        },
+        {
+          "path": "references/game-audio.md",
+          "source_sha256": "cdb4dbcbe68fdf70f6c2c8706b8c6a27319edacdd7e6f189304d6915b175263e",
+          "destination_sha256": "cdb4dbcbe68fdf70f6c2c8706b8c6a27319edacdd7e6f189304d6915b175263e",
+          "modified": false
+        },
+        {
+          "path": "references/game-design-system.md",
+          "source_sha256": "fdcbfb81c5c827ba8e42dffbaf03c9376722622653e23010886a5ac1971100ff",
+          "destination_sha256": "fdcbfb81c5c827ba8e42dffbaf03c9376722622653e23010886a5ac1971100ff",
+          "modified": false
+        },
+        {
+          "path": "references/game-flow.md",
+          "source_sha256": "1c85885f8c65509f3c4b176fa891193a5966f7cb605cf0e10c841a741926a294",
+          "destination_sha256": "1c85885f8c65509f3c4b176fa891193a5966f7cb605cf0e10c841a741926a294",
+          "modified": false
+        },
+        {
+          "path": "references/game-meshy-api.md",
+          "source_sha256": "e3968f021a6ca71c859d1ab794cdf4691d1c96703b1073eddfa897eea841cdfa",
+          "destination_sha256": "e3968f021a6ca71c859d1ab794cdf4691d1c96703b1073eddfa897eea841cdfa",
+          "modified": false
+        },
+        {
+          "path": "references/game-meshy-input-rules.md",
+          "source_sha256": "e8d058e579e896bcdc2046e3435dcd4050127e1fb4cd9239b9abcc4ea78171f2",
+          "destination_sha256": "e8d058e579e896bcdc2046e3435dcd4050127e1fb4cd9239b9abcc4ea78171f2",
+          "modified": false
+        },
+        {
+          "path": "references/game-procedural-animation.md",
+          "source_sha256": "7e0066e1fa634aade663f03c8baa4f88ce422ae85733b8e65d9dc65723b0fb25",
+          "destination_sha256": "7e0066e1fa634aade663f03c8baa4f88ce422ae85733b8e65d9dc65723b0fb25",
+          "modified": false
+        },
+        {
+          "path": "references/game-stylization.md",
+          "source_sha256": "0942445a86003e47d6fedc8e5d7c35bb185ad5e92a22e4e44fb08a6f47ab4790",
+          "destination_sha256": "0942445a86003e47d6fedc8e5d7c35bb185ad5e92a22e4e44fb08a6f47ab4790",
+          "modified": false
+        },
+        {
+          "path": "references/game-textures.md",
+          "source_sha256": "089e73caea0e88dcf9a64a3088dd71172e75afb5a0fd45abf3e0a52c2f023063",
+          "destination_sha256": "089e73caea0e88dcf9a64a3088dd71172e75afb5a0fd45abf3e0a52c2f023063",
+          "modified": false
+        },
+        {
+          "path": "references/image-to-code.md",
+          "source_sha256": "8088cce5603c54d82b74675ee8b0c5b094571de7ce1ef303cf7f30062c2c0deb",
+          "destination_sha256": "8088cce5603c54d82b74675ee8b0c5b094571de7ce1ef303cf7f30062c2c0deb",
+          "modified": false
+        },
+        {
+          "path": "references/quanta-design.md",
+          "source_sha256": "a5b804b68792599a15521365072e62d89b1566930a3f58f0a3ca90d912cc43ac",
+          "destination_sha256": "a5b804b68792599a15521365072e62d89b1566930a3f58f0a3ca90d912cc43ac",
+          "modified": false
+        },
+        {
+          "path": "references/reference-boards.md",
+          "source_sha256": "ece758a67fd5a8ed597616e386b8d399f255109ab9831731bc26dcfa1a1bed39",
+          "destination_sha256": "ece758a67fd5a8ed597616e386b8d399f255109ab9831731bc26dcfa1a1bed39",
+          "modified": false
+        },
+        {
+          "path": "references/review-rubric.md",
+          "source_sha256": "9e18ab56367baf44414352abaff7548dcf695f8d29cf72dad26aa63e2d3eda4c",
+          "destination_sha256": "9e18ab56367baf44414352abaff7548dcf695f8d29cf72dad26aa63e2d3eda4c",
+          "modified": false
+        },
+        {
+          "path": "references/runtime-and-infra.md",
+          "source_sha256": "23411f35823c871645aa7489e04f631cdc5da4b3ab11e0eab196fd73be931ebc",
+          "destination_sha256": "23411f35823c871645aa7489e04f631cdc5da4b3ab11e0eab196fd73be931ebc",
+          "modified": false
+        },
+        {
+          "path": "references/scroll-scrub-asset-css.md",
+          "source_sha256": "889010276605053d3bfb85f0bbd22fc14a5122748ab23e0f856dbbcf91e7b12b",
+          "destination_sha256": "889010276605053d3bfb85f0bbd22fc14a5122748ab23e0f856dbbcf91e7b12b",
+          "modified": false
+        },
+        {
+          "path": "references/scroll-scrub-asset-react.md",
+          "source_sha256": "c858419055ebc380a27485043ffadf3e46ca88ad96ac4976c9b2cbddfd0e13d9",
+          "destination_sha256": "c858419055ebc380a27485043ffadf3e46ca88ad96ac4976c9b2cbddfd0e13d9",
+          "modified": false
+        },
+        {
+          "path": "references/scroll-scrub-asset-video.md",
+          "source_sha256": "4adac4ec86a1f125d7cb25314583fa8707e61cb482f502be3ccf518bbd3ec6e0",
+          "destination_sha256": "4adac4ec86a1f125d7cb25314583fa8707e61cb482f502be3ccf518bbd3ec6e0",
+          "modified": false
+        },
+        {
+          "path": "references/scroll-scrub.md",
+          "source_sha256": "dec8c6f0b6168d11a38ce176df2b7ab42d34b5234bf37055f50f2f4272a47646",
+          "destination_sha256": "dec8c6f0b6168d11a38ce176df2b7ab42d34b5234bf37055f50f2f4272a47646",
+          "modified": false
+        },
+        {
+          "path": "references/security.md",
+          "source_sha256": "d43c413dae97c2b503345fc2f0399b8431c78f936187d953e8698ae62ffe66b1",
+          "destination_sha256": "d43c413dae97c2b503345fc2f0399b8431c78f936187d953e8698ae62ffe66b1",
+          "modified": false
+        },
+        {
+          "path": "references/seo.md",
+          "source_sha256": "c088f089f365fae621dac90db77b56abdc47463becb2dbd182bd0cd04de98ee7",
+          "destination_sha256": "c088f089f365fae621dac90db77b56abdc47463becb2dbd182bd0cd04de98ee7",
+          "modified": false
+        },
+        {
+          "path": "references/website-flow.md",
+          "source_sha256": "07b5b529cb294737bfc1eefb08642f9d2913fcab5e74958b054c71ab181072e7",
+          "destination_sha256": "07b5b529cb294737bfc1eefb08642f9d2913fcab5e74958b054c71ab181072e7",
+          "modified": false
+        },
+        {
+          "path": "references/wow-catalog.md",
+          "source_sha256": "8f74e5723cecdbde09fcd90b65813ef96a2d5d00337abeb798b2e88d85150e05",
+          "destination_sha256": "8f74e5723cecdbde09fcd90b65813ef96a2d5d00337abeb798b2e88d85150e05",
+          "modified": false
+        },
+        {
+          "path": "references/wow-maker.md",
+          "source_sha256": "221a9ce2ec00144693c8f8fd88c9d085b51948108af47119a6531d50460fe41c",
+          "destination_sha256": "221a9ce2ec00144693c8f8fd88c9d085b51948108af47119a6531d50460fe41c",
+          "modified": false
+        },
+        {
+          "path": "scripts/fbx2glb.py",
+          "source_sha256": "37e8421c748bcd61c848d70b48b33bd185d16216bb854286b5df1ba85a2527e7",
+          "destination_sha256": "37e8421c748bcd61c848d70b48b33bd185d16216bb854286b5df1ba85a2527e7",
+          "modified": false
+        },
+        {
+          "path": "scripts/glb_inspect.py",
+          "source_sha256": "9e86d5e20d2f86bada6aeac442384eaa68a3f4b7149fe19b16a4815853c9f7de",
+          "destination_sha256": "9e86d5e20d2f86bada6aeac442384eaa68a3f4b7149fe19b16a4815853c9f7de",
+          "modified": false
+        },
+        {
+          "path": "scripts/glb_merge_anims.py",
+          "source_sha256": "bef0e1fa9e690406bfd90a1ec77a3fa7647d55fdd75d83bd94cad0119bdbe501",
+          "destination_sha256": "bef0e1fa9e690406bfd90a1ec77a3fa7647d55fdd75d83bd94cad0119bdbe501",
+          "modified": false
+        },
+        {
+          "path": "scripts/glb_patch.py",
+          "source_sha256": "77566c01a29590035db7121b55c152bc30525c24ec01dd3fa9c34a04be190984",
+          "destination_sha256": "77566c01a29590035db7121b55c152bc30525c24ec01dd3fa9c34a04be190984",
+          "modified": false
+        },
+        {
+          "path": "scripts/merge_anim_glbs.py",
+          "source_sha256": "7bf06cd4e6fe70866cb11f0893ffb5fd6f11edb5cf7919c5496a31844ca60aa3",
+          "destination_sha256": "7bf06cd4e6fe70866cb11f0893ffb5fd6f11edb5cf7919c5496a31844ca60aa3",
+          "modified": false
+        },
+        {
+          "path": "scripts/pipeline.py",
+          "source_sha256": "5a2d7859f21fc03182adb8089f859757907e867b84d46dbedf9ed496a67ee567",
+          "destination_sha256": "5a2d7859f21fc03182adb8089f859757907e867b84d46dbedf9ed496a67ee567",
+          "modified": false
+        },
+        {
+          "path": "scripts/proc_anim_dragon.py",
+          "source_sha256": "969f404fa6472566c8c5b8ed61524e66871b8fc10b56f4d8159b06c7d892aeaf",
+          "destination_sha256": "969f404fa6472566c8c5b8ed61524e66871b8fc10b56f4d8159b06c7d892aeaf",
+          "modified": false
+        },
+        {
+          "path": "scripts/proc_rig_dragon.py",
+          "source_sha256": "9c89bbb1084ca20624ee6fe0cf8ac0bc2998b6eec04f13f4ee44117b74264833",
+          "destination_sha256": "9c89bbb1084ca20624ee6fe0cf8ac0bc2998b6eec04f13f4ee44117b74264833",
+          "modified": false
+        },
+        {
+          "path": "scripts/proc_weights.py",
+          "source_sha256": "dcefb493d002e0ac77197c5467b56080ddb492f98ea136bacdd9c8d42e6ab678",
+          "destination_sha256": "dcefb493d002e0ac77197c5467b56080ddb492f98ea136bacdd9c8d42e6ab678",
+          "modified": false
+        },
+        {
+          "path": "scripts/rig_transfer.py",
+          "source_sha256": "59597690de9f415793776d0dbbd6f65b8279a5294ebb71e2b829199609add34b",
+          "destination_sha256": "59597690de9f415793776d0dbbd6f65b8279a5294ebb71e2b829199609add34b",
+          "modified": false
+        },
+        {
+          "path": "scripts/seamless.py",
+          "source_sha256": "c38f350eee6475fb16ec7db45bdbb83791946a2def32998324df54bbfc8deeae",
+          "destination_sha256": "c38f350eee6475fb16ec7db45bdbb83791946a2def32998324df54bbfc8deeae",
+          "modified": false
+        }
+      ]
+    }
+  ],
+  "existing_link_roots": [
+    "~/.codex/skills",
+    "~/.claude/skills",
+    "~/.agents/skills"
+  ],
+  "link_policy": "Repoint only an existing symlink whose exact prior target is the moved source; never create a missing install or replace a real directory.",
+  "source_checkout_link_rewrites": [
+    [
+      "docs/superpowers/specs/2026-10-19-module-first-product-detail-page-design.md",
+      "../../../product-detail-page-builder/references/codex-imagen-prompt-pipeline.md",
+      "../../../../non-video-production-skills/product-detail-page-builder/references/codex-imagen-prompt-pipeline.md"
+    ]
+  ]
+}

@@ -125,3 +125,5 @@ Each completed crosswalk handoff MUST separately name and represent all five exi
 **단일 프레임 역추정의 기술 근거:** E7이 [OpenCV 4.13.0 Camera Calibration and 3D Reconstruction](https://docs.opencv.org/4.13.0/d9/d0c/group__calib3d.html)의 `Detailed Description` 중 pinhole 투영식·`Homogeneous Coordinates`·`Intrinsic parameters from camera lens specifications`를 직접 읽었다(2026-10-17, READ-PARTIAL; live Markdown content-negotiated rendition, SHA-256/bytes=`N/A-live-web`). `u=f_x X_c/Z_c+c_x`, `v=f_y Y_c/Z_c+c_y`와 동일 광선 위 점의 같은 투영은 깊이/스케일 미확정의 근거다. 물리 초점거리 환산에는 센서/픽셀 크기가 필요하다. 미지 형상·미지 센서/크롭 조건에서 단일 프레임만으로 물리 렌즈/거리/크롭을 유일 확정하지 않는다는 결론은 이 식의 적용 추론이며, 알려진 형상·보정값을 제공한 pose solve까지 불가능하다는 뜻이 아니다.
 
 정규화 기준점은 해상도에 독립적인 **표현**이지 원본 크롭/왜곡에 불변인 측정이 아니다. 알려진 이미지 크기/크롭 변환을 보존하고, 실제 픽셀 대응이 있으면 그 값·출력 크기도 함께 넘긴다. 원근 압축의 느낌만으로 긴 렌즈와 크롭을 판별하거나 배경 깊이까지 같다고 추정하지 않는다. 이 문서는 렌즈 호흡·rolling shutter·심도 또는 임의 생성 영상의 물리 카메라 존재를 입증하지 않는다. 수치 설계/실행은 기존 카메라 소유자가 맡고 실제 클립 근거와 추론은 계속 분리한다([지원 경계](sources.md#모듈별-지원-경계)).
+
+외부 예시 사이트 탐색은 [참조 색인](production-reference-index.md)을 사용하되 실제 source locator와 검사한 매체/구간을 따로 기록한다. 새로운 용어의 발견은 기존 기능 부재의 증거가 아니며 기존 오너·템플릿·QA에 매핑되는 실제 갭만 반영한다.

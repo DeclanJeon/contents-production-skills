@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 1.22
+version: 1.23
 description: 'Build source-grounded video production assets: briefs, story beats,
   screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans,
   animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs,
@@ -113,3 +113,7 @@ v5.1 패키지 추가 에셋: `assets/style-world-bible-template.md`, `assets/ad
 
 ## 카메라 분석·제어·검수 연결
 레퍼런스의 카메라 움직임 역분석은 camera-motion-reference-analysis, 수치 경로·타이밍·렌즈 설계는 camera-spatial-design, AI 생성 입력 변환은 ai-camera-control에 연결한다. 카메라 결과 검수에는 [무빙 QA](references/27-camera-motion-qa.md)를 적용한다. 계획·프리비즈·생성 파일·실제 재생 검사를 분리하고 스틸이나 프롬프트만으로 실제 무빙 통과를 판정하지 않는다. 스킬은 frontmatter name으로 찾는다.
+
+## 표현·참조 선택 (해당 요청만)
+
+외부 예시를 찾거나 표현을 비교할 때만 [참조 색인](references/production-reference-index.md)의 해당 분야를 읽는다. 조명 선택은 [조명 표현](references/lighting-language-catalog.md), 편집/음향 선택은 [편집·음향 표현](references/edit-sound-language-catalog.md), 헤어/메이크업/의상 변형은 캐릭터 오너의 [외형 선택](../designing-video-character-sheets/references/appearance-language-catalog.md)을 소비한다. 기존 설계·템플릿·QA와 권한 범위를 유지하고 사이트 링크를 실제 매체 검사/행위별 권리/현재 모델 지원의 증거로 승격하지 않는다.

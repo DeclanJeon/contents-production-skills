@@ -47,3 +47,5 @@
 
 ## 심화 참조
 샷별 모델 경로·비용 정책·에셋 출처 필드는 [생성 경로·비용 라우팅](24-production-execution.md), SSOT 티어·연속성 앵커는 [비주얼 모드·SSOT](20-visual-mode-ssot.md), 실패 진단·인과 재시도는 [생성 영상 QA·재시도](21-generated-video-qa-retry.md). 변화/보존·결합·생략의 선택적 인계 슬롯은 [상태·인과·연속성 인계](26-state-causality-continuity.md). 시도 로그는 `project.json`의 `generation_attempts`에 기록한다.
+
+카메라 외의 채택한 헤어·의상·메이크업·조명·재질·음향도 [참조 색인](production-reference-index.md)의 선택→인계→검수 절차로 대조한다. 각 속성의 정본 ID/버전과 실제 최종 요청문의 문장/참조 슬롯/현재 지원 파라미터를 기존 `참조 역할표`, `조명·룩`, `유지 규칙`, `도구 지원 확인`에 연결한다. 실제 제어·텍스트 의도·미지원/미확인을 구분하고 결과 확인 방법을 적는다.

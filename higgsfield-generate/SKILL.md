@@ -1,19 +1,18 @@
 ---
-version: 0.35.0
+version: 0.35.1
 name: higgsfield-generate
 description: |
-  Generate videos/3D assets/audio via Higgsfield AI (image
-  branches are craft/reference only under package image
+  Generate requested video/3D/audio assets for video production via Higgsfield AI.
+  Image branches remain craft/reference only under the package image exclusion.
   Routing cues only: discover the current model and verify its schema
   before selecting any model. Do not treat cached defaults as capability
   or quality claims.
-  Use when: "generate an image", "make a video", "animate
-  this photo", "image-to-video", "edit/stylize/remix this
-  image", "reframe this video", "edit this video from a
+  Use when: "make a video", "animate
+  this photo", "image-to-video", "reframe this video", "edit this video from a
   sketch", "create a 3D model/GLB", "create a sound effect",
   "make music", "text-to-audio", "create an ad", "make a UGC
   video", "unboxing", "presenter video", "import product from
-  URL", or "analyze video virality". Supports generic generation,
+  URL for this video", or "analyze video virality". Supports generic generation,
   workflows, Marketing Studio, and Virality Predictor.
   Chain with higgsfield-soul-id for face/identity consistency.
   NOT for: Soul training, brand systems/brandbooks (use
@@ -21,7 +20,7 @@ description: |
   (use higgsfield-youtube-thumbnail), explainers (use
   higgsfield-video-explainer), replicating or remaking an existing
   reference video (use higgsfield-video-replicate), playable
-  games/assets (use higgsfield-websites), or TTS.
+  games/websites, standalone images/social operations, or TTS.
 argument-hint: "[prompt-or-analysis-request] [--model <name>] [--image|--video <path-or-id>]"
 allowed-tools: Bash
 ---

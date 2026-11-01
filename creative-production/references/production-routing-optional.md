@@ -4,9 +4,9 @@ Read only after an explicit matching platform/provider/craft requirement. This i
 
 | Request | Selected owner | Boundary |
 |---|---|---|
-| Campaign strategy/conversion copy/source-media adaptation | Bundled marketing-source-adaptation.md; installed content-production-marketing only for requested depth | Marketing brief/evidence only, no implied CTA or publication |
+| Requested video-ad variants | Bundled marketing-source-adaptation.md | Video hook/claim/placement only; no standalone campaign administration |
+| Requested video cover/thumbnail | higgsfield-youtube-thumbnail | Cover craft for the actual video; image execution policy unchanged |
 | YouTube/interview/podcast source adaptation | youtube/podcast source inspection; youtube-content for requested transformation | Preserve sources; platform publication separate |
-| Tistory/WordPress operation | Selected installed platform specialist | Draft remains text; requested live changes need actual auth/scope |
 | Explicit story-commerce | story-pipeline and requested synopsis-craft/script-craft/char-design/storyboard-craft | Retain lane formats/approvals, not universal requirements |
 | Screenplay/series/scene craft | sw-workflow and requested sw-* | Retain story bible/stage scope, not generation |
 | Craft depth: emotion/retention, genre/comedy, series, brand/product, visual continuity, dialogue/lipsync, finishing, reference deconstruction | Requested video-production-assets references 16/17/18/19/20/22/23/25 | Exactly selected module, no second coordinator |
@@ -17,9 +17,6 @@ Read only after an explicit matching platform/provider/craft requirement. This i
 | Explicit real-person identity training | higgsfield-soul-id | Separate consent/identity-model/cost lifecycle; not ordinary fictional cast design |
 | Explicit Blender desktop scene/physics/material work (destruction, exploded view, scene build, toon shaders) | `blender-previsualization` runtime plus the requested craft module; the Higgsfield Production-bundle preset names below are chat-app invocations of the same desktop app, not a package skill | Actual local Blender project and inspected frames; the workflow recipe is not a render, and a missing Blender runtime stays BLOCKED/UNVERIFIED |
 | Explicit Premiere Pro / After Effects / Illustrator / Photoshop / TouchDesigner / DaVinci Resolve desktop operation, or the same operation on an ArtCraft app | Requested video-production-assets craft reference plus the actual local application, with the ArtCraft fallback below when the named app is absent | Desktop-app edit of the user's own media/project; app availability, project files and rights are prerequisites, and the returned editable project is not the finished delivery |
-| Selected brandkit/media applications | higgsfield-brandkit | Brand-local revisions and deterministic exports link to canonical artifacts; ordinary brand design retains its owner |
-| Requested listing/product photography/thumbnail craft | higgsfield-marketplace-cards/product-photoshoot/youtube-thumbnail | Retain distinct craft/backend semantics; their Higgsfield image submission is ineligible, never claim generic Codex equals private backend enhancement |
-| Explicit selected Higgsfield web/app/game product | higgsfield-websites | Separate design/development lifecycle; live deploy and feed publication distinct. Never load for ordinary storyboard boards |
 | Other illustration/static review images | Requested image craft + default codex-imagen | Package image-executor policy; actual images only within authorized scope |
 | ComfyUI/Remotion/FFmpeg | Selected installed runtime | Bundled planning first, checks only when executing |
 | Music/lyrics/voice | Requested songwriting-and-ai-music or audio executor | Dialogue-lipsync ref22 for voice listening; edit ref09 for SFX/music rights; delivery ref15 for measured captions |

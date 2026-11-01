@@ -72,7 +72,7 @@ Never retouch or erase text from the supplied package to make the claims disappe
 
 ## Codex Imagen boundary
 
-Codex Imagen remains the default requested still-image executor under `creative-production`. The module prompt pipeline is specified in [codex-imagen-prompt-pipeline.md](../../../product-detail-page-builder/references/codex-imagen-prompt-pipeline.md). At execution time, resolve and read the exact installed helper contract; do not infer its CLI flags, model, supported references, or output behavior. No matching Codex Imagen skill/tool was available in the design session, so the prompt schema below is an authored content contract, not a verified invocation syntax.
+Codex Imagen remains the default requested still-image executor under `creative-production`. The module prompt pipeline is specified in [codex-imagen-prompt-pipeline.md](../../../../non-video-production-skills/product-detail-page-builder/references/codex-imagen-prompt-pipeline.md). At execution time, resolve and read the exact installed helper contract; do not infer its CLI flags, model, supported references, or output behavior. No matching Codex Imagen skill/tool was available in the design session, so the prompt schema below is an authored content contract, not a verified invocation syntax.
 
 ## Output and acceptance
 
