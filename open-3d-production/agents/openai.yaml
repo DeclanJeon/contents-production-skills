@@ -1,0 +1,6 @@
+interface:
+  display_name: Open 3D 제작
+  short_description: 총괄이 선택한 Blender·웹 3D 제작 기법과 실행 도구
+  default_prompt: $open-3d-production으로 현재 오너가 배정한 Blender 또는 웹 3D 작업만 수행해줘.
+policy:
+  allow_implicit_invocation: true

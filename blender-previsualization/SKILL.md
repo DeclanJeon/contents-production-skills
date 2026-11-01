@@ -1,6 +1,6 @@
 ---
 name: blender-previsualization
-version: 2.24
+version: 2.25
 description: "Required Blender implementation/visual inspection for actual scene-specific 3D geometry/placement/feasibility design or explicit Blender/previs requests; also animatics. Camera fields, moves and storyboards alone do not trigger Blender. Exclude beauty rendering, full character rigging, physics simulation and other-app rendering."
 ---
 
@@ -9,6 +9,8 @@ description: "Required Blender implementation/visual inspection for actual scene
 `creative-production`이 프로젝트 수준 진입점·조정자다. 이 스킬은 장면별 3D 카메라/공간 작업의 Blender 구현·시각 검수를 소유한다. `camera-spatial-design`의 수치 명세가 정본 입력이며 실제 장면과 화면을 생성·검사한다. 단독 호출이면 `creative-production`으로 범위·경로를 한 번 확인한 뒤 요청된 프리비즈만 수행한다. 위임받아 실행 중이면 프로젝트 라우팅을 다시 하거나 두 번째 인터뷰·승인 원장을 열지 않고 인계된 명세만 진행한다. 실행·생성 라우팅은 `creative-production`에 맡긴다.
 
 ## Blender decision boundary
+
+For assigned procedural geometry, materials/lighting, staged exploded views or alpha/loop/web handoff craft, consume the relevant `open-3d-production` module selected by the coordinator in the [canonical module table](../creative-production/references/production-routing.md#open-3d-module-selection), after reading its [Blender adaptation](../open-3d-production/references/blender-adaptation.md). It is an implementation reference, not another orchestrator or a Three.js replacement for Blender. Keep this skill's spatial spec, proxy adapter, execution gates and inspected-evidence acceptance unchanged; beauty rendering, full rigs and physics need a separately scoped native implementation, not claims about this adapter.
 
 Use the [canonical production routing and Blender gate](../creative-production/references/production-routing.md#blender-decision-gate). Narrative camera planning in text/ordinary 2D storyboards and simple 2D/flat graphics do not invoke Blender. Numeric lens/coordinate/path proposals without a geometry-verification deliverable remain with `camera-spatial-design`, with numeric/schema analysis as applicable and unrendered geometry `UNVERIFIED`.
 

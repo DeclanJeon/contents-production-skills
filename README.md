@@ -23,6 +23,7 @@
 | [storytelling-with-still-images](storytelling-with-still-images/SKILL.md) | 정지 이미지 전용 영상의 서사·큐 타이밍·음향·검수 계획 | 스틸만 화면 소스로 사용. 새 스틸 생성과 영상 조립을 분리한다. |
 | [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | 모든 장면별 3D 카메라/공간 작업은 Blender 구현·화면 검수까지 필수다. `camera-spatial-1.0`은 설계·사전 검사 계약이다. |
 | [blender-previsualization](blender-previsualization/SKILL.md) | 카메라·피사체 움직임, 구도·공간 배치의 실제 Blender 프록시·프리비즈·기하 검사 | 장면별 3D 카메라/공간 설계의 필수 구현·시각 검수 경로. Blender 런타임 필요; 최종 영상 품질을 보증하지 않는다. 기준 경로는 Blender CLI이며, 같은 어댑터를 호출하는 선택형 MCP 서버(`blender-previsualization/mcp/`)를 함께 배포한다. |
+| [open-3d-production](open-3d-production/SKILL.md) | Blender 모델링·조명·분해도 기법과 웹 3D·스크롤·알파·루프·포즈 그리드·브라우저 검수/녹화의 선택형 전문 모듈 | 총괄이 8개 모듈의 선택·순서·실행을 통제한다. Blender 적용 지침과 원본 실행 도구를 함께 배포하며, 공간 검증은 기존 Blender 오너가 유지한다. |
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
 The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills.
@@ -41,6 +42,16 @@ Exhaustive all-source/all-shot 또는 cross-source craft extraction에는 [archi
 Higgsfield MCP 카탈로그(`higgsfield.ai/ko/mcp`)의 번들·프리셋은 새 스킬이 아니라 공급자 기능이다. [조건부 라우팅](creative-production/references/production-routing-optional.md#higgsfield-mcp-preset-inventory)의 표로 기존 오너(Blender·피니싱·모션 그래픽·광고 변형·faceless/UGC)에만 연결하고, 총괄·승인 원장을 새로 만들지 않는다.
 
 캐릭터 시트를 새로 작성하거나 심화하면 페르소나·표현 연결·발화 역할의 음성 설계가 기본 포함된다. 새 허구 인물의 위임된 창작에서는 MBTI/에니어그램을 제안으로 사용할 수 있으며, 공급된 유형·승인 설정·명시적 `none`을 우선한다. 무언 역할은 음성 N/A; 실제 음성 후보·생성·청취 승인은 별도다. 구체적인 요청과 수정 경계는 [사용 가이드](USAGE_GUIDE.md#캐릭터와-시리즈)를 따른다.
+
+## Open 3D와 Blender 작업
+
+`Moh4696/open-3d-skills`의 8개 가이드와 실행 부속 파일을 MIT 라이선스 및 고정 커밋으로 [open-3d-production](open-3d-production/SKILL.md)에 통합했다. 원본은 웹/Three.js 도구이므로 [Blender 적용 지침](open-3d-production/references/blender-adaptation.md)을 별도로 제공한다. 모델링·조명·분해도·투명 렌더·루프에 원리를 적용하되 JavaScript를 Blender 코드로 오인하거나 웹 검수로 Blender 공간 검증을 대체하지 않는다.
+
+총괄이 [조건부 모듈 표](creative-production/references/production-routing.md#open-3d-module-selection)에서 필요한 것만 선택한다. 영상/콘티는 기존 `creative-production`, 단독 비영상 Blender/웹 작업은 현재 호스트·디자인 오너의 범위를 유지한다. 원본 8개 스킬은 별도 자동 호출 스킬이 아닌 참조로 배포하며, 생성·승인·저장 원장을 추가하지 않는다. [통합 규칙과 출처](open-3d-production/references/integration.md)에 실행 의존성과 원본 지침의 적용 경계를 기록했다.
+
+통합 범위는 가이드 **8개**, 실행 스크립트·브라우저 에셋 **22개**, 심화 참조 **4개**와 라이선스·의존성 선언이다. [원본 대조표](open-3d-production/references/upstream/provenance.json)의 36개 파일은 고정 커밋과 SHA-256이 일치한다. 원본 설치기·플러그인 메타데이터·홍보 이미지·저장소 전용 검사기는 제외하고 이 패키지의 설치·검증 흐름을 사용한다.
+
+2026-11-01 통합 검증에서 전체 회귀 **402 passed / 518 subtests passed**, Python·JavaScript 문법 검사, 상대 파일 링크 검사와 임시 스킬 루트 설치를 확인했다. 이는 패키지 구조·설치 검증이며, 새 제작 장면의 Blender 렌더 품질이나 모든 웹 도구의 실제 브라우저 실행을 검증했다는 뜻은 아니다. 사용 예시는 [Blender와 웹 3D](USAGE_GUIDE.md#blender와-웹-3d)를 따른다.
 
 ## Flucto SNS 검색
 

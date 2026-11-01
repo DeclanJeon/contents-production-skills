@@ -35,11 +35,30 @@ Open only the selected sibling SKILL and its needed guide. Missing core files me
 
 ## Blender decision gate
 
+For requested native Blender modeling, materials/lighting, staged exploded views or rendered web assets beyond proxy previs, assign `open-3d-production` with the relevant modules below. `blender-previsualization` retains its camera/spatial verification owner and existing proxy adapter limits. A native beauty/asset request does not make that adapter a production renderer; a web-only request does not turn Three.js evidence into Blender verification.
+
 **Blender trigger:** explicit Blender/previs request, or the requested result depends on validating an actual scene-specific 3D arrangement (camera path, geometry, blocking, occlusion, clearance, or contact), or a 3D-verified result is part of the requested deliverable. A camera field, camera move, storyboard, or scene ID alone is not a Blender trigger.
 
 “Scene-specific 3D camera/spatial design” means actual scene-specific 3D geometry/placement/feasibility design under this trigger, not narrative camera descriptions or numeric proposals alone. This is the canonical routing table; specialists use this gate without creating another route table.
 
 Text-only/read-only work may plan later previs but must not execute Blender; mark unperformed checks PLANNED/UNVERIFIED or BLOCKED. If required Blender is absent, report the exact missing runtime/evidence, continue independent work, and mark only dependent spatial deliverables BLOCKED/UNVERIFIED; no alternate-renderer substitution or FINAL claim. Numeric/schema checks and smoke runs do not prove actual 3D scene feasibility or full requested visual inspection. Smoke is pipeline preflight only, not full-scene/all-requested-frame/contact acceptance. Completed previs records actual Blender version/mode, preserves camera spec/version and shot/scene/panel IDs, and requires reopening requested .blend/image outputs and inspecting relevant frames. Bounding-box, center-point and ray-cast proxies do not prove articulated visibility, contact, performance, aesthetics or final generated-video quality; unsupported claims stay UNVERIFIED.
+
+## Open 3D module selection
+
+The active orchestration owner selects modules and order here, then hands off one bounded artifact to `open-3d-production`. For in-boundary video/storyboard work, that owner is `creative-production`; standalone non-video Blender/web work keeps its existing host/design owner and does not activate video production. Read the specialist's [integration rules](../../open-3d-production/references/integration.md) before using upstream text. Select by output, not every related-skill mention.
+
+| Assigned need | Conditional module / required read | Evidence and stop boundary |
+|---|---|---|
+| Blender procedural modeling, materials/lighting or render craft; browser Three.js scene | [threejs-scene](../../open-3d-production/references/upstream/skills/threejs-scene/GUIDE.md); Blender target also reads [native adaptation](../../open-3d-production/references/blender-adaptation.md) | Native implementation uses actual Blender; browser starter uses Three.js. Preserve dimensions/seed/camera and inspect relevant views; no renderer substitution |
+| Product parts, staged disassembly, x-ray or section presentation | [exploded-view](../../open-3d-production/references/upstream/skills/exploded-view/GUIDE.md); native adaptation for Blender | Named parts/assembled transforms, ordered motion and readable labels; illustrative internals labeled; geometry/contact acceptance still uses existing Blender verification |
+| Scroll-driven presentation of approved rendered/generated clips | [scroll-film](../../open-3d-production/references/upstream/skills/scroll-film/GUIDE.md) | Assigned sequence/video, holds, crop and seam inspection; no automatic clip generation, portrait variant or website build |
+| Transparent subject/plate keying or alpha web delivery | [alpha-cutout](../../open-3d-production/references/upstream/skills/alpha-cutout/GUIDE.md) | Actual alpha/edge composites on target backgrounds; native Blender RGBA preferred for native scenes; new plate generation remains separately assigned |
+| Cursor-following illustrated pose playback | [cursor-rig](../../open-3d-production/references/upstream/skills/cursor-rig/GUIDE.md) | Fixed-body pose grid and browser player; not a Blender skeletal rig; missing clips return an input gap, not generation permission |
+| Loop/chain repair, outpaint source restoration or generated-asset handoff | [motion-assets](../../open-3d-production/references/upstream/skills/motion-assets/GUIDE.md) | Existing approved inputs and package generation/history owners; diagnostics plus actual wrap inspection; no second intake, approval or prompt ledger |
+| Browser/WebGL presentation QA | [site-check](../../open-3d-production/references/upstream/skills/site-check/GUIDE.md) | Requested browser/state/viewport matrix, screenshots and observed failures; no physical feasibility or automatic publish claim |
+| Requested browser presentation recording or clip comparison | [frame-capture](../../open-3d-production/references/upstream/skills/frame-capture/GUIDE.md) | Exact assigned timing/viewport, inspected encoded output; not native Blender rendering or proof of real-time performance |
+
+Do not load all eight guides or chain production → checking → recording by default. The coordinator assigns dependencies only when the artifact needs them, preserves locked facts/IDs and execution authority, and integrates the worker's evidence into the existing project/history. A missing browser tool blocks browser work, not independent Blender work; missing Blender blocks native output/verification, not an independently requested web presentation.
 
 ## Selected runtime gate
 

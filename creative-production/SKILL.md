@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 1.22
+version: 1.23
 description: Use only when the user explicitly requests video production or creation of
   a storyboard sheet for a video. Do not use for other content creation/adaptation,
   standalone writing, social posts, campaigns, audio, images, ordinary design, or
@@ -72,6 +72,8 @@ Apply [selected-runtime gate](references/production-routing.md#selected-runtime-
 For a production storyboard and its later video prompts, preserve per-utterance speaking-face/listener-reaction coverage under the storyboard contract. Before any duration grouping or final video request, REQUIRED: read [storyboard timing to prompt](references/storyboard-timing-to-prompt.md) and reconcile all board intervals with the actual submitted VISUAL/AUDIO schedule. A 5/10/20/30-second job changes grouping and local timestamps, not the approved cuts, expression beats or dialogue.
 
 ## Camera motion lane
+
+For assigned Blender modeling/lighting/exploded-view craft or a requested web 3D presentation, select only the needed `open-3d-production` modules through [Open 3D module selection](references/production-routing.md#open-3d-module-selection). This specialist consumes the handoff; the coordinator retains module choice, sequencing, execution authority and state/history. Native Blender scene work and browser presentation are distinct outputs; existing `blender-previsualization` still owns required spatial verification.
 
 Use the [canonical routing table](references/production-routing.md) for the requested camera output: reference observation, numeric camera design, AI-control translation, Blender spatial verification and actual generated-camera QA are distinct stages, not an automatic chain. Narrative camera planning stays with the storyboard owner. Numeric design alone leaves unrendered geometry `UNVERIFIED`; Blender applies only to an explicit Blender/previs request or a deliverable that requires checking an actual scene-specific 3D arrangement (path, blocking, occlusion, clearance or contact). The camera-design owner supplies the spec; the Blender owner implements and inspects the triggered verification. Text-only/read-only work returns planned verification requirements, never a runtime call. Reuse existing source analysis and camera/shot versions; keep unavailable verification blocked, not FINAL. Do not install runtimes automatically, equate image motion with solved metric camera motion, or claim soft prompt intent is hard camera control. Resolve sibling modules by their exact frontmatter names in the current host's available skill sources.
 

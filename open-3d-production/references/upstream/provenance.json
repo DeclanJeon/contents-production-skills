@@ -1,0 +1,196 @@
+{
+  "repository": "https://github.com/Moh4696/open-3d-skills",
+  "commit": "7b04ab491d5bcbd920cbffbf06ebae3f9429d8e3",
+  "retrieved_on": "2026-11-01",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 exploraX",
+  "guide_rename": "SKILL.md -> GUIDE.md; source contents retained",
+  "excluded": [
+    "plugin and installer metadata",
+    "agents/openai.yaml",
+    "promotional media and top-level examples",
+    "upstream tests/check.mjs"
+  ],
+  "files": [
+    {
+      "source": "LICENSE",
+      "bundled": "LICENSE",
+      "sha256": "9e22b0b3fd03d4b2c0e696c055c1d920af9a40e33eed82878844f018610e7102"
+    },
+    {
+      "source": "requirements.txt",
+      "bundled": "requirements.txt",
+      "sha256": "c8223e5370d40cc097c6a18e713a8b9f8e286fabbfdeb25cfbac348791232529"
+    },
+    {
+      "source": "skills/alpha-cutout/SKILL.md",
+      "bundled": "skills/alpha-cutout/GUIDE.md",
+      "sha256": "c21a8045c66993b5630ea2a014b13a47ef375194a8d2dce8da2dd8a507988536"
+    },
+    {
+      "source": "skills/alpha-cutout/assets/alpha-video.js",
+      "bundled": "skills/alpha-cutout/assets/alpha-video.js",
+      "sha256": "d9eef215baafdc38531080a370241fa61c13d0cb63f4307a2dceeec802de4fc5"
+    },
+    {
+      "source": "skills/alpha-cutout/scripts/key.py",
+      "bundled": "skills/alpha-cutout/scripts/key.py",
+      "sha256": "2ea695458eb6bec47fe738ca0b7ab30511a6b7fa9928b9171512ba044da9a1b9"
+    },
+    {
+      "source": "skills/alpha-cutout/scripts/plate.py",
+      "bundled": "skills/alpha-cutout/scripts/plate.py",
+      "sha256": "1d371a099cb4dd5965cf1b45ec4cd373636d27aac7ed68bae36a30ca17638a0b"
+    },
+    {
+      "source": "skills/cursor-rig/SKILL.md",
+      "bundled": "skills/cursor-rig/GUIDE.md",
+      "sha256": "5bce506cd7b33f5d912f3d4d81849e066542ca6329c5610812e0b5472ce74a8b"
+    },
+    {
+      "source": "skills/cursor-rig/assets/rig.js",
+      "bundled": "skills/cursor-rig/assets/rig.js",
+      "sha256": "9a46227165a9dbfbb3ca0c31e33b995659f11850b7aa13e0e839b55dcb832d89"
+    },
+    {
+      "source": "skills/cursor-rig/scripts/build_rig.py",
+      "bundled": "skills/cursor-rig/scripts/build_rig.py",
+      "sha256": "07959fd403bedddda000cd12ab092f4c26a8a16333d7ec68bd7f6d4c1e6a4bcd"
+    },
+    {
+      "source": "skills/exploded-view/SKILL.md",
+      "bundled": "skills/exploded-view/GUIDE.md",
+      "sha256": "02002c545c93c129ab26f5994a26595426519e1b12da1e366878d14d60699967"
+    },
+    {
+      "source": "skills/exploded-view/assets/demo/index.html",
+      "bundled": "skills/exploded-view/assets/demo/index.html",
+      "sha256": "7327c72a93a88789887d9d62f936292abfc095d2623db7f98ab2d18bd8bfcafa"
+    },
+    {
+      "source": "skills/exploded-view/assets/demo/motor.js",
+      "bundled": "skills/exploded-view/assets/demo/motor.js",
+      "sha256": "0768fd4a871f2fa9a543297f63c257f2cb5d116a8e4f9c1cec5a48a46ab5dbc6"
+    },
+    {
+      "source": "skills/exploded-view/assets/explode.js",
+      "bundled": "skills/exploded-view/assets/explode.js",
+      "sha256": "f5a86ea1c6e7cdb54cda49e4013923abb3da8b7ea0883a59052d87073de6b4de"
+    },
+    {
+      "source": "skills/frame-capture/SKILL.md",
+      "bundled": "skills/frame-capture/GUIDE.md",
+      "sha256": "bc9294667d1b9199b6c314701605b49041afe3a33988255b45318ac645b5afb1"
+    },
+    {
+      "source": "skills/frame-capture/scripts/compare.py",
+      "bundled": "skills/frame-capture/scripts/compare.py",
+      "sha256": "4a3e44e5787e4b6dec4f31d7b08084262c5b2b39bd74723ecc664059bcf57513"
+    },
+    {
+      "source": "skills/frame-capture/scripts/record.py",
+      "bundled": "skills/frame-capture/scripts/record.py",
+      "sha256": "418255079ef088ca328c9e69162500691b93dbd16914ad17326664eb114e5b4a"
+    },
+    {
+      "source": "skills/frame-capture/scripts/serve.py",
+      "bundled": "skills/frame-capture/scripts/serve.py",
+      "sha256": "a0e3ec1fe953de5e39854285946d04ea06c0f56eaf04d4a6850ef905146c622e"
+    },
+    {
+      "source": "skills/motion-assets/SKILL.md",
+      "bundled": "skills/motion-assets/GUIDE.md",
+      "sha256": "fcffebcd5c05ee3d5ab7ecf5af739d04aca492493532d5408e97273b1e34497d"
+    },
+    {
+      "source": "skills/motion-assets/scripts/loop_check.py",
+      "bundled": "skills/motion-assets/scripts/loop_check.py",
+      "sha256": "f91559169e0a8c4ba4cdf018deabc65c589f2e1b1c62882df359c79fa0b0a14d"
+    },
+    {
+      "source": "skills/motion-assets/scripts/paste_back.py",
+      "bundled": "skills/motion-assets/scripts/paste_back.py",
+      "sha256": "9cccaab48afee5c25fa28a474e6b2548117d94be1128e6d8353c61630ddd6161"
+    },
+    {
+      "source": "skills/scroll-film/SKILL.md",
+      "bundled": "skills/scroll-film/GUIDE.md",
+      "sha256": "60ccb91e82787260ecb941c9795dc91a31a5ee4ee9df3079883e81cebc75b799"
+    },
+    {
+      "source": "skills/scroll-film/assets/scroll-film.js",
+      "bundled": "skills/scroll-film/assets/scroll-film.js",
+      "sha256": "6c54d1e3f1aa6297412a40a238264ed93708e667e524ef76f47a3b17c6f2f002"
+    },
+    {
+      "source": "skills/scroll-film/scripts/prep.py",
+      "bundled": "skills/scroll-film/scripts/prep.py",
+      "sha256": "ccb5a51669a3ee92f9d6f9c5ae45912b872adec8b8254d055894a91c903aaa54"
+    },
+    {
+      "source": "skills/site-check/SKILL.md",
+      "bundled": "skills/site-check/GUIDE.md",
+      "sha256": "7a239ccdbacb86bfc581b728bab32b6f1b8f53f40a164029cfcce58d20897ca9"
+    },
+    {
+      "source": "skills/site-check/scripts/check.py",
+      "bundled": "skills/site-check/scripts/check.py",
+      "sha256": "a9be433aade3c8197e605fa7ca147d86af23fe63cbcbadb107474d9953b12729"
+    },
+    {
+      "source": "skills/site-check/scripts/serve.py",
+      "bundled": "skills/site-check/scripts/serve.py",
+      "sha256": "a0e3ec1fe953de5e39854285946d04ea06c0f56eaf04d4a6850ef905146c622e"
+    },
+    {
+      "source": "skills/threejs-scene/SKILL.md",
+      "bundled": "skills/threejs-scene/GUIDE.md",
+      "sha256": "54329406dc8d63034dd64772d9b13c9c3faa25e5ebea96c6b6a27f5d61d83c92"
+    },
+    {
+      "source": "skills/threejs-scene/assets/starter/env.js",
+      "bundled": "skills/threejs-scene/assets/starter/env.js",
+      "sha256": "f5d57a15278db0f6588eab3e7b29b7374424acf44db286d13b66d1e9bd841747"
+    },
+    {
+      "source": "skills/threejs-scene/assets/starter/index.html",
+      "bundled": "skills/threejs-scene/assets/starter/index.html",
+      "sha256": "154933b9da22034181e2fe73b49bb8806a908a2d1226482b251355a73d95bcfd"
+    },
+    {
+      "source": "skills/threejs-scene/assets/starter/kit.js",
+      "bundled": "skills/threejs-scene/assets/starter/kit.js",
+      "sha256": "3a5a55e48e6466e3f8479291c99a69d0eda9c5d03c071c0dc372e7b2d0e868d3"
+    },
+    {
+      "source": "skills/threejs-scene/assets/starter/main.js",
+      "bundled": "skills/threejs-scene/assets/starter/main.js",
+      "sha256": "a31011866d60bc1fd67c00c1033dc8a07a64eef9c8fc9e92b3092a733436ae01"
+    },
+    {
+      "source": "skills/threejs-scene/assets/starter/scene.js",
+      "bundled": "skills/threejs-scene/assets/starter/scene.js",
+      "sha256": "21ab4639a91df0b330b2800974dd247e3e5452bd82c13d43a0fdf3bac0ff8f02"
+    },
+    {
+      "source": "skills/threejs-scene/references/geometry.md",
+      "bundled": "skills/threejs-scene/references/geometry.md",
+      "sha256": "f6e3e9de1c27c1090680fc61b72e88ac4635ec680e28a183b38b136e0c05c361"
+    },
+    {
+      "source": "skills/threejs-scene/references/lighting.md",
+      "bundled": "skills/threejs-scene/references/lighting.md",
+      "sha256": "ffbb73841b6e9f836c470dd272fb102d6b01a6057a62023f1bec23c2da5b3858"
+    },
+    {
+      "source": "skills/threejs-scene/references/performance.md",
+      "bundled": "skills/threejs-scene/references/performance.md",
+      "sha256": "312fc2ea639104cbc08b42806687cd6bcc00018b13cf1ae6c7617548316e8f60"
+    },
+    {
+      "source": "skills/threejs-scene/references/shaders.md",
+      "bundled": "skills/threejs-scene/references/shaders.md",
+      "sha256": "f0067033cbfc5c2f3d01032b4d777c6aff1e9fa57ed676f097ff0c789c6f08c6"
+    }
+  ]
+}

@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## 2.32 2026-11-01
+
+- Integrate all eight guides and adjacent runtime assets from MIT-licensed `Moh4696/open-3d-skills` at commit `7b04ab491d5bcbd920cbffbf06ebae3f9429d8e3` as on-demand references under one `open-3d-production` specialist. Preserve source/license provenance and avoid registering eight rival pipelines.
+- Add native Blender adaptations for measured procedural modeling, coherent lighting, staged exploded views, alpha output, loops and web handoffs. Keep Blender spatial verification with the existing owner; browser code/capture does not replace Blender execution, rigging or geometry evidence.
+- Keep module selection, sequencing, generation policy, execution authority and project/history ownership with existing orchestration. Register the specialist in the manifest and connect the coordinator, Blender specialist and usage documentation without automatic dependency installation.
+
 ## 2.31 2026-10-30
 
 - Audit all 55 tabs of the supplied prompt workbook and record source-row coverage, reusable owners and exclusions. Add conditional loop-seam, real-time checkpoint, spatial-audio, mask-alignment and frame-provenance procedures; strengthen endpoint-mode compatibility and allowed-state deltas. Align native-audio transport, soft camera control, continuous-take decomposition, utterance mapping and the remaining stale default-eight clause. Keep source scenarios, static capability claims, numerical recipes and design scores out of universal policy.

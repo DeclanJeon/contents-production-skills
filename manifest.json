@@ -1,6 +1,6 @@
 {
   "name": "contents-production-skills",
-  "version": "2.31",
+  "version": "2.32",
   "entry_skill": "creative-production",
   "support_skill": "video-production-assets",
   "skills": [
@@ -13,6 +13,7 @@
     "camera-motion-reference-analysis",
     "ai-camera-control",
     "blender-previsualization",
+    "open-3d-production",
     "orchestrating-video-preproduction",
     "developing-video-synopses",
     "designing-video-character-sheets",
