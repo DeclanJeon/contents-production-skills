@@ -15,6 +15,8 @@ Choose the structure that fits; no formula is universal, and familiar arcs are d
 - **Abstract/mood/music:** build intentional progression from visual, sonic, or movement motifs while honoring stated invariants [S3] — no protagonist, plot, moral, CTA, or happy ending the user excluded.
 - **Explanatory metaphor:** name the source domain and target concept, map only their shared structure, and state where the analogy stops [S4]; a metaphor never substitutes for or distorts the factual explanation.
 
+For character-led fiction, consult [character arcs and choices](../../video-production-assets/references/30-marketing-story-craft.md#캐릭터-아크와-선택) when choosing or repairing the arc: positive, flat and negative arcs are all valid; link belief, pressure, choice and ending evidence without inventing backstory or rewriting a locked ending. For a video-ad synopsis, use that reference's marketing section only as message-design checks, not proof of demand.
+
 ## Writing the artifact
 
 Unless another format is requested, a concept/synopsis deliverable contains:

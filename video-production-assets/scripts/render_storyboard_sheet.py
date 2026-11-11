@@ -30,6 +30,7 @@ from pathlib import Path
 from validate_project import validate
 from validate_storyboard import validate_storyboard
 from asset_gate import check_asset_gate
+from storyboard_pdf import export_storyboard_pdf, pdf_output_path
 
 try:
     from PIL import Image, ImageDraw, ImageFont, ImageOps
@@ -828,16 +829,48 @@ def main():
     parser.add_argument('--output', required=True,
                         help='project-relative output PNG path '
                              '(suffixed _sNN when the board paginates)')
+    parser.add_argument('--pdf-output',
+                        help='optional project-relative sharing PDF; PNGs remain authoritative')
+    parser.add_argument('--pdf-style', choices=('document', 'sheets'), default='document',
+                        help='searchable A4 document (default), or legacy raster sheet PDF')
+    parser.add_argument('--pdf-panels-per-page', type=int, choices=(1, 2, 4), default=2,
+                        help='document PDF density: 2 default, 4 brief, 1 detailed')
     parser.add_argument('--font', help='explicit Korean-capable .ttf/.otf/.ttc path')
     parser.add_argument('--panels-per-sheet', type=int, default=DEFAULT_PANELS_PER_SHEET,
                         help='readability-based panel limit, 1 through 8 (default: 4)')
     args = parser.parse_args()
     try:
         project = json.loads(Path(args.project).read_text(encoding='utf-8'))
+        pdf_path = pdf_output_path(args.base_dir, args.pdf_output) if args.pdf_output else None
+        if pdf_path is not None and args.pdf_style == 'document':
+            from storyboard_document import check_document_output, render_document
+            from storyboard_document_inputs import sheets_body
+            check_document_output(pdf_path)
         result = render_sheets(project, args.base_dir, args.output,
                                font_path=args.font,
                                panels_per_sheet=args.panels_per_sheet)
-    except (OSError, ValueError, RuntimeError) as e:
+        if pdf_path is not None:
+            sheet_paths = [Path(sheet['path']) for sheet in result['sheets']]
+            document = None
+            if args.pdf_style == 'document':
+                document = render_document(
+                    sheets_body(sheet_paths, panels_per_page=args.pdf_panels_per_page), pdf_path,
+                    title=str(project.get('title') or project.get('project_id') or '스토리보드'),
+                    version=str(project.get('version') or '미지정 (원본 참조)'),
+                    mode='이미지 보드 / 패널별 상세')
+            else:
+                export_storyboard_pdf(sheet_paths, pdf_path)
+            result['pdf'] = {
+                'path': str(pdf_path),
+                'relative_path': str(pdf_path.relative_to(Path(args.base_dir).resolve())),
+                'sha256': _sha256(pdf_path),
+                'page_count': document.page_count if document is not None else len(result['sheets']),
+                'style': args.pdf_style,
+                'html_path': str(document.html_path) if document is not None else None,
+                'html_sha256': _sha256(document.html_path) if document is not None else None,
+                'source_sheet_sha256': [sheet['sha256'] for sheet in result['sheets']],
+            }
+    except (OSError, ValueError, RuntimeError, ImportError) as e:
         print(json.dumps({'ok': False, 'errors': [str(e)]}, ensure_ascii=False))
         return 2
     print(json.dumps({'ok': True, **result}, ensure_ascii=False, indent=2))

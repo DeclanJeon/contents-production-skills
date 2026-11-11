@@ -6,6 +6,10 @@
 
 `creative-production`이 유일한 총괄이다. 기존 영상 제작·텍스트 기획·카메라·Blender 전문 스킬을 유지하고, 영상 제작에 필요한 범용 절차와 memorable-video v6의 유효한 제작 기법은 필요한 때만 읽는 참조로 통합한다. 중복 총괄·상태 원장·28개 마이크로 스킬을 함께 설치하지 않는다.
 
+## 한국어 대본 후편집
+
+영상 대사·내레이션의 번역투/불필요한 문어 표현은 기존 각본 오너의 [한국어 발화 후편집](video-production-assets/references/korean-script-postediting.md#scope)으로 국소 교정할 수 있다. 인물 말투·실제 인용·사실·서법을 보존하고 읽기 전용 코드 검사와 원문 대조를 분리한다. 현재는 명시 요청/제안 전용이며 행동 평가 전 자동 기본 적용은 보류한다. 별도 설치 스킬·프로젝트 스키마·음성 실행은 추가하지 않는다.
+
 ## 스킬 라우팅과 조건부 실행 모듈
 
 | 스킬 | 책임 | 경계 |
@@ -43,6 +47,8 @@ Higgsfield MCP 카탈로그(`higgsfield.ai/ko/mcp`)의 번들·프리셋은 새 
 캐릭터 시트를 새로 작성하거나 심화하면 페르소나·표현 연결·발화 역할의 음성 설계가 기본 포함된다. 새 허구 인물의 위임된 창작에서는 MBTI/에니어그램을 제안으로 사용할 수 있으며, 공급된 유형·승인 설정·명시적 `none`을 우선한다. 무언 역할은 음성 N/A; 실제 음성 후보·생성·청취 승인은 별도다. 구체적인 요청과 수정 경계는 [사용 가이드](USAGE_GUIDE.md#캐릭터와-시리즈)를 따른다.
 
 ## Open 3D와 Blender 작업
+
+Blender 활용법은 [의미 대역 프리비즈](blender-previsualization/references/semantic-proxy-handoff.md)와 [네이티브 제작법 10종](open-3d-production/references/native-blender-workflows.md)으로 확장했다. 단순 대역/색상 매핑, 소품 상태별 수정, 제품 조명, Geometry Nodes, 카메라 트래킹·프로젝션, Grease Pencil, 합성 패스·알파, 루프, 재사용 에셋·내보내기를 기존 오너가 필요한 때만 선택한다. [지정 영상 분석](docs/analysis/2026-11-03-blender-previs-video.md)과 [추가 YouTube 조사](docs/research/2026-11-03-blender-youtube-register.md)는 관찰·자막·문서·미검사를 구별한다. 새 어댑터 기능이나 생성 비용 절감률을 검증한 릴리스는 아니다.
 
 `Moh4696/open-3d-skills`의 8개 가이드와 실행 부속 파일을 MIT 라이선스 및 고정 커밋으로 [open-3d-production](open-3d-production/SKILL.md)에 통합했다. 원본은 웹/Three.js 도구이므로 [Blender 적용 지침](open-3d-production/references/blender-adaptation.md)을 별도로 제공한다. 모델링·조명·분해도·투명 렌더·루프에 원리를 적용하되 JavaScript를 Blender 코드로 오인하거나 웹 검수로 Blender 공간 검증을 대체하지 않는다.
 

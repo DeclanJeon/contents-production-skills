@@ -1,0 +1,25 @@
+{
+  "id": "KPCASE08-baseline",
+  "case_id": "KPCASE08",
+  "condition": "baseline",
+  "result_dir": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/qa/korean-postediting-codex-2026-11-11/results/KPCASE08-baseline",
+  "exit_code": 0,
+  "status": "completed_with_isolation_warnings",
+  "warnings": [
+    "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /home/declan/.codex/config.toml.",
+    "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+  ],
+  "errors": [],
+  "final_text": "### 수정안\n계약 조건에 따라 달라질 수 있으므로 별도 확인이 필요합니다.\n\n### 검토 의견\n- 두 문장을 연결해 흐름을 다듬었습니다.\n- 무엇이 달라지는지, 어떤 내용을 확인해야 하는지 명시하면 더 명확해집니다.\n- 법률적 타당성은 관련 계약과 적용 법령을 확인하지 않아 미검증 상태입니다.",
+  "usage": {
+    "input_tokens": 7711,
+    "cached_input_tokens": 4864,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 93,
+    "reasoning_output_tokens": 0
+  },
+  "model": "gpt-6.1-sol",
+  "model_evidence": "explicit CLI command, not independently echoed by native wire",
+  "quality": "UNREVIEWED",
+  "default_application": "held"
+}

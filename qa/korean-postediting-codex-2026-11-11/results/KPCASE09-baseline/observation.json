@@ -1,0 +1,25 @@
+{
+  "id": "KPCASE09-baseline",
+  "case_id": "KPCASE09",
+  "condition": "baseline",
+  "result_dir": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/qa/korean-postediting-codex-2026-11-11/results/KPCASE09-baseline",
+  "exit_code": 0,
+  "status": "completed_with_isolation_warnings",
+  "warnings": [
+    "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /home/declan/.codex/config.toml.",
+    "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+  ],
+  "errors": [],
+  "final_text": "- “이 방법을 통해”는 다소 문어적이라, “이 방법으로”로 줄이면 더 자연스럽습니다.\n- 다만 현재 문장도 의미 전달에 문제가 없어, 이미 승인·녹음했다면 수정을 위해 재녹음할 필요는 크지 않습니다.",
+  "usage": {
+    "input_tokens": 7711,
+    "cached_input_tokens": 4864,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 67,
+    "reasoning_output_tokens": 0
+  },
+  "model": "gpt-6.1-sol",
+  "model_evidence": "explicit CLI command, not independently echoed by native wire",
+  "quality": "UNREVIEWED",
+  "default_application": "held"
+}

@@ -20,6 +20,8 @@ The upstream project supplies browser/Three.js and media-processing techniques, 
 
 ## Native work procedure
 
+For native workflows not derived from browser tools, use the assigned section of [native Blender workflows](native-blender-workflows.md). Official source mechanics and creator demonstrations are distinguished in its [source register](blender-source-register.md); older tutorial UI, numeric recipes and third-party add-ons are not current runtime guarantees.
+
 1. Preserve the existing `.blend` and source assets; use a new working copy or isolated Blender process and a fresh output path. Record Blender version, source IDs, unit scale, engine, color management, resolution, fps/frame range and requested exports before execution.
 2. Read only the assigned craft reference after this adaptation. Use supplied dimensions, assembly facts and locked camera/continuity. For actual scene-specific camera/path/contact feasibility, the coordinator assigns `camera-spatial-design` and `blender-previsualization`; reuse their `camera-spatial-1.0` spec and evidence. Do not broaden that proxy adapter into a beauty renderer, rigging system or physics simulator.
 3. Build and inspect blockout from front/side/three-quarter and the delivery cameras, then detail only what those views need. For an exploded assembly, inspect assembled, intermediate and fully exploded states plus each requested cut/x-ray state. Fix proportion, grounding, occlusion and label collisions before polishing.

@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+- Add `run_korean_postediting_eval.py` prepare/collect adapter: freeze 13 paired cases with identical source/model settings, treatment-only guide snapshots, hashes and UNREVIEWED review templates; collect supplied Pi JSONL with source/model/protocol checks. No model execution option, spending, automatic quality PASS or default-application promotion; existing G/F runner stays unchanged.
+
+- Add conditional Korean dialogue/narration postediting (`korean-script-postediting`) adapted from pinned MIT-licensed im-not-ai principles: preserve facts, quotes, character voice, modality and intentional performance; add source-anchored read-only checks for scope/locks/numbers/change rate. Keep existing script/voice/QA owners and schema. Explicit-request/proposal-only pending real behavior evaluation; no automatic voice generation or global installation.
+
+- Add source-scoped marketing/story craft from six locally supplied books: actual customer alternatives and behavioral VOC, sharing/message integration, positive/flat/negative arcs, dialogue tactics and cut/hold tradeoffs.
+- Default file-based storyboard PDF delivery to one searchable A4 PDF: two image panels per landscape page, with four-panel brief or one-panel detail options only when appropriate. Keep cover/version/page numbers and full captions; put editable HTML and minimal QA under `_internal/`, not alongside multiple final/test variants. Add image-free Markdown and existing-sheet routes in `render_storyboard_document.py`; reflow wide tables and long captions without text loss. Preserve explicit legacy `--pdf-style sheets`, source hashes, no-overwrite behavior, chat-only no-save and canonical PNG extraction/QA boundaries. Installed local tools only; no automatic dependency installation.
+
+- Clarify native Blender authoring authority and path resolution separately from upstream-only runtime guides; prioritize native recipes for native deliverables rather than overlapping Three.js rows.
+- Add explicit reference-reproduction and real-surface execution evidence procedures: locked source intervals/cut frames, independently reconstructed geometry versus borrowed media, native previews, actual temporal comparison, scoped corrections and reproducible scene/video delivery.
+
+- Extract the user-specified Blender previs video's reusable proxy simplification, identity/color mapping, stateful prop revision and motion/appearance separation, with timestamped sampled-frame evidence and explicit exclusions for cost/provider claims.
+- Add source-grounded native Blender recipes for product lighting, Geometry Nodes repetition/motion, camera tracking/projection, Grease Pencil, passes/alpha, loops, reusable assets and export; connect existing owners and handoff templates without adding a coordinator, schema or unimplemented proxy options.
+- Preserve Flucto MP4/Markdown downloads, supplementary tutorial captions, YouTube candidate provenance and inspection evidence outside the package; distinguish documented methods from actual native runtime/render verification.
+
 ## 2.33
 
 - Keep the video pack focused; relocate five independent non-video skills with migration hashes and existing-link repoints.

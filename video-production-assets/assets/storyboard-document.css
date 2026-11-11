@@ -1,0 +1,46 @@
+@page {
+  size: A4 portrait;
+  margin: 17mm 16mm 19mm;
+  @top-left { content: "STORYBOARD / 검토본"; font-size: 8pt; color: #526475; }
+  @bottom-left { content: "STORYBOARD · 검토용 / 승인 상태는 원본 참조"; font-size: 8pt; color: #526475; }
+  @bottom-right { content: counter(page) " / " counter(pages); font-size: 9pt; color: #263a4b; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: #203344; font-family: "Noto Sans CJK KR", "Noto Sans KR", sans-serif; font-size: 10pt; line-height: 1.65; overflow-wrap: anywhere; }
+h1, h2, h3, h4 { color: #142b3d; line-height: 1.4; break-after: avoid; }
+h1 { font-size: 23pt; }
+h2 { font-size: 16pt; margin: 8mm 0 4mm; }
+h3 { font-size: 12pt; margin: 6mm 0 2mm; }
+p { margin: 2.5mm 0; orphans: 3; widows: 3; }
+.cover { break-after: page; padding-top: 24mm; }
+.cover .eyebrow { letter-spacing: .16em; font-size: 9pt; color: #526475; }
+.cover h1 { border-top: 2mm solid #1c6472; padding-top: 8mm; margin-top: 8mm; }
+.cover .meta { margin-top: 12mm; border-top: .3mm solid #ccd6de; padding-top: 5mm; }
+.cover .notice { margin-top: 10mm; font-size: 10pt; color: #526475; }
+.panel { break-before: page; }
+.panel h2 { margin-top: 0; }
+.panel .identity { font-size: 9pt; color: #526475; border-bottom: .3mm solid #ccd6de; padding-bottom: 3mm; }
+.panel img { display: block; width: 100%; height: 83mm; object-fit: contain; margin: 4mm 0; background: #f2f5f7; }
+.caption { white-space: pre-wrap; font-size: 9.5pt; line-height: 1.6; padding-left: 3mm; border-left: .5mm solid #ccd6de; }
+.record { border-top: .4mm solid #93a8b9; margin: 5mm 0; padding-top: 1mm; break-inside: avoid; }
+.record h3 { margin-top: 2mm; }
+.field-label { font-weight: 700; color: #285c68; break-after: avoid; margin-bottom: 0; font-size: 9pt; }
+.field-value { margin-top: 1mm; white-space: normal; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 3mm; border: .3mm solid #ccd6de; font-size: 9pt; }
+code { font-family: "Noto Sans Mono CJK KR", monospace; }
+blockquote { margin: 3mm 0; padding-left: 4mm; border-left: .5mm solid #ccd6de; }
+ul, ol { padding-left: 6mm; }
+a { color: inherit; text-decoration: none; }
+.source { font-size: 8pt; color: #526475; }
+.placeholder { font-size: 9pt; color: #526475; }
+@page compact { size: A4 landscape; margin: 12mm 12mm 14mm; }
+body.compact { page: compact; }
+.compact .cover { padding-top: 8mm; }
+.spread { break-before: page; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7mm; align-items: start; }
+.compact .panel { break-before: auto; break-inside: avoid; min-width: 0; }
+.compact .panel h2 { font-size: 12pt; margin-bottom: 1mm; }
+.compact .panel .identity { font-size: 8pt; padding-bottom: 1mm; margin: 1mm 0; }
+.compact .panel img { height: 46mm; margin: 2mm 0; }
+.compact .caption { font-size: 9pt; line-height: 1.4; padding-left: 2mm; }
+.density-4 { grid-template-rows: auto auto; gap: 4mm 7mm; }
+.density-4 .panel img { height: 34mm; }

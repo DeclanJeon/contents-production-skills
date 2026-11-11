@@ -1,0 +1,25 @@
+{
+  "id": "KPCASE01-postediting",
+  "case_id": "KPCASE01",
+  "condition": "postediting",
+  "result_dir": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/qa/korean-postediting-codex-2026-11-11/results/KPCASE01-postediting",
+  "exit_code": 0,
+  "status": "completed_with_isolation_warnings",
+  "warnings": [
+    "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /home/declan/.codex/config.toml.",
+    "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+  ],
+  "errors": [],
+  "final_text": "문제를 해결할 때 중요한 것은 확인이 필요하다는 점입니다.\n\n- 명사화와 겹친 표현을 줄였습니다.\n- 의미는 자체 대조했으며, 도구 검사·청취는 미검증입니다.",
+  "usage": {
+    "input_tokens": 11898,
+    "cached_input_tokens": 4864,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 128,
+    "reasoning_output_tokens": 73
+  },
+  "model": "gpt-6.1-sol",
+  "model_evidence": "explicit CLI command, not independently echoed by native wire",
+  "quality": "UNREVIEWED",
+  "default_application": "held"
+}

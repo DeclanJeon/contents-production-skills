@@ -21,6 +21,10 @@ The update compares currently active content/video skill instructions with this 
 
 The current source inputs are locally applied skill instructions and the user-supplied v6 folder. An upstream revision or permission not established by these inputs stays unknown. Do not describe active local instruction inspection as a verified third-party release or a license audit. The consolidation is not authorization to publish user/source material or to call paid generation.
 
+## Korean script postediting adaptation
+
+The conditional [Korean speech postediting module](../video-production-assets/references/korean-script-postediting.md) adapts selected im-not-ai principles at a pinned revision, with local dialogue/narration exceptions and a read-only checker. [File hashes and differences](../video-production-assets/references/upstream/im-not-ai-provenance.md) and the [upstream MIT notice](../video-production-assets/references/upstream/im-not-ai-LICENSE.txt) ship inside the installed skill. This notice applies to that upstream adaptation, not to the entire package; model/voice quality is not certified by deterministic checks.
+
 ## License status
 
 This repository has no reuse license. Public visibility, author metadata, a provenance note, or an AI rights judgment is not a grant to reuse the package or third-party works. No new LICENSE or blanket legal clearance is introduced.

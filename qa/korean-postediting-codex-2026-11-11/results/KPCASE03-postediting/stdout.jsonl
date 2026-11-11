@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"01a1c6ae-1a79-7700-9018-d4645b382f88"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /home/declan/.codex/config.toml."}}
+{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"상사: 확인 부탁드립니다.\n부하: 네, 지금 볼게요.\n\n두 사람의 존대와 관계가 자연스러워 원문을 유지했습니다. 자체 대조했으며, 도구 검사와 실제 발화 호흡은 미검증입니다."}}
+{"type":"turn.completed","usage":{"input_tokens":11904,"cached_input_tokens":4864,"cache_write_input_tokens":0,"output_tokens":85,"reasoning_output_tokens":23}}

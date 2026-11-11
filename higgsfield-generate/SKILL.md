@@ -7,13 +7,10 @@ description: |
   Routing cues only: discover the current model and verify its schema
   before selecting any model. Do not treat cached defaults as capability
   or quality claims.
-  Use when: "make a video", "animate
-  this photo", "image-to-video", "reframe this video", "edit this video from a
-  sketch", "create a 3D model/GLB", "create a sound effect",
-  "make music", "text-to-audio", "create an ad", "make a UGC
-  video", "unboxing", "presenter video", "import product from
-  URL for this video", or "analyze video virality". Supports generic generation,
-  workflows, Marketing Studio, and Virality Predictor.
+  Use for video generation, photo animation, image-to-video, reframing,
+  sketch edits, 3D/GLB, music/SFX, ads/UGC, unboxing, presenters,
+  product-URL video workflows, or virality analysis.
+  Supports generic generation, workflows, Marketing Studio, and Virality Predictor.
   Chain with higgsfield-soul-id for face/identity consistency.
   NOT for: Soul training, brand systems/brandbooks (use
   higgsfield-brandkit), photoshoots, cards, YouTube thumbnails

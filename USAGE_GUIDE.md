@@ -15,6 +15,19 @@
 
 빈 부분은 되돌릴 수 있는 작업 가정만 명시해서 보완한다. 중요 창작 방향은 사용자가 제공·승인·위임한 범위에서 결정한다. 법적 동의·제품 효과·인물 이력·출처 사실·과금·게시 승인을 추론하지 않는다.
 
+## 한국어 대사·내레이션 후편집 요청
+
+[공통 후편집](video-production-assets/references/korean-script-postediting.md#scope)은 현재 명시 요청/제안 전용이다. 초안 구조가 정리된 뒤 음성 제작 전에 다룬다.
+
+- 초안: “이 영상 대사의 번역투만 다듬어줘. 인물별 존댓말과 말더듬은 유지해.”
+- 검수만: “이 내레이션은 수정하지 말고, 어색한 위치와 이유만 알려줘.”
+- 기존 음성: “이미 승인하고 녹음한 대본이야. 개선 제안과 음성·자막 영향만 정리해줘.”
+- 좋은 원고: 문제가 없으면 “수정 없음”으로 종료한다. 변경량 목표를 맞추려고 고치지 않는다.
+
+파일 검사는 해당 skill 루트에서 `python3 scripts/korean_script_postediting.py --source original.md --candidate candidate.md --packet packet.json`으로 한다. 패킷은 [범위 예시](video-production-assets/references/korean-script-postediting.md#packet)를 따른다. 검증기는 윤문 생성기가 아니며, 코드 통과는 실제 청취·의미·사용자 승인 통과가 아니다. 음성 재생성·과금·설치는 별도 권한이다.
+
+A/B 평가 준비는 저장소 루트에서 `python3 scripts/run_korean_postediting_eval.py prepare --output <새폴더>`로 한다. 기본 13쌍/26개 job·원문/지침 스냅샷·UNREVIEWED 검토 양식만 만들고 모델을 호출하지 않는다. `collect`는 나중에 승인된 실행의 JSONL을 오프라인 수집한다. 실제 모델·예산 승인은 별도이며 자동 기본 적용은 계속 보류한다. [평가 어댑터 사용법·증거 한계](qa/korean-postediting-eval-adapter.md)를 따른다.
+
 ## 2. 자주 쓰는 요청
 
 ### 비영상 요청
@@ -48,6 +61,18 @@
 브랜드 노출과 이야기의 기능을 연결한다. 제품의 크기·색·포장·읽어야 할 문구를 잠그고, 중요한 로고/법적 문구는 정확한 합성/타이포그래피 작업으로 계획한다. 생성 모델이 읽을 수 있는 라벨을 자동으로 보장한다고 하지 않는다.
 
 ### Blender와 웹 3D
+
+> 이 채널의 영상 한 편을 Flucto로 받고 연속 30초를 Blender로 그대로 재현해줘. 원본의 컷·카메라·레이어·재질·라벨과 동작을 대조하고 실제 `.blend`, 제작 스크립트, MP4와 좌우 비교 영상을 줘.
+
+명시적 재현 요청은 [실제 레퍼런스 재현·수행 검증](open-3d-production/references/reference-reproduction.md)을 적용한다. 원본 구간과 로컬 프레임 대응을 잠그고 native geometry로 다시 저작한다. 원본 영상의 단순 크롭/투영을 재제작으로 보고하지 않으며, 빌린 음향·이미지는 재구성한 요소와 구별한다. 작은 실제 렌더를 비교·수정한 뒤 전체를 제작하고 남은 차이·미검증을 납품한다. 네이티브 요청은 해당 레시피가 우선이며 Three.js 가이드는 필요한 보조 기법에만 사용한다.
+
+> 이 레퍼런스를 Blender 대역으로 분해해 카메라와 앞부분은 유지하고 소품을 꺼내는 동작만 바꿔줘. 외형은 첨부 시트로 분리하고 대역 ID·색·소품 상태·참조 슬롯을 연결해줘. 영상 생성은 하지 마.
+
+[`의미 대역 인계`](blender-previsualization/references/semantic-proxy-handoff.md)로 동작/외형/텍스트를 분리한다. 실측과 접힘/펼침/착용 상태를 기록하고 허용 구간만 수정한다. 기본 box/figure 프록시는 정밀 손동작·관절·접힘을 지원하지 않으므로 필요한 native 구현을 별도 배정한다. 제공 영상에서 가져온 방법과 검사 범위는 [분석 기록](docs/analysis/2026-11-03-blender-previs-video.md)에 남겼다.
+
+> 브랜드 제품 영상에 쓸 Blender 방법을 골라줘. 제품 조명, Geometry Nodes 반복/모션그래픽, 실사 카메라 트래킹·합성, Grease Pencil, 투명 패스, 루프 중 필요한 방법만 절차와 검사 기준으로 제시해줘.
+
+[`네이티브 Blender 제작법`](open-3d-production/references/native-blender-workflows.md)의 해당 절만 읽는다. 텍스트 계획이면 Blender를 실행하지 않고, 실제 `.blend`/렌더 요청이면 현재 버전과 입력 자산으로 작성·렌더·검사한다. 자료 조사에서 찾은 YouTube 후보와 실제 자막 분석은 [추가 조사](docs/research/2026-11-03-blender-youtube-register.md)에서 구별한다. 특정 튜토리얼의 유료 애드온·고정 가격·절감률을 필수 조건으로 삼지 않는다.
 
 > 이 제품의 Blender 장면에서 실제 치수와 부품 이름을 유지해서 분해도를 만들어줘. 조립/중간/완전 분해 상태의 `.blend`와 PNG만 필요하고 웹 페이지나 영상은 만들지 마.
 
@@ -106,13 +131,17 @@ Blender 장면 작업에서는 네이티브 `.blend`/렌더와 실제 검사 증
 5. **전체 clean 컷을 설명·대사 트랙·음향 없이 순서대로** 보아 사건·인과·정보 공개·감정 변화가 읽히는지 검수한다. 시놉의 모든 비트에 이미지 증거를 연결한다. 안 읽히면 글/음악으로 덮지 않고 해당 구도·행동·연결컷을 수정한다.
 6. KEEP/FIX/미검증을 인덱스별로 나눠 이유·최소 수정·보존 요소·준비물·담당·시간 범위/근거·재검수 조건을 기록한다. 작업시간 근거가 없으면 미정과 필요한 측정을 적는다. 허용된 수정만 진행하고 blocker 해결과 사용자 검토 후 다음 단계로 간다.
 
+파일 기반 이미지 콘티는 기본적으로 **검토용 PDF + PNG 시트·clean 컷·분할 manifest**를 납품한다. 사용자에게는 최종 PDF 하나를 먼저 납품한다. 이미지 PDF는 A4 가로 2패널/페이지가 기본이며 표지/버전/페이지 번호·검색 가능한 한글 캡션을 유지한다. 짧은 캡션의 개요본은 가독성 확인 후 4패널을 선택할 수 있고, 1패널 상세본은 필요한 경우에만 만든다. 편집 HTML·최소 검증 자료는 `_internal/`에 두고 상세/시험본을 기본으로 함께 만들지 않는다. 텍스트 콘티는 A4 세로다. 추출/정본은 PNG이고 PDF 페이지 수와 시트 수는 다를 수 있다. 설치된 Chrome/Chromium·Poppler와 Python 문서 의존성을 사전 확인하며 자동 설치하지 않는다. 구형 래스터 합본이 필요하면 `--pdf-style sheets`를 명시한다. PDF 전 페이지를 열어 한글·캡션·순서·가독성을 따로 확인한다. 채팅-only는 파일을 만들지 않으며 사용자 지정 형식이 우선한다.
+
 기계적 구조·실제 파일 검사는 다음과 같이 실행한다. 이미지 의미·동의·사용자 승인은 자동 검사 범위 밖이다.
 
 ```bash
 python video-production-assets/scripts/validate_storyboard.py PROJECT/project.json
 python video-production-assets/scripts/validate_storyboard.py PROJECT/project.json --require-images --base-dir PROJECT
-python video-production-assets/scripts/render_storyboard_sheet.py PROJECT/project.json --base-dir PROJECT --output 04_STORYBOARDS/sheet.png --panels-per-sheet 4
+python video-production-assets/scripts/render_storyboard_sheet.py PROJECT/project.json --base-dir PROJECT --output 04_STORYBOARDS/sheet.png --panels-per-sheet 4 --pdf-output 04_STORYBOARDS/board-v01.pdf
 python video-production-assets/scripts/split_storyboard.py PROJECT/project.json --base-dir PROJECT --output PROJECT/04_STORYBOARDS/cuts-v01 --sheet 04_STORYBOARDS/sheet_s01.png --sheet 04_STORYBOARDS/sheet_s02.png
+# 이미지 없는 텍스트 콘티: 원본 MD + PDF + HTML, 그림 생성 없음
+python video-production-assets/scripts/render_storyboard_document.py PROJECT/board.md --base-dir PROJECT --output 04_STORYBOARDS/board-text-v01.pdf --title '콘티 검토본' --version v001
 ```
 
 분할 도구는 Pillow와 등록된 정확한 crop bounds를 사용한다. 실제 시트에서 추출된 패널 이미지와 해당 씬만 담은 씬 overview를 출력하며 동일 manifest에서 `panel→shot→scene`과 해시를 보존한다. 기존 출력은 거부한다. 조정자가 실제 파일/해시를 asset_registry에 등록하고 **모든 컷과 씬 이미지를 재열기 검수**한다. 시트/분할 manifest/개별 이미지의 절대 저장 경로와 `.history` 경로를 보고한다. 영상 프롬프트는 승인 보드의 ID·이미지·시간·공간/캐릭터/VFX/음성/사운드 버전을 그대로 인계한다. 모델별 지원과 실행/지출 승인은 별도다.

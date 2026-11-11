@@ -4,6 +4,8 @@ Select the narrowest requested output. The coordinator reads this map once; work
 
 Standalone writing, social/campaign operations, brand identity, product pages, product photography and website requests stay with their non-video owner; they do not activate this coordinator. The separated pack is discovered by exact skill name only when the user requests that independent work.
 
+한국어 영상 대사·내레이션 후편집은 기존 각본 오너의 [선택 지원 참조](../../video-production-assets/references/korean-script-postediting.md#scope)를 사용한다. 일반 글쓰기까지 총괄 활성화를 확장하거나 별도 stage·worker·원장을 만들지 않는다.
+
 ## Core lanes
 
 | Current request | Owner / required read | Stop boundary |
@@ -47,8 +49,14 @@ Text-only/read-only work may plan later previs but must not execute Blender; mar
 
 The active orchestration owner selects modules and order here, then hands off one bounded artifact to `open-3d-production`. For in-boundary video/storyboard work, that owner is `creative-production`; standalone non-video Blender/web work keeps its existing host/design owner and does not activate video production. Read the specialist's [integration rules](../../open-3d-production/references/integration.md) before using upstream text. Select by output, not every related-skill mention.
 
+For a native Blender deliverable, select the matching native recipe first. The overlapping upstream rows supply only explicitly needed supplemental craft; they do not redirect native authoring into Three.js. Choose an upstream browser module as the implementation owner only for a requested browser-native output. The native worker may write a new Blender script in the assigned project root under the existing execution and inspection contract.
+
 | Assigned need | Conditional module / required read | Evidence and stop boundary |
 |---|---|---|
+| Reference-to-generation semantic proxy, replacement colors, stateful prop revision | `blender-previsualization` [semantic proxy handoff](../../blender-previsualization/references/semantic-proxy-handoff.md); native articulated/hinged work also assigns `open-3d-production` | Preserve camera spec/IDs, state-specific dimensions, identity mapping and actual reference slots; basic proxy adapter does not solve articulated contact |
+| Native product lighting, Geometry Nodes repetition or timed procedural motion graphics | `open-3d-production` [native workflows B01–B03](../../open-3d-production/references/native-blender-workflows.md) and native adaptation | Actual version/engine, named controls/seeds and inspected timeline; no required paid rig or Three.js substitution |
+| Camera tracking, plate projection or footage/3D integration | `open-3d-production` [native workflows B04–B05](../../open-3d-production/references/native-blender-workflows.md); camera/spatial owner when verification is requested | Distinguish observed motion from solved camera, mark estimated scale, inspect parallax/sliding/occlusion; not a feature of the proxy adapter |
+| Grease Pencil, render passes/compositing, native loops, asset variants or GLB handoff | `open-3d-production` [native workflows B06–B10](../../open-3d-production/references/native-blender-workflows.md); only the matching section | Native `.blend`/requested exports and actual inspection; no automatic web, audio, simulation or generated-video job |
 | Blender procedural modeling, materials/lighting or render craft; browser Three.js scene | [threejs-scene](../../open-3d-production/references/upstream/skills/threejs-scene/GUIDE.md); Blender target also reads [native adaptation](../../open-3d-production/references/blender-adaptation.md) | Native implementation uses actual Blender; browser starter uses Three.js. Preserve dimensions/seed/camera and inspect relevant views; no renderer substitution |
 | Product parts, staged disassembly, x-ray or section presentation | [exploded-view](../../open-3d-production/references/upstream/skills/exploded-view/GUIDE.md); native adaptation for Blender | Named parts/assembled transforms, ordered motion and readable labels; illustrative internals labeled; geometry/contact acceptance still uses existing Blender verification |
 | Scroll-driven presentation of approved rendered/generated clips | [scroll-film](../../open-3d-production/references/upstream/skills/scroll-film/GUIDE.md) | Assigned sequence/video, holds, crop and seam inspection; no automatic clip generation, portrait variant or website build |

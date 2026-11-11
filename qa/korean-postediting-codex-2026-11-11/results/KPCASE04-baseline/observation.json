@@ -1,0 +1,25 @@
+{
+  "id": "KPCASE04-baseline",
+  "case_id": "KPCASE04",
+  "condition": "baseline",
+  "result_dir": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/qa/korean-postediting-codex-2026-11-11/results/KPCASE04-baseline",
+  "exit_code": 0,
+  "status": "completed_with_isolation_warnings",
+  "warnings": [
+    "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /home/declan/.codex/config.toml.",
+    "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+  ],
+  "errors": [],
+  "final_text": "“아, 됐어. 나, 나는… 괜찮다고.”\n\n수정 없이도 자연스럽습니다. “나, 나는…”의 머뭇거림에서 감추려는 실망이 새어 나오고, “괜찮다고”에서는 애써 감정을 눌러 말하는 태도가 느껴집니다. 다만 상대를 밀어내는 듯한 날카로움도 있어요.\n\n조금 더 담담하게 감추려면:\n“아, 됐어. 나는… 괜찮아.”",
+  "usage": {
+    "input_tokens": 7715,
+    "cached_input_tokens": 4864,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 119,
+    "reasoning_output_tokens": 0
+  },
+  "model": "gpt-6.1-sol",
+  "model_evidence": "explicit CLI command, not independently echoed by native wire",
+  "quality": "UNREVIEWED",
+  "default_application": "held"
+}

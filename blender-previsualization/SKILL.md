@@ -10,6 +10,8 @@ description: "Required Blender implementation/visual inspection for actual scene
 
 ## Blender decision boundary
 
+For reference-to-generation previs, proxy color/identity mapping, prop-state changes or motion-versus-appearance separation, read [semantic proxy handoff](references/semantic-proxy-handoff.md). It supplies the decomposition, revision and reference-slot procedure; it does not add articulated hands, hinges, tracking or rigging to the bundled box/figure adapter.
+
 For assigned procedural geometry, materials/lighting, staged exploded views or alpha/loop/web handoff craft, consume the relevant `open-3d-production` module selected by the coordinator in the [canonical module table](../creative-production/references/production-routing.md#open-3d-module-selection), after reading its [Blender adaptation](../open-3d-production/references/blender-adaptation.md). It is an implementation reference, not another orchestrator or a Three.js replacement for Blender. Keep this skill's spatial spec, proxy adapter, execution gates and inspected-evidence acceptance unchanged; beauty rendering, full rigs and physics need a separately scoped native implementation, not claims about this adapter.
 
 Use the [canonical production routing and Blender gate](../creative-production/references/production-routing.md#blender-decision-gate). Narrative camera planning in text/ordinary 2D storyboards and simple 2D/flat graphics do not invoke Blender. Numeric lens/coordinate/path proposals without a geometry-verification deliverable remain with `camera-spatial-design`, with numeric/schema analysis as applicable and unrendered geometry `UNVERIFIED`.
@@ -39,5 +41,3 @@ previs.blend, 샷별 PNG(또는 전체 PNG 시퀀스), numerical-analysis.json, 
 A previs is complete only when the requested scene spec passes its schema check, the actual Blender version and run mode are recorded, requested `.blend`/image artifacts exist and can be reopened, and the inspected frames are tied to shot/panel IDs. Report smoke-only checks as smoke-only; list occlusion, framing, missing-asset, and unsupported-geometry failures with the affected IDs. If Blender was unavailable or any requested render was not produced and opened, mark that deliverable `BLOCKED` or `UNVERIFIED`; never infer completion from a script exit code alone.
 
 Numeric/schema checks and smoke runs do not prove actual 3D scene feasibility or full requested visual inspection. Smoke is pipeline preflight only, not full-scene/all-requested-frame/contact acceptance. Bounding-box, center-point and ray-cast proxies do not prove full articulated visibility, hand/object contact, performance, aesthetics or final generated-video quality; claims without the required actual inspected evidence remain `UNVERIFIED`.
-
-

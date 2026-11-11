@@ -1,0 +1,25 @@
+{
+  "id": "KPCASE12-postediting",
+  "case_id": "KPCASE12",
+  "condition": "postediting",
+  "result_dir": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/qa/korean-postediting-codex-2026-11-11/results/KPCASE12-postediting",
+  "exit_code": 0,
+  "status": "completed_with_isolation_warnings",
+  "warnings": [
+    "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /home/declan/.codex/config.toml.",
+    "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+  ],
+  "errors": [],
+  "final_text": "안 가.\n\n이미 자연스러운 대사라, 단호한 거절의 뜻과 말투를 살려 그대로 유지했습니다.",
+  "usage": {
+    "input_tokens": 11887,
+    "cached_input_tokens": 4864,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 72,
+    "reasoning_output_tokens": 38
+  },
+  "model": "gpt-6.1-sol",
+  "model_evidence": "explicit CLI command, not independently echoed by native wire",
+  "quality": "UNREVIEWED",
+  "default_application": "held"
+}

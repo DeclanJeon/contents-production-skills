@@ -1,0 +1,34 @@
+{
+  "case": "architecture-native-reference-30s",
+  "source_video_id": "35lHzyVx_qM",
+  "source_interval_seconds": [207, 237],
+  "retrieval": "Flucto CLI 1.19.0",
+  "runtime": "Blender 5.2.2 LTS",
+  "native_execution": "passed",
+  "reference_fidelity": "not_passed",
+  "visual_review": {
+    "comparison_sheets_opened": 9,
+    "paired_times": 25,
+    "continuous_playback": "not_performed",
+    "audio_listening": "not_performed"
+  },
+  "machine_checks": {
+    "frames": 900,
+    "fps": 30,
+    "duration_seconds": 30,
+    "full_decode": "passed"
+  },
+  "ownership": {
+    "reconstruction_video_pixels": "independent native geometry",
+    "audio": "borrowed original reference track",
+    "comparison_left": "original reference"
+  },
+  "external_project": "/home/declan/Documents/studio_production/architecture-reference-2026-11-03",
+  "evidence": "docs/analysis/2026-11-03-architecture-native-reproduction.md",
+  "limits": [
+    "Construction cut timing and complete-system cutaway differ",
+    "Camera, material detail and wave propagation differ",
+    "Some caption transitions differ",
+    "No user approval or exact-reference acceptance"
+  ]
+}

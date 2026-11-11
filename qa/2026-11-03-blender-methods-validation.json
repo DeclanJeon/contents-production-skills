@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-03",
+  "scope": "Source-grounded Blender skill documentation and routing update; not native scene rendering",
+  "source_video_id": "lyNzEk8H9AM",
+  "research_root": "/home/declan/Documents/studio_production/blender-methods-2026-11-03",
+  "downloads": {
+    "tool": "Flucto CLI",
+    "version": "1.19.0",
+    "mp4_success": true,
+    "markdown_success": true,
+    "mp4_bytes": 251511662,
+    "markdown_bytes": 12874,
+    "video_sha256": "a52683e4334b6f484b3202869f62322d0bde1c90392bff9e851cf63fe2746cc8",
+    "duration_seconds": 765.167166,
+    "video_resolution": [1920, 1080],
+    "video_fps": 30
+  },
+  "inspection": {
+    "overview_samples": 77,
+    "overview_step_seconds": 10,
+    "detail_samples": 48,
+    "detail_step_seconds": 2,
+    "detail_interval_seconds": [480, 576],
+    "unique_timestamps": 115,
+    "contact_sheets_opened": 8,
+    "caption_read": true,
+    "full_rate_playback": false,
+    "audio_listened": false
+  },
+  "additional_research": {
+    "youtube_native_queries": 4,
+    "successful_queries": 4,
+    "unique_candidates": 24,
+    "additional_captions_read": 3,
+    "additional_videos_visually_inspected": 0,
+    "primary_sources_inspected": 25,
+    "manual_pages": 19,
+    "api_pages": 1,
+    "creator_text_pages": 5,
+    "documentation_baseline": "Blender 4.5, not a latest-version assertion",
+    "access_limited_candidates_excluded": 1
+  },
+  "skill_update": {
+    "semantic_proxy_workflow": true,
+    "native_recipes": 10,
+    "manifest_skills_added": 0,
+    "camera_schema_changed": false,
+    "adapter_code_changed": false,
+    "instructions_and_templates_connected": true
+  },
+  "checks": {
+    "pytest": {
+      "command": "python3 -m pytest -q -rs",
+      "exit_code": 0,
+      "passed": 400,
+      "subtests_passed": 518,
+      "elapsed_seconds": 36.56,
+      "timing": "After content edits; subsequent changes were LF normalization and evidence/report files only"
+    },
+    "versions": {
+      "command": "python3 scripts/check_versions.py",
+      "exit_code": 0,
+      "package": "2.33",
+      "skills": 22
+    },
+    "sync_dry_run": {
+      "command": "python3 scripts/sync_installed.py --dry-run --quiet",
+      "exit_code": 0,
+      "correct_links_skipped": 66,
+      "writes": 0
+    },
+    "existing_json_artifacts": {
+      "parsed": 119,
+      "exit_code": 0,
+      "timing": "Before this new validation JSON was added; this file is parsed separately"
+    },
+    "git_diff_check": {
+      "initial_failure": "CRLF trailing whitespace on two added instruction lines",
+      "fix": "Normalize blender-previsualization/SKILL.md to LF",
+      "final_exit_code": 0
+    },
+    "relative_links": {
+      "changed_documents_read": 14,
+      "new_missing_relative_links": 0,
+      "pre_existing_external_file_link": "Historical CHANGELOG Windows file:///C:/ evidence path left unchanged"
+    },
+    "installed_source_roots_verified": [
+      "~/.agents/skills",
+      "~/.codex/skills",
+      "~/.claude/skills"
+    ],
+    "json_lsp": {
+      "status": "unavailable",
+      "reason": "Configured biome language server is not installed",
+      "alternative": "Python standard-library JSON parsing; no dependency installed"
+    }
+  },
+  "not_verified": [
+    "Native Blender runtime or newly authored scene renders",
+    "Full-rate source playback or audio listening",
+    "Original creator skill ZIP internals",
+    "Measured cost reduction or exact video-model control",
+    "Additional tutorial video frames or audio",
+    "Newest Blender APIs beyond the stated documentary baseline"
+  ],
+  "preserved_out_of_scope": [
+    "Existing untracked higgsfield-brandkit directory",
+    "Existing untracked higgsfield-marketplace-cards directory",
+    "Existing untracked higgsfield-product-photoshoot directory",
+    "Existing untracked higgsfield-websites directory"
+  ],
+  "commit_created": false
+}

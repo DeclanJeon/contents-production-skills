@@ -59,6 +59,8 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 
 요청에 해당할 때만 연다. 각 파일은 기존 모듈의 절차를 확장하는 심화 가이드다.
 
+한국어 영상 대사·내레이션의 번역투/자연스러움 후편집 또는 해당 원고 QA 요청에는 [한국어 발화 후편집](references/korean-script-postediting.md#scope)을 읽는다. 기존 각본 오너의 지원 참조이며 별도 스킬·제작 단계를 만들지 않는다.
+
 | 요청 | 심화 참조 | 보조 템플릿 |
 |---|---|---|
 | 콘셉트 후보·감정 여정·시청 유지 설계 | [콘셉트·감정·유지](references/16-concept-emotion-retention.md) | 13 템플릿 |

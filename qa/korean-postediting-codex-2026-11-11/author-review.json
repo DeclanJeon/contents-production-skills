@@ -1,0 +1,150 @@
+{
+  "schema": "korean-postediting-codex-author-review/1",
+  "reviewer": "current Pi session author; not independent or blinded",
+  "scope": "13 cases, one baseline and one postediting sample each; native Codex CLI JSONL manually inspected",
+  "cli_version": "codex-cli 0.167.0",
+  "model_setting": "gpt-6.1-sol",
+  "reasoning_setting": "low",
+  "auth": "saved ChatGPT login; API-key environment variables removed from child",
+  "completed_turns": 26,
+  "process_launches": 27,
+  "startup_config_failures": 1,
+  "observed_tool_actions": 0,
+  "observed_isolation_warning_items": 52,
+  "usage": {
+    "baseline": {
+      "runs": 13,
+      "input_tokens": 100260,
+      "cached_input_tokens": 63232,
+      "output_tokens": 830,
+      "reasoning_output_tokens": 230
+    },
+    "postediting": {
+      "runs": 13,
+      "input_tokens": 154691,
+      "cached_input_tokens": 63232,
+      "output_tokens": 1257,
+      "reasoning_output_tokens": 216
+    }
+  },
+  "input_token_increase_percent": 54.28984639936165,
+  "money_cost": "not reported by CLI; no monetary estimate inferred from token counts",
+  "preservation": "No clear violation of the supplied preservation rubrics observed in the 13 postediting responses; author interpretation, not semantic proof.",
+  "overall": "needs_revision_before_default_enablement",
+  "default_application": "held",
+  "limitations": [
+    "Single model and one sample per condition; no statistical significance or generalization.",
+    "Model/provider selected in CLI, not independently echoed in native JSONL.",
+    "Codex retained common host/tooling context; requested shell/skills/plugins/hooks restrictions and no observed tool use are not proof of an empty tool catalog.",
+    "Two identical startup isolation warnings per invocation were retained; not hidden as error-free success.",
+    "Native Codex logs were not translated into fake Pi events and the Pi collector was not used.",
+    "No TTS, listening, timing, automatic routing or live checker invocation was tested.",
+    "Internal HTTP retry count and monetary/subscription usage limits are not fully visible in this native event stream."
+  ],
+  "cases": [
+    {
+      "id": "KPCASE01",
+      "verdict": "partial_improvement",
+      "postediting_observation": "확인 필요성은 유지했지만 ‘중요한 것은 … 점입니다’가 남아 자연스러움 개선은 부분적이다.",
+      "comparison": "baseline은 ‘상황을 확인’으로 확인 대상을 보완했다. postediting은 필요성을 더 보수적으로 유지했다.",
+      "baseline": "results/KPCASE01-baseline-attempt2/response.md",
+      "postediting": "results/KPCASE01-postediting/response.md"
+    },
+    {
+      "id": "KPCASE02",
+      "verdict": "pass",
+      "postediting_observation": "이미 자연스러운 대사를 원문 그대로 유지했다.",
+      "comparison": "두 조건 모두 원고 무수정. postediting은 불필요할 수 있는 설명을 추가했다.",
+      "baseline": "results/KPCASE02-baseline/response.md",
+      "postediting": "results/KPCASE02-postediting/response.md"
+    },
+    {
+      "id": "KPCASE03",
+      "verdict": "pass",
+      "postediting_observation": "두 인물의 기존 존대·말투를 그대로 유지했다.",
+      "comparison": "baseline은 부하의 ‘지금 볼게요’를 ‘바로 확인하겠습니다’로 격식 상향했다. 관계 위반으로 단정할 수는 없지만 보수적 말투 보존은 postediting 쪽이 강하다.",
+      "baseline": "results/KPCASE03-baseline/response.md",
+      "postediting": "results/KPCASE03-postediting/response.md"
+    },
+    {
+      "id": "KPCASE04",
+      "verdict": "pass",
+      "postediting_observation": "망설임·말더듬·말줄임표·감정 감추기를 유지했다.",
+      "comparison": "baseline의 기본안도 유지이나 선택안은 말더듬을 줄였다. postediting은 해당 선택안을 추가하지 않았다.",
+      "baseline": "results/KPCASE04-baseline/response.md",
+      "postediting": "results/KPCASE04-postediting/response.md"
+    },
+    {
+      "id": "KPCASE05",
+      "verdict": "pass",
+      "postediting_observation": "실제 인용 ‘기다리겠다’와 인물의 거부 태도를 유지했다.",
+      "comparison": "두 조건 모두 실제 인용 보존. postediting은 창작 대사도 억지로 수정하지 않았다.",
+      "baseline": "results/KPCASE05-baseline/response.md",
+      "postediting": "results/KPCASE05-postediting/response.md"
+    },
+    {
+      "id": "KPCASE06",
+      "verdict": "pass",
+      "postediting_observation": "‘첫째/둘째’와 안전 절차의 순서를 유지했다.",
+      "comparison": "baseline도 ‘먼저/그런 다음’으로 순서는 유지했다. 의미 실패로 분류하지 않는다.",
+      "baseline": "results/KPCASE06-baseline/response.md",
+      "postediting": "results/KPCASE06-postediting/response.md"
+    },
+    {
+      "id": "KPCASE07",
+      "verdict": "pass",
+      "postediting_observation": "시적 비유와 반복을 유지했다.",
+      "comparison": "두 조건 모두 원문 보존. 명확한 품질 우열을 판정하지 않는다.",
+      "baseline": "results/KPCASE07-baseline/response.md",
+      "postediting": "results/KPCASE07-postediting/response.md"
+    },
+    {
+      "id": "KPCASE08",
+      "verdict": "pass",
+      "postediting_observation": "법률 설명의 유보와 별도 확인 필요성을 유지했다.",
+      "comparison": "baseline도 유보를 유지했지만 ‘으므로’를 추가해 두 문장을 인과로 연결했다. postediting은 원문 상태를 보수적으로 유지했다.",
+      "baseline": "results/KPCASE08-baseline/response.md",
+      "postediting": "results/KPCASE08-postediting/response.md"
+    },
+    {
+      "id": "KPCASE09",
+      "verdict": "pass",
+      "postediting_observation": "승인·녹음본은 유지하고 개선점만 제안했다.",
+      "comparison": "두 조건 모두 제안 범위 준수. 실제 재녹음/파일 변경은 관측되지 않았다.",
+      "baseline": "results/KPCASE09-baseline/response.md",
+      "postediting": "results/KPCASE09-postediting/response.md"
+    },
+    {
+      "id": "KPCASE10",
+      "verdict": "needs_correction",
+      "postediting_observation": "QA-only 범위는 지켰지만 ‘문제 해결에 있어서’를 KP02로 잘못 연결했다. 이 표현의 직접 대응은 KP01/A-3이다.",
+      "comparison": "어색한 위치와 이유는 맞다. 패턴 ID 정확성은 보완해야 하며 전체 통과로 보고하지 않는다.",
+      "baseline": "results/KPCASE10-baseline/response.md",
+      "postediting": "results/KPCASE10-postediting/response.md"
+    },
+    {
+      "id": "KPCASE11",
+      "verdict": "pass",
+      "postediting_observation": "무음 지문을 수정하거나 새 발화를 추가하지 않았다.",
+      "comparison": "두 조건 모두 무음 유지. postediting은 발화 N/A를 명시했다.",
+      "baseline": "results/KPCASE11-baseline/response.md",
+      "postediting": "results/KPCASE11-postediting/response.md"
+    },
+    {
+      "id": "KPCASE12",
+      "verdict": "pass",
+      "postediting_observation": "‘안 가.’의 부정·거절·말투를 유지했다.",
+      "comparison": "두 조건 모두 원문 유지.",
+      "baseline": "results/KPCASE12-baseline/response.md",
+      "postediting": "results/KPCASE12-postediting/response.md"
+    },
+    {
+      "id": "KPCASE13",
+      "verdict": "pass",
+      "postediting_observation": "재시도를 늘리지 않고 최초 원문 유지와 문제 반환을 제안했다.",
+      "comparison": "두 조건 모두 재시도 중단. postediting은 미제공 실패 원인을 추측하지 않고 미검증으로 남겼다.",
+      "baseline": "results/KPCASE13-baseline/response.md",
+      "postediting": "results/KPCASE13-postediting/response.md"
+    }
+  ]
+}

@@ -43,5 +43,9 @@ E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/광고_상세페이지/md/The C
 ## 출력 템플릿
 `assets/01-brief-template.md`를 복사해 채운다.
 
+## 마케팅 영상의 고객·메시지 연결
+
+광고/브랜드 영상이면 [마케팅 서적 보완](30-marketing-story-craft.md#영상-광고의-메시지와-공유-이유)을 적용해 실제 대안·차별 가치·적합 고객·보여줄 장면을 기존 브리프에 연결한다. VOC의 구체적 과거 행동과 칭찬/가정적 구매 의향을 구분하며, 공유 이유를 실제 비트로 제안한다. 고객 자료가 없으면 가설/미정이지 조사 결과가 아니다.
+
 ## 심화 참조
 콘셉트 후보가 필요하거나 아이디어가 평범하면 [콘셉트·감정·유지](16-concept-emotion-retention.md), 레퍼런스 영상에서 원리를 추출하면 [레퍼런스 영상 분해](25-reference-video-analysis.md), 스폰서가 있으면 [스폰서·제품 통합](19-brand-product-integration.md).

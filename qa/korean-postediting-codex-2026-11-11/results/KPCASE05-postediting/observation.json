@@ -1,0 +1,25 @@
+{
+  "id": "KPCASE05-postediting",
+  "case_id": "KPCASE05",
+  "condition": "postediting",
+  "result_dir": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/qa/korean-postediting-codex-2026-11-11/results/KPCASE05-postediting",
+  "exit_code": 0,
+  "status": "completed_with_isolation_warnings",
+  "warnings": [
+    "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /home/declan/.codex/config.toml.",
+    "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+  ],
+  "errors": [],
+  "final_text": "그분은 인터뷰에서 \"기다리겠다\"고 하셨대. 나는 기다리기 싫어.\n\n이미 자연스러운 대사라 수정하지 않았습니다. 인터뷰 인용도 그대로 보존했습니다.\n\n검토: 자체 대조. 도구 검사·실제 발화 호흡은 미검증입니다.",
+  "usage": {
+    "input_tokens": 11923,
+    "cached_input_tokens": 4864,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 110,
+    "reasoning_output_tokens": 35
+  },
+  "model": "gpt-6.1-sol",
+  "model_evidence": "explicit CLI command, not independently echoed by native wire",
+  "quality": "UNREVIEWED",
+  "default_application": "held"
+}

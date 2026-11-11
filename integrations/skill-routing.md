@@ -12,6 +12,8 @@
 
 Installed IDs come from [manifest.json](../manifest.json). No duplicate global coordinator, budget database, SSOT database or provider-manifest source of truth is added.
 
+한국어 영상 발화 원고의 표현 교정/QA는 기존 각본 오너에서 [후편집 참조](../video-production-assets/references/korean-script-postediting.md#scope)를 조건부로 소비한다. 설치 ID·승인/저장 체계는 추가하지 않는다.
+
 ## Request routing
 
 | Requested output | Bundled owner/reference | Boundary |

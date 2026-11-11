@@ -39,6 +39,8 @@ Use [12 QA](../../video-production-assets/references/12-qa.md) for requested vid
 
 ## 6. Structured ad variation and campaign review
 
+Before choosing video-ad messages/angles, apply the relevant [marketing craft checks](../../video-production-assets/references/30-marketing-story-craft.md#영상-광고의-메시지와-공유-이유): actual customer alternatives → differentiated value, behavioral VOC rather than compliments, a specific sharing reason, and whether the product/idea is integral to the story. These are design hypotheses, not demand or performance evidence.
+
 Applies only to requested video-ad variants; standalone still-ad/campaign operations belong to their non-video owner. The Higgsfield Paid-Ads presets map onto these operations; a preset name alone does not authorize spend, submission, or publication.
 
 **Distinct-angle ad sets.** One set = several ads differing in a *named* angle (audience question, demonstrable contrast, practical benefit, curiosity, personal perspective), not in incidental wording. Record the angle per ad in the ledger. Claims, prices, features and evidence must trace to the supplied brief or checked sources; competitor figures need checked sources with URLs. Meta/placement formats are requested output specs, not defaults to invent.

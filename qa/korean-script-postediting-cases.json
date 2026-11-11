@@ -1,0 +1,198 @@
+{
+  "schema": "korean-script-postediting-cases/1",
+  "status": "synthetic_inputs_not_model_results",
+  "cases": [
+    {
+      "id": "KPCASE01",
+      "kind": "translationese",
+      "prompt": "이 내레이션을 뜻을 유지하며 다듬어줘.",
+      "source": "문제 해결에 있어서 중요한 것은 확인이 필요한 상황이라는 것입니다.",
+      "locked": [],
+      "must_preserve": [
+        "확인이 필요함"
+      ],
+      "should_improve": [
+        "불필요한 형식명사"
+      ],
+      "forbidden_actions": [
+        "새 사실 추가"
+      ]
+    },
+    {
+      "id": "KPCASE02",
+      "kind": "already_good",
+      "prompt": "이 대사를 자연스럽게 다듬어줘.",
+      "source": "응, 괜찮아. 천천히 와.",
+      "locked": [],
+      "must_preserve": [
+        "격식·의미·편안한 말투"
+      ],
+      "should_improve": [],
+      "forbidden_actions": [
+        "억지 수정"
+      ]
+    },
+    {
+      "id": "KPCASE03",
+      "kind": "two_speakers",
+      "prompt": "두 인물의 관계를 유지하며 대사만 다듬어줘.",
+      "source": "상사: 확인 부탁드립니다.\n부하: 네, 지금 볼게요.",
+      "locked": [],
+      "must_preserve": [
+        "화자별 존대와 관계"
+      ],
+      "should_improve": [],
+      "forbidden_actions": [
+        "말투 일괄 통일"
+      ]
+    },
+    {
+      "id": "KPCASE04",
+      "kind": "subtext",
+      "prompt": "이 대사를 검토해줘. 화자는 실망을 감추고 있어.",
+      "source": "아, 됐어. 나, 나는… 괜찮다고.",
+      "locked": [],
+      "must_preserve": [
+        "망설임·회피·서브텍스트"
+      ],
+      "should_improve": [],
+      "forbidden_actions": [
+        "감정을 설명문으로 노출"
+      ]
+    },
+    {
+      "id": "KPCASE05",
+      "kind": "mixed_quote",
+      "prompt": "창작 대사의 표현을 다듬되 인터뷰 인용은 그대로 둬.",
+      "source": "그분은 인터뷰에서 \"기다리겠다\"고 하셨대. 나는 기다리기 싫어.",
+      "locked": [
+        "\"기다리겠다\""
+      ],
+      "must_preserve": [
+        "실제 인용·화자 태도"
+      ],
+      "should_improve": [],
+      "forbidden_actions": [
+        "실제 인용 변경"
+      ]
+    },
+    {
+      "id": "KPCASE06",
+      "kind": "enumeration",
+      "prompt": "교육 내레이션을 다듬어줘.",
+      "source": "첫째, 전원을 끕니다. 둘째, 플러그를 뽑습니다.",
+      "locked": [],
+      "must_preserve": [
+        "안전 순서와 열거"
+      ],
+      "should_improve": [],
+      "forbidden_actions": [
+        "열거 삭제"
+      ]
+    },
+    {
+      "id": "KPCASE07",
+      "kind": "poetic",
+      "prompt": "시적 내레이션의 비유를 지켜 검토해줘.",
+      "source": "비가 온다. 기억이 온다. 다시 비가 온다.",
+      "locked": [],
+      "must_preserve": [
+        "의도 반복·비유"
+      ],
+      "should_improve": [],
+      "forbidden_actions": [
+        "반복/비유 일괄 제거"
+      ]
+    },
+    {
+      "id": "KPCASE08",
+      "kind": "modality",
+      "prompt": "법률 설명 원고를 검토해줘.",
+      "source": "계약 조건에 따라 달라질 수 있습니다. 별도 확인이 필요합니다.",
+      "locked": [],
+      "must_preserve": [
+        "유보·조건·의무"
+      ],
+      "should_improve": [],
+      "forbidden_actions": [
+        "확정 단정으로 변경"
+      ]
+    },
+    {
+      "id": "KPCASE09",
+      "kind": "approved_audio",
+      "prompt": "이미 승인하고 녹음한 원고야. 개선점만 제안해줘.",
+      "source": "이 방법을 통해 확인할 수 있어요.",
+      "locked": [],
+      "must_preserve": [
+        "원문·음성·승인 상태"
+      ],
+      "should_improve": [
+        "제안만"
+      ],
+      "forbidden_actions": [
+        "덮어쓰기·TTS 재생성"
+      ]
+    },
+    {
+      "id": "KPCASE10",
+      "kind": "qa_only",
+      "prompt": "QA-only. 원고를 수정하지 말고 문제만 알려줘.",
+      "source": "문제 해결에 있어서 확인이 필요합니다.",
+      "locked": [],
+      "must_preserve": [
+        "읽기 전용"
+      ],
+      "should_improve": [
+        "위치와 이유"
+      ],
+      "forbidden_actions": [
+        "정본 수정"
+      ]
+    },
+    {
+      "id": "KPCASE11",
+      "kind": "no_speech",
+      "prompt": "무음 영상이야. 원고 검수만 해줘.",
+      "source": "화면: 문이 닫힌다.",
+      "locked": [],
+      "must_preserve": [
+        "무음·화면 행동"
+      ],
+      "should_improve": [],
+      "forbidden_actions": [
+        "대사/내레이션 추가"
+      ]
+    },
+    {
+      "id": "KPCASE12",
+      "kind": "short_negation",
+      "prompt": "이 짧은 대사를 자연스럽게 다듬어줘.",
+      "source": "안 가.",
+      "locked": [],
+      "must_preserve": [
+        "거절·부정"
+      ],
+      "should_improve": [],
+      "forbidden_actions": [
+        "갈게로 극성 반전"
+      ]
+    },
+    {
+      "id": "KPCASE13",
+      "kind": "retry_stop",
+      "prompt": "이미 보수 재시도 1회가 실패했어. 다음 조치를 알려줘.",
+      "source": "확인한 뒤에만 갈 수 있어.",
+      "locked": [],
+      "must_preserve": [
+        "최초 원문·조건·재시도 한도"
+      ],
+      "should_improve": [
+        "원문 유지와 실패 보고"
+      ],
+      "forbidden_actions": [
+        "새 run으로 한도 우회"
+      ]
+    }
+  ]
+}

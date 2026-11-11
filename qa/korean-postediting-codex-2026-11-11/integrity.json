@@ -1,0 +1,355 @@
+{
+  "schema": "korean-postediting-codex-integrity/1",
+  "completed_turns": 26,
+  "frozen_artifacts_unchanged": true,
+  "prelaunch_hash_sidecars": 24,
+  "first_two_inputs": "frozen manifest + argv/stdin + post-run unchanged check, no prelaunch hash sidecar",
+  "artifacts": {
+    "system-baseline.txt": "b5b8de09f9d8948399652eb7068952cfb1a2c429eb2ecd3adedf806537375847",
+    "system-postediting.txt": "771cd150b2acf757ed3e75201b45eda9605401f318c787451c61e4dd798609a8",
+    "suite.json": "700f057e609495f5082011c8a0e1380c2541799293a3dfc5c30363ff6896470c",
+    "prompts/KPCASE01-baseline.txt": "b9f6a6d0358bcb07a0e869369c99d03c74627be4f0e67422dc5cd4548753b021",
+    "prompts/KPCASE01-postediting.txt": "b9f6a6d0358bcb07a0e869369c99d03c74627be4f0e67422dc5cd4548753b021",
+    "prompts/KPCASE02-postediting.txt": "5c8646755dfe4da6aac0dcab807d3737f28b31253cffb92224cf6f4d1c3a478c",
+    "prompts/KPCASE02-baseline.txt": "5c8646755dfe4da6aac0dcab807d3737f28b31253cffb92224cf6f4d1c3a478c",
+    "prompts/KPCASE03-baseline.txt": "483fc9a8eddbbfa76719fe6873adef0837f393227a9fcdea81d96f65773ac9ee",
+    "prompts/KPCASE03-postediting.txt": "483fc9a8eddbbfa76719fe6873adef0837f393227a9fcdea81d96f65773ac9ee",
+    "prompts/KPCASE04-postediting.txt": "e134bbef0292751ab9a73fc273f73b73647553d7b0102cbefa8c4399a48691b6",
+    "prompts/KPCASE04-baseline.txt": "e134bbef0292751ab9a73fc273f73b73647553d7b0102cbefa8c4399a48691b6",
+    "prompts/KPCASE05-baseline.txt": "3489acf70428e0a5de738827932000997a9fb9dcf7621ee8f54aa1e45434d0b9",
+    "prompts/KPCASE05-postediting.txt": "3489acf70428e0a5de738827932000997a9fb9dcf7621ee8f54aa1e45434d0b9",
+    "prompts/KPCASE06-postediting.txt": "7ef8794f8b7735182dd74f3a3d2b619eea313097f32ee107f768618ee8f4515f",
+    "prompts/KPCASE06-baseline.txt": "7ef8794f8b7735182dd74f3a3d2b619eea313097f32ee107f768618ee8f4515f",
+    "prompts/KPCASE07-baseline.txt": "ac7ed73facf45d42ec0082468fffc5846d5b73adb9a6b9d7eddfd571fdef9ce7",
+    "prompts/KPCASE07-postediting.txt": "ac7ed73facf45d42ec0082468fffc5846d5b73adb9a6b9d7eddfd571fdef9ce7",
+    "prompts/KPCASE08-postediting.txt": "288bc31f4ab954282170eafca155066ed04fd5ccf301fa938610cdd9bee6eabf",
+    "prompts/KPCASE08-baseline.txt": "288bc31f4ab954282170eafca155066ed04fd5ccf301fa938610cdd9bee6eabf",
+    "prompts/KPCASE09-baseline.txt": "c8f5156078effcb55e05795bedada3a572cdf49768c4919dadf4da7bb514127b",
+    "prompts/KPCASE09-postediting.txt": "c8f5156078effcb55e05795bedada3a572cdf49768c4919dadf4da7bb514127b",
+    "prompts/KPCASE10-postediting.txt": "e7ffb2bb46041e511f494ef71a55fc9a17363f248831569bccd5a52e6a653a8c",
+    "prompts/KPCASE10-baseline.txt": "e7ffb2bb46041e511f494ef71a55fc9a17363f248831569bccd5a52e6a653a8c",
+    "prompts/KPCASE11-baseline.txt": "d4967cf08d789b9c043f4661b93bd86756fae830251ddc6d22d745ac2876b197",
+    "prompts/KPCASE11-postediting.txt": "d4967cf08d789b9c043f4661b93bd86756fae830251ddc6d22d745ac2876b197",
+    "prompts/KPCASE12-postediting.txt": "810fc7667829c6c50ab1cb0f133f8e8aec266292ad626e5af8797b21f3844b21",
+    "prompts/KPCASE12-baseline.txt": "810fc7667829c6c50ab1cb0f133f8e8aec266292ad626e5af8797b21f3844b21",
+    "prompts/KPCASE13-baseline.txt": "fd3fcf54d6c6d205d9213da7b2c73085b647bb4c9131ffaf15fde36f1abb8c98",
+    "prompts/KPCASE13-postediting.txt": "fd3fcf54d6c6d205d9213da7b2c73085b647bb4c9131ffaf15fde36f1abb8c98",
+    "review.md": "a8ee78ca83a61990ab4bfda67d5a91702ae118751bc6fbd9e58d9b09f601618d"
+  },
+  "outputs": [
+    {
+      "id": "KPCASE01-baseline",
+      "stdout_sha256": "842c6c82214d34ba8d8a4abce9ddd0154636b334aca127f0c7d085731f59c542",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7711,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 180,
+        "reasoning_output_tokens": 160
+      }
+    },
+    {
+      "id": "KPCASE01-postediting",
+      "stdout_sha256": "7cfb5d8949507a6142726c49a43ee88c917e0e3ecbbe23698c7135a638d649f9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11898,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 128,
+        "reasoning_output_tokens": 73
+      }
+    },
+    {
+      "id": "KPCASE02-postediting",
+      "stdout_sha256": "e77e6c07afdc92125c5dd7b907cb02a96379dd3e21d15acc9c376f59fee61b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11893,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 39,
+        "reasoning_output_tokens": 10
+      }
+    },
+    {
+      "id": "KPCASE02-baseline",
+      "stdout_sha256": "09ef8dbf144c54775fabf5e50fbd2ac1d779e3c1c58dc93225df52e95294f71c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7706,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE03-baseline",
+      "stdout_sha256": "72413252a40f05696fbaef0e20d06730127c5f67a2893c505d41c4ea05399d32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7717,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 37,
+        "reasoning_output_tokens": 14
+      }
+    },
+    {
+      "id": "KPCASE03-postediting",
+      "stdout_sha256": "b4768b6e3399e40b73560d466fb41ff5d24c5525948547bbba9f76598dfc4dfd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11904,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 85,
+        "reasoning_output_tokens": 23
+      }
+    },
+    {
+      "id": "KPCASE04-postediting",
+      "stdout_sha256": "68df0aaaec56950b2d421dcbc8a170e793eac8494bf10c16bfce0148658ff081",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11902,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 122,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE04-baseline",
+      "stdout_sha256": "6720031030b56df15c2639283d0711e1c07958e4e6ecf2f78daec00a55860af5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7715,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 119,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE05-baseline",
+      "stdout_sha256": "7bdccbd835f57f9b5d1a0d8c141bce2ea3d39ea463e2a3dfff771f3ee569b452",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7736,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE05-postediting",
+      "stdout_sha256": "af92efd2de4b8c6408872f0306f89bd3a2608591b20ce8ae7042f88e84b19488",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11923,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 110,
+        "reasoning_output_tokens": 35
+      }
+    },
+    {
+      "id": "KPCASE06-postediting",
+      "stdout_sha256": "bcb6ec91ac4acb9dcf097edf0e009bb0479988a27489e92bcabbea00defbaa9d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11901,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 78,
+        "reasoning_output_tokens": 15
+      }
+    },
+    {
+      "id": "KPCASE06-baseline",
+      "stdout_sha256": "76d3eacc48dc1370b720e94c28f8877e6044491f5522c4a1669817f4b469b56a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7714,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 23,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE07-baseline",
+      "stdout_sha256": "bae3651087314e89e2c301fcd3e6d2e4a7077665e83757e9bc58a4e05a0eea99",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7714,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 60,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE07-postediting",
+      "stdout_sha256": "849478277461725022dfa696bee8e06b0387ee1c100692e55086d558152bd3b7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11901,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 100,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE08-postediting",
+      "stdout_sha256": "b852f16447d475afd32a8f4374f855e7c4311ba6e742e2dcb93e87def3f178e6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11898,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 163,
+        "reasoning_output_tokens": 22
+      }
+    },
+    {
+      "id": "KPCASE08-baseline",
+      "stdout_sha256": "7635239f903865a6d40e2b90d694fe4e7589ef7e2cf7385fd0abbffa3a66a0a3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7711,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 93,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE09-baseline",
+      "stdout_sha256": "3dc15ceaa3f0116e9809d4f5ea0a64c77a3b17f0f728959974600060ca272f5a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7711,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 67,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE09-postediting",
+      "stdout_sha256": "689c5b3985899bc01489a6e089cc5479ad0c58856e8b0ec9de2107dd37a21253",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11898,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 103,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE10-postediting",
+      "stdout_sha256": "3dda0022bf8036ea353618616dcaab3eab475a6347113bf6a2485199656b2b75",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11894,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 80,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE10-baseline",
+      "stdout_sha256": "54bfbebaede45894c244722eaa8db6919fe4b43e5389a4d0c74115d7073b1754",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7707,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 44,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE11-baseline",
+      "stdout_sha256": "7159df00ecbc298df435ce3963fd558d5af001641aba671ccc39ef75985ffafc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7706,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE11-postediting",
+      "stdout_sha256": "5ec2d0da693a310fad2dc43bd7c9698563d507ea77fab121e2dd4d7a38c98c72",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11893,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 68,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "id": "KPCASE12-postediting",
+      "stdout_sha256": "e1ad3b9dd8f85fef3320239f045a8e1c95fd90778352e991cf50c1e2cde43bd9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11887,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 72,
+        "reasoning_output_tokens": 38
+      }
+    },
+    {
+      "id": "KPCASE12-baseline",
+      "stdout_sha256": "b924404be53d4a783e0a359126a6af480978529ca43213a391d3c45d7d06a1f4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7700,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 18,
+        "reasoning_output_tokens": 9
+      }
+    },
+    {
+      "id": "KPCASE13-baseline",
+      "stdout_sha256": "54d4b8c138b091893c28bd24e24109031b20ad7b449b287cbcff0ca4811d300b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 7712,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 115,
+        "reasoning_output_tokens": 47
+      }
+    },
+    {
+      "id": "KPCASE13-postediting",
+      "stdout_sha256": "1a739434886a1dec942bee54b1cdfad00adac8e271c9ac801e1a0b71b2d3a661",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "usage": {
+        "input_tokens": 11899,
+        "cached_input_tokens": 4864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 109,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "model_identity": "selected in CLI, not independently wire-attested",
+  "default_application": "held"
+}

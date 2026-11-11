@@ -13,6 +13,11 @@ Blender version / engine / 실행 명령·mode·render-map: {실제 기록}
 
 생성 참조로 인계할 때만 — [실무 인계 R1/R3](../../video-production-assets/references/29-reference-driven-production.md):
 - 대역 ID/색/이름 → 실제 character ID/버전 대응: {확인된 매핑}
+- 대역/제품 면·방향 표식 → 실제 앞/뒤·상태별 외형 참조: {필요한 뷰와 실제 파일/버전; 누락 뷰는 미확인}
+- 대역 색과 최종 의상/제품색의 혼동 검사 / 색을 외형에서 제외하는 지시: {실제 렌더에서 확인}
+- 소품 상태·실측 근거·소유자/접점과 전환 시각(FPS/로컬 프레임): {접힘→펼침→착용 등 필요한 상태만; 현재 어댑터 미지원은 별도 native 구현}
+- 수정 허용 구간·허용 델타 / 보존할 카메라·초반 동작·다른 인물 / 전후 버전 비교: {검사한 같은 시각과 미검증 범위}
+- 실제 업로드 slot tag → 대역 ID → 외형 파일/버전 대응 검토: {없는 파일/태그를 만들지 않음}
 - 가져올 정보: {검사된 카메라/컷/블로킹/타이밍과 해당 근거 프레임; 정지 렌더의 시간 검증 한계 명시}
 - 제외할 정보: {대역 얼굴/체형/재질/임시 배경·음향}
 - 직전 채택 클립의 실제 종료 상태 / 외형·장소 기준 / 충돌 시 속성별 우선 기준: {각 ID/버전 또는 미해결}
@@ -21,3 +26,5 @@ Blender version / engine / 실행 명령·mode·render-map: {실제 기록}
 
 camera-intent artifact ID/version / selected camera-language catalog IDs: {해당 시}
 기법별 구현 상태(현재 어댑터 / 확장 필요 / 편집 단계 / unsupported·unverified)와 근거: {구현표 ID·증거}
+
+참조 기반 대역/생성 인계가 배정된 경우 [의미 대역 절차](../references/semantic-proxy-handoff.md)를 적용한다. 색 대역 영상과 segmentation/Depth/Normal 패스는 별개이며 선택 공급자의 실제 입력 지원을 확인한다.

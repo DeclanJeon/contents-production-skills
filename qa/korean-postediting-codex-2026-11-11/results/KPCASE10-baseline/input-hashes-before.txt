@@ -1,0 +1,2 @@
+e7ffb2bb46041e511f494ef71a55fc9a17363f248831569bccd5a52e6a653a8c  /home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/qa/korean-postediting-codex-2026-11-11/frozen/prompts/KPCASE10-baseline.txt
+b5b8de09f9d8948399652eb7068952cfb1a2c429eb2ecd3adedf806537375847  /home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/qa/korean-postediting-codex-2026-11-11/frozen/system-baseline.txt

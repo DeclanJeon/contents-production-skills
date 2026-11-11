@@ -35,6 +35,10 @@
 E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/Story Substance, Structure, Style and the Principles of Screenwriting (Robert McKee) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `2ebf099c352fe0814e00ef15d285bbb4545f216d18d5b9df440ec9e1b11ec5da`, 856699 bytes. L77–89(pp38–44)는 가치 변화·행동/반응 비트·씬/시퀀스/막의 구분, L95–111(pp47–55)는 Archplot/Miniplot/Antiplot와 인과/우연의 대조, L469–475(pp234–237)는 심은 정보의 의미가 회수 때 달라지는 setup/payoff를 지원한다. 저자의 가치 중심 장면론을 모든 설명·실험 영상의 합격 법칙으로 확대하지 않는다. 반복 모티프의 일반 기억 우위나 막/영웅 여정 비교 전체의 효과는 이 구간의 근거가 아니다. 그 미결속 범위는 유지하고 선택 도구로만 제시한다.
 Truby 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/The Anatomy of Story 22 Steps to Becoming a Master Storyteller (John Truby) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `5567af1b300f518010b0b98961f04df7789b3ba316352dd1663e1ebb4886a3e8`, 791403 bytes. L25(p11)은 premise를 인물·플롯을 결합한 한 문장으로 설명하고, L47–51(pp22–24)은 weakness·internal need·external desire를 구별한다. 이 저자의 craft 정의로 한정한다. 세 막/다섯 막/beat sheet/hero's journey 비교 전체나 모티프의 기억 우위는 이 구간으로 입증하지 않는다.
 
+## 인물 아크의 선택
+
+인물 중심 서사에서는 [아크와 선택](30-marketing-story-craft.md#캐릭터-아크와-선택)을 기존 욕망/필요/결함/아크 항목에 연결한다. 긍정 변화·신념 유지(flat)·부정 변화 중 승인된 이야기에 맞게 선택하고, 시작 믿음→압력→선택→결말 행동의 증거를 적는다. 외적 성공을 내적 성장으로 자동 해석하거나 모든 인물에게 치유·과거사를 추가하지 않는다.
+
 ## 출력 템플릿
 `assets/02-story-template.md`를 복사해 채운다.
 
