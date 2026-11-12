@@ -4,6 +4,10 @@ Shared decision contract for the text-planning lane. `orchestrating-video-prepro
 
 ## Interaction modes
 
+**Script collaboration starts with the user's explicit choice state.** When the user marks an essential creative choice undecided, the first response asks that choice and waits. Reuse the supplied purpose, observations and ending. After the answer arrives, complete the requested script from those inputs. Apply the modes below only after resolving that explicit choice; a single-artifact request does not silently choose it for the user.
+
+Unwaived conflicts between hard script constraints use [the screenplay start branch — `video-production-assets/references/03-screenplay.md`](../../video-production-assets/references/03-screenplay.md#시작-분기). The code-form address is relative to the package root; the Markdown href is relative to this document.
+
 - **Collaborative** — the default for multi-stage planning. Reuse answers already supplied, resolve consequential creative choices with the user, and pause at the checkpoints below. Asking for a video or a full package grants no approval for any proposed direction.
 - **One pass** — only when the user explicitly delegates creative choices or asks to proceed without intermediate questions. Produce the requested work with labeled proposals and assumptions; ask only when constraints collide badly enough to block a valid result. This mode waives creative pauses, never the production/spend boundary.
 - **Single artifact or locked brief** — when the direction already exists or does not matter for the artifact, deliver it without ceremony. Interrupt only for a gap that would change the artifact itself; a character sheet, synopsis, or locked storyboard never grows into a project-wide interview.

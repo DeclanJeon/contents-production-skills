@@ -2,6 +2,8 @@
 
 Read this guide once before drafting a concept, logline, synopsis, or beat-map artifact for `developing-video-synopses`. Intake, invocation, scope, and return-envelope rules live in the skill's `SKILL.md`; this file holds the craft detail that file points at. A request scoped to a logline, premise, or beat outline still returns exactly that — the guide never inflates a small request into a production packet.
 
+For an explanatory draft's concept-introduction order or existing beat-function repair, first read [writing prerequisites — `video-production-assets/references/writing-craft.md`](../../video-production-assets/references/writing-craft.md#grounding). The code-form address is relative to the package root; the Markdown href is relative to this document. Apply only the current artifact scope.
+
 ## Mode-matched shaping
 
 Choose the structure that fits; no formula is universal, and familiar arcs are diagnostic aids, not checklists.

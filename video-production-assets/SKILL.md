@@ -40,7 +40,7 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 | 요청 | 읽을 모듈 | 사용할 에셋 |
 |---|---|---|
 | 영상 브리프·제작 설계·프로젝트 스타일 브리프 | [설계 절차](references/01-brief.md) | [템플릿](assets/01-brief-template.md) |
-| 서사·감정 구조 | [설계 절차](references/02-story.md) | [템플릿](assets/02-story-template.md) |
+| 서사·감정 구조 | [설계 절차](references/02-story.md); 기존 원고 구조 검토·텍스트 변경 제안이 배정되면 [문장 수리 — `video-production-assets/references/writing-craft.md`](references/writing-craft.md#shape)도 먼저 읽음(코드 주소는 패키지 루트 기준) | [템플릿](assets/02-story-template.md)과 기존 배정 반환 형식 |
 | 영상 각본·대사·내레이션 | [설계 절차](references/03-screenplay.md) | [템플릿](assets/03-screenplay-template.md) |
 | 연기·서브텍스트 디렉팅 | [설계 절차](references/04-performance.md) | [템플릿](assets/04-performance-template.md) |
 | 시각 구조·아트 디렉션 | [설계 절차](references/05-visual.md) | [템플릿](assets/05-visual-template.md) |
