@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from collections.abc import Mapping, Sequence
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -18,35 +19,20 @@ import shutil
 import signal
 import subprocess
 import time
+from typing import TypeAlias
+
+from guide_eval_routes import OWNER
+
+JsonValue: TypeAlias = str | int | float | bool | None | Sequence["JsonValue"] | Mapping[str, "JsonValue"]
 
 REPO = Path(__file__).resolve().parents[1]
-OWNER = {
-    "G01": "video-production-assets/references/11-ai-handoff.md",
-    "G02": "designing-video-character-sheets/references/character-craft.md",
-    "G03": "video-production-assets/references/11-ai-handoff.md",
-    "G04": "video-production-assets/references/11-ai-handoff.md",
-    "G05": "video-production-assets/references/09-edit.md",
-    "G06": "video-production-assets/references/22-dialogue-lipsync.md",
-    "G07": "video-production-assets/references/21-generated-video-qa-retry.md",
-    "G08": "video-production-assets/references/14-production-ops.md",
-    "G09": "video-production-assets/references/20-visual-mode-ssot.md",
-    "G10": "video-production-assets/references/15-delivery.md",
-    "G11": "camera-spatial-design/references/motion-timing-lens.md",
-    "G12": "creative-production/SKILL.md",
-    "F01": "video-production-assets/references/21-generated-video-qa-retry.md",
-    "F02": "video-production-assets/references/20-visual-mode-ssot.md",
-    "F03": "video-production-assets/references/11-ai-handoff.md",
-    "F04": "video-production-assets/references/11-ai-handoff.md",
-    "F05": "designing-video-character-sheets/references/character-craft.md",
-    "F06": "video-production-assets/references/06-shots.md",
-}
 
 
 def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def save_new(path: Path, value):
+def save_new(path: Path, value: Mapping[str, JsonValue]) -> None:
     with path.open("x", encoding="utf-8", newline="\n") as f:
         json.dump(value, f, ensure_ascii=False, indent=2)
         f.write("\n")
@@ -142,7 +128,7 @@ def parse_events(wire: str, root: Path):
             "observed_models": sorted(model_ids)}
 
 
-def case_system(owner):
+def case_system(owner: str) -> str:
     return (
         "You are executing one isolated package QA case. The user prompt below is replayed verbatim. "
         "This run is text-only and read-only: no file writes, shell execution, generation, cloning, upload, spend or publication. "
@@ -156,9 +142,19 @@ def case_system(owner):
     )
 
 
+def case_owner(identifier: str) -> str:
+    """Keep legacy G/F dispatch; writing cases retain exact suffixes."""
+    if identifier.startswith("T"):
+        from writing_eval_cases import CaseContractError, resolve_owner
+        if identifier in {"T09", "T11", "T12"}:
+            raise CaseContractError(f"Expected single adapter: {identifier}")
+        return resolve_owner(identifier)
+    return OWNER[identifier.split("-", 1)[0]]
+
+
 def execute(case, root, out, profile, before):
     identifier = case["id"]
-    owner = OWNER[identifier.split("-", 1)[0]]
+    owner = case_owner(identifier)
     system = case_system(owner)
     command = [profile["executable"], "--mode", "json", "--provider", profile["provider"],
                "--model", profile["model"], "--thinking", "low", "--tools", "read,grep,find,ls",
@@ -237,10 +233,18 @@ def main(argv=None):
             p.error("unknown case ID")
     if not cases or len({c["id"] for c in cases}) != len(cases):
         p.error("cases must be nonempty and unique")
+    if any(c["id"].startswith("T") for c in cases):
+        from pydantic import ValidationError
+        from writing_eval_cases import CaseContractError, WritingCase, single_turn_case
+        try:
+            cases = [single_turn_case(WritingCase.model_validate(c))
+                     if c["id"].startswith("T") else c for c in cases]
+        except (ValidationError, CaseContractError) as exc:
+            p.error(str(exc))
     root = args.skill_root.resolve()
     source = fingerprint(root)
     for c in cases:
-        if not (root / OWNER[c["id"].split("-", 1)[0]]).is_file():
+        if not (root / case_owner(c["id"])).is_file():
             p.error("case owner missing from selected checkout")
     version = subprocess.check_output([executable, "--version"], text=True).strip()
     profile = {"executable": executable, "version": version, "provider": args.provider,
