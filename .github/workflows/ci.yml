@@ -27,7 +27,7 @@ jobs:
           ffprobe -version
 
       - name: Install test dependencies
-        run: python -m pip install pytest Pillow "pydantic>=2,<3"
+        run: python -m pip install pytest Pillow "pydantic>=2,<3" typer
 
       - name: Version consistency
         run: python scripts/check_versions.py
