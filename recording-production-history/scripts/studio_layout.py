@@ -14,6 +14,7 @@ from __future__ import annotations
 import os
 import re
 import sys
+import json
 from pathlib import Path
 
 
@@ -173,6 +174,76 @@ def detect_documents(platform: str | None = None, env=None, home=None) -> Path:
     if detected is not None:
         return detected
     return home / "Documents"
+
+
+# ---------------------------------------------------------------------------
+# Studio root
+# ---------------------------------------------------------------------------
+MEDIA_STUDIO_DIRNAME = "Media_Studio"
+
+
+def config_path(env=None, home=None) -> Path:
+    """User config file for the saved studio root (XDG-aware)."""
+    env = os.environ if env is None else env
+    home = Path(home) if home is not None else Path.home()
+    base = env.get("XDG_CONFIG_HOME")
+    config_dir = Path(base) if base else home / ".config"
+    return config_dir / "media-studio" / "config.json"
+
+
+def read_config(env=None, home=None) -> dict:
+    """Read the saved config; a missing or broken file is just empty."""
+    try:
+        data = json.loads(config_path(env, home).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def write_config(data: dict, env=None, home=None) -> Path:
+    """Atomically write the config, creating its parent directory."""
+    path = config_path(env, home)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    stage = path.with_name(
+        f".config.json.stage-{os.getpid()}-{os.urandom(4).hex()}")
+    try:
+        with open(stage, "x", encoding="utf-8") as handle:
+            json.dump(data, handle, indent=2, ensure_ascii=False)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(stage, path)
+    finally:
+        stage.unlink(missing_ok=True)
+    return path
+
+
+def detect_studio_root(documents=None, env=None, home=None):
+    """Resolve the studio root and whether it was explicitly chosen.
+
+    Precedence: ``MEDIA_STUDIO_ROOT`` -> saved config (``set-root``) ->
+    ``<Documents>/Media_Studio``. The second value is a short label when
+    the user already chose a root (so the coordinator need not ask again)
+    and ``None`` on the plain default.
+    """
+    env = os.environ if env is None else env
+    override = env.get("MEDIA_STUDIO_ROOT")
+    if override:
+        return (Path(override).expanduser().resolve(),
+                f"MEDIA_STUDIO_ROOT={override}")
+    cached = read_config(env, home).get("media_studio_root")
+    if isinstance(cached, str) and cached.strip():
+        return Path(cached).expanduser().resolve(), "saved studio root"
+    base = Path(documents) if documents else detect_documents(env=env, home=home)
+    return (base / MEDIA_STUDIO_DIRNAME).resolve(), None
+
+
+def ensure_studio_root(root: Path) -> bool:
+    """Create the studio root only if absent; True if it was created."""
+    if root.is_dir():
+        return False
+    root.mkdir(parents=True, exist_ok=True)
+    return True
 
 
 # ---------------------------------------------------------------------------

@@ -68,6 +68,45 @@ class DetectionPrecedenceTests(unittest.TestCase):
                 Path(tmp) / 'Documents')
 
 
+class StudioRootTests(unittest.TestCase):
+    def test_media_studio_root_env_wins(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            docs = Path(tmp) / 'Docs'
+            env = {'MEDIA_STUDIO_ROOT': str(Path(tmp) / 'Mine')}
+            root, explicit = sl.detect_studio_root(
+                documents=docs, env=env, home=Path(tmp))
+            self.assertEqual(root, (Path(tmp) / 'Mine').resolve())
+            self.assertIsNotNone(explicit)
+
+    def test_default_is_documents_media_studio(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            docs = Path(tmp) / 'Docs'
+            root, explicit = sl.detect_studio_root(
+                documents=docs, env={}, home=Path(tmp))
+            self.assertEqual(root, (docs / 'Media_Studio').resolve())
+            self.assertIsNone(explicit)
+
+    def test_config_cache_is_read_when_no_env(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            home = Path(tmp)
+            env = {'XDG_CONFIG_HOME': str(home / '.config')}
+            sl.write_config(
+                {'media_studio_root': str(home / 'Cached')}, env=env, home=home)
+            root, explicit = sl.detect_studio_root(
+                documents=home / 'Docs', env=env, home=home)
+            self.assertEqual(root, (home / 'Cached').resolve())
+            self.assertIsNotNone(explicit)
+
+    def test_ensure_studio_root_does_not_recreate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'Media_Studio'
+            self.assertTrue(sl.ensure_studio_root(root))
+            self.assertTrue(root.is_dir())
+            (root / 'keep.txt').write_text('keep')
+            self.assertFalse(sl.ensure_studio_root(root))
+            self.assertEqual((root / 'keep.txt').read_text(), 'keep')
+
+
 class PathSafetyTests(unittest.TestCase):
     def test_assert_managed_path_rejects_escape(self):
         with tempfile.TemporaryDirectory() as tmp:
