@@ -68,5 +68,30 @@ class DetectionPrecedenceTests(unittest.TestCase):
                 Path(tmp) / 'Documents')
 
 
+class PathSafetyTests(unittest.TestCase):
+    def test_assert_managed_path_rejects_escape(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'proj'
+            root.mkdir()
+            with self.assertRaises(sl.UsageError):
+                sl.assert_managed_path(root, root.parent / 'outside.txt')
+
+    def test_resolve_inside_keeps_relative_under_root(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'proj'
+            root.mkdir()
+            self.assertEqual(
+                sl.resolve_inside(root, 'assets/x.png', 'output'),
+                (root / 'assets/x.png').resolve())
+
+    def test_resolve_inside_rejects_absolute_outside(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'proj'
+            root.mkdir()
+            with self.assertRaises(sl.UsageError):
+                sl.resolve_inside(root, str(Path(tmp) / 'elsewhere.png'),
+                                  'output')
+
+
 if __name__ == '__main__':
     unittest.main()
