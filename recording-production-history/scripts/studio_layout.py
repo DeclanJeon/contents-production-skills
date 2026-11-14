@@ -251,10 +251,136 @@ def ensure_studio_root(root: Path) -> bool:
 # ---------------------------------------------------------------------------
 STUDIO_DIRNAME = "studio_production"
 
+HISTORY_DIRNAME = ".history"
+EVENTS_DIRNAME = "events"
+PROMPTS_DIRNAME = "prompts"
+PROJECT_JSON = "project.json"
+WORK_DIRS = ("source", "bible", "storyboards", "assets", "audio", "edit",
+             "qa", "final")
+LAYOUT_PRESETS = {
+    "text": ("source",),
+    "image": ("source", "bible", "storyboards", "assets", "qa"),
+    "full": WORK_DIRS,
+}
+
+
+def _skeleton(project_id: str) -> dict:
+    return {"schema_version": "1.1", "project_id": project_id, "version": "v001",
+            "target_duration_s": None, "fps": None, "aspect_ratio": None,
+            "scenes": [], "characters": [], "shots": [], "claims": [],
+            "artifacts": [], "asset_registry": []}
+
+
+def _write_skeleton_exclusive(root: Path, project_id: str) -> None:
+    """Publish a fresh project.json only if none exists (atomic link)."""
+    project_file = root / PROJECT_JSON
+    stage = root / f".project.json.stage-{os.getpid()}-{os.urandom(4).hex()}"
+    try:
+        with open(stage, "x", encoding="utf-8") as handle:
+            json.dump(_skeleton(project_id), handle, indent=2, ensure_ascii=False)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.link(stage, project_file)
+    except FileExistsError:
+        raise UsageError(
+            f"project.json appeared during initialization; preserved: {project_file}")
+    finally:
+        stage.unlink(missing_ok=True)
+
 
 def resolve_project_root(project_id: str,
-                         documents: str | os.PathLike | None = None) -> Path:
-    """Absolute default storage root: <Documents>/studio_production/<slug>."""
+                         documents: str | os.PathLike | None = None,
+                         env=None, home=None) -> Path:
+    """Absolute default root: <Documents>/Media_Studio/<slug>."""
     slug = slugify(project_id, "project_id")
-    base = Path(documents).expanduser() if documents else detect_documents()
-    return (base / STUDIO_DIRNAME / slug).resolve()
+    root, _ = detect_studio_root(documents=documents, env=env, home=home)
+    return (root / slug).resolve()
+
+
+def initialize_layout(root: Path, project_id: str, layout: str = "text") -> dict:
+    """Create an idempotent project layout, only the dirs a task needs.
+
+    An existing project.json means this is a reuse: no preset directory is
+    created (the project is preserved), only missing ``.history`` folders
+    are completed. Unknown layout presets are rejected.
+    """
+    if layout not in LAYOUT_PRESETS:
+        raise UsageError(
+            f"unknown layout {layout!r} (expected one of "
+            f"{tuple(LAYOUT_PRESETS)})")
+    slug = slugify(project_id, "project_id")
+    root = root.absolute()
+    project_file = root / PROJECT_JSON
+    assert_managed_path(root, project_file)
+
+    existing = project_file.exists()
+    if existing:
+        try:
+            ledger = json.loads(project_file.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise UsageError(
+                f"existing project.json is unreadable; refusing to reuse "
+                f"root {root}: {exc}")
+        other = ledger.get("project_id")
+        if other and slugify(str(other), "project_id") != slug:
+            raise UsageError(
+                f"project.json at {project_file} belongs to project {other!r}")
+
+    root.mkdir(parents=True, exist_ok=True)
+    created, kept = [], []
+    if existing:
+        kept.append(PROJECT_JSON)
+    else:
+        for rel in LAYOUT_PRESETS[layout]:
+            target = root / rel
+            assert_managed_path(root, target)
+            if target.is_dir():
+                kept.append(rel)
+            else:
+                target.mkdir(parents=False)
+                created.append(rel)
+
+    history = root / HISTORY_DIRNAME
+    for rel in (EVENTS_DIRNAME, PROMPTS_DIRNAME):
+        target = history / rel
+        assert_managed_path(root, target)
+        target.mkdir(parents=True, exist_ok=True)
+
+    if not existing:
+        _write_skeleton_exclusive(root, slug)
+        created.append(PROJECT_JSON)
+
+    return {"project_root": str(root), "studio_root": str(root.parent),
+            "project_id": slug, "layout": layout,
+            "created": created, "kept": kept,
+            "history_dir": str(history), "existing": existing}
+
+
+def ensure_work_dir(root: Path, name: str) -> Path:
+    """Create one allowed work dir on demand; return its absolute path."""
+    slug = slugify(name, "work dir")
+    if slug not in WORK_DIRS:
+        raise UsageError(
+            f"unknown work dir: {name!r} (expected one of {WORK_DIRS})")
+    target = root.absolute() / slug
+    assert_managed_path(root.absolute(), target)
+    target.mkdir(parents=True, exist_ok=True)
+    return target
+
+
+def list_projects(root: Path) -> list[dict]:
+    """Read-only inventory of projects under a studio root."""
+    if not root.is_dir():
+        return []
+    rows = []
+    for child in sorted(root.iterdir()):
+        if not child.is_dir() or not (child / PROJECT_JSON).is_file():
+            continue
+        rows.append({
+            "project_id": child.name,
+            "project_root": str(child),
+            "layout": [d for d in WORK_DIRS if (child / d).is_dir()],
+            "files": sum(1 for p in child.rglob('*') if p.is_file()),
+        })
+    return rows

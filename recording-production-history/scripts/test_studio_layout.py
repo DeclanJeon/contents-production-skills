@@ -107,6 +107,62 @@ class StudioRootTests(unittest.TestCase):
             self.assertEqual((root / 'keep.txt').read_text(), 'keep')
 
 
+class InitializeLayoutTests(unittest.TestCase):
+    def test_text_layout_creates_only_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'proj'
+            result = sl.initialize_layout(root, 'Demo Film')
+            self.assertTrue((root / 'source').is_dir())
+            self.assertTrue((root / 'project.json').is_file())
+            self.assertTrue((root / '.history' / 'events').is_dir())
+            for absent in ('bible', 'assets', 'final', 'audio', 'edit', 'qa'):
+                self.assertFalse((root / absent).exists(), absent)
+            self.assertEqual(result['layout'], 'text')
+            self.assertFalse(result['existing'])
+
+    def test_image_preset_creates_expected_dirs_only(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'proj'
+            sl.initialize_layout(root, 'Demo', layout='image')
+            for present in ('source', 'bible', 'storyboards', 'assets', 'qa'):
+                self.assertTrue((root / present).is_dir(), present)
+            for absent in ('audio', 'edit', 'final'):
+                self.assertFalse((root / absent).exists(), absent)
+
+    def test_reinit_on_existing_project_is_noop(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'proj'
+            sl.initialize_layout(root, 'Demo', layout='full')
+            ledger_bytes = (root / 'project.json').read_bytes()
+            result = sl.initialize_layout(root, 'Demo', layout='full')
+            self.assertTrue(result['existing'])
+            self.assertEqual(result['created'], [])
+            self.assertEqual((root / 'project.json').read_bytes(), ledger_bytes)
+            self.assertTrue((root / 'source').is_dir())
+
+    def test_reinit_refuses_foreign_project(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'proj'
+            sl.initialize_layout(root, 'Alpha')
+            import json as _json
+            (root / 'project.json').write_text(
+                _json.dumps({'project_id': 'beta'}), encoding='utf-8')
+            with self.assertRaises(sl.UsageError):
+                sl.initialize_layout(root, 'Alpha')
+
+    def test_ensure_work_dir_is_idempotent(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'proj'
+            sl.initialize_layout(root, 'Demo')
+            first = sl.ensure_work_dir(root, 'assets')
+            self.assertTrue(first.is_dir())
+            self.assertEqual(sl.ensure_work_dir(root, 'assets'), first)
+            with self.assertRaises(sl.UsageError):
+                sl.ensure_work_dir(root, '../escape')
+            with self.assertRaises(sl.UsageError):
+                sl.ensure_work_dir(root, 'not_a_work_dir')
+
+
 class PathSafetyTests(unittest.TestCase):
     def test_assert_managed_path_rejects_escape(self):
         with tempfile.TemporaryDirectory() as tmp:

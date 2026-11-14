@@ -105,13 +105,14 @@ class DocumentsTests(unittest.TestCase):
 
 
 class InitTests(unittest.TestCase):
-    def test_init_creates_full_v51_layout_and_reports_absolute_paths(self):
+    def test_init_creates_full_layout_and_reports_absolute_paths(self):
         with tempfile.TemporaryDirectory() as tmp:
-            result = ph.initialize_project('Demo Film', documents=tmp)
+            result = ph.initialize_project('Demo Film', documents=tmp,
+                                          layout='full')
             root = Path(result['project_root'])
             self.assertTrue(root.is_absolute())
-            self.assertEqual(root, Path(tmp) / 'studio_production' / 'demo-film')
-            for rel in ph.PACKAGE_DIRS:
+            self.assertEqual(root, Path(tmp) / 'Media_Studio' / 'demo-film')
+            for rel in ph.WORK_DIRS:
                 self.assertTrue((root / rel).is_dir(), rel)
             self.assertTrue((root / '.history' / 'events').is_dir())
             self.assertTrue((root / '.history' / 'prompts').is_dir())
@@ -120,21 +121,34 @@ class InitTests(unittest.TestCase):
             self.assertEqual(ledger['project_id'], 'demo-film')
             for value in (result['project_root'], result['history_dir']):
                 self.assertTrue(Path(value).is_absolute())
+            self.assertEqual(result['layout'], 'full')
+
+    def test_init_default_layout_creates_only_needed_dirs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = ph.initialize_project('Lazy One', documents=tmp)
+            root = Path(result['project_root'])
+            self.assertTrue((root / 'source').is_dir())
+            for absent in ('bible', 'storyboards', 'assets', 'audio', 'edit',
+                           'qa', 'final'):
+                self.assertFalse((root / absent).exists(), absent)
+            self.assertEqual(result['layout'], 'text')
 
     def test_init_is_idempotent_and_preserves_existing_ledger(self):
         with tempfile.TemporaryDirectory() as tmp:
-            first = ph.initialize_project('demo', documents=tmp)
+            first = ph.initialize_project('demo', documents=tmp,
+                                          layout='full')
             root = Path(first['project_root'])
             (root / 'project.json').write_text(
                 json.dumps({'project_id': 'demo', 'version': 'v007',
                             'scenes': [{'id': 'S01'}]}), encoding='utf-8')
-            (root / '02_BIBLE' / 'style_world_bible.md').write_text('# bible')
-            second = ph.initialize_project('demo', documents=tmp)
+            (root / 'bible' / 'style_world_bible.md').write_text('# bible')
+            second = ph.initialize_project('demo', documents=tmp,
+                                           layout='full')
             ledger = json.loads((root / 'project.json').read_text('utf-8'))
             self.assertEqual(ledger['version'], 'v007')
             self.assertEqual(ledger['scenes'], [{'id': 'S01'}])
             self.assertIn('project.json', second['kept'])
-            self.assertTrue((root / '02_BIBLE' / 'style_world_bible.md')
+            self.assertTrue((root / 'bible' / 'style_world_bible.md')
                             .read_text().startswith('# bible'))
 
     def test_init_refuses_root_owned_by_other_project(self):
@@ -220,7 +234,8 @@ class InitTests(unittest.TestCase):
             process.kill()
             process.wait(timeout=5)
             self.assertFalse((root / 'project.json').exists())
-            result = ph.initialize_project('demo', project_root=root)
+            result = ph.initialize_project('demo', project_root=root,
+                                           layout='full')
             self.assertTrue((root / 'project.json').is_file())
             self.assertEqual(result['project_id'], 'demo')
     def test_traversal_project_id_never_escapes_documents(self):
@@ -252,7 +267,8 @@ class RecordTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        result = ph.initialize_project('demo', documents=self.tmp.name)
+        result = ph.initialize_project('demo', documents=self.tmp.name,
+                                       layout='full')
         self.root = Path(result['project_root'])
         self.prompt = Path(self.tmp.name) / 'prompt.txt'
         self.prompt.write_text(
@@ -272,10 +288,10 @@ class RecordTests(unittest.TestCase):
 
     def test_record_writes_chronological_unique_events_with_full_prompt(self):
         first = self._record('started')
-        out_path = self.root / '04_STORYBOARDS' / 'SHEET_001.png'
+        out_path = self.root / 'storyboards' / 'SHEET_001.png'
         out_path.write_bytes(b'png')  # real produced file
         second = self._record('completed',
-                              extra=['--output', '04_STORYBOARDS/SHEET_001.png'])
+                              extra=['--output', 'storyboards/SHEET_001.png'])
         names = event_names(self.root)
         self.assertEqual(len(names), 2)
         self.assertEqual(sorted(names), names)  # filesystem order == time order
@@ -333,7 +349,7 @@ class RecordTests(unittest.TestCase):
             'record', '--project-root', str(self.root), '--operation', 'x',
             '--prompt-file', str(self.prompt), '--status', 'completed',
             '--operation-id', 'op-shot01',
-            '--output', '04_STORYBOARDS/missing.png'])
+            '--output', 'storyboards/missing.png'])
         self.assertEqual(code, 2)
         self.assertIn('do not exist', err)
         # Nothing was written; op is still in flight.
@@ -342,7 +358,7 @@ class RecordTests(unittest.TestCase):
     def test_failed_may_record_missing_output(self):
         self._record('started')
         result = self._record('failed',
-                              extra=['--output', '09_QA/missing.mp4'])
+                              extra=['--output', 'qa/missing.mp4'])
         self.assertEqual(result['status'], 'failed')
         text = Path(result['event']).read_text(encoding='utf-8')
         self.assertIn('exists: false', text)
@@ -571,7 +587,8 @@ class LifecycleTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        result = ph.initialize_project('demo', documents=self.tmp.name)
+        result = ph.initialize_project('demo', documents=self.tmp.name,
+                                       layout='full')
         self.root = Path(result['project_root'])
         self.prompt = Path(self.tmp.name) / 'p.txt'
         self.prompt.write_text('actual prompt body', encoding='utf-8')
@@ -646,7 +663,7 @@ class LifecycleTests(unittest.TestCase):
         # produced must block project completion — interruption is not
         # a bypass for unresolved deliverables.
         self._record('started', 'op-a',
-                     extra=['--output', '10_DELIVERY/final.mp4'])
+                     extra=['--output', 'final/final.mp4'])
         run_cli(['resume', '--project-root', str(self.root)])
         code, out, err = run_cli([
             'record', '--project-root', str(self.root), '--scope',
@@ -655,7 +672,7 @@ class LifecycleTests(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertIn('unresolved', err)
         # Creating an output cannot turn an interrupted attempt into success.
-        produced = self.root / '10_DELIVERY' / 'final.mp4'
+        produced = self.root / 'final' / 'final.mp4'
         produced.write_bytes(b'mp4')
         code, _, err = run_cli([
             'record', '--project-root', str(self.root), '--scope',
@@ -663,7 +680,7 @@ class LifecycleTests(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertIn('interrupted attempt unresolved', err)
         self._record('started', 'op-a')
-        self._record('completed', 'op-a', extra=['--output', '10_DELIVERY/final.mp4'])
+        self._record('completed', 'op-a', extra=['--output', 'final/final.mp4'])
         code, out, err = run_cli([
             'record', '--project-root', str(self.root), '--scope',
             'project', '--operation', 'package finalized', '--status', 'completed'])
@@ -671,10 +688,10 @@ class LifecycleTests(unittest.TestCase):
 
 
     def test_project_completion_rechecks_outputs_from_completed_attempt(self):
-        output = self.root / '10_DELIVERY' / 'final.mp4'
-        self._record('started', 'op-a', extra=['--output', '10_DELIVERY/final.mp4'])
+        output = self.root / 'final' / 'final.mp4'
+        self._record('started', 'op-a', extra=['--output', 'final/final.mp4'])
         output.write_bytes(b'mp4')
-        self._record('completed', 'op-a', extra=['--output', '10_DELIVERY/final.mp4'])
+        self._record('completed', 'op-a', extra=['--output', 'final/final.mp4'])
         output.unlink()
         code, _, err = run_cli([
             'record', '--project-root', str(self.root), '--scope', 'project',
@@ -704,11 +721,11 @@ class LifecycleTests(unittest.TestCase):
         self._record('failed', 'op-chrono')
         self._record('started', 'op-chrono',
                      extra=['--attempt', '3',
-                            '--output', '10_DELIVERY/current3.txt'])
-        current = self.root / '10_DELIVERY' / 'current3.txt'
+                            '--output', 'final/current3.txt'])
+        current = self.root / 'final' / 'current3.txt'
         current.write_bytes(b'real')
         self._record('completed', 'op-chrono',
-                     extra=['--output', '10_DELIVERY/current3.txt'])
+                     extra=['--output', 'final/current3.txt'])
         state = self._status()['operations']['op-chrono']
         self.assertEqual(state['current_attempt'], 3)
         self.assertEqual(state['attempts'], 2)
@@ -725,19 +742,19 @@ class LifecycleTests(unittest.TestCase):
         # cleanly with a live declared output.
         self._record('started', 'op-chrono',
                      extra=['--attempt', '7',
-                            '--output', '10_DELIVERY/old7.txt'])
-        old = self.root / '10_DELIVERY' / 'old7.txt'
+                            '--output', 'final/old7.txt'])
+        old = self.root / 'final' / 'old7.txt'
         old.write_bytes(b'old')
         self._record('completed', 'op-chrono',
-                     extra=['--output', '10_DELIVERY/old7.txt'])
+                     extra=['--output', 'final/old7.txt'])
         old.unlink()
         self._record('started', 'op-chrono',
                      extra=['--attempt', '3',
-                            '--output', '10_DELIVERY/new3.txt'])
-        new = self.root / '10_DELIVERY' / 'new3.txt'
+                            '--output', 'final/new3.txt'])
+        new = self.root / 'final' / 'new3.txt'
         new.write_bytes(b'new')
         self._record('completed', 'op-chrono',
-                     extra=['--output', '10_DELIVERY/new3.txt'])
+                     extra=['--output', 'final/new3.txt'])
         code, _, err = run_cli([
             'record', '--project-root', str(self.root), '--scope', 'project',
             '--operation', 'package finalized', '--status', 'completed'])
@@ -821,14 +838,15 @@ class CliSmokeTests(unittest.TestCase):
             self.assertEqual(code, 0, err)
             result = json.loads(out)
             self.assertEqual(Path(result['project_root']),
-                             Path(tmp) / 'studio_production' / 'smoke-test')
+                             Path(tmp) / 'Media_Studio' / 'smoke-test')
 
     def test_end_to_end_cli_sequence(self):
         """init → started → abrupt death → status sees in_flight → resume →
         rerun → completed → project completion; all via real argv."""
         with tempfile.TemporaryDirectory() as tmp:
             code, out, _ = run_cli(
-                ['init', '--project-id', 'E2E Film', '--documents', tmp])
+                ['init', '--project-id', 'E2E Film', '--documents', tmp,
+                 '--layout', 'full'])
             self.assertEqual(code, 0)
             root = json.loads(out)['project_root']
             prompt = Path(tmp) / 'p.txt'
@@ -851,13 +869,13 @@ class CliSmokeTests(unittest.TestCase):
                           '--status', 'started',
                           '--operation-id', 'op-sh001'])
             self.assertEqual(json.loads(out)['attempt'], 2)
-            produced = Path(root) / '06_GENERATION_SPECS' / 'SH001_out.mp4'
+            produced = Path(root) / 'assets' / 'SH001_out.mp4'
             produced.write_bytes(b'mp4')  # real file before completed
             code, out, _ = run_cli(
                 record + ['--operation', 'render SH001 retry',
                           '--status', 'completed',
                           '--operation-id', 'op-sh001', '--output',
-                          '06_GENERATION_SPECS/SH001_out.mp4'])
+                          'assets/SH001_out.mp4'])
             self.assertEqual(code, 0)
             code, out, _ = run_cli(
                 record + ['--operation', 'package delivered',
@@ -874,6 +892,83 @@ class CliSmokeTests(unittest.TestCase):
                                 for e in state['lifecycle']))
             self.assertTrue(any(e['type'] == 'completed'
                                 for e in state['lifecycle']))
+
+    def test_set_root_persists_and_list_reads_it(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            home = Path(tmp) / 'home'
+            home.mkdir()
+            env = {'XDG_CONFIG_HOME': str(home / '.config')}
+            chosen = Path(tmp) / 'MyStudio'
+            old = os.environ.get('XDG_CONFIG_HOME')
+            os.environ['XDG_CONFIG_HOME'] = env['XDG_CONFIG_HOME']
+            self.addCleanup(lambda: os.environ.__setitem__('XDG_CONFIG_HOME', old)
+                            if old is not None else os.environ.pop(
+                                'XDG_CONFIG_HOME', None))
+            code, out, err = run_cli(['set-root', '--path', str(chosen)])
+            self.assertEqual(code, 0, err)
+            self.assertTrue(json.loads(out)['saved'])
+            self.assertTrue(chosen.is_dir())
+            code, out, err = run_cli(
+                ['init', '--project-id', 'Saved User', '--media-studio-root',
+                 str(chosen), '--layout', 'full'])
+            self.assertEqual(code, 0, err)
+            root = Path(json.loads(out)['project_root'])
+            self.assertTrue((root / 'assets').is_dir())
+            code, out, err = run_cli(['list', '--studio-root', str(chosen)])
+            self.assertEqual(code, 0, err)
+            report = json.loads(out)
+            self.assertEqual(report['count'], 1)
+            self.assertEqual(report['projects'][0]['project_id'], 'saved-user')
+            self.assertEqual(report['projects'][0]['layout'],
+                             list(ph.WORK_DIRS))
+
+    def test_set_root_rejects_relative_path(self):
+        code, out, err = run_cli(['set-root', '--path', 'relative/dir'])
+        self.assertEqual(code, 2)
+        self.assertIn('absolute', err)
+
+    def test_ensure_dir_is_honest_about_unknown_names(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run_cli(
+                ['init', '--project-id', 'Ops', '--documents', tmp])
+            self.assertEqual(code, 0, err)
+            root = json.loads(out)['project_root']
+            code, out, err = run_cli(
+                ['ensure-dir', '--project-root', root, '--name', 'audio'])
+            self.assertEqual(code, 0, err)
+            self.assertTrue((Path(root) / 'audio').is_dir())
+            before = sorted(p.relative_to(root).as_posix()
+                            for p in Path(root).rglob('*'))
+            code, out, err = run_cli(
+                ['ensure-dir', '--project-root', root, '--name', 'audio'])
+            self.assertEqual(code, 0, err)
+            after = sorted(p.relative_to(root).as_posix()
+                           for p in Path(root).rglob('*'))
+            self.assertEqual(after, before)
+            code, out, err = run_cli(
+                ['ensure-dir', '--project-root', root, '--name', 'bogus'])
+            self.assertEqual(code, 2)
+            self.assertIn('unknown work dir', err)
+
+    def test_init_cli_reports_layout_and_reuses_project(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run_cli(
+                ['init', '--project-id', 'Reuse Me', '--documents', tmp])
+            self.assertEqual(code, 0, err)
+            first = json.loads(out)
+            self.assertEqual(first['layout'], 'text')
+            self.assertFalse(first['existing'])
+            ledger = (Path(first['project_root']) / 'project.json').read_bytes()
+            code, out, err = run_cli(
+                ['init', '--project-id', 'Reuse Me', '--documents', tmp,
+                 '--layout', 'full'])
+            self.assertEqual(code, 0, err)
+            second = json.loads(out)
+            self.assertTrue(second['existing'])
+            self.assertEqual(
+                (Path(second['project_root']) / 'project.json').read_bytes(),
+                ledger)
+            self.assertFalse((Path(second['project_root']) / 'final').exists())
 
 
 if __name__ == '__main__':

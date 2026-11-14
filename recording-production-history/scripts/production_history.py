@@ -60,8 +60,12 @@ from datetime import datetime, timezone
 from contextlib import contextmanager
 from pathlib import Path
 from studio_layout import (assert_managed_path, detect_documents,
+                          ensure_work_dir, initialize_layout, list_projects,
                           resolve_inside, resolve_project_root, slugify,
-                          STUDIO_DIRNAME, UsageError)
+                          detect_studio_root, write_config, config_path,
+                          ensure_studio_root,
+                          WORK_DIRS, LAYOUT_PRESETS,
+                          UsageError)
 
 
 # ---------------------------------------------------------------------------
@@ -72,32 +76,6 @@ HISTORY_DIRNAME = ".history"
 EVENTS_DIRNAME = "events"
 PROMPTS_DIRNAME = "prompts"
 PROJECT_JSON = "project.json"
-# Legacy v5.1 tree, still used by initialize_project until the lazy
-# Media_Studio layout replaces it (Task 5).
-PACKAGE_DIRS = (
-    "00_MANIFEST",
-    "01_SOURCE",
-    "02_BIBLE",
-    "02_MASTER_ASSETS/CHARACTERS",
-    "02_MASTER_ASSETS/LOCATIONS",
-    "02_MASTER_ASSETS/PROPS",
-    "02_MASTER_ASSETS/TOOLS",
-    "02_MASTER_ASSETS/ITEMS",
-    "02_MASTER_ASSETS/VEHICLES",
-    "02_MASTER_ASSETS/PRODUCTS",
-    "02_MASTER_ASSETS/ENVIRONMENTS",
-    "02_MASTER_ASSETS/GRAPHICS",
-    "02_MASTER_ASSETS/VFX",
-    "03_SCENE_PACKS",
-    "04_STORYBOARDS",
-    "05_SHOT_CARDS",
-    "06_GENERATION_SPECS",
-    "07_AUDIO",
-    "08_ANIMATIC_EDIT",
-    "09_QA",
-    "10_DELIVERY",
-)
-
 TERMINAL_TYPES = ("completed", "interrupted", "failed")
 RECORD_STATUSES = ("started",) + TERMINAL_TYPES
 SCOPES = ("operation", "project")
@@ -120,63 +98,32 @@ _REDACT_RULES = (
 
 def initialize_project(project_id: str,
                        documents: str | os.PathLike | None = None,
-                       *, project_root: str | os.PathLike | None = None) -> dict:
-    """Create a project in the default or explicitly selected root."""
+                       *, project_root: str | os.PathLike | None = None,
+                       layout: str = "text",
+                       media_studio_root: str | os.PathLike | None = None) -> dict:
+    """Create a project in the default or explicitly selected root.
+
+    Path resolution: an explicit ``project_root`` is used as-is; otherwise
+    a ``media_studio_root`` (or the resolved studio root) is used with the
+    slug appended. The layout preset creates only the directories a task
+    needs; re-running on an existing project creates no preset directory.
+    """
     if project_root is not None and documents is not None:
         raise UsageError("--documents and --project-root cannot be used together")
+    if project_root is not None and media_studio_root is not None:
+        raise UsageError("--project-root and --media-studio-root cannot be used together")
     slug = slugify(project_id, "project_id")
-    root = (Path(project_root).expanduser().absolute() if project_root is not None
-            else resolve_project_root(project_id, documents))
-    project_file = root / PROJECT_JSON
-    for managed in (project_file, root / HISTORY_DIRNAME,
-                    root / HISTORY_DIRNAME / EVENTS_DIRNAME,
-                    root / HISTORY_DIRNAME / PROMPTS_DIRNAME):
-        assert_managed_path(root, managed)
-    if project_file.exists():
-        try:
-            existing = json.loads(project_file.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as exc:
-            raise UsageError(f"existing project.json is unreadable; refusing to reuse "
-                             f"root {root}: {exc}")
-        other = existing.get("project_id")
-        if other and slugify(str(other), "project_id") != slug:
-            raise UsageError(f"project.json at {project_file} belongs to project {other!r}")
-    root.mkdir(parents=True, exist_ok=True)
-    created, kept = [], []
-    for rel in PACKAGE_DIRS:
-        target = root / rel
-        assert_managed_path(root, target)
-        if target.exists():
-            kept.append(rel)
-        else:
-            target.mkdir(parents=True)
-            created.append(rel)
-    history = root / HISTORY_DIRNAME
-    (history / EVENTS_DIRNAME).mkdir(parents=True, exist_ok=True)
-    (history / PROMPTS_DIRNAME).mkdir(parents=True, exist_ok=True)
-    if not project_file.exists():
-        skeleton = {"schema_version": "1.1", "project_id": slug, "version": "v001",
-                    "target_duration_s": None, "fps": None, "aspect_ratio": None,
-                    "scenes": [], "characters": [], "shots": [], "claims": [],
-                    "artifacts": [], "asset_registry": []}
-        stage = root / f".project.json.stage-{os.getpid()}-{os.urandom(4).hex()}"
-        try:
-            with open(stage, "x", encoding="utf-8") as handle:
-                json.dump(skeleton, handle, indent=2, ensure_ascii=False)
-                handle.write("\n")
-                handle.flush()
-                os.fsync(handle.fileno())
-            os.link(stage, project_file)
-        except FileExistsError:
-            raise UsageError(f"project.json appeared during initialization; preserved: {project_file}")
-        finally:
-            stage.unlink(missing_ok=True)
-        created.append(PROJECT_JSON)
+    if project_root is not None:
+        root = Path(project_root).expanduser().absolute()
+    elif media_studio_root is not None:
+        root = (Path(media_studio_root).expanduser().resolve() / slug)
     else:
-        kept.append(PROJECT_JSON)
-    return {"project_root": str(root), "documents": str(root.parent.parent),
-            "project_id": slug, "created": created, "kept": kept,
-            "history_dir": str(history)}
+        root = resolve_project_root(project_id, documents)
+    result = initialize_layout(root, slug, layout=layout)
+    result["project_root"] = str(root.resolve())
+    result["documents"] = str(root.resolve().parent)
+    return result
+
 
 # ---------------------------------------------------------------------------
 # Event store
@@ -706,6 +653,10 @@ def _parser() -> argparse.ArgumentParser:
                       help="override the detected Documents directory")
     init.add_argument("--project-root", default=None,
                       help="initialize exactly this selected project root")
+    init.add_argument("--layout", default="text", choices=sorted(LAYOUT_PRESETS),
+                      help="which directories the task needs (default text)")
+    init.add_argument("--media-studio-root", default=None,
+                      help="studio root that receives the slug folder")
 
     rec = sub.add_parser("record", help="append one production event")
     rec.add_argument("--project-root", required=True)
@@ -729,6 +680,19 @@ def _parser() -> argparse.ArgumentParser:
     resume.add_argument("--project-root", required=True)
     resume.add_argument("--operation-id", default=None)
     resume.add_argument("--details", default=None)
+
+    set_root = sub.add_parser(
+        "set-root", help="remember the user's preferred studio root")
+    set_root.add_argument("--path", required=True)
+    set_root.add_argument("--print-only", action="store_true",
+                          help="resolve without saving (preview)")
+
+    ensure = sub.add_parser("ensure-dir", help="create one work dir on demand")
+    ensure.add_argument("--project-root", required=True)
+    ensure.add_argument("--name", required=True)
+
+    listing = sub.add_parser("list", help="inventory projects under a root")
+    listing.add_argument("--studio-root", default=None)
     return parser
 
 
@@ -736,14 +700,41 @@ def main(argv=None) -> int:
     args = _parser().parse_args(argv)
     try:
         if args.command == "init":
-            result = initialize_project(args.project_id, args.documents,
-                                        project_root=args.project_root)
+            result = initialize_project(
+                args.project_id, args.documents,
+                project_root=args.project_root, layout=args.layout,
+                media_studio_root=args.media_studio_root)
         elif args.command == "record":
             result = _record(args)
         elif args.command == "status":
             result = _status(Path(args.project_root).expanduser().resolve())
         elif args.command == "resume":
             result = _resume(args)
+        elif args.command == "set-root":
+            target = Path(args.path).expanduser()
+            if not target.is_absolute():
+                raise UsageError("--path must be an absolute path")
+            target = target.resolve()
+            if args.print_only:
+                result = {"media_studio_root": str(target), "saved": False}
+            else:
+                ensure_studio_root(target)
+                write_config({"media_studio_root": str(target)})
+                result = {"media_studio_root": str(target), "saved": True,
+                          "config": str(config_path())}
+        elif args.command == "ensure-dir":
+            root = Path(args.project_root).expanduser().resolve()
+            target = ensure_work_dir(root, args.name)
+            result = {"project_root": str(root), "created": str(target)}
+        elif args.command == "list":
+            if args.studio_root:
+                root = Path(args.studio_root).expanduser().resolve()
+                explicit = f"--studio-root={args.studio_root}"
+            else:
+                root, explicit = detect_studio_root(env=None)
+            projects = list_projects(root)
+            result = {"studio_root": str(root), "explicit": explicit,
+                      "count": len(projects), "projects": projects}
         else:  # pragma: no cover - argparse enforces
             raise UsageError(f"unknown command {args.command}")
     except UsageError as exc:
