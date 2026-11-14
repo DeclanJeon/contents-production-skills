@@ -1,6 +1,6 @@
 ---
 name: storytelling-with-still-images
-version: 1.18
+version: 1.19
 description: Use when a user wants a video assembled from still photos, illustrations, storyboard panels, or evidence images with narration, dialogue, music, or sound—especially when they specify image-only visuals or no video-generation model.
 ---
 

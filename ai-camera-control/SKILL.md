@@ -1,6 +1,6 @@
 ---
 name: ai-camera-control
-version: 1.19
+version: 1.20
 description: Translate camera motion, timing, blocking, lens and continuity plans
   into model-neutral or selected-provider AI video prompts and control packets. Use
   for start/end-frame camera control, camera path prompts, shot decomposition or correction

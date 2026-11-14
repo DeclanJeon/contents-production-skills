@@ -1,6 +1,6 @@
 ---
 name: storyboarding-video
-version: 2.27
+version: 2.28
 description: Use to turn a synopsis, scene, visual sequence, or story beat into ordered storyboard panels, a storyboard sheet, or per-panel image prompts.
 ---
 

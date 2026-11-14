@@ -1,6 +1,6 @@
 ---
 name: designing-video-character-sheets
-version: 2.25
+version: 2.26
 description: Use to design video characters — a cast or character bible, a single character sheet, visual identity anchors, or a reusable character image-sheet prompt.
 ---
 

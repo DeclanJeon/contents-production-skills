@@ -82,18 +82,18 @@
 ### AI 영화 프로필
 기존 AI 인계와 v5.1 무결성 계약을 그대로 라이프사이클에 매핑한다: 캐릭터 정체성/SSOT, 활성 LOOK, 장면 상태/변화·보존, 레퍼런스 asset registry, 샷별 프롬프트, 시작/끝 상태, 모델·버전 provenance, 시도 로그/재시도 상한, 생성 결과 QA, 권리 출처 — [11](11-ai-handoff.md), [20](20-visual-mode-ssot.md), [21](21-generated-video-qa-retry.md), [26](26-state-causality-continuity.md), [v5.1 무결성](contract.md#v51-프로덕션-무결성-look에셋-게이트계보provenance패키지). 변화 없는 씬에 상태 ledger를 강제하지 않는다. 샷 단위 통과를 씬/작품 연속성 통과로 보지 않으며, 실제 순서로 이어진 결과물을 검사한다.
 
-## 선택형 논리 폴더 대응
+## 작업 폴더 대응
 
-아래는 파일을 찾기 위한 선택형 논리 구획이며, 정본은 manifest/asset registry다. 기존 `00_MANIFEST`–`10_DELIVERY` 패키지 트리를 대체하거나 에셋을 단계별 폴더에 복제하지 않는다. 경로 충돌 시 정본 원장을 우선한다.
+단계명은 논리 구획이며 별도의 번호 폴더를 만들지 않는다. 아래 작업 폴더는 실제 쓸 때만 생성한다. 정본은 project.json/asset registry이며 기존 프로젝트의 등록 경로는 보존한다. 납품 ZIP 내부의 v5.1 트리는 별도 배포 규격으로 유지한다.
 
-| 논리 단계 폴더 | 기존 패키지 경로 대응 |
+| 단계 | 작업 경로 |
 |---|---|
-| `01_DEVELOPMENT/` | `01_SOURCE/`, `02_BIBLE/` |
-| `02_SCREENWRITING/` | `01_SOURCE/` |
-| `03_PREPRODUCTION/` | `02_BIBLE/`, `04_STORYBOARDS/`, `05_SHOT_CARDS/`, `06_GENERATION_SPECS/`, `08_ANIMATIC_EDIT/` |
-| `04_PRODUCTION/` | 원본 미디어는 실제 등록 위치 유지; 촬영/테이크/연속성 기록은 `00_MANIFEST/`의 artifact로 연결 |
-| `05_POSTPRODUCTION/` | `07_AUDIO/`, `08_ANIMATIC_EDIT/`; QA는 `09_QA/` |
-| `06_DISTRIBUTION/` | `10_DELIVERY/` |
+| 개발 | `source/`, `bible/` |
+| 각본 | `source/` |
+| 프리프로덕션 | `bible/`, `storyboards/`, `assets/`, `edit/` |
+| 프로덕션 | 원본 미디어는 실제 등록 위치 유지(`assets/` 등); 촬영/테이크/연속성 기록은 정본 artifact로 연결 |
+| 포스트프로덕션 | `audio/`, `edit/`; QA는 `qa/` |
+| 배급·납품 | `final/` |
 
 ## 최종 QA — 세 축 분리
 

@@ -19,6 +19,10 @@
 - Add source-grounded native Blender recipes for product lighting, Geometry Nodes repetition/motion, camera tracking/projection, Grease Pencil, passes/alpha, loops, reusable assets and export; connect existing owners and handoff templates without adding a coordinator, schema or unimplemented proxy options.
 - Preserve Flucto MP4/Markdown downloads, supplementary tutorial captions, YouTube candidate provenance and inspection evidence outside the package; distinguish documented methods from actual native runtime/render verification.
 
+## 2.34 2026-11-14
+
+- Replace automatic fixed project trees with a lazy Documents/Media_Studio workspace: reuse slug project folders, create only used work directories, collect deliverables in `final/` and retain `.history/` as audit. Add saved studio-root selection (`set-root`), `ensure-dir` and read-only `list`; ask once for a preferred directory before the first save. Preserve existing projects, project.json 1.1 and delivery ZIP internals. Add Linux/macOS/Windows Python 3.10/3.12 CI coverage; local verification is Linux only.
+
 ## 2.33
 
 - Keep the video pack focused; relocate five independent non-video skills with migration hashes and existing-link repoints.

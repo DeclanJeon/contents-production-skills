@@ -31,7 +31,7 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 | [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | 모든 장면별 3D 카메라/공간 작업은 Blender 구현·화면 검수까지 필수다. `camera-spatial-1.0`은 설계·사전 검사 계약이다. |
 | [blender-previsualization](blender-previsualization/SKILL.md) | 카메라·피사체 움직임, 구도·공간 배치의 실제 Blender 프록시·프리비즈·기하 검사 | 장면별 3D 카메라/공간 설계의 필수 구현·시각 검수 경로. Blender 런타임 필요; 최종 영상 품질을 보증하지 않는다. 기준 경로는 Blender CLI이며, 같은 어댑터를 호출하는 선택형 MCP 서버(`blender-previsualization/mcp/`)를 함께 배포한다. |
 | [open-3d-production](open-3d-production/SKILL.md) | Blender 모델링·조명·분해도 기법과 웹 3D·스크롤·알파·루프·포즈 그리드·브라우저 검수/녹화의 선택형 전문 모듈 | 총괄이 8개 모듈의 선택·순서·실행을 통제한다. Blender 적용 지침과 원본 실행 도구를 함께 배포하며, 공간 검증은 기존 Blender 오너가 유지한다. |
-| [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/studio_production 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
+| [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/Media_Studio 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
 
 The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills.
 
@@ -95,7 +95,7 @@ python searching-social-media/scripts/social_search.py --query "제품 촬영" -
 2. 목적과 형식에 맞는 레인만 로드한다. 원고 한 편이나 프롬프트 하나를 전체 제작으로 확대하지 않는다.
 3. 실제 원고·기획·모듈 에셋을 작성한다. 사실, 계산, 해석, 창작 제안, 미확인을 구분한다.
 4. 다단계 영상만 기존 `project.json`을 정본으로 사용한다. 시리즈 바이블·SSOT·공급자 입력은 버전이 있는 종속 에셋으로 연결한다.
-5. 실제 파일 제작은 사용자 Documents/studio_production/<project_id> 또는 사용자가 지정한 project root에 저장하고 `recording-production-history`를 호출한다. 이미지 기반 전체 프리프로덕션은 [검토 계약](video-production-assets/references/preproduction-review.md)에 따라 실제 SSOT prompt-consumption 증거와 적용 가능한 contact/spatial feasibility gate를 먼저 닫고, 생성된 master를 검사한 뒤 의존 패널을 만든다; LOOK 바이블·기술 보드·최대 8패널 시트·씬/패널별 이미지 분할·검사·사용자 검토도 포함한다.
+5. 실제 파일 제작은 사용자 Documents/Media_Studio/<project_id> 또는 사용자가 지정한 project root에 저장하고 `recording-production-history`를 호출한다. 이미지 기반 전체 프리프로덕션은 [검토 계약](video-production-assets/references/preproduction-review.md)에 따라 실제 SSOT prompt-consumption 증거와 적용 가능한 contact/spatial feasibility gate를 먼저 닫고, 생성된 master를 검사한 뒤 의존 패널을 만든다; LOOK 바이블·기술 보드·최대 8패널 시트·씬/패널별 이미지 분할·검사·사용자 검토도 포함한다.
 6. 별도 영상 진행 요청 뒤 현재 도구·모델·입력 스키마·가격을 확인한다. 샷/산출물 수, 설정, 실행·재시도·비용 상한을 승인받은 뒤에만 실행한다. 무료/로컬 샘플도 실행 승인 범위에 포함한다.
 7. 실제 결과를 검사하고 요청한 형식으로 납품한다. 계획, 파일 생성, 기술/시청각 검사, 사용자 수락, 게시 상태를 따로 보고한다.
 
@@ -120,7 +120,7 @@ The route documents intended behavior, not its execution proof; see the [design 
 
 ### 제작 저장소와 히스토리
 
-Windows는 실제 Documents 알려진 폴더(리디렉션/OneDrive 포함), macOS는 `~/Documents`, Linux는 XDG Documents 설정 또는 `~/Documents`를 사용한다. 사용자명을 고정하지 않는다. 프로젝트별 중간/최종 산출물은 `studio_production/<project_id>`의 v5.1 패키지 디렉터리에 분리한다. 명시적으로 선택한 기존 프로젝트는 재사용한다.
+Windows는 실제 Documents 알려진 폴더(리디렉션/OneDrive 포함), macOS는 `~/Documents`, Linux는 XDG Documents 설정 또는 `~/Documents`를 사용한다. 사용자명을 고정하지 않는다. 처음 저장할 때 원하는 프로젝트 경로가 있는지 한 번 확인한다(환경·설정·현재 프로젝트·기존 기본 루트로 확인되면 생략). `Media_Studio/<project_id>` 아래 쓰는 작업 폴더만 만들고, 완성본은 `final/`, 감사 기록은 `.history/`에 분리한다. 기존 루트·프로젝트는 보존·재사용한다. 납품 ZIP 내부 v5.1 트리는 별도 배포 규격으로 유지한다.
 
 실제 작업 시작 전에 정확한 프롬프트와 방법을 `.history`에 기록하고, 작업 결과·실제 파일 경로·완료/실패/중단을 별도 시간순 Markdown으로 남긴다. 재개 시 끝나지 않은 작업을 확인하며, 중단을 생성 서비스 실패로 오인하거나 완료를 꾸며 기록하지 않는다. 산출물이 저장될 때마다 사용자에게 절대 경로와 히스토리 경로를 보고한다. 채팅-only 요청은 폴더/히스토리/미디어를 만들지 않는다.
 
@@ -212,7 +212,7 @@ python -X utf8 -m pytest -q
 포즈 검증의 부모-local 불변량은 기존 [creative QA](creative-production/references/creative-qa.md#blender3d-and-web)가 소유한다. [이번 source 검증·실제 continuation 상태](docs/superpowers/specs/2026-10-14-creative-production-end-to-end-preproduction-design.md#observed-post-freeze-verification--2026-10-14)는 post-freeze suite와 합성 행동 probe 결과를 실제 이미지 기반 제작 완료와 구분해 기록한다.
 
 ```powershell
-python video-production-assets/scripts/render_storyboard_sheet.py project.json --base-dir production-root --output 04_STORYBOARDS/storyboard-sheet.png --panels-per-sheet 4
+python video-production-assets/scripts/render_storyboard_sheet.py project.json --base-dir production-root --output storyboards/storyboard-sheet.png --panels-per-sheet 4
 python video-production-assets/scripts/validate_project.py project.json --profile preproduction --base-dir production-root
 ```
 

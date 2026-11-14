@@ -1,6 +1,6 @@
 ---
 name: blender-previsualization
-version: 2.25
+version: 2.26
 description: "Required Blender implementation/visual inspection for actual scene-specific 3D geometry/placement/feasibility design or explicit Blender/previs requests; also animatics. Camera fields, moves and storyboards alone do not trigger Blender. Exclude beauty rendering, full character rigging, physics simulation and other-app rendering."
 ---
 

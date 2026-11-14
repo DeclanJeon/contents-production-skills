@@ -1,5 +1,5 @@
 ---
-version: 0.36.0
+version: 0.37.0
 name: higgsfield-video-explainer
 description: |
   Build a complete non-photoreal narrated explainer or story video from

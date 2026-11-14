@@ -1,6 +1,6 @@
 ---
 name: camera-motion-reference-analysis
-version: 1.18
+version: 1.19
 description: Analyze camera movement in supplied reference video or time-coded observations.
   Use for camera walking, dolly, tracking, pan, tilt, orbit, handheld, reveal timing,
   lens/motion discrimination or a reference-derived motion brief. Separate observed

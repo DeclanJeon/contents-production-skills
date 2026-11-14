@@ -1,6 +1,6 @@
 ---
 name: community-shorts-stills-pipeline
-version: 1.20
+version: 1.21
 description: 'Produce Korean community-story YouTube Shorts from still illustrations only: measured webtoon-page layout, panel-fill geometry, emotion-cluster narration direction, word-timestamp captions, loudness normalisation, delivery-speed retiming, per-episode LLM metadata design, series-playlist shelving, Drive-backup/Sheets-ledger delivery mirroring and fail-closed publication. Use for converting an already-drawn still episode into a publishable 9:16 Short, for the panel-fill/head-margin measurement, for post-render speed changes (setpts/atempo), for episode title/description/tag design, for mirroring a published bundle to Drive and a publication ledger to Sheets, or for auditing such a pipeline on a remote host. Do not activate for generative video models, live-action shoots, or standalone image generation.'
 ---
 

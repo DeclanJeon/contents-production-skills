@@ -1,6 +1,6 @@
 ---
 name: searching-social-media
-version: 1.0.0
+version: 1.1.0
 description: Search SNS/social-media video posts through Flucto for public examples, references, and audience-evidence collection. Use for SNS 검색, 소셜 검색, 레퍼런스 찾기, or YouTube/Instagram/TikTok/X/Threads/Reddit content search. Not a universal text/image/comment crawler, trend predictor, downloader, or publisher.
 ---
 

@@ -128,7 +128,7 @@ Blender 장면 작업에서는 네이티브 `.blend`/렌더와 실제 검사 증
 
 ### A. 기획과 프리프로덕션
 
-1. 실제 파일 제작 전에 `recording-production-history`를 호출해 사용자 Documents/studio_production/<project_id> 또는 사용자가 선택한 project root를 준비한다. `--project-root ROOT`는 선택한 폴더 그대로 사용하고 불필요한 하위 경로를 덧붙이지 않는다. Windows 알려진 Documents, macOS Documents, Linux XDG Documents를 기본값으로 사용한다. 기존 선택 프로젝트는 재사용하며 사용자 파일을 덮어쓰지 않는다. 시작 프롬프트·방법을 `.history`에 먼저 기록한다.
+1. 실제 파일 제작 전에 `recording-production-history`를 호출해 사용자 Documents/Media_Studio/<project_id> 또는 사용자가 선택한 project root를 준비한다. `--project-root ROOT`는 선택한 폴더 그대로 사용하고 불필요한 하위 경로를 덧붙이지 않는다. Windows 알려진 Documents, macOS Documents, Linux XDG Documents를 기본값으로 사용한다. 첫 저장 전 원하는 경로를 한 번 확인한다(현재 프로젝트·환경·저장 설정·기존 기본 스튜디오 루트가 있으면 생략). 기본 `init --layout text` 후 `ensure-dir --name audio`처럼 쓰는 폴더만 추가하며, 완성본은 `final/`, 감사 기록은 `.history/`에 둔다. `set-root --path ABS`로 선호 스튜디오 루트를 기억하고 `list`로 프로젝트를 조회한다. 기존 선택 프로젝트는 재사용하며 사용자 파일을 덮어쓰지 않는다. 시작 프롬프트·방법을 `.history`에 먼저 기록한다.
 2. 적용되는 브리프·스토리/정보 구조·각본·시각 기준·샷/카메라·사운드·근거·운영·납품 에셋을 작성한다. 요청하지 않은 캐릭터·갈등·광고·CTA를 강제하지 않는다.
 3. `project.json`에 ID·버전·의존성·실제 에셋·상태를 등록한다. 부속 바이블·CSV·실행 입력은 이 정본을 참조한다.
 4. 이미지 기반 패키지는 [preproduction-review.md](video-production-assets/references/preproduction-review.md)에 따라 active LOOK 바이블과 필요한 Master/Scene State를 먼저 잠근 뒤 실제 검토 정지 이미지를 생성한다. FINAL 게이트는 critical asset 상태·정확한 버전·실제 QA를 확인한다. 미잠금 입력은 PRELIMINARY로만 진행한다. 기본 실행자는 `codex-imagen`이며 설치·인증·참조/출력 지원을 확인하고 자동 공급자 전환하지 않는다. 비용 정책은 [생성 경로·비용 라우팅 §2](video-production-assets/references/24-production-execution.md#2-이미지-생성-경로-정지-에셋)를 따른다.
@@ -154,10 +154,10 @@ Blender 장면 작업에서는 네이티브 `.blend`/렌더와 실제 검사 증
 ```bash
 python video-production-assets/scripts/validate_storyboard.py PROJECT/project.json
 python video-production-assets/scripts/validate_storyboard.py PROJECT/project.json --require-images --base-dir PROJECT
-python video-production-assets/scripts/render_storyboard_sheet.py PROJECT/project.json --base-dir PROJECT --output 04_STORYBOARDS/sheet.png --panels-per-sheet 4 --pdf-output 04_STORYBOARDS/board-v01.pdf
-python video-production-assets/scripts/split_storyboard.py PROJECT/project.json --base-dir PROJECT --output PROJECT/04_STORYBOARDS/cuts-v01 --sheet 04_STORYBOARDS/sheet_s01.png --sheet 04_STORYBOARDS/sheet_s02.png
+python video-production-assets/scripts/render_storyboard_sheet.py PROJECT/project.json --base-dir PROJECT --output storyboards/sheet.png --panels-per-sheet 4 --pdf-output final/board-v01.pdf
+python video-production-assets/scripts/split_storyboard.py PROJECT/project.json --base-dir PROJECT --output PROJECT/storyboards/cuts-v01 --sheet storyboards/sheet_s01.png --sheet storyboards/sheet_s02.png
 # 이미지 없는 텍스트 콘티: 원본 MD + PDF + HTML, 그림 생성 없음
-python video-production-assets/scripts/render_storyboard_document.py PROJECT/board.md --base-dir PROJECT --output 04_STORYBOARDS/board-text-v01.pdf --title '콘티 검토본' --version v001
+python video-production-assets/scripts/render_storyboard_document.py PROJECT/board.md --base-dir PROJECT --output final/board-text-v01.pdf --title '콘티 검토본' --version v001
 ```
 
 분할 도구는 Pillow와 등록된 정확한 crop bounds를 사용한다. 실제 시트에서 추출된 패널 이미지와 해당 씬만 담은 씬 overview를 출력하며 동일 manifest에서 `panel→shot→scene`과 해시를 보존한다. 기존 출력은 거부한다. 조정자가 실제 파일/해시를 asset_registry에 등록하고 **모든 컷과 씬 이미지를 재열기 검수**한다. 시트/분할 manifest/개별 이미지의 절대 저장 경로와 `.history` 경로를 보고한다. 영상 프롬프트는 승인 보드의 ID·이미지·시간·공간/캐릭터/VFX/음성/사운드 버전을 그대로 인계한다. 모델별 지원과 실행/지출 승인은 별도다.
@@ -185,7 +185,7 @@ python video-production-assets/scripts/render_storyboard_document.py PROJECT/boa
 
 실제 최종 타임라인에서 연속성·동작·제품 정합·편집·프레이밍·자막·립싱크·사운드·출력 규격을 확인한다. 계획 검증, 프레임 검사, 실제 재생·청취는 서로 다른 증거다. 청취하지 않은 음향이나 보지 않은 영상에 pass를 부여하지 않는다.
 
-중단을 발견하면 `recording-production-history`로 미완 작업을 확인하고 중단/재개 이벤트를 기록한다. 원격 생성 요청은 실제 상태를 조회한 뒤 이어가며 중단을 실패로 단정하거나 중복 제출하지 않는다. 최종 요청 산출물·검사가 충족됐을 때만 프로젝트 완료를 기록하고, 전체 파일 패키지는 실제 등록 파일과 파생 manifest를 담은 버전 ZIP을 `10_DELIVERY`에 저장해 경로를 보고한다.
+중단을 발견하면 `recording-production-history`로 미완 작업을 확인하고 중단/재개 이벤트를 기록한다. 원격 생성 요청은 실제 상태를 조회한 뒤 이어가며 중단을 실패로 단정하거나 중복 제출하지 않는다. 최종 요청 산출물·검사가 충족됐을 때만 프로젝트 완료를 기록하고, 전체 파일 패키지는 실제 등록 파일과 파생 manifest를 담은 버전 ZIP을 `final`에 저장해 경로를 보고한다.
 
 ### D. 완성 이후: 검증–편집–피니싱–유통
 

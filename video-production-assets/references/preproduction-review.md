@@ -4,7 +4,7 @@
 
 ## 1. 정확한 프로젝트 폴더 확인
 
-사용자가 선택했거나 현재 활성 프로젝트에서 확인된 **실제 승인·에셋 완결 프로젝트 루트**를 재사용한다. 과거에 쓴 프로젝트 경로를 이유 없이 자동 승계하지 않는다. 이를 확인할 수 없으면 실제 사용자 Documents 아래 `studio_production/<project_id>`를 사용하며, 도구/현재 프로젝트에서 확인할 수 있는 경로를 다시 묻지 않는다. 저장소 validation fixture를 사용할 때는 별도의 외부 프로젝트 루트를 만들고 모든 파일·보고서에 validation smoke이며 승인된 사용자 납품물이 아님을 표시한다.
+사용자가 선택했거나 현재 활성 프로젝트에서 확인된 **실제 승인·에셋 완결 프로젝트 루트**를 재사용한다. 과거에 쓴 프로젝트 경로를 이유 없이 자동 승계하지 않는다. 이를 확인할 수 없으면 실제 사용자 Documents 아래 `Media_Studio/<project_id>`를 사용하며, 도구/현재 프로젝트에서 확인할 수 있는 경로를 다시 묻지 않는다. 저장소 validation fixture를 사용할 때는 별도의 외부 프로젝트 루트를 만들고 모든 파일·보고서에 validation smoke이며 승인된 사용자 납품물이 아님을 표시한다.
 
 파일을 쓰거나 이미지 도구를 호출하기 전에 선택 루트, 정본 `project.json`, 등록 파일/버전, 승인 근거, 쓰기 권한, `.history`의 in-flight operation을 검사한다. 등록 파일 누락은 기존 패키지가 완결 상태가 아님을 뜻하고, pending operation이 있으면 새 작업을 시작하지 말고 상태를 확인해 명시적으로 재개/조정한다. 경로에 기존 파일이 있으면 ID·파일을 보존하고 명시적 재개로 처리하며 덮어쓰거나 삭제하지 않는다. 루트 접근이 불가능하면 정확한 blocker를 말하고 해당 루트에 쓰지 않는 작업만 진행한다.
 
@@ -29,7 +29,7 @@
 
 `python <skill-dir>/recording-production-history/scripts/production_history.py init --project-id <ID> [--documents <PATH> | --project-root <ROOT>]`
 
-명시적 저장 루트가 없으면 기본 루트는 실제 사용자 Documents 폴더의 `studio_production/<project-id>`다(Windows는 리디렉션된 Documents/OneDrive, macOS는 `~/Documents`, Linux는 XDG 또는 `~/Documents`). `--documents`와 `--project-root`는 동시에 지정하지 않는다. `--project-root`는 선택한 폴더를 그대로 사용하며 불필요한 하위 경로를 덧붙이지 않는다. `init`은 v5.1 패키지 디렉터리와 `.history`를 만들고 기존 `project.json`을 덮어쓰지 않는다.
+명시적 저장 루트가 없으면 기본 루트는 실제 사용자 Documents 폴더의 `Media_Studio/<project-id>`다(Windows는 리디렉션된 Documents/OneDrive, macOS는 `~/Documents`, Linux는 XDG 또는 `~/Documents`). `--documents`와 `--project-root`는 동시에 지정하지 않는다. `--project-root`는 선택한 폴더를 그대로 사용하며 불필요한 하위 경로를 덧붙이지 않는다. 첫 저장 전에 원하는 프로젝트 경로를 한 번 확인한다(환경·설정·현재 프로젝트·기존 기본 스튜디오 루트로 확인되면 생략). 경로 우선순위는 `recording-production-history`를 따른다. 기본 `init --layout text`는 `source/`와 `.history`만 만들고 기존 `project.json`을 덮어쓰지 않는다. 작업 폴더는 `ensure-dir`로 필요할 때 만들고 완성본만 `final/`에 모은다. 기존 프로젝트 init은 프리셋 폴더를 추가하지 않는다.
 
 실제 미디어·문서 파일을 만들거나 바꾸는 작업은 시작과 종결을 `record`로 남긴다:
 

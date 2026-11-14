@@ -1,6 +1,6 @@
 ---
 name: topic-demand-selection
-version: 1.18
+version: 1.19
 description: Use whenever choosing, ranking, recommending, or validating topics for audience-facing content, especially when popularity, search demand, view performance, or audience enjoyment is a selection criterion.
 ---
 

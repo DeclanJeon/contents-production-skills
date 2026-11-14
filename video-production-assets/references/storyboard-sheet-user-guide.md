@@ -16,7 +16,7 @@
 
 프롬프트를 보내기 전에 다음 필수 항목을 채운다.
 
-1. **저장 위치:** 새 프로젝트는 실제 사용자 Documents/studio_production/<project_id>를 도구로 해결한다. 기존 프로젝트는 선택된 실제 root를 보존·재개한다. 경로를 추정하거나 파일·ID·버전을 덮어쓰지 않는다.
+1. **저장 위치:** 새 프로젝트는 실제 사용자 Documents/Media_Studio/<project_id>를 도구로 해결한다. 기존 프로젝트는 선택된 실제 root를 보존·재개한다. 경로를 추정하거나 파일·ID·버전을 덮어쓰지 않는다.
 2. **이야기 입력:** 주제나 원고, 관객·목표, 길이·플랫폼·화면비, 반드시 지킬 사실/사건, 금지 사항. 이미 정해진 항목은 다시 묻지 않는다.
 3. **창작 재량:** 직접 정할 중요한 선택과 제작자가 선택해도 될 범위를 구분한다. 일반적인 연출 선택을 위임하면 중간 단계마다 승인을 기다리지 않고 끝까지 진행할 수 있다.
 4. **실행 범위:** 생성할 정지 이미지 범위와 Codex Imagen 실행 경로를 명시한다. Codex Imagen 정지 이미지에는 견적·가격·사용량·quota·비용 상한 조회나 별도 비용 승인을 요구하지 않는다. 다른 실행자를 사용자가 명시적으로 선택한 경우에만 해당 제공자의 승인 규칙을 적용한다.
@@ -55,9 +55,9 @@
 
 ## 프로젝트
 - 작업: [새 프로젝트 생성 / 기존 프로젝트 이어서 작업]
-- 프로젝트 폴더: [새 프로젝트면 실제 Documents/studio_production/<project_id> 자동 해결 / 기존 프로젝트의 선택된 실제 root]
+- 프로젝트 폴더: [새 프로젝트면 실제 Documents/Media_Studio/<project_id> 자동 해결 / 기존 프로젝트의 선택된 실제 root]
 - 기존 프로젝트 파일이 있을 때: [보존·재개할 project.json 경로 또는 해당 없음]
-- 최종 파일명/위치: [예: 04_STORYBOARDS/sheets/storyboard-v1.png; 여러 장은 _sNN; ZIP은 10_DELIVERY]
+- 최종 파일명/위치: [예: storyboards/sheets/storyboard-v1.png; 여러 장은 _sNN; ZIP은 final]
 
 ## 영상 브리프
 - 주제 또는 원고/시놉시스: [내용 또는 파일 경로]
@@ -119,13 +119,13 @@
 
 ```bash
 python <skill-dir>/scripts/validate_storyboard.py <project-root>/project.json --require-images --base-dir <project-root>
-python <skill-dir>/scripts/render_storyboard_sheet.py <project-root>/project.json --base-dir <project-root> --output 04_STORYBOARDS/sheets/storyboard-v1.png --panels-per-sheet 4 [--font <Unicode-font.ttf>]
+python <skill-dir>/scripts/render_storyboard_sheet.py <project-root>/project.json --base-dir <project-root> --output storyboards/sheets/storyboard-v1.png --panels-per-sheet 4 [--font <Unicode-font.ttf>]
 ```
 
 각 시트의 반환 경로/hash/index/count/panel/source 매핑을 정본에 등록한다. 반환된 모든 실제 시트를 아래처럼 순서대로 지정한다(단일 시트면 실제 단일 파일명, 여러 장이면 반환된 `_sNN` 파일명). 생성된 split manifest와 모든 장면/패널 이미지를 등록한 뒤 엄격 검사를 실행한다.
 
 ```bash
-python <skill-dir>/scripts/split_storyboard.py <project-root>/project.json --base-dir <project-root> --output <project-root>/04_STORYBOARDS/extracts-v1 --sheet 04_STORYBOARDS/sheets/storyboard-v1_s01.png --sheet 04_STORYBOARDS/sheets/storyboard-v1_s02.png
+python <skill-dir>/scripts/split_storyboard.py <project-root>/project.json --base-dir <project-root> --output <project-root>/storyboards/extracts-v1 --sheet storyboards/sheets/storyboard-v1_s01.png --sheet storyboards/sheets/storyboard-v1_s02.png
 ```
 
 ```bash
@@ -135,7 +135,7 @@ python <skill-dir>/scripts/validate_project.py <project-root>/project.json --pro
 엄격한 검증기는 PNG 안의 텍스트 메타데이터를 직접 파싱하지 않는다. 렌더러가 반환하는 `panel_traceability`와 실제 PNG의 `storyboard_sheet.panel_traceability`를 별도로 확인한다. 아래 명령은 임베디드 JSON 배열을 출력해 정본 패널 ID·순서와 직접 대조할 수 있게 한다.
 
 ```bash
-python -c "from PIL import Image; import json; p=Image.open('<project-root>/04_STORYBOARDS/sheets/<실제 반환된 파일명>.png'); print(json.dumps(json.loads(p.info['storyboard_sheet.panel_traceability']), ensure_ascii=False, indent=2))"
+python -c "from PIL import Image; import json; p=Image.open('<project-root>/storyboards/sheets/<실제 반환된 파일명>.png'); print(json.dumps(json.loads(p.info['storyboard_sheet.panel_traceability']), ensure_ascii=False, indent=2))"
 ```
 
 검증 실패는 ID·파일·dependency·패널 연결을 고쳐 재실행한다. 실제 의미·시각 검수는 별도다. 렌더러는 보드 최대 400패널, 시트당 최대 8패널·64,000,000픽셀, 패널 캡션 최대 40줄을 제한한다. 정보 밀도에 맞춰 1–8개로 정상 분할하며 한 장을 유지하려고 패널을 누락하지 않는다. 제한 안에서도 렌더링 불가하면 정확한 blocker를 보고하고 승인 없는 내용 변경은 하지 않는다. 각 시트의 PNG metadata는 그 시트 패널 구간의 순서 있는 traceability 배열이다.

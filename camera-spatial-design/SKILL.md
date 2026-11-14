@@ -1,6 +1,6 @@
 ---
 name: camera-spatial-design
-version: 1.20
+version: 1.21
 description: Design camera positions/angles, composition, lens, blocking and motivated paths
   for film, animation or AI video. Use for camera movement, shot coverage, spatial staging
   or numeric camera specs; actual scene-specific 3D feasibility or explicit previs requires

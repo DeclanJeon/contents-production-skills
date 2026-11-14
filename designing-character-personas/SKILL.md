@@ -1,6 +1,6 @@
 ---
 name: designing-character-personas
-version: 1.18
+version: 1.19
 description: Use to create fictional character personas with MBTI or Enneagram lenses, deepen an existing character's motives and decision rules, or translate a persona into observable acting, dialogue, and voice direction. Not for real-person typing, personality assessment, or media generation.
 ---
 

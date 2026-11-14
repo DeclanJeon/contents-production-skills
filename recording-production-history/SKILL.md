@@ -1,6 +1,6 @@
 ---
 name: recording-production-history
-version: 1.18
+version: 1.19
 description: "Use when content production writes intermediate or final files, when a project needs a chronological audit of actual prompts, methods and outputs, or when interrupted production must be resumed."
 ---
 
@@ -14,27 +14,42 @@ description: "Use when content production writes intermediate or final files, wh
 
 ## 저장 위치 (cross-platform)
 
-기본 루트는 실제 사용자 Documents 폴더 아래 `studio_production/<project-id-slug>`다:
+기본은 실제 사용자 Documents 아래 `Media_Studio/<project-id-slug>`다. Windows는 알려진 Documents 폴더(리디렉션·OneDrive 포함), macOS는 `~/Documents`, Linux는 XDG Documents 설정 또는 `~/Documents`를 사용한다. 사용자명은 하드코드하지 않는다.
 
-- **Windows**: `SHGetKnownFolderPath(FOLDERID_Documents)` — 리디렉션·OneDrive 위치를 존중한다. 레지스트리 fallback, 마지막으로 `~\Documents`.
-- **macOS**: `~/Documents`.
-- **Linux**: `XDG_DOCUMENTS_DIR`이 `user-dirs.dirs`에 설정돼 있으면 그 값, 없으면 `~/Documents`.
-- `STUDIO_DOCUMENTS_DIR` 환경 변수나 `--documents PATH`로 재정의 가능.
+실제 파일을 처음 저장하기 전에 **원하는 프로젝트 디렉터리가 있는지 한 번 묻는다**. 명시적으로 선택한 현재 프로젝트, `MEDIA_STUDIO_ROOT`, 저장된 설정 또는 이미 존재하는 기본 스튜디오 루트로 확인되면 다시 묻지 않는다. 새 기본 루트를 선택하면 생성 후 재사용한다. 채팅 전용 작업은 경로나 파일을 만들지 않는다.
 
-사용자 홈·사용자 이름 하드코드 없다. 생성된 산출물·이력 파일은 이 리포지토리/스킬 디렉터리 안에 두지 않는다.
+경로 선택:
+1. `--project-root ROOT`: 프로젝트 폴더 그대로 사용(slug를 덧붙이지 않음).
+2. `--media-studio-root ROOT`: 이번 호출의 스튜디오 루트 아래 slug.
+3. `MEDIA_STUDIO_ROOT` 환경 변수 → `set-root` 저장 설정 → 실제 Documents의 `Media_Studio`.
+4. `--documents PATH`는 Documents 위치를 명시하며, 환경/저장 설정이 없을 때 `PATH/Media_Studio/<slug>`로 해석한다. `STUDIO_DOCUMENTS_DIR`도 Documents 탐지 override다.
+
+설정은 `XDG_CONFIG_HOME/media-studio/config.json` 또는 `~/.config/media-studio/config.json`에 저장한다. 기존 프로젝트는 명시적으로 지정해 재사용하며 자동 이동·이름 변경하지 않는다. 산출물은 스킬 저장소 밖에 둔다.
+
+## 프로젝트 레이아웃
+
+쓰는 폴더만 만든다: `source/`(원본·시놉·대본), `bible/`, `storyboards/`(샷 카드 포함), `assets/`, `audio/`, `edit/`, `qa/`. **최종 납품본은 `final/`에 모은다.** `.history/`는 감사 기록, 루트의 `project.json`은 정본이다.
+
+`init --layout text`(기본)는 `source/`만 만든다. `image`는 source/bible/storyboards/assets/qa, `full`은 모든 작업 폴더를 만든다. 프리셋은 실제 그 폴더들을 사용하는 작업에만 선택하고, 보통은 기본 init 후 필요한 폴더를 `ensure-dir`로 만든다. 이미 `project.json`이 있으면 프리셋 폴더를 추가하지 않고 누락된 감사 폴더만 보완한다.
 
 ## CLI 계약
 
-모듈로 import할 때는 `resolve_project_root(project_id, documents=None) -> Path`와 `initialize_project(project_id, documents=None, *, project_root=None) -> dict`를 노출한다(반환 dict는 init CLI와 동일 키).
+아래 `python`은 Python 3.10+ 실행기다(Linux/macOS에서는 보통 `python3`, Windows에서는 `py -3`).
 
 ```
-python scripts/production_history.py init --project-id ID [--documents PATH | --project-root ROOT]
+python scripts/production_history.py init --project-id ID
+    [--project-root ROOT | --media-studio-root ROOT | --documents PATH]
+    [--layout text|image|full]
+python scripts/production_history.py set-root --path ABS [--print-only]
+python scripts/production_history.py ensure-dir --project-root ROOT --name audio
+python scripts/production_history.py list [--studio-root ROOT]
 ```
 
-`--project-id`는 파일명으로 slug화된다. `--documents`와 `--project-root`는 동시에 지정할 수 없다. `--project-root`는 전달한 폴더를 그대로 사용하며 `studio_production/<id>`를 덧붙이지 않는다. 기존 `project.json`은 같은 project_id인지 확인하고 보존한다.
-유니코드 문자·숫자·`_`·`-`·`.`·공백은 허용하므로 한글 프로젝트명도 된다. `..`, 경로 구분자(`/`, `\`), Windows 예약 장치명(CON, PRN, AUX, NUL, COM1–9, LPT1–9), 대소문자만 다른 충돌 이름(casefold 비교)은 거부된다.
+`--project-root`는 `--documents`/`--media-studio-root`와 함께 지정할 수 없다. `set-root`는 선택한 스튜디오 루트를 만들고 저장한다(`--print-only`는 미리 보기만). `ensure-dir`는 위 8개 작업 폴더 이름만 허용한다. `list`는 읽기 전용 프로젝트 목록이다.
 
-v5.1 패키지 레이아웃(`00_MANIFEST`…`10_DELIVERY`, `02_MASTER_ASSETS/*`, `03_SCENE_PACKS`, `04_STORYBOARDS`, `05_SHOT_CARDS`, `06_GENERATION_SPECS`, `07_AUDIO`, `08_ANIMATIC_EDIT`, `09_QA`, `10_DELIVERY`)과 `.history/events`, `.history/prompts`를 만든다. 스켈레톤 `project.json`(schema_version 1.1)은 같은 폴더의 staging 파일에서 완성한 뒤 exclusive atomic link로 게시한다. 중단된 staging 파일은 정본이 되지 않으며 기존 정본은 덮어쓰지 않는다. JSON 결과는 실제 절대 경로를 반환하며 init은 멱등이다.
+`--project-id`는 Unicode를 보존하는 casefold slug로 정규화한다. 경로 구분자·`..`·Windows 예약 장치명을 거부한다. 동일 slug는 동일 프로젝트를 재사용하며 기존 `project.json`은 소유 ID를 확인하고 바이트 그대로 보존한다. 다른 프로젝트와 충돌하면 중단하고 별도 이름을 확인한다(날짜 접미사로 조용히 복제하지 않음).
+
+새 스켈레톤 `project.json`(schema_version 1.1)은 staging 후 exclusive atomic link로 게시한다. 기존 정본은 덮어쓰지 않는다. init 결과는 절대 경로와 `created`/`kept`, `layout`, `existing`을 포함한다. import API는 `initialize_project(project_id, documents=None, *, project_root=None, layout="text", media_studio_root=None)`, `resolve_project_root(project_id, documents=None)`다.
 
 ```
 python scripts/production_history.py record --project-root ROOT

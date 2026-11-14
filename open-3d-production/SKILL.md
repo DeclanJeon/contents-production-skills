@@ -1,6 +1,6 @@
 ---
 name: open-3d-production
-version: 1.0
+version: 1.1
 description: "Delegated Blender craft: reference-matched native scenes, modeling, product lighting, Geometry Nodes motion graphics, tracking/compositing, Grease Pencil, exploded views, loops and exports; also Three.js scenes, scroll films, alpha cutouts, cursor rigs, browser QA and frame capture. The active owner selects execution; spatial verification remains blender-previsualization."
 ---
 
