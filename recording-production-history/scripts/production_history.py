@@ -59,22 +59,21 @@ import sys
 from datetime import datetime, timezone
 from contextlib import contextmanager
 from pathlib import Path
-class UsageError(ValueError):
-    """A user-correctable project or command preflight failure."""
-
+from studio_layout import (assert_managed_path, detect_documents,
+                          resolve_inside, resolve_project_root, slugify,
+                          STUDIO_DIRNAME, UsageError)
 
 
 # ---------------------------------------------------------------------------
 # Layout and naming
 # ---------------------------------------------------------------------------
 
-STUDIO_DIRNAME = "studio_production"
 HISTORY_DIRNAME = ".history"
 EVENTS_DIRNAME = "events"
 PROMPTS_DIRNAME = "prompts"
 PROJECT_JSON = "project.json"
-
-# v5.1 standard package layout (Production_Package_v5.1_Architecture §46).
+# Legacy v5.1 tree, still used by initialize_project until the lazy
+# Media_Studio layout replaces it (Task 5).
 PACKAGE_DIRS = (
     "00_MANIFEST",
     "01_SOURCE",
@@ -103,16 +102,8 @@ TERMINAL_TYPES = ("completed", "interrupted", "failed")
 RECORD_STATUSES = ("started",) + TERMINAL_TYPES
 SCOPES = ("operation", "project")
 
-_SLUG_BAD = re.compile(r"[^\w.-]+")
-_SLUG_RUNS = re.compile(r"-{2,}")
 _EVENT_NAME = re.compile(
     r"^(?P<seq>\d{6})-(?P<stamp>\d{8}T\d{12})-(?P<op>.+)-(?P<etype>[a-z]+)\.md$")
-_WINDOWS_RESERVED = {
-    "con", "prn", "aux", "nul",
-    *(f"com{i}" for i in range(1, 10)),
-    *(f"lpt{i}" for i in range(1, 10)),
-}
-
 # Credential-shaped values are redacted from the stored prompt copy only;
 # the original prompt file is never modified and its SHA-256 is kept.
 _REDACT_RULES = (
@@ -127,158 +118,6 @@ _REDACT_RULES = (
         r"""(?i)(["']?(?:api[_-]?key|api[_-]?secret|access[_-]?token|auth[_-]?token|secret|password|passwd|private[_-]?key)["']?\s*[:=]\s*)([^\s'"\r\n,}]{6,})"""),
 )
 
-# ---------------------------------------------------------------------------
-# Naming / path safety
-# ---------------------------------------------------------------------------
-
-def slugify(value: str, field: str) -> str:
-    """Return a filesystem-safe slug; reject anything that can traverse.
-
-    Unicode letters/numbers/underscore/hyphen/dot are kept so Korean and
-    other non-ASCII project names work on Windows, macOS and Linux. The
-    slug is casefolded so case-insensitive filesystems cannot create two
-    projects that differ only in case.
-    """
-    if not isinstance(value, str) or not value.strip():
-        raise UsageError(f"{field} must be a non-empty string")
-    if "/" in value or "\\" in value:
-        raise UsageError(f"{field} must not contain path separators: {value!r}")
-    slug = _SLUG_BAD.sub("-", value.strip())
-    slug = _SLUG_RUNS.sub("-", slug).strip("-_.").casefold()
-    if not slug or slug in (".", "..") or ".." in slug:
-        raise UsageError(
-            f"{field} has no usable filename-safe characters: {value!r}")
-    basename = slug.split(".", 1)[0]
-    if basename in _WINDOWS_RESERVED:
-        raise UsageError(
-            f"{field} resolves to a reserved Windows device name: {value!r}")
-    return slug
-
-
-
-
-def _resolve_inside(root: Path, raw: str, field: str) -> Path:
-    """Resolve any output path; production outputs must stay under root."""
-    candidate = Path(raw).expanduser()
-    resolved = (candidate if candidate.is_absolute()
-                else root / candidate).resolve()
-    if resolved == root or root not in resolved.parents:
-        raise UsageError(f"{field} escapes the project root: {raw!r}")
-    return resolved
-
-
-def _assert_managed_path(root: Path, target: Path) -> None:
-    """Reject symlink/junction components and resolved paths outside root."""
-    root = root.absolute()
-    target = target.absolute()
-    try:
-        relative = target.relative_to(root)
-    except ValueError as exc:
-        raise UsageError(f"managed path escapes project root: {target}") from exc
-    current = root
-    for part in relative.parts:
-        current = current / part
-        if current.is_symlink() or (hasattr(current, "is_junction") and current.is_junction()):
-            raise UsageError(f"managed path traverses a symlink or junction: {current}")
-    resolved_root = root.resolve()
-    resolved_target = target.resolve()
-    if resolved_target != resolved_root and resolved_root not in resolved_target.parents:
-        raise UsageError(f"managed path resolves outside project root: {target}")
-
-
-# ---------------------------------------------------------------------------
-# Documents directory (cross-platform)
-# ---------------------------------------------------------------------------
-
-def _windows_documents(env, home) -> Path | None:
-    """Real Windows Documents folder, honoring shell redirection/OneDrive."""
-    try:
-        import ctypes
-        from ctypes import wintypes
-
-        class _GUID(ctypes.Structure):
-            _fields_ = [("Data1", wintypes.DWORD), ("Data2", wintypes.WORD),
-                        ("Data3", wintypes.WORD), ("Data4", ctypes.c_byte * 8)]
-
-        # FOLDERID_Documents = FDD39AD0-238F-46AF-ADB4-6C85480369C7
-        guid = _GUID(0xFDD39AD0, 0x238F, 0x46AF,
-                     (ctypes.c_byte * 8)(0xAD, 0xB4, 0x6C, 0x85,
-                                         0x48, 0x03, 0x69, 0xC7))
-        buf = ctypes.c_wchar_p()
-        hr = ctypes.windll.shell32.SHGetKnownFolderPath(  # type: ignore[attr-defined]
-            ctypes.byref(guid), 0, None, ctypes.byref(buf))
-        if hr == 0 and buf.value:
-            path = Path(buf.value)
-            ctypes.windll.ole32.CoTaskMemFree(buf)  # type: ignore[attr-defined]
-            return path
-    except (OSError, AttributeError, ImportError):
-        pass
-    try:
-        import winreg
-        key = winreg.OpenKey(
-            winreg.HKEY_CURRENT_USER,
-            r"Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")
-        try:
-            raw, _ = winreg.QueryValueEx(key, "Personal")
-        finally:
-            winreg.CloseKey(key)
-        expanded = os.path.expandvars(str(raw))
-        if expanded and Path(expanded).is_absolute():
-            return Path(expanded)
-    except (OSError, ImportError):
-        pass
-    return None
-
-
-def _linux_documents(env, home: Path) -> Path | None:
-    """XDG user-dirs Documents when configured, else ~/Documents."""
-    config_home = env.get("XDG_CONFIG_HOME")
-    config_dir = Path(config_home) if config_home else home / ".config"
-    try:
-        text = (config_dir / "user-dirs.dirs").read_text(encoding="utf-8")
-    except OSError:
-        return None
-    match = re.search(r'(?m)^\s*XDG_DOCUMENTS_DIR\s*=\s*"(.*)"\s*$', text)
-    if not match:
-        return None
-    candidate = Path(match.group(1).replace("$HOME", str(home)))
-    return candidate if candidate.is_absolute() else None
-
-
-def detect_documents(platform: str | None = None, env=None, home=None) -> Path:
-    """Resolve the actual user Documents directory for the current OS."""
-    platform = platform or sys.platform
-    env = os.environ if env is None else env
-    home = Path(home) if home is not None else Path.home()
-    override = env.get("STUDIO_DOCUMENTS_DIR")
-    if override:
-        candidate = Path(override).expanduser()
-        if candidate.is_absolute():
-            return candidate.resolve()
-    detected = None
-    if platform == "win32":
-        detected = _windows_documents(env, home)
-    elif platform == "darwin":
-        detected = home / "Documents"
-    elif platform.startswith(("linux", "freebsd", "openbsd")):
-        detected = _linux_documents(env, home)
-    if detected is not None:
-        return detected
-    return home / "Documents"
-
-
-# ---------------------------------------------------------------------------
-# Project root / initialization
-# ---------------------------------------------------------------------------
-
-def resolve_project_root(project_id: str,
-                         documents: str | os.PathLike | None = None) -> Path:
-    """Absolute default storage root: <Documents>/studio_production/<slug>."""
-    slug = slugify(project_id, "project_id")
-    base = Path(documents).expanduser() if documents else detect_documents()
-    return (base / STUDIO_DIRNAME / slug).resolve()
-
-
 def initialize_project(project_id: str,
                        documents: str | os.PathLike | None = None,
                        *, project_root: str | os.PathLike | None = None) -> dict:
@@ -292,7 +131,7 @@ def initialize_project(project_id: str,
     for managed in (project_file, root / HISTORY_DIRNAME,
                     root / HISTORY_DIRNAME / EVENTS_DIRNAME,
                     root / HISTORY_DIRNAME / PROMPTS_DIRNAME):
-        _assert_managed_path(root, managed)
+        assert_managed_path(root, managed)
     if project_file.exists():
         try:
             existing = json.loads(project_file.read_text(encoding="utf-8"))
@@ -306,7 +145,7 @@ def initialize_project(project_id: str,
     created, kept = [], []
     for rel in PACKAGE_DIRS:
         target = root / rel
-        _assert_managed_path(root, target)
+        assert_managed_path(root, target)
         if target.exists():
             kept.append(rel)
         else:
@@ -339,7 +178,6 @@ def initialize_project(project_id: str,
             "project_id": slug, "created": created, "kept": kept,
             "history_dir": str(history)}
 
-
 # ---------------------------------------------------------------------------
 # Event store
 # ---------------------------------------------------------------------------
@@ -351,8 +189,8 @@ def _events_dir(root: Path) -> Path:
 def _require_project(root: Path) -> None:
     if not (root / PROJECT_JSON).is_file():
         raise UsageError(f"{root} is not an initialized project; run init first")
-    _assert_managed_path(root, root / HISTORY_DIRNAME / EVENTS_DIRNAME)
-    _assert_managed_path(root, root / HISTORY_DIRNAME / PROMPTS_DIRNAME)
+    assert_managed_path(root, root / HISTORY_DIRNAME / EVENTS_DIRNAME)
+    assert_managed_path(root, root / HISTORY_DIRNAME / PROMPTS_DIRNAME)
 
 
 def _ensure_history_layout(root: Path) -> None:
@@ -366,7 +204,7 @@ def _iter_events(root: Path):
     rows = []
     if events.is_dir():
         for entry in events.iterdir():
-            _assert_managed_path(root, entry)
+            assert_managed_path(root, entry)
             match = _EVENT_NAME.match(entry.name)
             if match:
                 rows.append((int(match.group("seq")), entry.name,
@@ -426,7 +264,7 @@ def _redact(text: str) -> tuple[str, int]:
 def _describe_output(root: Path, raw: str) -> dict:
     # Production outputs must always resolve inside the project root,
     # whether given absolute or project-relative.
-    resolved = _resolve_inside(root, raw, "output")
+    resolved = resolve_inside(root, raw, "output")
     return {"path": str(resolved),
             "relative": str(resolved.relative_to(root)),
             "exists": resolved.is_file()}
@@ -488,8 +326,8 @@ def _append_event(root: Path, fields: dict,
     """
     events = _events_dir(root)
     prompts_dir = root / HISTORY_DIRNAME / PROMPTS_DIRNAME
-    _assert_managed_path(root, events)
-    _assert_managed_path(root, prompts_dir)
+    assert_managed_path(root, events)
+    assert_managed_path(root, prompts_dir)
     seq_hint: int | None = None
     for _ in range(100):
         seq = seq_hint if seq_hint is not None else _next_seq(events)
@@ -505,7 +343,7 @@ def _append_event(root: Path, fields: dict,
         if prompt_text is not None:
             snapshot = (prompts_dir
                         / f"{seq:06d}-{fields['operation_id']}-prompt.txt")
-            _assert_managed_path(root, snapshot)
+            assert_managed_path(root, snapshot)
             try:
                 fd = os.open(snapshot,
                              os.O_WRONLY | os.O_CREAT | os.O_EXCL)
@@ -531,7 +369,7 @@ def _append_event(root: Path, fields: dict,
             fields["body"] = body
 
         stage = events / f".{name}.tmp{os.getpid()}-{os.urandom(4).hex()}"
-        _assert_managed_path(root, stage)
+        assert_managed_path(root, stage)
         try:
             with open(stage, "x", encoding="utf-8", newline="") as handle:
                 handle.write(_render_event(fields, seq, stamp, local_stamp))
@@ -545,7 +383,6 @@ def _append_event(root: Path, fields: dict,
             stage.unlink(missing_ok=True)
         return target
     raise OSError("could not allocate a unique event filename")
-
 
 # ---------------------------------------------------------------------------
 # Writer serialization
@@ -565,7 +402,7 @@ class _WriterLock:
         self._fd: int | None = None
 
     def acquire(self) -> None:
-        _assert_managed_path(self._path.parents[1], self._path)
+        assert_managed_path(self._path.parents[1], self._path)
         fd = os.open(self._path, os.O_RDWR | os.O_CREAT, 0o600)
         try:
             if sys.platform == "win32":
@@ -608,7 +445,7 @@ class _WriterLock:
 @contextmanager
 def _writer_lock(root: Path):
     lock = _WriterLock(root / HISTORY_DIRNAME / LOCK_NAME)
-    _assert_managed_path(root, root / HISTORY_DIRNAME / LOCK_NAME)
+    assert_managed_path(root, root / HISTORY_DIRNAME / LOCK_NAME)
     lock.acquire()
     try:
         yield
@@ -671,7 +508,6 @@ def _declared_missing_outputs(root: Path, operation_id: str) -> list[str]:
         return []
     declared = {raw for path, _ in current for raw in _read_output_paths(path)}
     return sorted(raw for raw in declared if not Path(raw).is_file())
-
 
 # ---------------------------------------------------------------------------
 # record / status / resume
@@ -855,7 +691,6 @@ def _resume(args) -> dict:
         })))
     return {"project_root": str(root), "marked_interrupted": pending,
             "events_written": written}
-
 
 # ---------------------------------------------------------------------------
 # CLI
