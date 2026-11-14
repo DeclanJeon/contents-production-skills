@@ -52,5 +52,21 @@ class DocumentsTests(unittest.TestCase):
                 Path(tmp) / 'Elsewhere')
 
 
+class DetectionPrecedenceTests(unittest.TestCase):
+    def test_explicit_env_beats_platform_default(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            env = {'STUDIO_DOCUMENTS_DIR': str(Path(tmp) / 'Chosen')}
+            self.assertEqual(
+                sl.detect_documents(platform='darwin', env=env, home=Path(tmp)),
+                Path(tmp) / 'Chosen')
+
+    def test_relative_env_override_is_ignored(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            env = {'STUDIO_DOCUMENTS_DIR': 'relative/path'}
+            self.assertEqual(
+                sl.detect_documents(platform='darwin', env=env, home=Path(tmp)),
+                Path(tmp) / 'Documents')
+
+
 if __name__ == '__main__':
     unittest.main()

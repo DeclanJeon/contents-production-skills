@@ -158,6 +158,8 @@ def detect_documents(platform: str | None = None, env=None, home=None) -> Path:
     home = Path(home) if home is not None else Path.home()
     override = env.get("STUDIO_DOCUMENTS_DIR")
     if override:
+        # Only an absolute override counts; a relative value is ignored in
+        # favour of real detection rather than resolved against the cwd.
         candidate = Path(override).expanduser()
         if candidate.is_absolute():
             return candidate.resolve()
