@@ -3,6 +3,9 @@
 These tests exercise observable behavior (returned paths, created folders,
 rejected names), not internal helpers.
 """
+import json
+import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -10,6 +13,45 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import studio_layout as sl  # noqa: E402
+from storage_test_support import isolate_storage_environment  # noqa: E402
+
+
+def setUpModule():
+    isolate_storage_environment()
+
+
+def tearDownModule():
+    # pytest invokes tearDownModule but not unittest's module-cleanup stack.
+    unittest.doModuleCleanups()
+
+
+class TestEnvironmentIsolationTests(unittest.TestCase):
+    def test_storage_suite_ignores_ambient_studio_choices(self):
+        # Given a saved/overridden production root outside the inner test fixture.
+        for choice in ('config', 'env'):
+            with self.subTest(choice=choice), tempfile.TemporaryDirectory() as tmp:
+                base = Path(tmp)
+                outside = base / 'production'
+                outside.mkdir()
+                config = base / 'config' / 'media-studio' / 'config.json'
+                config.parent.mkdir(parents=True)
+                config.write_text(json.dumps({'media_studio_root': str(outside)}),
+                                  encoding='utf-8')
+                env = os.environ.copy()
+                env.pop('MEDIA_STUDIO_ROOT', None)
+                env.update(XDG_CONFIG_HOME=str(base / 'config'),
+                           HOME=str(base / 'home'), USERPROFILE=str(base / 'home'))
+                if choice == 'env':
+                    env['MEDIA_STUDIO_ROOT'] = str(outside)
+                # When: run a real existing storage test, including module setup.
+                result = subprocess.run(
+                    [sys.executable, '-m', 'unittest',
+                     'test_production_history.InitTests.test_init_default_layout_creates_only_needed_dirs'],
+                    cwd=Path(__file__).resolve().parent, env=env,
+                    capture_output=True, text=True, encoding='utf-8', timeout=30)
+                # Then: neither ambient choice may receive test artifacts.
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(list(outside.iterdir()), [])
 
 
 class SlugTests(unittest.TestCase):
@@ -49,7 +91,7 @@ class DocumentsTests(unittest.TestCase):
             self.assertEqual(
                 sl.detect_documents(platform='linux', env=env,
                                     home=Path('/nonexistent-home')),
-                Path(tmp) / 'Elsewhere')
+                (Path(tmp) / 'Elsewhere').resolve())
 
 
 class DetectionPrecedenceTests(unittest.TestCase):
@@ -58,7 +100,7 @@ class DetectionPrecedenceTests(unittest.TestCase):
             env = {'STUDIO_DOCUMENTS_DIR': str(Path(tmp) / 'Chosen')}
             self.assertEqual(
                 sl.detect_documents(platform='darwin', env=env, home=Path(tmp)),
-                Path(tmp) / 'Chosen')
+                (Path(tmp) / 'Chosen').resolve())
 
     def test_relative_env_override_is_ignored(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -69,6 +111,26 @@ class DetectionPrecedenceTests(unittest.TestCase):
 
 
 class StudioRootTests(unittest.TestCase):
+    def test_relative_studio_env_is_rejected(self):
+        # Given an invalid root, resolving against cwd would save to the wrong place.
+        with tempfile.TemporaryDirectory() as tmp:
+            # When / Then: explicit studio choices must be absolute.
+            with self.assertRaises(sl.UsageError):
+                sl.detect_studio_root(env={'MEDIA_STUDIO_ROOT': 'relative'},
+                                      home=Path(tmp))
+
+    def test_relative_cached_root_is_ignored(self):
+        # Given a malformed saved choice, use the real default, not cwd.
+        with tempfile.TemporaryDirectory() as tmp:
+            home = Path(tmp)
+            sl.write_config({'media_studio_root': 'relative'}, env={}, home=home)
+            # When
+            root, explicit = sl.detect_studio_root(
+                documents=home / 'Docs', env={}, home=home)
+            # Then
+            self.assertEqual(root, (home / 'Docs' / 'Media_Studio').resolve())
+            self.assertIsNone(explicit)
+
     def test_media_studio_root_env_wins(self):
         with tempfile.TemporaryDirectory() as tmp:
             docs = Path(tmp) / 'Docs'
@@ -108,6 +170,32 @@ class StudioRootTests(unittest.TestCase):
 
 
 class InitializeLayoutTests(unittest.TestCase):
+    def test_non_object_ledger_is_rejected_without_writes(self):
+        # Given valid JSON that is not a project ledger.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'project.json').write_text('[]', encoding='utf-8')
+            # When / Then
+            with self.assertRaises(sl.UsageError):
+                sl.initialize_layout(root, 'Demo')
+            self.assertEqual([p.name for p in root.iterdir()], ['project.json'])
+
+    def test_unsafe_history_is_rejected_before_creating_work_dirs(self):
+        # Given an external audit symlink, a rejected init must be read-only.
+        with tempfile.TemporaryDirectory() as tmp:
+            root, outside = Path(tmp) / 'proj', Path(tmp) / 'outside'
+            root.mkdir()
+            outside.mkdir()
+            try:
+                (root / '.history').symlink_to(outside, target_is_directory=True)
+            except OSError as exc:
+                self.skipTest(f'symlinks unavailable: {exc}')
+            # When / Then
+            with self.assertRaises(sl.UsageError):
+                sl.initialize_layout(root, 'Demo', layout='full')
+            self.assertFalse((root / 'source').exists())
+            self.assertEqual(list(outside.iterdir()), [])
+
     def test_text_layout_creates_only_source(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / 'proj'

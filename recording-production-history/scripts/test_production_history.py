@@ -16,6 +16,16 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import production_history as ph  # noqa: E402
+from storage_test_support import isolate_storage_environment  # noqa: E402
+
+
+def setUpModule():
+    isolate_storage_environment()
+
+
+def tearDownModule():
+    # pytest invokes tearDownModule but not unittest's module-cleanup stack.
+    unittest.doModuleCleanups()
 
 
 def run_cli(argv):
@@ -101,7 +111,7 @@ class DocumentsTests(unittest.TestCase):
             env = {'STUDIO_DOCUMENTS_DIR': str(Path(tmp) / 'Elsewhere')}
             got = ph.detect_documents(platform='linux', env=env,
                                       home=Path('/nonexistent-home'))
-            self.assertEqual(got, Path(tmp) / 'Elsewhere')
+            self.assertEqual(got, (Path(tmp) / 'Elsewhere').resolve())
 
 
 class InitTests(unittest.TestCase):
@@ -111,7 +121,7 @@ class InitTests(unittest.TestCase):
                                           layout='full')
             root = Path(result['project_root'])
             self.assertTrue(root.is_absolute())
-            self.assertEqual(root, Path(tmp) / 'Media_Studio' / 'demo-film')
+            self.assertEqual(root, (Path(tmp) / 'Media_Studio' / 'demo-film').resolve())
             for rel in ph.WORK_DIRS:
                 self.assertTrue((root / rel).is_dir(), rel)
             self.assertTrue((root / '.history' / 'events').is_dir())
@@ -174,7 +184,7 @@ class InitTests(unittest.TestCase):
             original = selected / 'keep.txt'
             original.write_text('preserve')
             result = ph.initialize_project('chosen', project_root=selected)
-            self.assertEqual(Path(result['project_root']), selected)
+            self.assertEqual(Path(result['project_root']), selected.resolve())
             self.assertTrue((selected / 'project.json').is_file())
             self.assertFalse((selected / 'studio_production').exists())
             self.assertEqual(original.read_text(), 'preserve')
@@ -183,7 +193,7 @@ class InitTests(unittest.TestCase):
             code, out, err = run_cli([
                 'init', '--project-id', 'chosen', '--project-root', str(selected)])
             self.assertEqual(code, 0, err)
-            self.assertEqual(Path(json.loads(out)['project_root']), selected)
+            self.assertEqual(Path(json.loads(out)['project_root']), selected.resolve())
             self.assertFalse((selected / 'studio_production').exists())
             ledger_bytes = (selected / 'project.json').read_bytes()
             code, _, err = run_cli([
@@ -838,7 +848,7 @@ class CliSmokeTests(unittest.TestCase):
             self.assertEqual(code, 0, err)
             result = json.loads(out)
             self.assertEqual(Path(result['project_root']),
-                             Path(tmp) / 'Media_Studio' / 'smoke-test')
+                             (Path(tmp) / 'Media_Studio' / 'smoke-test').resolve())
 
     def test_end_to_end_cli_sequence(self):
         """init → started → abrupt death → status sees in_flight → resume →

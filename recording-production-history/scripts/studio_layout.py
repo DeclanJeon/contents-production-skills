@@ -195,7 +195,7 @@ def read_config(env=None, home=None) -> dict:
     """Read the saved config; a missing or broken file is just empty."""
     try:
         data = json.loads(config_path(env, home).read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
         return {}
     return data if isinstance(data, dict) else {}
 
@@ -229,12 +229,17 @@ def detect_studio_root(documents=None, env=None, home=None):
     env = os.environ if env is None else env
     override = env.get("MEDIA_STUDIO_ROOT")
     if override:
-        return (Path(override).expanduser().resolve(),
-                f"MEDIA_STUDIO_ROOT={override}")
+        candidate = Path(override).expanduser()
+        if not candidate.is_absolute():
+            raise UsageError("MEDIA_STUDIO_ROOT must be an absolute path")
+        return candidate.resolve(), f"MEDIA_STUDIO_ROOT={override}"
     cached = read_config(env, home).get("media_studio_root")
     if isinstance(cached, str) and cached.strip():
-        return Path(cached).expanduser().resolve(), "saved studio root"
-    base = Path(documents) if documents else detect_documents(env=env, home=home)
+        candidate = Path(cached).expanduser()
+        if candidate.is_absolute():
+            return candidate.resolve(), "saved studio root"
+    base = (Path(documents).expanduser() if documents
+            else detect_documents(env=env, home=home))
     return (base / MEDIA_STUDIO_DIRNAME).resolve(), None
 
 
@@ -249,7 +254,7 @@ def ensure_studio_root(root: Path) -> bool:
 # ---------------------------------------------------------------------------
 # Project root / initialization
 # ---------------------------------------------------------------------------
-STUDIO_DIRNAME = "studio_production"
+STUDIO_DIRNAME = MEDIA_STUDIO_DIRNAME
 
 HISTORY_DIRNAME = ".history"
 EVENTS_DIRNAME = "events"
@@ -295,7 +300,15 @@ def resolve_project_root(project_id: str,
     """Absolute default root: <Documents>/Media_Studio/<slug>."""
     slug = slugify(project_id, "project_id")
     root, _ = detect_studio_root(documents=documents, env=env, home=home)
-    return (root / slug).resolve()
+    return project_root_in_studio(root, slug)
+
+
+def project_root_in_studio(studio: Path, project_id: str) -> Path:
+    """Resolve a slug child only after validating the selected studio boundary."""
+    studio = studio.expanduser().resolve()
+    child = studio / slugify(project_id, "project_id")
+    assert_managed_path(studio, child)
+    return child.resolve()
 
 
 def initialize_layout(root: Path, project_id: str, layout: str = "text") -> dict:
@@ -312,21 +325,28 @@ def initialize_layout(root: Path, project_id: str, layout: str = "text") -> dict
     slug = slugify(project_id, "project_id")
     root = root.absolute()
     project_file = root / PROJECT_JSON
-    assert_managed_path(root, project_file)
+    for target in (project_file, root / HISTORY_DIRNAME / EVENTS_DIRNAME,
+                   root / HISTORY_DIRNAME / PROMPTS_DIRNAME):
+        assert_managed_path(root, target)
 
     existing = project_file.exists()
     if existing:
         try:
             ledger = json.loads(project_file.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as exc:
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
             raise UsageError(
                 f"existing project.json is unreadable; refusing to reuse "
                 f"root {root}: {exc}")
+        if not isinstance(ledger, dict):
+            raise UsageError(f"existing project.json must contain an object: {project_file}")
         other = ledger.get("project_id")
         if other and slugify(str(other), "project_id") != slug:
             raise UsageError(
                 f"project.json at {project_file} belongs to project {other!r}")
 
+    if not existing:
+        for name in LAYOUT_PRESETS[layout]:
+            assert_managed_path(root, root / name)
     root.mkdir(parents=True, exist_ok=True)
     created, kept = [], []
     if existing:

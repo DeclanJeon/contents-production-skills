@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Append-only production history for v5.1 asset packages.
+"""Append-only production history for content production projects.
 
 Initializes a project storage root outside the skill repository
-(default: ``<Documents>/studio_production/<project-id>``) with the v5.1
-package layout, then records one chronological, immutable Markdown
+(default: ``<Documents>/Media_Studio/<project-id>``) with a lazy work
+layout, then records one chronological, immutable Markdown
 event per production operation under
 ``<project-root>/.history/events/``.
 
@@ -35,6 +35,10 @@ Design contract:
 CLI::
 
     production_history.py init --project-id ID [--documents PATH]
+        [--project-root ROOT | --media-studio-root ROOT] [--layout text|image|full]
+    production_history.py set-root --path ABS [--print-only]
+    production_history.py ensure-dir --project-root ROOT --name audio
+    production_history.py list [--studio-root ROOT]
     production_history.py record --project-root ROOT --operation TEXT
         --prompt-file FILE --status started|completed|interrupted|failed
         [--output PATH ...] [--details TEXT] [--tool NAME]
@@ -62,6 +66,7 @@ from pathlib import Path
 from studio_layout import (assert_managed_path, detect_documents,
                           ensure_work_dir, initialize_layout, list_projects,
                           resolve_inside, resolve_project_root, slugify,
+                          project_root_in_studio,
                           detect_studio_root, write_config, config_path,
                           ensure_studio_root,
                           WORK_DIRS, LAYOUT_PRESETS,
@@ -116,7 +121,7 @@ def initialize_project(project_id: str,
     if project_root is not None:
         root = Path(project_root).expanduser().absolute()
     elif media_studio_root is not None:
-        root = (Path(media_studio_root).expanduser().resolve() / slug)
+        root = project_root_in_studio(Path(media_studio_root), slug)
     else:
         root = resolve_project_root(project_id, documents)
     result = initialize_layout(root, slug, layout=layout)
@@ -724,6 +729,7 @@ def main(argv=None) -> int:
                           "config": str(config_path())}
         elif args.command == "ensure-dir":
             root = Path(args.project_root).expanduser().resolve()
+            _require_project(root)
             target = ensure_work_dir(root, args.name)
             result = {"project_root": str(root), "created": str(target)}
         elif args.command == "list":
