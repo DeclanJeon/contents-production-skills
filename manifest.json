@@ -161,6 +161,19 @@
       "auto_install": false
     },
     {
+      "lane": "conditional coordination discipline",
+      "skills": [
+        "ai-delegation-loop"
+      ],
+      "required_when": "At the coordinator for recurring production, multi-stage coordination, reuse of approved resources, or repeated output corrections, as already required by creative-production. If the matching module is unreachable, report the precise missing source and leave only its dependent coordination step unresolved while continuing unaffected native-contract work; never a baseline requirement for every standalone artifact.",
+      "runtime": null,
+      "auth": null,
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
       "lane": "host integration",
       "skills": [
         "deep-interview",

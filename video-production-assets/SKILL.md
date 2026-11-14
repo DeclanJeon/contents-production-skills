@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 1.25
+version: 1.26
 description: 'Build source-grounded video production assets: briefs, story beats,
   screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans,
   animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs,
