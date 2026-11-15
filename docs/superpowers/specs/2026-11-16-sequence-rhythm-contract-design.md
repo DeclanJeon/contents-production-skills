@@ -294,7 +294,7 @@ python scripts/measure_cut_rhythm.py --project project.json \
 | `video-production-assets/assets/09-edit-template.md` | 대조 표(§4.8) + 하단 고정 문구 |
 | `video-production-assets/scripts/validate_storyboard.py` | `RHYTHM_CADENCE`/`RHYTHM_CUT_PHASE` 상수, 구조·커버리지·순서·합계·핸들 검증, `--strict-rhythm` |
 | `video-production-assets/scripts/measure_cut_rhythm.py` | 신규(§4.7) |
-| `video-production-assets/scripts/test_validate_storyboard.py` | 신규 케이스 9종(§6) |
+| `video-production-assets/scripts/test_validate_storyboard.py` | 신규 케이스 10종(§6) |
 | `video-production-assets/scripts/test_measure_cut_rhythm.py` | 신규 |
 | `video-production-assets/SKILL.md` | 실행 명령 목록에 `measure_cut_rhythm.py`·`--strict-rhythm` 1줄 추가(기존 `validate_*` 목록 자리) |
 | `storyboarding-video/SKILL.md` | 리듬 곡선 포인터 1문장(기존 산출물 목록 자리) |
@@ -309,8 +309,8 @@ python scripts/measure_cut_rhythm.py --project project.json \
 ## 6. 완료 기준 (Acceptance)
 
 1. **하위 호환:** 기존 `test_validate_storyboard.py`·`test_validate_project.py`·`test_render_storyboard_sheet.py`·`test_split_storyboard.py`·`test_storyboard_document.py` 전부 통과. `rhythm`이 없는 기존 픽스처는 새 error 0건.
-2. **검증기 신규 케이스:** ① rhythm 없음 → pass ② 정상 곡선 → pass ③ beat 미커버 → fail ④ shot 미커버 → fail ⑤ `energy` 0/6/비정수 → fail ⑥ `planned_duration_s` 합 불일치 → fail ⑦ `cut_out_phase: impact` + `exit_handle_frames: 0` → fail ⑧ `--strict-rhythm`인데 rhythm 없음 → fail. ⑨ `--strict-rhythm` 없이 잘못된 rhythm → 여전히 fail(있으면 항상 검사).
-3. **측정 스크립트:** `--cuts` CSV로 합성 컷 목록 → `count/mean/stdev/monotony_runs` 정확히 계산. `--media` 없음 → `planned_only`. `ffmpeg` 부재(monkeypatch) → `status: unverified`, exit 3. 잘못된 CSV → exit 2. `--fps`가 프로젝트 fps와 다름 → exit 2. 검출 경계 1개를 인위적으로 제거/추가하면 `status: partial` + `unmatched_*`가 채워지고 순번 대응으로 메워지지 않는다. `--cuts`에 `shot_id` 열이 있으면 그대로 채택된다.
+2. **검증기 신규 케이스:** ① rhythm 없음 → pass ② 정상 곡선 → pass ③ beat 미커버 → fail ④ shot 미커버 → fail ⑤ `energy` 0/6/비정수 → fail ⑥ `planned_duration_s` 합 불일치 → fail ⑦ `cut_out_phase: impact` + `exit_handle_frames: 0` → fail ⑧ `--strict-rhythm`인데 rhythm 없음 → fail. ⑨ `--strict-rhythm` 없이 잘못된 rhythm → 여전히 fail(있으면 항상 검사) ⑩ 한 비트가 두 샷에 걸치는 보드(계약이 허용) → pass.
+3. **측정 스크립트:** `--cuts` CSV로 합성 컷 목록 → `count/mean/stdev/monotony_runs` 정확히 계산. `--media` 없음 → `planned_only`. `ffmpeg` 부재(monkeypatch) → `status: unverified`, exit 3. 디코드 불가 미디어 → `reason: media_not_decodable`, exit 3. 잘못된 CSV → exit 2. `--fps`가 프로젝트 fps와 다름 → exit 2. 검출 경계 1개를 인위적으로 제거/추가하면 `status: partial` + `unmatched_*`가 채워지고 순번 대응으로 메워지지 않는다. `--cuts`에 `shot_id` 열이 있으면 그대로 채택된다.
 4. **문서 링크:** 신규 상대 링크 100% 유효(`§4.2` 소유 경계 표 기준), 기존 앵커 깨짐 0건.
 5. **경계 테스트:** `test_video_pack_boundary.py`·`test_production_policy_consistency.py`·`check_versions.py` 통과, `manifest.json` 2.40 및 SKILL 버전 정합.
 6. **컨텍스트 예산:** 곡선 표 1개(≤8행) + 대조 표 1개(≤8행)만 추가. 기존 대형 관리 표는 늘리지 않는다.
