@@ -1,7 +1,7 @@
 # 실행·검수 절차
 
 ## 범위
-지원: 원근 카메라, 수평 센서 fit, 정사각 픽셀, 카메라 look-at target와 roll, 렌즈 변화, 대역 위치 이동, 기본 장애물, 샷별 독립 scenes. 미지원: 기존 .blend의 비파괴 편집, 복잡한 리그/모션캡처/스킨, 줌렌즈 호흡, 왜곡/아나모픽, 물리 시뮬레이션, 최종 음성/자막, 자동 영상 인코딩.
+지원: 원근 카메라, 수평 센서 fit, 정사각 픽셀, 카메라 look-at target와 roll, 렌즈 변화, 대역 위치 이동, 기본 장애물, 샷별 독립 scenes, 샷별 동선 평면도, 실루엣 9점 가림 요약, 방향 마커, 무음 애니매틱 조립. 미지원: 기존 .blend의 비파괴 편집, 복잡한 리그/모션캡처/스킨, 줌렌즈 호흡, 왜곡/아나모픽, 물리 시뮬레이션, 최종 음성/자막, 오디오·전환이 있는 편집 완성본. 애니매틱 조립은 스틸 순차 영상까지만이다.
 
 ## 어댑터
 build_previs.py는 Blender Python(bpy)에서 실행한다. 수치 검사 정본은 형제 스킬의 `camera-spatial-design/scripts/spatial_spec.py`이며 두 스킬을 같은 루트에 설치한다. Blender Python 모듈 환경은 `python scripts/build_previs.py --spec ... --output ... --mode stills`도 사용할 수 있다. 처음에 새 파일을 초기화하고 실패/출력 파일을 덮어쓰지 않으므로 독립 프로세스와 새 출력 폴더를 사용한다. 출력 경로가 기존이면 실패한다. JSON 명세·분석·인계 파일은 UTF-8을 사용한다. `--mode stills --render-map`은 지정된 shot·로컬 0기준 프레임(또는 패널→프레임 대응표)만 정확히 렌더해 지도에 없는 샷·명세 밖 프레임을 거절한다; 검사(scene 구성·ray cast)는 전 샷·전 프레임을 유지한다. `--mode smoke`는 첫 샷만 구성하고 렌더는 1프레임·해상도 상한 320px로 묶인 좁은 파이프라인 검증이며 전체 명세 렌더 성공으로 보고하지 않는다.
@@ -13,12 +13,33 @@ Blender 카메라는 로컬 -Z를 정면, +Y를 위로 사용하도록 to_track_
 ## 대역 모드 (--proxy)
 `--proxy box`(기본)는 피사체를 추상 직육면체로, `--proxy figure`는 같은 `size_m`에서 파생한 토르스·목·머리 구체 대역으로 만든다. figure 모드의 목적은 프레이밍·헤드룸·눈높이·실루엣 겹침·가림을 몸 형태로 읽게 하는 것이며, 얼굴 방향·자세·관절·손/소품 접촉·연기·최종 조명을 재현하거나 검증하지 않는다. 두 모드 모두 `camera-spatial-1.0` 스키마를 바꾸지 않고 같은 spec에서 파생된다. 사용한 모드는 manifest의 `proxy_mode`와 `scope`에 기록하고 렌더와 함께 인계한다.
 
-## 어댑터 전용 선택 입력 (--focus-map · --look-cards · --engine)
+## 어댑터 전용 선택 입력 (--focus-map · --look-cards · --facing-map · --engine)
 `camera-spatial-1.0` 명세는 초점·룩 카드·엔진 필드를 갖지 않으며, 이 입력들은 **명세 바깥의 어댑터 옵션**이다. 명세 파일에 필드를 추가하지 않고, CLI로만 넘긴다.
 
 - `--focus-map focus.json`: `{"SH01": {"f_number": 2.8, "keyframes": [{"frame": 0, "focus_distance_m": 4.0}, {"frame": 47, "focus_distance_m": 1.0}]}}`. 로컬 프레임은 명세 프레임 범위를 벗어나면 거부한다. 선형 보간 후 Blender DoF(focus distance·aperture f-stop)에 베이크한다. **래크 포커스 미리보기**이며 실제 렌즈 캘리브레이션·초점 품질·모션블러를 증명하지 않는다. 이 map은 카메라 소유자의 lens companion(초점 대상·거리·pull 시작/완료)에서 **파생**한 입력이지 두 번째 정본이 아니다. companion이 바뀌면 map을 재생성하고, 둘이 어긋나면 companion이 우선한다([파생 규칙](../../camera-spatial-design/assets/motion-timing-template.md)).
 - `--look-cards cards.json`: `{"CH01": {"image": "/abs/path/approved_sheet.png"}}`. 주어진 subject box 크기에 맞춘 카메라 정면 평면 카드에 승인 이미지를 텍스처로 붙여 프레이밍 안에 보여 준다. 표시되는 것은 승인된 룩이며, **깊이·가림 순서·자세·접촉·연기를 증명하지 않는다.** 생성 입력으로 넘길 때는 [참조 역할 규칙](../../video-production-assets/references/29-reference-driven-production.md#reference-roles)대로 속성 단위로 가져오고 제외한다.
+- `--facing-map facing.json`: `{"SH01": {"CH01": [0.0, 1.0]}}`. 월드 XY 단위 방향(샷 단위 상수)이다. figure 프록시의 방향 마커와 평면도 화살표에만 쓰고, 얼굴 방향·시선 목표·연기를 증명하지 않는다. 지정이 없으면 이동 벡터에서 유도하고, 정지 피사체는 방향 없음(`source: none`)으로 남긴다.
 - `--engine cycles|eevee`: cycles가 기준 look(무CPU 저사양)이고 eevee는 빠른 미리보기다. 속도 차이는 품질 주장이 아니며, 최종 판정용 렌더는 기준 엔진으로 다시 만든다.
+
+## 동선 평면도 (`path-map.svg`)
+
+`path_map.py`(bpy 불필요)가 `camera-spatial-1.0` spec만으로 샷별 SVG 1장을 만든다. 담는 것: 1m 격자·스케일 바, 장애물 사각형, 피사체 시작(점선)/종료(실선) 발자국과 이동 폴리라인·프레임 틱, facing 화살표(출처 표기), 카메라 경로와 진행 화살표, 샘플 프레임의 화각 쐐기, 샷 메타(길이·fps·렌즈 범위·scene/beat ID). 좌표는 3자리로 반올림하고 키를 정렬해 같은 spec이면 같은 바이트가 나온다.
+
+`--mode path-maps`는 평면도와 다이어그램 전용 manifest만 만들고 Blender를 호출하지 않는다(`blender_version: null`, `scope`에 렌더·가림 미검증 명시). 평면도는 spec 파생 도해이므로 3D 가림·접촉·조명의 근거로 쓰지 않는다.
+
+## 가림 검사 (실루엣 9점)
+
+피사체마다 `high|mid|low` × `left|center|right` 9점을 매 프레임 표본화한다. 높이는 box에서 0.88h/0.55h/0.25h, figure에서 머리 중심/몸통 중심/몸통 하단이다. 측면 오프셋은 그 프레임의 실제 카메라 `right = normalize(cross(forward, +Z))`에 실루엣 반폭을 곱한다(box는 AABB 투영, figure는 몸통 반지름). 판정은 기존과 같다: 첫 hit이 자기 대역·부품이면 보임.
+
+`occlusion` 요약은 샷별·피사체별 검사 점수, 보임 비율, 최초 가려진 프레임·지점·첫 hit을 남긴다. 예: 무릎 높이 장애물은 `low_left/low_center/low_right`만 가려 6/9로 기록된다. 이는 표본점 검사이며 실루엣 전체·관절·손/소품 접촉 가시성을 증명하지 않는다.
+
+## 방향 마커
+
+figure 프록시에 몸통 높이의 원뿔 마커를 붙인다(`cone_mesh`, 닫힌 메시·외향 법선). 방향은 `--facing-map` → 이동 벡터(±1, ±n/10, 전 샷 구간 순으로 확대) → 없음 순으로 정하고, 없으면 마커를 렌더에서 숨기고 `facing.source: none`으로 기록한다. 임의 방향을 만들지 않는다.
+
+## 애니매틱 조립 (`--encode-mp4`)
+
+`--mode sequence`와 함께 쓸 때만 허용한다. 렌더 전에 ffmpeg 존재를 확인하고 없으면 실패한다(자동 설치 없음). 렌더된 스틸을 `_frames/frame_%06d.png`로 하드링크(불가 시 복사)해 샷 배열 순서대로 정확히 1프레임씩 번호를 매기고 `-framerate fps`로 인코딩한다. concat demuxer의 마지막 프레임 duration 처리로 길이가 1프레임 어긋나는 문제를 피하려는 선택이다. `encode`에 ffmpeg 버전·명령·프레임수·fps·expected_s·measured_s·스테이징 매핑을 기록한다. 결과는 무음 스틸 순차 영상이며 전환·모션블러·오디오·최종 편집이 아니다.
 
 ## MCP 표면 (선택)
 
@@ -50,7 +71,7 @@ MCP 등록에 체크아웃 절대경로를 넣지 않으므로 저장소를 옮�
 기준 경로는 여전히 CLI다. MCP로 돌렸더라도 산출물 5종과 manifest 기록이 같아야 하며, 다르면 CLI 경로로 되돌아가 재실행한다.
 
 ## 화면 검사
-world_to_camera_view로 머리와 몸 중심의 화면 좌표·광학 깊이를 기록하고 scene.ray_cast로 같은 점을 바라볼 때 먼저 만나는 대역을 확인한다. 각 샷에서 다른 피사체가 움직이는 동안 가림을 전 프레임 검사한다. 장애물 중첩과 프레임 외 상태는 계획된 연출일 수 있으므로 자동 실패가 아닌 근거 있는 수정 판단으로 처리한다.
+world_to_camera_view로 9점 각각의 화면 좌표·광학 깊이를 기록하고 scene.ray_cast로 같은 점을 바라볼 때 먼저 만나는 대역을 확인한다. 각 샷에서 다른 피사체가 움직이는 동안 가림을 전 프레임 검사한다. 장애물 중첩과 프레임 외 상태는 계획된 연출일 수 있으므로 자동 실패가 아닌 근거 있는 수정 판단으로 처리한다.
 
 ## 런타임 상태
-이 기록은 2026-10-21 Linux(x86_64) 워크스테이션에서 독립 실행한 결과다. 실제 `Blender 5.2.2 LTS`(`/home/declan/.local/bin/blender`, build 2026-09-15)로 예제 `camera-spec-example.json`에 대해 `python3 camera-spatial-design/scripts/test_spatial_spec.py`(14 OK), `python3 blender-previsualization/scripts/test_build_previs.py`(17 OK), `BLENDER_EXECUTABLE=<blender> python3 blender-previsualization/scripts/test_camera_orientation_in_blender.py`(1 OK, 실제 Blender 실행)를 수행했다. `--mode smoke`는 640x360 명세에서 320x180 1프레임을 약 2초에, `--mode stills`(2샷 × 시작/중간/끝 6프레임, Cycles CPU 8 samples)는 약 12초에 렌더했고, `--proxy figure` 동일 조건은 약 20초, `--engine eevee`는 약 10초였다. `--focus-map`과 `--look-cards`를 함께 준 figure 렌더도 실제로 실행해 랙 포커스(프레임 0에서 카드 선명, 프레임 47에서 인물 선명)와 룩 카드 표시를 육안 확인했다. 이 스킬은 Blender CLI로 구동되며 Blender MCP 서버는 필요하지 않다. 과거 기록의 Windows 10 실행은 따로 두고, 다른 버전·플랫폼에는 일반화하지 말고 실제 버전/모드를 기록한다. Blender proxy ray cast는 중심·머리 주목점만 검사하며 전체 실루엣·연출·최종 미감을 보장하지 않는다. Blender 5.2.2 실행에서는 `World.use_nodes`와 `Material.use_nodes`의 6.0 제거 예정 deprecation 경고가 관찰되었다; 6.0 호환성을 선언하지 않는다.
+이 기록은 2026-10-21 Linux(x86_64) 워크스테이션에서 독립 실행한 결과다. 실제 `Blender 5.2.2 LTS`(`/home/declan/.local/bin/blender`, build 2026-09-15)로 예제 `camera-spec-example.json`에 대해 `python3 camera-spatial-design/scripts/test_spatial_spec.py`(14 OK), `python3 blender-previsualization/scripts/test_build_previs.py`(17 OK), `BLENDER_EXECUTABLE=<blender> python3 blender-previsualization/scripts/test_camera_orientation_in_blender.py`(1 OK, 실제 Blender 실행)를 수행했다. `--mode smoke`는 640x360 명세에서 320x180 1프레임을 약 2초에, `--mode stills`(2샷 × 시작/중간/끝 6프레임, Cycles CPU 8 samples)는 약 12초에 렌더했고, `--proxy figure` 동일 조건은 약 20초, `--engine eevee`는 약 10초였다. `--focus-map`과 `--look-cards`를 함께 준 figure 렌더도 실제로 실행해 랙 포커스(프레임 0에서 카드 선명, 프레임 47에서 인물 선명)와 룩 카드 표시를 육안 확인했다. 이 스킬은 Blender CLI로 구동되며 Blender MCP 서버는 필요하지 않다. 2026-11-16 추가 검증(Linux x86_64, `Blender 5.2.2 LTS`): `--mode path-maps`는 Blender 없이 `python3`로 2샷 SVG를 생성했다. `--proxy figure --facing-map` stills(Cycles 8 samples 6프레임, eevee 동일)에서 방향 마커가 실제 렌더에 나타나고 CH01만 지정 방향을 따르며 정지 피사체는 `facing.source: none`으로 남았다. 무릎 높이 장애물 spec에서 9점 가림이 CH01 6/9(`low_left/low_center/low_right` 가려짐, first_hit=장애물)로 기록되었고, 이는 기존 2점(0.5h·0.95h)이 표본하지 않던 행이다. `--mode sequence --encode-mp4`(2샷 × 4프레임, eevee)는 8프레임·fps 24·expected 0.333s·measured 0.333s, `nb_read_frames=8`로 일치했다. `--facing-map`·`--look-cards`가 없는 경우와 ffmpeg 부재 시의 실패 경로는 코드·테스트로만 확인했고 실제 렌더로 재현하지 않았다. 과거 기록의 Windows 10 실행은 따로 두고, 다른 버전·플랫폼에는 일반화하지 말고 실제 버전/모드를 기록한다. Blender proxy ray cast는 중심·머리 주목점만 검사하며 전체 실루엣·연출·최종 미감을 보장하지 않는다. Blender 5.2.2 실행에서는 `World.use_nodes`와 `Material.use_nodes`의 6.0 제거 예정 deprecation 경고가 관찰되었다; 6.0 호환성을 선언하지 않는다.

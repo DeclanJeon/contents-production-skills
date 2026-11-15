@@ -118,4 +118,71 @@ class RenderPlanTests(unittest.TestCase):
     def test_parse_render_map_rejects_malformed(self):
         for bad in ('{','"x"','{}','{"SH01":[]}','{"SH01":[47.5]}'):
             m,errors=parse_render_map(bad);self.assertTrue(errors,bad)
+class AnimaticEncodeTests(unittest.TestCase):
+    def test_find_ffmpeg_returns_none_for_an_empty_search_path(self):
+        self.assertIsNone(build_previs.find_ffmpeg(path=''))
+
+    def test_fps_mode_flag_follows_the_ffmpeg_major_version(self):
+        self.assertEqual(build_previs.fps_mode_flag('ffmpeg version 5.1.2 Copyright'),'-vsync')
+        self.assertEqual(build_previs.fps_mode_flag('ffmpeg version 6.0-static'),'-fps_mode')
+        self.assertEqual(build_previs.fps_mode_flag('ffmpeg version n7.1 Copyright'),'-fps_mode')
+        self.assertEqual(build_previs.fps_mode_flag(''),'-vsync')
+
+    def test_encode_plan_keeps_spec_shot_order_and_sorts_frames(self):
+        rendered={'SH02':[{'frame':5,'png':'SH02/frame_000006.png'},{'frame':0,'png':'SH02/frame_000001.png'}],
+                  'SH01':[{'frame':2,'png':'SH01/frame_000003.png'}],'NOT_A_SHOT':[{'frame':0,'png':'x.png'}]}
+        rows=build_previs.encode_plan(spec(),rendered)
+        self.assertEqual([(r['shot_id'],r['frame']) for r in rows],[('SH01',2),('SH02',0),('SH02',5)])
+
+    def test_stage_frames_numbers_the_stills_in_spec_order(self):
+        import tempfile
+        rows=[{'shot_id':'SH01','frame':0,'png':'SH01/frame_000001.png'},
+              {'shot_id':'SH02','frame':0,'png':'SH02/frame_000001.png'}]
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            for row in rows:
+                source=root/row['png'];source.parent.mkdir(parents=True,exist_ok=True);source.write_bytes(b'x')
+            staged=build_previs.stage_frames(rows,root/'_frames',root)
+            names=[Path(row['png']).name for row in staged]
+            self.assertEqual(names,['frame_000001.png','frame_000002.png'])
+            self.assertEqual([row['shot_id'] for row in staged],['SH01','SH02'])
+            self.assertEqual((root/'_frames'/'frame_000002.png').read_bytes(),b'x')
+
+    def test_stage_frames_refuses_to_reuse_a_staging_folder(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp)/'_frames').mkdir()
+            with self.assertRaises(SystemExit):
+                build_previs.stage_frames([{'shot_id':'S','frame':0,'png':'a.png'}],Path(tmp)/'_frames')
+
+    def test_encode_command_uses_one_still_per_output_frame(self):
+        cmd=build_previs.build_encode_command('/usr/bin/ffmpeg',Path('_frames'),24,Path('animatic.mp4'),'ffmpeg version 7.0')
+        self.assertEqual(cmd[0],'/usr/bin/ffmpeg')
+        self.assertIn('-framerate',cmd)
+        self.assertEqual(cmd[cmd.index('-framerate')+1],'24')
+        self.assertIn('_frames/frame_%06d.png',cmd)
+        self.assertIn('-fps_mode',cmd)
+        self.assertIn('cfr',cmd)
+        self.assertEqual(cmd[-1],'animatic.mp4')
+
+    def test_probe_duration_is_none_without_ffprobe(self):
+        self.assertIsNone(build_previs.probe_duration(None,Path('animatic.mp4')))
+
+    def test_cli_accepts_facing_map_encode_and_path_map_mode(self):
+        argv=sys.argv
+        try:
+            sys.argv=['build_previs.py','--','--spec','s.json','--output','o']
+            parsed=build_previs.arguments()
+            self.assertFalse(parsed.encode_mp4)
+            self.assertIsNone(parsed.facing_map)
+            sys.argv=['build_previs.py','--','--spec','s.json','--output','o','--mode','path-maps',
+                      '--facing-map','f.json','--encode-mp4']
+            parsed=build_previs.arguments()
+            self.assertEqual(parsed.mode,'path-maps')
+            self.assertEqual(parsed.facing_map,'f.json')
+            self.assertTrue(parsed.encode_mp4)
+        finally:
+            sys.argv=argv
+
+
 if __name__=='__main__':unittest.main()

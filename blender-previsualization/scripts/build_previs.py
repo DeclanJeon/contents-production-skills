@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Blender-only adapter. Creates fresh proxy scenes; run in an isolated process."""
-import argparse,hashlib,json,math,sys
+import argparse,hashlib,json,math,os,re,shutil,subprocess,sys
 from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'camera-spatial-design'/'scripts'))
 from spatial_spec import validate,analyze,sample,subject_positions
+from path_map import (build_svg,cone_mesh,facing_at,facing_rotation_z,facing_summary,
+                      facing_marker_parts,occlusion_summary,parse_facing_map,
+                      silhouette_half_extent,silhouette_points)
 
 SMOKE_MAX_DIMENSION=320
 
@@ -161,11 +165,113 @@ def engine_candidates(requested):
     return ['CYCLES'] if requested=='cycles' else ['BLENDER_EEVEE_NEXT','BLENDER_EEVEE']
 
 
+def find_ffmpeg(path=None):
+    """ffmpeg executable from PATH, or None. The adapter never installs it."""
+    return shutil.which('ffmpeg',path=path)
+
+
+def tool_version(executable):
+    """First version line of an external tool, or '' when it cannot be read."""
+    try:proc=subprocess.run([executable,'-version'],capture_output=True,text=True,timeout=30)
+    except (OSError,subprocess.SubprocessError):return ''
+    text=(proc.stdout or proc.stderr or '').strip()
+    return text.splitlines()[0].strip() if text else ''
+
+
+def fps_mode_flag(version_line):
+    """ffmpeg 6 renamed -vsync to -fps_mode; pick the flag this build accepts.
+
+    The stills are already spaced 1/fps apart by the concat list, so constant
+    frame rate is the honest target: one still per output frame, no dupes.
+    """
+    match=re.search(r'ffmpeg version n?(\d+)',version_line or '')
+    return '-fps_mode' if match and int(match.group(1))>=6 else '-vsync'
+
+
+def encode_plan(spec,rendered):
+    """Ordered animatic rows: spec shot order, frames ascending inside a shot."""
+    rows=[]
+    for shot in spec.get('shots',[]):
+        for entry in sorted(rendered.get(shot['id'],[]),key=lambda e:e['frame']):
+            rows.append({'shot_id':shot['id'],'frame':entry['frame'],'png':entry['png']})
+    return rows
+
+
+def stage_frames(rows,stage_dir,root='.'):
+    """Hard-link the ordered stills to ``000001.png`` style names for ffmpeg.
+
+    The concat demuxer adds or drops a frame at the tail depending on its
+    duration handling, so the animatic is built from one flat, exactly
+    numbered sequence instead. Hard links keep the disk cost at zero and fall
+    back to a copy when the filesystem refuses them. Returns (staged, errors).
+    """
+    stage=Path(stage_dir)
+    if stage.exists():raise SystemExit('Animatic staging folder already exists: '+str(stage))
+    stage.mkdir(parents=True)
+    staged=[]
+    for index,row in enumerate(rows,start=1):
+        target=stage/('frame_%06d.png'%index)
+        source=Path(row['png'])
+        if not source.is_absolute():source=Path(root)/source
+        try:os.link(source,target)
+        except OSError:shutil.copyfile(source,target)
+        staged.append({'index':index,'shot_id':row['shot_id'],'frame':row['frame'],'png':str(target)})
+    return staged
+
+
+def build_encode_command(ffmpeg,stage_dir,fps,output_path,version_line=''):
+    """ffmpeg argv that assembles the staged stills into a silent animatic.
+
+    ``-framerate`` on the input makes each still exactly one output frame, so
+    the encoded length is frames/fps and the manifest can check it.
+    """
+    return [ffmpeg,'-y','-loglevel','error','-framerate',str(fps),'-i',str(Path(stage_dir)/'frame_%06d.png'),
+            fps_mode_flag(version_line),'cfr','-pix_fmt','yuv420p','-r',str(fps),str(output_path)]
+
+
+def probe_duration(ffprobe,path):
+    """Container duration in seconds from ffprobe, or None when unavailable."""
+    if not ffprobe:return None
+    try:proc=subprocess.run([ffprobe,'-v','error','-show_entries','format=duration','-of','default=nw=1:nk=1',str(path)],capture_output=True,text=True,timeout=60)
+    except (OSError,subprocess.SubprocessError):return None
+    try:return round(float((proc.stdout or '').strip()),3)
+    except (TypeError,ValueError):return None
+
+
+def write_path_maps(args,spec,spec_bytes,facing_map=None):
+    """Write one top-down blocking diagram per shot and a diagram-only manifest.
+
+    Runs without Blender: the diagrams come from the camera spec alone. They
+    show camera path, subject travel and facing; they are not a render and
+    prove no occlusion, contact or lighting.
+    """
+    out=Path(args.output).resolve()
+    if out.exists():raise SystemExit('Output already exists. Choose a new folder; nothing was overwritten.')
+    out.mkdir(parents=True)
+    maps={};files=[]
+    for shot in spec['shots']:
+        folder=out/shot['id'];folder.mkdir()
+        path=folder/'path-map.svg'
+        path.write_text(build_svg(spec,shot,facing_map=facing_map),encoding='utf-8')
+        rel=str(path.relative_to(out));maps[shot['id']]=rel;files.append(rel)
+    manifest={'project_id':spec['project_id'],'blender_version':None,'engine':None,'mode':args.mode,
+              'status':'generated','proxy_mode':args.proxy,'files':files,'rendered':{},
+              'path_maps':maps,
+              'facing_map':{s:{sid:v['vector'] for sid,v in row.items()} for s,row in facing_map.items()},
+              'camera_spec':{'version':spec.get('version'),'artifact_id':spec.get('artifact_id'),
+                             'sha256':hashlib.sha256(spec_bytes).hexdigest()},
+              'shot_links':{s['id']:{'scene_id':s.get('scene_id'),'beat_ids':s.get('beat_ids',[])} for s in spec['shots']},
+              'scope':'spec-derived top-down blocking diagrams only; no Blender run, no render, no occlusion or contact verification'}
+    (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    print(json.dumps(manifest,ensure_ascii=False,indent=2))
+    return manifest
+
+
 def arguments():
     argv=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else sys.argv[1:]
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--spec',required=True);p.add_argument('--output',required=True)
-    p.add_argument('--mode',choices=['smoke','stills','sequence'],default='stills')
+    p.add_argument('--mode',choices=['smoke','stills','sequence','path-maps'],default='stills')
     p.add_argument('--render-map',help='stills-mode JSON or @file: {shot:[frame|{frame,panel}]} or {shot:{panel:frame}} of local 0-based frames to render')
     p.add_argument('--proxy',choices=['box','figure'],default='box',
                    help='subject proxy: box (default, abstract) or figure (stylized clay body for readable framing/headroom/occlusion); neither is final character or acting validation')
@@ -173,6 +279,8 @@ def arguments():
                    help='render engine for the preview frames; cycles is the reference look, eevee is a faster preview and is not a quality claim')
     p.add_argument('--focus-map',help='JSON file: {shot_id: {"f_number": 2.8, "keyframes": [{"frame": 0, "focus_distance_m": 2.0}]}} for focus/rack-focus previews')
     p.add_argument('--look-cards',help='JSON file: {subject_id: {"image": "/abs/path.png"}} to show the approved look as a camera-facing card inside the framing')
+    p.add_argument('--facing-map',help='JSON file: {shot_id: {subject_id: [x, y]}} world XY heading for the figure proxy marker and the top-down diagram')
+    p.add_argument('--encode-mp4',action='store_true',help='sequence mode only: assemble the rendered stills into a silent animatic.mp4 with the installed ffmpeg')
     return p.parse_args(argv)
 
 
@@ -270,6 +378,19 @@ def main():
     spec_bytes=Path(args.spec).read_bytes()
     spec=json.loads(spec_bytes.decode('utf-8'));errors=validate(spec)
     if errors:raise SystemExit(json.dumps({'valid':False,'errors':errors},ensure_ascii=False))
+    facing_map={}
+    if args.facing_map:
+        path=Path(args.facing_map).expanduser()
+        if not path.is_file():raise SystemExit(json.dumps({'valid':False,'errors':['--facing-map file not found: '+str(path)]},ensure_ascii=False))
+        facing_map,facing_errors=parse_facing_map(path.read_text(encoding='utf-8'))
+        if facing_errors:raise SystemExit(json.dumps({'valid':False,'errors':['--facing-map: '+e for e in facing_errors]},ensure_ascii=False))
+        shot_ids={s['id'] for s in spec['shots']};subject_ids={s['id'] for s in spec['subjects']}
+        unknown=[k for k in facing_map if k not in shot_ids]
+        unknown+= [f'{shot}.{sid}' for shot,row in facing_map.items() for sid in row if sid not in subject_ids]
+        if unknown:raise SystemExit(json.dumps({'valid':False,'errors':['--facing-map: unknown shot or subject: '+k for k in unknown]},ensure_ascii=False))
+    if args.mode=='path-maps':
+        if args.encode_mp4:raise SystemExit(json.dumps({'valid':False,'errors':['--encode-mp4 requires --mode sequence']},ensure_ascii=False))
+        write_path_maps(args,spec,spec_bytes,facing_map);return
     render_map=None
     if args.render_map is not None:
         text=args.render_map.strip()
@@ -302,6 +423,12 @@ def main():
         subject_ids={s['id'] for s in spec['subjects']}
         unknown=[k for k in look_cards if k not in subject_ids]
         if unknown:raise SystemExit(json.dumps({'valid':False,'errors':['--look-cards: not a spec subject: '+k for k in unknown]},ensure_ascii=False))
+    ffmpeg=None;ffmpeg_version=''
+    if args.encode_mp4:
+        if args.mode!='sequence':raise SystemExit(json.dumps({'valid':False,'errors':['--encode-mp4 requires --mode sequence']},ensure_ascii=False))
+        ffmpeg=find_ffmpeg()
+        if not ffmpeg:raise SystemExit(json.dumps({'valid':False,'errors':['--encode-mp4 requires ffmpeg on PATH; this adapter installs nothing']},ensure_ascii=False))
+        ffmpeg_version=tool_version(ffmpeg)
     try:import bpy
     except ImportError:raise SystemExit('Blender bpy unavailable. Run with Blender --background --factory-startup --python, or a working bpy module.')
     from mathutils import Vector,Quaternion
@@ -320,10 +447,14 @@ def main():
         scope_text+='; look cards show the approved look as camera-facing flat images and prove no depth, occlusion order, pose or contact'
     if focus_map:
         scope_text+='; focus preview comes from an adapter-local focus map, not from the camera-spatial-1.0 spec, and proves no real lens calibration'
+    if facing_map:
+        scope_text+='; facing markers come from an adapter-local facing map or from subject travel and prove no face direction, eyeline target or acting'
+    scope_text+='; occlusion uses nine silhouette sample points per subject per frame (point sampling only, not whole-silhouette visibility); path maps are spec-derived diagrams, not renders'
     manifest={'project_id':spec['project_id'],'blender_version':bpy.app.version_string,'engine':args.engine,'mode':args.mode,'status':'running','files':[],'rendered':{},
               'proxy_mode':args.proxy,
               'look_cards':{k:v['image'] for k,v in look_cards.items()},
               'focus_map':{k:{'f_number':v['f_number'],'keyframes':v['keyframes']} for k,v in focus_map.items()},
+              'facing_map':{s:{sid:v['vector'] for sid,v in row.items()} for s,row in facing_map.items()},
               'camera_spec':{'version':spec.get('version'),'artifact_id':spec.get('artifact_id'),'sha256':hashlib.sha256(spec_bytes).hexdigest()},
               'shot_links':{s['id']:{'scene_id':s.get('scene_id'),'beat_ids':s.get('beat_ids',[])} for s in (spec['shots'][:1] if smoke else spec['shots'])},
               'scope':scope_text}
@@ -403,7 +534,7 @@ def main():
             scene.world=bpy.data.worlds.new(shot['id']+'_world');scene.world.use_nodes=True
             scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.12,.12,.12,1)
             scene.world.node_tree.nodes['Background'].inputs[1].default_value=.4
-            objects={};parts={}
+            objects={};parts={};markers={}
             for rid,row in subjects.items():
                 base=shot['id']+'_'+rid;color=tuple(row.get('color_rgba',[.25,.5,.75,1]))
                 if look_cards.get(rid):
@@ -421,6 +552,14 @@ def main():
                         ob.data.materials.append(material(ob.name,color))
                         for poly in me.polygons:poly.use_smooth=True
                         made.append(ob)
+                    marker_parts=facing_marker_parts(row['size_m'])
+                    verts,faces=cone_mesh()
+                    me=bpy.data.meshes.new(base+'_facing');me.from_pydata(verts,[],faces);me.validate()
+                    nose=bpy.data.objects.new(me.name,me);scene.collection.objects.link(nose)
+                    nose.scale=(marker_parts['radius'],marker_parts['length'],marker_parts['radius'])
+                    nose.location=(0.0,marker_parts['offset_y'],marker_parts['z']);nose.parent=parent
+                    nose.data.materials.append(material(me.name,(.95,.72,.25,1)))
+                    made.append(nose);markers[rid]=nose
                     objects[rid]=parent;parts[rid]=made
                 else:
                     objects[rid]=box(scene,base,row['position'],row['size_m'],color)
@@ -435,6 +574,10 @@ def main():
             if focus:
                 data.dof.use_dof=True
                 if focus.get('f_number'):data.dof.aperture_fstop=focus['f_number']
+            mid_frame=0 if smoke else shot['duration_frames']//2
+            for rid,nose in markers.items():
+                if facing_at(spec,shot,rid,mid_frame,facing_map)[1]=='none':
+                    nose.hide_render=nose.hide_viewport=True
             frames=range(1) if smoke else range(shot['duration_frames'])
             for f in frames:
                 k=sample(c['keyframes'],f,c['interpolation'],c['lens_mm']);positions=subject_positions(spec,shot,f)
@@ -455,6 +598,12 @@ def main():
                         ob.rotation_quaternion=q
                         ob.keyframe_insert('rotation_quaternion',frame=f+1)
                     ob.keyframe_insert('location',frame=f+1)
+                    if rid in markers and not markers[rid].hide_render:
+                        vector=facing_at(spec,shot,rid,f,facing_map)[0]
+                        angle=facing_rotation_z(vector) if vector else None
+                        if angle is not None:
+                            markers[rid].rotation_mode='XYZ';markers[rid].rotation_euler=(0.0,0.0,angle)
+                            markers[rid].keyframe_insert('rotation_euler',frame=f+1)
             for ob in [cam,*objects.values()]:
                 action=ob.animation_data.action if ob.animation_data else None
                 if action and hasattr(action,'fcurves'):
@@ -466,16 +615,24 @@ def main():
                 with bpy.context.temp_override(scene=scene,view_layer=scene.view_layers[0]):
                     bpy.context.view_layer.update();deps=bpy.context.evaluated_depsgraph_get()
                 positions=subject_positions(spec,shot,f)
+                k=sample(shot['camera']['keyframes'],f,shot['camera']['interpolation'],shot['camera']['lens_mm'])
+                forward=Vector(k['target'])-Vector(k['position'])
+                forward=forward.normalized() if forward.length>1e-9 else Vector((0.0,1.0,0.0))
+                right=forward.cross(Vector((0.0,0.0,1.0)))
+                right=right.normalized() if right.length>1e-9 else Vector((1.0,0.0,0.0))
                 for rid in shot['subject_ids']:
-                    pos=positions[rid];height=subjects[rid]['size_m'][2]
-                    for point_name,z in [('center',height/2),('head',height*.95)]:
-                        point=Vector((pos[0],pos[1],pos[2]+z));ndc=world_to_camera_view(scene,cam,point)
+                    pos=positions[rid];size=subjects[rid]['size_m']
+                    extent=silhouette_half_extent(size,args.proxy,(right.x,right.y))
+                    owned_names={p.name for p in parts.get(rid,[])}
+                    for sample_point in silhouette_points(size,args.proxy):
+                        point=Vector((pos[0],pos[1],pos[2]+sample_point['z']))+right*(sample_point['lateral_frac']*extent)
+                        ndc=world_to_camera_view(scene,cam,point)
                         delta=point-cam.location;dist=delta.length
                         hit,loc,normal,index,obj,matrix=scene.ray_cast(deps,cam.location,delta.normalized(),distance=dist+1e-4)
                         first=obj.original if hit and hasattr(obj,'original') else obj
-                        owned=(not hit) or first==objects[rid] or first.name in {p.name for p in parts.get(rid,[])}
+                        owned=(not hit) or first==objects[rid] or first.name in owned_names
                         visible=ndc.z>data.clip_start and ndc.z<data.clip_end and 0<=ndc.x<=1 and 0<=ndc.y<=1 and owned
-                        checks.append({'frame':f,'subject_id':rid,'point':point_name,'ndc':[ndc.x,ndc.y,ndc.z],'proxy_point_visible':visible,'first_hit':obj.name if hit else None})
+                        checks.append({'frame':f,'subject_id':rid,'point':sample_point['name'],'lateral_frac':sample_point['lateral_frac'],'height_m':round(sample_point['z'],4),'ndc':[ndc.x,ndc.y,ndc.z],'proxy_point_visible':visible,'first_hit':obj.name if hit else None})
             folder=out/shot['id'];folder.mkdir()
             rendered=[]
             for e in plan.get(shot['id'],[]):
@@ -485,11 +642,35 @@ def main():
                 if not path.is_file():raise RuntimeError('Render did not create '+str(path))
                 rel=str(path.relative_to(out));manifest['files'].append(rel)
                 rendered.append({'frame':f,'png':rel,'label':e['label'],'panels':e['panels']})
+            map_path=folder/'path-map.svg'
+            map_path.write_text(build_svg(spec,shot,facing_map=facing_map),encoding='utf-8')
+            map_rel=str(map_path.relative_to(out));manifest['files'].append(map_rel)
+            manifest.setdefault('path_maps',{})[shot['id']]=map_rel
             manifest['rendered'][shot['id']]=rendered
-            inspections.append({'shot_id':shot['id'],'scene_id':shot.get('scene_id'),'beat_ids':shot.get('beat_ids',[]),'checks':checks,'rendered':rendered})
+            summary=occlusion_summary(checks,shot,args.proxy)
+            manifest.setdefault('occlusion',{})[shot['id']]=summary
+            inspections.append({'shot_id':shot['id'],'scene_id':shot.get('scene_id'),'beat_ids':shot.get('beat_ids',[]),'checks':checks,'occlusion':summary,'facing':facing_summary(spec,shot,facing_map),'path_map':map_rel,'rendered':rendered})
         if bpy.context.window:bpy.context.window.scene=scenes[0]
         bpy.ops.wm.save_as_mainfile(filepath=str(out/'previs.blend'),check_existing=False)
         if not (out/'previs.blend').is_file():raise RuntimeError('Blend save missing')
+        if args.encode_mp4:
+            rows=encode_plan(spec,manifest['rendered'])
+            if not rows:raise RuntimeError('--encode-mp4 found no rendered frames to assemble')
+            stage=out/'_frames'
+            staged=stage_frames(rows,stage,out)
+            output_path=out/'animatic.mp4'
+            cmd=build_encode_command(ffmpeg,stage,spec['fps'],output_path,ffmpeg_version)
+            proc=subprocess.run(cmd,capture_output=True,text=True)
+            if proc.returncode!=0 or not output_path.is_file():
+                tail=(proc.stderr or proc.stdout or '').strip().splitlines()[-6:]
+                raise RuntimeError('ffmpeg assembly failed: '+(' | '.join(tail) if tail else 'no output written'))
+            manifest['encode']={'ffmpeg':ffmpeg_version or ffmpeg,'command':cmd,'output':'animatic.mp4',
+                                'staged':{row['index']:{'shot_id':row['shot_id'],'frame':row['frame']} for row in staged},
+                                'frames':len(rows),'fps':spec['fps'],'expected_s':round(len(rows)/float(spec['fps']),3),
+                                'measured_s':probe_duration(shutil.which('ffprobe'),output_path),
+                                'scope':'silent still assembly in shot order; no audio, transitions, motion blur or final edit'}
+            manifest['files']+=['animatic.mp4']+[str(Path(row['png']).relative_to(out)) for row in staged]
+            write_manifest()
         (out/'blender-inspection.json').write_text(json.dumps({'scope':'first-shot frame-zero proxy checks only' if smoke else 'proxy point projection and first ray hit, all integer frames','spec_version':spec.get('version'),'spec_sha256':manifest['camera_spec']['sha256'],'shots':inspections},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         manifest['files']+=['previs.blend','numerical-analysis.json','blender-inspection.json'];manifest['status']='generated';write_manifest()
     except Exception as e:

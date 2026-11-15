@@ -89,12 +89,14 @@ TOOLS = [
             "properties": {
                 "spec_path": {"type": "string", "description": "Absolute path to a camera-spatial-1.0 camera spec JSON."},
                 "output_dir": {"type": "string", "description": "Absolute path of a NEW output folder. An existing folder is refused."},
-                "mode": {"type": "string", "enum": ["smoke", "stills", "sequence"], "description": "smoke = first shot/one frame; stills = start/mid/end per shot; sequence = every local frame."},
+                "mode": {"type": "string", "enum": ["smoke", "stills", "sequence", "path-maps"], "description": "smoke = first shot/one frame; stills = start/mid/end per shot; sequence = every local frame; path-maps = top-down blocking diagrams only (the CLI can run this without Blender)."},
                 "proxy": {"type": "string", "enum": ["box", "figure"], "description": "Subject proxy. box = abstract; figure = stylized clay body for readable framing/headroom."},
                 "engine": {"type": "string", "enum": ["cycles", "eevee"], "description": "Render engine for the preview frames. cycles is the reference look."},
                 "render_map": {"type": "string", "description": "JSON string for --render-map, e.g. {\"SH01\":[0,24,47]}. Local 0-based frames only."},
                 "focus_map_path": {"type": "string", "description": "Absolute path to an adapter-local focus map JSON (rack-focus preview)."},
                 "look_cards_path": {"type": "string", "description": "Absolute path to an adapter-local look-card map JSON (approved look as a camera-facing card)."},
+                "facing_map_path": {"type": "string", "description": "Absolute path to an adapter-local facing map JSON: {shot_id: {subject_id: [x, y]}} world XY heading for the figure marker and diagram."},
+                "encode_mp4": {"type": "boolean", "description": "sequence mode only: assemble the stills into a silent animatic.mp4 with the ffmpeg already on PATH. Never installs anything."},
                 "executable": {"type": "string", "description": "Optional absolute path to the Blender binary."},
                 "timeout_s": {"type": "integer", "description": "Optional wall-clock limit in seconds (max 3600)."},
             },
@@ -165,7 +167,10 @@ def tool_blender_previs(args: dict) -> dict:
            "--engine", args.get("engine", "cycles")]
     if args.get("render_map"):
         cmd += ["--render-map", args["render_map"]]
-    for flag, key in (("--focus-map", "focus_map_path"), ("--look-cards", "look_cards_path")):
+    if args.get("encode_mp4"):
+        cmd.append("--encode-mp4")
+    for flag, key in (("--focus-map", "focus_map_path"), ("--look-cards", "look_cards_path"),
+                      ("--facing-map", "facing_map_path")):
         if args.get(key):
             path = Path(args[key]).expanduser()
             if not path.is_file():

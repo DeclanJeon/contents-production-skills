@@ -10,6 +10,15 @@
 
 ## Unreleased
 
+## 2.40 (2026-11-16)
+
+- Added a spec-derived top-down blocking diagram per shot (`<shot_id>/path-map.svg`: camera path, frustum bearings, subject travel, facing, 1 m scale) so blocking and camera movement can be read in one image; it is a diagram, not a render, and proves no occlusion, contact or lighting.
+- Added `--mode path-maps`, which writes those diagrams and a diagram-only manifest without Blender (`blender_version: null`; scope marks renders and occlusion unverified).
+- Widened proxy occlusion from two points per subject to nine silhouette samples (`high|mid|low` x `left|center|right`) taken along the actual camera right axis, plus a per-shot `occlusion` summary (visible fraction, first occluded frame/point/first hit). Point sampling still does not prove whole-silhouette, articulated or contact visibility.
+- Added a facing marker to the figure proxy: a cone at chest height driven by `--facing-map` (adapter-local world XY heading) or by the subject's own travel; a subject with no determinable heading stays `source: none` instead of receiving an invented direction.
+- Added `--encode-mp4` (sequence mode) to assemble the rendered stills into a silent `animatic.mp4` through hard-linked staging, recording ffmpeg version, command, frames, fps, expected and measured duration. It fails before rendering when ffmpeg is absent and never installs anything.
+- Exposed `--facing-map`, `--encode-mp4` and `path-maps` through the optional MCP surface and documented the new options in the skill, workflow notes, handoff template and usage guide.
+
 ## 2.39 (2026-11-15)
 
 - Add P8: image assets (character sheets, views, thumbnails) must be produced with an image-generation skill such as `codex-imagen`, not drawn as SVG or canvas primitives. Frame-level joint rendering stays code-driven, because generating every animation frame as an image would destroy timing, cost and consistency; the boundary is between creating an asset and animating a rig.
