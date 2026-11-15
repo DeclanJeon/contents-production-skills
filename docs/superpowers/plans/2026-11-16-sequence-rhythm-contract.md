@@ -20,7 +20,8 @@
 - 단조 구간: 연속 3컷 이상, 길이 차이 `--monotony-pct 10` 이내.
 - 종료 코드: `0` 정상, `2` 입력 오류(파싱 불가·fps 불일치·미지 shot_id), `3` 측정 불가(ffmpeg 없음/미디어 디코드 실패).
 - 금지 산출물: 에너지↔길이 순위 대조, `moving_static_ratio`, 합격 점수/임계값 판정. 보고서는 `aesthetics: not_judged`를 항상 포함한다.
-- 패키지 버전 `2.39 → 2.40`은 `python scripts/bump_version.py 2.40`(`--bump-skills` **없이**). 스킬 frontmatter는 `video-production-assets`·`storyboarding-video` 2개만 수동 minor 범프.
+- 패키지 버전 `2.40 → 2.41`은 `python scripts/bump_version.py 2.41`(`--bump-skills` **없이**). 스킬 frontmatter는 `video-production-assets`(1.26→1.27)·`storyboarding-video`(2.28→2.29) 2개만 수동 minor 범프.
+- 버전은 다른 세션이 선점했을 수 있다(이 계획 작성 중 실제로 2.39→2.40이 동시 커밋됨). 구현 직전 `git log --oneline -3`과 `manifest.json`을 확인하고, 충돌하면 다음 번호로 조정한다.
 - 문서 판정 어휘: `PASS`/`PASS_WITH_NOTES`/`NEEDS_REVISION`은 **재생 근거가 있을 때만**. 근거 없으면 `UNVERIFIED`.
 
 ## Review Focus
@@ -548,7 +549,7 @@ git commit -m "docs(rhythm): point skills at rhythm contract and measurement CLI
 
 ---
 
-### Task 8: 재현 노트, 검증 기록, 패키지 버전 2.40
+### Task 8: 재현 노트, 검증 기록, 패키지 버전 2.41
 
 **Files:**
 - Create: `docs/research/2026-11-16-prompt-corpus-tempo-analysis.md`
@@ -595,14 +596,14 @@ Expected: 1건 이상.
 - [ ] **Step 7: 버전 범프**
 
 ```bash
-python scripts/bump_version.py 2.40
+python scripts/bump_version.py 2.41
 ```
 
-그 다음 `video-production-assets/SKILL.md`와 `storyboarding-video/SKILL.md`의 frontmatter `version`만 각각 minor 수동 범프(`1.26 → 1.27`, `2.28 → 2.29` — 실제 값은 파일에서 확인).
+그 다음 `video-production-assets/SKILL.md`(`1.26 → 1.27`)와 `storyboarding-video/SKILL.md`(`2.28 → 2.29`)의 frontmatter `version`만 수동 범프한다(현재 값 확인 완료; 다른 세션이 먼저 올렸다면 그 다음 minor).
 
 - [ ] **Step 8: CHANGELOG 항목 확인**
 
-`## 2.40` 절에 다음 불릿이 모두 있는지 확인하고 없으면 추가: 리듬 곡선 스키마, 검증기 `--strict-rhythm`, `measure_cut_rhythm.py`, 핸들 도출 규칙, 참조 분포·3샷 반패턴, `moving_static_ratio`·에너지 순위 대조를 **넣지 않은 이유**.
+`## 2.41` 절에 다음 불릿이 모두 있는지 확인하고 없으면 추가: 리듬 곡선 스키마, 검증기 `--strict-rhythm`, `measure_cut_rhythm.py`, 핸들 도출 규칙, 참조 분포·3샷 반패턴, `moving_static_ratio`·에너지 순위 대조를 **넣지 않은 이유**.
 
 - [ ] **Step 9: 최종 검증**
 
@@ -619,7 +620,7 @@ Expected: 의도한 파일만 변경/추가됨.
 
 ```bash
 git add docs/research/2026-11-16-prompt-corpus-tempo-analysis.md qa/2026-11-16-sequence-rhythm-validation.json manifest.json CHANGELOG.md video-production-assets/SKILL.md storyboarding-video/SKILL.md
-git commit -m "chore(rhythm): bundle 2.40 with corpus note and validation record"
+git commit -m "chore(rhythm): bundle 2.41 with corpus note and validation record"
 ```
 
 ---

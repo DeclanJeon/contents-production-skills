@@ -300,7 +300,7 @@ python scripts/measure_cut_rhythm.py --project project.json \
 | `storyboarding-video/SKILL.md` | 리듬 곡선 포인터 1문장(기존 산출물 목록 자리) |
 | `silent-satire-animatic/references/03-beat-budget.md` | 2.0s·8.0s 하한/상한을 `09-edit`와 공유한다는 see-also 1줄 |
 | `docs/research/2026-11-16-prompt-corpus-tempo-analysis.md` | §8 코퍼스 수치의 재현 노트(사용한 파싱 코드·시트 목록·결과 표 포함, 기계 실행 없이 재현 가능) |
-| `manifest.json` / `CHANGELOG.md` | `2.39 → 2.40` (`bump_version.py 2.40`, `--bump-skills` **사용 안 함**) |
+| `manifest.json` / `CHANGELOG.md` | `2.40 → 2.41` (`bump_version.py 2.41`, `--bump-skills` **사용 안 함**). 착수 시점 `manifest.json`을 재확인한다(다른 세션이 번호를 선점할 수 있음) |
 | `video-production-assets/SKILL.md`·`storyboarding-video/SKILL.md` frontmatter | 해당 2개 스킬만 minor 수동 범프(`--bump-skills`는 23개 전체를 올리므로 쓰지 않는다) |
 | `qa/2026-11-16-sequence-rhythm-validation.json` | 검증 기록(테스트 결과·문서 링크 검사) |
 
@@ -312,7 +312,7 @@ python scripts/measure_cut_rhythm.py --project project.json \
 2. **검증기 신규 케이스:** ① rhythm 없음 → pass ② 정상 곡선 → pass ③ beat 미커버 → fail ④ shot 미커버 → fail ⑤ `energy` 0/6/비정수 → fail ⑥ `planned_duration_s` 합 불일치 → fail ⑦ `cut_out_phase: impact` + `exit_handle_frames: 0` → fail ⑧ `--strict-rhythm`인데 rhythm 없음 → fail. ⑨ `--strict-rhythm` 없이 잘못된 rhythm → 여전히 fail(있으면 항상 검사) ⑩ 한 비트가 두 샷에 걸치는 보드(계약이 허용) → pass.
 3. **측정 스크립트:** `--cuts` CSV로 합성 컷 목록 → `count/mean/stdev/monotony_runs` 정확히 계산. `--media` 없음 → `planned_only`. `ffmpeg` 부재(monkeypatch) → `status: unverified`, exit 3. 디코드 불가 미디어 → `reason: media_not_decodable`, exit 3. 잘못된 CSV → exit 2. `--fps`가 프로젝트 fps와 다름 → exit 2. 검출 경계 1개를 인위적으로 제거/추가하면 `status: partial` + `unmatched_*`가 채워지고 순번 대응으로 메워지지 않는다. `--cuts`에 `shot_id` 열이 있으면 그대로 채택된다.
 4. **문서 링크:** 신규 상대 링크 100% 유효(`§4.2` 소유 경계 표 기준), 기존 앵커 깨짐 0건.
-5. **경계 테스트:** `test_video_pack_boundary.py`·`test_production_policy_consistency.py`·`check_versions.py` 통과, `manifest.json` 2.40 및 SKILL 버전 정합.
+5. **경계 테스트:** `test_video_pack_boundary.py`·`test_production_policy_consistency.py`·`check_versions.py` 통과, `manifest.json` 릴리스 번호 및 SKILL 버전 정합.
 6. **컨텍스트 예산:** 곡선 표 1개(≤8행) + 대조 표 1개(≤8행)만 추가. 기존 대형 관리 표는 늘리지 않는다.
 7. **판정 어휘 분리:** 측정 스크립트 출력에는 판정·점수·임계값 판정이 없고 `aesthetics: not_judged`가 있다. 템플릿의 `판정` 칸은 재생 근거가 있을 때만 채우며, 증거 없는 기본값은 `UNVERIFIED`다. 문서 어디에도 "이 수치면 합격" 같은 임계값 문장이 없다.
 
