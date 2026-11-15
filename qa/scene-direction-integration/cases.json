@@ -1,0 +1,585 @@
+{
+  "suite_id": "scene-direction-integration-v1",
+  "cases": [
+    {
+      "id": "SD01",
+      "category": "relationship_dialogue_world_consumption",
+      "user_request": "아래의 새 허구 씬으로 8초짜리 제작용 스토리보드와 모델 중립 영상 요청문을 작성해 줘. 제공한 이야기·인물·대사·샷 순서는 잠긴 입력이며 재작성 권한은 없어. 화면·연기·소리와 필요한 자원을 실행자가 추측하지 않을 만큼 구체화하되, 지금은 실제 파일 없이 텍스트 preliminary만 검토한다. 채팅 답변으로 끝내고 이미지·음성·영상·프로젝트 파일은 만들지 마.",
+      "supplied_context": {
+        "source_status": "모든 자료는 이 테스트를 위해 새로 쓴 허구의 텍스트 발췌다. 실제 project.json/캐릭터 전체 시트/미디어/권리 기록은 없다.",
+        "story_source": "story v1 / SC01: 산지 신호소 정전. 예비등은 수동 레버를 누르는 동안만 켜진다. 레버에서 손을 떼면 꺼진다. 두 사람은 이 인과를 알고 있으며 지금도 등은 켜져 있다.",
+        "character_sources": [
+          "CH01 / character_sheet 발췌 v1: 숙련 기사. 고장 원인을 확인할 시간을 확보하려 한다. 위험 시 동료의 행동을 짧은 지시로 조절하지만 먼저 도망가지는 않는다. 동료가 알아들었는지 행동으로 확인한다.",
+          "CH02 / character_sheet 발췌 v1: 레버를 누르는 동료. 손을 놓고 대피하고 싶지만 CH01의 지시에 반응할 수 있다. 이 구간 내내 왼손이 레버에 닿아 누른다.",
+          "CH01 Voice Identity 제안 v1: 중간 음역, 건조하고 또렷한 자음, 짧게 닫는 문장 끝. 실제 voice_id/보이스 모델/오디오 테이크는 없다."
+        ],
+        "locked_screenplay": "screenplay v1 / SC01: CH02가 놓으려는 기색을 CH01이 보고 경고한다. SP01, CH01의 정확 원문은 '놓지 마.'. CH02는 말없이 지지를 다시 단단히 한다. 다른 발화·내레이터 없음.",
+        "timing": "global [0,8), 24fps, [start,end). SH01 [0,2): 두 사람·레버·예비등의 관계가 보이는 고정 와이드. SH02 [2,4): CH01 고정 MCU에서 경고. SH03 [4,8): 손 관계가 보이는 가까운 투샷, CH02의 다시 누르는 행동과 CH01의 확인 뒤 정착.",
+        "planning_windows": "SP01 global [2.25,3.0)는 설계상 추정 창이며 실측이 아니다. AU01 룸톤은 전 구간 연속. AU02 릴레이 클릭 global 0.5초도 계획값. SH03 레버 마찰/딸깍 AU03는 실제 재질/파일 미선정.",
+        "audio_and_light": "BGM·독립 합성 VFX는 쓰지 않는다. 예비등은 계속 켜져 있는 장면 광원이다. SH01 끝/SH02 화면 밖/SH03 모두 CH02 왼손 점유가 이어진다.",
+        "available_assets": "실제 캐릭터·장소·소품 이미지, voice ID, 오디오, 파일/hash, 생성 모델, 제어 지원 및 실행 승인은 없다."
+      },
+      "locks": [
+        "8초/24fps와 세 샷의 경계·순서 유지",
+        "SP01 정확 원문/화자 보존",
+        "CH02 왼손 접촉·점유/점등 유지",
+        "BGM/독립 VFX/새 발화 없음",
+        "텍스트 preliminary/chat-only"
+      ],
+      "required_observations": [
+        {
+          "id": "SD01-O1",
+          "rubric_id": "R01",
+          "expected": "원문·화자·왼손·세 샷/입력 버전을 일관되게 보존한다.",
+          "input_locator": "supplied_context.locked_screenplay; timing; story_source"
+        },
+        {
+          "id": "SD01-O2",
+          "rubric_id": "R02",
+          "expected": "정전/레버 법칙과 인물의 목표가 손을 놓으려는 기색→경고→재지지/확인·후속 제약으로 소비된다.",
+          "input_locator": "supplied_context.story_source; character_sources"
+        },
+        {
+          "id": "SD01-O3",
+          "rubric_id": "R03",
+          "expected": "샷별 첫/필수 중간/마지막과 다음 연결, SH02 local [0.25,1.0) 및 24fps 마지막 샘플을 구별한다.",
+          "input_locator": "supplied_context.timing; planning_windows"
+        },
+        {
+          "id": "SD01-O4",
+          "rubric_id": "R04",
+          "expected": "고정 보이스와 이번 경고/청자 반응·연속 룸톤, 필요한 자원과 미준비를 구별한다.",
+          "input_locator": "supplied_context.character_sources; audio_and_light; available_assets"
+        },
+        {
+          "id": "SD01-O5",
+          "rubric_id": "R05",
+          "expected": "실제 답변의 요청문에 SP01/화자·행동/반응/정착·소리/점유·카메라가 남고 해당 위치를 찾을 수 있다.",
+          "input_locator": "user_request; supplied_context"
+        },
+        {
+          "id": "SD01-O6",
+          "rubric_id": "R06",
+          "expected": "없는 파일/음성 실측/지원/공간·미디어 검증·사용자 수락을 주장하지 않는다.",
+          "input_locator": "supplied_context.source_status; available_assets"
+        }
+      ],
+      "forbidden_expansions": [
+        "허구 법칙·플롯·대사·손 바꾸기",
+        "새 director/전역 원장",
+        "실제 미디어/보이스/프로젝트 생성",
+        "preliminary를 FINAL/실행 준비 완료로 승격"
+      ],
+      "owner_paths": [
+        "creative-production/SKILL.md",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/02-story.md",
+        "video-production-assets/assets/02-story-template.md",
+        "video-production-assets/references/03-screenplay.md",
+        "video-production-assets/assets/03-screenplay-template.md",
+        "video-production-assets/references/04-performance.md",
+        "video-production-assets/assets/04-performance-template.md",
+        "designing-video-character-sheets/SKILL.md",
+        "designing-character-personas/references/expression-voice-bridge.md",
+        "storyboarding-video/SKILL.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/assets/06-shots-template.md",
+        "video-production-assets/references/11-ai-handoff.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD02",
+      "category": "silent_action_return_and_prop_transfer",
+      "user_request": "아래 6초 무언 동작을 한 샷의 텍스트 제작 명세로 구체화해 줘. 첫끝 상태만이 아니라 실행자가 이 한 샷에서 일어나는 일을 재현할 수 있어야 해. 대사·샷·카메라 움직임은 추가하지 마. 텍스트 preliminary만 작성하고 실제 파일/이미지는 생성하지 마.",
+      "supplied_context": {
+        "source_status": "새로 작성한 screenplay v1 / SC01, SH01의 부분 발췌. 실제 미디어나 캐릭터 전체 시트는 없다.",
+        "shot": "global [0,6), 24fps. 고정 원테이크 투샷. 두 인물의 손과 열쇠가 읽힌다. 컷/프레이밍 변경 없음.",
+        "start": "CH01 오른손이 하나의 열쇠를 보유한다. CH02 왼손은 비어 있다.",
+        "locked_action": "CH01이 오른손의 열쇠를 CH02 왼손에 완전히 넘긴다. CH02가 잠시 이를 보유/확인한 뒤 같은 샷 안에서 CH01 오른손에 완전히 돌려준다. CH02가 받음을 확인하고 CH01이 놓는 단계, CH01이 되받음을 확인하고 CH02가 놓는 단계가 필요하다.",
+        "end": "열쇠는 다시 CH01 오른손에 있다. CH02 왼손은 비어 있다.",
+        "audio": "말/내레이션/BGM 없음. 접촉 Foley는 필요한 경우 텍스트 제안만 가능하며 실제 파일·재질/측정치는 없다.",
+        "scope": "수치 3D 장면 설계/공간 검증은 요청하지 않는다. 전달 구간은 총 6초 안에서 제안하되 실측으로 쓰지 않는다."
+      },
+      "locks": [
+        "한 샷/6초/24fps/고정 투샷",
+        "양방향 완전 전달과 동일 첫끝",
+        "CH01 오른손·CH02 왼손",
+        "새 발화/BGM/미디어 생성 없음"
+      ],
+      "required_observations": [
+        {
+          "id": "SD02-O1",
+          "rubric_id": "R01",
+          "expected": "두 사람의 지정 손과 하나의 열쇠·완전 전달/반환·원테이크를 유지한다.",
+          "input_locator": "supplied_context.start; locked_action; end; shot"
+        },
+        {
+          "id": "SD02-O2",
+          "rubric_id": "R03",
+          "expected": "처음→전달 접촉/점유 전환→확인→반환/전환→정착을 구간과 소유/지지 상태로 읽을 수 있다.",
+          "input_locator": "supplied_context.locked_action"
+        },
+        {
+          "id": "SD02-O3",
+          "rubric_id": "R04",
+          "expected": "필수 중간 상태/패널 또는 동작 큐를 제시하고 아직 없는 실제 입력/검증과 구분한다.",
+          "input_locator": "supplied_context.source_status; scope"
+        },
+        {
+          "id": "SD02-O4",
+          "rubric_id": "R06",
+          "expected": "같은 첫끝을 hold로 잘못 처리하거나 추가 컷/가짜 접촉 검증·파일을 만들지 않는다.",
+          "input_locator": "user_request; supplied_context.end"
+        }
+      ],
+      "forbidden_expansions": [
+        "한 번의 전달/반환 누락",
+        "시작·끝 두 장만으로 중간 행동 통제 완료 주장",
+        "의미 없는 hold로 대체",
+        "수치 3D 검증/생성/추가 컷"
+      ],
+      "owner_paths": [
+        "storyboarding-video/SKILL.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/assets/06-shots-template.md",
+        "video-production-assets/references/14-production-ops.md",
+        "video-production-assets/assets/14-production-ops-template.md",
+        "video-production-assets/assets/state-transition-template.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R03",
+        "R04",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD03",
+      "category": "static_silent_one_take_positive_control",
+      "user_request": "이 의도적인 정지 장면을 고정된 형식 그대로 텍스트 샷 명세로 정리해 줘. 더 극적으로 만들기 위한 사건·발화·표정 변화·음악·카메라 움직임·새 컷은 원하지 않아. 필요한 연속성/완료 기준만 써 줘. 채팅으로 끝내고 파일은 만들지 마.",
+      "supplied_context": {
+        "source_status": "새 허구의 locked screenplay v1 / SC01 / SH01. 실제 이미지/영상은 없다.",
+        "timing": "global [0,6), 24fps, 고정 원테이크 투샷. 첫/끝의 구도·시선·자세·소유 관계가 같다.",
+        "intent": "CH01과 CH02는 닫힌 문 앞에서 상대의 결정을 기다린다. 이 6초에는 누구도 결정을 드러내지 않으며 새로운 정보가 공개되지 않는다. 기다림의 길이 자체가 목적이다.",
+        "state": "두 인물은 상대를 바라보는 시선과 같은 자세를 유지한다. 손에는 아무것도 없다. 문은 닫혀 있다. 계획상 조명 상태 변화 없음.",
+        "audio": "no_audio. 발화/숨/Foley/룸톤/BGM/SFX 모두 없는 완전 무음.",
+        "camera": "고정 프레임·초점 유지. 수치 렌즈/3D 배치는 요청하지 않는다.",
+        "handoff": "샷 끝에도 결정은 미공개이며, 뒤의 미작성 장면에 새 사건을 만들어 붙이지 않는다."
+      },
+      "locks": [
+        "6초/24fps/고정 원테이크/동일 첫끝",
+        "완전 no_audio",
+        "새 사건/결정/정보/표정 변화 없음",
+        "chat-only"
+      ],
+      "required_observations": [
+        {
+          "id": "SD03-O1",
+          "rubric_id": "R01",
+          "expected": "제공된 의도/같은 구도·상태·오디오 잠금을 보존한다.",
+          "input_locator": "supplied_context.intent; state; audio"
+        },
+        {
+          "id": "SD03-O2",
+          "rubric_id": "R03",
+          "expected": "6초 동안의 의도적 hold와 동일 첫끝·마지막 샘플/후속 미공개를 유효한 연출로 설명한다.",
+          "input_locator": "supplied_context.timing; handoff"
+        },
+        {
+          "id": "SD03-O3",
+          "rubric_id": "R04",
+          "expected": "발화/립싱크/음악/FX는 적용되지 않는 이유를 설명하고 부재를 결함으로 처리하지 않는다.",
+          "input_locator": "supplied_context.audio; state"
+        },
+        {
+          "id": "SD03-O4",
+          "rubric_id": "R06",
+          "expected": "정적/무음을 보완한다며 새 사건·카메라·소리·프로젝트/실행을 만들지 않는다.",
+          "input_locator": "user_request"
+        }
+      ],
+      "forbidden_expansions": [
+        "변화/정점/별도 반응 컷 강제",
+        "룸톤·숨을 무음에 몰래 추가",
+        "후속 장면/세계/캐릭터 전체 패키지 강제",
+        "정적이라는 이유의 제작 차단"
+      ],
+      "owner_paths": [
+        "storyboarding-video/SKILL.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/assets/06-shots-template.md",
+        "video-production-assets/references/12-qa.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R03",
+        "R04",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD04",
+      "category": "nonhuman_action_vfx_causal_residue",
+      "user_request": "아래 새 허구 생물의 보호막 장면을 두 샷의 텍스트 동작/VFX 설계로 구체화해 줘. 몸과 환경의 반응, 각 샷의 상태 연결이 필요하다. 수치적 3D 배치/물리 시뮬레이션이나 실제 이미지/영상/소리는 이번 요청이 아니야. 제공된 능력/대가/샷 순서를 유지해.",
+      "supplied_context": {
+        "source_status": "story v1 / SC01, character_sheet CH01 v1 부분 발췌. 기존 작품/캐릭터와 무관한 새 허구다. 실제 리그·모델·모션/FX 파일은 없다.",
+        "creature": "CH01은 네 발의 허구 생물이다. 네 발 지지/체중 이동을 필요로 하며 사람 손처럼 앞발로 도구를 잡지 않는다.",
+        "rule": "보호막은 양 앞발이 바닥을 지지하는 동안만 유지된다. 발동 뒤에는 왼쪽 앞발의 떨림이 남아 다음 샷에서도 보인다. 앞발을 들고도 보호막을 유지하는 예외는 없다.",
+        "shot1": "SH01 global [0,5), 24fps. 고정 측면 전신, 앞발과 바닥이 보임. 시작에는 막이 없고 CH01이 몸을 낮춰 지지한다. 보호막 발동 뒤 화면 왼쪽에서 날아오는 가상의 작은 얼음 파편이 global 2.5초에 닿는 계획이다. CH01 뒤 바닥/가까운 먼지가 보인다. 샷 끝 전 충격이 가라앉고 막이 소멸한다.",
+        "shot2": "SH02 global [5,8), 24fps. 고정 앞발/몸 하부 샷. 막은 이미 없고 왼쪽 앞발의 떨림/하중 조절이 보인다. 끝에도 이 비용이 사라지지 않는다.",
+        "audio": "대사/BGM 없음. 충격/바닥/비언어음은 필요 시 소리 계획으로 연결할 수 있으나 실제 파일/싱크 실측 없음.",
+        "delegation": "능력의 발동·진행/가림·충격·소멸·환경 반응의 표현을 위 규칙 안에서 제안할 수 있다. 새 능력/상대/샷은 만들지 않는다."
+      },
+      "locks": [
+        "양 앞발 지지 조건",
+        "왼쪽 앞발 떨림이 다음 샷 끝까지 잔류",
+        "SH01 [0,5)→SH02 [5,8), 24fps",
+        "새 능력/인간형 동작/실제 검증 없음"
+      ],
+      "required_observations": [
+        {
+          "id": "SD04-O1",
+          "rubric_id": "R01",
+          "expected": "두 샷/시간·지지 조건·왼쪽 앞발 잔류를 보존한다.",
+          "input_locator": "supplied_context.rule; shot1; shot2"
+        },
+        {
+          "id": "SD04-O2",
+          "rubric_id": "R02",
+          "expected": "지지→보호막→충격→비용/하중 조절의 인과가 행동에서 읽힌다.",
+          "input_locator": "supplied_context.creature; rule"
+        },
+        {
+          "id": "SD04-O3",
+          "rubric_id": "R03",
+          "expected": "준비/발동/접촉/충격/소멸/정착과 다음 샷 상속을 시간순으로 추적할 수 있다.",
+          "input_locator": "supplied_context.shot1; shot2"
+        },
+        {
+          "id": "SD04-O4",
+          "rubric_id": "R04",
+          "expected": "전신/지지와 경로·차폐·환경/배우 반응·빛/레이어·필요 자원/소리의 역할을 구체화한다.",
+          "input_locator": "supplied_context.shot1; delegation; source_status"
+        },
+        {
+          "id": "SD04-O5",
+          "rubric_id": "R06",
+          "expected": "외형 시트나 문장만으로 동적 물리/공간/FX 검증·생성 성공을 주장하지 않는다.",
+          "input_locator": "user_request; supplied_context.source_status"
+        }
+      ],
+      "forbidden_expansions": [
+        "발을 든 채 능력 유지",
+        "다음 샷에서 비용 초기화",
+        "외형=가동/물리 검증 취급",
+        "새 시뮬레이션/에셋/유료 생성"
+      ],
+      "owner_paths": [
+        "video-production-assets/references/08-animation.md",
+        "video-production-assets/references/21-generated-video-qa-retry.md",
+        "video-production-assets/references/26-state-causality-continuity.md",
+        "video-production-assets/assets/motion-beat-template.md",
+        "video-production-assets/assets/vfx-layer-stack-template.md",
+        "video-production-assets/assets/state-transition-template.md",
+        "video-production-assets/references/06-shots.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD05",
+      "category": "offscreen_speech_listener_reveal_stale_voice",
+      "user_request": "이 대본의 두 샷에 필요한 발화·청자 연기와 입력 준비 문제를 텍스트로 정리해 줘. 지금은 preliminary 설계이며 대사/공개 순서/촬영 형식 수정 권한은 없어. 지금 가능한 설계와 다음 실제 실행을 막는 입력을 구별하고, 미사용 미래 자원을 위해 전체 작업을 멈추거나 실제 보이스/이미지를 새로 만들지는 마.",
+      "supplied_context": {
+        "source_status": "허구의 부분 입력 기록이다. 아래 ID/버전은 테스트 자료의 참조이며 실제 등록 파일/미디어는 없다.",
+        "script": "screenplay v1 / SC01. SH01 global [0,4), CH01은 화면 밖 왼쪽에서 SP01 '뒤를 보지 마.'라고 경고. CH02는 이를 듣고 눈·눈썹의 압력과 시선의 정지로 반응하나 고개를 돌리지 않는다. CH03의 정체는 SH02 global [4,6)에서 처음 공개된다. 추가 대사는 없다.",
+        "visibility": "SH01은 CH02 눈/상안면 클로즈업. CH02의 입은 프레임 밖, CH01은 전부 화면 밖. SH02에서만 CH03의 얼굴 공개. CH02의 입을 보이게 하는 재프레이밍/정면 컷은 금지.",
+        "speech_window": "SP01 global [0.5,1.5)는 계획 추정. 남은 시간은 CH02가 경고를 처리하고 긴장을 억제하는 구간.",
+        "input_records": [
+          "CH01 character_sheet CS01 v1, voice_profile VP01 v1은 CS01 v1을 핀한다. 고정 음성 제안: 낮은 중간 음역·건조한 톤·명료한 자음. 실제 voice_id/테이크 없음.",
+          "CH02 character_sheet CS02 현재 v2: 겉으로 반응을 감추려는 성향, 경고에 잠깐 눈썹이 긴장하지만 몸을 돌리지 않음. 이전 v1과의 변경점은 이 반응 규칙이다.",
+          "CH02 voice_profile VP02 v1의 dependency_versions는 CS02:1. VP02는 CS02 v1을 읽은 과거 텍스트 프로필이며 아직 현재 v2로 갱신하지 않았다. CH02는 이번 두 샷에서 발화하지 않는다."
+        ],
+        "audio": "BGM 없음. 필요하면 룸톤을 텍스트 계획으로 둘 수 있지만 실제 오디오/권리/청취 기록 없음. CH01 화면 밖 발화가 있다는 이유로 내레이터를 추가하지 않는다.",
+        "frame_rate": 24
+      },
+      "locks": [
+        "SP01 원문/CH01 화면 밖 화자",
+        "SH01 입 비가시 CH02 반응·고개 회전 없음",
+        "CH03는 SH02에서만 공개",
+        "VP02의 stale 핀을 현재판으로 위조하지 않음",
+        "텍스트 preliminary와 실제 실행 준비 분리"
+      ],
+      "required_observations": [
+        {
+          "id": "SD05-O1",
+          "rubric_id": "R01",
+          "expected": "정확 화자/원문/가시성·두 샷/공개 순서와 실제 공급 버전을 보존한다.",
+          "input_locator": "supplied_context.script; visibility; input_records"
+        },
+        {
+          "id": "SD05-O2",
+          "rubric_id": "R02",
+          "expected": "CH02의 인지/억제·관계 전술이 관찰 가능한 반응으로 이어지고 새 사실/공개를 넣지 않는다.",
+          "input_locator": "supplied_context.script; input_records"
+        },
+        {
+          "id": "SD05-O3",
+          "rubric_id": "R03",
+          "expected": "발화/청자 반응의 계기·정점/정착과 미공개 끝 상태를 같은 shot 시간으로 읽을 수 있다.",
+          "input_locator": "supplied_context.speech_window; script"
+        },
+        {
+          "id": "SD05-O4",
+          "rubric_id": "R04",
+          "expected": "CH01의 음성 정체성과 이번 경고 연기, 두 인물의 비가시 입에 대한 립싱크 적용 경계, VP02 stale와 실제 입력 미준비를 구별한다.",
+          "input_locator": "supplied_context.visibility; input_records; audio"
+        },
+        {
+          "id": "SD05-O5",
+          "rubric_id": "R06",
+          "expected": "새 voice_id·정면 컷/CH03 조기 공개 없이 설계를 계속하고 이번 무발화 CH02의 프로필 갱신과 현재 배치 차단을 구별한다.",
+          "input_locator": "user_request; supplied_context.input_records"
+        }
+      ],
+      "forbidden_expansions": [
+        "청자에게 원문을 말하게 함",
+        "입을 보여주기 위한 컷 추가",
+        "CH03 조기 공개",
+        "stale 핀을 맞춘 척/실제 voice 선택",
+        "미사용 VP02만을 이유로 텍스트 preliminary 전체 거부"
+      ],
+      "owner_paths": [
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/04-performance.md",
+        "video-production-assets/references/22-dialogue-lipsync.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/assets/09-edit-template.md",
+        "video-production-assets/assets/performance-cue-template.md",
+        "designing-character-personas/references/expression-voice-bridge.md",
+        "video-production-assets/references/12-qa.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD06",
+      "category": "voice_timing_generation_grouping_reverse_mapping",
+      "user_request": "아래 잠긴 30초 콘티를 유지하면서 5/10/20/30초 길이로 묶는 네 가지 모델 중립 인계를 각각 작성해 줘. 각 작업에서 실제로 보낼 VISUAL/AUDIO 본문까지 필요해. 원문·내부 컷·반응·정착을 보존하고, 같은 설계를 다르게 묶는 것이지 전체를 줄이는 게 아니야. 모델/API/voice_id는 아직 미선정이므로 실제 생성·TTS·편집·파일 작성은 하지 마.",
+      "supplied_context": {
+        "source_status": "아래는 기존 저장소 문서의 가상 텍스트 예시를 공급 콘티로 동결한 것이다. 실제 이미지·음성·지원 모델/생성 결과가 아니다.",
+        "board_version": "timing-board v1 / S01. 24fps. 원문과 샷/패널·global 경계는 잠금. 모든 원문 발화는 계획 창이며 실측 아님. 앞뒤 핸들 0, 소스 채택은 각 작업의 전체 담당 구간.",
+        "board_excerpt": "## 4. 같은 30초 보드를 5/10/20/30초로 묶는 예시\n\n아래는 이미 교차 편집을 선택한 가상의 텍스트 설계 예시다. 실제 이미지·음성·지원 모델·생성 결과나 완결된 제작 패키지가 아니다. 모든 행은 같은 S01 안에 있고, P01→P02 등의 패널은 시작→반응 정점/끝을 나타낸다. 이 예제의 컷을 길이 변환 중 합치지 않는다. 2초 발화+3초 반응의 반복은 주소 변환을 설명하기 위한 배분이며 권장 리듬이나 발화별 컷 공식이 아니다. 다른 보드의 투샷·청자 유지·원테이크도 그 설계대로 변환한다.\n\n| global 초 | shot / panel | 기능과 화면 | 발화 또는 관측 가능한 전환 |\n|---|---|---|---|\n| 60–62 | SH01 / P01→P02 | A 발화 CU | D01 A: “문 열었어?” 문→B로 시선 |\n| 62–65 | SH02 / P03→P04 | B 무언 반응 CU | D01을 듣고 눈썹이 올라감→문을 봄→입을 다문 채 정착 |\n| 65–67 | SH03 / P05→P06 | B 발화 CU | D02 B: “난 열쇠가 없는데.” |\n| 67–70 | SH04 / P07→P08 | A 무언 반응 CU | D02를 듣고 웃음 멎음→B와 문을 번갈아 봄 |\n| 70–72 | SH05 / P09→P10 | A 발화 MCU | D03 A: “밖을 봐.” |\n| 72–75 | SH06 / P11→P12 | B 무언 반응 CU | D03 뒤 문밖을 확인→눈을 가늘게 뜸→정착 |\n| 75–77 | SH07 / P13→P14 | B 발화 MCU | D04 B: “아무도 없어.” |\n| 77–80 | SH08 / P15→P16 | A 무언 반응 CU | D04 뒤 어깨 긴장→한숨→정착 |\n| 80–82 | SH09 / P17→P18 | A 발화 CU | D05 A: “열쇠는?” |\n| 82–85 | SH10 / P19→P20 | B 무언 반응 CU | D05 뒤 A의 손을 봄→한쪽 눈썹을 올림 |\n| 85–87 | SH11 / P21→P22 | B 발화 CU | D06 B: “네 손에 있잖아.” |\n| 87–90 | SH12 / P23→P24 | A 무언 반응 CU | D06 뒤 자기 손을 봄→민망해 입을 다묾→정착 |",
+        "voice_identity": "A(CH01)는 중간 음역·건조하고 명료한 자음·짧게 닫는 문장 끝, B(CH02)는 밝은 중간 음역·약간 숨 섞인 톤·고른 문장 끝이라는 텍스트 음성 정체성만 공급한다. 모든 작업에서 같은 인물의 앵커를 유지한다. 실제 voice_id·테이크 없음.",
+        "audio": "말하지 않는 인물은 반응 중 침묵한다. 룸톤 연속, BGM 없음. 네이티브 오디오/별도 트랙 지원과 비용·실행은 미확인.",
+        "supported_lengths": "5/10/20/30초는 비교할 가상 묶음 선택지다. 실제 모델이 지원한다고 단정하지 않는다. 20초 선택은 20+10으로 나눌 수 있다는 텍스트 가정이며 30초를 20초로 압축하지 않는다."
+      },
+      "locks": [
+        "S01, SH01–SH12/P01–P24, global [60,90), 24fps",
+        "D01–D06 정확 원문·화자·반응·정착",
+        "네 가지 묶음 모두 동일 사건/순서·보이스 정체성",
+        "핸들 0, 모델/voice 미선정, 룸톤/무BGM",
+        "실행/가짜 API/이중 TTS 없음"
+      ],
+      "required_observations": [
+        {
+          "id": "SD06-O1",
+          "rubric_id": "R01",
+          "expected": "각 묶음의 실제 최종 본문에 12개 원본 행과 D01–D06 원문/화자가 모두 보존된다.",
+          "input_locator": "supplied_context.board_excerpt"
+        },
+        {
+          "id": "SD06-O2",
+          "rubric_id": "R03",
+          "expected": "5초 6작업, 10초 3작업, 20+10초 2작업, 30초 1작업의 담당/로컬 경계가 맞고 SH10 shot-local [0,3), 30초 local [22,25), 다른 마지막 작업 local [2,5)를 구별한다.",
+          "input_locator": "supplied_context.board_excerpt; board_version; supported_lengths"
+        },
+        {
+          "id": "SD06-O3",
+          "rubric_id": "R04",
+          "expected": "같은 A/B 음성 앵커와 대사별 연기·숨/반응·정착/룸톤을 보존하고 실제 음성/지원은 미선정으로 남긴다.",
+          "input_locator": "supplied_context.voice_identity; audio"
+        },
+        {
+          "id": "SD06-O4",
+          "rubric_id": "R05",
+          "expected": "헤더/요약표뿐 아니라 각 작업의 실제 VISUAL/AUDIO 문장에서 모든 내부 컷·상태/반응을 역대조할 수 있다.",
+          "input_locator": "user_request; supplied_context.board_excerpt"
+        },
+        {
+          "id": "SD06-O5",
+          "rubric_id": "R06",
+          "expected": "예시 길이를 실제 모델 지원/API로 단정하거나 압축·반응 삭제/대사 반복/추가 TTS·생성을 하지 않는다.",
+          "input_locator": "supplied_context.supported_lengths; audio; user_request"
+        }
+      ],
+      "forbidden_expansions": [
+        "긴 작업을 줄거리 한 문장/첫끝으로 대체",
+        "마지막 대사/반응 삭제 또는 비례 압축",
+        "고정 음성 앵커 드리프트",
+        "미지원 API/실제 voice ID·모델/생성 성공 발명"
+      ],
+      "owner_paths": [
+        "creative-production/references/storyboard-timing-to-prompt.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/references/11-ai-handoff.md",
+        "video-production-assets/assets/11-ai-handoff-template.md",
+        "video-production-assets/references/22-dialogue-lipsync.md",
+        "ai-camera-control/SKILL.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD07",
+      "category": "sound_music_effects_design_without_media",
+      "user_request": "아래 8초 추격 씬의 BGM·SFX/Foley·환경음 계획만 작성해 줘. 장르 이름만이 아니라 편집자가 어떻게 놓을지 알 수 있어야 해. 대사창과 공개 시점은 고정이고 실제 음원/보이스/영상은 없어. 실제 TTS/음악 생성·파일 조립·측정은 하지 마.",
+      "supplied_context": {
+        "source_status": "새 허구의 edit design v1 / SC01, 실제 미디어/음원/권리/측정 자료 없음.",
+        "scene": "젖은 돌바닥의 좁은 통로에서 CH01이 뛰다가 모서리에 멈춘다. 멀리서 다른 발걸음이 따라온다. 관객 청점은 CH01 주변에 유지한다.",
+        "timeline": "global [0,8), 24fps. [0,2) CH01 발걸음/숨과 뒤의 먼 발걸음. [2,4) CH01 SP01 '여기서 기다려.'라고 짧게 말하며 듣는 CH02 쪽으로 시선을 줌. [4,5) 멈춰 모서리 너머를 기다림. global 5초에 철문이 열리며 길이 드러남. [5,8) 두 사람이 새 길 쪽으로 이동, 끝에 다음 장면용 잔향/정착.",
+        "locks": "SP01 문구/화자, 계획 발화창 [2,4), 5초 공개는 바꾸지 않는다. 화면 컷/줄거리/내레이터 추가 권한 없음.",
+        "delegation": "BGM의 진입·유보·변화/종료, 효과의 선택/청점·거리·꼬리와 음성 우선순위를 텍스트 제안해도 된다. 화면 사건 시간은 설계값이지 음원에서 실측한 값이 아니다.",
+        "available_audio": "BPM·다운비트·파형·음량/게인 실측·실제 cue 파일·선정 곡/라이선스·청취 기록 없음."
+      },
+      "locks": [
+        "8초/24fps/발화 [2,4)/공개5초",
+        "SP01 정확 원문/화자",
+        "소리만 설계, 실제 미디어/측정 없음",
+        "청점 CH01 주변"
+      ],
+      "required_observations": [
+        {
+          "id": "SD07-O1",
+          "rubric_id": "R01",
+          "expected": "대사·발화창·공개/8초 구간을 소리에 맞추려고 바꾸지 않는다.",
+          "input_locator": "supplied_context.timeline; locks"
+        },
+        {
+          "id": "SD07-O2",
+          "rubric_id": "R03",
+          "expected": "진입/유보/공개 변화·종료/꼬리와 효과/말의 sync가 같은 global 구간에서 읽힌다.",
+          "input_locator": "supplied_context.timeline"
+        },
+        {
+          "id": "SD07-O3",
+          "rubric_id": "R04",
+          "expected": "BGM의 기능/밀도·음성 우선, Foley/재질·원인·추격 거리/청점·잔향을 구체적으로 제안하고 실제 자원/권리 미준비를 분리한다.",
+          "input_locator": "supplied_context.scene; delegation; available_audio"
+        },
+        {
+          "id": "SD07-O4",
+          "rubric_id": "R06",
+          "expected": "없는 실제 BPM/박/게인·파일/권리/청취/생성 성공을 주장하지 않는다. 제안값은 측정치와 구별한다.",
+          "input_locator": "supplied_context.source_status; available_audio"
+        }
+      ],
+      "forbidden_expansions": [
+        "장르 이름만 채우고 실제 기능/구간 생략",
+        "미관측 음원/측정/권리·청취 성공 주장",
+        "대사/공개 이동 또는 새 컷/줄거리",
+        "TTS/음악 생성·믹싱 실행"
+      ],
+      "owner_paths": [
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/assets/09-edit-template.md",
+        "video-production-assets/assets/sound-cues.csv",
+        "video-production-assets/references/22-dialogue-lipsync.md",
+        "video-production-assets/references/12-qa.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R03",
+        "R04",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD08",
+      "category": "nonnarrative_qa_only_scope_and_evidence",
+      "user_request": "아래 설명 보드를 검수만 해 줘. 원문을 직접 고치거나 새 제작 패키지를 만들지 말고, 문제 위치·영향·최소 수정 요구와 아직 검사 못 한 것을 알려 줘. 등장인물/허구 세계/내레이션/음악은 없는 no_audio 자료야. 새 프로젝트·파일·이미지·외부 도구 실행은 하지 마.",
+      "supplied_context": {
+        "source_status": "이 메시지의 텍스트만 제공한다. JSON 원본, 이미지/영상, 실제 validator 로그/파일은 없다. 아래 통과 주장은 사용자 제공 메모일 뿐 직접 검사한 사실이 아니다.",
+        "purpose": "투명 컵의 세 상태(비어 있음→절반 물→가득 참)를 순서대로 설명하는 6초 보드다. 제품명·용량·효능/수치 사실은 제공하지 않았다.",
+        "board": "board v1 / SC01. SH01 [0,2) 비어 있는 컵: camera='적절하게', panel_description='적절하게', start='적절하게', end='적절하게'. SH02 [2,4) 절반 물: 같은 네 칸 모두 '적절하게'. SH03 [4,6) 가득 참: 같은 네 칸 모두 '적절하게'.",
+        "audio": "no_audio. 인물/발화·보이스·BGM·SFX/룸톤 없음.",
+        "qa_note": "사용자 메모: 'validator를 통과했으니 이 보드는 제작 완료다.'",
+        "locks": "QA-only, 원문 수정/새 자산/새 사실 추가 금지. actual schema/도구 실행/이미지 열람은 이번 범위 아님."
+      },
+      "locks": [
+        "설명용 세 상태·순서/6초",
+        "인물/허구/오디오 없음",
+        "QA-only/원문 보존",
+        "validator 통과는 공급 주장, 직접 확인 아님"
+      ],
+      "required_observations": [
+        {
+          "id": "SD08-O1",
+          "rubric_id": "R01",
+          "expected": "공급된 세 상태·원문/순서를 보존하며 새 용량/효능·캐릭터·대사를 만들지 않는다.",
+          "input_locator": "supplied_context.purpose; board; audio"
+        },
+        {
+          "id": "SD08-O2",
+          "rubric_id": "R04",
+          "expected": "SH01–SH03의 generic 칸을 위치/영향/최소 수정 요구로 반환하고 텍스트 설계 부족과 실제 입력·실물 검수 미확인을 구별한다.",
+          "input_locator": "supplied_context.board; source_status"
+        },
+        {
+          "id": "SD08-O3",
+          "rubric_id": "R06",
+          "expected": "공급된 validator 주장을 직접 수행/확인한 것으로 쓰지 않고 구조 통과와 내용/결과/사용자 수락을 구분하며 QA-only로 종료한다.",
+          "input_locator": "supplied_context.qa_note; source_status; locks; user_request"
+        }
+      ],
+      "forbidden_expansions": [
+        "새 정본 보드/대본/이미지/프로젝트 작성",
+        "세계관/캐릭터/보이스 강제",
+        "구조PASS를 제작/실제 검수 완료로 승격",
+        "원본 JSON/이미지/도구를 봤다고 주장"
+      ],
+      "owner_paths": [
+        "creative-production/SKILL.md",
+        "creative-production/references/production-routing.md",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/12-qa.md",
+        "video-production-assets/assets/12-qa-template.md",
+        "video-production-assets/references/preproduction-review.md",
+        "video-production-assets/references/contract.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R04",
+        "R06"
+      ]
+    }
+  ]
+}

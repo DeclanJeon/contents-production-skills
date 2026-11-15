@@ -1,0 +1,14 @@
+{
+  "case_id": null,
+  "condition": null,
+  "source_snapshot": null,
+  "input_sha256": null,
+  "output_locator": null,
+  "output_sha256": null,
+  "execution_status": "NOT_RUN",
+  "criteria": [],
+  "verdict": "UNREVIEWED",
+  "limitations": [
+    "미실행 검토 카드다. 실제 출력과 근거 없이 PASS로 바꾸지 않는다."
+  ]
+}

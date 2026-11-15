@@ -1,0 +1,2061 @@
+{
+  "kind": "read_only_scene_direction_upgrade_audit",
+  "created_utc": "2026-11-14T15:02:40.729406+00:00",
+  "inventory_snapshot_utc": "2026-11-14T14:53:41.900253+00:00",
+  "source_roots": [
+    "/home/declan/Documents/웹툰/호랑이형님/images/3부",
+    "/home/declan/Documents/웹툰/호랑이형님/images/미분류"
+  ],
+  "discovered_jpg_count": 10261,
+  "discovered_episode_count": 58,
+  "visually_reviewed_unique_fragment_count": 113,
+  "scope_note": "113 distinct fragments reviewed through six overview montages and six ordered-sequence montages; 4 originals additionally opened. Not whole-episode/all-archive review. No audio or measured timing.",
+  "inventory_summaries": [
+    {
+      "directory": "3부/125화 대분화 [1662026]",
+      "count": 132
+    },
+    {
+      "directory": "3부/126화 폐천(閉天) [1662028]",
+      "count": 113
+    },
+    {
+      "directory": "3부/127화 원치 않은 등극 [1665165]",
+      "count": 116
+    },
+    {
+      "directory": "3부/128화 제 그림자에 베이다 [1668816]",
+      "count": 129
+    },
+    {
+      "directory": "3부/129화 사명구천(捨命救天) [1668825]",
+      "count": 147
+    },
+    {
+      "directory": "3부/130화 새로운 주인 [1670571]",
+      "count": 151
+    },
+    {
+      "directory": "3부/131화 청구여주(女主)와 옥즙 [1672545]",
+      "count": 99
+    },
+    {
+      "directory": "3부/132화 아루와 미리 [1674797]",
+      "count": 119
+    },
+    {
+      "directory": "3부/133화 구월산 도루바리 [1677670]",
+      "count": 96
+    },
+    {
+      "directory": "3부/134화 아루 대 도루바리 [1680370]",
+      "count": 125
+    },
+    {
+      "directory": "3부/135화 이사 [1682402]",
+      "count": 96
+    },
+    {
+      "directory": "3부/87화 [1534571]",
+      "count": 126
+    },
+    {
+      "directory": "미분류/0071 - 71화 산군을 키운 범2 [851269]",
+      "count": 40
+    },
+    {
+      "directory": "미분류/0073 - 73화 착호갑사를 뚫고 [851275]",
+      "count": 42
+    },
+    {
+      "directory": "미분류/0334 - 호랑이 형님 호랑이형님 2부 251화 (2부 최종화) [977265]",
+      "count": 240
+    },
+    {
+      "directory": "미분류/0415 - 3부 79화 [1526257]",
+      "count": 270
+    },
+    {
+      "directory": "미분류/0416 - 3부 80화 [1526258]",
+      "count": 251
+    },
+    {
+      "directory": "미분류/0417 - 3부 81화 [1526297]",
+      "count": 185
+    },
+    {
+      "directory": "미분류/0419 - 3부 83화 [1528150]",
+      "count": 281
+    },
+    {
+      "directory": "미분류/0420 - 3부 84화 [1529770]",
+      "count": 85
+    },
+    {
+      "directory": "미분류/0422 - 3부 86화 [1533232]",
+      "count": 112
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 100화 [1557331]",
+      "count": 334
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 101화 [1557330]",
+      "count": 273
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 102화 [1557332]",
+      "count": 274
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 103화 [1560685]",
+      "count": 329
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 104화 [1563584]",
+      "count": 149
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 105화 [1563585]",
+      "count": 131
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 108화 [1573854]",
+      "count": 280
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 109화 [1573856]",
+      "count": 282
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 110화 [1573857]",
+      "count": 298
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 111화 [1573859]",
+      "count": 266
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 112화 [1573911]",
+      "count": 315
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 88화 [1539333]",
+      "count": 222
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 89화 [1539334]",
+      "count": 190
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 90화 [1539335]",
+      "count": 210
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 91화 [1544489]",
+      "count": 61
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 92화 [1544144]",
+      "count": 201
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 93화 [1544145]",
+      "count": 262
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 94화 [1548341]",
+      "count": 206
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 95화 [1548343]",
+      "count": 201
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 96화 [1548344]",
+      "count": 224
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 97화 [1549996]",
+      "count": 218
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 98화 [1553392]",
+      "count": 284
+    },
+    {
+      "directory": "미분류/호랑이 형님 3부 99화 [1553394]",
+      "count": 294
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부106화 부탕도화(赴湯蹈火) [1571909]",
+      "count": 128
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부107화 모든 죽음들의 신앙 [1571910]",
+      "count": 106
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]",
+      "count": 146
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부114화 압카 대 아린2 [1582079]",
+      "count": 120
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부115화 압카 대 아린3 [1583269]",
+      "count": 153
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부116화 압카 대 아린4 [1584487]",
+      "count": 127
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부117화 압카 대 아린5 [1585840]",
+      "count": 118
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부118화 압카 대 아린6 [1587010]",
+      "count": 101
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]",
+      "count": 134
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부120화 압카 대 아린8 [1589390]",
+      "count": 131
+    },
+    {
+      "directory": "미분류/호랑이 형님 호랑이형님 - 3부121화 압카 대 아린9 [1590610]",
+      "count": 130
+    },
+    {
+      "directory": "미분류/호랑이형님 123화 [1654656]",
+      "count": 114
+    },
+    {
+      "directory": "미분류/호랑이형님 124화 [1657427]",
+      "count": 159
+    },
+    {
+      "directory": "미분류/호랑이형님 3부 122화 [1651060]",
+      "count": 135
+    }
+  ],
+  "selection": [
+    {
+      "key": "A",
+      "directory": "/home/declan/Documents/웹툰/호랑이형님/images/3부/125화 대분화 [1662026]",
+      "overview_files": [
+        "001.jpg",
+        "013.jpg",
+        "025.jpg",
+        "037.jpg",
+        "049.jpg",
+        "061.jpg",
+        "072.jpg",
+        "084.jpg",
+        "096.jpg",
+        "108.jpg",
+        "120.jpg",
+        "132.jpg"
+      ],
+      "sequence_files": [
+        "084.jpg",
+        "085.jpg",
+        "086.jpg",
+        "087.jpg",
+        "088.jpg",
+        "089.jpg",
+        "090.jpg",
+        "091.jpg"
+      ]
+    },
+    {
+      "key": "B",
+      "directory": "/home/declan/Documents/웹툰/호랑이형님/images/3부/132화 아루와 미리 [1674797]",
+      "overview_files": [
+        "001.jpg",
+        "012.jpg",
+        "022.jpg",
+        "033.jpg",
+        "044.jpg",
+        "055.jpg",
+        "065.jpg",
+        "076.jpg",
+        "087.jpg",
+        "098.jpg",
+        "108.jpg",
+        "119.jpg"
+      ],
+      "sequence_files": [
+        "072.jpg",
+        "073.jpg",
+        "074.jpg",
+        "075.jpg",
+        "076.jpg",
+        "077.jpg",
+        "078.jpg",
+        "079.jpg"
+      ]
+    },
+    {
+      "key": "C",
+      "directory": "/home/declan/Documents/웹툰/호랑이형님/images/3부/134화 아루 대 도루바리 [1680370]",
+      "overview_files": [
+        "001.jpg",
+        "012.jpg",
+        "024.jpg",
+        "035.jpg",
+        "046.jpg",
+        "057.jpg",
+        "069.jpg",
+        "080.jpg",
+        "091.jpg",
+        "102.jpg",
+        "114.jpg",
+        "125.jpg"
+      ],
+      "sequence_files": [
+        "045.jpg",
+        "046.jpg",
+        "047.jpg",
+        "048.jpg",
+        "049.jpg",
+        "050.jpg",
+        "051.jpg",
+        "052.jpg"
+      ]
+    },
+    {
+      "key": "D",
+      "directory": "/home/declan/Documents/웹툰/호랑이형님/images/미분류/0071 - 71화 산군을 키운 범2 [851269]",
+      "overview_files": [
+        "001.jpg",
+        "005.jpg",
+        "008.jpg",
+        "012.jpg",
+        "015.jpg",
+        "019.jpg",
+        "022.jpg",
+        "026.jpg",
+        "029.jpg",
+        "033.jpg",
+        "036.jpg",
+        "040.jpg"
+      ],
+      "sequence_files": [
+        "025.jpg",
+        "026.jpg",
+        "027.jpg",
+        "028.jpg",
+        "029.jpg",
+        "030.jpg",
+        "031.jpg",
+        "032.jpg"
+      ]
+    },
+    {
+      "key": "E",
+      "directory": "/home/declan/Documents/웹툰/호랑이형님/images/미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]",
+      "overview_files": [
+        "001.jpg",
+        "014.jpg",
+        "027.jpg",
+        "041.jpg",
+        "054.jpg",
+        "067.jpg",
+        "080.jpg",
+        "093.jpg",
+        "106.jpg",
+        "120.jpg",
+        "133.jpg",
+        "146.jpg"
+      ],
+      "sequence_files": [
+        "100.jpg",
+        "101.jpg",
+        "102.jpg",
+        "103.jpg",
+        "104.jpg",
+        "105.jpg",
+        "106.jpg",
+        "107.jpg"
+      ]
+    },
+    {
+      "key": "F",
+      "directory": "/home/declan/Documents/웹툰/호랑이형님/images/미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]",
+      "overview_files": [
+        "001.jpg",
+        "013.jpg",
+        "025.jpg",
+        "037.jpg",
+        "049.jpg",
+        "061.jpg",
+        "074.jpg",
+        "086.jpg",
+        "098.jpg",
+        "110.jpg",
+        "122.jpg",
+        "134.jpg"
+      ],
+      "sequence_files": [
+        "080.jpg",
+        "081.jpg",
+        "082.jpg",
+        "083.jpg",
+        "084.jpg",
+        "085.jpg",
+        "086.jpg",
+        "087.jpg"
+      ]
+    }
+  ],
+  "reviewed_images": [
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/001.jpg",
+      "sha256_at_capture": "3054fc52bbb53f5efad94e8b8517965bc2ec5fd9df8d04730c0eb4d13eb359e0",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/013.jpg",
+      "sha256_at_capture": "362862d0f36c2501529e1de20a217b238120dec950ab2e253ac2d4ea025e5dec",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/025.jpg",
+      "sha256_at_capture": "cbb905829aaf5a05cc15d8f824dff227f5fed95c6861d0ddbd8fbf9038c6ef07",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/037.jpg",
+      "sha256_at_capture": "d671895103b66fc40cd88b413bb1b7de6c59e0253c8eb692e01b410ac79d290f",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/049.jpg",
+      "sha256_at_capture": "d404a0b679cfacb88aefec13536be0dc449b67397f82853114c4885cd754bcf4",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/061.jpg",
+      "sha256_at_capture": "c3211f42f98c555cee03022b21d99763b3ad2c6eb7e089076a8bee2f511a62d7",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/072.jpg",
+      "sha256_at_capture": "ad43d0dce6daa70040001d621578c017323f8743e1fdc803af339cabad8bca4b",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/084.jpg",
+      "sha256_at_capture": "c19159734d87dc54e29bd79905b16dbbee63fdb165f854bb53d2cfde72dfb3ec",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview",
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/085.jpg",
+      "sha256_at_capture": "125c549f6910e55915b600c46026399268e86ea6e721a42cfafe9f257d5d58ad",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/086.jpg",
+      "sha256_at_capture": "d7f6511af693e8ddf06de31a559f74b2196e5fcb6e64b8e91f2186e9b50ce338",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/087.jpg",
+      "sha256_at_capture": "c3253f4f8c2ad9d0058bb7b244f10b7bcd74c4b1526408af6004a4cfb1e19958",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/088.jpg",
+      "sha256_at_capture": "bb1676231e463fddea4ab755dd36f22fa98621dbb4aa9c85dcc2cc47de98632d",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/089.jpg",
+      "sha256_at_capture": "9d814b876cde8f322f89bda191b7d5cf345533b68d601333c339ffd7207fe33a",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/090.jpg",
+      "sha256_at_capture": "997c01bc61abcb971cdccf1ea9621fcbda4eee82499c1c8972ee194859fbe356",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/091.jpg",
+      "sha256_at_capture": "ee4859f8efa6d78cd2b36eff2b198d327e080d16b1c8d86989cdf5d95618d9da",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/096.jpg",
+      "sha256_at_capture": "8324151445b9f029a04133a9b00328cd348feea4ab67af204db61a8ecde11b87",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/108.jpg",
+      "sha256_at_capture": "1e33b85cc3f0a321a15119b016a254b038e29d3763ae58520fd363e1b882575e",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/120.jpg",
+      "sha256_at_capture": "2682cd2075cc604fd53afa2cfdd85736803246493f36848f5e46efac594c9fe5",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "A",
+      "path_relative_to_image_root": "3부/125화 대분화 [1662026]/132.jpg",
+      "sha256_at_capture": "76f5af27a7d85d27bae791f3d3be6ea699b894e36575687c48ad621cb78299d5",
+      "pixel_size": [
+        690,
+        38
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/001.jpg",
+      "sha256_at_capture": "00001b72d44f15c804af6be72fbfdbd3e38384cdeae923ab42f6127b7c1f91ee",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/012.jpg",
+      "sha256_at_capture": "62f5ca7469970bb05962605631ce5fd1f0f369bfb63a345db57e670a0ff9b4c8",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/022.jpg",
+      "sha256_at_capture": "0560fa4e2e6b83376f60f50e927b3cbd347ef22ff9a21b38c07517c9f90e6608",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/033.jpg",
+      "sha256_at_capture": "65dbe2cd1a86424be541cad9edd069eb5691c416953d5109d767a3cdeb333c68",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/044.jpg",
+      "sha256_at_capture": "be48c95c523152bf587767f52666586c9e0148749a305d69f987ed6b5b14580e",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/055.jpg",
+      "sha256_at_capture": "fda7d6e84b9dfc28ae5b44876e4d2edd19fd2160e6b6a2d4730c9e0eeb6c4e10",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/065.jpg",
+      "sha256_at_capture": "cd3d10b584698a275be0279a0a86ceb0ac8aa0d2794e8ef8cace34668914c68d",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/072.jpg",
+      "sha256_at_capture": "9b4693fbc3b436ca770a2236868c82e7f8dca71b678258dc9a0e87a95fc957cb",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/073.jpg",
+      "sha256_at_capture": "897ba33af7d47b529e69e9e541d8d7b1443c4ef1a82011e9e141812fdc689cde",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/074.jpg",
+      "sha256_at_capture": "384a67bdee14a467fe7049f9311e73f70a852b5ca4fe99d08be68e8702055573",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/075.jpg",
+      "sha256_at_capture": "faf55ff5fab1aa19b4a79704c27faac2dbfaa298a695da4d69447269ce075943",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/076.jpg",
+      "sha256_at_capture": "bff16cecf665663c81f1e2eed73c96f1b09db1438a918edd648f1227c1c4bfab",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview",
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/077.jpg",
+      "sha256_at_capture": "5b508857173d2a56c17868c3197d3d1d78b8de6ca641861811a56f1aed7e9d7a",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": true
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/078.jpg",
+      "sha256_at_capture": "528d9da0ab1ab2564183001548aa0ce18fa721c24ce186dc1e1e0d999b05ff59",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/079.jpg",
+      "sha256_at_capture": "1a1de811c2a7d4d8511c62f60530d1d5bc6d12a52cd218feda4c4987660c98e5",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/087.jpg",
+      "sha256_at_capture": "c5793f20c1942745d4337f2de51fe42bbf2b06cff03718c91996edc4aac39d0e",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/098.jpg",
+      "sha256_at_capture": "c78fca90b469eb368b15471825cb94daa650c17a263f15ceb96a58da74c9a81f",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/108.jpg",
+      "sha256_at_capture": "a2f321828fc88b69d6e983f71574a4d9a552efde2fe521ecf1f02dcfcfca30da",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "B",
+      "path_relative_to_image_root": "3부/132화 아루와 미리 [1674797]/119.jpg",
+      "sha256_at_capture": "4477caa81cf12e0fa2b162f96f9d671244d83b405ea42d8d627e0dd3c6beccf2",
+      "pixel_size": [
+        690,
+        159
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/001.jpg",
+      "sha256_at_capture": "529ef5a81f810bd0023e12f8b7f793c287ba232724627ffd6805a509ab6e8b01",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/012.jpg",
+      "sha256_at_capture": "2eb989e1e4bd130ca48e79941c293c9ce9cee5b0f15ea7c1bd1412dfe074e5d1",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/024.jpg",
+      "sha256_at_capture": "474cffb15fceafcaea4e84fa373768f3e7acf17925feec583a2442739eb8c2f9",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/035.jpg",
+      "sha256_at_capture": "d6758f801f849e1d09665d394323058601e1d596bcc57896409ceff30bd26105",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/045.jpg",
+      "sha256_at_capture": "256ccd1e1e98c91d4fa272dd9cabe43ecfa2664fb7091ca9f1eac828729f22b8",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/046.jpg",
+      "sha256_at_capture": "2a457ae0995925d64bbdbc4ab14ab2ff0329c6d96cf2d38c9aba48adc4451ec9",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview",
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/047.jpg",
+      "sha256_at_capture": "419cba723035957ef30d5c3353d22d57099928e8321c49df929d5ec92da3bb10",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/048.jpg",
+      "sha256_at_capture": "e6354d273084ac657730fee65fb8833e462fe0e336d31bf23e67a4c17334792c",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/049.jpg",
+      "sha256_at_capture": "b347ff51628264d1c532e2b03be8d6349283a4b711029e9222bf700fec1ff789",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/050.jpg",
+      "sha256_at_capture": "78744507e079895e2084b9c586eddf133fe4129f3d4f2fdbe280e7e6ba7fea04",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/051.jpg",
+      "sha256_at_capture": "f73df49d743955219cf2e9beeed3950d84850b17c1bc1507a4dafb516e0fc08b",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/052.jpg",
+      "sha256_at_capture": "e1d90a745d04f595453bf94af6e10c386e0b6f82610abc02fd3e10ac5ea9a37c",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/057.jpg",
+      "sha256_at_capture": "6a493b422f27193ef6812a70db0a2e1e33bae2dab4a21f8e46a37f60372b862a",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/069.jpg",
+      "sha256_at_capture": "8a5ecc46d421aa40fac406936d7346d5145d9a33a467cc6e321e0fc43acfd6f2",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/080.jpg",
+      "sha256_at_capture": "011439821300336666f5a09e01df0a3daafd8cc5dcf2b8697413b135d450f511",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/091.jpg",
+      "sha256_at_capture": "545c73db9b629b1a3fd3018a37dcbeaf85705398663069473a088c84822724d3",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/102.jpg",
+      "sha256_at_capture": "e4b73678b40442402516820f40476b092bca774618d3fd22738e4096b20b69a1",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/114.jpg",
+      "sha256_at_capture": "d2f79c7763e0790d698a984bfb24fd16e6e95c5b032486b238b8fdbab9bb7c11",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "C",
+      "path_relative_to_image_root": "3부/134화 아루 대 도루바리 [1680370]/125.jpg",
+      "sha256_at_capture": "8d233c6834b13037c43a0edfc54c27067be99b2e4611707641168a803120862b",
+      "pixel_size": [
+        690,
+        314
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/001.jpg",
+      "sha256_at_capture": "4ed58287cd1f74e8fe8c012107dec511c3257f480fab52b8a15874bb450c997c",
+      "pixel_size": [
+        690,
+        2192
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/005.jpg",
+      "sha256_at_capture": "d8c4130295040f229e0b645dcb890e1617c38e75de36352e87e8483895027205",
+      "pixel_size": [
+        690,
+        120
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/008.jpg",
+      "sha256_at_capture": "5d586fe59ac76f0e15b8c72c2b44850637a7ea26e053ca6433ff223c491bcb2e",
+      "pixel_size": [
+        690,
+        1328
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/012.jpg",
+      "sha256_at_capture": "75729977311d45393a033f07f0f235d1ea908f9164f882d4ead24fa4b98a4e14",
+      "pixel_size": [
+        690,
+        1208
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/015.jpg",
+      "sha256_at_capture": "80fbb3446f0abc93dd99996e32ae1f4099f5e0e966aef54a194335daada17766",
+      "pixel_size": [
+        690,
+        2428
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/019.jpg",
+      "sha256_at_capture": "0d60067d2bddb192ff525cce46c39b329b8e3dd76e7735aac93978918e26d51a",
+      "pixel_size": [
+        690,
+        1642
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/022.jpg",
+      "sha256_at_capture": "a6155aafb418a371549d94905e5377ee7d7eec48b9ce52c9bd238d95c8e61995",
+      "pixel_size": [
+        690,
+        2159
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/025.jpg",
+      "sha256_at_capture": "c42d5d1633b6803c32cf6762d2d58d45e8569e683abf4e5a0b24c52278a78c6f",
+      "pixel_size": [
+        690,
+        1080
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/026.jpg",
+      "sha256_at_capture": "00dd65cf7c83fd8db78890f53687084ed56f3e60be96bce8395ed16319e0969a",
+      "pixel_size": [
+        690,
+        1068
+      ],
+      "viewed_as": [
+        "overview",
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/027.jpg",
+      "sha256_at_capture": "6d8c15ed45342bb9f50b60bc75fcd664eec2c69a14b91ec0e7e08567928c4e0c",
+      "pixel_size": [
+        690,
+        2088
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/028.jpg",
+      "sha256_at_capture": "d493101c6d0c86ba21631722a32b58cc19b378d28984f78a0b9c8e119bb602fb",
+      "pixel_size": [
+        690,
+        2344
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/029.jpg",
+      "sha256_at_capture": "10835efce1d0b25341587fb355546e44262d26b7226386ced21c847aec8aedda",
+      "pixel_size": [
+        690,
+        1857
+      ],
+      "viewed_as": [
+        "overview",
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/030.jpg",
+      "sha256_at_capture": "333427e81233b69aa02a92edecdc68ac43a1c759dd1468c5e50da5a154f503f4",
+      "pixel_size": [
+        690,
+        149
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/031.jpg",
+      "sha256_at_capture": "0b3d4e0e5e60c3c8d5f2d19c8a82bc109384742f1a23c107411b81253f7a12a7",
+      "pixel_size": [
+        690,
+        2000
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": true
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/032.jpg",
+      "sha256_at_capture": "6acc4ec4f7b12316f36bcbd1bb0129930c123712ba5bce79a813c0a0f9c2747c",
+      "pixel_size": [
+        690,
+        1240
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/033.jpg",
+      "sha256_at_capture": "b88569456fc361869fe4e3c5bcf80f2005c5cc074600366961a09d0930e86e49",
+      "pixel_size": [
+        690,
+        936
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/036.jpg",
+      "sha256_at_capture": "c4d26c472a518ef2eb4c668526f025f322aa4c8a772106136201973efd45a25f",
+      "pixel_size": [
+        690,
+        1088
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "D",
+      "path_relative_to_image_root": "미분류/0071 - 71화 산군을 키운 범2 [851269]/040.jpg",
+      "sha256_at_capture": "e84bf473b53b1b408372b7b747a60f3fd805e08fc3e119aefba41aa16adb8985",
+      "pixel_size": [
+        690,
+        1872
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/001.jpg",
+      "sha256_at_capture": "07f15d75d820f7c824589a90091c3ac20cec7d3743fcc01a04da0ac004bf16ed",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/014.jpg",
+      "sha256_at_capture": "806ed68256894a08036b3452455f94cd17c20ede97a82683c5651d44c50175df",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/027.jpg",
+      "sha256_at_capture": "11a913ffcc52f6f9859b5462958a289a35ac741021ddd3559b9cc65b3e6f7b24",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/041.jpg",
+      "sha256_at_capture": "9fcfc5d2efc2b7189ddd3c718b702a023838108da9669fcd5781f5989c1e1a3e",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/054.jpg",
+      "sha256_at_capture": "d67c60fa8b82e9f8924dec54ba6011416e0f52f9af94c91a4cebe1a5985a861d",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/067.jpg",
+      "sha256_at_capture": "ad05a2cd24cdaebc27e744d2b5b76e9e42365ffceaf0b4deab6bb8c86a5a74bb",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/080.jpg",
+      "sha256_at_capture": "6f444dacccefad9c3c0b45d822f9488212c1a52f730b325c04c41e07208e5b07",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/093.jpg",
+      "sha256_at_capture": "41a58b4ff9ce5acfd00012307eaffced4b5592379ecc5012bbe627f8495e4952",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/100.jpg",
+      "sha256_at_capture": "2e13dc9cfdd21d410c1f27f6c79fc8318373665d980e72321c53f2ff8d2a8f69",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/101.jpg",
+      "sha256_at_capture": "1a63e18160f07b3709800ef74a7a732a7c56913606434778169a45374ae1a6ab",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": true
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/102.jpg",
+      "sha256_at_capture": "ef218281fce407d278fce645aa15baa643ff7ff66050d0eb33e668d2f5b2ec27",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/103.jpg",
+      "sha256_at_capture": "c6b43c72862c7f6f604da5c6a9f5a126057b751b356cc519c7a3e38fe36d47a0",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/104.jpg",
+      "sha256_at_capture": "8aa5047250aa84b12375863347a5c047850dceb120593d121ab47ed82bbe851d",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/105.jpg",
+      "sha256_at_capture": "559ad2781a68b4a47b27007e80eaa77b8bd972a6ab46ddf42dbd18f629ae362a",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/106.jpg",
+      "sha256_at_capture": "0c2a4943cb73e364e5fd5026f48f526b2eb9e417247648727a078cc3879db9ce",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview",
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/107.jpg",
+      "sha256_at_capture": "32b89777e140b176b27b612ef453dc91b4733ba36b359e8c489284e4580138d8",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/120.jpg",
+      "sha256_at_capture": "fdef6ee797bb2c94b67727d42c83feed199aa0fd959963e92996193d68ff5db6",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/133.jpg",
+      "sha256_at_capture": "5a95a59289bc30941d309559f01d466b6c1a1551f43a83826b32876b9471ed94",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "E",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부113화 압카 대 아린1 [1580877]/146.jpg",
+      "sha256_at_capture": "a03cde22c3f48d01dd9030fae374bab97311be9bf2214f34b8b4131a77bde3cf",
+      "pixel_size": [
+        690,
+        1091
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/001.jpg",
+      "sha256_at_capture": "2b936c35e3070be3a3777b39ca0c5bed86dfec545856f37fda571f4df2f2f7d7",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/013.jpg",
+      "sha256_at_capture": "51779495e39608c25ce3224665ae9ebdef06b096fd7d7875a8644a5332a77bc0",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/025.jpg",
+      "sha256_at_capture": "1ef6b0e47694622caeaf9ca9fa12e9e46c74203f1710c8756aa79d102883180c",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/037.jpg",
+      "sha256_at_capture": "9d0eadb8e417343849b2a7f90e758df18ebd282a7d3a88bb73e80462757fead1",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/049.jpg",
+      "sha256_at_capture": "2b7b38654b7a74f5df79f12be603ba676f8772893e7386e036d8c1077d36b3a1",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/061.jpg",
+      "sha256_at_capture": "fda04c256ad452ee5c6b81b21a2f280d2f7d51d86504ac74d0a2bc439fe9409e",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/074.jpg",
+      "sha256_at_capture": "a4bb450147772e70c64a879b0a4efdc99a62f65664906ea2b7b98d29e272e549",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/080.jpg",
+      "sha256_at_capture": "7c0ec2b20bf6eacc695622a73a7bf7b91ddd44722f26ff643581f3b2a7fea705",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/081.jpg",
+      "sha256_at_capture": "3e35ef075097a88885548527b8c65391ae94d0e31869a3746d89130437a1bf71",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/082.jpg",
+      "sha256_at_capture": "be522c28a0fb2e9b4f4004298f53341066f6dc939f94156196907237c04f0b7d",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/083.jpg",
+      "sha256_at_capture": "e2563b53b39a015542497f7a324af611e28cb9461df77a26a25424e592026585",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/084.jpg",
+      "sha256_at_capture": "3c4c830df6671155b3716a322310bbf13557a9e20dd927a2f5d30b02e4b7d96c",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/085.jpg",
+      "sha256_at_capture": "a9b785b3a79ad0fe4f7cb5afe196e76e58c1736e44a1a2b1cb8c740c36cb4eb7",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": true
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/086.jpg",
+      "sha256_at_capture": "5716ee241ecc34164cd4e8fe8a4bf16916fa96cc0f734c0b07c8d7d44be7306e",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview",
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/087.jpg",
+      "sha256_at_capture": "d30c6bd12d9a5841e680e76ff79b70c629d34e7b70dbb86af9e2d5ab97a9ff68",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "ordered_sequence"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/098.jpg",
+      "sha256_at_capture": "32a8a0777064c2a1e2fc901558d1fe1b8635e022455c166e77408b3a31c8242e",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/110.jpg",
+      "sha256_at_capture": "e158dcd2b82ef5c0efd9293ac65265d160eb11490b2ca24be2672c7778b01c93",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/122.jpg",
+      "sha256_at_capture": "b9eacdd16dcacc544fc637a210e1eab79d82f60b63ff38a5d7abfb5df4f8ada1",
+      "pixel_size": [
+        690,
+        1600
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    },
+    {
+      "audit_sample_label": "F",
+      "path_relative_to_image_root": "미분류/호랑이 형님 호랑이형님 - 3부119화 압카 대 아린7 [1588187]/134.jpg",
+      "sha256_at_capture": "a9526df308ff82aa0f109036cb021e32aa16a09a6ba64343cee64ed8700201a3",
+      "pixel_size": [
+        690,
+        1279
+      ],
+      "viewed_as": [
+        "overview"
+      ],
+      "additional_original_size_read": false
+    }
+  ],
+  "working_tree_head_at_metadata_capture": "3f12cf2e11c05da17fea872bb367488cd512e5dd",
+  "working_tree_note": "Concurrent unrelated dirty changes exist; hashes are captured after inspection, not a claim that the entire inspected working tree equals HEAD.",
+  "inspected_repo_file_hashes_at_capture": [
+    {
+      "path": "storyboarding-video/SKILL.md",
+      "sha256": "9bacdf3cb8ce53d60dd5ce8985aafa9952bcb1315c91c5fa6d257ce1d6542a59"
+    },
+    {
+      "path": "designing-video-character-sheets/SKILL.md",
+      "sha256": "85b7c3c343e1002407e90c754a30f867906f88024c9668541a3516d44e154115"
+    },
+    {
+      "path": "designing-character-personas/SKILL.md",
+      "sha256": "fead5083b108cf36e32cb3a90fc2ea242f20ce1742b6e0e5dd1fe26fcccd6cca"
+    },
+    {
+      "path": "camera-spatial-design/SKILL.md",
+      "sha256": "6a6030d79de896489c9ddd7f75aead9efeeb60f09ac32e7091211006c6796861"
+    },
+    {
+      "path": "ai-camera-control/SKILL.md",
+      "sha256": "d0cdc90a5263ed9746fb8191c960d749514b0c8b52ef132c2271273680a064bb"
+    },
+    {
+      "path": "creative-production/references/storyboard-timing-to-prompt.md",
+      "sha256": "dd9264b2c42581a4aae6d465792e7a1e929a51d5b88f5b156e47b3f505aa9d18"
+    },
+    {
+      "path": "video-production-assets/references/02-story.md",
+      "sha256": "0daad1d517c659f49005ac0fb472a12b500f7f57a5ae291426cb93d544725179"
+    },
+    {
+      "path": "video-production-assets/references/03-screenplay.md",
+      "sha256": "d1e69eb74c82ea24a33ba67ebcdb408471ba0462ac9e6c430b28b8eb1a58a596"
+    },
+    {
+      "path": "video-production-assets/references/04-performance.md",
+      "sha256": "41c0a8a94ccc4ef0f953ee65cae11cecbe654fd0fbe633a0c5b008a7a858ba4c"
+    },
+    {
+      "path": "video-production-assets/references/06-shots.md",
+      "sha256": "c207398cc07c1f2be6d3e35c4a3dfbcdcc7ed692cb3f3d7659c35b400f1e7551"
+    },
+    {
+      "path": "video-production-assets/references/09-edit.md",
+      "sha256": "342de53e2b99ecadd2df06539eec1bd05711050d74309699d4c3ee44145f82d2"
+    },
+    {
+      "path": "video-production-assets/references/11-ai-handoff.md",
+      "sha256": "9748736af1eedd3f7537f327e0744e1a09e1cc362953a084f489512f288eedaf"
+    },
+    {
+      "path": "video-production-assets/references/22-dialogue-lipsync.md",
+      "sha256": "3c4e1ab37df26dca4fc0a04d1e9244c123b5628b0bef246919d300f935506b15"
+    },
+    {
+      "path": "video-production-assets/references/storyboard-contract.md",
+      "sha256": "d8c5306d242b089ae763a63e11d545a13f6ee2547da3fade4a71cff49a2487cc"
+    },
+    {
+      "path": "video-production-assets/references/preproduction-review.md",
+      "sha256": "9b74e8d9ac2a483cd5974317078c55a4ce1fe2c8a5fc6beac18bb74caf989973"
+    },
+    {
+      "path": "video-production-assets/references/25-reference-video-analysis.md",
+      "sha256": "18fc220a2b35105cf1751ea31b97d56547b73f5888f6ae1bfdadaf9c9e771925"
+    },
+    {
+      "path": "video-production-assets/assets/style-world-bible-template.md",
+      "sha256": "e02468f56d31b1107a77cee4d27e2d935bad7bb25ad68c06c9d25964caff8bf8"
+    },
+    {
+      "path": "video-production-assets/assets/character-ssot-template.md",
+      "sha256": "19816abeac412ecab7fe5718f7d79370e660c4fa02dafca3d12d39c3459c9323"
+    },
+    {
+      "path": "video-production-assets/assets/02-story-template.md",
+      "sha256": "72183c82114f11806378be7911c672032aaa487903fbb1bd5fb2f4fbcc9f14d2"
+    },
+    {
+      "path": "video-production-assets/assets/03-screenplay-template.md",
+      "sha256": "7f5c68e7c44f6072afadcece04e1f1be2b7aeec9335010ba2647c7b29a3b1ad6"
+    },
+    {
+      "path": "video-production-assets/assets/06-shots-template.md",
+      "sha256": "fcf06cb515025e4c1f5484b6e8f49a6d38fecf447c36dd44f1cd1566c1c9ba7c"
+    },
+    {
+      "path": "video-production-assets/assets/09-edit-template.md",
+      "sha256": "9ef2623a2c8e31e4565065d94cd3673bf07e2b6b5a2ee5f2b7b666c62f8e8b41"
+    },
+    {
+      "path": "video-production-assets/assets/11-ai-handoff-template.md",
+      "sha256": "d4dccd9f5c8843e8504fd2af74e1b1feb0d1da0c4477bba9445072c9ed749d24"
+    },
+    {
+      "path": "video-production-assets/assets/performance-cue-template.md",
+      "sha256": "86d601e136e3867312616af215e43da0186dd85e53a3c0e390661194db1605c2"
+    },
+    {
+      "path": "video-production-assets/assets/motion-beat-template.md",
+      "sha256": "0077f78361a8518085e79e4eded920885ae4484ded7b8672f8d5bfbe639d917f"
+    },
+    {
+      "path": "video-production-assets/assets/vfx-layer-stack-template.md",
+      "sha256": "9bf5f91b71985dbcb1be9a6eaf692577d0bf79c711ca017e12585816643d5daf"
+    },
+    {
+      "path": "video-production-assets/assets/shot-list.csv",
+      "sha256": "443a4c4c3fc03bee2295a669ba782e2df6360206c3349488325df84faede6737"
+    },
+    {
+      "path": "video-production-assets/assets/sound-cues.csv",
+      "sha256": "a4674da7f6ac61289693cbddc6ea05ca64df22bf3e80270398eaf269c39da722"
+    },
+    {
+      "path": "video-production-assets/assets/asset-registry.csv",
+      "sha256": "bcab663b57704f655257fcfc8ec409ad46b92d17b8996847f48453f6d8a5fcce"
+    },
+    {
+      "path": "video-production-assets/scripts/validate_storyboard.py",
+      "sha256": "bb9a2b421296a933c2631f30482bc68dcd9425fa154b2be77d86cd22a8740e08"
+    },
+    {
+      "path": "video-production-assets/scripts/validate_preproduction.py",
+      "sha256": "c6ddc8b3aeba10f7bd1f86b9e78ab26919a38dbce4ee7efa4e8477b4b75e0eb8"
+    },
+    {
+      "path": "video-production-assets/scripts/validate_project.py",
+      "sha256": "046ebf6676c0fd07d209eb009bbcf4bd9cf4703487a8e020dcd2d0249aedbad5"
+    },
+    {
+      "path": "video-production-assets/scripts/test_validate_storyboard.py",
+      "sha256": "6f173755b49840a3d60ae15027028a4e777fa7b9b9226205b2ecd7bb42ec75f7"
+    }
+  ],
+  "in_memory_structural_probe": {
+    "fixture": "video-production-assets/scripts/test_validate_storyboard.py::board",
+    "validator": "validate_storyboard.validate_storyboard",
+    "results": [
+      {
+        "case": "baseline_fixture",
+        "errors": []
+      },
+      {
+        "case": "generic_but_nonempty_descriptions",
+        "errors": []
+      },
+      {
+        "case": "vfx_without_layer_or_cue_design",
+        "errors": []
+      }
+    ],
+    "limitation": "Synthetic fixture probe only; not actual content output, agent-behavior test, media QA or evidence that every workflow accepts these strings."
+  },
+  "not_performed": [
+    "skill_modification",
+    "source_image_modification",
+    "source_upload",
+    "media_generation",
+    "audio_listening",
+    "web_research",
+    "exhaustive_archive_analysis",
+    "model_behavior_comparison",
+    "independent_review"
+  ]
+}

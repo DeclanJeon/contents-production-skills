@@ -31,6 +31,50 @@ deferred_execution_slots: {승인 후 결정할 샷 슬롯 ID 또는 없음}
 
 제품-세계 형태 대응은 `공개 정보`, `관점·감정/구도 의도`, `카메라 동작`, `종료 프레임`에 실제 화면 anchor·크기·방향·가림·질감과 각 공개 시점을 적는다. inset/main-secondary 설계는 같은 기존 shot 행의 `공개 정보`와 `관점·감정/구도 의도`에 주/보조 시선·공개 순서를, 별도 shot이면 해당 shot IDs와 cue를 적고 09의 기존 cut/time 행에 연결한다. 한 shot의 시작/정점/끝에서 변화가 필요하면 아래 cue 표를 사용한다.
 
+### 컷별 통합 제작 명세 (전체 제작용 보드)
+
+[통합 조회·상태 역대조 계약](../references/storyboard-contract.md#shot-expanded-view)을 따른다. 기존 요약표 다음에 각 샷의 블록을 채운다. 별도의 기술 슬롯/자원 요약을 중복 추가하는 대신 해당 내용을 아래 구획에 모은다. 기존 이동 cue·패널/편집 표는 같은 ID·시간으로 연결한다.
+
+**공통 입력 본문 — 해당 샷 패킷에 함께 포함**
+- 적용 shot IDs / 원문·오너 version·heading/locator: {실제 입력; 미배정 artifact ID는 미배정}
+- 실제 공통 내용: {적용되는 세계/정보·인물/룩·고정 음성/말투·공간의 필요한 발췌; 이 내용을 아래 지정 샷 확대 보기의 일부로 포함}
+- 실제 자원·검사 상태: {제안과 실제 입력/지원/권리·검사 범위 구별; 채팅-only는 파일/등록 추가 없음}
+
+#### {기존 shot_id} — 확대 보기
+
+| 구획 | 이 샷의 실제 내용·출처/구간 |
+|---|---|
+| 입력과 목적 | {scene/shot/beat/panel·구간, 원문·버전/locator, 적용 규칙·지식/목표→선택/결과; 포함할 공통 입력 위치} |
+| 첫 프레임 | {가시/비가시 대상·손/점유·받침/수용 대상과 면/구획·자세/시선·구도/광원·공개/유보; 실제 이미지 또는 미생성 목표} |
+| 내부 사건 | {같은 shot-local의 필요한 첫→중간→정점/정착; 변화/보존, cue/편집 행; hold는 유지 구간} |
+| 마지막 프레임과 연결 | {마지막 샘플 시각/프레임·점유/손·위치·잔류·다음 시작/의도적 생략} |
+| 화면/카메라/공간 | {요약표와 같은 크기/앵글·POV/축·블로킹, 고정/이동 이유와 타이밍·가림, 수치/공간 검증의 적용/미검증} |
+| 발화/연기 | {정확 원문·화자/종류/대상/구간, 실제 고정 음성·말투 또는 포함된 공통 본문, 이번 전술/강세/쉼·숨·속도/압력·청자 반응·립싱크 사유; 무발화 N/A} |
+| 사운드 | {cue별 실제 기능/소리·원인/청점·구간/동기/꼬리·믹스·파일/권리/청취 또는 미준비; no_audio의 제외 범위} |
+| VFX/조명 | {사용 이유·발동/단계/가림·배우/환경 반응·레이어/광원/잔류 또는 미사용 사유} |
+| 필요한 자원 | {이번 샷의 기능·뷰/상태·마스터/파생·소품/음원 등, 실제 ID/version 또는 미배정·준비/권리·담당·해당 배치 미해결} |
+| 프롬프트/검수 | {첫/끝/필요 중간 이미지 목표, 요청된 실제 VISUAL/AUDIO의 문장·구간/입력 위치·지원 등급, 관측할 실패/수락 기준·검사 범위·blocker} |
+
+**이 샷 상태 대조:** {원문/첫·중간·끝 ↔ 패널별 독립 이미지 문장 ↔ 실제 요청문의 같은 대상/시간·손/점유·받침/수용 위치·공개/잔류; 충돌 문장 쌍은 FIX, 실제 미디어 부재는 미검증}
+
+#### 비정본 작성 예 — 신호소의 SH02 (설명용, 실제 자료 아님)
+
+새로 만든 텍스트 예다. ID/시간·인물/음성은 제안이며 실제 프로젝트·파일/보이스·검증/승인이 없다. 다른 장면에 이 설정을 복사하지 않는다.
+공통 입력 예: 각본 예 v1 문단2·CH01 음성 예 v1. 레버를 누르는 동안만 예비등 점등; CH02 왼손 점유 유지. CH01의 고정 음성은 중간 음역·건조한 음색·명료 자음·짧게 닫는 말끝. 이 본문을 SH02 패킷에 포함한다.
+
+| 구획 | 예시 내용 |
+|---|---|
+| 입력과 목적 | S01/SH02/SP01, global[2,4), 24fps; 동료가 레버를 놓지 않게 함. 위 각본/음성 예를 소비 |
+| 첫 프레임 | CH01 MCU·입 닫힘/레버 쪽 시선. 화면 밖 CH02의 왼손은 레버 누름, 예비등 켜짐 |
+| 내부 사건 | local0–0.25 눈을 동료 쪽으로 이동/짧은 들숨 → 0.25–1 경고 → 1–2 입 닫고 기다림 |
+| 마지막 프레임과 연결 | global95/24초, 동료 쪽 시선·닫힌 입/점등 유지. 다음 SH03에서 왼손 재지지를 받음 |
+| 화면/카메라/공간 | 고정 MCU, 눈과 억제된 압력 가독성. 수치 3D 설계/검증은 미실행 |
+| 발화/연기 | CH01만 “놓지 마.”, 고정 음성은 포함한 공통 본문. 손 유지를 요구, “놓지” 강세·중간 쉼 없음·단호한 압력; 보이는 입 립싱크 계획, 실제 음성 없음 |
+| 사운드 | 이 샷 전체 룸톤 연속, 음악/새 화자 없음. 실제 파일/권리·청취 미확인 |
+| VFX/조명 | 독립 VFX 미사용. 예비등은 장면 광원 상태로 유지 |
+| 필요한 자원 | CH01 외형/의상·신호소 MCU 배경·레버 연속성·실제 보이스/룸톤 필요. ID·파일은 미배정/미생성 |
+| 프롬프트/검수 | 첫: 닫힌 입/레버 시선, 끝: 동료 시선/닫힌 입. 실제 요청 VISUAL에 위 세 구간, AUDIO에 정확 경고/고정 음성·연기를 포함해 역대조. 지원·립싱크·미디어 검수는 미확인 |
+
 ### Consequential moving-shot cue timeline (DESIGN_PROPOSAL example)
 
 For every consequential walking/stop or camera-moving shot, return these cue rows populated as part of the shot plan. Use shot-local times within the owning shot's duration; actor and camera phases share that basis. Include applicable actor/camera onset, deceleration, stop and settle sub-intervals. In `Actor phase / contact / visibility`, state the visible foot-contact cue/window or mark it `hidden/out-of-frame` or `unverified`. In `Reveal / hold`, give reaction onset and a distinct hold start–end when used. For an action cut, pair out/in phases and their shot-local cue times here and in the existing 09 edit slot, keeping each cue within its owning final range. In the existing AI-handoff tool-support slot, write `UNKNOWN` until the actual endpoint control is checked; until then, camera direction remains a DESIGN_PROPOSAL. These are proposed values, not observations or universal gait timings.

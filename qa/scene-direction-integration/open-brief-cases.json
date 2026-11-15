@@ -1,0 +1,553 @@
+{
+  "suite_id": "scene-direction-open-brief-v1",
+  "epoch": "E2",
+  "prior_suite_preserved": "scene-direction-integration-v1",
+  "cases": [
+    {
+      "id": "SD09",
+      "category": "open_brief_human_choice",
+      "user_request": "이 한 줄 아이디어를 24초짜리 짧은 영화 장면의 텍스트 제작안으로 만들어 줘. 구체적인 규칙·인물·관계·사건과 대사는 네가 창작해. 감성적인 소개문만이 아니라 촬영/생성 담당자가 장면을 이어 만들 수 있는 안과 실제로 쓸 모델 중립 요청문이 필요해.",
+      "supplied_context": {
+        "source_status": "새 오리지널 허구의 아이디어만 제공한다. 기존 작품·대본·바이블·캐릭터 시트·실제 미디어는 없다. 세부 창작은 위임한다.",
+        "delivery": "이 답변에서 텍스트 preliminary를 완성한다. 장면에 필요한 세계/인물 설정 발췌, 대본, 제작용 보드와 모델 중립 영상 요청문까지 제공한다. 캐릭터 전체 원장/장편 백과사전을 작성할 필요는 없다.",
+        "authority": "추가 질문 없이 합리적인 창작안을 정해 제안으로 명시한다. 채팅 답변만 작성하며 이미지·음성·영상·프로젝트/기타 파일·등록·외부 조회·유료 실행은 하지 않는다. 수치 3D 장면 설계/물리 검증은 요청하지 않는다.",
+        "reality": "새로 창작한 설정/대사/디자인과 실제 파일·보이스·지원 제어·권리/검수·승인을 구별한다. 실제 모델/voice_id/참조 자산은 미선정/미생성이며 발화 시간은 계획값이다.",
+        "idea": "야간 분실물 보관소에서 늘 규칙만 지키던 사람이 낯선 사람을 위해 처음으로 규칙을 어긴다.",
+        "format": "24초, 24fps, 핵심 인물 2명 이하. 현실적인 드라마이며 초능력·설명 내레이션은 쓰지 않는다. 샷 수·대사·소품·소리는 위임한다."
+      },
+      "locks": [
+        "24초, 24fps, 핵심 인물 2명 이하. 현실적인 드라마이며 초능력·설명 내레이션은 쓰지 않는다. 샷 수·대사·소품·소리는 위임한다.",
+        "오리지널 허구/위임된 텍스트 preliminary",
+        "실제 미디어/등록/파일/외부 실행 없음"
+      ],
+      "required_observations": [
+        {
+          "id": "SD09-O1",
+          "rubric_id": "R01",
+          "expected": "24초/24fps·인물 수·현실 드라마/무내레이션 잠금을 지키며, 스스로 만든 설정/대사·소품의 이름·사실을 대본/보드/요청문 사이에서 바꾸지 않는다.",
+          "input_locator": "user_request; supplied_context.idea; format"
+        },
+        {
+          "id": "SD09-O2",
+          "rubric_id": "R02",
+          "expected": "구체적인 규칙과 이를 어기는 이유·인물별 얻으려는 것/장애·선택의 비용/관계 결과가 창작되어 실제 장면의 행동으로 연결된다. 규칙·관계의 설명만 하고 사건에서 쓰지 않는 것은 미충족이다.",
+          "input_locator": "supplied_context.idea; delivery; authority"
+        },
+        {
+          "id": "SD09-O3",
+          "rubric_id": "R03",
+          "expected": "실제 대본의 원인→인지/선택→행동→결과가 24초의 샷·내부 구간/첫중간끝과 경계 상태로 읽힌다. 단순 감정 요약·서로 모순되는 점유/행동 순서는 미충족이다.",
+          "input_locator": "supplied_context.format; delivery"
+        },
+        {
+          "id": "SD09-O4",
+          "rubric_id": "R04",
+          "expected": "필요한 인물/장소/소품 기능·시각/음성 앵커와 발화별 연기/청자 반응·소리의 기능/시간·필요 자원을 구체화한다. 미사용 음악/FX는 합리적 N/A가 가능하며 실제 준비와 구별한다.",
+          "input_locator": "supplied_context.delivery; reality"
+        },
+        {
+          "id": "SD09-O5",
+          "rubric_id": "R05",
+          "expected": "실제 최종 VISUAL/AUDIO 요청문에 이번 응답에서 정한 필수 행동/대사·연기/반응·카메라·소리/상태가 소비된다. '위 바이블 참조'·ID만으로 내용을 대체하지 않는다.",
+          "input_locator": "supplied_context.delivery"
+        },
+        {
+          "id": "SD09-O6",
+          "rubric_id": "R06",
+          "expected": "위임된 창작은 텍스트 안에서 마치되 실제 자원/수락/실측을 발명하지 않는다. 수치 공간·미디어 검증은 미검증으로 남기고 새 제작 파일/외부 실행은 하지 않는다.",
+          "input_locator": "supplied_context.authority; reality"
+        }
+      ],
+      "forbidden_expansions": [
+        "원작 캐릭터/대사/특정 장면 복제",
+        "없는 현실 자원/검사/권한 발명",
+        "창작을 위임했는데 핵심 이야기/인물/행동을 전부 미정으로 넘김",
+        "문서 수/형용사/링크만으로 내용 완성을 대체"
+      ],
+      "owner_paths": [
+        "creative-production/SKILL.md",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/02-story.md",
+        "video-production-assets/references/03-screenplay.md",
+        "video-production-assets/references/04-performance.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/references/11-ai-handoff.md",
+        "video-production-assets/references/12-qa.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD10",
+      "category": "open_brief_nonhuman_ability",
+      "user_request": "눈보라 장면 아이디어만 줄게. 16초짜리 무언 판타지 장면의 텍스트 제작안으로 완성해 줘. 생물의 모습과 하나의 능력·발동 조건·대가, 사건은 새로 정해도 돼. 대본과 장면 연출, 끝까지 이어지는 모델 중립 영상 요청문이 필요해.",
+      "supplied_context": {
+        "source_status": "새 오리지널 허구의 아이디어만 제공한다. 기존 작품·대본·바이블·캐릭터 시트·실제 미디어는 없다. 세부 창작은 위임한다.",
+        "delivery": "이 답변에서 텍스트 preliminary를 완성한다. 장면에 필요한 세계/인물 설정 발췌, 대본, 제작용 보드와 모델 중립 영상 요청문까지 제공한다. 캐릭터 전체 원장/장편 백과사전을 작성할 필요는 없다.",
+        "authority": "추가 질문 없이 합리적인 창작안을 정해 제안으로 명시한다. 채팅 답변만 작성하며 이미지·음성·영상·프로젝트/기타 파일·등록·외부 조회·유료 실행은 하지 않는다. 수치 3D 장면 설계/물리 검증은 요청하지 않는다.",
+        "reality": "새로 창작한 설정/대사/디자인과 실제 파일·보이스·지원 제어·권리/검수·승인을 구별한다. 실제 모델/voice_id/참조 자산은 미선정/미생성이며 발화 시간은 계획값이다.",
+        "idea": "작은 짐승이 자기 은신처를 지키는 대신 낯선 생명을 구하기로 한다.",
+        "format": "16초, 24fps. 중심 생물 2마리 이하. 사람 말/내레이션/자막 설명 없음. 선택과 능력의 대가는 화면 행동으로 읽혀야 한다. 실제 수치 3D 배치/물리 시뮬레이션은 하지 않는다."
+      },
+      "locks": [
+        "16초, 24fps. 중심 생물 2마리 이하. 사람 말/내레이션/자막 설명 없음. 선택과 능력의 대가는 화면 행동으로 읽혀야 한다. 실제 수치 3D 배치/물리 시뮬레이션은 하지 않는다.",
+        "오리지널 허구/위임된 텍스트 preliminary",
+        "실제 미디어/등록/파일/외부 실행 없음"
+      ],
+      "required_observations": [
+        {
+          "id": "SD10-O1",
+          "rubric_id": "R01",
+          "expected": "16초/24fps·생물 수·무발화/무자막을 보존하고 새로 정한 신체/능력 조건·비용이 대본/샷/요청문 사이에서 일치한다.",
+          "input_locator": "user_request; supplied_context.idea; format"
+        },
+        {
+          "id": "SD10-O2",
+          "rubric_id": "R02",
+          "expected": "발동 조건·한계/비용과 인물의 지키려는 것/돕는 선택을 창작하고, 전제→선택→비용/후속 결과가 실제 사건으로 작동한다. 조건을 무시하는 편의적 발동/비용 리셋은 미충족이다.",
+          "input_locator": "supplied_context.idea; delivery; authority"
+        },
+        {
+          "id": "SD10-O3",
+          "rubric_id": "R03",
+          "expected": "준비/지지→진행→필수 접촉/공개→정착·잔류를 같은 시간 관계로 보여주고, 필요한 중간 사건을 첫끝 두 장이나 요약으로 지우지 않는다.",
+          "input_locator": "supplied_context.format; delivery"
+        },
+        {
+          "id": "SD10-O4",
+          "rubric_id": "R04",
+          "expected": "생물 신체와 다른 가동/지지·경로/차폐·환경/배우 반응, 능력 FX의 단계/가독성·소리의 원인/청점·필요 자원을 구체화한다. 외형만으로 동적 검증이 됐다고 하지 않는다.",
+          "input_locator": "supplied_context.delivery; reality"
+        },
+        {
+          "id": "SD10-O5",
+          "rubric_id": "R05",
+          "expected": "자신이 만든 핵심 조건·행동/중간 사건·도움의 결과·비용/잔류·적용 소리가 실제 최종 요청문에 남는다.",
+          "input_locator": "supplied_context.delivery"
+        },
+        {
+          "id": "SD10-O6",
+          "rubric_id": "R06",
+          "expected": "제안된 허구·텍스트 설계와 실제 리그/파일/공간·물리/FX·청취/실행을 구별한다. 새 발화/자막·미디어/외부 실행을 만들지 않는다.",
+          "input_locator": "supplied_context.authority; reality"
+        }
+      ],
+      "forbidden_expansions": [
+        "원작 캐릭터/대사/특정 장면 복제",
+        "없는 현실 자원/검사/권한 발명",
+        "창작을 위임했는데 핵심 이야기/인물/행동을 전부 미정으로 넘김",
+        "문서 수/형용사/링크만으로 내용 완성을 대체"
+      ],
+      "owner_paths": [
+        "creative-production/SKILL.md",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/02-story.md",
+        "video-production-assets/references/03-screenplay.md",
+        "video-production-assets/references/04-performance.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/references/11-ai-handoff.md",
+        "video-production-assets/references/12-qa.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD11",
+      "category": "open_brief_offscreen_relationship",
+      "user_request": "이 아이디어로 20초짜리 긴장감 있는 장면을 새로 써서 텍스트 제작안과 모델 중립 영상 요청문까지 만들어 줘. 두 사람의 관계와 대사는 네가 정해. 한 사람 얼굴을 계속 보는데 마지막에 그 관계를 다르게 이해하게 만들고 싶어.",
+      "supplied_context": {
+        "source_status": "새 오리지널 허구의 아이디어만 제공한다. 기존 작품·대본·바이블·캐릭터 시트·실제 미디어는 없다. 세부 창작은 위임한다.",
+        "delivery": "이 답변에서 텍스트 preliminary를 완성한다. 장면에 필요한 세계/인물 설정 발췌, 대본, 제작용 보드와 모델 중립 영상 요청문까지 제공한다. 캐릭터 전체 원장/장편 백과사전을 작성할 필요는 없다.",
+        "authority": "추가 질문 없이 합리적인 창작안을 정해 제안으로 명시한다. 채팅 답변만 작성하며 이미지·음성·영상·프로젝트/기타 파일·등록·외부 조회·유료 실행은 하지 않는다. 수치 3D 장면 설계/물리 검증은 요청하지 않는다.",
+        "reality": "새로 창작한 설정/대사/디자인과 실제 파일·보이스·지원 제어·권리/검수·승인을 구별한다. 실제 모델/voice_id/참조 자산은 미선정/미생성이며 발화 시간은 계획값이다.",
+        "idea": "정전된 엘리베이터 안의 한 사람은 바깥의 구조 소식보다 옆 사람의 목소리를 두려워한다.",
+        "format": "20초, 24fps, 고정 원테이크. 화면 안 인물 1명과 화면 밖 화자 1명까지만. 두 번째 인물의 얼굴/몸을 보여주는 추가 컷·재프레이밍은 없다. 내레이터도 없다."
+      },
+      "locks": [
+        "20초, 24fps, 고정 원테이크. 화면 안 인물 1명과 화면 밖 화자 1명까지만. 두 번째 인물의 얼굴/몸을 보여주는 추가 컷·재프레이밍은 없다. 내레이터도 없다.",
+        "오리지널 허구/위임된 텍스트 preliminary",
+        "실제 미디어/등록/파일/외부 실행 없음"
+      ],
+      "required_observations": [
+        {
+          "id": "SD11-O1",
+          "rubric_id": "R01",
+          "expected": "20초/24fps 고정 원테이크와 가시 인물 1명/비가시 화자 1명의 잠금을 유지한다. 자기 대본의 원문/화자·관계 사실이 이후 보드/요청문과 일치한다.",
+          "input_locator": "user_request; supplied_context.idea; format"
+        },
+        {
+          "id": "SD11-O2",
+          "rubric_id": "R02",
+          "expected": "관계·목표/감추는 것·압박을 창작하고, 대사/침묵의 전술과 듣는 사람의 판단/억제가 마지막 관계 이해 변화의 근거가 된다. 근거 없는 반전 설명만은 미충족이다.",
+          "input_locator": "supplied_context.idea; delivery; authority"
+        },
+        {
+          "id": "SD11-O3",
+          "rubric_id": "R03",
+          "expected": "말/침묵→청자의 인지/반응·억제→정보 공개의 순서와 첫/중간/끝 상태가 20초 안에서 읽힌다. 조기 공개나 원테이크를 끊는 별도 얼굴 컷은 미충족이다.",
+          "input_locator": "supplied_context.format; delivery"
+        },
+        {
+          "id": "SD11-O4",
+          "rubric_id": "R04",
+          "expected": "화자별 고정 음성 앵커와 발화별 의도/강세·쉼/압력, 비가시 입의 시각 립싱크 N/A와 필요한 청취, 가시 얼굴의 구체 반응·음원 방향/거리/환경을 설계한다.",
+          "input_locator": "supplied_context.delivery; reality"
+        },
+        {
+          "id": "SD11-O5",
+          "rubric_id": "R05",
+          "expected": "응답 내부 대본/연기 큐에서 정한 정확 발화·화자·보이스/이번 연기와 반응/유보·고정 카메라·소리가 실제 최종 요청문에 남는다.",
+          "input_locator": "supplied_context.delivery"
+        },
+        {
+          "id": "SD11-O6",
+          "rubric_id": "R06",
+          "expected": "없는 실제 보이스/입 모양·청취·실측/미디어/승인을 발명하지 않는다. 얼굴을 보여줘야만 검사 가능하다며 형식을 바꾸거나 위임된 관계/대본을 전부 미정으로 돌려주지 않는다.",
+          "input_locator": "supplied_context.authority; reality"
+        }
+      ],
+      "forbidden_expansions": [
+        "원작 캐릭터/대사/특정 장면 복제",
+        "없는 현실 자원/검사/권한 발명",
+        "창작을 위임했는데 핵심 이야기/인물/행동을 전부 미정으로 넘김",
+        "문서 수/형용사/링크만으로 내용 완성을 대체"
+      ],
+      "owner_paths": [
+        "creative-production/SKILL.md",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/02-story.md",
+        "video-production-assets/references/03-screenplay.md",
+        "video-production-assets/references/04-performance.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/references/11-ai-handoff.md",
+        "video-production-assets/references/12-qa.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD12",
+      "category": "open_brief_sound_led_reveal",
+      "user_request": "이 아이디어를 12초짜리 영상 장면으로 완성해 줘. 대사보다 소리의 선택과 타이밍으로 긴장이 안도로 바뀌었으면 해. 구체적 사건·공간·인물은 네가 정하고 텍스트 제작안과 모델 중립 영상 요청문까지 써 줘.",
+      "supplied_context": {
+        "source_status": "새 오리지널 허구의 아이디어만 제공한다. 기존 작품·대본·바이블·캐릭터 시트·실제 미디어는 없다. 세부 창작은 위임한다.",
+        "delivery": "이 답변에서 텍스트 preliminary를 완성한다. 장면에 필요한 세계/인물 설정 발췌, 대본, 제작용 보드와 모델 중립 영상 요청문까지 제공한다. 캐릭터 전체 원장/장편 백과사전을 작성할 필요는 없다.",
+        "authority": "추가 질문 없이 합리적인 창작안을 정해 제안으로 명시한다. 채팅 답변만 작성하며 이미지·음성·영상·프로젝트/기타 파일·등록·외부 조회·유료 실행은 하지 않는다. 수치 3D 장면 설계/물리 검증은 요청하지 않는다.",
+        "reality": "새로 창작한 설정/대사/디자인과 실제 파일·보이스·지원 제어·권리/검수·승인을 구별한다. 실제 모델/voice_id/참조 자산은 미선정/미생성이며 발화 시간은 계획값이다.",
+        "idea": "정전된 작은 세탁소에서 기다리던 사람이, 누군가 돌아왔다는 것을 얼굴보다 먼저 소리로 알아챈다.",
+        "format": "12초, 24fps. 핵심 인물 2명 이하. 발화·내레이션·설명 자막 없음. 음악/효과음/환경음은 필요한 만큼 선택하고 실제 음원·측정/파일은 없다."
+      },
+      "locks": [
+        "12초, 24fps. 핵심 인물 2명 이하. 발화·내레이션·설명 자막 없음. 음악/효과음/환경음은 필요한 만큼 선택하고 실제 음원·측정/파일은 없다.",
+        "오리지널 허구/위임된 텍스트 preliminary",
+        "실제 미디어/등록/파일/외부 실행 없음"
+      ],
+      "required_observations": [
+        {
+          "id": "SD12-O1",
+          "rubric_id": "R01",
+          "expected": "12초/24fps·인물 수·무발화/무자막 잠금을 지키며, 새로 정한 인물/공간·사건의 원인·공개 순서가 대본/보드/요청문에서 일치한다.",
+          "input_locator": "user_request; supplied_context.idea; format"
+        },
+        {
+          "id": "SD12-O2",
+          "rubric_id": "R02",
+          "expected": "누구를 왜 기다리는지와 어떤 구체적 소리가 인지/관계·정서 변화를 일으키는지 창작한다. 긴장/안도라는 형용사나 곡 장르만으로 사건을 대체하지 않는다.",
+          "input_locator": "supplied_context.idea; delivery; authority"
+        },
+        {
+          "id": "SD12-O3",
+          "rubric_id": "R03",
+          "expected": "소리의 원인→청취/인지→몸·얼굴 반응→공개/정착의 구간을 정하고 화면이 소리보다 먼저 비밀을 공개하는 모순을 피한다. 전체 12초와 경계 상태가 연결된다.",
+          "input_locator": "supplied_context.format; delivery"
+        },
+        {
+          "id": "SD12-O4",
+          "rubric_id": "R04",
+          "expected": "필요한 음악의 진입/유보/전환/끝과 효과/Foley/환경의 원인·재질/거리·청점·꼬리/중첩을 구체화한다. 선택하지 않은 음악/효과는 사유 있는 N/A를 허용한다.",
+          "input_locator": "supplied_context.delivery; reality"
+        },
+        {
+          "id": "SD12-O5",
+          "rubric_id": "R05",
+          "expected": "실제 최종 VISUAL/AUDIO 요청문이 같은 시간 basis로 신호 소리·반응·공개/정착과 음악/환경의 역할을 보존하며 단순 장르/줄거리 요약으로 끝나지 않는다.",
+          "input_locator": "supplied_context.delivery"
+        },
+        {
+          "id": "SD12-O6",
+          "rubric_id": "R06",
+          "expected": "실제 파일/BPM/다운비트/측정 게인·권리·청취·생성/믹스/실행을 발명하지 않는다. 위임된 소리/사건 설계는 텍스트로 끝낸다.",
+          "input_locator": "supplied_context.authority; reality"
+        }
+      ],
+      "forbidden_expansions": [
+        "원작 캐릭터/대사/특정 장면 복제",
+        "없는 현실 자원/검사/권한 발명",
+        "창작을 위임했는데 핵심 이야기/인물/행동을 전부 미정으로 넘김",
+        "문서 수/형용사/링크만으로 내용 완성을 대체"
+      ],
+      "owner_paths": [
+        "creative-production/SKILL.md",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/02-story.md",
+        "video-production-assets/references/03-screenplay.md",
+        "video-production-assets/references/04-performance.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/references/11-ai-handoff.md",
+        "video-production-assets/references/12-qa.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD13",
+      "category": "fixed_performance_packet_to_actual_requests",
+      "user_request": "공급 콘티와 발화별 연기 패킷을 그대로 사용해 10초씩 3작업의 모델 중립 영상 요청문으로 인계해 줘. 요약표뿐 아니라 각 작업에서 실제 보낼 전체 VISUAL/AUDIO 본문이 필요해. 원문·컷·반응·고정 음성과 이번 연기는 잠긴 입력이며 재작성 권한은 없어. 실제 생성/TTS/편집/파일 작성은 하지 마.",
+      "supplied_context": {
+        "source_status": "아래는 기존 저장소 문서의 가상 텍스트 예시를 공급 콘티로 동결한 것이다. 실제 이미지·음성·지원 모델/생성 결과가 아니다.",
+        "board_version": "timing-board v1 / S01, global [60,90), 24fps. 콘티 원문/샷/패널·경계 잠금. 앞뒤 핸들 0. source 채택은 작업 전체. 실제 음성은 없음.",
+        "board_excerpt": "## 4. 같은 30초 보드를 5/10/20/30초로 묶는 예시\n\n아래는 이미 교차 편집을 선택한 가상의 텍스트 설계 예시다. 실제 이미지·음성·지원 모델·생성 결과나 완결된 제작 패키지가 아니다. 모든 행은 같은 S01 안에 있고, P01→P02 등의 패널은 시작→반응 정점/끝을 나타낸다. 이 예제의 컷을 길이 변환 중 합치지 않는다. 2초 발화+3초 반응의 반복은 주소 변환을 설명하기 위한 배분이며 권장 리듬이나 발화별 컷 공식이 아니다. 다른 보드의 투샷·청자 유지·원테이크도 그 설계대로 변환한다.\n\n| global 초 | shot / panel | 기능과 화면 | 발화 또는 관측 가능한 전환 |\n|---|---|---|---|\n| 60–62 | SH01 / P01→P02 | A 발화 CU | D01 A: “문 열었어?” 문→B로 시선 |\n| 62–65 | SH02 / P03→P04 | B 무언 반응 CU | D01을 듣고 눈썹이 올라감→문을 봄→입을 다문 채 정착 |\n| 65–67 | SH03 / P05→P06 | B 발화 CU | D02 B: “난 열쇠가 없는데.” |\n| 67–70 | SH04 / P07→P08 | A 무언 반응 CU | D02를 듣고 웃음 멎음→B와 문을 번갈아 봄 |\n| 70–72 | SH05 / P09→P10 | A 발화 MCU | D03 A: “밖을 봐.” |\n| 72–75 | SH06 / P11→P12 | B 무언 반응 CU | D03 뒤 문밖을 확인→눈을 가늘게 뜸→정착 |\n| 75–77 | SH07 / P13→P14 | B 발화 MCU | D04 B: “아무도 없어.” |\n| 77–80 | SH08 / P15→P16 | A 무언 반응 CU | D04 뒤 어깨 긴장→한숨→정착 |\n| 80–82 | SH09 / P17→P18 | A 발화 CU | D05 A: “열쇠는?” |\n| 82–85 | SH10 / P19→P20 | B 무언 반응 CU | D05 뒤 A의 손을 봄→한쪽 눈썹을 올림 |\n| 85–87 | SH11 / P21→P22 | B 발화 CU | D06 B: “네 손에 있잖아.” |\n| 87–90 | SH12 / P23→P24 | A 무언 반응 CU | D06 뒤 자기 손을 봄→민망해 입을 다묾→정착 |",
+        "voice_identity": "A(CH01)는 중간 음역·건조하고 명료한 자음·짧게 닫는 문장 끝, B(CH02)는 밝은 중간 음역·약간 숨 섞인 톤·고른 문장 끝이라는 텍스트 음성 정체성만 공급한다. 모든 작업에서 같은 인물의 앵커를 유지한다. 실제 voice_id·테이크 없음.",
+        "audio": "말하지 않는 인물은 반응 중 침묵한다. 룸톤 연속, BGM 없음. 네이티브 오디오/별도 트랙 지원과 비용·실행은 미확인.",
+        "supported_lengths": "텍스트 비교용 10초 3작업 가정이다. 실제 모델의 길이/내부 컷/오디오 지원을 뜻하지 않는다.",
+        "performance_source": "PERF_PACKET v1, D01–D06. 아래는 독립적으로 공급한 잠긴 텍스트 연기 지시다. 실제 음성/실측이 아니다. 각 원래 2초 발화창 안의 제안이며 원문이나 창을 바꾸지 않는다. 개인 음색과 다른 이번 대사 전술/강세/쉼/압력·숨을 보존한다.",
+        "performance_packet": [
+          {
+            "id": "D01",
+            "speaker": "A/CH01",
+            "tactic": "확인받되 의심을 감춘다",
+            "emphasis": "열었어",
+            "pause": "문장 안 쉼 없이 짧게",
+            "pressure": "목소리를 키우지 않고 낮은 압력",
+            "breath": "말 뒤 조용히 숨을 멈춘 채 상대를 기다림"
+          },
+          {
+            "id": "D02",
+            "speaker": "B/CH02",
+            "tactic": "자기 책임이 아님을 방어한다",
+            "emphasis": "난",
+            "pause": "'난' 뒤 약 0.15초 쉼을 제안",
+            "pressure": "처음만 단호하고 뒤는 낮춤",
+            "breath": "문장 뒤 얕게 내쉼"
+          },
+          {
+            "id": "D03",
+            "speaker": "A/CH01",
+            "tactic": "상대의 시선을 문밖으로 돌려 시간을 번다",
+            "emphasis": "밖",
+            "pause": "'밖을'과 '봐' 사이 약 0.1초 쉼을 제안",
+            "pressure": "작고 빠른 지시, 고함 없음",
+            "breath": "말끝을 닫고 숨을 삼킨 뒤 반응을 기다림"
+          },
+          {
+            "id": "D04",
+            "speaker": "B/CH02",
+            "tactic": "확인 결과를 전하며 상대를 진정시킨다",
+            "emphasis": "아무도",
+            "pause": "문장 안 쉼 없음",
+            "pressure": "긴장을 낮추되 밝은 음색 앵커 유지",
+            "breath": "말 뒤 호흡을 내려놓음"
+          },
+          {
+            "id": "D05",
+            "speaker": "A/CH01",
+            "tactic": "마지막 확인으로 상대의 답을 재촉한다",
+            "emphasis": "열쇠",
+            "pause": "짧은 질문, 내부 쉼 없음",
+            "pressure": "급하되 건조한 음색을 유지",
+            "breath": "질문 뒤 들이쉬지 않고 상대 답을 기다림"
+          },
+          {
+            "id": "D06",
+            "speaker": "B/CH02",
+            "tactic": "상대를 몰아세우지 않고 손을 보게 만든다",
+            "emphasis": "네 손",
+            "pause": "'네 손에' 뒤 약 0.1초 쉼을 제안",
+            "pressure": "가볍고 절제된 지적, 조롱하는 웃음 추가 없음",
+            "breath": "종결 뒤 호흡을 부드럽게 풀어줌"
+          }
+        ]
+      },
+      "locks": [
+        "30초/24fps/12샷/24패널·D01–D06 원문과 화자",
+        "10초 3작업의 시간 주소",
+        "A/B 음색 앵커와 PERF_PACKET v1 6개 지시",
+        "실제 지원/voice_id·음성 실측/생성·파일 없음"
+      ],
+      "required_observations": [
+        {
+          "id": "SD13-O1",
+          "rubric_id": "R01",
+          "expected": "원문/화자·컷/반응·보이스 앵커와 PERF_PACKET v1을 보존하고 잠긴 전술을 반대 뜻/새 캐릭터 사실로 바꾸지 않는다.",
+          "input_locator": "user_request; supplied_context.board_excerpt; voice_identity; performance_packet"
+        },
+        {
+          "id": "SD13-O2",
+          "rubric_id": "R02",
+          "expected": "공급된 각 대사의 목적/전술이 대사별 연기에 대응하며 동일한 '감정적으로/단호하게' 지시로 모든 차이를 지우지 않는다.",
+          "input_locator": "supplied_context.performance_packet"
+        },
+        {
+          "id": "SD13-O3",
+          "rubric_id": "R03",
+          "expected": "[60,70)/[70,80)/[80,90)와 각 local [0,10)에서 12샷/6발화·반응/정착을 보존하고, 제안된 쉼/숨을 발화 창·반응 흐름과 상충하지 않게 다룬다. 계획을 실측으로 바꾸지 않는다.",
+          "input_locator": "supplied_context.board_excerpt; board_version; performance_source; performance_packet"
+        },
+        {
+          "id": "SD13-O4",
+          "rubric_id": "R04",
+          "expected": "고정 Voice Identity와 이번 Performance를 구분한다. 실제 보이스/테이크·권리/청취는 미준비이며 제안된 방향을 API/voice ID/립싱크 성공으로 승격하지 않는다.",
+          "input_locator": "supplied_context.voice_identity; performance_source; audio"
+        },
+        {
+          "id": "SD13-O5",
+          "rubric_id": "R05",
+          "expected": "공급된 6개 전술/강세/쉼·압력/숨이 각 실제 AUDIO 요청 본문에 같은 의미로 남는다. 패킷 ID/경로·요약표만 있거나 고정 음색만 복사되면 미충족이다.",
+          "input_locator": "user_request; supplied_context.performance_packet"
+        },
+        {
+          "id": "SD13-O6",
+          "rubric_id": "R06",
+          "expected": "지원 미확인 상태를 유지하고 원문·타이밍을 임의 압축/반복/변경하거나 추가 TTS/생성·파일/외부 실행을 하지 않는다.",
+          "input_locator": "user_request; supplied_context.audio; supported_lengths"
+        }
+      ],
+      "forbidden_expansions": [
+        "PERF_PACKET v1의 필수 대사별 차이를 누락/반대로 바꿈",
+        "voice identity만 남기고 실제 AUDIO에서 이번 연기를 지움",
+        "숨을 새 발화/별도 TTS 에셋으로 자동 생성",
+        "원문/컷/공개 순서·발화 창 변경 또는 미관측 실행 주장"
+      ],
+      "owner_paths": [
+        "creative-production/references/storyboard-timing-to-prompt.md",
+        "video-production-assets/references/04-performance.md",
+        "video-production-assets/references/22-dialogue-lipsync.md",
+        "video-production-assets/references/11-ai-handoff.md",
+        "video-production-assets/assets/11-ai-handoff-template.md",
+        "ai-camera-control/SKILL.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "id": "SD14",
+      "category": "open_brief_world_rule_choice",
+      "user_request": "이 한 줄로 24초짜리 오리지널 판타지 장면을 만들어 줘. 통행 규칙과 비용, 두 인물의 사정, 사건/대사, 카메라·소리/효과 연출은 네가 창작해. 줄거리 설명에 그치지 말고 텍스트 제작안과 실제로 쓸 모델 중립 요청문까지 필요해.",
+      "supplied_context": {
+        "source_status": "새 오리지널 허구의 아이디어만 제공한다. 기존 작품·대본·바이블·캐릭터 시트·실제 미디어는 없다. 세부 창작은 위임한다.",
+        "delivery": "이 답변에서 텍스트 preliminary를 완성한다. 장면에 필요한 세계/인물 설정 발췌, 대본, 제작용 보드와 모델 중립 영상 요청문까지 제공한다. 캐릭터 전체 원장/장편 백과사전을 작성할 필요는 없다.",
+        "authority": "추가 질문 없이 합리적인 창작안을 정해 제안으로 명시한다. 채팅 답변만 작성하며 이미지·음성·영상·프로젝트/기타 파일·등록·외부 조회·유료 실행은 하지 않는다. 수치 3D 장면 설계/물리 검증은 요청하지 않는다.",
+        "reality": "새로 창작한 설정/대사/디자인과 실제 파일·보이스·지원 제어·권리/검수·승인을 구별한다. 실제 모델/voice_id/참조 자산은 미선정/미생성이며 발화 시간은 계획값이다.",
+        "idea": "기억을 통행료로 받는 정거장에서 누군가 한 사람만 보내려 한다.",
+        "format": "24초, 24fps, 핵심 인물 2명 이하. 내레이터·세계관 설명 자막 없음. 짧은 극중 발화는 가능하다. 세계 법칙과 선택의 대가는 행동/결과로 읽히게 하되 장편 설정집은 쓰지 않는다."
+      },
+      "locks": [
+        "24초, 24fps, 핵심 인물 2명 이하. 내레이터·세계관 설명 자막 없음. 짧은 극중 발화는 가능하다. 세계 법칙과 선택의 대가는 행동/결과로 읽히게 하되 장편 설정집은 쓰지 않는다.",
+        "오리지널 허구/위임된 텍스트 preliminary",
+        "실제 미디어/등록/파일/외부 실행 없음"
+      ],
+      "required_observations": [
+        {
+          "id": "SD14-O1",
+          "rubric_id": "R01",
+          "expected": "24초/24fps·인물 수·무내레이션/무설명자막을 지키며, 응답에서 정한 통행/기억 규칙과 대사·소유/상태가 이후 보드/요청문에서 바뀌지 않는다.",
+          "input_locator": "user_request; supplied_context.idea; format"
+        },
+        {
+          "id": "SD14-O2",
+          "rubric_id": "R02",
+          "expected": "누가 무엇을 잃고 얻으며 규칙이 누구에게 알려져 있는지, 조건/한계와 선택의 비용을 구체적으로 정한다. 그 법칙이 실제 선택/관계 결과와 연결되고 뒤에서 조용히 무효화되지 않는다.",
+          "input_locator": "supplied_context.idea; delivery; authority"
+        },
+        {
+          "id": "SD14-O3",
+          "rubric_id": "R03",
+          "expected": "규칙을 인지하는 단서→인물 판단/행동→비용/통과 결과·남은 상태를 보여주는 사건·샷/내부 구간이 24초 안에서 연결된다.",
+          "input_locator": "supplied_context.format; delivery"
+        },
+        {
+          "id": "SD14-O4",
+          "rubric_id": "R04",
+          "expected": "관계별 말투/고정 음성과 대사별 전술/청자 반응, 필요한 기억/통과 효과의 원인·단계/가림/환경 반응·잔류, 소리와 자원을 구체화한다. 미사용 효과는 설명 없는 빈칸으로 대체하지 않는다.",
+          "input_locator": "supplied_context.delivery; reality"
+        },
+        {
+          "id": "SD14-O5",
+          "rubric_id": "R05",
+          "expected": "최종 실제 VISUAL/AUDIO 본문이 새로 정한 규칙의 가시 결과·중간 행동/반응·원문/연기·비용/잔류·카메라와 소리를 소비한다. 경로/ID/줄거리 요약만 남으면 미충족이다.",
+          "input_locator": "supplied_context.delivery"
+        },
+        {
+          "id": "SD14-O6",
+          "rubric_id": "R06",
+          "expected": "창작 허구/계획과 실제 입력 준비·지원 제어/검수·권한/사용자 수락을 구별한다. 실제 프로젝트/미디어·보이스/외부 실행은 하지 않는다.",
+          "input_locator": "supplied_context.authority; reality"
+        }
+      ],
+      "forbidden_expansions": [
+        "원작 캐릭터/대사/특정 장면 복제",
+        "없는 현실 자원/검사/권한 발명",
+        "창작을 위임했는데 핵심 이야기/인물/행동을 전부 미정으로 넘김",
+        "문서 수/형용사/링크만으로 내용 완성을 대체"
+      ],
+      "owner_paths": [
+        "creative-production/SKILL.md",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/02-story.md",
+        "video-production-assets/references/03-screenplay.md",
+        "video-production-assets/references/04-performance.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/06-shots.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/references/11-ai-handoff.md",
+        "video-production-assets/references/12-qa.md"
+      ],
+      "rubric_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    }
+  ]
+}
