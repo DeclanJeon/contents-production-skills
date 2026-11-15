@@ -65,6 +65,57 @@ def cuts_from_project(project):
     return cuts
 
 
+def _match_shot(start, starts, tolerance_s):
+    """Attribute one detected boundary to exactly one planned shot, or nobody."""
+    candidates = [sid for sid, shot_start in starts if abs(shot_start - start) <= tolerance_s]
+    return candidates[0] if len(candidates) == 1 else None
+
+
+def detect_cuts(media, threshold, min_cut_s, fps):
+    """Scene-boundary times in seconds, or an honest failure."""
+    if shutil.which('ffmpeg') is None:
+        raise FileNotFoundError('ffmpeg_not_found')
+    completed = subprocess.run(
+        ['ffmpeg', '-v', 'error', '-i', str(media),
+         '-filter:v', f'select=gt(scene\\,{threshold}),metadata=print:file=-',
+         '-an', '-f', 'null', '-'],
+        capture_output=True, text=True)
+    if completed.returncode != 0:
+        raise ValueError('media_not_decodable')
+    times = sorted(float(value) for value in
+                   re.findall(r'pts_time:\s*([0-9.]+)', (completed.stderr or '') + (completed.stdout or '')))
+    merged = []
+    for value in times:
+        if not merged or value - merged[-1] >= min_cut_s:
+            merged.append(value)
+    return merged
+
+
+def cuts_from_media(media, project, threshold, min_cut_s, tolerance_s):
+    """Measured cuts from scene boundaries; the open tail is left unmeasured."""
+    shots = [s for s in project.get('shots', []) if isinstance(s, dict)]
+    planned = {s['id']: s for s in shots if isinstance(s.get('id'), str)}
+    starts = [(s['id'], s.get('start_s')) for s in shots
+              if isinstance(s.get('id'), str) and _number(s.get('start_s'))]
+    boundaries = [0.0] + [value for value in detect_cuts(media, threshold, min_cut_s, project.get('fps') or 24)
+                          if value > 0]
+    spans, unmatched_detected = [], []
+    for start, end in zip(boundaries, boundaries[1:]):
+        shot_id = _match_shot(start, starts, tolerance_s)
+        if shot_id is None:
+            unmatched_detected.append({'start_s': round(start, 6), 'end_s': round(end, 6)})
+        spans.append((shot_id, start, end))
+    attributed = {sid for sid, _, _ in spans if sid}
+    durations = {sid: (s['end_s'] - s['start_s']) if _number(s.get('start_s')) and _number(s.get('end_s')) else None
+                 for sid, s in planned.items()}
+    meta = {
+        'shot_mapping': 'nearest_within_tolerance',
+        'unmatched_detected': unmatched_detected,
+        'unmatched_planned': sorted(sid for sid in planned if sid not in attributed),
+    }
+    return _cuts_from_spans(spans, project, 'measured', durations), meta
+
+
 def read_cuts_csv(path, project, tolerance_s):
     """Read measured cut spans; never invent a shot for an unmatched boundary."""
     shots = [s for s in project.get('shots', []) if isinstance(s, dict)]
@@ -97,12 +148,10 @@ def read_cuts_csv(path, project, tolerance_s):
                 raise ValueError(f'cuts csv references unknown shot {shot_id!r}')
             spans.append((shot_id, start, end))
             continue
-        candidates = [sid for sid, shot_start in starts if abs(shot_start - start) <= tolerance_s]
-        if len(candidates) == 1:
-            spans.append((candidates[0], start, end))
-        else:
+        shot_id = _match_shot(start, starts, tolerance_s)
+        if shot_id is None:
             unmatched_detected.append({'start_s': round(start, 6), 'end_s': round(end, 6)})
-            spans.append((None, start, end))
+        spans.append((shot_id, start, end))
     attributed = {sid for sid, _, _ in spans if sid}
     unmatched_planned = sorted(sid for sid in planned if sid not in attributed)
     cuts = _cuts_from_spans(spans, project, 'measured', planned_durations)
@@ -252,10 +301,28 @@ def build_report(project, cuts, basis, status, shots=None, short_s=2.0, long_s=8
     }
 
 
+def _unverified(project, shots, reason, args):
+    """Measurement was impossible: say so, and never dress it as a measurement."""
+    report = build_report(project, [], {'fps': project.get('fps'), 'source': 'unavailable'},
+                          'unverified', shots=shots, short_s=args.short_s,
+                          long_s=args.long_s, monotony_pct=args.monotony_pct)
+    report['reason'] = reason
+    report['limitations'] = report['limitations'] + [f'no measurement: {reason}']
+    payload = json.dumps(report, ensure_ascii=False, indent=2)
+    if args.out:
+        Path(args.out).write_text(payload, encoding='utf-8')
+    else:
+        print(payload)
+    return 3
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project', required=True)
     parser.add_argument('--cuts')
+    parser.add_argument('--media')
+    parser.add_argument('--scene-threshold', type=float, default=0.30)
+    parser.add_argument('--min-cut-s', type=float, default=0.4)
     parser.add_argument('--fps', type=float)
     parser.add_argument('--short-s', type=float, default=2.0)
     parser.add_argument('--long-s', type=float, default=8.0)
@@ -273,8 +340,22 @@ def main(argv=None):
         print(json.dumps({'status': 'error', 'reason': 'fps_mismatch'})); return 2
     fps = args.fps if args.fps is not None else project_fps
 
+    if args.media and args.cuts:
+        print(json.dumps({'status': 'error', 'reason': 'choose --media or --cuts, not both'})); return 2
+
     shots = [s for s in project.get('shots', []) if isinstance(s, dict)]
-    if args.cuts:
+    if args.media:
+        tolerance = max(args.match_tolerance_s, 2 / fps)
+        try:
+            cuts, meta = cuts_from_media(args.media, project, args.scene_threshold,
+                                         args.min_cut_s, tolerance)
+        except FileNotFoundError as exc:
+            return _unverified(project, shots, str(exc) or 'ffmpeg_not_found', args)
+        except ValueError as exc:
+            return _unverified(project, shots, str(exc) or 'media_not_decodable', args)
+        status = 'measured'
+        basis = {'fps': fps, 'source': 'ffmpeg_scene', 'shot_mapping': meta['shot_mapping']}
+    elif args.cuts:
         try:
             cuts, meta = read_cuts_csv(args.cuts, project, max(args.match_tolerance_s, 2 / fps))
         except ValueError as exc:

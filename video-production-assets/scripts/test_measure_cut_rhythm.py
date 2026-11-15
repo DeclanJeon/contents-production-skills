@@ -11,7 +11,7 @@ import unittest
 from pathlib import Path
 
 from measure_cut_rhythm import (build_report, compute_stats, cuts_from_project,
-                                handle_shortfalls, main, read_cuts_csv,
+                                detect_cuts, handle_shortfalls, main, read_cuts_csv,
                                 segment_report)
 from test_validate_storyboard import RHYTHM_VALID, board, with_rhythm
 
@@ -115,6 +115,63 @@ class MeasurementTests(unittest.TestCase):
             report = json.loads(out.read_text())
         self.assertEqual(report['status'], 'planned_only')
         self.assertEqual(report['basis']['source'], 'project_plan')
+
+    def test_detect_cuts_parses_ffmpeg_metadata(self):
+        from unittest import mock
+        with mock.patch('measure_cut_rhythm.subprocess.run') as run:
+            run.return_value = mock.Mock(
+                returncode=0, stdout='',
+                stderr='frame:0 pts_time:1.2\nframe:1 pts_time:1.5\nframe:2 pts_time:4.0\n')
+            times = detect_cuts(Path('clip.mp4'), 0.30, 0.4, 24.0)
+        self.assertEqual(times, [1.2, 4.0])
+        argv = run.call_args[0][0]
+        self.assertTrue(any('select=gt(scene\\,0.3)' in arg for arg in argv),
+                        'the filter must escape its comma for argv use; shell-style quotes select nothing')
+
+    def test_missing_ffmpeg_reports_unverified_exit_3(self):
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as d:
+            proj = Path(d) / 'project.json'
+            proj.write_text(json.dumps(board()))
+            media = Path(d) / 'cut.mp4'
+            media.write_bytes(b'x')
+            out = Path(d) / 'report.json'
+            with mock.patch('measure_cut_rhythm.shutil.which', return_value=None):
+                self.assertEqual(main(['--project', str(proj), '--media', str(media),
+                                       '--out', str(out)]), 3)
+            report = json.loads(out.read_text())
+        self.assertEqual(report['status'], 'unverified')
+        self.assertEqual(report['reason'], 'ffmpeg_not_found')
+        self.assertEqual(report['aesthetics'], 'not_judged')
+
+    def test_media_mode_measured_status(self):
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as d:
+            proj = Path(d) / 'project.json'
+            proj.write_text(json.dumps(board()))
+            media = Path(d) / 'cut.mp4'
+            media.write_bytes(b'x')
+            out = Path(d) / 'report.json'
+            with mock.patch('measure_cut_rhythm.shutil.which', return_value='/usr/bin/ffmpeg'), \
+                 mock.patch('measure_cut_rhythm.detect_cuts', return_value=[1.0, 3.0]):
+                self.assertEqual(main(['--project', str(proj), '--media', str(media),
+                                       '--out', str(out)]), 0)
+            report = json.loads(out.read_text())
+        self.assertEqual(report['status'], 'measured')
+        self.assertEqual(report['basis']['source'], 'ffmpeg_scene')
+
+    def test_undecodable_media_reports_unverified(self):
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as d:
+            proj = Path(d) / 'project.json'
+            proj.write_text(json.dumps(board()))
+            media = Path(d) / 'cut.mp4'
+            media.write_bytes(b'not-a-video')
+            out = Path(d) / 'report.json'
+            with mock.patch('measure_cut_rhythm.shutil.which', return_value='/usr/bin/ffmpeg'):
+                self.assertEqual(main(['--project', str(proj), '--media', str(media),
+                                       '--out', str(out)]), 3)
+            self.assertEqual(json.loads(out.read_text())['reason'], 'media_not_decodable')
 
 
 if __name__ == '__main__':
