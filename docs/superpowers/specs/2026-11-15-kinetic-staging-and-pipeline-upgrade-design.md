@@ -34,6 +34,21 @@
 | **안면 해부학·신체 긴장 (`expression_pose`)** | **눈·시선 벡터** + **눈썹·미간** + **입·턱** + **목·어깨 텐션** | `"긴장한"`, `"설득한다"` 등 추상어 단독 사용 금지; 캐릭터 SSOT §10(`Expression DNA`)과 연동해 동공/흰자위 노출, 비대칭 미간 주름, 악문 턱/벌어진 입술, 승모근·손끝 경직도를 구체적 시각 단어로 변환 |
 | **컷 간 시선·스케일 흐름 (`cut_to_next`)** | **스케일 점프(Scale Contrast)** + **아이트레이스(Eye-Trace)** | 동일 샷 크기 연속 나열 지양(`WS → ECU → Low-Angle FS → CU`); 앞 컷의 시선·운동 벡터가 도달한 화면 구역에서 다음 컷의 핵심 피사체/반응이 시작되도록 연결 |
 
+#### 2.1.1 네 필드의 소유 문서 경계 (Ownership Boundary)
+
+`focal_hierarchy`, `kinetic_cues`, `expression_pose`, `image_prompt`는 **패널 단위 슬롯**이므로 다음 문서가 정본이다. 다른 문서에 같은 이름이 없거나 일부만 있어도 누락이 아니다.
+
+| 문서 | 소유 범위 | 네 필드 취급 |
+|---|---|---|
+| `video-production-assets/references/storyboard-contract.md` §8 | 패널 스키마 정의 | **정본** — 네 필드의 형식·필수 여부를 정의 |
+| `video-production-assets/assets/06-shots-template.md`, `storyboard-panels.csv` | 패널 출력 양식 | **정본** — 네 필드를 실제 기입 열로 제공 |
+| `video-production-assets/scripts/validate_storyboard.py` | 구조 검증 | `OPTIONAL_PANEL_TEXT_KEYS` + `--strict-staging`으로 비공백 검사 |
+| `video-production-assets/references/06-shots.md` | **컷 설계 원칙** (연출 레시피) | **비소유** — `focal_hierarchy`만 3단 깊이 설계로 다루고, `kinetic_cues`/`expression_pose`/`image_prompt`는 다루지 않는다. 설계 원칙 문서이지 패널 스키마 문서가 아니다. |
+| `video-production-assets/references/04-performance.md` | 배우 지시 → 안면 해부학 변환 | `expression_pose`의 **변환 규칙**만 제공(브릿지 절), 슬롯 정의는 하지 않는다 |
+| `video-production-assets/references/08-animation.md` | 타이밍·동세 원칙 | `kinetic_cues`의 **동세선·오버슈트 원칙**만 제공, 슬롯 정의는 하지 않는다 |
+
+> **검증 시 주의**: `06-shots.md`에 세 필드가 없다는 사실을 결함으로 보고하지 않는다. 패널 필드의 완결성은 `storyboard-contract.md` §8 → 템플릿 → `validate_storyboard.py`의 3자 정합으로 판정한다.
+
 ### 2.2 한·영 이중 프롬프트(Dual-Layer Prompt) 표준
 
 모든 패널(`storyboard.panels[]`)과 샷 인계(`11-ai-handoff-template.md`)의 프롬프트는 사용자 직관 검수와 생성 엔진의 시네마틱 재현력을 동시에 확보하기 위해 다음 이중 구조를 사용한다.

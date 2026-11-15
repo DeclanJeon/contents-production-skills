@@ -20,6 +20,8 @@
 | **WP-06** | 파이썬 검증기(`validate_storyboard.py`) 및 시트 렌더러(`render_storyboard_sheet.py`) 코드 업그레이드 | `video-production-assets/scripts/validate_storyboard.py`, `render_storyboard_sheet.py`, 관련 단위 테스트 | 10% | **90%** |
 | **WP-07** | 레거시 비영상 폴더·대용량 QA 로그 정리, 전체 테스트 검증 및 클린 패키징 | `manifest.json`, `CHANGELOG.md`, 전체 `unittest` 실행 및 최종 `.zip` 아카이브 생성 | 10% | **100%** |
 
+> **WP-07 범위 조정 (2026-11-15)**: ZIP 아카이브 생성과 저장소 내 비영상 폴더 삭제는 **하지 않는다**. 근거: (1) Git 저장소 자체가 배포 채널이므로 중복 아카이브는 드리프트 원인이다. (2) `higgsfield-brandkit`/`higgsfield-websites` 등 4종은 여전히 유효한 스킬이며 추적 중인 파일을 지우면 이력 손실이다. (3) 비영상 형제 스킬의 미설치 처리는 이미 `scripts/sync_installed.py`가 담당한다. 대신 전체 테스트 통과와 버전·매니페스트 정합으로 패키징을 완료 판정한다.
+
 ## 3. 작업 묶음별 상세 지시사항 (Detailed Instructions per Work Package)
 
 ### WP-02: 스토리보드 코어 계약 및 단일 프레임 직관화 (`15% → 35%`)
@@ -36,6 +38,7 @@
   - 배우용 타동사 지시(`설득한다`, `주의를 얻는다`)를 이미지/영상 생성용 **안면 해부학(눈동자/흰자위 노출·시선 각도, 미간/눈썹 비대칭 수축, 입꼬리/턱 근육 긴장) + 신체 텐션(목·승모근·어깨·손끝)**으로 변환하는 `정지 이미지·AI 생성용 표정·신체 변환 브릿지` 절을 신설한다.
 - **`video-production-assets/references/06-shots.md` & `08-animation.md`**:
   - 액션·추격·위기 씬에서 평면적 구도 반복을 막는 **샷 스케일 낙차(WS↔ECU, Low/Dutch Angle)** 규칙과 C/S자 동세선·무게중심 붕괴(Off-balance forward lean)·오버슈트 정착 규칙을 보강한다.
+  - **범위 제한**: 두 문서는 **컷 설계 원칙** 문서이며 패널 스키마 문서가 아니다. `kinetic_cues`, `expression_pose`, `image_prompt` 슬롯의 정의·양식·검증은 WP-02(`storyboard-contract.md` §8)·WP-05(템플릿·CSV)·WP-06(`validate_storyboard.py`)이 소유한다. 따라서 이 두 문서에 세 필드가 없는 것은 미완료가 아니다. 근거는 설계문서 §2.1.1(소유 문서 경계)을 따른다.
 - **`camera-spatial-design/references/camera-language-catalog.md`**:
   - §C의 예시 배분(아이레벨 70%, 고정 60%)이 액션·박진감 씬의 기본값으로 오용되지 않도록 경고문을 강화하고, §D에 **액션·추격·타격·서스펜스 전용 컷 연결 레시피 4종**(추격 속도감, 근접 타격 임팩트, 급박한 위기/발견, 고속 전환 휩팬/스매시컷)을 추가한다.
 
@@ -61,4 +64,4 @@
 
 ### WP-07: 레거시 정리·전체 검증 및 패키징 (`90% → 100%`)
 - `test_validate_storyboard.py`와 `test_render_storyboard_sheet.py`에 신규 기능 단위 테스트를 추가하고 전체 테스트를 실행한다.
-- 배포용 ZIP 패키지 생성 시 `manifest.json`에서 제외된 미사용 비영상 스킬 폴더 4종(`higgsfield-brandkit`, `higgsfield-marketplace-cards`, `higgsfield-product-photoshoot`, `higgsfield-websites`)과 대용량 과거 QA 로그(`qa/` 내 임시 실행 결과물)를 제외한 클린 배포판(`contents-production-skills-v2.36-upgraded.zip`)을 빌드한다.
+- 패키징은 **버전·매니페스트 정합 + 전체 테스트 통과**로 판정한다. 배포용 ZIP 생성과 비영상 폴더 삭제는 위 범위 조정에 따라 제외한다.
