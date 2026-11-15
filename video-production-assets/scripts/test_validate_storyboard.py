@@ -391,5 +391,79 @@ class StoryboardContractTests(unittest.TestCase):
         # strict_staging requires all 4 staging fields on every panel.
         self.assertTrue(any('strict staging' in e for e in validate_storyboard(p, strict_staging=True)))
 
+    def test_rhythm_absent_keeps_existing_behavior(self):
+        self.assertEqual(validate_storyboard(board()), [])
+        self.assertEqual(validate_storyboard(board(), strict_rhythm=False), [])
+
+    def test_rhythm_valid_curve_passes(self):
+        self.assertEqual(validate_storyboard(with_rhythm(board(), RHYTHM_VALID)), [])
+
+    def test_rhythm_uncovered_shot_fails(self):
+        r = copy.deepcopy(RHYTHM_VALID)
+        r['curve'] = r['curve'][:1]
+        errors = validate_storyboard(with_rhythm(board(), r))
+        self.assertTrue(any('does not cover this shot' in e for e in errors), errors)
+
+    def test_rhythm_beat_must_be_covered(self):
+        r = copy.deepcopy(RHYTHM_VALID)
+        r['curve'][1]['beat_ids'] = ['B02']
+        errors = validate_storyboard(with_rhythm(board(), r))
+        self.assertTrue(any('B03' in e for e in errors), errors)
+
+    def test_rhythm_beat_must_belong_to_its_shots(self):
+        r = copy.deepcopy(RHYTHM_VALID)
+        r['curve'][0]['beat_ids'] = ['B02']
+        errors = validate_storyboard(with_rhythm(board(), r))
+        self.assertTrue(any('not among its shots' in e for e in errors), errors)
+
+    def test_rhythm_energy_out_of_range_fails(self):
+        for bad in (0, 6, 2.5):
+            r = copy.deepcopy(RHYTHM_VALID)
+            r['curve'][0]['energy'] = bad
+            self.assertTrue(validate_storyboard(with_rhythm(board(), r)), bad)
+
+    def test_rhythm_planned_duration_sum_mismatch_fails(self):
+        r = copy.deepcopy(RHYTHM_VALID)
+        r['curve'][0]['planned_duration_s'] = 2.5
+        self.assertTrue(validate_storyboard(with_rhythm(board(), r)))
+
+    def test_rhythm_impact_phase_requires_handle_frames(self):
+        r = copy.deepcopy(RHYTHM_VALID)
+        r['curve'][1]['exit_handle_frames'] = 0
+        errors = validate_storyboard(with_rhythm(board(), r))
+        self.assertTrue(any('exit_handle_frames' in e for e in errors), errors)
+
+    def test_strict_rhythm_requires_rhythm_object(self):
+        errors = validate_storyboard(board(), strict_rhythm=True)
+        self.assertTrue(any('rhythm' in e for e in errors), errors)
+
+    def test_rhythm_beat_may_span_segments(self):
+        # The contract allows one beat across two shots; the curve must too.
+        p = copy.deepcopy(board())
+        p['shots'][1]['beat_ids'] = ['B01', 'B02', 'B03']
+        for pn in p['storyboard']['panels']:
+            if pn['shot_id'] == 'SH02':
+                pn['beat_ids'] = ['B01', 'B02', 'B03']
+        r = copy.deepcopy(RHYTHM_VALID)
+        r['curve'][1]['beat_ids'] = ['B01', 'B02', 'B03']
+        self.assertEqual(validate_storyboard(with_rhythm(p, r)), [])
+
+
+
+RHYTHM_VALID = {'intent': 'test intent', 'curve': [
+    {'id': 'RB01', 'beat_ids': ['B01'], 'shot_ids': ['SH01'], 'energy': 2,
+     'cadence': 'steady', 'planned_duration_s': 2.0, 'cut_out_phase': 'settle',
+     'exit_handle_frames': 0, 'reason': 'test reason'},
+    {'id': 'RB02', 'beat_ids': ['B02', 'B03'], 'shot_ids': ['SH02'], 'energy': 4,
+     'cadence': 'peak', 'planned_duration_s': 2.0, 'cut_out_phase': 'impact',
+     'exit_handle_frames': 2, 'reason': 'test reason'},
+]}
+
+
+def with_rhythm(p, rhythm):
+    p = copy.deepcopy(p)
+    p['storyboard']['rhythm'] = copy.deepcopy(rhythm)
+    return p
+
 
 if __name__ == '__main__': unittest.main()

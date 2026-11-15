@@ -27,9 +27,11 @@ PANEL_ROLES = ('start', 'action_peak', 'end', 'hold')
 CAMERA_KEYS = ('shot_size', 'angle', 'framing', 'movement', 'start', 'end')
 PANEL_TEXT_KEYS = ('visual_action', 'reveals', 'withholds', 'continuity')
 OPTIONAL_PANEL_TEXT_KEYS = ('expression_pose', 'focal_hierarchy', 'kinetic_cues', 'image_prompt')
+RHYTHM_CADENCES = ('steady', 'accelerando', 'ritardando', 'brake', 'peak', 'release')
+RHYTHM_CUT_PHASES = ('pre_action', 'mid_action', 'impact', 'reaction', 'settle')
 
 
-def validate_storyboard(project, base_dir=None, require_images=False, *, check_project=True, panels_per_sheet=8, strict_staging=False):
+def validate_storyboard(project, base_dir=None, require_images=False, *, check_project=True, panels_per_sheet=8, strict_staging=False, strict_rhythm=False):
     # Full-package validation reuses the board checks without recursively
     # entering the shared plan gate. Ordinary callers still validate both.
     try:
@@ -513,6 +515,101 @@ def validate_storyboard(project, base_dir=None, require_images=False, *, check_p
     for sid in scenes:
         if sid not in used_scenes:
             error(f'{sid}: scene not covered by any shot')
+
+    # Optional sequence rhythm curve. Structure, coverage, duration sum, timeline
+    # order and the declared handle floor only; never aesthetic or curve quality.
+    rhythm = sb.get('rhythm')
+    if rhythm is None:
+        if strict_rhythm:
+            error('storyboard.rhythm: required in strict rhythm mode')
+    elif not isinstance(rhythm, dict):
+        error('storyboard.rhythm: object required')
+    else:
+        if not text(rhythm.get('intent')):
+            error('storyboard.rhythm.intent: nonempty string required')
+        curve = rhythm.get('curve')
+        if not isinstance(curve, list) or not curve:
+            error('storyboard.rhythm.curve: nonempty array required')
+            curve = []
+        covered_shots, covered_beats, seen_rhythm_ids = {}, {}, set()
+        previous_end = None
+        for i, seg in enumerate(curve):
+            label = f'storyboard.rhythm.curve[{i}]'
+            if not isinstance(seg, dict):
+                error(f'{label}: entry must be an object'); continue
+            rid = seg.get('id')
+            if not text(rid):
+                error(f'{label}: nonempty id required'); continue
+            if rid in seen_rhythm_ids:
+                error(f'{rid}: duplicate rhythm id'); continue
+            seen_rhythm_ids.add(rid)
+            seg_beats = set()
+            beats = seg.get('beat_ids')
+            if not isinstance(beats, list) or not beats:
+                error(f'{rid}: beat_ids must be a nonempty array'); beats = []
+            for b in beats:
+                if not isinstance(b, str) or b not in beat_order:
+                    error(f'{rid}: unknown beat {b}'); continue
+                seg_beats.add(b)
+                covered_beats[b] = True
+            shots = seg.get('shot_ids')
+            if not isinstance(shots, list) or not shots:
+                error(f'{rid}: shot_ids must be a nonempty array'); shots = []
+            shot_names, shot_spans = [], []
+            for s in shots:
+                if not isinstance(s, str) or s not in shot_by_id:
+                    error(f'{rid}: unknown shot {s}'); continue
+                if s in covered_shots:
+                    error(f'{s}: rhythm curve covers this shot more than once'); continue
+                covered_shots[s] = rid
+                shot_names.append(s)
+                shot_spans.append((shot_by_id[s].get('start_s'), shot_by_id[s].get('end_s')))
+            energy = seg.get('energy')
+            if not isinstance(energy, int) or isinstance(energy, bool) or not 1 <= energy <= 5:
+                error(f'{rid}: energy must be an integer 1..5')
+            if seg.get('cadence') not in RHYTHM_CADENCES:
+                error(f'{rid}: cadence must be one of {"/".join(RHYTHM_CADENCES)}')
+            phase = seg.get('cut_out_phase')
+            if phase not in RHYTHM_CUT_PHASES:
+                error(f'{rid}: cut_out_phase must be one of {"/".join(RHYTHM_CUT_PHASES)}')
+            handle = seg.get('exit_handle_frames')
+            if not isinstance(handle, int) or isinstance(handle, bool) or handle < 0:
+                error(f'{rid}: exit_handle_frames must be a nonnegative integer')
+            elif phase in ('mid_action', 'impact') and handle < 2:
+                error(f'{rid}: exit_handle_frames must be >= 2 for cut_out_phase {phase}')
+            if not text(seg.get('reason')):
+                error(f'{rid}: reason must be a nonempty string')
+            planned = seg.get('planned_duration_s')
+            numeric_spans = [(a, b) for a, b in shot_spans if number(a) and number(b)]
+            if not number(planned) or planned <= 0:
+                error(f'{rid}: planned_duration_s must be a positive number')
+            elif fps_ok and numeric_spans:
+                if abs(planned - sum(b - a for a, b in numeric_spans)) > max(1/fps, 0.05):
+                    error(f'{rid}: planned_duration_s does not match covered shot durations')
+            shot_beats = set()
+            for s in shot_names:
+                values = shot_by_id[s].get('beat_ids')
+                if isinstance(values, list):
+                    shot_beats.update(v for v in values if isinstance(v, str))
+            for b in sorted(seg_beats):
+                if shot_names and b not in shot_beats:
+                    error(f'{rid}: beat {b} is not among its shots')
+            if len(shot_names) > 1:
+                positions = [shot_index[s] for s in shot_names]
+                if positions != sorted(positions):
+                    error(f'{rid}: shot_ids must follow timeline order')
+            starts = [a for a, b in numeric_spans]
+            ends = [b for a, b in numeric_spans]
+            if starts and ends:
+                if previous_end is not None and min(starts) < previous_end - 1e-6:
+                    error(f'{rid}: rhythm segments overlap or reverse timeline order')
+                previous_end = max(ends)
+        for sid in shot_by_id:
+            if sid not in covered_shots:
+                error(f'{sid}: rhythm curve does not cover this shot')
+        for bid in beat_order:
+            if bid not in covered_beats:
+                error(f'{bid}: beat not covered by any rhythm curve segment')
     return errors
 
 
@@ -525,12 +622,15 @@ def main():
                         help='allowed panel ceiling per storyboard_sheet asset (default: 8; renderer may use fewer)')
     parser.add_argument('--strict-staging', action='store_true',
                         help='require expression_pose, focal_hierarchy, kinetic_cues, and image_prompt on every panel')
+    parser.add_argument('--strict-rhythm', action='store_true',
+                        help='require the optional storyboard.rhythm sequence curve')
     args = parser.parse_args()
     try:
         p = json.loads(Path(args.project).read_text(encoding='utf-8'))
         errors = validate_storyboard(p, args.base_dir, args.require_images,
                                      panels_per_sheet=args.panels_per_sheet,
-                                     strict_staging=args.strict_staging)
+                                     strict_staging=args.strict_staging,
+                                     strict_rhythm=args.strict_rhythm)
     except (OSError, ValueError) as e:
         print(json.dumps({'valid': False, 'errors': [str(e)]}, ensure_ascii=False)); return 2
     print(json.dumps({'valid': not errors, 'errors': errors,
