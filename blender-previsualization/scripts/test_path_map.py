@@ -57,6 +57,12 @@ class FacingAtTests(unittest.TestCase):
         self.assertEqual(summary['CH01']['source'],'motion')
         self.assertEqual(summary['CH02'],{'vector':None,'source':'none'})
 
+    def test_look_card_subject_reports_no_rendered_heading(self):
+        data=spec()
+        summary=facing_summary(data,shot(data,'SH02'),{'SH02':{'CH01':{'vector':[1.0,0.0]}}},('CH01',))
+        self.assertEqual(summary['CH01'],{'vector':None,'source':'look-card'})
+        self.assertEqual(summary['CH02']['source'],'none')
+
     def test_marker_rotation_points_plus_y_cone_along_heading(self):
         angle=facing_rotation_z([1.0,0.0])
         # Rz(angle) applied to local +Y must equal the requested world heading.

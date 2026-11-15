@@ -649,7 +649,7 @@ def main():
             manifest['rendered'][shot['id']]=rendered
             summary=occlusion_summary(checks,shot,args.proxy)
             manifest.setdefault('occlusion',{})[shot['id']]=summary
-            inspections.append({'shot_id':shot['id'],'scene_id':shot.get('scene_id'),'beat_ids':shot.get('beat_ids',[]),'checks':checks,'occlusion':summary,'facing':facing_summary(spec,shot,facing_map),'path_map':map_rel,'rendered':rendered})
+            inspections.append({'shot_id':shot['id'],'scene_id':shot.get('scene_id'),'beat_ids':shot.get('beat_ids',[]),'checks':checks,'occlusion':summary,'facing':facing_summary(spec,shot,facing_map,tuple(look_cards)),'path_map':map_rel,'rendered':rendered})
         if bpy.context.window:bpy.context.window.scene=scenes[0]
         bpy.ops.wm.save_as_mainfile(filepath=str(out/'previs.blend'),check_existing=False)
         if not (out/'previs.blend').is_file():raise RuntimeError('Blend save missing')

@@ -22,7 +22,7 @@
 
 ## 2.40 (2026-11-16)
 
-- Added a spec-derived top-down blocking diagram per shot (`<shot_id>/path-map.svg`: camera path, frustum bearings, subject travel, facing, 1 m scale) so blocking and camera movement can be read in one image; it is a diagram, not a render, and proves no occlusion, contact or lighting.
+- Added a spec-derived top-down blocking diagram per shot (`<shot_id>/path-map.svg`: camera path, frustum bearings, subject travel, facing, 1 m scale) so blocking and camera movement can be read in one image (labels de-duplicated, frame ticks thinned so they never collide, camera fan clipped to the page and capped for legibility); it is a diagram, not a render, and proves no occlusion, contact or lighting.
 - Added `--mode path-maps`, which writes those diagrams and a diagram-only manifest without Blender (`blender_version: null`; scope marks renders and occlusion unverified).
 - Widened proxy occlusion from two points per subject to nine silhouette samples (`high|mid|low` x `left|center|right`) taken along the actual camera right axis, plus a per-shot `occlusion` summary (visible fraction, first occluded frame/point/first hit). Point sampling still does not prove whole-silhouette, articulated or contact visibility.
 - Added a facing marker to the figure proxy: a cone at chest height driven by `--facing-map` (adapter-local world XY heading) or by the subject's own travel; a subject with no determinable heading stays `source: none` instead of receiving an invented direction.

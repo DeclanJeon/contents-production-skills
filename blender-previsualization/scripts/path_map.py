@@ -77,16 +77,21 @@ def facing_at(spec,shot,subject_id,frame,facing_map=None):
     return (None,'none')
 
 
-def facing_summary(spec,shot,facing_map=None):
+def facing_summary(spec,shot,facing_map=None,look_card_ids=()):
     """Per-subject facing record for the manifest: {subject:{vector,source}}.
 
     The middle frame is preferred; the rest of the shot is scanned only when
-    the mid frame itself carries no determinable heading.
+    the mid frame itself carries no determinable heading. A subject drawn as a
+    camera-facing look card carries no body heading, so it reports
+    ``look-card`` instead of a vector that was never rendered.
     """
     out={}
     n=max(1,int(shot.get('duration_frames') or 1))
     candidates=[n//2]+[f for f in range(0,n,max(1,n//8)) if f!=n//2]
     for subject_id in shot.get('subject_ids',[]):
+        if subject_id in set(look_card_ids):
+            out[subject_id]={'vector':None,'source':'look-card'}
+            continue
         vector,source=None,'none'
         for frame in candidates:
             vector,source=facing_at(spec,shot,subject_id,frame,facing_map)
@@ -218,6 +223,24 @@ def shot_samples(spec,shot):
     return rows
 
 
+def ray_bounds_t(position,heading,bounds,max_t):
+    """Distance at which a ray exits the plot rectangle, capped by ``max_t``.
+
+    Used to end a camera fan on the page edge instead of drawing a chord
+    across the diagram when the cone is wider than the plotted area.
+    """
+    xmin,xmax,ymin,ymax=bounds
+    dx,dy=math.cos(heading),math.sin(heading)
+    candidates=[]
+    if dx>1e-9:candidates.append((xmax-position[0])/dx)
+    elif dx<-1e-9:candidates.append((xmin-position[0])/dx)
+    if dy>1e-9:candidates.append((ymax-position[1])/dy)
+    elif dy<-1e-9:candidates.append((ymin-position[1])/dy)
+    positive=[t for t in candidates if t>1e-9]
+    exit_t=min(positive) if positive else max_t
+    return max(0.0,min(max_t,exit_t))
+
+
 def _bounds(spec,shot,rows):
     xs=[c['camera']['position'][0] for c in rows];ys=[c['camera']['position'][1] for c in rows]
     for row in rows:
@@ -295,31 +318,36 @@ def build_svg(spec,shot,facing_map=None,width=1180):
             add(f'<text x="{_f(ax+6)}" y="{_f(ay+13)}" fill="#ffd479" font-size="10">facing·{source}</text>')
         else:
             x,y=pxy(end);add(f'<text x="{_f(x+6)}" y="{_f(y+15)}" fill="#7d869c" font-size="10">facing undetermined</text>')
-        x,y=px(start[0],start[1]);add(f'<text x="{_f(x)}" y="{_f(y-8)}" fill="#cdd5e4" font-size="11">{_escape(sid)}</text>')
     # camera path + frustum wedges
     camera_points=[pxy(row['camera']['position']) for row in rows]
     deduped=[point for i,point in enumerate(camera_points) if i==0 or point!=camera_points[i-1]]
     if len(deduped)==1:deduped=deduped*2
     add('<polyline points="'+' '.join(f'{_f(x)},{_f(y)}' for x,y in deduped)+'" fill="none" stroke="#ff8c69" stroke-width="2"/>')
-    drawn=set();wedges=0
-    for row in rows:
-        if wedges>=12:break
+    shown=set();wedges=0
+    for row in [rows[0],rows[len(rows)//2],rows[-1]]:
+        if wedges>=3:break
         cam=row['camera'];position=cam['position'];target=cam['target']
         dx,dy=target[0]-position[0],target[1]-position[1];length=math.hypot(dx,dy)
         if length<1e-6:continue
         heading=math.atan2(dy,dx)
-        key=(round(position[0],3),round(position[1],3),round(heading,3))
-        if key in drawn:continue
-        drawn.add(key);wedges+=1
+        key=(round(position[0],2),round(position[1],2),round(heading,2),cam['lens_mm'])
+        if key in shown:continue
+        shown.add(key);wedges+=1
         half=math.atan(sensor/(2*max(1e-6,cam['lens_mm'])))
-        nearest=min([math.hypot(p[0]-position[0],p[1]-position[1]) for p in row['positions'].values()]+[2.0])
-        reach=max(0.6,min(2.0,nearest))
+        # Reach the nearest subject so the reader can see whether the framing
+        # actually contains it; an arbitrary fixed length would hide that.
+        distances=[math.hypot(p[0]-position[0],p[1]-position[1]) for p in row['positions'].values()]
+        # A short directional fan scaled to the diagram reads better than a
+        # full-length cone, which would cover the whole page on a wide lens.
+        # Framing containment is judged from numerical-analysis.json, not here.
+        reach=min(max(0.6,0.35*min(span_x,span_y)),max(distances) if distances else 2.0)
         x0,y0=px(position[0],position[1])
         edges=[]
         for angle in (heading-half,heading+half):
-            ex,ey=position[0]+math.cos(angle)*reach,position[1]+math.sin(angle)*reach
+            distance=ray_bounds_t(position,angle,(xmin,xmax,ymin,ymax),reach)
+            ex,ey=position[0]+math.cos(angle)*distance,position[1]+math.sin(angle)*distance
             edges.append(px(ex,ey))
-        add(f'<polygon points="{_f(x0)},{_f(y0)} {_f(edges[0][0])},{_f(edges[0][1])} {_f(edges[1][0])},{_f(edges[1][1])}" fill="#ff8c69" opacity="0.05" stroke="#ff8c69" stroke-opacity="0.22" stroke-width="1"/>')
+        add(f'<polygon points="{_f(x0)},{_f(y0)} {_f(edges[0][0])},{_f(edges[0][1])} {_f(edges[1][0])},{_f(edges[1][1])}" fill="none" stroke="#ff8c69" stroke-opacity="0.55" stroke-width="1.2"/>')
     first_px=pxy(rows[0]['camera']['position']);last_px=pxy(rows[-1]['camera']['position'])
     add(f'<circle cx="{_f(first_px[0])}" cy="{_f(first_px[1])}" r="4" fill="#ff8c69"/>')
     if math.hypot(last_px[0]-first_px[0],last_px[1]-first_px[1])<6:

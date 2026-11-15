@@ -197,6 +197,9 @@ def tool_blender_previs(args: dict) -> dict:
         "scope": manifest.get("scope"),
         "camera_spec": manifest.get("camera_spec"),
         "rendered": manifest.get("rendered"),
+        "path_maps": manifest.get("path_maps"),
+        "occlusion": manifest.get("occlusion"),
+        "encode": manifest.get("encode"),
         "files": manifest.get("files"),
         "output_dir": str(output_dir),
     }
@@ -214,7 +217,7 @@ def tool_blender_previs_inspect(args: dict) -> dict:
     inspection_path = output_dir / "blender-inspection.json"
     inspection = json.loads(inspection_path.read_text(encoding="utf-8")) if inspection_path.is_file() else None
     summary = {
-        "manifest": {k: manifest.get(k) for k in ("status", "blender_version", "engine", "mode", "proxy_mode", "scope", "rendered", "files")},
+        "manifest": {k: manifest.get(k) for k in ("status", "blender_version", "engine", "mode", "proxy_mode", "scope", "rendered", "path_maps", "occlusion", "encode", "files")},
         "inspection_scope": (inspection or {}).get("scope"),
         "inspection_shots": [
             {"shot_id": s.get("shot_id"), "scene_id": s.get("scene_id"), "checks": len(s.get("checks", [])), "rendered": len(s.get("rendered", []))}
