@@ -45,4 +45,4 @@ voice_identity_direction: {모든 발화에 재사용하는 고정 음성 정체
 | 시간/대사 | 화자 | 의도/서브텍스트 | 숨/멈춤 | 강조 | 속도/압력 | 입 우선순위 | 청자 반응 | 신체 행동 |
 |---|---|---|---|---|---|---|---|---|
 
-규칙: 각 행은 그 대사의 `performance_cue`다 — 정확한 대사·의도/서브텍스트·숨·멈춤·강조·속도/압력을 생략하지 않는다(특별한 변화가 없으면 자연/기본/없음을 명시, 장면 근거 없으면 미정). 고정 정체성은 위 `voice_identity_direction`에만 둔다. 상태 변주는 음색·발음 앵커를 유지한다. 무언 역할의 음성 큐는 이유를 적은 N/A이며 시각 연기는 별도 표현 연결로 넘긴다. `proposed`/`unresolved`는 선택됨이 아니며 미지원 지시를 TTS 대사 본문에 넣지 않는다.
+규칙: 각 행은 그 대사의 `performance_cue`다 — 정확한 대사·의도/서브텍스트·숨·멈춤·강조·속도/압력을 생략하지 않는다(특별한 변화가 없으면 자연/기본/없음을 명시, 장면 근거 없으면 미정). 고정 정체성은 위 `voice_identity_direction`에만 둔다. 상태 변주는 음색·발음 앵커를 유지한다. 무언 역할의 음성 큐는 이유를 적은 N/A이며 시각 연기는 별도 표현 연결로 넘긴다. `proposed`/`unresolved`는 선택됨이 아니며 미지원 지시를 TTS 대사 본문에 넣지 않는다. 참조·지정 실행자·첨부 오디오가 없으면 이 발화문과 `voice_identity_direction` 앵커는 생성 요청문 AUDIO 구획에 그대로 들어간다(기본 인-리퀘스트 보이스 설계, [영상 계획 §3b](../../creative-production/references/video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default)).

@@ -200,6 +200,17 @@
         "Does not escalate a single explicitly text-only rough-panel request into the image-backed full package route.",
         "Does not broaden orchestrating-video-preproduction beyond its text-only assigned stage or create files, project.json, .history, or media."
       ]
+    },
+    {
+      "id": 28,
+      "prompt": "확인된 엔드포인트가 같은 요청문에서 음성·효과음 출력을 지원한다(텍스트 프롬프트 문자열 하나, 8초, 9:16). 캐릭터 A의 3초 대사와 문 닫히는 소리, 낮은 앰비언스가 필요한 8초 샷의 실제 제출 프롬프트를 써줘. 참조 음성·첨부 오디오·지정 음성 실행자는 없어. 그리고 같은 샷을 사용자가 외부 음성 실행자를 지정한 경우엔 어떻게 달라지는지 한 줄로 알려줘. 생성·과금은 하지 마.",
+      "expected_output": "The default in-request voice-and-sound prompt for the shot, plus the named-executor override stated in one line; no generation or spend.",
+      "expectations": [
+        "Designs voice and sound into the same request prompt (fixed voice identity anchor plus exact line/timing, plus concrete SFX/ambience) rather than defaulting to a separate TTS job.",
+        "States that only a supplied reference voice/audio, a named external executor, or an attached audio asset switches to that route.",
+        "No unsupported API field, and no media generation or spend."
+      ]
     }
+
   ]
 }

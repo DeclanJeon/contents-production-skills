@@ -23,7 +23,7 @@ Fill only the slots that serve the requested shot, then serialize using the veri
 | shot_type / subject | Framing and identifiable subject anchors |
 | start_state / action / end_state | Observable change and edit-ready boundary states |
 | setting / camera / lighting / style | Supported staging, movement and look |
-| audio / dialogue | Only when requested and supported by the selected endpoint |
+| audio / dialogue | Default when the deliverable needs voice or sound: design voice and sound into the same request (§3b); a named external provider, a reference voice/audio, or an attached audio asset selects that route instead |
 | duration / aspect / resolution / seed | Separate supported API controls from prompt text |
 | negative | Targeted known failure only, using supported syntax |
 
@@ -37,6 +37,18 @@ Composition rules:
 4. For image-to-video endpoints with a motion-focused guide, let the input image carry its static appearance and describe motion/change in text. Do not generalize this to endpoints that require identity or scene restatement.
 5. Use negative instructions only for a known failure and only where supported. Runway Gen-4's guide explicitly rejects negative phrasing; use a positive target such as "locked camera" there, not a minimal negative list.
 6. API-level controls (seed, aspect, duration, motion strength, structured camera params) belong in parameters when the endpoint exposes them, not prompt text.
+
+### 3b. Voice and sound design are in-request by default
+
+When the requested deliverable needs character voice, dialogue, SFX, BGM/ambience, music, or VFX sound, the default is to design both the **voice design** (a fixed voice identity and the spoken lines) and the **sound design** into the **same video request**, so the selected video model produces the audio together with the picture. This default applies when no reference voice/sound exists, the user named no external voice or audio provider, and no audio asset is attached.
+
+Any one of these selects the other route, and it is not silently replaced:
+
+- a supplied reference voice, sound, or audio asset → use it through its documented input role;
+- an explicitly named external voice/audio executor or service → use that executor and its actual contract;
+- an attached audio file → use it as the reference/input it is.
+
+A `no_audio` / mute request stays mute: do not add voice or sound to a silent deliverable. When the selected endpoint's audio output is unsupported or unverified, do not assert in-request audio — record `UNSUPPORTED`/`UNVERIFIED` and propose a separate voice/SFX pass only inside the existing approval bounds; the proposal authorizes no new job, spend, or provider.
 
 When a local prompt corpus is configured, inspect its real layout before lookup. `VIDEO_PROMPT_CORPUS` may identify the corpus root; record actual example paths and reuse structure, not source content. An absent corpus does not block a normal prompt, and historical inventory totals, frequency statistics or host paths are not bundled evidence.
 

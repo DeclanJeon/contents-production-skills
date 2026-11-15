@@ -42,6 +42,8 @@
 | 패널 | `beat_ids`는 해당 순간을 실제로 보여주는 비트만 연결한다. `visible_character_ids`는 그 패널에서 실제로 보이는 인물만 기록한다. `audio_cue_ids`와 `speech_ids`는 그 패널이 표현/수반하는 큐·발화만 연결한다. 패널 참조는 해당 샷 참조의 부분집합이다. | storyboard 담당 |
 
 **미정, 비적용, 미검증은 다르다.** N/A에는 사유가 있고 미정 입력이 요구 기능을 차단하면 blocker다. 아직 없는 음성/이미지에는 planned ID를 쓰고 generated로 기록하지 않는다. 여러 샷에 걸친 BGM은 범위가 겹치는 해당 샷의 audio_cue_ids에도 연결해 시트에서 찾을 수 있게 한다.
+
+**발화·음향 슬롯의 기본 경로:** 참조 음성/사운드, 지정된 외부 음성·오디오 실행자, 첨부 오디오가 없으면 보이스 디자인(고정 음성 정체성·대사)과 사운드 디자인(SFX·BGM/앰비언스·VFX음)을 생성 요청문 안에 설계하는 것이 기본이며, 이 슬롯은 그 설계를 담는다([영상 계획 §3b](../../creative-production/references/video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default)). 슬롯을 채우는 것과 실제 생성은 다르며, 선택 endpoint의 오디오 출력 미지원/미확인은 `UNSUPPORTED`/`UNVERIFIED`로 둔다.
 반복 SFX는 같은 소스 에셋을 재사용할 수 있지만 **발생 구간마다 별도의 cue ID와 start_s/end_s**를 준다. 연속 룸톤/BGM 한 큐를 여러 샷에서 쓰는 경우에만 그 연속 범위를 유지하고, 겹치는 모든 샷에 연결한다.
 
 ### 대사별 발화 얼굴과 청자 반응

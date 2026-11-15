@@ -43,7 +43,7 @@ List what must survive the generation: identity and costume, prop state and hand
 ## Audio and dialogue (separate channel)
 Dialogue, SFX, ambience and music are edit-timeline items with their own cue IDs and timing. Record them here only as an execution constraint, not as visual action: a sound cue does not describe a visible move, and "on the beat" is not a visual instruction. If the selected provider exposes an audio field, list it in the provider table with its verified field name; otherwise mark it `UNSUPPORTED` and hand it to the edit owner. Generated sound is not evidence that the visual action happened at that time.
 
-For a verified native-audio model, this separate AUDIO section travels inside the same provider request. Do not infer an extra dubbing job or invent an audio toggle/reference field the current transport does not expose.
+For a verified audio-capable model, this separate AUDIO section travels inside the same provider request — the default path for voice and sound design when no reference voice/audio, named external executor, or attached audio is supplied ([video generation planning §3b](../../creative-production/references/video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default)). Do not infer an extra dubbing job or invent an audio toggle/reference field the current transport does not expose.
 
 ## Actual provider inputs
 Include only supported fields; leave empty for model-neutral work.

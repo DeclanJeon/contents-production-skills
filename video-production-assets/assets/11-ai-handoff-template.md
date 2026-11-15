@@ -41,7 +41,8 @@ ID: {shot_id}
 - global 담당 in/out · 생성 길이 · 앞/뒤 핸들 · 최종 채택 source in/out: {각각 구분; 시간 basis/FPS와 실측/추정 상태}
 - 시간 변환: {핸들을 포함한 global/shot-local/generation-local 대응}
 
-| source scene/shot/panel·speech/cue ID | global / shot-local / generation-local 구간 | 발화/반응/인서트 · 가시 인물·구도 | 계기→표정/행동 정점→정착 · 공개/소품 상태 | 정확한 원문·화자·화면 안/밖·음향 | 실제 제출문 VISUAL/AUDIO 문장 · 제어 등급 |
+| source scene/shot/panel·speech/cue ID | global / shot-local / generation-local 구간 | 발화/반응/인서트 · 가시 인물·구도 | 계기→표정/행동 정점→정착 · 공개/소품 상태 | 정확한 원문·화자·화면 안/밖·음향·고정 보이스 앵커 | 실제 제출문 VISUAL/AUDIO 문장 · 제어 등급 |
+보이스·사운드 경로: {같은 요청문 인-리퀘스트 기본 설계(참조/지정 실행자/첨부 없음, [영상 계획 §3b](../../creative-production/references/video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default)) / 참조 보이스·오디오 / 지정 외부 실행자 / 무성} · 오디오 출력 지원: {확인된 값 또는 UNSUPPORTED/UNVERIFIED}
 |---|---|---|---|---|---|
 
 - 전체 발화의 실제 화자·화면 안/밖·시간 구간과 중요한 반응 대응: {선택한 행/패널·동일 프레임 내 처리·유보 또는 사유 있는 N/A; 발화별 별도 얼굴/반응 컷 할당 아님}

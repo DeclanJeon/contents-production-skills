@@ -10,6 +10,14 @@
 
 ## Unreleased
 
+## 2.42 2026-11-16
+
+- Made in-request voice and sound design the default: when a deliverable needs character voice, dialogue, SFX, BGM/ambience or VFX sound, and no reference voice/audio, no user-named external voice or audio executor, and no attached audio asset exists, the voice design and sound design belong in the **same video request** so the selected model produces the audio with the picture. Stated once as an authoritative rule in `video-generation-planning.md` (§3b) and pointed to from the handoff, dialogue-lipsync, edit, storyboard-contract, execution, QA-retry, routing, camera-contract and storyboard-timing surfaces without restating it.
+- The rule keeps three overrides intact and never silently replaces them: a supplied reference voice/sound, a user-named external voice/audio executor, or an attached audio file selects that route. A `no_audio`/mute request stays mute, and an endpoint whose audio output is unsupported or unverified is recorded as `UNSUPPORTED`/`UNVERIFIED` instead of claiming in-request audio.
+- Names no provider: providers stay user-named categories verified live at execution time, so the rule names none.
+- Added creative-production eval 28: one 8s shot with a 3s line, a door-close SFX and low ambience must come back as a single in-request voice-and-sound prompt with the named-executor override stated in one line, and no generation or spend.
+- Verified the default end-to-end with one real 8s/9:16 native-audio render of a single-sentence Korean line over cafe ambience, addressed by `generate_audio` on the selected video model. Measured evidence, not listening: the delivered MP4 carries an AAC stereo stream (`-28.4 dB` mean, `-6.9 dB` peak), the level trace holds a steady `~-38 dB` bed for the full 8s (ambience), rises to `-19.6 dB` for the line at 3.0-4.5s, and shows a separate `-30.8 dB` transient at 5.5s (the door cue). Local speech-to-text recovers `문 좀 닫아줄래요?` from the rendered audio, matching the prompted line. The door cue's identity and placement are inferred from the level trace, not confirmed by listening, and remain `UNVERIFIED` until heard.
+
 ## 2.41 (2026-11-15)
 
 - Record how to enable thumbnail generation inside a container. Three things are required and each fails differently: a `node` binary (absent from `python:3.x-slim`, which makes the skill look missing), the skill directory itself, and the OAuth file.

@@ -112,6 +112,7 @@ This on-demand reference covers provider routing and cost controls for media gen
 - 길이와 핸들
 - 화면비와 납품 해상도
 - 모델 내 오디오 필요
+- 보이스/사운드 입력: 인-리퀘스트 기본 설계 / 참조 보이스·오디오 / 지정 외부 실행자 / 무성 ([영상 계획 §3b](../../creative-production/references/video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default))
 - 연장/편집/인페인트 필요
 - 합성 친화성
 - 비용 상한
