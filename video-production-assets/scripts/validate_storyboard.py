@@ -26,9 +26,10 @@ from validate_project import validate
 PANEL_ROLES = ('start', 'action_peak', 'end', 'hold')
 CAMERA_KEYS = ('shot_size', 'angle', 'framing', 'movement', 'start', 'end')
 PANEL_TEXT_KEYS = ('visual_action', 'reveals', 'withholds', 'continuity')
+OPTIONAL_PANEL_TEXT_KEYS = ('expression_pose', 'focal_hierarchy', 'kinetic_cues', 'image_prompt')
 
 
-def validate_storyboard(project, base_dir=None, require_images=False, *, check_project=True, panels_per_sheet=8):
+def validate_storyboard(project, base_dir=None, require_images=False, *, check_project=True, panels_per_sheet=8, strict_staging=False):
     # Full-package validation reuses the board checks without recursively
     # entering the shared plan gate. Ordinary callers still validate both.
     try:
@@ -385,6 +386,11 @@ def validate_storyboard(project, base_dir=None, require_images=False, *, check_p
             error(f'{label}: role must be start/action_peak/end/hold')
         for k in PANEL_TEXT_KEYS:
             if not text(pn.get(k)): error(f'{label}: {k} must be a nonempty string')
+        for k in OPTIONAL_PANEL_TEXT_KEYS:
+            if strict_staging and not text(pn.get(k)):
+                error(f'{label}: {k} must be a nonempty string in strict staging mode')
+            elif k in pn and pn.get(k) is not None and not text(pn.get(k)):
+                error(f'{label}: {k} cannot be blank when provided')
         if not number(t):
             error(f'{label}: frame_time_s must be a finite number')
         else:
@@ -464,6 +470,11 @@ def validate_storyboard(project, base_dir=None, require_images=False, *, check_p
                 error(f'{rid}: a static shot allows exactly one hold panel')
             elif number(times[0]) and number(s0) and abs(times[0] - s0) > 1e-6:
                 error(f'{rid}: hold panel must sit on the shot start frame')
+        elif s.get('keyframe_mode') == 'single_i2v' and len(rows) == 1:
+            if roles[0] not in ('start', 'action_peak'):
+                error(f'{rid}: single_i2v shot panel must have role start or action_peak')
+            elif roles[0] == 'start' and number(times[0]) and number(s0) and abs(times[0] - s0) > 1e-6:
+                error(f'{rid}: single_i2v start panel must be at the shot start frame')
         else:
             if has_hold:
                 error(f'{rid}: hold panels cannot mix with changing-shot roles')
@@ -512,10 +523,14 @@ def main():
     parser.add_argument('--require-images', action='store_true')
     parser.add_argument('--panels-per-sheet', type=int, default=8,
                         help='allowed panel ceiling per storyboard_sheet asset (default: 8; renderer may use fewer)')
+    parser.add_argument('--strict-staging', action='store_true',
+                        help='require expression_pose, focal_hierarchy, kinetic_cues, and image_prompt on every panel')
     args = parser.parse_args()
     try:
         p = json.loads(Path(args.project).read_text(encoding='utf-8'))
-        errors = validate_storyboard(p, args.base_dir, args.require_images, panels_per_sheet=args.panels_per_sheet)
+        errors = validate_storyboard(p, args.base_dir, args.require_images,
+                                     panels_per_sheet=args.panels_per_sheet,
+                                     strict_staging=args.strict_staging)
     except (OSError, ValueError) as e:
         print(json.dumps({'valid': False, 'errors': [str(e)]}, ensure_ascii=False)); return 2
     print(json.dumps({'valid': not errors, 'errors': errors,

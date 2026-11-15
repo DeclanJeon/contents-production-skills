@@ -286,5 +286,22 @@ class MultiSheetTests(unittest.TestCase):
                              b'user file created after preflight')
 
 
+
+    def test_aspect_ratio_adaptive_cells_and_staging_captions(self):
+        from render_storyboard_sheet import _cell_dimensions
+        self.assertEqual(_cell_dimensions({'aspect_ratio': '9:16'}), (405, 720))
+        self.assertEqual(_cell_dimensions({'aspect_ratio': '16:9'}), (640, 360))
+        self.assertEqual(_cell_dimensions({}), (560, 560))
+        with tempfile.TemporaryDirectory() as root:
+            p = image_package(root)
+            p['aspect_ratio'] = '9:16'
+            p['storyboard']['panels'][0]['expression_pose'] = 'sharply furrowed brows, forward lean'
+            p['storyboard']['panels'][0]['kinetic_cues'] = '24mm foreshortening, trailing coat'
+            result = render_sheet(p, root, 'vertical.png', font_path=self.font())
+            first_caption = result['panel_traceability'][0]['caption']
+            self.assertTrue(any('expression_pose' in line for line in first_caption))
+            self.assertTrue(any('kinetic_cues' in line for line in first_caption))
+
+
 if __name__ == '__main__':
     unittest.main()

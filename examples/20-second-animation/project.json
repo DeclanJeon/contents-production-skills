@@ -129,7 +129,7 @@
       "purpose": "로봇이 짧은 걸음으로 따라가 내밀지만 통근자는 알아채지 못한다.",
       "start_state": "CH01 중앙 왼쪽, 장갑 오른손; CH02 우측을 향해 이동.",
       "end_state": "CH02 우측 정류장 기둥 앞 정지; CH01 중앙, 장갑 오른손.",
-      "camera": "전신 투샷; 약 3m, 수평 화각 40도",
+      "camera": "로우앵글 광각 추격 투샷(지면 위 40cm, 24mm 상당); 전경 좌측 CH01 포어쇼트닝, 배경 우측 CH02",
       "camera_movement": "고정",
       "source_in_s": 0.5,
       "source_out_s": 4.5,
@@ -140,7 +140,7 @@
       "start_frame": 144,
       "end_frame": 240,
       "sound_id": "AU01",
-      "prompt": "모루 CH01과 통근자 CH02, LOC01 정류장, LOOK01 단순한 무광 3D 룩. 초기 상태: CH01 중앙 왼쪽, 장갑 오른손; CH02 우측을 향해 이동. 주 행동: 로봇이 짧은 걸음으로 따라가 내밀지만 통근자는 알아채지 못한다. 카메라: 전신 투샷; 약 3m, 수평 화각 40도, 고정. 프레임 왼쪽 위의 부드러운 중성 아침광과 오른쪽 뒤 그림자. 끝 상태: CH02 우측 정류장 기둥 앞 정지; CH01 중앙, 장갑 오른손. 인물 두 명만, 같은 비율·의상·장갑 한 짝; 새 인물·버스·로고·문자·음성 금지.",
+      "prompt": "[KO 연출 요약] 로우앵글 광각 구도. 전경 좌측에서 작은 로봇 모루(CH01)가 몸을 앞으로 30도 기울인 C자 동세선으로 산호색 장갑을 든 오른손을 카메라/통근자 쪽으로 뻗으며 다급히 달려가고(발밑 미세한 먼지, 간절히 치켜뜬 두 흰 눈), 배경 우측에서는 통근자(CH02)가 큰 보폭으로 남색 코트 자락을 휘날리며 시선이 어긋난 채 정류장 기둥 앞에 멈춘다. [EN Prompt] Low-angle 24mm wide dynamic two-shot at a quiet morning bus stop (LOC01, LOOK01 matte 3D animation). Foreground left: small 55cm ivory robot CH01 leaning 30-degrees forward in a steep C-curve sprint line of action, extending its right claw holding a coral knit left-hand glove (PR01) with extreme foreshortening, two white dot eyes tilted sharply upward in urgent focus, tiny dust puff under planted foot. Background right: adult commuter CH02 in dark navy coat with coat hem trailing from stride inertia, stopping by the bus stop pillar looking straight ahead, unaware.",
       "source_duration_status": "estimated"
     },
     {

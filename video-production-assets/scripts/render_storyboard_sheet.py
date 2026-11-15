@@ -70,11 +70,29 @@ VALID_SOURCE_STATUS = ('available', 'verified')
 CELL_IMAGE_WIDTH = 560
 CELL_IMAGE_HEIGHT = 560
 CAPTION_WIDTH = CELL_IMAGE_WIDTH
+
+ASPECT_CELL_DIMENSIONS = {
+    '9:16': (405, 720),
+    '16:9': (640, 360),
+    '4:5': (480, 600),
+    '3:4': (450, 600),
+    '1:1': (560, 560),
+}
+
+
+def _cell_dimensions(project):
+    """Return (cell_w, cell_h) adapted to project.aspect_ratio when set, or
+    (CELL_IMAGE_WIDTH, CELL_IMAGE_HEIGHT) by default."""
+    if isinstance(project, dict):
+        ratio = project.get('aspect_ratio')
+        if isinstance(ratio, str) and ratio.strip() in ASPECT_CELL_DIMENSIONS:
+            return ASPECT_CELL_DIMENSIONS[ratio.strip()]
+    return (CELL_IMAGE_WIDTH, CELL_IMAGE_HEIGHT)
 GUTTER = 16
 MARGIN = 16
 FONT_SIZE = 17
 LINE_SPACING = 6
-CAPTION_MAX_LINES = 40
+CAPTION_MAX_LINES = 64
 MAX_COLUMNS = 4                # v5.1 grid caps at 4 columns (7–8 panels = 2x4)
 MAX_PANELS_PER_SHEET = 8       # v5.1 absolute maximum panels per sheet
 DEFAULT_PANELS_PER_SHEET = 4   # Production reading density, not a story quota.
@@ -365,6 +383,9 @@ def _cell_caption(index, panel, panel_id, shot, beats, characters, audio_cues,
         'continuity ' + (_text(panel.get('continuity')) or '?'),
         f'vfx {"on" if vfx.get("enabled") else "off"}: {vfx_text}',
         'action ' + (_text(panel.get('visual_action')) or '?'),
+        *[f'{k} {_text(panel.get(k))}'
+          for k in ('expression_pose', 'focal_hierarchy', 'kinetic_cues', 'image_prompt')
+          if _text(panel.get(k))],
         f'source {source_label}',
     ]
 
@@ -544,13 +565,15 @@ def _render_one(project, base, jobs, ctx, font, sheet_index, sheet_count, out):
     measure = ctx['measure']
     source_cache = ctx['source_cache']
 
-    # Prepare cell bitmaps scaled to fit the fixed image cell.
+    cell_img_w, cell_img_h = _cell_dimensions(project)
+    caption_w = cell_img_w
+    # Prepare cell bitmaps scaled to fit the aspect-aware image cell.
     for job in jobs:
         src = source_cache[job['path']]
         if job['crop'] is not None:
             src = src.crop(job['crop'])
         w, h = job['size']
-        scale = min(CELL_IMAGE_WIDTH / w, CELL_IMAGE_HEIGHT / h, 1.0)
+        scale = min(cell_img_w / w, cell_img_h / h, 1.0)
         scaled = (max(1, round(w * scale)), max(1, round(h * scale)))
         if scaled != (w, h):
             src = src.resize(scaled, Image.LANCZOS)
@@ -577,7 +600,7 @@ def _render_one(project, base, jobs, ctx, font, sheet_index, sheet_count, out):
         f'scenes {scene_ids[0]}–{scene_ids[-1]} · shots {shot_ids[0]}–{shot_ids[-1]} · '
         f'panels {jobs[0]["panel_id"]}–{jobs[-1]["panel_id"]}',
     ]
-    header_lines = _wrap_caption(measure, header, font, CAPTION_WIDTH * columns
+    header_lines = _wrap_caption(measure, header, font, caption_w * columns
                                  + GUTTER * (columns - 1))
     if len(header_lines) > 8:
         raise ValueError('header does not fit the sheet header band')
@@ -590,7 +613,7 @@ def _render_one(project, base, jobs, ctx, font, sheet_index, sheet_count, out):
         lines = _cell_caption(job['index'], job['panel'], job['panel_id'],
                               job['shot'] or {}, beats, characters, audio_cues,
                               source_label, artifacts)
-        wrapped = _wrap_caption(measure, lines, font, CAPTION_WIDTH)
+        wrapped = _wrap_caption(measure, lines, font, caption_w)
         if len(wrapped) > CAPTION_MAX_LINES:
             raise ValueError(
                 f'{job["panel_id"]}: caption needs {len(wrapped)} lines, over the '
@@ -598,12 +621,12 @@ def _render_one(project, base, jobs, ctx, font, sheet_index, sheet_count, out):
         job['caption'] = wrapped
 
     line_height = FONT_SIZE + LINE_SPACING
-    cell_width = CELL_IMAGE_WIDTH
+    cell_width = cell_img_w
     header_height = MARGIN + len(header_lines) * line_height + GUTTER
     row_heights = []
     for row in rows:
         caption_lines = max(len(j['caption']) for j in row['jobs'])
-        row_heights.append(CELL_IMAGE_HEIGHT + GUTTER + caption_lines * line_height)
+        row_heights.append(cell_img_h + GUTTER + caption_lines * line_height)
     sheet_width = MARGIN * 2 + columns * cell_width + (columns - 1) * GUTTER
     sheet_height = header_height + sum(row_heights) + MARGIN
     if sheet_width * sheet_height > MAX_SHEET_PIXELS:
@@ -627,16 +650,16 @@ def _render_one(project, base, jobs, ctx, font, sheet_index, sheet_count, out):
         x = MARGIN
         for job in row['jobs']:
             bw, bh = job['scaled_size']
-            box_x = x + (CELL_IMAGE_WIDTH - bw) // 2
-            box_y = y + (CELL_IMAGE_HEIGHT - bh) // 2
-            draw.rectangle([x, y, x + CELL_IMAGE_WIDTH - 1,
-                            y + CELL_IMAGE_HEIGHT - 1], outline=(210, 210, 210))
+            box_x = x + (cell_img_w - bw) // 2
+            box_y = y + (cell_img_h - bh) // 2
+            draw.rectangle([x, y, x + cell_img_w - 1,
+                            y + cell_img_h - 1], outline=(210, 210, 210))
             sheet.paste(job['bitmap'], (box_x, box_y),
                         job['bitmap'] if 'A' in job['bitmap'].getbands() else None)
             # Recorded deterministic crop: the pasted clean image rect.
             panel_bounds.append({'panel_id': job['panel_id'],
                                  'bounds': [box_x, box_y, box_x + bw, box_y + bh]})
-            cy = y + CELL_IMAGE_HEIGHT + GUTTER
+            cy = y + cell_img_h + GUTTER
             for i, line in enumerate(job['caption']):
                 draw.text((x, cy), line, font=font, fill=ink if i < 4 else dim)
                 cy += line_height

@@ -46,3 +46,10 @@ Done means the requested stages — no more, no fewer — returned as actual art
 ## Handoff
 
 Beyond the package, the lane hands off the direction decision, interaction mode, choice statuses, stable beat/panel IDs, Visual Bible, and continuity ledger so the receiving stage inherits them as-is rather than re-interviewing. Shot-level production specifications inside the board contract are this lane's own text deliverable; model-specific clip decomposition and execution are handed to `creative-production`, which selects the downstream owner and provider. Planning approval is never spend approval.
+
+### 창작 연출 집중 모드 (Creative Staging Focus vs. Full Audit Mode)
+
+다중 산출물 계획 응답의 `≤2,000 words` 예산 안에서 행정 메타데이터(도서 `SHA-256` 해시 반복, 중복 ID 나열, 빈 형식 표)가 정작 중요한 **장면 연출·인물 표정·동세·컷별 프롬프트**를 한 줄짜리 단답형으로 압축시키지 않도록 응답 밀도를 관리한다:
+
+- **토큰 배분 우선순위**: 전체 응답 분량의 **80% 이상**을 ① 씬별 카메라/리듬 설계, ② 패널별 **3단 상황 압축(`focal_hierarchy`)·안면 해부학 표정(`expression_pose`)·정지화 역동성(`kinetic_cues`)**, ③ **한·영 이중 이미지 프롬프트(`image_prompt`)**에 할애한다.
+- **기계적 메타데이터 압축**: 공통 가정·출처 지문·버전 핀은 문서 상단 스파인에 1회만 선언하고, 개별 패널 행에서는 생생한 시각·연기·구도 묘사를 절대 축약하지 않는다.

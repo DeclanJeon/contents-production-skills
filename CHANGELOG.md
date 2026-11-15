@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.36 (2026-11-15)
+
+- Added 3-layer single-frame causal staging (`focal_hierarchy`), still-frame kinetic translation (`kinetic_cues`), anatomical expression bridge (`expression_pose`), and KO/EN dual-layer prompting (`image_prompt`) across `storyboarding-video` and `video-production-assets`.
+- Added action/chase/impact camera scale-jump and eye-trace recipes to `camera-language-catalog.md` and `06-shots.md`.
+- Added I2V keyframe chaining bridge (`single_i2v` and `start->action_peak->end` sub-clip splitting), creative staging focus mode, and physical material SFX prompting rules.
+- Upgraded `validate_storyboard.py` (`--strict-staging`, `single_i2v` support) and `render_storyboard_sheet.py` (aspect-ratio adaptive cell dimensions for `9:16`/`16:9`/`4:5` and expanded 64-line captions).
+
+
 ## Unreleased
 
 

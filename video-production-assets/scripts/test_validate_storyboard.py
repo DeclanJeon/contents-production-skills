@@ -370,4 +370,26 @@ class StoryboardContractTests(unittest.TestCase):
             self.assertFalse(json.loads(r.stdout)['valid'])
 
 
+
+    def test_single_i2v_keyframe_mode_and_staging_fields(self):
+        p = board()
+        p['shots'][0]['keyframe_mode'] = 'single_i2v'
+        p['storyboard']['panels'] = [
+            pn for pn in p['storyboard']['panels'] if pn['id'] != 'P02'
+        ]
+        p['storyboard']['panels'][0].update(
+            expression_pose='eyes wide with upper sclera visible, brows drawn up, C-curve forward lean',
+            focal_hierarchy='1st: foreground extended hand | 2nd: midground robot | 3rd: background bus stop',
+            kinetic_cues='extreme foreshortening, dust puff at heel, coat hem trailing',
+            image_prompt='[KO 요약] 다급히 손을 뻗는 모루 [EN Prompt] 24mm low angle dynamic shot'
+        )
+        self.assertEqual(validate_storyboard(p), [])
+        # Blank optional staging field is rejected when present.
+        bad = copy.deepcopy(p)
+        bad['storyboard']['panels'][0]['expression_pose'] = '   '
+        self.assertTrue(any('expression_pose' in e for e in validate_storyboard(bad)))
+        # strict_staging requires all 4 staging fields on every panel.
+        self.assertTrue(any('strict staging' in e for e in validate_storyboard(p, strict_staging=True)))
+
+
 if __name__ == '__main__': unittest.main()

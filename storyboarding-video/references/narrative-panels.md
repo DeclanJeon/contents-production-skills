@@ -67,3 +67,11 @@ ID 45, Caroline Hu, *Mastering Storyboarding*, local rendition `E:/Book/06_Book/
 The rules above for brief preservation, one action/information change per panel, exact-count handling, reveal timing, transition choices, continuity-ledger fields, prompts, and output structure are package-authored safeguards and operating heuristics. They are not attributed to Hu or asserted as external standards. They do not prove audience response or factual truth.
 
 Read-rendition identity: 47562 bytes; SHA-256 `cdd4f9b82b83c2ac6cc87c3d39251a79e4d02b7b57e337945bcb89efc58b5f21`. The partial reading and source inconsistency above refer to this exact copy.
+
+### Single-frame causal readability and kinetic staging
+
+"One dominant action per panel" never means stripping away the cause, target, or environment into a blank pose:
+
+- **Visual Cause-and-Effect Coexistence**: Anchor the immediate trigger (e.g. a dropped object mid-bounce, an approaching shadow, a hand just releasing a grip) inside the same frame as the subject's primary reaction or lunge (`focal_hierarchy`: 1st focal point → 2nd interaction target → 3rd environmental context).
+- **Anatomical Facial & Body Mechanics (`expression_pose`)**: Specify concrete facial muscle states (eye opening/sclera, brow angle, mouth/jaw tension) and spine line-of-action rather than abstract mood labels.
+- **Kinetic Cues & Eye-Trace Flow (`kinetic_cues`)**: Use perspective foreshortening, secondary cloth/hair drag, and scale contrast across adjacent panels so consecutive stills read with speed and impact. Pair `[KO 연출 요약]` with `[EN Cinematic Prompt]` in the per-panel prompt column when downstream image/video generators benefit from English cinematography terms.

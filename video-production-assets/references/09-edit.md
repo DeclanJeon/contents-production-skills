@@ -156,3 +156,13 @@ E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/C
 Murch 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/The Conversations Walter Murch and the Art of Editing Film (Michael Ondaatje) (z-library.sk, 1lib.sk, z-lib.sk).md`, SHA-256 `b6fa76cf85df969a3e780faa6d6f185e968c9e2dd805ac64c377358a6767e595`, 558324 bytes, L241–243/L249–253. 선택적 소리 강조·앰비언스·제거와 특정 장면의 음악 지연 사례만 지원한다. Foley 재질 구현, 보편적 침묵 효과, 모든 장르의 음악 배치나 audience response의 보장은 아니다.
 
 컷·전환·음향 예시를 비교할 때만 [편집·음향 표현 선택표](edit-sound-language-catalog.md)를 읽는다. 외부 실제 파일을 사용할 때는 [참조 색인](production-reference-index.md)의 행위별 권리 표를 기존 권리/믹스 문서에 연결한다.
+
+### 물리 재질·접촉 기반 효과음(SFX) 명세와 시각 타격점 동기화
+
+액션·접촉·슬라이딩·충돌 샷의 효과음(SFX)을 설계하거나 오디오 생성 프롬프트로 인계할 때는 과장된 오생성(예: 단순 접촉에 거대한 SF 폭발음이 생성되는 현상)을 막기 위해 다음 공식을 강제한다:
+
+1. **추상적 장르·감정 수식어 단독 사용 금지**: `"강렬한 임팩트"`, `"SF 충돌음"`, `"박진감 넘치는 효과음"` 같은 추상어를 금지한다.
+2. **물리 4요소 SFX 공식 (`[주체 재질] + [대상 표면 재질] + [접촉/마찰 방식] + [질량·잔향(Decay)]`)**:
+   - 나쁜 예: `로봇이 부딪히는 강한 SF 폭발 효과음`
+   - 좋은 예: `무거운 경질 고무 범퍼가 도장된 창고 철제 기둥에 미끄러지며 닿는 둔탁한 마찰음(thud & rubber squeak), 짧은 0.3초 금속 진동 여운, 폭발음 없음`
+3. **`action_peak` 패널과의 1:1 시각-청각 동기화**: 사운드 큐의 `sync_anchor`가 `action_peak`일 때, 해당 시각(`frame_time_s`)에 위치한 스토리보드 패널(`role: action_peak`)에는 반드시 그 소리를 발생시키는 **시각적 접촉 증거(표면 압축, 튀는 먼지/스파크, 반동 자세)**가 함께 그려져야 한다.
