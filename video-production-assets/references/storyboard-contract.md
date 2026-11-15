@@ -88,7 +88,7 @@
 2. **샷 내부와 컷 사이:** 같은 샷 안의 시선·호흡·몸짓·초점/주목점 변화와, 샷 사이의 크기·시점·움직임·명암/색·소리 변화를 나눠 본다. 컷마다 들어갈/나올 계기와 남길 반응/정착을 적는다. 유지·반복에는 기다림·억제·비교·모티프 등 그 구간의 기능을 적으며, 새 동작을 채워 넣어야만 hold가 성립하는 것은 아니다.
 3. **감정의 거리:** 미세 표정이 핵심이면 실제 출력에서 읽히는 MCU/CU 등을 검토한다. 손·자세가 핵심이면 인서트/MS, 관계·고립이 핵심이면 투샷/와이드·여백, 감정 유보가 목적이면 거리/가림/뒷모습 등을 비교해 필요한 정보와 잃는 정보를 기록한다. 이는 선택지이며 감정=CU, 와이드→미디엄→CU의 고정 순서가 아니다. 결정적인 접근·반응의 시점과 그 전후 대비가 비트에 맞는지 본다.
 4. **공간의 의미:** 관계를 표현하는 거리·장벽·높이·시선·전경/중경/배경이 어떤 행동으로 유지/변화하는지 시작/끝 상태를 대조한다. 숫자 거리·깊이 단서의 존재만으로 관계 전달을 통과시키지 않는다. 평면 구도나 고정 거리가 의도에 맞으면 보존한다.
-5. **무빙의 기능:** 무엇을 따라가거나 드러내고 언제 멈추는지, 왜 컷/고정보다 적합한지 확인한다. 고정이어도 화면 안 행동·기대·침묵·정보 유보로 리듬을 만들 수 있다. 무빙/컷 수·샷 크기 비율·일정 초 간격을 품질 기준으로 쓰지 않는다.
+5. **무빙의 기능:** 무엇을 따라가거나 드러내고 언제 멈추는지, 왜 컷/고정보다 적합한지 확인한다. 고정이어도 화면 안 행동·기대·침묵·정보 유보로 리듬을 만들 수 있다. 무빙/컷 수·샷 크기 비율·일정 초 간격을 **보편 품질 기준**으로 쓰지 않는다. 보드가 `storyboard.rhythm`을 선언한 경우 검사 대상은 선언과 계획·실측의 **자기 일관성**이며, 외부 표준과의 일치는 검사하지 않는다. 선언이 없으면 기존 규칙 그대로다.
 
 시트의 중요한 무빙은 기존 카메라 캡션·시작/끝 패널·로컬 cue로 방향과 공개 순서를 찾아볼 수 있게 한다. 주석이 필요하면 clean 이미지 밖 검토 영역/연결 표에서 인물 동선과 카메라 동선을 구별한다. 생성 이미지 안에 화살표를 그리는 것으로 동작 증거를 대신하지 않는다.
 
@@ -104,7 +104,7 @@
 4. 순서대로 축·화면 방향·공개/접촉 타이밍·필수 행동 가독성을 대조한다. 조기 공개·설명 없는 축 혼란·가려진 필수 동작 등 요구와 모순되는 위치는 FIX이며 필요한 증거가 없으면 미검증이다.
 5. 텍스트 계획 검사와 실제 이미지/프리비즈 검사를 별도로 보고한다. 아직 열어 검사하지 않은 이미지/3D 주장은 `UNVERIFIED`로 남긴다. 필드 채움이나 구조 validator 통과만으로 시각·창작적 수락을 선언하면 FIX다.
 6. 위 장면 리듬 설계를 같은 씬 안의 샷 순서와 인접 씬 전환에서 대조한다. 중요한 자극/공개보다 반응이 앞서거나, 필요한 표정/몸짓·관계가 선택한 화면에서 읽히지 않거나, 반응/결과를 읽기 전에 자르는 위치는 해당 ID의 FIX다. 계획만 있으면 결함 가설과 실제 관찰을 구분한다.
-7. 동일 크기·길이·구도·무빙의 반복은 기능과 중요한 비트의 가독성으로 판단한다. 근거 없는 기법 추가나 발화별 자동 교차 편집으로 장면의 필요한 호흡을 없애면 FIX다. 의도적인 정지·균등 템포·반복은 그 자체로 실패가 아니다.
+7. 동일 크기·길이·구도·무빙의 반복은 기능과 중요한 비트의 가독성으로 판단한다. 근거 없는 기법 추가나 발화별 자동 교차 편집으로 장면의 필요한 호흡을 없애면 FIX다. **의도적 균등 템포는 `cadence: steady`와 사유를 곡선에 적으면 그대로 통과한다.** 선언 없이 균등한 경우도 실패는 아니지만, 리듬 리뷰에서는 `observation: 균등 템포`로 1회 보고한다.
 8. 텍스트 설계 / 실제 이미지 가독성 / 시간 재생의 범위·근거·미검증을 각각 보고한다. 정지 시트나 설명만 보고 장면의 실제 리듬까지 통과시키면 FIX다. 요청에 없는 시간 재생은 실행하지 않고 그 검증 한계를 적는다.
 
 이 검사는 텍스트 설계의 완결성과 실제 시각 증거를 구분한다. 텍스트-only의 계획 검사를 통과해도 이미지/3D 검사가 완료된 것은 아니며, 요청된 단계에 필요한 미검증 항목은 기존 blocker/미검증 규칙을 따른다.
@@ -235,7 +235,7 @@ PDF 완료 확인은 **실제 파일 열기/페이지 렌더 → 패널/본문 �
 
 schema_version=1.1을 유지한다. 상세 보드에서는 아래 필드를 작성하고 일반 프로젝트는 기존 plan/delivery 계약을 유지한다. 기존 상세 보드도 누락된 패널별 ID 연결을 채우기 전에는 새 validator/renderer를 통과하지 못한다. CSV/시트는 이 원장의 투영이며 서로 별도 수정하지 않는다.
 
-- `storyboard`: `{synopsis_artifact_id, beats, panels}`. synopsis_artifact_id는 현재 시놉 artifact.
+- `storyboard`: `{synopsis_artifact_id, beats, panels, rhythm?}`. synopsis_artifact_id는 현재 시놉 artifact, `rhythm`은 선택 리듬 곡선(아래 [리듬 곡선 절](#리듬-곡선-storyboardrhythm-선택)).
 - `beats`: 이야기 순서의 `{id, synopsis_locator, event, emotion}`. 전부 비지 않은 문자열. 제작용 연결 비트도 승인 시놉의 어느 행동을 시각화하는지 적는다.
 - 기존 `shots[]` 추가 필드: `beat_ids`(비지 않은 유효 beat 배열), `camera={shot_size,angle,framing,movement,start,end}`(비지 않은 문자열), `spatial={mode:numeric|not_applicable,artifact_id?,reason?}`, `vfx={enabled:bool,description}`, `speech=[]`, `audio_cue_ids=[]`. numeric은 실제/예정 수치 artifact 참조, N/A는 사유 필수. 모든 씬/비트/샷을 사용하며 처음 등장하는 beat의 순서는 시놉 순서다. 여러 샷의 같은 비트와 정당한 여러 비트 연결은 허용한다.
 - `speech[]`: `{id,kind:dialogue|narration,character_id,text,start_s,end_s,voice_artifact_id,lip_sync:required|not_applicable,performance}`. 대사 화자는 shot의 캐릭터; narration에만 null 가능. voice_artifact는 profile/선택/실제 음성의 구분된 상태다. dialogue는 required 또는 화면 밖 등 N/A 사유를 performance에 명시; narration은 N/A. 발화 시간은 해당 shot 안이고 no_audio/no_dialogue에서는 배열이 빈다. 정확 립싱크는 실제 음성과 영상 검수로 확인한다.
@@ -246,6 +246,37 @@ schema_version=1.1을 유지한다. 상세 보드에서는 아래 필드를 작�
 - `panels[]` 선택 필드 `asset_version_refs: {asset_id: version}`은 패널이 사용하는 잠긴 에셋의 정확한 버전을 핀한다. board가 `finality: final`이면 모든 패널에 필수이며 그 샷의 `asset_ids` 전부와 활성 `look_asset_id`를 포함해야 하고, 버전 드리프트·stale 참조는 구조 검사가 거절한다. stale 보드의 패널은 이전 핀 버전을 보존할 수 있다.
 - `panels[]` 선택 필드 `expression_pose`, `focal_hierarchy`, `kinetic_cues`, `image_prompt`는 정지 이미지의 단일 프레임 가독성·동세·표정·이중 프롬프트를 담는다. 넷 다 비지 않은 문자열이며, 존재할 때만 형식 검사하고 **없어도 통과하는 하위 호환 필드**다. `--strict-staging`에서는 넷 다 필수이고 비공백이어야 한다. 형식과 서술 규칙의 정본은 §3의 [동작 중심 패널의 장면 통합](#동작-중심-패널의-장면-통합)이고, 이 항목은 그 필드들이 `panels[]` 스키마에 속함을 선언할 뿐 규칙을 다시 쓰지 않는다. `storyboard-panels.csv`와 `06-shots-template.md`는 이 스키마의 투영이다.
 - 합본 시트 에셋(`kind=storyboard_sheet`)은 `panel_ids`(이야기 순서)와 `sheet_index`/`sheet_count`를 가지며 한 시트 최대 8패널이다. 렌더러 `--panels-per-sheet 1..8`로 정보 밀도에 맞춰 줄인다. 등록된 시트가 전체 패널을 빠짐없이 순서대로 덮어야 한다. 전체 패키지는 `preproduction.storyboard_sheet_artifact_ids` 배열로 연결하며, 한 장도 배열로 기록한다. 생성 직후 실제 시트에서 장면·패널 이미지를 분리하고 등록된 `storyboard_split_asset_id`로 추적한다.
+
+### 리듬 곡선 `storyboard.rhythm` (선택)
+
+`storyboard.rhythm` 선택 필드: 시퀀스 리듬 곡선 `{intent, curve}`.
+
+- `intent`: 비지 않은 문자열. 곡선 전체의 한 줄 의도.
+- `curve[]`: 비지 않은 배열. 각 항목은 `{id, beat_ids, shot_ids, energy, cadence, planned_duration_s, cut_out_phase, exit_handle_frames, reason}`이고 **샷 1개가 아니라 리듬 구간 1개**를 나타낸다.
+- `id` 고유 비지 않은 문자열, `beat_ids`/`shot_ids` 비지 않은 배열(`storyboard.beats`·`shots` 실존 ID), `energy` **1–5 정수**(이 프로젝트 안의 상대값이며 절대 척도가 아니다), `cadence` ∈ `steady|accelerando|ritardando|brake|peak|release`, `planned_duration_s` 양수, `cut_out_phase` ∈ `pre_action|mid_action|impact|reaction|settle`, `exit_handle_frames` 0 이상 정수, `reason` 비지 않은 문자열.
+- 커버리지: 모든 shot은 **정확히 1회**, 모든 beat는 **1회 이상** 덮는다. 한 beat가 여러 샷·여러 구간에 걸치는 것은 허용한다. 각 항목의 `beat_ids`는 자기 `shot_ids`의 beat 합집합의 부분집합이다.
+- 순서: 각 항목의 커버 샷은 타임라인(`start_s`) 오름차순이고 항목 간 구간은 겹치지 않는다. 합계: `abs(planned_duration_s - Σ(end_s - start_s)) <= max(1/fps, 0.05)`.
+- 핸들 선언 하한: `cut_out_phase`가 `mid_action`/`impact`이면 `exit_handle_frames >= 2`이고, 이 하한은 그 항목 `shot_ids`의 **마지막 샷**(실제로 컷이 나가는 샷)에 적용된다.
+- 존재할 때만 위 구조·커버리지·합계·순서·핸들 선언을 검사하는 **하위 호환 필드**다. `--strict-rhythm`에서는 존재 자체가 필수다. 검사기가 **에너지 곡선의 단조·다양성·품질을 판정하지 않는다**.
+
+#### 리듬 필드의 소유 경계와 우선순위
+
+- **사실값**(실측 시각, 실제 핸들 용량, 실제 클립 상태)은 `09` 컷 표·`asset_registry`·클립이 정본이다. 곡선은 사실을 주장하지 않는다.
+- **계획 의도**(에너지·케이던스·계획 길이·컷 이탈 국면)는 `storyboard.rhythm`이 정본이다.
+- `09`의 `컷아웃→컷인 phase·state + cue time`은 **컷별 실행 기록**, 곡선의 `cut_out_phase`는 **구간 요약 의도**이며 구조 검사는 둘을 대조하지 않는다. 문서 간 같은 숫자를 두 번 입력하지 않는다.
+
+| 문서 | 소유 범위 | `rhythm` 취급 |
+|---|---|---|
+| 이 문서 §8 | 스키마 선언 | 정본 — 필드 소속·필수 여부 |
+| 이 문서 §장면 리듬·수락 검사 | 해석 원칙 | 정본 |
+| [`assets/06-shots-template.md`](../assets/06-shots-template.md) | 설계 출력 양식 | 정본 — 곡선 표 |
+| [`assets/09-edit-template.md`](../assets/09-edit-template.md) | 검증 출력 양식 | 정본 — 계획 vs 실측 대조 표 |
+| [`09-edit.md`](09-edit.md#시퀀스-리듬-계약) | 실행 절차·기본값·측정 경로 | 정본 |
+| [`06-shots.md`](06-shots.md) | 컷 설계 원칙 | 비소유 — 에너지 배분 cross-ref만 |
+| `scripts/validate_storyboard.py` | 구조 검증 | 구조·커버리지·합계·순서·핸들 선언만 |
+| `scripts/measure_cut_rhythm.py` | 실측·대조 | 측정·차이·관찰만, 판정 금지 |
+
+> 검증 시 주의: `06-shots.md`에 `rhythm` 필드가 없다는 사실을 결함으로 보고하지 않는다. 스키마 완결성은 이 절과 템플릿 2종·검증기의 정합으로만 판정한다.
 
 ### 연결 예시 — 실제 이미지가 아니라 계획 표
 
