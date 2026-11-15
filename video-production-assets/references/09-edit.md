@@ -66,7 +66,7 @@ python scripts/measure_cut_rhythm.py --project project.json \
 ```
 
 - 보고서는 컷 길이·단조 구간·샷 크기 반복·계획 대 실측 차이·핸들 부족만 출력하며 `aesthetics: not_judged`를 항상 포함한다. **측정은 판정하지 않는다.**
-- ffmpeg 부재·미디어 디코드 실패는 `status: unverified`로 남고 측정으로 승격하지 않는다.
+- 미디어 모드는 기존 설치된 ffmpeg(컷 검출)와 ffprobe(마지막 컷의 종료 시각)를 사용한다. 둘 중 하나가 없거나, 디코드·영상 길이 측정에 실패하면 `status: unverified`로 남고 측정으로 승격하지 않는다. 계획 샷과 매칭되지 않는 컷 또는 CSV 구간의 공백·중첩이 있으면 `partial`로 보고한다. `stats.total_s`와 `curve_check.planned_total_s`는 각각 집계 길이와 계획 길이이며 품질 판정값이 아니다.
 - 대조 결과는 [`assets/09-edit-template.md`](../assets/09-edit-template.md)의 대조 표에 적는다. `판정` 칸은 완성 시퀀스를 실제 재생한 근거가 있을 때만 채우고, 재생 전에는 `UNVERIFIED`다. 측정값은 판정의 근거가 아니라 수정 지점을 찾는 도구다.
 
 ## 채택 구간·음성 교정의 편집 인계 (해당 시)

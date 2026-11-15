@@ -153,7 +153,8 @@ class MeasurementTests(unittest.TestCase):
             media.write_bytes(b'x')
             out = Path(d) / 'report.json'
             with mock.patch('measure_cut_rhythm.shutil.which', return_value='/usr/bin/ffmpeg'), \
-                 mock.patch('measure_cut_rhythm.detect_cuts', return_value=[1.0, 3.0]):
+                 mock.patch('measure_cut_rhythm.detect_cuts', return_value=[2.0]), \
+                 mock.patch('measure_cut_rhythm.media_duration', return_value=4.0):
                 self.assertEqual(main(['--project', str(proj), '--media', str(media),
                                        '--out', str(out)]), 0)
             report = json.loads(out.read_text())

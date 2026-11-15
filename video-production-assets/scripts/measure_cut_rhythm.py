@@ -91,14 +91,42 @@ def detect_cuts(media, threshold, min_cut_s, fps):
     return merged
 
 
+def media_duration(media):
+    """Bound the final video cut with probed video duration, never plan duration."""
+    probe = shutil.which('ffprobe')
+    if probe is None:
+        raise FileNotFoundError('ffprobe_not_found')
+    result = subprocess.run(
+        [probe, '-v', 'error', '-select_streams', 'v:0',
+         '-show_entries', 'stream=duration:format=duration', '-of', 'json', str(media)],
+        capture_output=True, text=True)
+    if result.returncode != 0:
+        raise ValueError('media_not_decodable')
+    try:
+        data = json.loads(result.stdout)
+        streams = data.get('streams', [])
+        if not streams:
+            raise ValueError('no_video_stream')
+        value = streams[0].get('duration')
+        if value in (None, 'N/A'):
+            value = data.get('format', {}).get('duration')
+        duration = float(value)
+    except (ValueError, TypeError, AttributeError, IndexError):
+        raise ValueError('media_duration_unavailable') from None
+    if not math.isfinite(duration) or duration <= 0:
+        raise ValueError('media_duration_unavailable')
+    return duration
+
+
 def cuts_from_media(media, project, threshold, min_cut_s, tolerance_s):
-    """Measured cuts from scene boundaries; the open tail is left unmeasured."""
+    """Measure all cuts, including the final tail bounded by video duration."""
     shots = [s for s in project.get('shots', []) if isinstance(s, dict)]
     planned = {s['id']: s for s in shots if isinstance(s.get('id'), str)}
     starts = [(s['id'], s.get('start_s')) for s in shots
               if isinstance(s.get('id'), str) and _number(s.get('start_s'))]
-    boundaries = [0.0] + [value for value in detect_cuts(media, threshold, min_cut_s, project.get('fps') or 24)
-                          if value > 0]
+    detected = detect_cuts(media, threshold, min_cut_s, project.get('fps') or 24)
+    duration = media_duration(media)
+    boundaries = [0.0] + sorted(set(value for value in detected if 0 < value < duration)) + [duration]
     spans, unmatched_detected = [], []
     for start, end in zip(boundaries, boundaries[1:]):
         shot_id = _match_shot(start, starts, tolerance_s)
@@ -140,7 +168,9 @@ def read_cuts_csv(path, project, tolerance_s):
             end = float(row['end_s'])
         except (TypeError, ValueError):
             raise ValueError(f"cuts csv row {row.get('cut_id') or '?'} has non-numeric times")
-        if end <= start:
+        if not (math.isfinite(start) and math.isfinite(end)):
+            raise ValueError(f"cuts csv row {row.get('cut_id') or '?'} has non-finite times")
+        if start < 0 or end <= start:
             raise ValueError(f"cuts csv row {row.get('cut_id') or '?'} has an invalid interval")
         if supplied_shot_ids:
             shot_id = (row.get('shot_id') or '').strip()
@@ -197,6 +227,7 @@ def compute_stats(cuts, shots, short_s, long_s, monotony_pct):
     same_size_runs = _consecutive_runs(sizes, lambda earlier, later: earlier == later)
     return {
         'count': count,
+        'total_s': round(sum(durations), 6),
         'mean_s': round(mean, 6),
         'stdev_s': round(stdev, 6),
         'short_s': short_s,
@@ -276,11 +307,29 @@ def handle_shortfalls(project):
     return messages
 
 
+def timeline_coverage(cuts):
+    """Report temporal gaps and overlaps independently of shot attribution."""
+    gaps, overlaps = [], []
+    cursor = 0.0
+    for cut in sorted(cuts, key=lambda c: c['start_s']):
+        start, end = cut['start_s'], cut['end_s']
+        if start > cursor + 1e-6:
+            gaps.append({'start_s': round(cursor, 6), 'end_s': round(start, 6)})
+        elif start < cursor - 1e-6:
+            overlaps.append({'start_s': round(start, 6), 'end_s': round(min(end, cursor), 6)})
+        cursor = max(cursor, end)
+    return gaps, overlaps
+
+
 def build_report(project, cuts, basis, status, shots=None, short_s=2.0, long_s=8.0,
                  monotony_pct=10.0, meta=None):
     shots = shots if shots is not None else [s for s in project.get('shots', []) if isinstance(s, dict)]
     curve = _curve(project)
     meta = meta or {}
+    gaps, overlaps = timeline_coverage(cuts)
+    if status in ('measured', 'supplied') and (
+            meta.get('unmatched_detected') or meta.get('unmatched_planned') or gaps or overlaps):
+        status = 'partial'
     return {
         'status': status,
         'basis': basis,
@@ -289,6 +338,10 @@ def build_report(project, cuts, basis, status, shots=None, short_s=2.0, long_s=8
         'stats': compute_stats(cuts, shots, short_s, long_s, monotony_pct),
         'curve_check': {
             'declared_intent': curve['intent'],
+            'planned_total_s': round(sum(s['end_s'] - s['start_s'] for s in shots
+                                         if _number(s.get('start_s')) and _number(s.get('end_s'))), 6),
+            'coverage_gaps': gaps,
+            'coverage_overlaps': overlaps,
             'handle_shortfalls': handle_shortfalls(project),
             'unmatched_detected': meta.get('unmatched_detected', []),
             'unmatched_planned': meta.get('unmatched_planned', []),
@@ -353,7 +406,7 @@ def main(argv=None):
             return _unverified(project, shots, str(exc) or 'ffmpeg_not_found', args)
         except ValueError as exc:
             return _unverified(project, shots, str(exc) or 'media_not_decodable', args)
-        status = 'measured'
+        status = 'partial' if (meta['unmatched_detected'] or meta['unmatched_planned']) else 'measured'
         basis = {'fps': fps, 'source': 'ffmpeg_scene', 'shot_mapping': meta['shot_mapping']}
     elif args.cuts:
         try:
