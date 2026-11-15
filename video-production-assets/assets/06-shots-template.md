@@ -17,6 +17,16 @@ deferred_execution_slots: {승인 후 결정할 샷 슬롯 ID 또는 없음}
 |---|---|---|---|---|---|---|---|---|
 | S01 / SH01 | | | | | | | | |
 
+### 시퀀스 리듬 곡선 (`storyboard.rhythm`)
+
+시퀀스 전체의 에너지·케이던스·계획 길이·컷 이탈 국면을 **구간 단위**로 선언한다. 스키마 정본은 [스토리보드 계약 §8](../references/storyboard-contract.md#리듬-곡선-storyboardrhythm-선택), 작성·검증 절차는 [편집·리듬 §시퀀스 리듬 계약](../references/09-edit.md#시퀀스-리듬-계약)이다. **컷별 사실은 여기가 아니라 `09-edit-template.md`의 컷 표가 정본**이며, 같은 숫자를 두 곳에 입력하지 않는다. 권장 최대 8행.
+
+곡선은 선언된 의도다. 외부 표준과의 일치를 검사하지 않는다. 균등 템포를 의도하면 `cadence: steady`와 사유를 적는다.
+
+| rhythm_id | beat / shot | energy (1–5) | cadence | 계획 길이 (s) | cut_out_phase · handle(f) | 이 길이·에너지인 이유 |
+|---|---|---|---|---|---|---|
+| RB01 | B01 / SH01 | 2 | steady | 4.25 | settle · 0 | 거리와 위협을 먼저 읽힌다 |
+
 ## 샷 명세
 
 | shot_id | scene_id | beat_id | shot-local time (s or frames; FPS if frames) | 크기/카메라 위치 | 인물 블로킹 | 시선/축 | 공개 정보 | 관점·감정/구도 의도 | 대안·채택/승인 상태 | 카메라 동작 | 종료 프레임 | 핸들 |

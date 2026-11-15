@@ -23,6 +23,16 @@ assumptions: {가정}
 
 생성/수정/확장 클립을 편집할 때 기존 `source_in_s`/`source_out_s` 행과 QA 보고의 원본 ID·버전·시간 basis 및 클립 전체/선택 구간/편집 후 판정을 연결한다. 필수 사건 누락과 대체 커버리지를 명시하고, 원본 포함 확장 결과의 중복을 제거한다. 음성 국소 교정은 별도 트랙의 기존 sound_id 및 `performance-cue-template.md` 교정 기록을 연결하고 문장/장면/입/감정을 재검수한다. [실무 인계 R6/R7](../references/29-reference-driven-production.md#usable-ranges)의 해당 절만 적용하며 새 컷/오디오 스키마를 만들지 않는다.
 
+### 시퀀스 리듬 대조 (곡선 선언 시)
+
+[시퀀스 리듬 계약](../references/09-edit.md#시퀀스-리듬-계약)의 곡선을 실제 컷과 대조한다. 측정은 `scripts/measure_cut_rhythm.py`로 수행한다.
+
+| rhythm_id | 계획 energy / cadence | 계획 길이 | 실측 길이(근거) | 차이 | 판정(재생 근거 필요) | 최소 수정 |
+|---|---|---|---|---|---|---|
+| RB01 | 2 / steady | 4.25 | 4.10 (ffmpeg scene 12컷) | −0.15 | UNVERIFIED → 재생 후 PASS_WITH_NOTES | 컷 OUT 2f 앞당김 |
+
+숫자만으로 판정하지 않는다. `판정` 칸은 완성 시퀀스를 실제 재생한 근거가 있을 때만 `PASS`/`PASS_WITH_NOTES`/`NEEDS_REVISION` 중 하나로 채우고, 재생 전에는 `UNVERIFIED`로 둔다. 측정값은 판정의 근거가 아니라 수정 지점을 찾는 도구다. 리듬 곡선이 없으면 이 표는 `N/A`로 적는다.
+
 ### 시간 압축·생략 (해당 컷만)
 | cut_id | 획득 방식: 연속배속/인터벌/몽타주/의도적 생략/미확인 | 실제 경과시간·촬영 구간·간격·공백(근거 위치) | 생략 전 상태 | 생략 후 상태 | 후속 컷 유지/리셋 조건 |
 |---|---|---|---|---|---|
