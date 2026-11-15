@@ -88,7 +88,8 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 5. 14로 제작 일정·비용·에셋 원장을 작성하고 실제 납품 요청이면 15로 자막·출력 규격을 정한다. 12로 KEEP/FIX/미검증과 수정 사유·방식·추가 준비물·근거 있는 소요시간을 작성하고 승인 범위 안에서 수정→재검수한다. 프리뷰 영상/움직이는 렌더는 별도 승인된 실행 범위 안에서만 수행한다.
 6. 실제 산출물별 상태와 수정 의존성을 기록한다. `review.md`와 실제 파일 경로·이미지·검수 결과를 사용자에게 보고하고 검토 대기한다. 해당 버전의 프리프로덕션 수락과 별도 영상 실행 승인을 구분한다.
 7. `python scripts/validate_project.py <project.json> --profile plan`으로 ID·시간·참조를 검사한다. 실제 파일 납품은 `--profile delivery --base-dir <프로젝트폴더>`로 추가 검사한다. 이 검사는 감정·연기·미디어 디코딩·실제 영상 품질을 확인하지 않는다.
-상세 제작 보드는 `python scripts/validate_storyboard.py <project.json>`을 추가 적용하고 실제 이미지 인계는 `--require-images --base-dir <프로젝트폴더>`로 검사한다. 최대 8패널 시트를 만든 직후 `scripts/split_storyboard.py --sheet <시트> ...`에 모든 시트를 순서대로 지정해 clean 패널·장면 overview를 분리·등록하고 전수 재열기 검수를 수행한다. 정확한 등록/완료 게이트는 [공통 패키지 계약](references/contract.md#전체-프리프로덕션-패키지)을 따른다. 구조/파일 통과는 실제 스토리텔링 품질을 증명하지 않는다.
+상세 제작 보드는 `python scripts/validate_storyboard.py <project.json>`을 추가 적용하고(`--strict-rhythm`은 `storyboard.rhythm` 곡선 선언을 필수로 만든다) 실제 이미지 인계는 `--require-images --base-dir <프로젝트폴더>`로 검사한다. 최대 8패널 시트를 만든 직후 `scripts/split_storyboard.py --sheet <시트> ...`에 모든 시트를 순서대로 지정해 clean 패널·장면 overview를 분리·등록하고 전수 재열기 검수를 수행한다. 정확한 등록/완료 게이트는 [공통 패키지 계약](references/contract.md#전체-프리프로덕션-패키지)을 따른다. 구조/파일 통과는 실제 스토리텔링 품질을 증명하지 않는다.
+시퀀스 리듬 곡선을 선언한 프로젝트는 조립 후 `python scripts/measure_cut_rhythm.py --project <project.json> [--media <조립본> | --cuts <cuts.csv>] [--out <report.json>]`로 계획 대 실측을 대조한다. 보고서는 컷 길이·단조 구간·핸들 부족만 출력하고 `aesthetics: not_judged`를 포함한다 — 측정은 판정을 대신하지 않는다.
 패키지 납품이 요청되면 `python scripts/package_production.py <project.json> --base-dir <project-root> --output <새-출력> [--zip] [--require-final]`로 v5.1 패키지 트리를 실제 등록 파일로만 조립한다(파생 매니페스트·게이트 보고·`.history` 감사 사본 포함, 기존 출력 덮어쓰기 없음). 잠금 전 패키징은 열린 게이트를 보고하며 `--require-final`은 그 경우 거부한다.
 
 ## 산출물 인계

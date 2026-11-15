@@ -111,6 +111,8 @@ resolve    1비트  × 4.0초  =  4초  (4%)
 1. 22 <= len(beats) <= 32
 2. 85 <= sum(seconds) <= 120
 3. max(seconds) <= 8.0
+
+이 2.0초 하한·8.0초 상한은 수동 애니매틱 전용이 아니라 패키지 공통 기본값이다: [시퀀스 리듬 계약](../../video-production-assets/references/09-edit.md#시퀀스-리듬-계약)과 같은 값을 공유한다.
 4. min(seconds) >= 2.0        (인지 가능한 동작 길이)
 5. 모든 경계가 round(x*fps)/fps 와 일치
 6. 첫 비트 notice <= 3.0초, 마지막 비트 land
