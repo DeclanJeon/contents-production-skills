@@ -1,6 +1,6 @@
 ---
 name: silent-satire-animatic
-version: 1.4
+version: 1.5
 description: Design and review silent (no dialogue, no narration, no captions) satirical animatics built from popular source material, from source selection through script, scene/cut and beat-budgeted timeline. Use for 무성 애니메이션, 대사 없는 애니메이틱, 풍자 애니메이션 기획, silent satire shorts or longform under ten minutes, or judging whether an existing silent edit will hold attention. Excludes actual rendering, publishing, and paid generation.
 ---
 

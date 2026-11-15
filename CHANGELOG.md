@@ -10,6 +10,14 @@
 
 ## Unreleased
 
+## 2.41 (2026-11-15)
+
+- Record how to enable thumbnail generation inside a container. Three things are required and each fails differently: a `node` binary (absent from `python:3.x-slim`, which makes the skill look missing), the skill directory itself, and the OAuth file.
+- Mount `auth.json` read-write while keeping its directory read-only. The helper persists refreshed tokens in place, so a read-only mount breaks refresh, and that failure surfaces as a silent fallback rather than an error. The directory stays read-only so the rest of `.codex` is never exposed.
+- Note that the helper re-reads the auth file before persisting and skips when the refresh token changed, so mounting the same credentials on two hosts cannot corrupt them.
+- Add a verification ladder that separates infrastructure faults from quota: binary, credentials, auth resolution, then path resolution. Once all four pass, an exhausted account quota is the only remaining cause, which prevents mistaking a 429 for a broken mount.
+
+
 ## 2.41 2026-11-16
 
 - Added the optional sequence rhythm curve `storyboard.rhythm` (per-segment `energy` 1-5, `cadence`, `planned_duration_s`, `cut_out_phase`, `exit_handle_frames`, `reason`) with structure, coverage, duration-sum, timeline-order and declared-handle validation in `validate_storyboard.py`, plus `--strict-rhythm` to require the curve.

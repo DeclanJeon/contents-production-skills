@@ -82,6 +82,31 @@
 
 이때 **폴백이 정상 동작하면 릴리스는 계속 나간다.** 다만 manifest에 `thumbnail_source: frame_fallback`과 실패 사유가 남으므로, 자동화가 이를 감시해야 품질 저하를 놓치지 않는다.
 
+### 컨테이너에서 생성 경로를 켜는 방법
+
+`HOME=/root` 인 컨테이너에서 세 가지가 모두 필요하다:
+
+```
+1. node 바이너리            (python:3.x-slim 에는 없다 → Dockerfile 에 nodejs 추가)
+2. 스킬 디렉터리            → /root/.codex/skills/codex-imagen:ro
+3. 자격증명 파일            → /root/.codex/auth.json  (rw, 아래 이유)
+```
+
+**auth.json 만 `rw` 로 마운트한다.** 헬퍼는 토큰 만료 시 `auth.json` 에 **제자리 갱신**을 쓴다. ro로 걸면 갱신이 실패하고, 그 실패는 예외가 아니라 조용한 폴백으로 이어진다. 디렉터리 자체는 ro로 두어 `.codex` 의 나머지가 노출되지 않게 한다.
+
+동시 갱신은 헬퍼가 persist 직전에 파일을 다시 읽어 `refreshToken` 이 바뀌었으면 건너뛰므로 안전하다.
+
+**확인 순서** (쿼터가 없어도 인프라 검증 가능):
+
+```
+docker exec <c> which node                                  # 1. 바이너리
+docker exec <c> ls /root/.codex/auth.json                   # 2. 자격증명
+docker exec <c> node .../codex-imagen.mjs --auth ... --smoke # 3. 인증 해석
+docker exec <c> python3 -c 'from satire_thumbnail import _default_script; print(_default_script().is_file())'
+```
+
+3번까지 통과하고 4번이 True면, 남은 변수는 **계정 쿼터뿐**이다.
+
 ## 해상도 — pad를 쓴다
 
 ```
