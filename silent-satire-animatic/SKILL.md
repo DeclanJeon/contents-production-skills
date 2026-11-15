@@ -1,6 +1,6 @@
 ---
 name: silent-satire-animatic
-version: 1.2
+version: 1.3
 description: Design and review silent (no dialogue, no narration, no captions) satirical animatics built from popular source material, from source selection through script, scene/cut and beat-budgeted timeline. Use for 무성 애니메이션, 대사 없는 애니메이틱, 풍자 애니메이션 기획, silent satire shorts or longform under ten minutes, or judging whether an existing silent edit will hold attention. Excludes actual rendering, publishing, and paid generation.
 ---
 
@@ -38,6 +38,7 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 | P5 | 썸네일은 가장 강한 프레임 | 0초 캡처 금지, 펀치라인의 가독 샷(wide/medium), 본편과 동일 종횡비, 실패 시 릴리스 중단 |
 | P6 | 2분 이내 + 완결 | 총 85~120초, 마지막 비트는 `land`(해소). 무성은 롱폼에 부적합 |
 | P7 | 캐릭터 시트를 실제로 쓴다 | 공급된 캐릭터 팩을 로드해 팔레트·실루엣·파츠를 적용. 팩 누락 시 기본 도형 폴백 금지, 중단 |
+| P8 | 이미지 자산은 이미지 생성 스킬 | 시트·썸네일은 `codex-imagen`. SVG/도형 대체 금지. 단 프레임 관절 렌더는 코드 허용 |
 
 ## 제작 순서 (7단계)
 

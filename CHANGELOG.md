@@ -10,6 +10,14 @@
 
 ## Unreleased
 
+## 2.39 (2026-11-15)
+
+- Add P8: image assets (character sheets, views, thumbnails) must be produced with an image-generation skill such as `codex-imagen`, not drawn as SVG or canvas primitives. Frame-level joint rendering stays code-driven, because generating every animation frame as an image would destroy timing, cost and consistency; the boundary is between creating an asset and animating a rig.
+- Record the `--auth ~/.codex/auth.json` requirement: default credential discovery fails on this host with `No openai-codex OAuth credential found`, so a bare invocation silently looks unavailable.
+- Document the sheet-versus-JSON precedence defect found in production: the rendered character had no fingers and narrow feet because `character.json` had no fields to describe them, while `sheet.png` showed both. The renderer reads JSON, so JSON wins. Sheets must now declare `silhouette.hand` and `silhouette.foot`, and foot width is verified by pixel measurement against limb thickness.
+- Note that the fix must be per-species rather than uniform: a robot's sheet shows a claw and a wheel, a pufferfish a rounded nub, so an absent extremity means 'draw nothing', not 'draw a default'.
+
+
 ## 2.38 (2026-11-15)
 
 - Retarget `silent-satire-animatic` from longform to short-form. A rendered 6m29s silent animatic did not hold attention: with no dialogue or captions the only retention device is on-screen action, and the repetition-escalation technique runs out of material well before six minutes. The budget is now 85-120s and 22-32 beats, with a two-second floor per beat because shorter cuts read as flicker rather than action rather than being perceived as motion.
