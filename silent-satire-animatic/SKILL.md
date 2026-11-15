@@ -1,6 +1,6 @@
 ---
 name: silent-satire-animatic
-version: 1.1
+version: 1.2
 description: Design and review silent (no dialogue, no narration, no captions) satirical animatics built from popular source material, from source selection through script, scene/cut and beat-budgeted timeline. Use for 무성 애니메이션, 대사 없는 애니메이틱, 풍자 애니메이션 기획, silent satire shorts or longform under ten minutes, or judging whether an existing silent edit will hold attention. Excludes actual rendering, publishing, and paid generation.
 ---
 
@@ -23,7 +23,7 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 - "무성 애니메이션 만들어줘" / "대사 없는 애니메틱"
 - 인기 소재를 풍자하는 콘텐츠 기획
 - 기존 무성 편집물이 시선을 붙잡을지 검토
-- 10분 미만 애니메틱의 비트/컷 배분
+- 2분 이내 무성 애니메틱의 비트/컷 배분
 
 ## 무성 원칙 (P1~P6)
 
@@ -36,7 +36,7 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 | P3 | 반복 강화 → 펀치라인 | 동일 동작 3회 이상 반복, 매 회차 변주 축 1개 이상 증가, 이후 펀치라인 필수 |
 | P4 | 비트는 8초를 넘지 않는다 | 단일 비트 ≤8.0초, 평균 4~6초 |
 | P5 | 썸네일은 가장 강한 프레임 | 0초 캡처 금지, 펀치라인의 가독 샷(wide/medium), 본편과 동일 종횡비, 실패 시 릴리스 중단 |
-| P6 | 10분 미만 + 완결 | 총 ≤600초, 마지막 비트는 `land`(해소) |
+| P6 | 2분 이내 + 완결 | 총 85~120초, 마지막 비트는 `land`(해소). 무성은 롱폼에 부적합 |
 | P7 | 캐릭터 시트를 실제로 쓴다 | 공급된 캐릭터 팩을 로드해 팔레트·실루엣·파츠를 적용. 팩 누락 시 기본 도형 폴백 금지, 중단 |
 
 ## 제작 순서 (7단계)
@@ -78,10 +78,10 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 
 정본은 `references/03-beat-budget.md`.
 
-- 총 길이 ≤600초
+- 총 길이 **85~120초** (P6: 무성은 롱폼 부적합)
 - 비트 경계는 프레임에 정렬
-- 비트 수는 **90~120**
-- 40~60비트로는 600초를 채울 수 없다 (비트당 10~15초가 되어 P4 위반)
+- 비트 수 **22~32**
+- 비트 하나는 최소 2초 — 그보다 짧으면 동작으로 인지되지 않는다
 
 ### 5. 렌더
 
@@ -101,17 +101,20 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 ```
 비트 수 = 총 길이 ÷ 평균 비트 길이
 제약: 평균 비트 길이 ≤ 8초 (P4)
-      비트 수 90~120
+      비트 수 22~32
+      총 길이 85~120초
 
-600초 ÷ 6초 = 100비트   (권장)
-400초 ÷ 5초 =  80비트   (최소 미달 → 90으로 올림)
+120초 ÷ 4초 = 30비트   (상한 근처)
+85초 ÷ 3.9초 = 22비트   (실측 기본값)
 ```
 
 비트 수를 먼저 정하고 길이를 맞추지 말 것. **길이가 먼저, 비트 수가 결과**다.
 
+**롱폼 이력**: 90~120비트는 10분을 채우기 위한 값이었고, 그 설계로 만든 6분 29초 버전은 집중이 유지되지 않았다. 문서 기록은 `references/03-beat-budget.md` 참조.
+
 ## 변주 축
 
-5개 기본 동작(`notice`/`run`/`trip`/`dive`/`land`)만으로 600초를 채우면 같은 장면이 120회 이상 반복된다. 변주 축이 이를 막는다.
+5개 기본 동작(`notice`/`run`/`trip`/`dive`/`land`)만으로 120초를 채우면 같은 장면이 20회 이상 반복된다. 변주 축이 이를 막는다.
 
 | 축 | 범위 | 시각 효과 |
 |---|---|---|
@@ -171,7 +174,8 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 |---|---|
 | 자막으로 상황 설명 | 무성 원칙 위반. P2 |
 | 클로즈업 썸네일 | 상황이 안 읽혀 CTR 하락. P5 |
-| 40~60비트로 10분 | 비트당 10~15초 → 지루함. P4 위반 |
+| 롱폼(6~10분) 무성 | 대사가 없어 집중 유지 불가. 6.5분 실측으로 확인됨 |
+| 초당 1.3컷 (120초에 90비트) | 동작이 인지되지 않음. 깜빡임으로 읽힘 |
 | 변주 없는 반복 | "고장난 영상"으로 보임. P3 |
 | 원본 영상 재촬영 | 저작권 위험. 풍자 대상은 행동이지 장면이 아니다 |
 | BGM 크롤링 자동화 | Content ID 청구 위험. 로컬 검증 풀을 쓴다 |
@@ -182,8 +186,9 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 - [ ] `silent: true`, `dialogue == []`, `captions == []`
 - [ ] 첫 비트 `notice` ≤3초
 - [ ] 마지막 비트 `land`
-- [ ] 총 길이 ≤600초
-- [ ] 비트 수 90~120
+- [ ] 총 길이 85~120초
+- [ ] 비트 수 22~32
+- [ ] 비트 최소 길이 ≥2초
 - [ ] 단일 비트 ≤8초
 - [ ] 동일 동작 3회 이상 + 변주 증가
 - [ ] 관절 articulation 증거 통과

@@ -10,6 +10,14 @@
 
 ## Unreleased
 
+## 2.38 (2026-11-15)
+
+- Retarget `silent-satire-animatic` from longform to short-form. A rendered 6m29s silent animatic did not hold attention: with no dialogue or captions the only retention device is on-screen action, and the repetition-escalation technique runs out of material well before six minutes. The budget is now 85-120s and 22-32 beats, with a two-second floor per beat because shorter cuts read as flicker rather than action rather than being perceived as motion.
+- Record why the previous 90-120 beat budget was wrong rather than merely changing it: it was derived to fill ten minutes, and at two minutes it inverts into a failure mode where cuts are too fast to perceive.
+- Remove topic-derived cast matching. Character sheets state their own role and forbid inventing new plot or relationships, so inferring a species from source keywords overrides the sheet contract. Selection is now the sheet that names itself the existing protagonist, or an explicit character id chosen by the producer.
+- Note that a single recurring protagonist is the channel convention, so an ensemble is a production decision and never a code inference.
+
+
 ## 2.37 (2026-11-15)
 
 - Add a mandatory character-asset step to `silent-satire-animatic`: a silent animatic must render the supplied character pack, because with no dialogue or captions the silhouette, palette and appendages are the only way a viewer identifies the actor. Records that a pipeline can load nothing and still pass every render check, so the manifest must carry `character.character_id` and the pack source or the release is blocked.
