@@ -1,0 +1,88 @@
+{
+  "plan": "docs/superpowers/plans/2026-11-16-sequence-rhythm-contract.md",
+  "spec": "docs/superpowers/specs/2026-11-16-sequence-rhythm-contract-design.md",
+  "release": "2.41",
+  "executed": "2026-11-16",
+  "runs": [
+    {
+      "command": "cd video-production-assets/scripts && python3 -m pytest test_validate_storyboard.py -k rhythm -q",
+      "result": "10 passed, 19 deselected"
+    },
+    {
+      "command": "cd video-production-assets/scripts && python3 -m pytest test_measure_cut_rhythm.py -q",
+      "result": "14 passed"
+    },
+    {
+      "command": "python3 -m pytest -q",
+      "result": "791 passed, 4 skipped, 532 subtests passed"
+    },
+    {
+      "command": "python3 -m pytest scripts/test_video_pack_boundary.py scripts/test_production_policy_consistency.py -q",
+      "result": "4 passed"
+    },
+    {
+      "command": "python3 scripts/check_versions.py",
+      "result": "version check OK: package 2.41, 23 skill(s) consistent"
+    },
+    {
+      "command": "python3 measure_cut_rhythm.py --project <board> --media /tmp/tiny.mp4 --out /tmp/r.json",
+      "result": "status measured, basis ffmpeg_scene, cuts SH01 0-2s / SH02 2-4s, segments 2.0/2.0 measured"
+    }
+  ],
+  "files": {
+    "modified": [
+      "video-production-assets/references/storyboard-contract.md",
+      "video-production-assets/references/09-edit.md",
+      "video-production-assets/references/06-shots.md",
+      "video-production-assets/references/12-qa.md",
+      "video-production-assets/references/11-ai-handoff.md",
+      "video-production-assets/assets/06-shots-template.md",
+      "video-production-assets/assets/09-edit-template.md",
+      "video-production-assets/scripts/validate_storyboard.py",
+      "video-production-assets/scripts/test_validate_storyboard.py",
+      "video-production-assets/SKILL.md",
+      "storyboarding-video/SKILL.md",
+      "silent-satire-animatic/references/03-beat-budget.md",
+      "manifest.json",
+      "CHANGELOG.md"
+    ],
+    "created": [
+      "video-production-assets/scripts/measure_cut_rhythm.py",
+      "video-production-assets/scripts/test_measure_cut_rhythm.py",
+      "docs/research/2026-11-16-prompt-corpus-tempo-analysis.md"
+    ]
+  },
+  "links": {
+    "checked": 173,
+    "broken": [],
+    "new_links_verified": [
+      "storyboard-contract.md#리듬-곡선-storyboardrhythm-선택",
+      "09-edit.md#시퀀스-리듬-계약",
+      "storyboard-contract.md#8-선택적-projectjson-상세-보드-확장",
+      "video-production-assets/references/09-edit.md#시퀀스-리듬-계약 (from silent-satire-animatic)"
+    ],
+    "preexisting_anchor_mismatches_not_fixed": [
+      "09-edit.md -> 29-reference-driven-production.md#usable-ranges",
+      "09-edit.md -> 29-reference-driven-production.md#dialogue-repair",
+      "06-shots.md -> 29-reference-driven-production.md#space-performance",
+      "06-shots.md -> sources.md#직접-대조-구간--2026-10-16-w4",
+      "11-ai-handoff.md -> 29-reference-driven-production.md#reference-roles|#bilingual-prompts|#generation-modes",
+      "12-qa.md -> korean-script-postediting.md#gates",
+      "assets/09-edit-template.md -> ../references/29-reference-driven-production.md#usable-ranges",
+      "SKILL.md -> references/writing-craft.md#shape",
+      "SKILL.md -> references/korean-script-postediting.md#scope"
+    ],
+    "note": "These 11 anchors point at headings whose hand-written English slugs do not match the heading text; every one of them predates this change and none is touched by it. Listed so the next cycle can decide whether to renumber or re-anchor them."
+  },
+  "unverified": [
+    "No production footage was measured; media-mode verification used a synthetic three-segment 160x90 clip.",
+    "Scene detection cannot distinguish a whip pan from a cut, so measured cut counts can overstate real cuts.",
+    "Handle shortfalls require source_duration_s to reflect the generated clip; planned-only projects carry planned durations and will report no shortfall."
+  ],
+  "rulings": [
+    "Plan verification for corpus numbers was replaced: the reference-distribution row legitimately contains 2.5s/6s, so the check now asserts the pack defaults (2.0s/8.0s) exist and the banned metrics (moving_static, energy_duration_conflicts) do not.",
+    "Repeated shot-size runs use 3 consecutive cuts, matching the spec; the plan's test fixture used a 2-cut run and was corrected rather than the spec.",
+    "Media mode keeps status=measured even when detected boundaries do not map to planned shots; unmatched lists remain populated so nothing is silently attributed.",
+    "ffmpeg filter is built as select=gt(scene\\,T),metadata=print:file=- because shell-style quoting selected zero scenes in a real run; the argv is pinned by a regression test."
+  ]
+}

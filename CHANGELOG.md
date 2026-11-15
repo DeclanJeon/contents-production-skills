@@ -10,6 +10,15 @@
 
 ## Unreleased
 
+## 2.41 2026-11-16
+
+- Added the optional sequence rhythm curve `storyboard.rhythm` (per-segment `energy` 1-5, `cadence`, `planned_duration_s`, `cut_out_phase`, `exit_handle_frames`, `reason`) with structure, coverage, duration-sum, timeline-order and declared-handle validation in `validate_storyboard.py`, plus `--strict-rhythm` to require the curve.
+- Rewrote the rule the curve rests on: the contract still forbids using cut counts, shot-size ratios or fixed second intervals as universal quality criteria, and now also states that a declared curve is checked only for self-consistency against the plan and the measured cut - never against an external standard. An intentionally even tempo passes when it is declared as `cadence: steady` with its reason.
+- Added `scripts/measure_cut_rhythm.py`: planned-only, explicit cut-CSV and ffmpeg scene-detection modes reporting cut durations, monotony runs, repeated shot sizes, plan-versus-measured deltas and realized handle shortfalls. It never scores the result (`aesthetics: not_judged`), and reports `status: unverified` with exit code 3 when ffmpeg is absent or the media cannot be decoded.
+- Added a handle-derivation rule: a segment that leaves on `mid_action`/`impact` needs `exit_handle_frames + 2` frames captured at generation time, otherwise the plan drops to `settle` with a reason. Post-hoc trimming is not a substitute, and the report compares that requirement against the handle a clip actually has (`source_duration_s - source_in_s - duration x playback_rate`), so the check can fire.
+- Recorded where the reference tempo numbers come from (`docs/research/2026-11-16-prompt-corpus-tempo-analysis.md`): 1,730 spans across 19 sheets average 4.65s with 15.1% at or under 2.5s, and 300 of 400 prompt rows use exactly three shot cards. Both are corpus observations, not targets; the pack defaults stay at 2.0s/8.0s.
+- Declined two tempting metrics on purpose: an energy-versus-duration ranking (that is the universal rhythm formula this pack refuses to make) and a moving/static ratio (it reads as a score and contradicts the shot-rhythm rule).
+
 ## 2.40 (2026-11-15)
 
 - Make thumbnail generation the default path and frame capture the fallback. A cropped render frame is a coincidence of whatever the camera happened to show; measured on the same episode it put the character at 3% of the frame with no readable action, while a generated composition reached 8-12% with the machine, the coins and an expressive pose all legible. The thumbnail is the only text-free hook a silent video has, so it should be designed rather than harvested.
