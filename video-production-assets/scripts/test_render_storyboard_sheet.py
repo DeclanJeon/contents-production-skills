@@ -291,7 +291,12 @@ class MultiSheetTests(unittest.TestCase):
         from render_storyboard_sheet import _cell_dimensions
         self.assertEqual(_cell_dimensions({'aspect_ratio': '9:16'}), (405, 720))
         self.assertEqual(_cell_dimensions({'aspect_ratio': '16:9'}), (640, 360))
+        self.assertEqual(_cell_dimensions({'aspect_ratio': '4:5'}), (480, 600))
+        self.assertEqual(_cell_dimensions({'aspect_ratio': '3:4'}), (450, 600))
+        self.assertEqual(_cell_dimensions({'aspect_ratio': '1:1'}), (560, 560))
         self.assertEqual(_cell_dimensions({}), (560, 560))
+        self.assertEqual(_cell_dimensions({'aspect_ratio': '  4:5  '}), (480, 600))
+        self.assertEqual(_cell_dimensions({'aspect_ratio': '21:9'}), (560, 560))
         with tempfile.TemporaryDirectory() as root:
             p = image_package(root)
             p['aspect_ratio'] = '9:16'
