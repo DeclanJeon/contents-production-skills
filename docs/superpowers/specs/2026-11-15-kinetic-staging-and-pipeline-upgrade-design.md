@@ -40,14 +40,15 @@
 
 | 문서 | 소유 범위 | 네 필드 취급 |
 |---|---|---|
-| `video-production-assets/references/storyboard-contract.md` §8 | 패널 스키마 정의 | **정본** — 네 필드의 형식·필수 여부를 정의 |
+| `video-production-assets/references/storyboard-contract.md` §8 | 패널 스키마 | **정본(스키마 선언)** — `panels[]` 선택 필드로 네 필드의 소속과 필수 여부를 선언 |
+| `video-production-assets/references/storyboard-contract.md` §3 「동작 중심 패널의 장면 통합」 | 패널 서술 규칙 | **정본(서술 규칙)** — 네 필드의 형식·서술 규칙을 정의 |
 | `video-production-assets/assets/06-shots-template.md`, `storyboard-panels.csv` | 패널 출력 양식 | **정본** — 네 필드를 실제 기입 열로 제공 |
 | `video-production-assets/scripts/validate_storyboard.py` | 구조 검증 | `OPTIONAL_PANEL_TEXT_KEYS` + `--strict-staging`으로 비공백 검사 |
 | `video-production-assets/references/06-shots.md` | **컷 설계 원칙** (연출 레시피) | **비소유** — `focal_hierarchy`만 3단 깊이 설계로 다루고, `kinetic_cues`/`expression_pose`/`image_prompt`는 다루지 않는다. 설계 원칙 문서이지 패널 스키마 문서가 아니다. |
 | `video-production-assets/references/04-performance.md` | 배우 지시 → 안면 해부학 변환 | `expression_pose`의 **변환 규칙**만 제공(브릿지 절), 슬롯 정의는 하지 않는다 |
 | `video-production-assets/references/08-animation.md` | 타이밍·동세 원칙 | `kinetic_cues`의 **동세선·오버슈트 원칙**만 제공, 슬롯 정의는 하지 않는다 |
 
-> **검증 시 주의**: `06-shots.md`에 세 필드가 없다는 사실을 결함으로 보고하지 않는다. 패널 필드의 완결성은 `storyboard-contract.md` §8 → 템플릿 → `validate_storyboard.py`의 3자 정합으로 판정한다.
+> **검증 시 주의**: `06-shots.md`에 세 필드가 없다는 사실을 결함으로 보고하지 않는다. 패널 필드의 완결성은 `storyboard-contract.md` §8(스키마 선언) + §3(서술 규칙) + 템플릿/CSV + `validate_storyboard.py`의 정합으로 판정한다.
 
 ### 2.2 한·영 이중 프롬프트(Dual-Layer Prompt) 표준
 
