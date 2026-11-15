@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+
+## 2.35 2026-11-15
+
+- Add `silent-satire-animatic` (v2.35): a production contract for silent (no dialogue, no narration, no captions) satirical animatics under ten minutes. Fixes "silent" as the absence of human speech rather than of audio, so BGM and SFX remain legal; forbids on-screen captions because they break the silent classification. Encodes six enforceable principles (3-second readable hook, no-speech, repetition-then-punchline escalation with at least one rising axis, 8-second beat ceiling, thumbnail from a readable punchline frame rather than second zero, and a resolved ending under 600 seconds). Records the beat-budget arithmetic that makes 40-60 beats incompatible with a full ten minutes, the toggle-vs-rising distinction for the direction axis, the stacked zoom cap that keeps the actor inside the thumbnail, and a machine-judged BGM fallback that never silently substitutes. Excludes rendering, publishing and LLM prompt generation; existing owners unchanged.
+
 - Add an optional measured-decomposition backend for reference-video analysis (`references/31-external-video-decomposition.md`) using an already installed rea-video CLI. Cuts, made-by classification, caption/packaging timing, stem-separated audio and remake routes enter as `DETECTOR_CANDIDATE`/`ESTIMATED` until the agent inspects frames; `SH###` still requires both boundaries confirmed, and stem listening still gates audio claims. No auto-install, no new coordinator/ledger, the tool's HTML report is not a deliverable and paid remake calls keep their separate approval. reference25 keeps working unchanged when the tool is absent.
 
 - Clarify interval-scoped visual lip-sync applicability, unmet readability and uninspected/unheard evidence under one verdict owner. Align image-executor selection and README cost guidance with the existing default/explicit-selection policy and Codex Imagen still-cost exception. Declare the already-required conditional ai-delegation-loop as unverified external metadata without bundling or auto-installing it. Preserve other-provider approval gates; reference-scope behavior evaluation remains prepared, not executed, and no new reference rule is added.

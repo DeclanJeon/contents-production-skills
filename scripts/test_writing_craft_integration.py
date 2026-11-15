@@ -61,8 +61,9 @@ def test_skill_registry_has_no_new_standalone_writing_owners(installed: Path) ->
     # Given: existing package owner registrations, not global user skills.
     manifest = json.loads((ROOT / "manifest.json").read_bytes())
     names = {p.parent.name for p in installed.glob("*/SKILL.md")}
-    # When/Then: installation preserves the 22-owner public registry.
-    assert len(names) == 22 and names == set(manifest["skills"])
+    # When/Then: installation matches the manifest exactly and adds no writing-craft owner.
+    # The guard is about writing-craft ownership, not a fixed total skill count.
+    assert names == set(manifest["skills"])
     assert names.isdisjoint({"writing-craft", "writing-fragments", "writing-beats", "writing-shape", "grilling"})
 
 

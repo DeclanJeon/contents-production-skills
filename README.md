@@ -32,6 +32,7 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 | [blender-previsualization](blender-previsualization/SKILL.md) | 카메라·피사체 움직임, 구도·공간 배치의 실제 Blender 프록시·프리비즈·기하 검사 | 장면별 3D 카메라/공간 설계의 필수 구현·시각 검수 경로. Blender 런타임 필요; 최종 영상 품질을 보증하지 않는다. 기준 경로는 Blender CLI이며, 같은 어댑터를 호출하는 선택형 MCP 서버(`blender-previsualization/mcp/`)를 함께 배포한다. |
 | [open-3d-production](open-3d-production/SKILL.md) | Blender 모델링·조명·분해도 기법과 웹 3D·스크롤·알파·루프·포즈 그리드·브라우저 검수/녹화의 선택형 전문 모듈 | 총괄이 8개 모듈의 선택·순서·실행을 통제한다. Blender 적용 지침과 원본 실행 도구를 함께 배포하며, 공간 검증은 기존 Blender 오너가 유지한다. |
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/Media_Studio 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
+| [silent-satire-animatic](silent-satire-animatic/SKILL.md) | 무성(대사·내레이션·자막 없음) 풍자 애니메틱의 제작 계약: 소재 선별, 4막 풍자 서사, 씬/컷 변주, 비트 예산, 썸네일 프레임 선택 | "무성"을 소리의 부재가 아니라 인간 발화의 부재로 고정한다. 실제 렌더·게시·LLM 프롬프트 생성은 제외하며 기존 총괄·썸네일 오너를 대체하지 않는다. |
 
 The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills.
 
