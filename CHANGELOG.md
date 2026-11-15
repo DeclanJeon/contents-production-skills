@@ -10,6 +10,16 @@
 
 ## Unreleased
 
+## 2.40 (2026-11-15)
+
+- Make thumbnail generation the default path and frame capture the fallback. A cropped render frame is a coincidence of whatever the camera happened to show; measured on the same episode it put the character at 3% of the frame with no readable action, while a generated composition reached 8-12% with the machine, the coins and an expressive pose all legible. The thumbnail is the only text-free hook a silent video has, so it should be designed rather than harvested.
+- Verify generated covers against the pack in pixels: exact 1080x1920, subject coverage from `palette.body` at or above 6%, and no bbox contact within a 2% edge band. An image model will happily match a palette and draw a different character, so the pack, not the eye, is the judge.
+- Pad instead of crop when normalising size. Generated images already fill the canvas edge to edge, so a centre crop removes precisely the limbs that matter, and the earlier crop path was deleting the hand it was supposed to protect.
+- Record the generation-versus-fallback split in the manifest. A silent fallback hides a quality regression: the release still ships, but with a weaker cover, and nothing distinguishes it from a designed one.
+- Document that image-generation quota is per account, not per host. Spending the allowance locally returns HTTP 429 on the server, and `--smoke` passing proves only credential discovery, not remaining quota. Note also that a container runs with `HOME=/root`, so host credentials under `/home/<user>/.codex` are invisible unless mounted.
+- Unify the thumbnail error type. Two sibling classes meant a caller catching one silently missed the other half of the failures.
+
+
 ## 2.40 (2026-11-16)
 
 - Added a spec-derived top-down blocking diagram per shot (`<shot_id>/path-map.svg`: camera path, frustum bearings, subject travel, facing, 1 m scale) so blocking and camera movement can be read in one image; it is a diagram, not a render, and proves no occlusion, contact or lighting.

@@ -187,6 +187,28 @@ def _camera_frames(shot,limit=60):
     return frames
 
 
+def tick_rows(rows,subject_id,to_px,min_gap_m=None):
+    """Frame ticks spaced so their labels never overlap on the page.
+
+    A slowly moving or static subject would otherwise stack every label on one
+    point: the interval grows until consecutive ticks are at least ~26 px
+    apart, and a fully static subject keeps a single frame label.
+    """
+    total=len(rows)
+    if total<=1:return rows
+    points=[row['positions'][subject_id] for row in rows]
+    if all(point==points[0] for point in points):return rows[:1]
+    scale=to_px((1.0,0.0))[0]-to_px((0.0,0.0))[0]
+    gap_m=min_gap_m if min_gap_m is not None else 26.0/max(1e-9,abs(scale))
+    for tick in range(max(1,math.ceil(total/6)),total):
+        sampled=rows[::tick]
+        gaps=[math.hypot(b['positions'][subject_id][0]-a['positions'][subject_id][0],
+                         b['positions'][subject_id][1]-a['positions'][subject_id][1])
+              for a,b in zip(sampled,sampled[1:])]
+        if gaps and min(gaps)>=gap_m:return sampled
+    return rows[::max(1,math.ceil(total/3))]
+
+
 def shot_samples(spec,shot):
     """Per-frame camera samples and subject positions for the diagram."""
     rows=[]
@@ -257,20 +279,22 @@ def build_svg(spec,shot,facing_map=None,width=1180):
                         for i,row in enumerate(rows)
                         if i==0 or row['positions'][sid]!=rows[i-1]['positions'][sid])
         if ' ' not in points.strip():points=points.strip()+' '+points.strip()
-        add(f'<polyline points="{points}" fill="none" stroke="#5ad1a5" stroke-width="2" stroke-dasharray="1 0" opacity="0.85"/>')
-        tick=max(1,math.ceil(len(rows)/6))
-        for row in rows[::tick]:
+        add(f'<polyline points="{points}" fill="none" stroke="#5ad1a5" stroke-width="2.5" opacity="0.9"/>')
+        for row in tick_rows(rows,sid,pxy):
             x,y=pxy(row['positions'][sid])
             add(f'<circle cx="{_f(x)}" cy="{_f(y)}" r="2.5" fill="#5ad1a5"/>')
             add(f'<text x="{_f(x+5)}" y="{_f(y-5)}" fill="#5ad1a5" font-size="10">{row["frame"]}</text>')
         vector,source=facing_at(spec,shot,sid,n//2,facing_map)
+        reach=min(1.0,max(0.35,0.75*max(subject['size_m'][0],subject['size_m'][1])))
+        label_x,label_y=pxy(start)
+        add(f'<text x="{_f(label_x-7)}" y="{_f(label_y-9)}" text-anchor="end" fill="#cdd5e4" font-size="11">{_escape(sid)}</text>')
         if vector:
-            x,y=pxy(end);ax,ay=px(end[0]+vector[0]*0.7,end[1]+vector[1]*0.7)
+            x,y=pxy(end);ax,ay=px(end[0]+vector[0]*reach,end[1]+vector[1]*reach)
             add(f'<line x1="{_f(x)}" y1="{_f(y)}" x2="{_f(ax)}" y2="{_f(ay)}" stroke="#ffd479" stroke-width="2.5"/>')
             add(f'<circle cx="{_f(ax)}" cy="{_f(ay)}" r="3.5" fill="#ffd479"/>')
-            add(f'<text x="{_f(ax+6)}" y="{_f(ay+4)}" fill="#ffd479" font-size="10">facing·{source}</text>')
+            add(f'<text x="{_f(ax+6)}" y="{_f(ay+13)}" fill="#ffd479" font-size="10">facing·{source}</text>')
         else:
-            x,y=pxy(end);add(f'<text x="{_f(x+6)}" y="{_f(y-6)}" fill="#7d869c" font-size="10">facing undetermined</text>')
+            x,y=pxy(end);add(f'<text x="{_f(x+6)}" y="{_f(y+15)}" fill="#7d869c" font-size="10">facing undetermined</text>')
         x,y=px(start[0],start[1]);add(f'<text x="{_f(x)}" y="{_f(y-8)}" fill="#cdd5e4" font-size="11">{_escape(sid)}</text>')
     # camera path + frustum wedges
     camera_points=[pxy(row['camera']['position']) for row in rows]
@@ -288,18 +312,22 @@ def build_svg(spec,shot,facing_map=None,width=1180):
         if key in drawn:continue
         drawn.add(key);wedges+=1
         half=math.atan(sensor/(2*max(1e-6,cam['lens_mm'])))
-        nearest=min([math.hypot(p[0]-position[0],p[1]-position[1]) for p in row['positions'].values()]+[3.0])
-        reach=max(0.6,min(3.0,nearest))
+        nearest=min([math.hypot(p[0]-position[0],p[1]-position[1]) for p in row['positions'].values()]+[2.0])
+        reach=max(0.6,min(2.0,nearest))
         x0,y0=px(position[0],position[1])
         edges=[]
         for angle in (heading-half,heading+half):
             ex,ey=position[0]+math.cos(angle)*reach,position[1]+math.sin(angle)*reach
             edges.append(px(ex,ey))
-        add(f'<polygon points="{_f(x0)},{_f(y0)} {_f(edges[0][0])},{_f(edges[0][1])} {_f(edges[1][0])},{_f(edges[1][1])}" fill="#ff8c69" opacity="0.10" stroke="#ff8c69" stroke-opacity="0.45" stroke-width="1"/>')
-    for row,label in ((rows[0],'start'),(rows[-1],'end')):
-        x,y=px(row['camera']['position'][0],row['camera']['position'][1])
-        add(f'<circle cx="{_f(x)}" cy="{_f(y)}" r="4" fill="#ff8c69"/>')
-        add(f'<text x="{_f(x+7)}" y="{_f(y+13)}" fill="#ff8c69" font-size="10">cam {label}·f{row["frame"]}</text>')
+        add(f'<polygon points="{_f(x0)},{_f(y0)} {_f(edges[0][0])},{_f(edges[0][1])} {_f(edges[1][0])},{_f(edges[1][1])}" fill="#ff8c69" opacity="0.05" stroke="#ff8c69" stroke-opacity="0.22" stroke-width="1"/>')
+    first_px=pxy(rows[0]['camera']['position']);last_px=pxy(rows[-1]['camera']['position'])
+    add(f'<circle cx="{_f(first_px[0])}" cy="{_f(first_px[1])}" r="4" fill="#ff8c69"/>')
+    if math.hypot(last_px[0]-first_px[0],last_px[1]-first_px[1])<6:
+        add(f'<text x="{_f(first_px[0]+7)}" y="{_f(first_px[1]+13)}" fill="#ff8c69" font-size="10">cam static·f{rows[0]["frame"]}–f{rows[-1]["frame"]}</text>')
+    else:
+        add(f'<text x="{_f(first_px[0]+7)}" y="{_f(first_px[1]+13)}" fill="#ff8c69" font-size="10">cam start·f{rows[0]["frame"]}</text>')
+        add(f'<circle cx="{_f(last_px[0])}" cy="{_f(last_px[1])}" r="4" fill="#ff8c69"/>')
+        add(f'<text x="{_f(last_px[0]+7)}" y="{_f(last_px[1]-8)}" fill="#ff8c69" font-size="10">cam end·f{rows[-1]["frame"]}</text>')
     # legend + scale bar
     add(f'<g transform="translate(40 {height-52})" font-size="11">')
     add('<line x1="0" y1="0" x2="22" y2="0" stroke="#ff8c69" stroke-width="2"/><text x="28" y="4" fill="#cdd5e4">camera path / frustum</text>')
