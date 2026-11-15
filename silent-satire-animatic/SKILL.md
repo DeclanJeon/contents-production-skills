@@ -1,6 +1,6 @@
 ---
 name: silent-satire-animatic
-version: 1.0
+version: 1.1
 description: Design and review silent (no dialogue, no narration, no captions) satirical animatics built from popular source material, from source selection through script, scene/cut and beat-budgeted timeline. Use for 무성 애니메이션, 대사 없는 애니메이틱, 풍자 애니메이션 기획, silent satire shorts or longform under ten minutes, or judging whether an existing silent edit will hold attention. Excludes actual rendering, publishing, and paid generation.
 ---
 
@@ -37,12 +37,15 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 | P4 | 비트는 8초를 넘지 않는다 | 단일 비트 ≤8.0초, 평균 4~6초 |
 | P5 | 썸네일은 가장 강한 프레임 | 0초 캡처 금지, 펀치라인의 가독 샷(wide/medium), 본편과 동일 종횡비, 실패 시 릴리스 중단 |
 | P6 | 10분 미만 + 완결 | 총 ≤600초, 마지막 비트는 `land`(해소) |
+| P7 | 캐릭터 시트를 실제로 쓴다 | 공급된 캐릭터 팩을 로드해 팔레트·실루엣·파츠를 적용. 팩 누락 시 기본 도형 폴백 금지, 중단 |
 
-## 제작 순서 (6단계)
+## 제작 순서 (7단계)
 
 ```
-소재 선택 → 대본 → 씬/컷 → 타임라인 → 렌더 → 게이트/배포
+소재 선택 → 대본 → 씬/컷 → 캐릭터 배정 → 타임라인 → 렌더 → 게이트/배포
 ```
+
+**캐릭터 배정**은 타임라인 앞에 온다. 팔레트·실루엣이 렌더에 영향을 주므로, 그 뒤에 바꾸면 전체 재렌더가 필요하다. 정본은 `references/05-character-assets.md`다.
 
 각 단계는 검증 가능한 산출물을 남긴다. 상위 단계 실패 시 하위로 진행하지 않는다.
 
@@ -117,7 +120,32 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 | `scale` | 0.6~1.6 | 인물 크기 |
 | `direction` | ±1 | 진행 방향 반전 (토글) |
 
-**상한 주의**: 샷 배율 × 변주 배율이 곱해진다. `close`(2.2) × `scale`(1.6) = 3.5배면 인물이 화면에서 잘린다. 결합 배율을 2.0으로 상한하는 것을 권한다.
+**잘림 방지**: 배율 상한만으로는 부족하다. 샷 배율 × 변주 배율이 곱해지고 확대는 캔버스 중앙 기준으로 일어나므로, 원래 중앙에서 벗어난 포즈(`land` 등)는 상한을 걸어도 프레임 밖으로 밀려난다.
+
+필수 보정:
+```
+1. 결합 배율을 2.0으로 상한
+2. 확대 후 실제 조인트 경계 계산
+3. 스트로크 폭 보정 (머리 반지름 + 손 반지름) × 배율
+4. 24px 마진 밖으로 나가면 dx 재정렬
+```
+
+**조인트 중심만 검사하면 안 된다.** 머리 원이 조인트 밖으로 뻗으므로 마진을 지켰는데도 그려진 픽셀이 8px까지 나가는 경우가 있다. 검증은 렌더된 픽셀 스캔으로 한다.
+
+## 스테이징 (2.36 연동)
+
+상위 `video-production-assets` 2.36 계약의 스테이징 규칙을 무성 애니메틱에 맞게 적용한다.
+
+| 2.36 필드 | 무성 애니메틱 적용 |
+|---|---|
+| `focal_hierarchy` (3단 깊이) | ① 전경 장애물(가깝고 큼) ② 인물 행동면 ③ 배경 맥락(지면 흔적·잔류 상태) |
+| `kinetic_cues` | 액션 피크에 수직 기립 정지자세 금지. 무게중심 이탈·동세선 유지 |
+| `expression_pose` | 얼굴이 단순화된 스틱맨은 눈·입 상태(정지/놀람/충돌)로 대체하고 라벨만 쓰지 않는다 |
+| `image_prompt` (KO/EN) | 해당 없음 (이미지 생성 단계가 아니라 결정론적 래스터 렌더) |
+
+**깊이 3단 구현 요점**: 장애물을 하나의 평면에 나열하면 평면적으로 읽힌다. 인덱스를 깊이 밴드로 나누어 가까운 것일수록 크고 낮게, 먼 것일수록 작고 높게 배치하고 채도를 낮춘다.
+
+**주의**: 이 스테이징을 레거시 짧은 포맷에 적용하면 기존 출력이 바뀐다. 스테이징은 해당 프레임이 카메라/변주 축을 가질 때만 적용하고, 없을 때는 원본과 바이트 동일해야 한다.
 
 ## 썸네일
 
@@ -161,6 +189,9 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 - [ ] 관절 articulation 증거 통과
 - [ ] 썸네일 펀치라인 프레임, 정확한 종횡비
 - [ ] BGM 폴백 사유 기록 (폴백 시)
+- [ ] 캐릭터 팩을 실제로 로드했고 팩 폴백이 아님
+- [ ] 렌더 프레임의 인물 색·실루엣이 팩 정의와 일치
+- [ ] 제목이 팩 `title_template` 을 사용
 
 ## 참조
 
@@ -168,6 +199,7 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 - `references/02-satire-structure.md` — 풍자 서사 문법
 - `references/03-beat-budget.md` — 초/비트 계산
 - `references/04-thumbnail-selection.md` — 프레임 선택 규칙
+- `references/05-character-assets.md` — 캐릭터 시트 연결 (필수)
 
 ## 관련 스킬
 

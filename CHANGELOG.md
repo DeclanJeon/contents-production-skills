@@ -10,6 +10,15 @@
 
 ## Unreleased
 
+## 2.37 (2026-11-15)
+
+- Add a mandatory character-asset step to `silent-satire-animatic`: a silent animatic must render the supplied character pack, because with no dialogue or captions the silhouette, palette and appendages are the only way a viewer identifies the actor. Records that a pipeline can load nothing and still pass every render check, so the manifest must carry `character.character_id` and the pack source or the release is blocked.
+- Forbid the silent fallback that reinstates generic colours when a pack is missing; a missing pack is a hard failure, because an unlabelled generic actor is the exact defect the pack exists to prevent.
+- Record species-to-failure casting (climbing, hanging, repeating, inflating, pushing) instead of rotation, and require the pack's own `title_template` so series titles stay consistent.
+- Correct the scale-cap advice for off-frame actors: capping the combined scale does not stop a pose authored off-centre from leaving the frame, so the fix is a post-scale recentre using real joint bounds inflated by stroke width, verified by scanning rendered pixels rather than joint centres.
+- Wire the 2.36 three-layer staging contract into silent animatics and note that staging must stay off unstaged legacy frames so their output remains byte-identical.
+
+
 
 ## 2.35 2026-11-15
 
