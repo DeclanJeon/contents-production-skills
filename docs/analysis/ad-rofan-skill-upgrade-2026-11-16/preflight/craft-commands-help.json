@@ -1,0 +1,9 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "output": "List every tool\n\nUsage: craft-anything-cli commands [OPTIONS]\n\nOptions:\n      --format <FORMAT>    Output format. `--output-format` always means this, even after a tool that has its own `--format` [default: json] [possible values: json, jsonl, md, text, csv, tsv]\n      --json               Shorthand for --format json\n      --project <PROJECT>  A project folder (`*.cany`): evidence, memory and the journal are kept there. Created if missing\n      --allow-run          Allow tools that run code or change a device without asking\n      --deep               Deep mode for this run only: tools may read a target's code, files and page source\n      --clean-room         Clean room for this run only, whatever Settings say: nothing inside a target is read\n  -h, --help               Print help\n\nCAPABILITIES HELP\nWhat this install can do: toolsets, tool availability, engines\n\nUsage: craft-anything-cli capabilities [OPTIONS]\n\nOptions:\n      --format <FORMAT>    Output format. `--output-format` always means this, even after a tool that has its own `--format` [default: json] [possible values: json, jsonl, md, text, csv, tsv]\n      --json               Shorthand for --format json\n      --project <PROJECT>  A project folder (`*.cany`): evidence, memory and the journal are kept there. Created if missing\n      --allow-run          Allow tools that run code or change a device without asking\n      --deep               Deep mode for this run only: tools may read a target's code, files and page source\n      --clean-room         Clean room for this run only, whatever Settings say: nothing inside a target is read\n  -h, --help               Print help\n",
+    "truncated": false,
+    "exit_code": 0,
+    "wall_time_seconds": 0
+  }
+}

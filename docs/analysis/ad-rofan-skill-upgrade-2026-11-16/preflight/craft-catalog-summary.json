@@ -1,0 +1,78 @@
+{
+  "inspection": "Local CLI metadata only; no target media opened or submitted",
+  "cli": "/home/declan/.local/opt/craft-anything-0.6.0-linux-x86_64/bin/craft-anything-cli",
+  "version": "0.6.0",
+  "commandCount": 322,
+  "toolsets": [
+    {
+      "id": "core",
+      "title": "Essentials"
+    },
+    {
+      "id": "native",
+      "title": "Programs (native code)"
+    },
+    {
+      "id": "apple",
+      "title": "Apple apps"
+    },
+    {
+      "id": "formats",
+      "title": "File formats"
+    },
+    {
+      "id": "managed",
+      "title": ".NET apps"
+    },
+    {
+      "id": "android",
+      "title": "Android apps"
+    },
+    {
+      "id": "java",
+      "title": "Java programs"
+    },
+    {
+      "id": "adb",
+      "title": "Connected phone"
+    },
+    {
+      "id": "browser",
+      "title": "Websites"
+    },
+    {
+      "id": "javascript",
+      "title": "Electron and JavaScript"
+    },
+    {
+      "id": "runtime",
+      "title": "Running programs"
+    },
+    {
+      "id": "frida",
+      "title": "Frida instrumentation"
+    },
+    {
+      "id": "application",
+      "title": "Comparing and rebuilding"
+    },
+    {
+      "id": "database",
+      "title": "Databases"
+    },
+    {
+      "id": "projects",
+      "title": "Projects"
+    },
+    {
+      "id": "setup",
+      "title": "Engines and settings"
+    },
+    {
+      "id": "build",
+      "title": "Building"
+    }
+  ],
+  "mediaNamedCommands": [],
+  "limits": "Name/catalog inspection does not prove arbitrary media support is impossible; no dedicated footage/audio-analysis command identified in the declared catalog."
+}

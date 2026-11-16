@@ -1,0 +1,70 @@
+{
+  "scope": "Document format/link/JSON integrity and current hash checks only; not content analysis, model inference, playback, stress tests, or implementation regression.",
+  "documentChecks": [
+    {
+      "path": "docs/superpowers/plans/2026-11-16-ad-rofan-archive-skill-upgrade.md",
+      "lines": 200,
+      "trailingWhitespaceLines": [],
+      "tasks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "path": "docs/analysis/ad-rofan-skill-upgrade-2026-11-16/preflight.md",
+      "lines": 80,
+      "trailingWhitespaceLines": [],
+      "tasks": []
+    }
+  ],
+  "jsonChecks": [
+    {
+      "name": "craft-cli-help.json",
+      "valid": true
+    },
+    {
+      "name": "whisper-cli-help.json",
+      "valid": true
+    },
+    {
+      "name": "versions-and-existing-cache.json",
+      "valid": true
+    },
+    {
+      "name": "craft-commands-help.json",
+      "valid": true
+    },
+    {
+      "name": "master-head.json",
+      "valid": true
+    },
+    {
+      "name": "current-global-gates.json",
+      "valid": true
+    },
+    {
+      "name": "environment.json",
+      "valid": true
+    },
+    {
+      "name": "craft-catalog-summary.json",
+      "valid": true
+    },
+    {
+      "name": "craft-command-names.json",
+      "valid": true
+    }
+  ],
+  "command": "cd '/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills' && printf 'LINK CHECKS\\n' && test -s '/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md' || exit 1; printf '%s\\n' 'LINK_OK /home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md'; test -s '/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/ad-rofan-skill-upgrade-2026-11-16/preflight.md' || exit 1; printf '%s\\n' 'LINK_OK /home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/ad-rofan-skill-upgrade-2026-11-16/preflight.md'; test -s '/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/superpowers/plans/2026-11-16-ad-rofan-archive-skill-upgrade.md' || exit 1; printf '%s\\n' 'LINK_OK /home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/superpowers/plans/2026-11-16-ad-rofan-archive-skill-upgrade.md'; printf '\\nAPPROVED DESIGN HASH - MUST REMAIN dbcc3d...\\n'; sha256sum docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md; printf '\\nTRACKED DIFF CHECK\\n'; git diff --check; printf '\\nNEW DELIVERABLES\\n'; git status --short",
+  "result": {
+    "output": "LINK CHECKS\nLINK_OK /home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md\nLINK_OK /home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/ad-rofan-skill-upgrade-2026-11-16/preflight.md\nLINK_OK /home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/superpowers/plans/2026-11-16-ad-rofan-archive-skill-upgrade.md\n\nAPPROVED DESIGN HASH - MUST REMAIN dbcc3d...\ndbcc3dd61fe7360abcc875db42b2b28daafb61f5614213e212df9ddc16132875  docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md\n\nTRACKED DIFF CHECK\n\nNEW DELIVERABLES\n?? docs/analysis/ad-rofan-skill-upgrade-2026-11-16/\n?? docs/superpowers/plans/2026-11-16-ad-rofan-archive-skill-upgrade.md\n?? docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md\n?? qa/ad-rofan-skill-upgrade-2026-11-16/\n",
+    "truncated": false,
+    "exit_code": 0,
+    "wall_time_seconds": 0.1
+  }
+}

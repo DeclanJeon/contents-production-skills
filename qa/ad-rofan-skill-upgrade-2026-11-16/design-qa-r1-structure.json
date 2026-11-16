@@ -1,0 +1,13 @@
+{
+  "structuralChecks": {
+    "noOldStatusOnlyExit": true,
+    "closedStatePresent": true,
+    "capabilityStopPresent": true,
+    "corruptionInvalidPresent": true,
+    "errorsNotPassed": true,
+    "longStressPresent": true,
+    "noTypos": true,
+    "noTrailingWhitespace": true
+  },
+  "note": "Presence/format checks only. Not media inspection, implementation tests, or proof of semantic correctness."
+}

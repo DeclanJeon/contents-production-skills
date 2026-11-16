@@ -1,0 +1,1612 @@
+[
+  {
+    "tool": "core_target_open",
+    "command": "core-target-open",
+    "title": "Open"
+  },
+  {
+    "tool": "core_target_close",
+    "command": "core-target-close",
+    "title": "Close"
+  },
+  {
+    "tool": "core_session_show",
+    "command": "core-session-show",
+    "title": "Session status"
+  },
+  {
+    "tool": "core_targets_list",
+    "command": "core-targets-list",
+    "title": "List open targets"
+  },
+  {
+    "tool": "core_target_select",
+    "command": "core-target-select",
+    "title": "Switch target"
+  },
+  {
+    "tool": "native_cursor_show",
+    "command": "native-cursor-show",
+    "title": "Where am I"
+  },
+  {
+    "tool": "core_evidence_show",
+    "command": "core-evidence-show",
+    "title": "Evidence so far"
+  },
+  {
+    "tool": "core_evidence_export",
+    "command": "core-evidence-export",
+    "title": "Export evidence"
+  },
+  {
+    "tool": "core_evidence_import",
+    "command": "core-evidence-import",
+    "title": "Import evidence"
+  },
+  {
+    "tool": "core_unknowns_show",
+    "command": "core-unknowns-show",
+    "title": "Open questions"
+  },
+  {
+    "tool": "core_unknown_add",
+    "command": "core-unknown-add",
+    "title": "Record an open question"
+  },
+  {
+    "tool": "core_unknown_edit",
+    "command": "core-unknown-edit",
+    "title": "Update an open question"
+  },
+  {
+    "tool": "core_unknown_verify",
+    "command": "core-unknown-verify",
+    "title": "Check an answer"
+  },
+  {
+    "tool": "core_archive_show",
+    "command": "core-archive-show",
+    "title": "Inventory an archive or app bundle"
+  },
+  {
+    "tool": "core_archive_extract",
+    "command": "core-archive-extract",
+    "title": "Extract an archive"
+  },
+  {
+    "tool": "core_archives_compare",
+    "command": "core-archives-compare",
+    "title": "Compare two artifacts"
+  },
+  {
+    "tool": "js_app_map",
+    "command": "js-app-map",
+    "title": "Analyse a JavaScript app"
+  },
+  {
+    "tool": "js_runtime_code_match",
+    "command": "js-runtime-code-match",
+    "title": "Match static code to what ran"
+  },
+  {
+    "tool": "web_scripts_save",
+    "command": "web-scripts-save",
+    "title": "Export captured scripts"
+  },
+  {
+    "tool": "js_source_locate",
+    "command": "js-source-locate",
+    "title": "Find the original source line"
+  },
+  {
+    "tool": "web_recording_show",
+    "command": "web-recording-show",
+    "title": "Inspect a network recording"
+  },
+  {
+    "tool": "js_sources_restore",
+    "command": "js-sources-restore",
+    "title": "Recover readable sources"
+  },
+  {
+    "tool": "web_browser_connect",
+    "command": "web-browser-connect",
+    "title": "Connect to a browser"
+  },
+  {
+    "tool": "web_pages_list",
+    "command": "web-pages-list",
+    "title": "List browser pages"
+  },
+  {
+    "tool": "web_page_show",
+    "command": "web-page-show",
+    "title": "Inspect a web page"
+  },
+  {
+    "tool": "web_page_js_analyze",
+    "command": "web-page-js-analyze",
+    "title": "Analyse a page's JavaScript"
+  },
+  {
+    "tool": "web_page_watch",
+    "command": "web-page-watch",
+    "title": "Watch a page over time"
+  },
+  {
+    "tool": "web_mcp_tools_list",
+    "command": "web-mcp-tools-list",
+    "title": "Find in-page MCP tools"
+  },
+  {
+    "tool": "web_page_screenshot_take",
+    "command": "web-page-screenshot-take",
+    "title": "Screenshot a page"
+  },
+  {
+    "tool": "web_snapshots_compare",
+    "command": "web-snapshots-compare",
+    "title": "Compare two page captures"
+  },
+  {
+    "tool": "web_pixels_compare",
+    "command": "web-pixels-compare",
+    "title": "Compare two screenshots"
+  },
+  {
+    "tool": "web_walkthrough_record",
+    "command": "web-walkthrough-record",
+    "title": "Run a scripted web session"
+  },
+  {
+    "tool": "web_walkthrough_check",
+    "command": "web-walkthrough-check",
+    "title": "Check a scripted web session"
+  },
+  {
+    "tool": "web_site_open",
+    "command": "web-site-open",
+    "title": "Open a website"
+  },
+  {
+    "tool": "web_site_capture",
+    "command": "web-site-capture",
+    "title": "Capture a website for rebuilding"
+  },
+  {
+    "tool": "web_page_states_capture",
+    "command": "web-page-states-capture",
+    "title": "Capture menus, dialogs and tabs"
+  },
+  {
+    "tool": "web_site_close",
+    "command": "web-site-close",
+    "title": "Close the website"
+  },
+  {
+    "tool": "web_standin_build",
+    "command": "web-standin-build",
+    "title": "Build a stand-in backend"
+  },
+  {
+    "tool": "web_standin_start",
+    "command": "web-standin-start",
+    "title": "Start a stand-in backend"
+  },
+  {
+    "tool": "web_standin_stop",
+    "command": "web-standin-stop",
+    "title": "Stop a stand-in backend"
+  },
+  {
+    "tool": "web_standin_show",
+    "command": "web-standin-show",
+    "title": "See what a stand-in was asked"
+  },
+  {
+    "tool": "core_person_ask",
+    "command": "core-person-ask",
+    "title": "Ask the person"
+  },
+  {
+    "tool": "core_action_approve",
+    "command": "core-action-approve",
+    "title": "Approve an agent action"
+  },
+  {
+    "tool": "project_list",
+    "command": "project-list",
+    "title": "List projects"
+  },
+  {
+    "tool": "project_show",
+    "command": "project-show",
+    "title": "Show a project"
+  },
+  {
+    "tool": "project_inbox_answer",
+    "command": "project-inbox-answer",
+    "title": "Answer a project's question"
+  },
+  {
+    "tool": "project_play",
+    "command": "project-play",
+    "title": "Play a project's result"
+  },
+  {
+    "tool": "project_preview",
+    "command": "project-preview",
+    "title": "Preview a project's website"
+  },
+  {
+    "tool": "project_open_folder",
+    "command": "project-open-folder",
+    "title": "Open a project's folder"
+  },
+  {
+    "tool": "project_rename",
+    "command": "project-rename",
+    "title": "Rename a project"
+  },
+  {
+    "tool": "project_plan_fold",
+    "command": "project-plan-fold",
+    "title": "Fold a project's plan"
+  },
+  {
+    "tool": "project_duplicate",
+    "command": "project-duplicate",
+    "title": "Duplicate a project"
+  },
+  {
+    "tool": "project_delete",
+    "command": "project-delete",
+    "title": "Delete a project"
+  },
+  {
+    "tool": "project_questions_set",
+    "command": "project-questions-set",
+    "title": "Choose what the builder's questions get"
+  },
+  {
+    "tool": "project_approvals_set",
+    "command": "project-approvals-set",
+    "title": "Choose what the builder's approvals get"
+  },
+  {
+    "tool": "project_build_finish",
+    "command": "project-build-finish",
+    "title": "Call the build done"
+  },
+  {
+    "tool": "project_assets_budget",
+    "command": "project-assets-budget",
+    "title": "Set a project's asset budget"
+  },
+  {
+    "tool": "project_assets_allow",
+    "command": "project-assets-allow",
+    "title": "Let a project generate assets"
+  },
+  {
+    "tool": "project_pin_create",
+    "command": "project-pin-create",
+    "title": "Pin a project's build"
+  },
+  {
+    "tool": "project_pins_list",
+    "command": "project-pins-list",
+    "title": "List pinned builds"
+  },
+  {
+    "tool": "project_pin_open",
+    "command": "project-pin-open",
+    "title": "Open a pinned build"
+  },
+  {
+    "tool": "project_pin_stop",
+    "command": "project-pin-stop",
+    "title": "Stop a pinned build"
+  },
+  {
+    "tool": "project_pin_rename",
+    "command": "project-pin-rename",
+    "title": "Rename a pinned build"
+  },
+  {
+    "tool": "project_pin_delete",
+    "command": "project-pin-delete",
+    "title": "Remove a pinned build"
+  },
+  {
+    "tool": "engines_list",
+    "command": "engines-list",
+    "title": "List engines"
+  },
+  {
+    "tool": "engines_install",
+    "command": "engines-install",
+    "title": "Install an engine"
+  },
+  {
+    "tool": "settings_show",
+    "command": "settings-show",
+    "title": "Show settings"
+  },
+  {
+    "tool": "settings_set",
+    "command": "settings-set",
+    "title": "Change a setting"
+  },
+  {
+    "tool": "plugins_list",
+    "command": "plugins-list",
+    "title": "List plugins"
+  },
+  {
+    "tool": "plugins_refresh",
+    "command": "plugins-refresh",
+    "title": "Refresh plugins"
+  },
+  {
+    "tool": "plugins_add",
+    "command": "plugins-add",
+    "title": "Add a plugin"
+  },
+  {
+    "tool": "plugins_remove",
+    "command": "plugins-remove",
+    "title": "Remove a plugin"
+  },
+  {
+    "tool": "engines_app_open",
+    "command": "engines-app-open",
+    "title": "Open an engine's app"
+  },
+  {
+    "tool": "build_files_list",
+    "command": "build-files-list",
+    "title": "List project files"
+  },
+  {
+    "tool": "build_file_read",
+    "command": "build-file-read",
+    "title": "Read a project file"
+  },
+  {
+    "tool": "build_file_write",
+    "command": "build-file-write",
+    "title": "Write a project file"
+  },
+  {
+    "tool": "build_file_edit",
+    "command": "build-file-edit",
+    "title": "Edit a project file"
+  },
+  {
+    "tool": "build_checklist",
+    "command": "build-checklist",
+    "title": "Update the checklist"
+  },
+  {
+    "tool": "build_command_run",
+    "command": "build-command-run",
+    "title": "Run a build command"
+  },
+  {
+    "tool": "native_window_capture",
+    "command": "native-window-capture",
+    "title": "Picture a program's window"
+  },
+  {
+    "tool": "assets_image_generate",
+    "command": "assets-image-generate",
+    "title": "Generate a picture"
+  },
+  {
+    "tool": "assets_model_generate",
+    "command": "assets-model-generate",
+    "title": "Generate a 3D model"
+  },
+  {
+    "tool": "js_electron_pages_list",
+    "command": "js-electron-pages-list",
+    "title": "List Electron pages"
+  },
+  {
+    "tool": "js_electron_page_show",
+    "command": "js-electron-page-show",
+    "title": "Inspect an Electron page"
+  },
+  {
+    "tool": "js_electron_walkthrough_record",
+    "command": "js-electron-walkthrough-record",
+    "title": "Run a scripted Electron session"
+  },
+  {
+    "tool": "js_runtimes_list",
+    "command": "js-runtimes-list",
+    "title": "List JS runtime targets"
+  },
+  {
+    "tool": "js_runtime_watch",
+    "command": "js-runtime-watch",
+    "title": "Observe a JS runtime"
+  },
+  {
+    "tool": "web_coverage_measure",
+    "command": "web-coverage-measure",
+    "title": "Measure which code ran"
+  },
+  {
+    "tool": "web_listeners_list",
+    "command": "web-listeners-list",
+    "title": "List a node's event listeners"
+  },
+  {
+    "tool": "web_modules_trace",
+    "command": "web-modules-trace",
+    "title": "Map a page's module graph"
+  },
+  {
+    "tool": "app_feature_follow",
+    "command": "app-feature-follow",
+    "title": "Trace a feature"
+  },
+  {
+    "tool": "js_function_explain",
+    "command": "js-function-explain",
+    "title": "Explain a function"
+  },
+  {
+    "tool": "app_graphs_compare",
+    "command": "app-graphs-compare",
+    "title": "Compare two app versions"
+  },
+  {
+    "tool": "js_exports_compare",
+    "command": "js-exports-compare",
+    "title": "Compare module exports"
+  },
+  {
+    "tool": "app_source_import",
+    "command": "app-source-import",
+    "title": "Import a source folder"
+  },
+  {
+    "tool": "js_source_bundle_compare",
+    "command": "js-source-bundle-compare",
+    "title": "Line up source with the bundle"
+  },
+  {
+    "tool": "app_ledger_build",
+    "command": "app-ledger-build",
+    "title": "Build a rebuild ledger"
+  },
+  {
+    "tool": "app_coverage_evaluate",
+    "command": "app-coverage-evaluate",
+    "title": "How complete is the rebuild"
+  },
+  {
+    "tool": "android_app_graph_build",
+    "command": "android-app-graph-build",
+    "title": "Map an Android app"
+  },
+  {
+    "tool": "apple_app_graph_build",
+    "command": "apple-app-graph-build",
+    "title": "Map an Apple app"
+  },
+  {
+    "tool": "harmony_app_graph_build",
+    "command": "harmony-app-graph-build",
+    "title": "Map a HarmonyOS app"
+  },
+  {
+    "tool": "core_investigation_show",
+    "command": "core-investigation-show",
+    "title": "Investigation so far"
+  },
+  {
+    "tool": "core_brief_write",
+    "command": "core-brief-write",
+    "title": "Write the brief"
+  },
+  {
+    "tool": "core_plan_update",
+    "command": "core-plan-update",
+    "title": "Update the plan"
+  },
+  {
+    "tool": "core_hypothesis_record",
+    "command": "core-hypothesis-record",
+    "title": "Record a hypothesis"
+  },
+  {
+    "tool": "core_hypothesis_update",
+    "command": "core-hypothesis-update",
+    "title": "Update a hypothesis"
+  },
+  {
+    "tool": "core_finding_record",
+    "command": "core-finding-record",
+    "title": "Record a finding"
+  },
+  {
+    "tool": "core_finding_edit",
+    "command": "core-finding-edit",
+    "title": "Update a finding"
+  },
+  {
+    "tool": "core_handoff_write",
+    "command": "core-handoff-write",
+    "title": "Write the handoff"
+  },
+  {
+    "tool": "core_journal_read",
+    "command": "core-journal-read",
+    "title": "Read the journal"
+  },
+  {
+    "tool": "core_report_save",
+    "command": "core-report-save",
+    "title": "Save a report"
+  },
+  {
+    "tool": "core_report_write",
+    "command": "core-report-write",
+    "title": "Write a readable report"
+  },
+  {
+    "tool": "native_functions_list",
+    "command": "native-functions-list",
+    "title": "List functions"
+  },
+  {
+    "tool": "native_sections_list",
+    "command": "native-sections-list",
+    "title": "List segments"
+  },
+  {
+    "tool": "native_strings_browse",
+    "command": "native-strings-browse",
+    "title": "List strings"
+  },
+  {
+    "tool": "native_named_addresses_list",
+    "command": "native-named-addresses-list",
+    "title": "List names"
+  },
+  {
+    "tool": "native_open_documents_list",
+    "command": "native-open-documents-list",
+    "title": "List documents"
+  },
+  {
+    "tool": "native_bookmarks_show",
+    "command": "native-bookmarks-show",
+    "title": "List bookmarks"
+  },
+  {
+    "tool": "native_functions_search",
+    "command": "native-functions-search",
+    "title": "Search functions"
+  },
+  {
+    "tool": "native_strings_find",
+    "command": "native-strings-find",
+    "title": "Search strings"
+  },
+  {
+    "tool": "native_bytes_show",
+    "command": "native-bytes-show",
+    "title": "Read bytes"
+  },
+  {
+    "tool": "native_address_offset_show",
+    "command": "native-address-offset-show",
+    "title": "Address to file offset"
+  },
+  {
+    "tool": "native_xrefs_list",
+    "command": "native-xrefs-list",
+    "title": "Cross-references"
+  },
+  {
+    "tool": "native_name_show",
+    "command": "native-name-show",
+    "title": "Name at address"
+  },
+  {
+    "tool": "native_comment_read",
+    "command": "native-comment-read",
+    "title": "Read comment"
+  },
+  {
+    "tool": "native_inline_comment_read",
+    "command": "native-inline-comment-read",
+    "title": "Read inline comment"
+  },
+  {
+    "tool": "native_function_show",
+    "command": "native-function-show",
+    "title": "Function info"
+  },
+  {
+    "tool": "native_function_disassemble",
+    "command": "native-function-disassemble",
+    "title": "Function assembly"
+  },
+  {
+    "tool": "native_function_callees_list",
+    "command": "native-function-callees-list",
+    "title": "What it calls"
+  },
+  {
+    "tool": "native_function_callers_list",
+    "command": "native-function-callers-list",
+    "title": "Who calls it"
+  },
+  {
+    "tool": "native_function_references_list",
+    "command": "native-function-references-list",
+    "title": "Function references"
+  },
+  {
+    "tool": "native_function_pseudocode",
+    "command": "native-function-pseudocode",
+    "title": "Decompile"
+  },
+  {
+    "tool": "native_function_address_show",
+    "command": "native-function-address-show",
+    "title": "Function address"
+  },
+  {
+    "tool": "native_function_instructions_list",
+    "command": "native-function-instructions-list",
+    "title": "Function instructions"
+  },
+  {
+    "tool": "native_function_find",
+    "command": "native-function-find",
+    "title": "Which function is this in"
+  },
+  {
+    "tool": "native_instruction_show",
+    "command": "native-instruction-show",
+    "title": "Inspect instruction"
+  },
+  {
+    "tool": "native_call_site_resolve",
+    "command": "native-call-site-resolve",
+    "title": "Resolve a call"
+  },
+  {
+    "tool": "native_data_show",
+    "command": "native-data-show",
+    "title": "Inspect data"
+  },
+  {
+    "tool": "native_name_set",
+    "command": "native-name-set",
+    "title": "Name an address"
+  },
+  {
+    "tool": "native_names_set",
+    "command": "native-names-set",
+    "title": "Name many addresses"
+  },
+  {
+    "tool": "native_comment_write",
+    "command": "native-comment-write",
+    "title": "Write comment"
+  },
+  {
+    "tool": "native_inline_comment_write",
+    "command": "native-inline-comment-write",
+    "title": "Write inline comment"
+  },
+  {
+    "tool": "native_bookmark_add",
+    "command": "native-bookmark-add",
+    "title": "Bookmark"
+  },
+  {
+    "tool": "native_bookmark_remove",
+    "command": "native-bookmark-remove",
+    "title": "Remove bookmark"
+  },
+  {
+    "tool": "native_function_label",
+    "command": "native-function-label",
+    "title": "Annotate function"
+  },
+  {
+    "tool": "native_cursor_address_show",
+    "command": "native-cursor-address-show",
+    "title": "Cursor address"
+  },
+  {
+    "tool": "native_cursor_function_show",
+    "command": "native-cursor-function-show",
+    "title": "Cursor function"
+  },
+  {
+    "tool": "native_document_show",
+    "command": "native-document-show",
+    "title": "Current document"
+  },
+  {
+    "tool": "native_cursor_goto",
+    "command": "native-cursor-goto",
+    "title": "Go to address"
+  },
+  {
+    "tool": "native_cursor_forward",
+    "command": "native-cursor-forward",
+    "title": "Next address"
+  },
+  {
+    "tool": "native_cursor_back",
+    "command": "native-cursor-back",
+    "title": "Previous address"
+  },
+  {
+    "tool": "core_overview_show",
+    "command": "core-overview-show",
+    "title": "Overview"
+  },
+  {
+    "tool": "native_function_study",
+    "command": "native-function-study",
+    "title": "Function dossier"
+  },
+  {
+    "tool": "native_call_graph_show",
+    "command": "native-call-graph-show",
+    "title": "Call graph"
+  },
+  {
+    "tool": "core_feature_find",
+    "command": "core-feature-find",
+    "title": "Trace a feature"
+  },
+  {
+    "tool": "native_call_path_find",
+    "command": "native-call-path-find",
+    "title": "Call path"
+  },
+  {
+    "tool": "native_functions_decompile",
+    "command": "native-functions-decompile",
+    "title": "Decompile many"
+  },
+  {
+    "tool": "native_name_xrefs_list",
+    "command": "native-name-xrefs-list",
+    "title": "References to a name"
+  },
+  {
+    "tool": "native_api_show",
+    "command": "native-api-show",
+    "title": "API boundary"
+  },
+  {
+    "tool": "native_value_flow_show",
+    "command": "native-value-flow-show",
+    "title": "Value flow"
+  },
+  {
+    "tool": "apple_objc_classes_list",
+    "command": "apple-objc-classes-list",
+    "title": "Objective-C classes"
+  },
+  {
+    "tool": "apple_objc_protocols_list",
+    "command": "apple-objc-protocols-list",
+    "title": "Objective-C protocols"
+  },
+  {
+    "tool": "apple_swift_types_list",
+    "command": "apple-swift-types-list",
+    "title": "Swift types"
+  },
+  {
+    "tool": "apple_dispatch_show",
+    "command": "apple-dispatch-show",
+    "title": "Dispatch metadata"
+  },
+  {
+    "tool": "apple_ui_action_trace",
+    "command": "apple-ui-action-trace",
+    "title": "Trace a UI action"
+  },
+  {
+    "tool": "native_pe_resources_list",
+    "command": "native-pe-resources-list",
+    "title": "Windows resources"
+  },
+  {
+    "tool": "native_layout_show",
+    "command": "native-layout-show",
+    "title": "Binary layout"
+  },
+  {
+    "tool": "native_crash_show",
+    "command": "native-crash-show",
+    "title": "Crash dump"
+  },
+  {
+    "tool": "native_dos_image_show",
+    "command": "native-dos-image-show",
+    "title": "DOS load image"
+  },
+  {
+    "tool": "core_target_triage",
+    "command": "core-target-triage",
+    "title": "What is this?"
+  },
+  {
+    "tool": "core_evidence_browse",
+    "command": "core-evidence-browse",
+    "title": "Page through evidence"
+  },
+  {
+    "tool": "apple_macho_show",
+    "command": "apple-macho-show",
+    "title": "Mach-O structure"
+  },
+  {
+    "tool": "apple_signature_show",
+    "command": "apple-signature-show",
+    "title": "Code signature"
+  },
+  {
+    "tool": "apple_plist_show",
+    "command": "apple-plist-show",
+    "title": "Property list"
+  },
+  {
+    "tool": "apple_slices_list",
+    "command": "apple-slices-list",
+    "title": "Architectures"
+  },
+  {
+    "tool": "apple_swift_symbols_demangle",
+    "command": "apple-swift-symbols-demangle",
+    "title": "Demangle Swift symbols"
+  },
+  {
+    "tool": "apple_nib_decode",
+    "command": "apple-nib-decode",
+    "title": "Interface Builder documents"
+  },
+  {
+    "tool": "apple_archive_decode",
+    "command": "apple-archive-decode",
+    "title": "Keyed archive"
+  },
+  {
+    "tool": "apple_assets_list",
+    "command": "apple-assets-list",
+    "title": "Asset catalog"
+  },
+  {
+    "tool": "apple_dylibs_resolve",
+    "command": "apple-dylibs-resolve",
+    "title": "Library resolution"
+  },
+  {
+    "tool": "android_package_show",
+    "command": "android-package-show",
+    "title": "Android app package"
+  },
+  {
+    "tool": "android_classes_find",
+    "command": "android-classes-find",
+    "title": "Find Android classes"
+  },
+  {
+    "tool": "android_class_show",
+    "command": "android-class-show",
+    "title": "Android class"
+  },
+  {
+    "tool": "android_method_show",
+    "command": "android-method-show",
+    "title": "Android method bytecode"
+  },
+  {
+    "tool": "android_class_users_find",
+    "command": "android-class-users-find",
+    "title": "Who uses this Android class?"
+  },
+  {
+    "tool": "android_resources_read",
+    "command": "android-resources-read",
+    "title": "Android resources"
+  },
+  {
+    "tool": "android_components_list",
+    "command": "android-components-list",
+    "title": "Android app components"
+  },
+  {
+    "tool": "engines_apktool_check",
+    "command": "engines-apktool-check",
+    "title": "Is Apktool available?"
+  },
+  {
+    "tool": "android_flutter_identify",
+    "command": "android-flutter-identify",
+    "title": "Identify a Flutter build"
+  },
+  {
+    "tool": "android_dart_snapshot_show",
+    "command": "android-dart-snapshot-show",
+    "title": "Inspect a Dart AOT snapshot"
+  },
+  {
+    "tool": "engines_jeb_check",
+    "command": "engines-jeb-check",
+    "title": "Check the JEB connection"
+  },
+  {
+    "tool": "android_jeb_open",
+    "command": "android-jeb-open",
+    "title": "Open a file in JEB"
+  },
+  {
+    "tool": "android_jeb_units_browse",
+    "command": "android-jeb-units-browse",
+    "title": "List JEB units"
+  },
+  {
+    "tool": "android_jeb_decompile",
+    "command": "android-jeb-decompile",
+    "title": "Decompile with JEB"
+  },
+  {
+    "tool": "java_archive_show",
+    "command": "java-archive-show",
+    "title": "Java archive overview"
+  },
+  {
+    "tool": "java_classes_find",
+    "command": "java-classes-find",
+    "title": "Find Java classes"
+  },
+  {
+    "tool": "java_class_show",
+    "command": "java-class-show",
+    "title": "Java class"
+  },
+  {
+    "tool": "java_method_show",
+    "command": "java-method-show",
+    "title": "Java method bytecode and pseudo-Java"
+  },
+  {
+    "tool": "java_class_users_find",
+    "command": "java-class-users-find",
+    "title": "Who uses this Java class?"
+  },
+  {
+    "tool": "engines_adb_check",
+    "command": "engines-adb-check",
+    "title": "Is adb available?"
+  },
+  {
+    "tool": "adb_devices_find",
+    "command": "adb-devices-find",
+    "title": "Connected devices"
+  },
+  {
+    "tool": "adb_device_show",
+    "command": "adb-device-show",
+    "title": "Device details"
+  },
+  {
+    "tool": "adb_apps_list",
+    "command": "adb-apps-list",
+    "title": "Installed apps"
+  },
+  {
+    "tool": "adb_log_read",
+    "command": "adb-log-read",
+    "title": "Device log"
+  },
+  {
+    "tool": "adb_app_show",
+    "command": "adb-app-show",
+    "title": "App details on device"
+  },
+  {
+    "tool": "adb_running_processes_list",
+    "command": "adb-running-processes-list",
+    "title": "Running processes"
+  },
+  {
+    "tool": "adb_folder_list",
+    "command": "adb-folder-list",
+    "title": "Device folder"
+  },
+  {
+    "tool": "adb_device_features_list",
+    "command": "adb-device-features-list",
+    "title": "Device features"
+  },
+  {
+    "tool": "adb_system_services_list",
+    "command": "adb-system-services-list",
+    "title": "System services"
+  },
+  {
+    "tool": "adb_display_show",
+    "command": "adb-display-show",
+    "title": "Display info"
+  },
+  {
+    "tool": "adb_window_show",
+    "command": "adb-window-show",
+    "title": "Window / focus info"
+  },
+  {
+    "tool": "adb_setting_get",
+    "command": "adb-setting-get",
+    "title": "Read a setting"
+  },
+  {
+    "tool": "adb_apps_find",
+    "command": "adb-apps-find",
+    "title": "Find an app"
+  },
+  {
+    "tool": "adb_app_download",
+    "command": "adb-app-download",
+    "title": "Copy an app off the phone"
+  },
+  {
+    "tool": "adb_file_download",
+    "command": "adb-file-download",
+    "title": "Copy a file off the phone"
+  },
+  {
+    "tool": "adb_screenshot_take",
+    "command": "adb-screenshot-take",
+    "title": "Screenshot"
+  },
+  {
+    "tool": "adb_bugreport_save",
+    "command": "adb-bugreport-save",
+    "title": "Bug report"
+  },
+  {
+    "tool": "adb_file_upload",
+    "command": "adb-file-upload",
+    "title": "Copy a file to the phone"
+  },
+  {
+    "tool": "adb_app_install",
+    "command": "adb-app-install",
+    "title": "Install an app"
+  },
+  {
+    "tool": "adb_app_remove",
+    "command": "adb-app-remove",
+    "title": "Remove an app"
+  },
+  {
+    "tool": "adb_app_launch",
+    "command": "adb-app-launch",
+    "title": "Launch an app"
+  },
+  {
+    "tool": "adb_activity_open",
+    "command": "adb-activity-open",
+    "title": "Start an activity"
+  },
+  {
+    "tool": "adb_app_force_stop",
+    "command": "adb-app-force-stop",
+    "title": "Force-stop an app"
+  },
+  {
+    "tool": "frida_devices_find",
+    "command": "frida-devices-find",
+    "title": "Frida devices"
+  },
+  {
+    "tool": "frida_targets_list",
+    "command": "frida-targets-list",
+    "title": "Frida processes"
+  },
+  {
+    "tool": "frida_session_begin",
+    "command": "frida-session-begin",
+    "title": "Start a Frida session"
+  },
+  {
+    "tool": "frida_script_run",
+    "command": "frida-script-run",
+    "title": "Run a Frida script"
+  },
+  {
+    "tool": "frida_session_continue",
+    "command": "frida-session-continue",
+    "title": "Resume a Frida session"
+  },
+  {
+    "tool": "frida_script_forget",
+    "command": "frida-script-forget",
+    "title": "Unload a Frida script"
+  },
+  {
+    "tool": "frida_session_show",
+    "command": "frida-session-show",
+    "title": "Frida session status"
+  },
+  {
+    "tool": "frida_session_end",
+    "command": "frida-session-end",
+    "title": "Close a Frida session"
+  },
+  {
+    "tool": "frida_instrument_run",
+    "command": "frida-instrument-run",
+    "title": "One-shot instrumentation"
+  },
+  {
+    "tool": "native_go_binary_show",
+    "command": "native-go-binary-show",
+    "title": "Go program details"
+  },
+  {
+    "tool": "formats_wasm_module_show",
+    "command": "formats-wasm-module-show",
+    "title": "WebAssembly module"
+  },
+  {
+    "tool": "formats_evm_interface_show",
+    "command": "formats-evm-interface-show",
+    "title": "Smart contract interface"
+  },
+  {
+    "tool": "db_sqlite_show",
+    "command": "db-sqlite-show",
+    "title": "SQLite database contents"
+  },
+  {
+    "tool": "formats_sbpf_show",
+    "command": "formats-sbpf-show",
+    "title": "Solana program (sBPF)"
+  },
+  {
+    "tool": "formats_sbpf_disassemble",
+    "command": "formats-sbpf-disassemble",
+    "title": "Disassemble sBPF code"
+  },
+  {
+    "tool": "firmware_regions_list",
+    "command": "firmware-regions-list",
+    "title": "Firmware regions"
+  },
+  {
+    "tool": "firmware_image_extract",
+    "command": "firmware-image-extract",
+    "title": "Extract firmware"
+  },
+  {
+    "tool": "core_packed_files_list",
+    "command": "core-packed-files-list",
+    "title": "Files packed inside a file"
+  },
+  {
+    "tool": "core_packed_files_unpack",
+    "command": "core-packed-files-unpack",
+    "title": "Take out packed files"
+  },
+  {
+    "tool": "formats_bytecode_show",
+    "command": "formats-bytecode-show",
+    "title": "Compiled Python file"
+  },
+  {
+    "tool": "game_archives_list",
+    "command": "game-archives-list",
+    "title": "List a game's archives"
+  },
+  {
+    "tool": "game_pak_list",
+    "command": "game-pak-list",
+    "title": "List an Unreal pak"
+  },
+  {
+    "tool": "game_iostore_list",
+    "command": "game-iostore-list",
+    "title": "List an Unreal IoStore container"
+  },
+  {
+    "tool": "game_unity_list",
+    "command": "game-unity-list",
+    "title": "List a Unity assets file"
+  },
+  {
+    "tool": "game_unity_bundle_list",
+    "command": "game-unity-bundle-list",
+    "title": "List a Unity bundle"
+  },
+  {
+    "tool": "game_unity_asset_export",
+    "command": "game-unity-asset-export",
+    "title": "Take an asset out of a Unity game"
+  },
+  {
+    "tool": "game_unreal_texture_export",
+    "command": "game-unreal-texture-export",
+    "title": "Take a texture out of an Unreal game"
+  },
+  {
+    "tool": "game_pak_extract",
+    "command": "game-pak-extract",
+    "title": "Take files out of an Unreal pak"
+  },
+  {
+    "tool": "game_unity_code_names_show",
+    "command": "game-unity-code-names-show",
+    "title": "Read a Unity game's IL2CPP metadata"
+  },
+  {
+    "tool": "app_folder_explain",
+    "command": "app-folder-explain",
+    "title": "Work out what an installed app is built on"
+  },
+  {
+    "tool": "managed_assembly_show",
+    "command": "managed-assembly-show",
+    "title": ".NET assembly overview"
+  },
+  {
+    "tool": "managed_members_list",
+    "command": "managed-members-list",
+    "title": ".NET types and methods"
+  },
+  {
+    "tool": "managed_native_calls_list",
+    "command": "managed-native-calls-list",
+    "title": ".NET native calls"
+  },
+  {
+    "tool": "managed_assemblies_compare",
+    "command": "managed-assemblies-compare",
+    "title": "Compare two .NET builds"
+  },
+  {
+    "tool": "managed_native_calls_verify",
+    "command": "managed-native-calls-verify",
+    "title": "Check .NET native calls"
+  },
+  {
+    "tool": "managed_reconstruction_check",
+    "command": "managed-reconstruction-check",
+    "title": "Check decompiled C#"
+  },
+  {
+    "tool": "managed_app_graph_build",
+    "command": "managed-app-graph-build",
+    "title": ".NET application graph"
+  },
+  {
+    "tool": "runtime_walkthrough_record",
+    "command": "runtime-walkthrough-record",
+    "title": "Run and watch a program"
+  },
+  {
+    "tool": "runtime_captures_compare",
+    "command": "runtime-captures-compare",
+    "title": "Compare two runs"
+  },
+  {
+    "tool": "native_address_show",
+    "command": "native-address-show",
+    "title": "What's at this address"
+  },
+  {
+    "tool": "app_function_versions_compare",
+    "command": "app-function-versions-compare",
+    "title": "Compare two functions"
+  },
+  {
+    "tool": "core_evidence_exports_compare",
+    "command": "core-evidence-exports-compare",
+    "title": "Compare two evidence bundles"
+  },
+  {
+    "tool": "app_changes_summarize",
+    "command": "app-changes-summarize",
+    "title": "Summarise what changed"
+  },
+  {
+    "tool": "app_call_path_find",
+    "command": "app-call-path-find",
+    "title": "Find a call path"
+  },
+  {
+    "tool": "app_runtime_correlate",
+    "command": "app-runtime-correlate",
+    "title": "Line up code and behaviour"
+  },
+  {
+    "tool": "app_rebuild_claim_check",
+    "command": "app-rebuild-claim-check",
+    "title": "Check a rebuild claim"
+  },
+  {
+    "tool": "runtime_ui_read",
+    "command": "runtime-ui-read",
+    "title": "Read an app's screen"
+  },
+  {
+    "tool": "runtime_ui_walkthrough_record",
+    "command": "runtime-ui-walkthrough-record",
+    "title": "Drive an app's screen"
+  },
+  {
+    "tool": "apple_calls_observe",
+    "command": "apple-calls-observe",
+    "title": "Watch a Mac app's calls"
+  },
+  {
+    "tool": "native_bytes_find",
+    "command": "native-bytes-find",
+    "title": "Search for bytes"
+  },
+  {
+    "tool": "native_rust_binary_show",
+    "command": "native-rust-binary-show",
+    "title": "Rust program details"
+  },
+  {
+    "tool": "native_library_calls_list",
+    "command": "native-library-calls-list",
+    "title": "What a program imports"
+  },
+  {
+    "tool": "native_offered_symbols_list",
+    "command": "native-offered-symbols-list",
+    "title": "What a program exports"
+  },
+  {
+    "tool": "native_publisher_show",
+    "command": "native-publisher-show",
+    "title": "Who signed this Windows program"
+  },
+  {
+    "tool": "formats_ai_weights_show",
+    "command": "formats-ai-weights-show",
+    "title": "AI model file"
+  },
+  {
+    "tool": "app_builds_line_up",
+    "command": "app-builds-line-up",
+    "title": "Match functions between two builds"
+  },
+  {
+    "tool": "native_source_folder_write",
+    "command": "native-source-folder-write",
+    "title": "Write pseudo-C to a folder"
+  },
+  {
+    "tool": "js_electron_fuses_show",
+    "command": "js-electron-fuses-show",
+    "title": "Electron fuses"
+  },
+  {
+    "tool": "formats_wasm_compare",
+    "command": "formats-wasm-compare",
+    "title": "Compare WebAssembly interfaces"
+  },
+  {
+    "tool": "packets_capture_show",
+    "command": "packets-capture-show",
+    "title": "Packet capture overview"
+  },
+  {
+    "tool": "packets_fields_show",
+    "command": "packets-fields-show",
+    "title": "Packet fields"
+  },
+  {
+    "tool": "engines_tshark_check",
+    "command": "engines-tshark-check",
+    "title": "Wireshark tools check"
+  },
+  {
+    "tool": "packets_inventory_show",
+    "command": "packets-inventory-show",
+    "title": "Capture inventories"
+  },
+  {
+    "tool": "native_objdump_run",
+    "command": "native-objdump-run",
+    "title": "objdump output"
+  },
+  {
+    "tool": "native_rizin_command_run",
+    "command": "native-rizin-command-run",
+    "title": "Rizin command"
+  },
+  {
+    "tool": "managed_ilspy_decompile",
+    "command": "managed-ilspy-decompile",
+    "title": "ILSpy decompile"
+  },
+  {
+    "tool": "native_gdb_session_begin",
+    "command": "native-gdb-session-begin",
+    "title": "Start a GDB session"
+  },
+  {
+    "tool": "native_gdb_command_run",
+    "command": "native-gdb-command-run",
+    "title": "GDB command"
+  },
+  {
+    "tool": "native_gdb_session_show",
+    "command": "native-gdb-session-show",
+    "title": "GDB session status"
+  },
+  {
+    "tool": "native_gdb_session_end",
+    "command": "native-gdb-session-end",
+    "title": "Close a GDB session"
+  },
+  {
+    "tool": "native_rizin_session_begin",
+    "command": "native-rizin-session-begin",
+    "title": "Start a Rizin debug session"
+  },
+  {
+    "tool": "native_rizin_session_command_run",
+    "command": "native-rizin-session-command-run",
+    "title": "Rizin debug command"
+  },
+  {
+    "tool": "native_rizin_session_show",
+    "command": "native-rizin-session-show",
+    "title": "Rizin debug session status"
+  },
+  {
+    "tool": "native_rizin_session_end",
+    "command": "native-rizin-session-end",
+    "title": "Close a Rizin debug session"
+  },
+  {
+    "tool": "radio_recording_decode",
+    "command": "radio-recording-decode",
+    "title": "Decode a radio recording"
+  },
+  {
+    "tool": "radio_decoders_list",
+    "command": "radio-decoders-list",
+    "title": "List radio decoders"
+  },
+  {
+    "tool": "native_cutter_sessions_list",
+    "command": "native-cutter-sessions-list",
+    "title": "List shared Cutter sessions"
+  },
+  {
+    "tool": "native_cutter_command_run",
+    "command": "native-cutter-command-run",
+    "title": "Cutter command"
+  },
+  {
+    "tool": "java_vineflower_decompile",
+    "command": "java-vineflower-decompile",
+    "title": "Decompile Java with Vineflower"
+  },
+  {
+    "tool": "rebuild_start",
+    "command": "rebuild-start",
+    "title": "Start a rebuild"
+  },
+  {
+    "tool": "rebuild_status",
+    "command": "rebuild-status",
+    "title": "Rebuild status"
+  },
+  {
+    "tool": "rebuild_activity_show",
+    "command": "rebuild-activity-show",
+    "title": "Show a build's activity"
+  },
+  {
+    "tool": "rebuild_note",
+    "command": "rebuild-note",
+    "title": "Add to a running build"
+  },
+  {
+    "tool": "rebuild_note_withdraw",
+    "command": "rebuild-note-withdraw",
+    "title": "Take back a note"
+  },
+  {
+    "tool": "rebuild_stop",
+    "command": "rebuild-stop",
+    "title": "Stop a rebuild"
+  },
+  {
+    "tool": "rebuild_question_ask",
+    "command": "rebuild-question-ask",
+    "title": "Ask about a build"
+  },
+  {
+    "tool": "rebuild_questions_list",
+    "command": "rebuild-questions-list",
+    "title": "List questions about a build"
+  },
+  {
+    "tool": "rebuild_check",
+    "command": "rebuild-check",
+    "title": "Check my build"
+  },
+  {
+    "tool": "assets_key_status",
+    "command": "assets-key-status",
+    "title": "Is an asset key set up?"
+  },
+  {
+    "tool": "assets_key_set",
+    "command": "assets-key-set",
+    "title": "Save an asset key"
+  },
+  {
+    "tool": "assets_key_remove",
+    "command": "assets-key-remove",
+    "title": "Remove an asset key"
+  },
+  {
+    "tool": "ai_models_list",
+    "command": "ai-models-list",
+    "title": "List an agent's models"
+  },
+  {
+    "tool": "ai_model_set",
+    "command": "ai-model-set",
+    "title": "Choose an agent's model and thinking"
+  },
+  {
+    "tool": "ai_model_options_show",
+    "command": "ai-model-options-show",
+    "title": "Show model options"
+  },
+  {
+    "tool": "ai_model_options_set",
+    "command": "ai-model-options-set",
+    "title": "Set model options"
+  },
+  {
+    "tool": "setup_plan",
+    "command": "setup-plan",
+    "title": "Plan connecting agent apps"
+  },
+  {
+    "tool": "setup_apply",
+    "command": "setup-apply",
+    "title": "Connect agent apps"
+  },
+  {
+    "tool": "setup_doctor",
+    "command": "setup-doctor",
+    "title": "Check the setup"
+  },
+  {
+    "tool": "setup_uninstall",
+    "command": "setup-uninstall",
+    "title": "Disconnect agent apps"
+  }
+]

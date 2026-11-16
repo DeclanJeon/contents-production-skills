@@ -1,0 +1,10 @@
+COMMAND
+date -Iseconds; cd '/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills' && printf '\nR1 DESIGN HASH\n' && sha256sum 'docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md' && printf '\nWHISPER DISCOVERY ONLY\n' && command -v whisper && /usr/bin/python3 -c 'import importlib.util; s=importlib.util.find_spec("whisper"); print(s.origin if s else "MODULE_NOT_FOUND")' && printf '\nLONG SOURCE - METADATA ONLY\n' && ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1 '/run/media/declan/Data/Resources/AI-Rofan-Drama-2026-10-11/videos/urls-batch-mp4-20261011-232345/[1~5화 몰아보기] 모두가 버린 그녀가 돌아왔다 ｜ AI 로판 회귀물.mp4' && printf '\nLINK TARGETS\n' && for f in qa/ad-rofan-skill-upgrade-2026-11-16/design-qa-report.md qa/ad-rofan-skill-upgrade-2026-11-16/design-qa-runtime.txt; do test -s "$f" || exit 1; printf 'EXISTS %s\n' "$f"; done && printf '\nSTATUS\n' && git status --short && printf '\nTRACKED DIFF CHECK\n' && git diff --check
+
+RESULT
+{
+  "output": "2026-11-16T10:37:45+09:00\n\nR1 DESIGN HASH\n48960d82b5d3b51fbcd70024df88c928c3a460de2ae5c78a40fcf26bcbc02413  docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md\n\nWHISPER DISCOVERY ONLY\n/home/declan/.local/bin/whisper\n/home/declan/.local/lib/python3.14/site-packages/whisper/__init__.py\n\nLONG SOURCE - METADATA ONLY\nduration=3406.390567\n\nLINK TARGETS\nEXISTS qa/ad-rofan-skill-upgrade-2026-11-16/design-qa-report.md\nEXISTS qa/ad-rofan-skill-upgrade-2026-11-16/design-qa-runtime.txt\n\nSTATUS\n?? docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md\n?? qa/ad-rofan-skill-upgrade-2026-11-16/\n\nTRACKED DIFF CHECK\n",
+  "truncated": false,
+  "exit_code": 0,
+  "wall_time_seconds": 0.2
+}
