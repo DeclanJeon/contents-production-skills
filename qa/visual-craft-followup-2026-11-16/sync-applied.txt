@@ -1,0 +1,2 @@
+summary: created=0 repointed=0 skipped=100 backed_up=0
+Restart or refresh each agent so it rescans the skill roots.

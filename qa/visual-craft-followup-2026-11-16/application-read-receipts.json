@@ -1,0 +1,597 @@
+[
+  {
+    "phase": "baseline",
+    "case": "a",
+    "run": "96c864c3-bce3-4e3d-94c5-8bcf076fd0fc",
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/96c864c3-bce3-4e3d-94c5-8bcf076fd0fc/run-0/session.jsonl",
+    "report_sha256": "9c5483d39d873c9a03431ee617d0b167d3e4c4b079d4f32fdef1284886a4bf09",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 160,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/04-performance.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/06-shots.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/04-performance-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/06-shots-template.md",
+        "offset": 1,
+        "limit": 90,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/22-dialogue-lipsync.md",
+        "offset": 1,
+        "limit": 100,
+        "successful_result": true
+      }
+    ]
+  },
+  {
+    "phase": "baseline",
+    "case": "b",
+    "run": "07ce0d8a-a6d4-443a-a7e9-e030207c797c",
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/07ce0d8a-a6d4-443a-a7e9-e030207c797c/run-0/session.jsonl",
+    "report_sha256": "269076e826238cde921e3e269acd6afcc1e39374e8b1da40bc5ada832c75ea45",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/05-visual.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/05-visual-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 180,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": 1,
+        "limit": 230,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/06-shots.md",
+        "offset": 1,
+        "limit": 150,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/06-shots-template.md",
+        "offset": 1,
+        "limit": 140,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/10-evidence.md",
+        "offset": 1,
+        "limit": 150,
+        "successful_result": true
+      }
+    ]
+  },
+  {
+    "phase": "baseline",
+    "case": "c",
+    "run": "9c7c529c-f70d-4fbe-9347-84e83e015d98",
+    "supplemental_file_access": {"tool": "bash", "command": "sed -n '28,37p;48,60p' video-production-assets/references/performance-and-style-recipes.md", "successful_result": true, "evidence": "baseline-c-access-supplement.md", "note": "actual_read_calls enumerates read API only, not all file access"},
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/9c7c529c-f70d-4fbe-9347-84e83e015d98/run-0/session.jsonl",
+    "report_sha256": "26b6b390c2d83ac95beda73aa5753b810a125c2b0b856040916cdd43d384a02e",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/02-story.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/02-story-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 200,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": 1,
+        "limit": 230,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/26-state-causality-continuity.md",
+        "offset": 1,
+        "limit": 210,
+        "successful_result": true
+      }
+    ]
+  },
+  {
+    "phase": "baseline",
+    "case": "d",
+    "run": "5e7ce99b-1b28-4e43-aa55-9b2e593f2372",
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/5e7ce99b-1b28-4e43-aa55-9b2e593f2372/run-0/session.jsonl",
+    "report_sha256": "8faab53e92d206efb444cc3dbaf94158746bbcc6e3d8f5dc39ac21b8a5419504",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/02-story.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 170,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/26-state-causality-continuity.md",
+        "offset": 1,
+        "limit": 180,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/world-rules-and-information-recipes.md",
+        "offset": 34,
+        "limit": 20,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/performance-and-style-recipes.md",
+        "offset": 28,
+        "limit": 11,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/02-story-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      }
+    ]
+  },
+  {
+    "phase": "baseline",
+    "case": "e",
+    "run": "f37ba2dc-e334-471b-8106-023c3406490b",
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/f37ba2dc-e334-471b-8106-023c3406490b/run-0/session.jsonl",
+    "report_sha256": "92f525be16a9a9a82a4a3fcd9f31e8e05adfbe9bdf1441a4136668d89a13a287",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/05-visual.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/05-visual-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": 1,
+        "limit": 210,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 100,
+        "successful_result": true
+      }
+    ]
+  },
+  {
+    "phase": "loaded",
+    "case": "a",
+    "run": "9bae6cea-640a-45bb-97ad-8a627988a3f9",
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/9bae6cea-640a-45bb-97ad-8a627988a3f9/run-0/session.jsonl",
+    "report_sha256": "643ad6075f605f7fcbf588b073b912b4afbdfc7d12230d70f6567106edec113f",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/04-performance.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/06-shots.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": 1,
+        "limit": 210,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/performance-and-style-recipes.md",
+        "offset": 57,
+        "limit": 19,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 105,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/04-performance-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/06-shots-template.md",
+        "offset": 1,
+        "limit": 65,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/22-dialogue-lipsync.md",
+        "offset": 1,
+        "limit": 85,
+        "successful_result": true
+      }
+    ]
+  },
+  {
+    "phase": "loaded",
+    "case": "b",
+    "run": "2f69b0bb-7bb5-43be-927b-c77114fda745",
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/2f69b0bb-7bb5-43be-927b-c77114fda745/run-0/session.jsonl",
+    "report_sha256": "98f6db5750426c2abbc9fccd9554b4b22308237d35f0b035d12deb239ad7a6ea",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/05-visual.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/world-rules-and-information-recipes.md",
+        "offset": 1,
+        "limit": 240,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 100,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/05-visual-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/06-shots.md",
+        "offset": 1,
+        "limit": 100,
+        "successful_result": true
+      }
+    ]
+  },
+  {
+    "phase": "loaded",
+    "case": "c",
+    "run": "6db3ba30-6ab6-4b27-899f-2e4a02027325",
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/6db3ba30-6ab6-4b27-899f-2e4a02027325/run-0/session.jsonl",
+    "report_sha256": "fb52f708552a65ad30605b4f213b2c630112570b53840497b7ae4be6f844d24a",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/02-story.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/02-story-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": null,
+        "limit": 240,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/26-state-causality-continuity.md",
+        "offset": null,
+        "limit": 200,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 46,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/performance-and-style-recipes.md",
+        "offset": 28,
+        "limit": 11,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/world-rules-and-information-recipes.md",
+        "offset": 75,
+        "limit": 8,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/09-edit.md",
+        "offset": 104,
+        "limit": 12,
+        "successful_result": true
+      }
+    ]
+  },
+  {
+    "phase": "loaded",
+    "case": "d",
+    "run": "3bd1a88a-1022-4203-acb5-4175d013151c",
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/3bd1a88a-1022-4203-acb5-4175d013151c/run-0/session.jsonl",
+    "report_sha256": "2848f3006032b6fd5ed268dfb85c00389b3b4b3a2d7d3628d7a9ea92d752ae71",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/02-story.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 190,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": 1,
+        "limit": 210,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/26-state-causality-continuity.md",
+        "offset": 1,
+        "limit": 130,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/02-story-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/performance-and-style-recipes.md",
+        "offset": 28,
+        "limit": 12,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/performance-and-style-recipes.md",
+        "offset": 76,
+        "limit": 13,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/world-rules-and-information-recipes.md",
+        "offset": 34,
+        "limit": 22,
+        "successful_result": true
+      }
+    ]
+  },
+  {
+    "phase": "loaded",
+    "case": "e",
+    "run": "a7a681e9-83e6-44cf-8a9d-865d2ea22a14",
+    "session": "/home/declan/.pi/agent/sessions/--home-declan--/2026-11-15T18-54-51-665Z_01a1e08f-ef11-72a4-bf25-71531fb283ce/a7a681e9-83e6-44cf-8a9d-865d2ea22a14/run-0/session.jsonl",
+    "report_sha256": "2cd0fcf2d4fdd38d955a5e62d8973cec892be3425b598434496ff857349e0226",
+    "actual_read_calls": [
+      {
+        "path": "video-production-assets/SKILL.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/workspace-integration.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/contract.md",
+        "offset": 1,
+        "limit": 170,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/05-visual.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/assets/05-visual-template.md",
+        "offset": null,
+        "limit": null,
+        "successful_result": true
+      },
+      {
+        "path": "video-production-assets/references/visual-scene-communication.md",
+        "offset": 1,
+        "limit": 210,
+        "successful_result": true
+      }
+    ]
+  }
+]

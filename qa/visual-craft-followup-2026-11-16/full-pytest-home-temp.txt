@@ -1,0 +1,78 @@
+...................................................... [  6%]
+......................................... [ 11%]
+........................................................ [ 18%]
+...................................................................................................................... [ 32%]
+..................................................................... [ 41%]
+........................................................................ [ 50%]
+........................................................................ [ 58%]
+............................................... [ 64%]
+................................................... [ 70%]
+...................................................................... [ 79%]
+.............................................................. [ 87%]
+.........................FF..............................................................................                [100%]
+=================================== FAILURES ===================================
+________________ test_long_korean_table_survives_real_text_cli _________________
+
+tmp_path = PosixPath('/home/declan/.cache/visual-craft-followup-tests-20261116/isolated/pytest-run-1/test_long_korean_table_survive0')
+
+    def test_long_korean_table_survives_real_text_cli(tmp_path: Path) -> None:
+        require_tools()
+        # Given eight columns, three scenes and a multi-page Korean dialogue.
+        dialogue = '\n'.join(f'대사{i:03d} 천천히 말해요. 마지막까지 빠짐없이 기록합니다.' for i in range(100))
+        source = tmp_path / 'plan.md'
+        source.write_text('# 긴 대사 검토\n\n|씬|샷|패널|카메라|동작|발화|음향|상태|\n'
+                          '|---|---|---|---|---|---|---|---|\n'
+                          '|SC01|SH01|P01|고정|기다림|첫번째발화|침묵|미검증|\n'
+                          '|SC02|SH02|P02|이동|발견|두번째발화|환경음|계획|\n'
+                          '|SC03|SH03|P03|유지|선택|세번째발화|없음|제안|\n\n'
+                          + dialogue + '\n\n최종내용보존표식', encoding='utf-8')
+        command = [sys.executable, str(Path(__file__).with_name('render_storyboard_document.py')),
+                   str(source), '--base-dir', str(tmp_path), '--output', 'board.pdf',
+                   '--title', '긴 한글 콘티', '--version', 'v007']
+        # When driving the actual public CLI.
+        run = subprocess.run(command, capture_output=True, text=True, check=False)
+>       assert run.returncode == 0, run.stdout + run.stderr
+E       AssertionError: {"ok": false, "errors": ["Chrome PDF rendering failed: [3035109:3035109:1116/215350.463439:FATAL:chrome/browser/process_singleton_posix.cc:315] Socket path too long: /home/declan/.cache/visual-craft-followup-tests-20261116/isolated/tmp/com.google.Chrome.rPPHE8/SingletonSocket.\n"]}
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/home/declan/.cache/pi-worktrees/contents-production-visual-followup-20261....cache/visual-craft-followup-tests-20261116/isolated/tmp/com.google.Chrome.rPPHE8/SingletonSocket.\\n"]}\n', stderr='').returncode
+
+video-production-assets/scripts/test_storyboard_document.py:84: AssertionError
+_______________ test_default_sheet_cli_pdf_has_searchable_korean _______________
+
+tmp_path = PosixPath('/home/declan/.cache/visual-craft-followup-tests-20261116/isolated/pytest-run-1/test_default_sheet_cli_pdf_has0')
+
+    def test_default_sheet_cli_pdf_has_searchable_korean(tmp_path: Path) -> None:
+        require_tools()
+        # Given the canonical image-backed fixture with Korean speech.
+        package = image_package(str(tmp_path))
+        package['shots'][0]['speech'][0]['text'] = '검색되는한글대사'
+        source = tmp_path / 'project.json'
+        source.write_text(json.dumps(package, ensure_ascii=False), encoding='utf-8')
+        command = [sys.executable, str(Path(__file__).with_name('render_storyboard_sheet.py')),
+                   str(source), '--base-dir', str(tmp_path), '--output', 'sheets/board.png',
+                   '--pdf-output', 'board.pdf']
+        # When using the default PDF style (no document-style override).
+        run = subprocess.run(command, capture_output=True, text=True, check=False)
+>       assert run.returncode == 0, run.stdout + run.stderr
+E       AssertionError: {"ok": false, "errors": ["Chrome PDF rendering failed: [3035134:3035134:1116/215351.222788:FATAL:chrome/browser/process_singleton_posix.cc:315] Socket path too long: /home/declan/.cache/visual-craft-followup-tests-20261116/isolated/tmp/com.google.Chrome.Bw4GFk/SingletonSocket.\n"]}
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/home/declan/.cache/pi-worktrees/contents-production-visual-followup-20261....cache/visual-craft-followup-tests-20261116/isolated/tmp/com.google.Chrome.Bw4GFk/SingletonSocket.\\n"]}\n', stderr='').returncode
+
+video-production-assets/scripts/test_storyboard_document.py:120: AssertionError
+============================= slowest 10 durations =============================
+2.39s call     blender-previsualization/scripts/test_camera_orientation_in_blender.py::CameraOrientationTests::test_camera_points_at_subjects_in_rendered_scene
+2.24s call     video-production-assets/scripts/test_validate_preproduction.py::PreproductionGateTests::test_missing_wrong_stale_or_incomplete_deliverables_block_review
+1.96s setup    community-shorts-stills-pipeline/scripts/test_verify_delivery.py::test_invalid_retiming_speed_is_a_failed_report[0]
+1.76s call     video-production-assets/scripts/test_asset_gate.py::PackagingTests::test_relocated_final_zip_extracts_and_repackages_as_current
+1.41s call     video-production-assets/scripts/test_asset_gate.py::PackagingTests::test_final_package_requires_registered_current_scene_panel_outputs
+1.40s call     video-production-assets/scripts/test_asset_gate.py::MultiSheetTests::test_sheet_order_gaps_and_duplicates_rejected
+1.36s call     video-production-assets/scripts/test_render_storyboard_sheet.py::StoryboardRenderTests::test_crop_source_hashes_register_as_actual_inputs
+1.35s call     scripts/test_writing_eval_rpc.py::test_incomplete_protocol_stops_later_turns_and_preserves_output[ack_only]
+1.33s call     video-production-assets/scripts/test_asset_gate.py::PackagingTests::test_casefolded_report_path_collision_preserves_source_and_publishes_nothing
+1.27s call     video-production-assets/scripts/test_asset_gate.py::PackagingTests::test_final_package_accepts_repeated_scene_bands_in_chronological_order
+=========================== short test summary info ============================
+FAILED video-production-assets/scripts/test_storyboard_document.py::test_long_korean_table_survives_real_text_cli
+FAILED video-production-assets/scripts/test_storyboard_document.py::test_default_sheet_cli_pdf_has_searchable_korean
+2 failed, 815 passed, 4 skipped, 532 subtests passed in 43.66s

@@ -1,0 +1,90 @@
+[
+  {
+    "owner": "video-production-assets/references/performance-and-style-recipes.md",
+    "href": "visual-scene-communication.md"
+  },
+  {
+    "owner": "video-production-assets/references/performance-and-style-recipes.md",
+    "href": "26-state-causality-continuity.md#인계-최소-슬롯"
+  },
+  {
+    "owner": "video-production-assets/references/performance-and-style-recipes.md",
+    "href": "03-screenplay.md"
+  },
+  {
+    "owner": "video-production-assets/references/performance-and-style-recipes.md",
+    "href": "30-marketing-story-craft.md"
+  },
+  {
+    "owner": "video-production-assets/references/world-rules-and-information-recipes.md",
+    "href": "visual-scene-communication.md"
+  },
+  {
+    "owner": "video-production-assets/references/world-rules-and-information-recipes.md",
+    "href": "09-edit.md"
+  },
+  {
+    "owner": "video-production-assets/references/visual-scene-communication.md",
+    "href": "performance-and-style-recipes.md"
+  },
+  {
+    "owner": "video-production-assets/references/visual-scene-communication.md",
+    "href": "world-rules-and-information-recipes.md"
+  },
+  {
+    "owner": "video-production-assets/references/03-screenplay.md",
+    "href": "world-rules-and-information-recipes.md#illustrative-inserts"
+  },
+  {
+    "owner": "video-production-assets/references/04-performance.md",
+    "href": "performance-and-style-recipes.md#status-negotiation"
+  },
+  {
+    "owner": "video-production-assets/references/04-performance.md",
+    "href": "performance-and-style-recipes.md#action-and-agency"
+  },
+  {
+    "owner": "video-production-assets/references/06-shots.md",
+    "href": "performance-and-style-recipes.md#competing-threats"
+  },
+  {
+    "owner": "video-production-assets/references/09-edit.md",
+    "href": "world-rules-and-information-recipes.md#elapsed-time-and-progress"
+  },
+  {
+    "owner": "video-production-assets/references/12-qa.md",
+    "href": "performance-and-style-recipes.md"
+  },
+  {
+    "owner": "video-production-assets/references/12-qa.md",
+    "href": "world-rules-and-information-recipes.md"
+  },
+  {
+    "owner": "README.md",
+    "href": "manifest.json"
+  },
+  {
+    "owner": "README.md",
+    "href": "video-production-assets/references/visual-scene-communication.md"
+  },
+  {
+    "owner": "README.md",
+    "href": "video-production-assets/references/performance-and-style-recipes.md"
+  },
+  {
+    "owner": "README.md",
+    "href": "video-production-assets/references/world-rules-and-information-recipes.md"
+  },
+  {
+    "owner": "USAGE_GUIDE.md",
+    "href": "video-production-assets/references/performance-and-style-recipes.md"
+  },
+  {
+    "owner": "USAGE_GUIDE.md",
+    "href": "video-production-assets/references/world-rules-and-information-recipes.md"
+  },
+  {
+    "owner": "docs/superpowers/specs/2026-11-16-visual-craft-reinforcement-design.md",
+    "href": "../plans/2026-11-16-visual-craft-followup-integration.md"
+  }
+]

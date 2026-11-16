@@ -1,0 +1,410 @@
+{
+  "/home/declan/.codex/skills": {
+    "creative-production": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/creative-production"
+    },
+    "topic-demand-selection": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/topic-demand-selection"
+    },
+    "searching-social-media": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/searching-social-media"
+    },
+    "video-production-assets": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/video-production-assets"
+    },
+    "camera-spatial-design": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/camera-spatial-design"
+    },
+    "camera-motion-reference-analysis": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/camera-motion-reference-analysis"
+    },
+    "ai-camera-control": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/ai-camera-control"
+    },
+    "blender-previsualization": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/blender-previsualization"
+    },
+    "open-3d-production": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/open-3d-production"
+    },
+    "orchestrating-video-preproduction": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/orchestrating-video-preproduction"
+    },
+    "developing-video-synopses": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/developing-video-synopses"
+    },
+    "designing-video-character-sheets": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-video-character-sheets"
+    },
+    "designing-character-personas": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-character-personas"
+    },
+    "storyboarding-video": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/storyboarding-video"
+    },
+    "silent-visual-storytelling": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/silent-visual-storytelling"
+    },
+    "animatic-direction": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/animatic-direction"
+    },
+    "storytelling-with-still-images": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/storytelling-with-still-images"
+    },
+    "recording-production-history": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/recording-production-history"
+    },
+    "higgsfield-generate": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-generate"
+    },
+    "higgsfield-soul-id": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-soul-id"
+    },
+    "higgsfield-video-explainer": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-video-explainer"
+    },
+    "higgsfield-video-replicate": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-video-replicate"
+    },
+    "higgsfield-youtube-thumbnail": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-youtube-thumbnail"
+    },
+    "community-shorts-stills-pipeline": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/community-shorts-stills-pipeline"
+    },
+    "silent-satire-animatic": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/silent-satire-animatic"
+    }
+  },
+  "/home/declan/.claude/skills": {
+    "creative-production": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/creative-production"
+    },
+    "topic-demand-selection": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/topic-demand-selection"
+    },
+    "searching-social-media": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/searching-social-media"
+    },
+    "video-production-assets": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/video-production-assets"
+    },
+    "camera-spatial-design": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/camera-spatial-design"
+    },
+    "camera-motion-reference-analysis": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/camera-motion-reference-analysis"
+    },
+    "ai-camera-control": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/ai-camera-control"
+    },
+    "blender-previsualization": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/blender-previsualization"
+    },
+    "open-3d-production": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/open-3d-production"
+    },
+    "orchestrating-video-preproduction": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/orchestrating-video-preproduction"
+    },
+    "developing-video-synopses": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/developing-video-synopses"
+    },
+    "designing-video-character-sheets": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-video-character-sheets"
+    },
+    "designing-character-personas": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-character-personas"
+    },
+    "storyboarding-video": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/storyboarding-video"
+    },
+    "silent-visual-storytelling": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/silent-visual-storytelling"
+    },
+    "animatic-direction": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/animatic-direction"
+    },
+    "storytelling-with-still-images": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/storytelling-with-still-images"
+    },
+    "recording-production-history": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/recording-production-history"
+    },
+    "higgsfield-generate": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-generate"
+    },
+    "higgsfield-soul-id": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-soul-id"
+    },
+    "higgsfield-video-explainer": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-video-explainer"
+    },
+    "higgsfield-video-replicate": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-video-replicate"
+    },
+    "higgsfield-youtube-thumbnail": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-youtube-thumbnail"
+    },
+    "community-shorts-stills-pipeline": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/community-shorts-stills-pipeline"
+    },
+    "silent-satire-animatic": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/silent-satire-animatic"
+    }
+  },
+  "/home/declan/.agents/skills": {
+    "creative-production": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/creative-production"
+    },
+    "topic-demand-selection": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/topic-demand-selection"
+    },
+    "searching-social-media": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/searching-social-media"
+    },
+    "video-production-assets": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/video-production-assets"
+    },
+    "camera-spatial-design": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/camera-spatial-design"
+    },
+    "camera-motion-reference-analysis": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/camera-motion-reference-analysis"
+    },
+    "ai-camera-control": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/ai-camera-control"
+    },
+    "blender-previsualization": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/blender-previsualization"
+    },
+    "open-3d-production": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/open-3d-production"
+    },
+    "orchestrating-video-preproduction": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/orchestrating-video-preproduction"
+    },
+    "developing-video-synopses": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/developing-video-synopses"
+    },
+    "designing-video-character-sheets": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-video-character-sheets"
+    },
+    "designing-character-personas": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-character-personas"
+    },
+    "storyboarding-video": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/storyboarding-video"
+    },
+    "silent-visual-storytelling": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/silent-visual-storytelling"
+    },
+    "animatic-direction": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/animatic-direction"
+    },
+    "storytelling-with-still-images": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/storytelling-with-still-images"
+    },
+    "recording-production-history": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/recording-production-history"
+    },
+    "higgsfield-generate": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-generate"
+    },
+    "higgsfield-soul-id": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-soul-id"
+    },
+    "higgsfield-video-explainer": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-video-explainer"
+    },
+    "higgsfield-video-replicate": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-video-replicate"
+    },
+    "higgsfield-youtube-thumbnail": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-youtube-thumbnail"
+    },
+    "community-shorts-stills-pipeline": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/community-shorts-stills-pipeline"
+    },
+    "silent-satire-animatic": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/silent-satire-animatic"
+    }
+  },
+  "/home/declan/.pi/agent/skills": {
+    "creative-production": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/creative-production"
+    },
+    "topic-demand-selection": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/topic-demand-selection"
+    },
+    "searching-social-media": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/searching-social-media"
+    },
+    "video-production-assets": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/video-production-assets"
+    },
+    "camera-spatial-design": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/camera-spatial-design"
+    },
+    "camera-motion-reference-analysis": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/camera-motion-reference-analysis"
+    },
+    "ai-camera-control": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/ai-camera-control"
+    },
+    "blender-previsualization": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/blender-previsualization"
+    },
+    "open-3d-production": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/open-3d-production"
+    },
+    "orchestrating-video-preproduction": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/orchestrating-video-preproduction"
+    },
+    "developing-video-synopses": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/developing-video-synopses"
+    },
+    "designing-video-character-sheets": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-video-character-sheets"
+    },
+    "designing-character-personas": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-character-personas"
+    },
+    "storyboarding-video": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/storyboarding-video"
+    },
+    "silent-visual-storytelling": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/silent-visual-storytelling"
+    },
+    "animatic-direction": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/animatic-direction"
+    },
+    "storytelling-with-still-images": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/storytelling-with-still-images"
+    },
+    "recording-production-history": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/recording-production-history"
+    },
+    "higgsfield-generate": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-generate"
+    },
+    "higgsfield-soul-id": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-soul-id"
+    },
+    "higgsfield-video-explainer": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-video-explainer"
+    },
+    "higgsfield-video-replicate": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-video-replicate"
+    },
+    "higgsfield-youtube-thumbnail": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/higgsfield-youtube-thumbnail"
+    },
+    "community-shorts-stills-pipeline": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/community-shorts-stills-pipeline"
+    },
+    "silent-satire-animatic": {
+      "is_symlink": true,
+      "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/silent-satire-animatic"
+    }
+  }
+}

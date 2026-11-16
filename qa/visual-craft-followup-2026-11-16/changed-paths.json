@@ -1,0 +1,17 @@
+[
+  "video-production-assets/references/performance-and-style-recipes.md",
+  "video-production-assets/references/world-rules-and-information-recipes.md",
+  "video-production-assets/references/visual-scene-communication.md",
+  "video-production-assets/references/03-screenplay.md",
+  "video-production-assets/references/04-performance.md",
+  "video-production-assets/references/06-shots.md",
+  "video-production-assets/references/09-edit.md",
+  "video-production-assets/references/12-qa.md",
+  "manifest.json",
+  "CHANGELOG.md",
+  "README.md",
+  "USAGE_GUIDE.md",
+  "docs/superpowers/specs/2026-11-16-visual-craft-reinforcement-design.md",
+  "docs/superpowers/plans/2026-11-16-visual-craft-followup-integration.md",
+  "scripts/test_visual_recipe_navigation.py"
+]

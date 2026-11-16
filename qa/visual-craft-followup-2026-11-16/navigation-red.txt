@@ -1,0 +1,179 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_ test_recipe_is_reachable_from_installed_stage_owner[04-performance.md-performance-and-style-recipes.md-status-negotiation] _
+
+tmp_path = PosixPath('/tmp/pytest-of-declan/pytest-390/test_recipe_is_reachable_from_0')
+owner = '04-performance.md', reference = 'performance-and-style-recipes.md'
+fragment = 'status-negotiation'
+
+    @pytest.mark.parametrize(
+        ("owner", "reference", "fragment"),
+        [
+            ("04-performance.md", "performance-and-style-recipes.md", "status-negotiation"),
+            ("04-performance.md", "performance-and-style-recipes.md", "action-and-agency"),
+            ("06-shots.md", "performance-and-style-recipes.md", "competing-threats"),
+            ("03-screenplay.md", "world-rules-and-information-recipes.md", "illustrative-inserts"),
+            ("09-edit.md", "world-rules-and-information-recipes.md", "elapsed-time-and-progress"),
+        ],
+    )
+    def test_recipe_is_reachable_from_installed_stage_owner(
+        tmp_path: Path, owner: str, reference: str, fragment: str,
+    ) -> None:
+        # Given: the real package, copied to an otherwise empty skill root.
+        target = tmp_path / "skills"
+        install_package.install(target, repo_root=ROOT, exclude_derived_support=True)
+        owner_path = target / "video-production-assets" / "references" / owner
+    
+        # When: following the documented owner-to-recipe route.
+        links = re.findall(r"\]\(([^)]+)\)", owner_path.read_text(encoding="utf-8"))
+        route = f"{reference}#{fragment}"
+    
+        # Then: the local destination exists and its public fragment resolves.
+>       assert route in links, f"installed owner has no recipe route: {owner} -> {route}"
+E       AssertionError: installed owner has no recipe route: 04-performance.md -> performance-and-style-recipes.md#status-negotiation
+E       assert 'performance-and-style-recipes.md#status-negotiation' in ['visual-scene-communication.md', 'performance-and-style-recipes.md', '10-evidence.md', '29-reference-driven-production.md#space-performance', '22-dialogue-lipsync.md']
+
+scripts/test_visual_recipe_navigation.py:41: AssertionError
+_ test_recipe_is_reachable_from_installed_stage_owner[04-performance.md-performance-and-style-recipes.md-action-and-agency] _
+
+tmp_path = PosixPath('/tmp/pytest-of-declan/pytest-390/test_recipe_is_reachable_from_1')
+owner = '04-performance.md', reference = 'performance-and-style-recipes.md'
+fragment = 'action-and-agency'
+
+    @pytest.mark.parametrize(
+        ("owner", "reference", "fragment"),
+        [
+            ("04-performance.md", "performance-and-style-recipes.md", "status-negotiation"),
+            ("04-performance.md", "performance-and-style-recipes.md", "action-and-agency"),
+            ("06-shots.md", "performance-and-style-recipes.md", "competing-threats"),
+            ("03-screenplay.md", "world-rules-and-information-recipes.md", "illustrative-inserts"),
+            ("09-edit.md", "world-rules-and-information-recipes.md", "elapsed-time-and-progress"),
+        ],
+    )
+    def test_recipe_is_reachable_from_installed_stage_owner(
+        tmp_path: Path, owner: str, reference: str, fragment: str,
+    ) -> None:
+        # Given: the real package, copied to an otherwise empty skill root.
+        target = tmp_path / "skills"
+        install_package.install(target, repo_root=ROOT, exclude_derived_support=True)
+        owner_path = target / "video-production-assets" / "references" / owner
+    
+        # When: following the documented owner-to-recipe route.
+        links = re.findall(r"\]\(([^)]+)\)", owner_path.read_text(encoding="utf-8"))
+        route = f"{reference}#{fragment}"
+    
+        # Then: the local destination exists and its public fragment resolves.
+>       assert route in links, f"installed owner has no recipe route: {owner} -> {route}"
+E       AssertionError: installed owner has no recipe route: 04-performance.md -> performance-and-style-recipes.md#action-and-agency
+E       assert 'performance-and-style-recipes.md#action-and-agency' in ['visual-scene-communication.md', 'performance-and-style-recipes.md', '10-evidence.md', '29-reference-driven-production.md#space-performance', '22-dialogue-lipsync.md']
+
+scripts/test_visual_recipe_navigation.py:41: AssertionError
+_ test_recipe_is_reachable_from_installed_stage_owner[06-shots.md-performance-and-style-recipes.md-competing-threats] _
+
+tmp_path = PosixPath('/tmp/pytest-of-declan/pytest-390/test_recipe_is_reachable_from_2')
+owner = '06-shots.md', reference = 'performance-and-style-recipes.md'
+fragment = 'competing-threats'
+
+    @pytest.mark.parametrize(
+        ("owner", "reference", "fragment"),
+        [
+            ("04-performance.md", "performance-and-style-recipes.md", "status-negotiation"),
+            ("04-performance.md", "performance-and-style-recipes.md", "action-and-agency"),
+            ("06-shots.md", "performance-and-style-recipes.md", "competing-threats"),
+            ("03-screenplay.md", "world-rules-and-information-recipes.md", "illustrative-inserts"),
+            ("09-edit.md", "world-rules-and-information-recipes.md", "elapsed-time-and-progress"),
+        ],
+    )
+    def test_recipe_is_reachable_from_installed_stage_owner(
+        tmp_path: Path, owner: str, reference: str, fragment: str,
+    ) -> None:
+        # Given: the real package, copied to an otherwise empty skill root.
+        target = tmp_path / "skills"
+        install_package.install(target, repo_root=ROOT, exclude_derived_support=True)
+        owner_path = target / "video-production-assets" / "references" / owner
+    
+        # When: following the documented owner-to-recipe route.
+        links = re.findall(r"\]\(([^)]+)\)", owner_path.read_text(encoding="utf-8"))
+        route = f"{reference}#{fragment}"
+    
+        # Then: the local destination exists and its public fragment resolves.
+>       assert route in links, f"installed owner has no recipe route: {owner} -> {route}"
+E       AssertionError: installed owner has no recipe route: 06-shots.md -> performance-and-style-recipes.md#competing-threats
+E       assert 'performance-and-style-recipes.md#competing-threats' in ['storyboard-contract.md', 'visual-scene-communication.md', 'storyboard-contract.md#씬별-카메라-의도와-인접-씬-비교', 'storyboard-c...굴과-청자-반응', 'storyboard-contract.md#장면-리듬과-감정-가독성', '../../camera-spatial-design/references/motion-timing-lens.md', ...]
+
+scripts/test_visual_recipe_navigation.py:41: AssertionError
+_ test_recipe_is_reachable_from_installed_stage_owner[03-screenplay.md-world-rules-and-information-recipes.md-illustrative-inserts] _
+
+tmp_path = PosixPath('/tmp/pytest-of-declan/pytest-390/test_recipe_is_reachable_from_3')
+owner = '03-screenplay.md', reference = 'world-rules-and-information-recipes.md'
+fragment = 'illustrative-inserts'
+
+    @pytest.mark.parametrize(
+        ("owner", "reference", "fragment"),
+        [
+            ("04-performance.md", "performance-and-style-recipes.md", "status-negotiation"),
+            ("04-performance.md", "performance-and-style-recipes.md", "action-and-agency"),
+            ("06-shots.md", "performance-and-style-recipes.md", "competing-threats"),
+            ("03-screenplay.md", "world-rules-and-information-recipes.md", "illustrative-inserts"),
+            ("09-edit.md", "world-rules-and-information-recipes.md", "elapsed-time-and-progress"),
+        ],
+    )
+    def test_recipe_is_reachable_from_installed_stage_owner(
+        tmp_path: Path, owner: str, reference: str, fragment: str,
+    ) -> None:
+        # Given: the real package, copied to an otherwise empty skill root.
+        target = tmp_path / "skills"
+        install_package.install(target, repo_root=ROOT, exclude_derived_support=True)
+        owner_path = target / "video-production-assets" / "references" / owner
+    
+        # When: following the documented owner-to-recipe route.
+        links = re.findall(r"\]\(([^)]+)\)", owner_path.read_text(encoding="utf-8"))
+        route = f"{reference}#{fragment}"
+    
+        # Then: the local destination exists and its public fragment resolves.
+>       assert route in links, f"installed owner has no recipe route: {owner} -> {route}"
+E       AssertionError: installed owner has no recipe route: 03-screenplay.md -> world-rules-and-information-recipes.md#illustrative-inserts
+E       assert 'world-rules-and-information-recipes.md#illustrative-inserts' in ['../../orchestrating-video-preproduction/references/video-direction.md#interaction-modes', 'writing-craft.md#shape', ...'world-rules-and-information-recipes.md#knowledge-layers', 'korean-script-postediting.md#workflow', '06-shots.md', ...]
+
+scripts/test_visual_recipe_navigation.py:41: AssertionError
+_ test_recipe_is_reachable_from_installed_stage_owner[09-edit.md-world-rules-and-information-recipes.md-elapsed-time-and-progress] _
+
+tmp_path = PosixPath('/tmp/pytest-of-declan/pytest-390/test_recipe_is_reachable_from_4')
+owner = '09-edit.md', reference = 'world-rules-and-information-recipes.md'
+fragment = 'elapsed-time-and-progress'
+
+    @pytest.mark.parametrize(
+        ("owner", "reference", "fragment"),
+        [
+            ("04-performance.md", "performance-and-style-recipes.md", "status-negotiation"),
+            ("04-performance.md", "performance-and-style-recipes.md", "action-and-agency"),
+            ("06-shots.md", "performance-and-style-recipes.md", "competing-threats"),
+            ("03-screenplay.md", "world-rules-and-information-recipes.md", "illustrative-inserts"),
+            ("09-edit.md", "world-rules-and-information-recipes.md", "elapsed-time-and-progress"),
+        ],
+    )
+    def test_recipe_is_reachable_from_installed_stage_owner(
+        tmp_path: Path, owner: str, reference: str, fragment: str,
+    ) -> None:
+        # Given: the real package, copied to an otherwise empty skill root.
+        target = tmp_path / "skills"
+        install_package.install(target, repo_root=ROOT, exclude_derived_support=True)
+        owner_path = target / "video-production-assets" / "references" / owner
+    
+        # When: following the documented owner-to-recipe route.
+        links = re.findall(r"\]\(([^)]+)\)", owner_path.read_text(encoding="utf-8"))
+        route = f"{reference}#{fragment}"
+    
+        # Then: the local destination exists and its public fragment resolves.
+>       assert route in links, f"installed owner has no recipe route: {owner} -> {route}"
+E       AssertionError: installed owner has no recipe route: 09-edit.md -> world-rules-and-information-recipes.md#elapsed-time-and-progress
+E       assert 'world-rules-and-information-recipes.md#elapsed-time-and-progress' in ['visual-scene-communication.md', 'storyboard-contract.md#장면-리듬과-감정-가독성', '../../camera-spatial-design/references/came...yboard-contract.md#8-선택적-projectjson-상세-보드-확장', '../assets/06-shots-template.md', '../assets/09-edit-template.md', ...]
+
+scripts/test_visual_recipe_navigation.py:41: AssertionError
+=========================== short test summary info ============================
+FAILED scripts/test_visual_recipe_navigation.py::test_recipe_is_reachable_from_installed_stage_owner[04-performance.md-performance-and-style-recipes.md-status-negotiation]
+FAILED scripts/test_visual_recipe_navigation.py::test_recipe_is_reachable_from_installed_stage_owner[04-performance.md-performance-and-style-recipes.md-action-and-agency]
+FAILED scripts/test_visual_recipe_navigation.py::test_recipe_is_reachable_from_installed_stage_owner[06-shots.md-performance-and-style-recipes.md-competing-threats]
+FAILED scripts/test_visual_recipe_navigation.py::test_recipe_is_reachable_from_installed_stage_owner[03-screenplay.md-world-rules-and-information-recipes.md-illustrative-inserts]
+FAILED scripts/test_visual_recipe_navigation.py::test_recipe_is_reachable_from_installed_stage_owner[09-edit.md-world-rules-and-information-recipes.md-elapsed-time-and-progress]
+5 failed in 1.67s

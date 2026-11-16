@@ -1,0 +1,25 @@
+{
+  "source": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills",
+  "head": "063f241a50e3969dab30ea5f355f7bc5705f273b",
+  "source_hashes_matched": 1708,
+  "contextual_transfer_paths": 15,
+  "installed_links_matched": 100,
+  "answers_unchanged": 10,
+  "owned_hashes": {
+    "video-production-assets/references/performance-and-style-recipes.md": "2c74e5e9ee0235032d40c0ac788088445accd03bd09924beef401bbf7765fab2",
+    "video-production-assets/references/world-rules-and-information-recipes.md": "15414af75f135088788a8f1232c42e8981a2cf33947ff4f7246985b5465f78e1",
+    "video-production-assets/references/visual-scene-communication.md": "8f88b1c2aa2830c463fb2dde697d58aee4d47b541c8b8ae835112a10aba2f66d",
+    "video-production-assets/references/03-screenplay.md": "63a99b789abb4735c499cf28608b784ebd77963fc72b159879ed7b9b5b0d3c8f",
+    "video-production-assets/references/04-performance.md": "8a54ba946a2ab9b5d6521844f3d9b325b3e85806b38917da5fc01e0c1c1b7f3a",
+    "video-production-assets/references/06-shots.md": "21bf40bb29e67c24f1916077599e3c18a3fc09909b12ae66ae802d4f3dceed85",
+    "video-production-assets/references/09-edit.md": "124980c7ab218d3a70084f385a7d53f492057b77f186e431a7f020539b8b14a7",
+    "video-production-assets/references/12-qa.md": "25e2023039246b5edc4dbf1b344531b0f68930aeb9a10796e5975e28d2fee72f",
+    "manifest.json": "e493c86d092662380faf9af7d84817de22dbc0751b6cb4f73f580d2287090c5b",
+    "CHANGELOG.md": "37beb56292f0e69da9207f6f6a0faae039d6df7fe198bc742aac2884f1e4e745",
+    "README.md": "24d02038caacf28894ab2527053bfe924b69170a9862a3af708f1865e1934cb5",
+    "USAGE_GUIDE.md": "d18c2ab8d10487a5790db8f2a040173defa2d745f20eac5cefe7955a5339b03e",
+    "docs/superpowers/specs/2026-11-16-visual-craft-reinforcement-design.md": "f3ec4699383800d34e79749856ba9c02add57f72df5ec2359e51418f91247d03",
+    "docs/superpowers/plans/2026-11-16-visual-craft-followup-integration.md": "2030f9ece33784fa2fc9e410c4555591d6a0ec4c1802b8f88903800f98d34391",
+    "scripts/test_visual_recipe_navigation.py": "9087e23a110aa0d3834199ac4171d896444bd9a24125ebac8d9e61eb07029653"
+  }
+}

@@ -28,6 +28,8 @@
 | “능력의 조건, 관찰한 차이, 인물이 믿는 것을 구별” | [규칙·정보 예시](video-production-assets/references/world-rules-and-information-recipes.md) →02/03/06 |
 | “포털 양쪽·부분 통과·효과 수신과 결과를 연결” | 같은 참조의 필요한 예시 → 기존20/21/26/11 |
 | “기억에서 현재로 돌아와도 현재의 손상·소유는 이어지게” | 같은 참조의 시간층 예시 →02/09/26 |
+| “공손한 대사와 실제 선택권, 주목점이 옮겨도 남은 위협을 구별” | [관계·경쟁 위협 예시](video-production-assets/references/performance-and-style-recipes.md) →04/06/09/26 |
+| “가정 그림은 본편 사건과 나누고, 시간이 흘러도 완료는 미정으로” | [삽입·시간 경과 예시](video-production-assets/references/world-rules-and-information-recipes.md) →03/06/07/09/26 |
 
 새 사례는 독립 창작된 설계 제안이다. 가림 전후의 형태 변화 연결은 연속 morph/실제 물리 시연의 증거가 아니며, 협업의 역할 분담도 전체 목표 성공과 구별한다. 실제 이미지/재생이 없으면 해당 결과는 미검증이다. 정적 교육 화면 등 비적용 작업에 새 인물·사건·마법·필수 필드를 만들지 않는다.
 

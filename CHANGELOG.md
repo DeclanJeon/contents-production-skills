@@ -10,6 +10,12 @@
 
 ## Unreleased
 
+## 2.46 2026-11-16
+
+- Integrated the approved follow-up candidates into the existing two conditional craft references: dialogue status/agency, competing threats, illustrative inserts and elapsed-time/progress choices. Perception/confirmation, sustained tasks and goal-versus-means distinctions extend existing sections instead of adding skills or procedures.
+- Added minimal conditional routes from screenplay, performance, shots, editing and QA, plus real isolated-install fragment/navigation coverage. Existing templates, coordinators, source constraints and unresolved evidence remain authoritative; package stays at25skills with no untouched SKILL version bumps.
+- Examples are independently authored, not source-character/shot recreations. Implementation used the three bounded research notes without additional corpus inspection. Text applications and packaging checks do not establish actual-media, audience or statistical quality improvement.
+
 ## 2.45 2026-11-16
 
 - Added two conditional, independently authored visual-craft example references: `performance-and-style-recipes.md` (nonhuman morphology, local comic style, interrupted tasks and interdependent roles) and `world-rules-and-information-recipes.md` (rule comparisons, space boundaries, effect causality, belief/fact separation, knowledge limits and time-layer return). Existing owners, templates, story constraints and optional applicability remain authoritative; no new skill or project schema.
