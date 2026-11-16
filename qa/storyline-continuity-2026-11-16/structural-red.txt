@@ -1,0 +1,195 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+_ test_required_storyline_route_resolves_to_canonical_gate[creative-production/SKILL.md] _
+
+relative = 'creative-production/SKILL.md'
+
+    @pytest.mark.parametrize("relative", [
+        "creative-production/SKILL.md",
+        "video-production-assets/assets/09-edit-template.md",
+    ])
+    def test_required_storyline_route_resolves_to_canonical_gate(relative: str) -> None:
+        # Given: either the coordinator or its existing edit evidence surface.
+        source = ROOT / relative
+        # When: the explicitly required canonical route is followed.
+        paragraphs = source.read_text(encoding="utf-8").split("\n\n")
+        routes = [p for p in paragraphs if f"26-state-causality-continuity.md#{ANCHOR}" in p]
+        # Then: omission of the required route or its target is a structural failure.
+>       assert len(routes) == 1, f"{relative}: missing unique required storyline route"
+E       AssertionError: creative-production/SKILL.md: missing unique required storyline route
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+scripts/test_storyline_continuity_gate.py:32: AssertionError
+_ test_required_storyline_route_resolves_to_canonical_gate[video-production-assets/assets/09-edit-template.md] _
+
+relative = 'video-production-assets/assets/09-edit-template.md'
+
+    @pytest.mark.parametrize("relative", [
+        "creative-production/SKILL.md",
+        "video-production-assets/assets/09-edit-template.md",
+    ])
+    def test_required_storyline_route_resolves_to_canonical_gate(relative: str) -> None:
+        # Given: either the coordinator or its existing edit evidence surface.
+        source = ROOT / relative
+        # When: the explicitly required canonical route is followed.
+        paragraphs = source.read_text(encoding="utf-8").split("\n\n")
+        routes = [p for p in paragraphs if f"26-state-causality-continuity.md#{ANCHOR}" in p]
+        # Then: omission of the required route or its target is a structural failure.
+>       assert len(routes) == 1, f"{relative}: missing unique required storyline route"
+E       AssertionError: video-production-assets/assets/09-edit-template.md: missing unique required storyline route
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+scripts/test_storyline_continuity_gate.py:32: AssertionError
+_ test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots0] _
+
+required_slots = ('scene/shot', '최초', 'offscreen', 'cross-cut', 'flashback')
+
+    @pytest.mark.parametrize("required_slots", [
+        ("scene/shot", "최초", "offscreen", "cross-cut", "flashback"),
+        ("planned", "not produced", "UNVERIFIED"),
+        ("accepted", "source_in_s", "source_out_s", "FPS/PTS", "raw tail"),
+        ("out/in", "인접 모션", "needs_revision"),
+        ("delivery_checks", "정속", "오디오", "unverified"),
+    ])
+    def test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots(
+        required_slots: tuple[str, ...],
+    ) -> None:
+        # Given: the canonical target, not a duplicate procedure in the coordinator.
+        text = REFERENCE.read_text(encoding="utf-8")
+        # When: the required gate section is opened.
+        marker = f'<a id="{ANCHOR}"></a>'
+>       assert marker in text, "canonical whole-storyline procedure is not discoverable"
+E       AssertionError: canonical whole-storyline procedure is not discoverable
+E       assert '<a id="storyline-continuity-gate"></a>' in '# 상태·인과·연속성 인계 (온디맨드 심화)\n\n모듈 11(AI 인계)·21(생성 QA)·09(편집)·25(레퍼런스 분석)의 공통 인터페이스. 샷 사이에서 변한 상태와 유지해야 할 속성을 다음 모듈로 넘기는 ... 09·11·21·25의 인터페이스 정리. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 기존 모듈의 절차·판정·템플릿은 그대로이며, 이 모듈은 그 사이의 선택적 슬롯과 적용 조건만 소유한다.\n'
+
+scripts/test_storyline_continuity_gate.py:56: AssertionError
+_ test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots1] _
+
+required_slots = ('planned', 'not produced', 'UNVERIFIED')
+
+    @pytest.mark.parametrize("required_slots", [
+        ("scene/shot", "최초", "offscreen", "cross-cut", "flashback"),
+        ("planned", "not produced", "UNVERIFIED"),
+        ("accepted", "source_in_s", "source_out_s", "FPS/PTS", "raw tail"),
+        ("out/in", "인접 모션", "needs_revision"),
+        ("delivery_checks", "정속", "오디오", "unverified"),
+    ])
+    def test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots(
+        required_slots: tuple[str, ...],
+    ) -> None:
+        # Given: the canonical target, not a duplicate procedure in the coordinator.
+        text = REFERENCE.read_text(encoding="utf-8")
+        # When: the required gate section is opened.
+        marker = f'<a id="{ANCHOR}"></a>'
+>       assert marker in text, "canonical whole-storyline procedure is not discoverable"
+E       AssertionError: canonical whole-storyline procedure is not discoverable
+E       assert '<a id="storyline-continuity-gate"></a>' in '# 상태·인과·연속성 인계 (온디맨드 심화)\n\n모듈 11(AI 인계)·21(생성 QA)·09(편집)·25(레퍼런스 분석)의 공통 인터페이스. 샷 사이에서 변한 상태와 유지해야 할 속성을 다음 모듈로 넘기는 ... 09·11·21·25의 인터페이스 정리. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 기존 모듈의 절차·판정·템플릿은 그대로이며, 이 모듈은 그 사이의 선택적 슬롯과 적용 조건만 소유한다.\n'
+
+scripts/test_storyline_continuity_gate.py:56: AssertionError
+_ test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots2] _
+
+required_slots = ('accepted', 'source_in_s', 'source_out_s', 'FPS/PTS', 'raw tail')
+
+    @pytest.mark.parametrize("required_slots", [
+        ("scene/shot", "최초", "offscreen", "cross-cut", "flashback"),
+        ("planned", "not produced", "UNVERIFIED"),
+        ("accepted", "source_in_s", "source_out_s", "FPS/PTS", "raw tail"),
+        ("out/in", "인접 모션", "needs_revision"),
+        ("delivery_checks", "정속", "오디오", "unverified"),
+    ])
+    def test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots(
+        required_slots: tuple[str, ...],
+    ) -> None:
+        # Given: the canonical target, not a duplicate procedure in the coordinator.
+        text = REFERENCE.read_text(encoding="utf-8")
+        # When: the required gate section is opened.
+        marker = f'<a id="{ANCHOR}"></a>'
+>       assert marker in text, "canonical whole-storyline procedure is not discoverable"
+E       AssertionError: canonical whole-storyline procedure is not discoverable
+E       assert '<a id="storyline-continuity-gate"></a>' in '# 상태·인과·연속성 인계 (온디맨드 심화)\n\n모듈 11(AI 인계)·21(생성 QA)·09(편집)·25(레퍼런스 분석)의 공통 인터페이스. 샷 사이에서 변한 상태와 유지해야 할 속성을 다음 모듈로 넘기는 ... 09·11·21·25의 인터페이스 정리. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 기존 모듈의 절차·판정·템플릿은 그대로이며, 이 모듈은 그 사이의 선택적 슬롯과 적용 조건만 소유한다.\n'
+
+scripts/test_storyline_continuity_gate.py:56: AssertionError
+_ test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots3] _
+
+required_slots = ('out/in', '인접 모션', 'needs_revision')
+
+    @pytest.mark.parametrize("required_slots", [
+        ("scene/shot", "최초", "offscreen", "cross-cut", "flashback"),
+        ("planned", "not produced", "UNVERIFIED"),
+        ("accepted", "source_in_s", "source_out_s", "FPS/PTS", "raw tail"),
+        ("out/in", "인접 모션", "needs_revision"),
+        ("delivery_checks", "정속", "오디오", "unverified"),
+    ])
+    def test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots(
+        required_slots: tuple[str, ...],
+    ) -> None:
+        # Given: the canonical target, not a duplicate procedure in the coordinator.
+        text = REFERENCE.read_text(encoding="utf-8")
+        # When: the required gate section is opened.
+        marker = f'<a id="{ANCHOR}"></a>'
+>       assert marker in text, "canonical whole-storyline procedure is not discoverable"
+E       AssertionError: canonical whole-storyline procedure is not discoverable
+E       assert '<a id="storyline-continuity-gate"></a>' in '# 상태·인과·연속성 인계 (온디맨드 심화)\n\n모듈 11(AI 인계)·21(생성 QA)·09(편집)·25(레퍼런스 분석)의 공통 인터페이스. 샷 사이에서 변한 상태와 유지해야 할 속성을 다음 모듈로 넘기는 ... 09·11·21·25의 인터페이스 정리. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 기존 모듈의 절차·판정·템플릿은 그대로이며, 이 모듈은 그 사이의 선택적 슬롯과 적용 조건만 소유한다.\n'
+
+scripts/test_storyline_continuity_gate.py:56: AssertionError
+_ test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots4] _
+
+required_slots = ('delivery_checks', '정속', '오디오', 'unverified')
+
+    @pytest.mark.parametrize("required_slots", [
+        ("scene/shot", "최초", "offscreen", "cross-cut", "flashback"),
+        ("planned", "not produced", "UNVERIFIED"),
+        ("accepted", "source_in_s", "source_out_s", "FPS/PTS", "raw tail"),
+        ("out/in", "인접 모션", "needs_revision"),
+        ("delivery_checks", "정속", "오디오", "unverified"),
+    ])
+    def test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots(
+        required_slots: tuple[str, ...],
+    ) -> None:
+        # Given: the canonical target, not a duplicate procedure in the coordinator.
+        text = REFERENCE.read_text(encoding="utf-8")
+        # When: the required gate section is opened.
+        marker = f'<a id="{ANCHOR}"></a>'
+>       assert marker in text, "canonical whole-storyline procedure is not discoverable"
+E       AssertionError: canonical whole-storyline procedure is not discoverable
+E       assert '<a id="storyline-continuity-gate"></a>' in '# 상태·인과·연속성 인계 (온디맨드 심화)\n\n모듈 11(AI 인계)·21(생성 QA)·09(편집)·25(레퍼런스 분석)의 공통 인터페이스. 샷 사이에서 변한 상태와 유지해야 할 속성을 다음 모듈로 넘기는 ... 09·11·21·25의 인터페이스 정리. `sources.md`에서 파일 상태와 탐색 위치를 확인한다. 기존 모듈의 절차·판정·템플릿은 그대로이며, 이 모듈은 그 사이의 선택적 슬롯과 적용 조건만 소유한다.\n'
+
+scripts/test_storyline_continuity_gate.py:56: AssertionError
+_________ test_edit_template_binds_required_evidence_to_existing_cells _________
+
+    def test_edit_template_binds_required_evidence_to_existing_cells() -> None:
+        # Given: the existing cut table, whose headings and field names must survive.
+        text = TEMPLATE.read_text(encoding="utf-8")
+        headers = next(line for line in text.splitlines() if line.startswith("| cut_id |"))
+        assert headers.split(" | ") == [
+            "| cut_id", "shot_id/asset_id", "source_in_s", "source_out_s",
+            "playback_rate", "final_start_s", "final_end_s",
+            "행동·카메라 변화 / 컷아웃→컷인 phase·state + cue time / 컷 이유",
+            "transition/duration_s", "sound_id·sync anchor",
+            "reaction/settle hold final start–end s·연속성/검수 상태 |",
+        ]
+        # When: the required continuity instructions for those cells are inspected.
+        binding = next((p for p in text.split("\n\n") if f"#{ANCHOR}" in p), "")
+        # Then: predecessor/outpoint/next-input/evidence/verdict are not optional notes.
+        for slot in (
+            "cut_id", "선행", "ID·버전", "planned", "accepted", "source_in_s",
+            "source_out_s", "FPS/PTS", "다음 입력", "out/in", "인접 모션",
+            "검수 상태", "unverified", "delivery_checks",
+        ):
+>           assert slot in binding, f"edit cells lost required evidence binding: {slot}"
+E           AssertionError: edit cells lost required evidence binding: cut_id
+E           assert 'cut_id' in ''
+
+scripts/test_storyline_continuity_gate.py:82: AssertionError
+=========================== short test summary info ============================
+FAILED scripts/test_storyline_continuity_gate.py::test_required_storyline_route_resolves_to_canonical_gate[creative-production/SKILL.md]
+FAILED scripts/test_storyline_continuity_gate.py::test_required_storyline_route_resolves_to_canonical_gate[video-production-assets/assets/09-edit-template.md]
+FAILED scripts/test_storyline_continuity_gate.py::test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots0]
+FAILED scripts/test_storyline_continuity_gate.py::test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots1]
+FAILED scripts/test_storyline_continuity_gate.py::test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots2]
+FAILED scripts/test_storyline_continuity_gate.py::test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots3]
+FAILED scripts/test_storyline_continuity_gate.py::test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots[required_slots4]
+FAILED scripts/test_storyline_continuity_gate.py::test_edit_template_binds_required_evidence_to_existing_cells
+8 failed in 0.14s

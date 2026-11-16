@@ -15,6 +15,7 @@
 - Integrated the approved follow-up candidates into the existing two conditional craft references: dialogue status/agency, competing threats, illustrative inserts and elapsed-time/progress choices. Perception/confirmation, sustained tasks and goal-versus-means distinctions extend existing sections instead of adding skills or procedures.
 - Added minimal conditional routes from screenplay, performance, shots, editing and QA, plus real isolated-install fragment/navigation coverage. Existing templates, coordinators, source constraints and unresolved evidence remain authoritative; package stays at25skills with no untouched SKILL version bumps.
 - Examples are independently authored, not source-character/shot recreations. Implementation used the three bounded research notes without additional corpus inspection. Text applications and packaging checks do not establish actual-media, audience or statistical quality improvement.
+- Made prior-storyline state a required orchestrator dependency: `creative-production` now owns a required whole-storyline reference/continuity gate before whole-board finalization, dependent generation/take adoption and sequence delivery, `reference26` carries the five-step accepted-state procedure and `assets/09-edit-template.md` binds planned/accepted references and real boundary checks into the existing cells. Evidence is a document contract, not an automatic semantic continuity detector; five fresh-context baseline and five updated answers all comply, so no behavioral improvement is claimed.
 
 ## 2.45 2026-11-16
 

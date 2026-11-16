@@ -1,0 +1,26 @@
+{
+  "changed_instructional_files": [
+    "creative-production/SKILL.md",
+    "video-production-assets/references/26-state-causality-continuity.md",
+    "video-production-assets/assets/09-edit-template.md"
+  ],
+  "structural_red_cases": 8,
+  "structural_green_cases": 8,
+  "parent_full_suite": "812passed,4Windows-only skips,532subtests passed;see parent-full-pytest.txt",
+  "fresh_context_baselines": 5,
+  "fresh_context_updated": 5,
+  "behavioral_result": "Both groups comply; no behavioral RED or baseline-to-updated improvement established",
+  "independent_review": "No actionable issues; source/diff and scenario-answer review only",
+  "installed_paths_verified": [
+    "/home/declan/.codex/skills/creative-production/SKILL.md",
+    "/home/declan/.agents/skills/creative-production/SKILL.md",
+    "/home/declan/.pi/agent/skills/creative-production/SKILL.md",
+    "/home/declan/.codex/skills/video-production-assets/references/26-state-causality-continuity.md",
+    "/home/declan/.agents/skills/video-production-assets/references/26-state-causality-continuity.md",
+    "/home/declan/.pi/agent/skills/video-production-assets/references/26-state-causality-continuity.md",
+    "/home/declan/.codex/skills/video-production-assets/assets/09-edit-template.md",
+    "/home/declan/.agents/skills/video-production-assets/assets/09-edit-template.md",
+    "/home/declan/.pi/agent/skills/video-production-assets/assets/09-edit-template.md"
+  ],
+  "limits": "Instruction and evidence-shape gate, not automatic semantic video QA; no actual film replay/improvement tested; no production generation/spend, project changes, installs, commit or push."
+}
