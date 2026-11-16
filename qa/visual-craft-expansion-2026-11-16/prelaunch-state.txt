@@ -1,0 +1,68 @@
+ M CHANGELOG.md
+ M README.md
+ M USAGE_GUIDE.md
+ M creative-production/SKILL.md
+ M creative-production/references/production-routing.md
+ M manifest.json
+ M orchestrating-video-preproduction/SKILL.md
+ M scripts/test_video_pack_boundary.py
+ M silent-satire-animatic/SKILL.md
+ M silent-satire-animatic/references/01-silent-principles.md
+ M silent-satire-animatic/references/03-beat-budget.md
+ M storyboarding-video/SKILL.md
+ M storyboarding-video/references/narrative-panels.md
+ M video-production-assets/SKILL.md
+ M video-production-assets/assets/06-shots-template.md
+ M video-production-assets/assets/09-edit-template.md
+ M video-production-assets/references/02-story.md
+ M video-production-assets/references/03-screenplay.md
+ M video-production-assets/references/04-performance.md
+ M video-production-assets/references/05-visual.md
+ M video-production-assets/references/06-shots.md
+ M video-production-assets/references/07-lighting.md
+ M video-production-assets/references/08-animation.md
+ M video-production-assets/references/09-edit.md
+ M video-production-assets/references/12-qa.md
+ M video-production-assets/references/26-state-causality-continuity.md
+ M video-production-assets/references/storyboard-contract.md
+?? animatic-direction/
+?? docs/analysis/ad-rofan-skill-upgrade-2026-11-16/
+?? docs/superpowers/plans/2026-11-16-ad-rofan-archive-skill-upgrade.md
+?? docs/superpowers/plans/2026-11-16-storyline-continuity-gate.md
+?? docs/superpowers/specs/2026-11-16-ad-rofan-archive-skill-upgrade-design.md
+?? docs/superpowers/specs/2026-11-16-storyline-continuity-gate-design.md
+?? qa/ad-rofan-skill-upgrade-2026-11-16/
+?? qa/silent-animatic-routing-2026-11-16/
+?? qa/storyline-continuity-2026-11-16/
+?? qa/visual-craft-expansion-2026-11-16/
+?? scripts/test_storyline_continuity_gate.py
+?? silent-visual-storytelling/
+?? video-production-assets/references/visual-scene-communication.md
+ CHANGELOG.md                                       | 13 +++++++++++
+ README.md                                          |  8 ++++---
+ USAGE_GUIDE.md                                     | 10 +++++++++
+ creative-production/SKILL.md                       |  8 +++++--
+ .../references/production-routing.md               | 21 +++++++++++++++++-
+ manifest.json                                      |  4 +++-
+ orchestrating-video-preproduction/SKILL.md         |  6 ++++--
+ scripts/test_video_pack_boundary.py                | 12 ++++++++++-
+ silent-satire-animatic/SKILL.md                    | 21 +++++++++---------
+ .../references/01-silent-principles.md             | 19 ++++++++--------
+ .../references/03-beat-budget.md                   | 16 +++++++-------
+ storyboarding-video/SKILL.md                       |  6 ++++--
+ storyboarding-video/references/narrative-panels.md |  8 +++----
+ video-production-assets/SKILL.md                   |  4 +++-
+ .../assets/06-shots-template.md                    |  2 +-
+ video-production-assets/assets/09-edit-template.md |  2 ++
+ video-production-assets/references/02-story.md     |  4 ++++
+ .../references/03-screenplay.md                    |  4 ++++
+ .../references/04-performance.md                   |  8 +++++--
+ video-production-assets/references/05-visual.md    |  4 ++++
+ video-production-assets/references/06-shots.md     | 10 +++++++--
+ video-production-assets/references/07-lighting.md  |  4 ++++
+ video-production-assets/references/08-animation.md |  8 +++++--
+ video-production-assets/references/09-edit.md      | 25 +++++++++++++---------
+ video-production-assets/references/12-qa.md        |  4 ++++
+ .../references/26-state-causality-continuity.md    | 20 ++++++++++++++---
+ .../references/storyboard-contract.md              |  4 ++--
+ 27 files changed, 187 insertions(+), 68 deletions(-)

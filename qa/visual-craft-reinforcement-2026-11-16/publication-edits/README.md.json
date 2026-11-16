@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/README.md",
+  "relative": "README.md",
+  "kind": "edit",
+  "before_sha": "ca5a31b50ac720efbbfc758fcadea29bc304be312e88240749e7f12e0e0201c7",
+  "after_sha": "be462725e89643fc70856a3960bc6ec331e7ff27629f4554364ebadede4eab59",
+  "edits": [
+    {
+      "oldText": "\nThe installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills. [공통 시각 연출·장면 전달](video-production-assets/references/visual-scene-communication.md)은 대사 있는 작품과 무성 작품 모두의 스틸·앵글·구도·인물/액션·분위기를 기존 전문 오너에 연결하며, 무성 스킬의 선행 호출을 요구하지 않는다.\n\n",
+      "newText": "\nThe installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills. [공통 시각 연출·장면 전달](video-production-assets/references/visual-scene-communication.md)은 대사 있는 작품과 무성 작품 모두의 스틸·앵글·구도·인물/액션·분위기를 기존 전문 오너에 연결하며, 무성 스킬의 선행 호출을 요구하지 않는다. 몸 구조·국소 표현 변형·행동 중단·협업에는 [연기·표현 상세 예시](video-production-assets/references/performance-and-style-recipes.md), 허구 규칙·효과·인물 지식·시간층에는 [세계 규칙·정보 상세 예시](video-production-assets/references/world-rules-and-information-recipes.md)의 해당 절만 기존 오너 안에서 선택한다.\n\n"
+    }
+  ]
+}

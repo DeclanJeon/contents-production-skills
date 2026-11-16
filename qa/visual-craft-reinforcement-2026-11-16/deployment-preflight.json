@@ -1,0 +1,101 @@
+{
+  "source_unchanged": true,
+  "publication_not_started": true,
+  "paths": [
+    {
+      "path": "CHANGELOG.md",
+      "before": "f3f4ac3da9a9f077849089d00afe66927b88e1db5484e450c686e967fd5809d1",
+      "reviewed_candidate_sha256": "4f6308867227ac48d1c79cd4d2fe000a5fc5515eb7181706110ddf7e2161d983"
+    },
+    {
+      "path": "README.md",
+      "before": "ca5a31b50ac720efbbfc758fcadea29bc304be312e88240749e7f12e0e0201c7",
+      "reviewed_candidate_sha256": "be462725e89643fc70856a3960bc6ec331e7ff27629f4554364ebadede4eab59"
+    },
+    {
+      "path": "USAGE_GUIDE.md",
+      "before": "fe33edcb3125dcff209721bb5192b6768ba2e0e82052449224eb6841c11e83e2",
+      "reviewed_candidate_sha256": "646ae0b9cfdf7d052d4284ba0538df702a95f25cee802481731648c2ae69677b"
+    },
+    {
+      "path": "designing-character-personas/references/expression-voice-bridge.md",
+      "before": "af1f2f88557faf0a5832d7cde2738459e6faf3c524ae6722c9d1990ff0d6457d",
+      "reviewed_candidate_sha256": "2cbaef081f6371652c101519eee3ae0705a72f2eec75233b276dde7352aef446"
+    },
+    {
+      "path": "designing-video-character-sheets/references/character-craft.md",
+      "before": "7b5dc47a636ec0d120a04abd24408f132e67f7f09739b5e4c203a93b9ee3c0a7",
+      "reviewed_candidate_sha256": "27b055739dc5f84d8c6ce73c3198110b0247a216fa0ca025854ac9a96ab77bfd"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-16-visual-craft-reinforcement.md",
+      "before": "856e69be1965bc3d3d3e8d88e14e02c79ce76b00efbefde8a119242bde00cce1",
+      "reviewed_candidate_sha256": "5aeee45300588a286cd5dac0f7786d7260f399ff23b8565d3c3d6c09ba4e8122"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-16-visual-craft-reinforcement-design.md",
+      "before": "5e5ff85a6f68112a863ca61199d7bbfa1f0096aac2367830d3f82e72998c99a1",
+      "reviewed_candidate_sha256": "c8a56071183627cc429c51475a0a78dc93c7f92a552dd3841bc01d110d9ba961"
+    },
+    {
+      "path": "manifest.json",
+      "before": "2fc5f082e511202b95ec3ab058ae20004137ef91980d3af12d6d22a0dabd6958",
+      "reviewed_candidate_sha256": "30081bd42bd66fcaf83cfbc5fa366995edc83a54c9c78e6d6f3745ce9605262a"
+    },
+    {
+      "path": "video-production-assets/references/02-story.md",
+      "before": "a25a24c91327e6442df2fb8bd7b2ec38e24de0e204e3f1e0afefcf0e60c3a6c8",
+      "reviewed_candidate_sha256": "7ef280a707adecee2b7d11d231c077686d7e606fe9894b2a88b29f09e4868b32"
+    },
+    {
+      "path": "video-production-assets/references/03-screenplay.md",
+      "before": "64158431b16cb54bdc842a3c455d5a0c2f4154266c5253a5f31ae5edac8d621e",
+      "reviewed_candidate_sha256": "2e1337c714374c3f3044150549a780df4644ae5030a3afe6ae201b3a7ba37734"
+    },
+    {
+      "path": "video-production-assets/references/04-performance.md",
+      "before": "12a1c68208d176351e2d199d1c53363149993f0f8af939430ad82924cbef2c51",
+      "reviewed_candidate_sha256": "d4d1a74b2180c72bd0adb7754ac7ff64535d6e92455920979305fe783da434e8"
+    },
+    {
+      "path": "video-production-assets/references/08-animation.md",
+      "before": "d38b5c7081f3d45b34d3980212ec0221935cc2fc3674659740c688f34a800b74",
+      "reviewed_candidate_sha256": "d233841c856873bf31b234a7c7948568c5eb7c752cac921941261bde1ce82239"
+    },
+    {
+      "path": "video-production-assets/references/12-qa.md",
+      "before": "7159b6f61266dac81ef162a257e17a5a47cbffce24432570286dfc9bc5025f58",
+      "reviewed_candidate_sha256": "1901cb0157f573c1435a29b56f22fdbb3b8b2f240bd7843b91d733b24f4baa88"
+    },
+    {
+      "path": "video-production-assets/references/17-genre-comedy.md",
+      "before": "e9e4fc7facb1d181a912b4291cd0a9d28551a970ac0ca14c62015e1aabdd31dd",
+      "reviewed_candidate_sha256": "c1c3df7af363f9e98cd92a87d87e0718614a5b97c5eb3c09d3c224279584d603"
+    },
+    {
+      "path": "video-production-assets/references/20-visual-mode-ssot.md",
+      "before": "6159de698cb13d26e4239ca7719344d2031b97260e4cd8ad9ba5afa1d973d23c",
+      "reviewed_candidate_sha256": "4973e5a60af24e5da24201c3bbebdb2ba6bc9421c913306dd1383cd0bf56f53e"
+    },
+    {
+      "path": "video-production-assets/references/21-generated-video-qa-retry.md",
+      "before": "f46709cd02dad5ecb56c159afe47eff2637f8598512e11b9c9c1dec29d3ac003",
+      "reviewed_candidate_sha256": "ef129fc69634bb86ab1e7506128091fd834a49f5c96a066bc57905aca3a45569"
+    },
+    {
+      "path": "video-production-assets/references/performance-and-style-recipes.md",
+      "before": null,
+      "reviewed_candidate_sha256": "8bb52ffa281f4ca7b84392a8f86edc13ea4a76805ea0377313e7c3480167c839"
+    },
+    {
+      "path": "video-production-assets/references/visual-scene-communication.md",
+      "before": "dbe63cf0b7f3093dfec2d221c24b6ae8e7ad1a397cb5d556de17ba1ff3fdb4b0",
+      "reviewed_candidate_sha256": "12c0d73a5b3a8bda225e2cdc78ad42145e1c875c424b546952c025ac8aaf8f81"
+    },
+    {
+      "path": "video-production-assets/references/world-rules-and-information-recipes.md",
+      "before": null,
+      "reviewed_candidate_sha256": "8303c047d9e4cd683075782a0eeb75a70f271d75570701552cca2835e6664468"
+    }
+  ]
+}

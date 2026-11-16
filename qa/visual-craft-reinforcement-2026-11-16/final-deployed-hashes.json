@@ -1,0 +1,28 @@
+{
+  "package": "2.45",
+  "skills": 25,
+  "owned_paths": {
+    "CHANGELOG.md": "4f6308867227ac48d1c79cd4d2fe000a5fc5515eb7181706110ddf7e2161d983",
+    "README.md": "be462725e89643fc70856a3960bc6ec331e7ff27629f4554364ebadede4eab59",
+    "USAGE_GUIDE.md": "646ae0b9cfdf7d052d4284ba0538df702a95f25cee802481731648c2ae69677b",
+    "designing-character-personas/references/expression-voice-bridge.md": "2cbaef081f6371652c101519eee3ae0705a72f2eec75233b276dde7352aef446",
+    "designing-video-character-sheets/references/character-craft.md": "27b055739dc5f84d8c6ce73c3198110b0247a216fa0ca025854ac9a96ab77bfd",
+    "docs/superpowers/plans/2026-11-16-visual-craft-reinforcement.md": "4f27d95c323078a4e428496aa714515b6bda3a9f154dfbca9c7ac6bfb98f2ec6",
+    "docs/superpowers/specs/2026-11-16-visual-craft-reinforcement-design.md": "8500d06508878ef1b0256f16dbb3ccdf46d93a8e8e2c5c50fc51dcdd8ba82822",
+    "manifest.json": "30081bd42bd66fcaf83cfbc5fa366995edc83a54c9c78e6d6f3745ce9605262a",
+    "video-production-assets/references/02-story.md": "7ef280a707adecee2b7d11d231c077686d7e606fe9894b2a88b29f09e4868b32",
+    "video-production-assets/references/03-screenplay.md": "2e1337c714374c3f3044150549a780df4644ae5030a3afe6ae201b3a7ba37734",
+    "video-production-assets/references/04-performance.md": "d4d1a74b2180c72bd0adb7754ac7ff64535d6e92455920979305fe783da434e8",
+    "video-production-assets/references/08-animation.md": "d233841c856873bf31b234a7c7948568c5eb7c752cac921941261bde1ce82239",
+    "video-production-assets/references/12-qa.md": "1901cb0157f573c1435a29b56f22fdbb3b8b2f240bd7843b91d733b24f4baa88",
+    "video-production-assets/references/17-genre-comedy.md": "c1c3df7af363f9e98cd92a87d87e0718614a5b97c5eb3c09d3c224279584d603",
+    "video-production-assets/references/20-visual-mode-ssot.md": "4973e5a60af24e5da24201c3bbebdb2ba6bc9421c913306dd1383cd0bf56f53e",
+    "video-production-assets/references/21-generated-video-qa-retry.md": "ef129fc69634bb86ab1e7506128091fd834a49f5c96a066bc57905aca3a45569",
+    "video-production-assets/references/performance-and-style-recipes.md": "8bb52ffa281f4ca7b84392a8f86edc13ea4a76805ea0377313e7c3480167c839",
+    "video-production-assets/references/visual-scene-communication.md": "12c0d73a5b3a8bda225e2cdc78ad42145e1c875c424b546952c025ac8aaf8f81",
+    "video-production-assets/references/world-rules-and-information-recipes.md": "8303c047d9e4cd683075782a0eeb75a70f271d75570701552cca2835e6664468"
+  },
+  "unchanged_existing_nonowned": 672,
+  "root_HEAD_unchanged": true,
+  "index_empty": true
+}

@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/video-production-assets/references/02-story.md",
+  "relative": "video-production-assets/references/02-story.md",
+  "kind": "edit",
+  "before_sha": "a25a24c91327e6442df2fb8bd7b2ec38e24de0e204e3f1e0afefcf0e60c3a6c8",
+  "after_sha": "7ef280a707adecee2b7d11d231c077686d7e606fe9894b2a88b29f09e4868b32",
+  "edits": [
+    {
+      "oldText": "장면의 선택·정보·관계·감정 변화가 설명 문장에만 머물 때 [공통 시각 연출](visual-scene-communication.md)의 필요한 축을 골라 보이는 행동·단서·후속 상태로 연결한다. 대사 유무는 적용 조건이 아니며 실험/추상 형식에 인과나 갈등을 새로 강제하지 않는다.\n\n",
+      "newText": "장면의 선택·정보·관계·감정 변화가 설명 문장에만 머물 때 [공통 시각 연출](visual-scene-communication.md)의 필요한 축을 골라 보이는 행동·단서·후속 상태로 연결한다. 대사 유무는 적용 조건이 아니며 실험/추상 형식에 인과나 갈등을 새로 강제하지 않는다.\n\n허구 규칙의 조건/예외·인물의 믿음·지식 한계·기억의 시간층을 구체화할 때만 [세계 규칙·정보 상세 예시](world-rules-and-information-recipes.md)의 해당 절을 기존 `세계관 규칙`·`Plot`·미확인 사항에 연결한다. 규칙 정본을 새로 만들거나 미정인 정보를 사실로 메우지 않는다.\n\n"
+    }
+  ]
+}

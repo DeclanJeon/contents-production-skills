@@ -1,0 +1,8 @@
+{
+  "installer_registry": "PASS",
+  "package_version": "2.43",
+  "skill_count": 25,
+  "global_installation": false,
+  "preexisting_continuity_changes": "preserved",
+  "target_repo": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills"
+}

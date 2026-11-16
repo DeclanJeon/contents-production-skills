@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/video-production-assets/references/20-visual-mode-ssot.md",
+  "relative": "video-production-assets/references/20-visual-mode-ssot.md",
+  "kind": "edit",
+  "before_sha": "6159de698cb13d26e4239ca7719344d2031b97260e4cd8ad9ba5afa1d973d23c",
+  "after_sha": "4973e5a60af24e5da24201c3bbebdb2ba6bc9421c913306dd1383cd0bf56f53e",
+  "edits": [
+    {
+      "oldText": "\n여러 샷이 같은 공간을 이어받거나 portal/불가능한 스케일을 사용할 때만 적용한다. 기존 location/world SSOT에 입구·문턱·landmark·방위·가구/소품 관계와 카메라 쪽 이동을 고정하고, 이동 전후 관객이 재정위할 화면 anchor를 지정한다. 컷/POV 변경·가림은 공간 이동이나 reset이 아니다. 유지되는 위치/소품은 [26 상태 인계](26-state-causality-continuity.md)에서 후속 상태로 잇는다.\n",
+      "newText": "\n구체적인 선택 비교가 필요할 때 [이공간 경계 예시](world-rules-and-information-recipes.md#space-boundary)를 사용한다. 승인된 캐릭터 형상 변화는 [가림 전후 동일성 예시](performance-and-style-recipes.md#occluded-transformation)를 참고하되, 연속 morph/물리 시연의 검수와 가림 전후의 연결 판독은 분리한다. 아래 공간/SSOT 절차가 정본이다.\n\n여러 샷이 같은 공간을 이어받거나 portal/불가능한 스케일을 사용할 때만 적용한다. 기존 location/world SSOT에 입구·문턱·landmark·방위·가구/소품 관계와 카메라 쪽 이동을 고정하고, 이동 전후 관객이 재정위할 화면 anchor를 지정한다. 컷/POV 변경·가림은 공간 이동이나 reset이 아니다. 유지되는 위치/소품은 [26 상태 인계](26-state-causality-continuity.md)에서 후속 상태로 잇는다.\n"
+    }
+  ]
+}

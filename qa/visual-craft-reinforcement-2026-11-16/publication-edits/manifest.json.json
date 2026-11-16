@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/manifest.json",
+  "relative": "manifest.json",
+  "kind": "edit",
+  "before_sha": "2fc5f082e511202b95ec3ab058ae20004137ef91980d3af12d6d22a0dabd6958",
+  "after_sha": "30081bd42bd66fcaf83cfbc5fa366995edc83a54c9c78e6d6f3745ce9605262a",
+  "edits": [
+    {
+      "oldText": "  \"name\": \"contents-production-skills\",\n  \"version\": \"2.44\",\n  \"entry_skill\": \"creative-production\",\n",
+      "newText": "  \"name\": \"contents-production-skills\",\n  \"version\": \"2.45\",\n  \"entry_skill\": \"creative-production\",\n"
+    }
+  ]
+}

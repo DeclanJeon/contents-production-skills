@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/video-production-assets/references/03-screenplay.md",
+  "relative": "video-production-assets/references/03-screenplay.md",
+  "kind": "edit",
+  "before_sha": "64158431b16cb54bdc842a3c455d5a0c2f4154266c5253a5f31ae5edac8d621e",
+  "after_sha": "2e1337c714374c3f3044150549a780df4644ae5030a3afe6ae201b3a7ba37734",
+  "edits": [
+    {
+      "oldText": "대사가 있는 각본도 [공통 시각 연출](visual-scene-communication.md)로 화면·언어가 각각 맡는 정보를 구별한다. 현재 행동·관계·감정의 보이는 근거를 확인하되 승인된 대사를 임의 삭제하거나 역사·정확한 명제·반어 등 소리가 맡는 기능을 전부 그림으로 대체하지 않는다.\n\n",
+      "newText": "대사가 있는 각본도 [공통 시각 연출](visual-scene-communication.md)로 화면·언어가 각각 맡는 정보를 구별한다. 현재 행동·관계·감정의 보이는 근거를 확인하되 승인된 대사를 임의 삭제하거나 역사·정확한 명제·반어 등 소리가 맡는 기능을 전부 그림으로 대체하지 않는다.\n\n보고/독백과 화면 증거가 다른 씬은 [발화·믿음·작품 사실의 신뢰 층](world-rules-and-information-recipes.md#knowledge-layers)을 기존 대사/서브텍스트·공개 순서 안에서 적용한다. 발화의 진위·화자의 믿음·관객이 본 범위를 구별하며 승인된 원문은 기존 보존 계약을 따른다.\n\n"
+    }
+  ]
+}

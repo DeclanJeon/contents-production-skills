@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/video-production-assets/references/08-animation.md",
+  "relative": "video-production-assets/references/08-animation.md",
+  "kind": "edit",
+  "before_sha": "d38b5c7081f3d45b34d3980212ec0221935cc2fc3674659740c688f34a800b74",
+  "after_sha": "d233841c856873bf31b234a7c7948568c5eb7c752cac921941261bde1ce82239",
+  "edits": [
+    {
+      "oldText": "시각적 비교 기준, 자극 이후 힘의 변화, 여러 몸/소품의 행동 소속과 접촉이 중요하면 [공통 시각 연출](visual-scene-communication.md)의 액션·연기 절을 적용한다. 기존 포즈·접촉·스페이싱 칸을 쓰며 정지 그림의 잔상/동세를 실제 속도·프레임 수로 측정했다고 하지 않는다.\n\n",
+      "newText": "시각적 비교 기준, 자극 이후 힘의 변화, 여러 몸/소품의 행동 소속과 접촉이 중요하면 [공통 시각 연출](visual-scene-communication.md)의 액션·연기 절을 적용한다. 기존 포즈·접촉·스페이싱 칸을 쓰며 정지 그림의 잔상/동세를 실제 속도·프레임 수로 측정했다고 하지 않는다.\n\n몸 구조/부상에 맞는 수행이나 주의 전환 뒤의 지지·물체 결과가 핵심이면 [비인간 몸](performance-and-style-recipes.md#nonhuman-performance)·[행동 중단](performance-and-style-recipes.md#interrupted-action)의 선택 예시를 기존 포즈/접촉 칸에 쓴다. 가림으로 전이를 생략하는 안과 실제 연속 변형 시연이 필요한 안은 구분한다.\n\n"
+    }
+  ]
+}

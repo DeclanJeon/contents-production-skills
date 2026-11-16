@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-character-personas/references/expression-voice-bridge.md",
+  "relative": "designing-character-personas/references/expression-voice-bridge.md",
+  "kind": "edit",
+  "before_sha": "af1f2f88557faf0a5832d7cde2738459e6faf3c524ae6722c9d1990ff0d6457d",
+  "after_sha": "2cbaef081f6371652c101519eee3ae0705a72f2eec75233b276dde7352aef446",
+  "edits": [
+    {
+      "oldText": "- Every visual cue must be filmable — a posture, a handling of an object, an eye-line choice — not an internal state label.\n\n",
+      "newText": "- Every visual cue must be filmable — a posture, a handling of an object, an eye-line choice — not an internal state label.\n\nFor nonhuman/faceless performance, interrupted physical tasks or interdependent team actions, select the relevant [performance examples](../../video-production-assets/references/performance-and-style-recipes.md). Carry the feasible body/response and preserved constraints into the existing Behavior, Expression and Keep columns; keep vocal N/A scoped to non-speaking roles. This is not a new persona/appearance record.\n\n"
+    }
+  ]
+}

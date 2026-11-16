@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/CHANGELOG.md",
+  "relative": "CHANGELOG.md",
+  "kind": "edit",
+  "before_sha": "f3f4ac3da9a9f077849089d00afe66927b88e1db5484e450c686e967fd5809d1",
+  "after_sha": "4f6308867227ac48d1c79cd4d2fe000a5fc5515eb7181706110ddf7e2161d983",
+  "edits": [
+    {
+      "oldText": "\n## Unreleased\n\n## 2.44 2026-11-16\n",
+      "newText": "\n## Unreleased\n\n## 2.45 2026-11-16\n\n- Added two conditional, independently authored visual-craft example references: `performance-and-style-recipes.md` (nonhuman morphology, local comic style, interrupted tasks and interdependent roles) and `world-rules-and-information-recipes.md` (rule comparisons, space boundaries, effect causality, belief/fact separation, knowledge limits and time-layer return). Existing owners, templates, story constraints and optional applicability remain authoritative; no new skill or project schema.\n- Connected only relevant story/screenplay/acting/animation/QA, genre/style/effect and character-expression references. Existing detailed20/21/26 procedures are reused, not replaced; protected pending continuity/template/board-contract changes remain intact.\n- Bounded source recheck opened21original files within a24-file ceiling. Adopted memory entry/return and differentiated cooperative tasks; form-change evidence supports occlusion-before/after identity only, not a verified continuous morph or anatomical transition. This is partial-source-informed text craft, not whole-corpus research, actual generated-media/playback verification or audience-effect evidence.\n\n## 2.44 2026-11-16\n"
+    }
+  ]
+}

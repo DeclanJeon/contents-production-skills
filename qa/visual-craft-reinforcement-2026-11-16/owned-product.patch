@@ -1,0 +1,410 @@
+--- before/CHANGELOG.md
++++ after/CHANGELOG.md
+@@ -9,6 +9,12 @@
+ 
+ 
+ ## Unreleased
++
++## 2.45 2026-11-16
++
++- Added two conditional, independently authored visual-craft example references: `performance-and-style-recipes.md` (nonhuman morphology, local comic style, interrupted tasks and interdependent roles) and `world-rules-and-information-recipes.md` (rule comparisons, space boundaries, effect causality, belief/fact separation, knowledge limits and time-layer return). Existing owners, templates, story constraints and optional applicability remain authoritative; no new skill or project schema.
++- Connected only relevant story/screenplay/acting/animation/QA, genre/style/effect and character-expression references. Existing detailed20/21/26 procedures are reused, not replaced; protected pending continuity/template/board-contract changes remain intact.
++- Bounded source recheck opened21original files within a24-file ceiling. Adopted memory entry/return and differentiated cooperative tasks; form-change evidence supports occlusion-before/after identity only, not a verified continuous morph or anatomical transition. This is partial-source-informed text craft, not whole-corpus research, actual generated-media/playback verification or audience-effect evidence.
+ 
+ ## 2.44 2026-11-16
+ 
+--- before/README.md
++++ after/README.md
+@@ -36,7 +36,7 @@
+ | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/Media_Studio 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
+ | [silent-satire-animatic](silent-satire-animatic/SKILL.md) | 무성(대사·내레이션·자막 없음) 풍자 애니메틱의 제작 계약: 소재 선별, 4막 풍자 서사, 씬/컷 변주, 비트 예산, 썸네일 프레임 선택 | 명시적 무성 풍자 전용 로컬 파이프라인. 85–120초·notice→land는 이 레시피의 제약이지 일반 무성 서사의 법칙이 아니다. 실제 렌더·게시·LLM 프롬프트 생성은 제외한다. |
+ 
+-The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills. [공통 시각 연출·장면 전달](video-production-assets/references/visual-scene-communication.md)은 대사 있는 작품과 무성 작품 모두의 스틸·앵글·구도·인물/액션·분위기를 기존 전문 오너에 연결하며, 무성 스킬의 선행 호출을 요구하지 않는다.
++The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills. [공통 시각 연출·장면 전달](video-production-assets/references/visual-scene-communication.md)은 대사 있는 작품과 무성 작품 모두의 스틸·앵글·구도·인물/액션·분위기를 기존 전문 오너에 연결하며, 무성 스킬의 선행 호출을 요구하지 않는다. 몸 구조·국소 표현 변형·행동 중단·협업에는 [연기·표현 상세 예시](video-production-assets/references/performance-and-style-recipes.md), 허구 규칙·효과·인물 지식·시간층에는 [세계 규칙·정보 상세 예시](video-production-assets/references/world-rules-and-information-recipes.md)의 해당 절만 기존 오너 안에서 선택한다.
+ 
+ Rofan 관찰 색인에는 저장된 관찰 ID 57개와 보조 cue 4개가 선택적 provenance/evidence로만 들어 있다. 저장 관찰이나 provenance를 사용자가 명시적으로 요청한 경우에만 참고하며, 일반 brief나 cue 일치가 조회를 유발하지 않는다. 이 색인은 제작 레시피·정책·QA 계약이 아니며 기존 범용 craft 절차가 정본이다. 자세한 내용은 [설계](docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md)와 [테스트 계획](docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md)을 참조한다. 과거 T18 casebank microtest는 10/15 full pass, 5 partial, guard failure 0으로 all-pass가 아니었다([등급](qa/rofan-craft-t18-microtest-grade.json)). 실제 미디어 검사·생성 QA·자연스러움·분산 검증은 수행되지 않았다.
+ Exhaustive all-source/all-shot 또는 cross-source craft extraction에는 [archive craft crosswalk](video-production-assets/assets/archive-craft-crosswalk-template.md)이 조건부 필수다; 일반·단일 레퍼런스는 가볍게 유지한다.
+--- before/USAGE_GUIDE.md
++++ after/USAGE_GUIDE.md
+@@ -19,6 +19,18 @@
+ 
+ “대사는 유지하고 두 인물의 거리·시선·소품 상태로 관계가 드러나게”, “같은 구도에서 회피 전후를 비교하게”, “조용한 원경의 빛·크기·여백으로 친밀함과 불안을 함께”, “생략한 행동이 남은 흔적으로 읽히게” 같은 요청은 [공통 시각 연출](video-production-assets/references/visual-scene-communication.md)을 현재 각본·연기·룩·샷·조명·애니메이션·편집·QA 오너가 사용한다. 모든 작품을 무성 이야기로 다시 쓰지 않는다. 공개/유보할 것과 실제 보이는 단서를 대조하며, 의도적 모호함과 언어만 맡는 정보도 유지한다. 텍스트 설계·실제 스틸·시간 재생의 검사 상태는 각각 구분한다.
+ 
++상세 선택은 필요한 상황에만 한다:
++
++| 요청 예 | 사용할 참조·수신처 |
++|---|---|
++| “이 비인간의 고정된 몸으로 목표와 중단 뒤 결과가 읽히게” | [연기·표현 예시](video-production-assets/references/performance-and-style-recipes.md) → 기존 캐릭터/04/08 |
++| “잠깐 코믹하게 단순화해도 동일 인물·손상·소품 상태는 유지” | 같은 참조 →17 톤·20 룩 예외·기존05/06/12 |
++| “능력의 조건, 관찰한 차이, 인물이 믿는 것을 구별” | [규칙·정보 예시](video-production-assets/references/world-rules-and-information-recipes.md) →02/03/06 |
++| “포털 양쪽·부분 통과·효과 수신과 결과를 연결” | 같은 참조의 필요한 예시 → 기존20/21/26/11 |
++| “기억에서 현재로 돌아와도 현재의 손상·소유는 이어지게” | 같은 참조의 시간층 예시 →02/09/26 |
++
++새 사례는 독립 창작된 설계 제안이다. 가림 전후의 형태 변화 연결은 연속 morph/실제 물리 시연의 증거가 아니며, 협업의 역할 분담도 전체 목표 성공과 구별한다. 실제 이미지/재생이 없으면 해당 결과는 미검증이다. 정적 교육 화면 등 비적용 작업에 새 인물·사건·마법·필수 필드를 만들지 않는다.
++
+ ## 원고 크래프트 후보의 요청 범위와 검증 상태
+ 
+ 현재 [원고 크래프트 참조](video-production-assets/references/writing-craft.md)는 **행동 게이트 미통과·미출시 후보**다. 아래는 의도한 요청/범위 예시이지 일관된 수행을 보장하는 사용법이 아니다. 실제 [교차 평가 결과](qa/matt-writing-integration-review.md)를 먼저 확인한다. 전역 설치본 반영·릴리스는 하지 않았다.
+--- before/designing-character-personas/references/expression-voice-bridge.md
++++ after/designing-character-personas/references/expression-voice-bridge.md
+@@ -14,6 +14,8 @@
+ 
+ - Derive **nothing** about eyes, jaw, body, skin, gender, nationality, pitch, or timbre from a type label. Persona expresses through expression, gesture, prop handling, and acting. Locked appearance stays locked; new appearance proposals need their own grounds and delegation.
+ - Every visual cue must be filmable — a posture, a handling of an object, an eye-line choice — not an internal state label.
++
++For nonhuman/faceless performance, interrupted physical tasks or interdependent team actions, select the relevant [performance examples](../../video-production-assets/references/performance-and-style-recipes.md). Carry the feasible body/response and preserved constraints into the existing Behavior, Expression and Keep columns; keep vocal N/A scoped to non-speaking roles. This is not a new persona/appearance record.
+ 
+ ## Voice Identity (fixed layer)
+ 
+--- before/designing-video-character-sheets/references/character-craft.md
++++ after/designing-video-character-sheets/references/character-craft.md
+@@ -18,6 +18,8 @@
+ The profile follows the mode. Fiction may use want/obstacle/choice/consequence for clarity but never forces redemption or a positive arc. Brand and explainer work keeps the customer as hero and the service as guide when framed that way — a guide role does not authorize a mascot or personification, and a service gets no personality, features, guarantees, or emotional victory without explicit support. Unspecified service form stays abstract or undepicted: a "subscription" label establishes no cadence, delivery method, boxes, packets, labels, or instruction cards. Documentary work never fabricates biography, and a brief needing no character gets none.
+ 
+ ## Making traits filmable
++
++For body-specific nonhuman cues or an explicitly permitted form change, use the applicable [performance and identity examples](../../video-production-assets/references/performance-and-style-recipes.md). Keep fixed morphology, allowed state changes and unresolved transition evidence in this sheet's existing anchor/variation content. A baseline mouth shape is not an emotion, and an approved transformation is not permission to drift other attributes or create a competing SSOT.
+ 
+ Every visual cue ties to a role, action, or stated trait. Each supplied key trait or contradiction earns at least one filmable behavior or pose, carried into the image prompt's expression/pose row where useful — central traits never stay as bare labels. Draw only useful signals from:
+ 
+--- before/docs/superpowers/plans/2026-11-16-visual-craft-reinforcement.md
++++ after/docs/superpowers/plans/2026-11-16-visual-craft-reinforcement.md
+@@ -43,44 +43,44 @@
+ - QA root: `qa/visual-craft-reinforcement-2026-11-16/`. 출처표·실제 답안·판정·로그·배포 영수증만 저장하며 제품 지침을 QA에 숨기지 않는다.
+ - Existing tests: `scripts/test_video_pack_boundary.py`, `scripts/test_install_package.py`, `scripts/test_sync_installed.py`. 단순 문장 매칭을 창작 품질 시험으로 새로 만들지 않는다.
+ 
+-### Task1: 승인·작업 격리와 변경 보호
++### Task 1: 승인·작업 격리와 변경 보호
+ 
+ **Consumes:** 승인된 spec/plan, 현재 사용자 정본과 네 설치 루트.
+ **Produces:** QA `source-snapshot.json`(경로/해시/버전/상태의 작업 증거), `workspace.md`(격리 경로/복구·전송 조건). 제작 스키마가 아니다.
+ 
+-- [ ] 설계 승인 여부를 확인한다. 승인 전이면 문서만 수정하고 제품 작업을 시작하지 않는다.
+-- [ ] `using-git-worktrees`를 읽고 현재 `git status --short`,manifest/모든 변경 대상 파일의SHA-256, 설치 링크 목표를 기록한다.
+-- [ ] 기존 경로를 재사용/삭제하지 않는 고유 격리 작업공간을 만든다. native worktree를 쓰면 현HEAD만으로는 현재 미커밋2.44를 얻지 못함에 주의한다. 현재 tracked＋nonignored untracked 제품 파일을 읽기 전용 원본에서 overlay하고 모든 계획 대상의 원본/격리본 해시가 같은지 확인한다. `.git`·거대 연구 원본·파생support를 덮거나 외부 symlink를 따라가지 않는다. 지원되는 격리를 만들 수 없으면 중단·보고한다.
+-- [ ] 격리본에서 `python3 -B scripts/check_versions.py`와 기존 설치/file-link 시험을 실행해 실제 초기 상태를 기록한다. 기존 실패는 새 보강 탓으로 취급하지 않는다.
+-- [ ] 아래 Task2–4의 모든 제품 편집·baseline/loaded 적용은 격리본에서 수행한다. 실제 사용자 정본/설치 루트는 Task5까지 유지한다.
++- [x] 설계 승인 여부를 확인한다. 승인 전이면 문서만 수정하고 제품 작업을 시작하지 않는다.
++- [x] `using-git-worktrees`를 읽고 현재 `git status --short`,manifest/모든 변경 대상 파일의SHA-256, 설치 링크 목표를 기록한다.
++- [x] 기존 경로를 재사용/삭제하지 않는 고유 격리 작업공간을 만든다. native worktree를 쓰면 현HEAD만으로는 현재 미커밋2.44를 얻지 못함에 주의한다. 현재 tracked＋nonignored untracked 제품 파일을 읽기 전용 원본에서 overlay하고 모든 계획 대상의 원본/격리본 해시가 같은지 확인한다. `.git`·거대 연구 원본·파생support를 덮거나 외부 symlink를 따라가지 않는다. 지원되는 격리를 만들 수 없으면 중단·보고한다.
++- [x] 격리본에서 `python3 -B scripts/check_versions.py`와 기존 설치/file-link 시험을 실행해 실제 초기 상태를 기록한다. 기존 실패는 새 보강 탓으로 취급하지 않는다.
++- [x] 아래 Task2–4의 모든 제품 편집·baseline/loaded 적용은 격리본에서 수행한다. 실제 사용자 정본/설치 루트는 Task5까지 유지한다.
+ 
+-### Task2: 출처·실제 참조 갭·편집 전 적용 기준선
++### Task 2: 출처·실제 참조 갭·편집 전 적용 기준선
+ 
+ **Consumes:** Task1의 동일 내용 격리본, spec의R1–R8/V1–V3, 이전 QA5개 근거 문서.
+ **Produces:** `source-crosswalk.md`, `cases.md`, `baseline/a.md`~`e.md`, `baseline-review.md`.
+ 
+-- [ ] 앞21개를 실제 현재 파일/heading/기존 필드에 연결하고 `충분/접근 개선/사례 필요/보류`를 기록한다. 앞서 통과한 내용을 누락/실패로 재분류하지 않는다.
+-- [ ] R1–R8마다 현재 참조의 실제 선택법/예시/검수 질문을 찾는다. 조회한 경로·찾은 내용/부족한 내용을 기록한다. 참조 부재와 실제 창작 출력 실패는 다른 열/서술로 구분한다.
+-- [ ] V1–V3의 후보 위치를 기존 기록/메타데이터로 좁힌 뒤 합계24원본 이내의 연속 구간을 직접 연다. 정확 경로/영역·관찰·한계·독립 읽기 여부를 남긴다. 제목/워터마크/패널 파일 경계를 사건으로 세지 않는다.
+-- [ ] 각 V를 `evidence-backed/추가 맥락 필요/deferred-source-evidence`로 결정한다. 전/중/후가 없으면 변신/시간층/분업을 확정하지 않는다. 한도에서 못 찾으면 그대로 보류한다.
+-- [ ] `cases.md`에 spec A–E를 원작과 다른 새 브리프로 고정한다. A는 얼굴/별도 팔 없는 승인 형태와 지지 과제, B는 유지할 상처/물체·허용 변형, C는 명시된 허구 규칙/고정 대사/추측, D는2D전용 경계/효과 조건, E는 승인 내레이션·도표·단일 정적 화면을 명시한다. 출력은 요청한 러프/단일 모듈 범위로 제한한다.
+-- [ ] fresh context 한 호출당 한 사례로 편집 전A–E 답안을 저장한다. 현재 오너/관련 참조만 읽게 하며 새 설계·평가표·원본 QA를 답안에 미리 주입하지 않는다. 병렬 실행은 읽기 전용, 동시 최대2개로 제한한다.
+-- [ ] 실제5개 본문을 읽고 구체적 선택·누락·실패/이미 좋은 부분을 기록한다. 실패가 없으면 새 금지/강제 문구를 만들지 않고 실제 참조 갭/선택적 예시 보강만 한다. 참조/예시 조회 실패를 행동 RED로 보고하지 않는다.
++- [x] 앞21개를 실제 현재 파일/heading/기존 필드에 연결하고 `충분/접근 개선/사례 필요/보류`를 기록한다. 앞서 통과한 내용을 누락/실패로 재분류하지 않는다.
++- [x] R1–R8마다 현재 참조의 실제 선택법/예시/검수 질문을 찾는다. 조회한 경로·찾은 내용/부족한 내용을 기록한다. 참조 부재와 실제 창작 출력 실패는 다른 열/서술로 구분한다.
++- [x] V1–V3의 후보 위치를 기존 기록/메타데이터로 좁힌 뒤 합계24원본 이내의 연속 구간을 직접 연다. 정확 경로/영역·관찰·한계·독립 읽기 여부를 남긴다. 제목/워터마크/패널 파일 경계를 사건으로 세지 않는다.
++- [x] 각 V를 `evidence-backed/추가 맥락 필요/deferred-source-evidence`로 결정한다. 전/중/후가 없으면 변신/시간층/분업을 확정하지 않는다. 한도에서 못 찾으면 그대로 보류한다.
++- [x] `cases.md`에 spec A–E를 원작과 다른 새 브리프로 고정한다. A는 얼굴/별도 팔 없는 승인 형태와 지지 과제, B는 유지할 상처/물체·허용 변형, C는 명시된 허구 규칙/고정 대사/추측, D는2D전용 경계/효과 조건, E는 승인 내레이션·도표·단일 정적 화면을 명시한다. 출력은 요청한 러프/단일 모듈 범위로 제한한다.
++- [x] fresh context 한 호출당 한 사례로 편집 전A–E 답안을 저장한다. 현재 오너/관련 참조만 읽게 하며 새 설계·평가표·원본 QA를 답안에 미리 주입하지 않는다. 병렬 실행은 읽기 전용, 동시 최대2개로 제한한다.
++- [x] 실제5개 본문을 읽고 구체적 선택·누락·실패/이미 좋은 부분을 기록한다. 실패가 없으면 새 금지/강제 문구를 만들지 않고 실제 참조 갭/선택적 예시 보강만 한다. 참조/예시 조회 실패를 행동 RED로 보고하지 않는다.
+ 
+-### Task3: 조건부 레시피와 기존 수신처 구현
++### Task 3: 조건부 레시피와 기존 수신처 구현
+ 
+ **Consumes:** Task2 실제 갭/원본 상태/고정 사례. **Produces:** 새 참조 두 개와 필요한 최소 오너 포인터, `change-map.md`.
+ 
+-- [ ] 편집 전 각 변경을 `현재 부재한 reference/technique 예시 / 접근성 / 실제 행동 결함`으로 명명하고 대응 증거를 고른다. 기계적 검사/코드를 정말 변경할 때는 해당 테스트의 실제 RED부터 확인한다. 새 강제 행동을 제안하면 spec의 별도 microtest 조건을 충족한 뒤에만 채택한다.
+-- [ ] R1/R2/R8의 상세 참조를 작성한다. 각 레시피는 조건·독립 창작 전후 예시·대안/득실·기존 수신 필드·오독과 최소 수정·미검증 범위를 함께 둔다. R1은 몸 구조/부상 제한, R2는 정체성/피해 및 필요한 복귀, R8은 기존 지지/과제 상태가 핵심이다.
+-- [ ] R3–R7의 상세 참조를 같은 구조로 작성한다. 세계 규칙/관찰/믿음을 구별하고, 포털20·효과21·유지26 절차는 복제하지 않고 정확 heading에 연결한다. 원작의 고유 규칙/인물/구도를 새 예시에 복사하지 않는다.
+-- [ ] 증거가 확보된V1–V3만 해당 상세 참조의 사례로 통합한다. 원작에서 확인하지 못했지만 독립적 일반 제안으로 유용한 내용은 ‘source-derived’로 승격하지 말고 이번 채택에서 보류한다.
+-- [ ] 공통 가이드와 실제 필요한 오너 수신처에 상황별 포인터를 추가한다. 기존 동등 포인터가 있으면 유지하며 상위 조정자에 새 기본 연구/제작 단계를 만들지 않는다. 표정/룩/행동 예외는 기존 SSOT/필드로 받는다.
+-- [ ] 템플릿을 실제 읽고 필드명을 그대로 인용했는지 확인한다. 가짜 신규 field/별도 원장/음성 없는 역할의 보이스 요구를 제거한다. 변경 이유와 정확한 수신 경로를 `change-map.md`에 남긴다.
+-- [ ] 같은 A–E를 fresh context로 실행해 `loaded/a.md`~`e.md`에 실제 답안을 저장한다. 단일 Markdown bound output에는 구조화 JSON만 덮어쓰는 outputSchema를 결합하지 않는다.
+-- [ ] 실제10개 본문을 전부 읽어 사례별 적합성/차이/수정 필요를 `application-review.md`에 기록한다. 기존과 신규가 모두 좋으면 그대로 보고하고 우월성/인과적 개선을 주장하지 않는다. 각 적용 가능 R은 구체적인 새 화면/행동 선택이 있고 E는 비적용 범위를 보존해야 한다.
++- [x] 편집 전 각 변경을 `현재 부재한 reference/technique 예시 / 접근성 / 실제 행동 결함`으로 명명하고 대응 증거를 고른다. 기계적 검사/코드를 정말 변경할 때는 해당 테스트의 실제 RED부터 확인한다. 새 강제 행동을 제안하면 spec의 별도 microtest 조건을 충족한 뒤에만 채택한다.
++- [x] R1/R2/R8의 상세 참조를 작성한다. 각 레시피는 조건·독립 창작 전후 예시·대안/득실·기존 수신 필드·오독과 최소 수정·미검증 범위를 함께 둔다. R1은 몸 구조/부상 제한, R2는 정체성/피해 및 필요한 복귀, R8은 기존 지지/과제 상태가 핵심이다.
++- [x] R3–R7의 상세 참조를 같은 구조로 작성한다. 세계 규칙/관찰/믿음을 구별하고, 포털20·효과21·유지26 절차는 복제하지 않고 정확 heading에 연결한다. 원작의 고유 규칙/인물/구도를 새 예시에 복사하지 않는다.
++- [x] 증거가 확보된V1–V3만 해당 상세 참조의 사례로 통합한다. 원작에서 확인하지 못했지만 독립적 일반 제안으로 유용한 내용은 ‘source-derived’로 승격하지 말고 이번 채택에서 보류한다.
++- [x] 공통 가이드와 실제 필요한 오너 수신처에 상황별 포인터를 추가한다. 기존 동등 포인터가 있으면 유지하며 상위 조정자에 새 기본 연구/제작 단계를 만들지 않는다. 표정/룩/행동 예외는 기존 SSOT/필드로 받는다.
++- [x] 템플릿을 실제 읽고 필드명을 그대로 인용했는지 확인한다. 가짜 신규 field/별도 원장/음성 없는 역할의 보이스 요구를 제거한다. 변경 이유와 정확한 수신 경로를 `change-map.md`에 남긴다.
++- [x] 같은 A–E를 fresh context로 실행해 `loaded/a.md`~`e.md`에 실제 답안을 저장한다. 단일 Markdown bound output에는 구조화 JSON만 덮어쓰는 outputSchema를 결합하지 않는다.
++- [x] 실제10개 본문을 전부 읽어 사례별 적합성/차이/수정 필요를 `application-review.md`에 기록한다. 기존과 신규가 모두 좋으면 그대로 보고하고 우월성/인과적 개선을 주장하지 않는다. 각 적용 가능 R은 구체적인 새 화면/행동 선택이 있고 E는 비적용 범위를 보존해야 한다.
+ 
+-### Task4: 패키징·회귀·독립 최종 검수
++### Task 4: 패키징·회귀·독립 최종 검수
+ 
+ **Consumes:** Task3 구현·실제 답안·V상태. **Produces:** 로그·단일 독립 검수 보고와 수정/재검수 증거.
+ 
+@@ -92,7 +92,7 @@
+ - [ ] fresh 검토자1명에게 spec/plan·변경 파일·실제10개 답안·V결정·소스/해시/로그를 제공한다. 요구/품질/중복/범위/관객 효과 주장/실제 필드·설치 경로를 검수하고 구체 Important/Critical을 보고하게 한다. 원본을 직접 보지 않았다면 그 한계를 명시한다.
+ - [ ] 실제 중요 결함만 국소 수정하고 영향받는 사례·검사를 재실행한다. 독립 scoped 재검수에서 미해결 Important/Critical0을 확인한다. 끝없는 새 연구/패널·지표 추가를 검수 조건으로 수용하지 않는다.
+ 
+-### Task5: 사용자 정본과 에이전트 설치 경로 반영
++### Task 5: 사용자 정본과 에이전트 설치 경로 반영
+ 
+ **Consumes:** 승인된 Task4 결과, Task1 원본 해시. **Produces:** `deployment-receipt.md`, 갱신된 사용자 정본/파생support와 일치하는 설치 링크.
+ 
+--- before/docs/superpowers/specs/2026-11-16-visual-craft-reinforcement-design.md
++++ after/docs/superpowers/specs/2026-11-16-visual-craft-reinforcement-design.md
+@@ -36,7 +36,7 @@
+ | 공통 참조 한 파일에 전부 추가 | 한곳에서 읽음 | 모든 작업의 읽기 비용 증가, 분기별 예시가 묻힘 | 채택하지 않음 |
+ | 기존 오너＋두 개의 조건부 상세 참조 | 정본 역할 유지, 관련 사례만 읽음 | 포인터와 실제 필드 인계를 검증해야 함 | **권고 설계** |
+ 
+-새 참조 경로는 `video-production-assets/references/performance-and-style-recipes.md`와 `world-rules-and-information-recipes.md`다. 아래는 설계자의 제안이며 사용자 선택/승인으로 표기하지 않는다.
++새 참조 경로는 `video-production-assets/references/performance-and-style-recipes.md`와 `world-rules-and-information-recipes.md`다. 설계자가 제안한 이 접근은 2026-11-16 사용자의 문서 승인으로 실행 범위에 포함됐다.
+ 
+ ## 4. 보강 범위
+ 
+@@ -122,6 +122,6 @@
+ 
+ 권고 실행 방식은 **부모가 순차 직접 구현＋필요한 제한 원본 확인＋fresh 최종 검토자1명**이다. 독립 문서/증거 검토는 허용된 도구로만 수행하고 동시 작업은 읽기 전용에 한정한다. 복잡도만으로 다수 워커를 늘리지 않는다.
+ 
+-사용자가 설계와 작업지시서 범위를 승인한 뒤 구현한다. 작업지시서는 `docs/superpowers/plans/2026-11-16-visual-craft-reinforcement.md`의 초안이다. 실행 전 정확한 source snapshot/보존 해시를 남기고 격리 작업한다. 최종 반영은 변경 파일만 원본 기준 해시가 여전히 일치할 때 수행한다. 실행 중 원본이 바뀌면 중단해 해당 파일의 병합 결정을 받는다.
++사용자가 설계와 작업지시서 범위를 승인해 구현을 시작했다. 실행본 작업지시서는 `docs/superpowers/plans/2026-11-16-visual-craft-reinforcement.md`다. 실행 전 정확한 source snapshot/보존 해시를 남기고 격리 작업한다. 최종 반영은 변경 파일만 원본 기준 해시가 여전히 일치할 때 수행한다. 실행 중 원본이 바뀌면 중단해 해당 파일의 병합 결정을 받는다.
+ 
+ 최종 예정 버전은2.45/25skills. 실행 전 기준선2.44가 바뀌었으면 현재 버전을 확인해 충돌을 해결한다. 완료 후 기존 sync 스크립트의 dry-run으로 네 루트의 변위/백업 필요를 확인하고 승인 범위의 링크만 동기화한다. 기존 실체 폴더나 예상 밖 링크가 발견되면 자동 덮어쓰지 않는다. 실제 파일 반영과 Pi `/reload`/다른 에이전트 재스캔은 구별해 보고한다.
+--- before/manifest.json
++++ after/manifest.json
+@@ -1,6 +1,6 @@
+ {
+   "name": "contents-production-skills",
+-  "version": "2.44",
++  "version": "2.45",
+   "entry_skill": "creative-production",
+   "support_skill": "video-production-assets",
+   "skills": [
+--- before/video-production-assets/references/02-story.md
++++ after/video-production-assets/references/02-story.md
+@@ -8,6 +8,8 @@
+ ## 공통 시각 연출 — 필요한 표현만
+ 
+ 장면의 선택·정보·관계·감정 변화가 설명 문장에만 머물 때 [공통 시각 연출](visual-scene-communication.md)의 필요한 축을 골라 보이는 행동·단서·후속 상태로 연결한다. 대사 유무는 적용 조건이 아니며 실험/추상 형식에 인과나 갈등을 새로 강제하지 않는다.
++
++허구 규칙의 조건/예외·인물의 믿음·지식 한계·기억의 시간층을 구체화할 때만 [세계 규칙·정보 상세 예시](world-rules-and-information-recipes.md)의 해당 절을 기존 `세계관 규칙`·`Plot`·미확인 사항에 연결한다. 규칙 정본을 새로 만들거나 미정인 정보를 사실로 메우지 않는다.
+ 
+ ## 실행 절차
+ 1. 주인공의 외적 목표·내적 필요·장애·실패 비용을 분리한다. 대립자는 단순 악역이 아니라 목표를 저지하는 힘으로 설계한다.
+--- before/video-production-assets/references/03-screenplay.md
++++ after/video-production-assets/references/03-screenplay.md
+@@ -19,6 +19,8 @@
+ ## 공통 시각 연출 — 필요한 표현만
+ 
+ 대사가 있는 각본도 [공통 시각 연출](visual-scene-communication.md)로 화면·언어가 각각 맡는 정보를 구별한다. 현재 행동·관계·감정의 보이는 근거를 확인하되 승인된 대사를 임의 삭제하거나 역사·정확한 명제·반어 등 소리가 맡는 기능을 전부 그림으로 대체하지 않는다.
++
++보고/독백과 화면 증거가 다른 씬은 [발화·믿음·작품 사실의 신뢰 층](world-rules-and-information-recipes.md#knowledge-layers)을 기존 대사/서브텍스트·공개 순서 안에서 적용한다. 발화의 진위·화자의 믿음·관객이 본 범위를 구별하며 승인된 원문은 기존 보존 계약을 따른다.
+ 
+ ## 실행 절차
+ 1. 장면에 장소·시간·인물·목적을 붙이고 촬영하거나 애니메이션으로 표현할 수 있는 행동으로 쓴다.
+--- before/video-production-assets/references/04-performance.md
++++ after/video-production-assets/references/04-performance.md
+@@ -8,6 +8,8 @@
+ ## 공통 시각 연출 — 필요한 표현만
+ 
+ 자극 뒤의 힘 조절·접촉·시선·상대 반응, 상충하는 감정과 비언어 인물 묘사를 설계할 때 [공통 시각 연출](visual-scene-communication.md)의 연기·관계 레시피만 선택한다. 기존 `듣기 자극`·`전술 전환`·`물리 과제`에 연결하고 무성 전용 스킬로 우회하거나 내면을 표정만으로 확정하지 않는다.
++
++승인된 비인간 몸으로 행동을 골라야 하거나 진행 과제가 반응 때문에 중단되면 [연기·표현 상세 예시](performance-and-style-recipes.md)의 해당 절을 기존 물리 과제/전술 전환에 연결한다. 몸 구조와 기준 외형은 캐릭터 오너에서 상속한다.
+ 
+ ## 실행 절차
+ 1. 배우에게 표정 결과를 요구하기 전에 상대에게 무엇을 얻으려는지 목표를 정한다.
+--- before/video-production-assets/references/08-animation.md
++++ after/video-production-assets/references/08-animation.md
+@@ -8,6 +8,8 @@
+ ## 공통 시각 연출 — 필요한 표현만
+ 
+ 시각적 비교 기준, 자극 이후 힘의 변화, 여러 몸/소품의 행동 소속과 접촉이 중요하면 [공통 시각 연출](visual-scene-communication.md)의 액션·연기 절을 적용한다. 기존 포즈·접촉·스페이싱 칸을 쓰며 정지 그림의 잔상/동세를 실제 속도·프레임 수로 측정했다고 하지 않는다.
++
++몸 구조/부상에 맞는 수행이나 주의 전환 뒤의 지지·물체 결과가 핵심이면 [비인간 몸](performance-and-style-recipes.md#nonhuman-performance)·[행동 중단](performance-and-style-recipes.md#interrupted-action)의 선택 예시를 기존 포즈/접촉 칸에 쓴다. 가림으로 전이를 생략하는 안과 실제 연속 변형 시연이 필요한 안은 구분한다.
+ 
+ ## 실행 절차
+ 1. 인물 비율·실루엣·관절 범위·무게·소품 접촉을 고정한다. 표정 이름보다 생각과 목표가 읽히는 포즈를 설계한다.
+--- before/video-production-assets/references/12-qa.md
++++ after/video-production-assets/references/12-qa.md
+@@ -8,6 +8,8 @@
+ ## 공통 시각 연출 — 필요한 표현만
+ 
+ 시각적 이야기·스틸·콘티·액션/연기 결과를 검수할 때 [공통 시각 연출](visual-scene-communication.md)의 의도 대조 검사를 필요한 범위에 적용한다. 공개/유보할 것·관찰 단서·대안 독해·최소 수정을 기존 `관찰 근거`·`관객 영향`·`수정`·`재검증 기준`에 적는다. 설명/음향을 가린 보기는 시각층의 역할 진단이지 대사 삭제나 모든 사실의 즉시 명료화를 합격 조건으로 만드는 시험이 아니다. 실제 이미지/시간 재생을 보지 않았다면 해당 결과는 미검증이다.
++
++허구 규칙/인물 믿음·시간층·비인간/표현 변화·협업을 실제 채택한 씬에는 [연기·표현](performance-and-style-recipes.md) 또는 [규칙·정보](world-rules-and-information-recipes.md)의 해당 실패 대비만 기존 QA 표와 대조한다. 형태 변화가 승인 델타인지 표류인지, 과거 상태가 현재를 리셋했는지, 인물의 예상이 사실처럼 시각화됐는지를 관찰 근거로 구별한다. 비적용 씬에 검수 구획을 늘리지 않는다.
+ 
+ ## 실행 절차
+ 1. 각본·스토리보드·프롬프트·애니매틱·러프컷·최종 파일 중 검수 대상을 명시한다. 각 관찰의 출처를 직접 검사 / 사용자 제공 관찰·기록 / 도구 출력 / 추론으로 구분한다. 사용자 보고를 직접 검사 결과처럼 표현하지 않는다. 미리보기나 측정이 없는 항목은 미검증으로 남긴다.
+--- before/video-production-assets/references/17-genre-comedy.md
++++ after/video-production-assets/references/17-genre-comedy.md
+@@ -28,6 +28,8 @@
+ - 경이: 일상적 규모 → 숨은 규모/체계 공개 → 감각적 몰입 → 관점 전환.
+ 
+ ## 2. 코미디 설계
++
++브리프가 국소적인 묘사 단순화/과장을 허용하면 [코믹 변형 예시](performance-and-style-recipes.md#local-comic-style)로20의 룩 예외와 연결한다. 허용 표현 속성·유지할 정체성/피해·필요한 복귀를 기존05/06/QA에 넘긴다. 무변형/절제 대안도 유효하며 톤 변화가 사건 리셋을 뜻하지 않는다.
+ 
+ 코미디는 규칙·인물·상황·기대에서 나온다. 무작위함만으로는 농담이 되지 않는다.
+ 
+--- before/video-production-assets/references/20-visual-mode-ssot.md
++++ after/video-production-assets/references/20-visual-mode-ssot.md
+@@ -130,6 +130,8 @@
+ 
+ ## 5. 장면 공간 앵커와 선언된 세계 변형
+ 
++구체적인 선택 비교가 필요할 때 [이공간 경계 예시](world-rules-and-information-recipes.md#space-boundary)를 사용한다. 승인된 캐릭터 형상 변화는 [가림 전후 동일성 예시](performance-and-style-recipes.md#occluded-transformation)를 참고하되, 연속 morph/물리 시연의 검수와 가림 전후의 연결 판독은 분리한다. 아래 공간/SSOT 절차가 정본이다.
++
+ 여러 샷이 같은 공간을 이어받거나 portal/불가능한 스케일을 사용할 때만 적용한다. 기존 location/world SSOT에 입구·문턱·landmark·방위·가구/소품 관계와 카메라 쪽 이동을 고정하고, 이동 전후 관객이 재정위할 화면 anchor를 지정한다. 컷/POV 변경·가림은 공간 이동이나 reset이 아니다. 유지되는 위치/소품은 [26 상태 인계](26-state-causality-continuity.md)에서 후속 상태로 잇는다.
+ 
+ 세계 규칙을 의도적으로 깨면 어느 shot/layer에서 바뀌고 ordinary space로 어떻게 돌아오는지 brief에 표시한다. portal 전후의 frame/eyeline, 방향, scale 단계와 복귀 view를 정한다. cut/dissolve/graphic wipe/composite를 비교하고 단순 cut이 더 명확하면 억지 morph를 하지 않는다. 경계 전 anchor→fantasy insert→회복 anchor를 storyboard/shot cue에 보이고, scale/방위 변화가 실제 평면도·서비스·장소 claim처럼 읽히지 않는지 inspect한다.
+--- before/video-production-assets/references/21-generated-video-qa-retry.md
++++ after/video-production-assets/references/21-generated-video-qa-retry.md
+@@ -18,6 +18,8 @@
+ ### 복잡한 생물·탈것·효과의 조건부 인계
+ 
+ 해당 대상이 실제 샷에 등장하면 [실무 인계 R2](29-reference-driven-production.md#sheet-inputs), GUIDE-01 p43의 공정을 기존 모션/VFX 템플릿에 연결한다. 생물은 관절/몸통 결합·지지 접촉·상대 스케일·동작 범위와 상대 진입선을, 탈것은 탑승 위치·하중 지지점·진행 방향을 분리해 적는다. 수치가 없으면 질량/가동각을 발명하지 않는다. 효과는 발동 전→시작→지속→소멸 및 소멸 뒤 잔류/복귀 상태를 기존 `주 행동`, `접촉/충격`, `후속`, `최종 정착`, VFX `메모`에 적고 후속 컷의 유지 조건은 26에 연결한다. 단일 외형 이미지나 BBox로 관절 가동·탑승/접촉·물리 시뮬레이션 성공을 선언하지 않는다. 필요한 공간/Blender/생성 실행은 기존 조건/승인을 그대로 따른다.
++
++효과의 발원/수신과 영향을 받지 않는 부분을 장면으로 고를 때만 [효과 인과 예시](world-rules-and-information-recipes.md#effect-readability)를 참고한다. 위 생애 인계와26의 상태 범위는 유지하며, 새 VFX 양식이나 보이지 않는 힘의 임의 광선을 요구하지 않는다.
+ 
+ ### 접촉 우선순위
+ 
+--- before/video-production-assets/references/performance-and-style-recipes.md
++++ after/video-production-assets/references/performance-and-style-recipes.md
+@@ -0,0 +1,58 @@
++# 연기·표현의 조건부 상세 예시
++
++[공통 시각 연출](visual-scene-communication.md) 중 몸 구조·표현 변주·행동 중단·형태 변화·협업이 핵심인 절만 선택한다. 대사 유무와 무관한 **독립 창작 예시/설계 제안**이며 필수 패널 수·초수·인체 큐 수나 생성 품질 공식이 아니다. 승인된 캐릭터/이야기/룩을 먼저 상속하고 단일 요청을 전체 제작으로 늘리지 않는다.
++
++<a id="nonhuman-performance"></a>
++## 비인간 몸: 감정 이름보다 가능한 수행
++
++**선택 조건:** 인간 얼굴/손의 문법으로 목표를 표현할 수 없거나, 형태·부상·이동 방식이 행동 선택을 제한하는 장면.
++
++- 승인된 몸에서 **쓸 수 있는 부분·지지/감각 방식·움직일 수 없는 부분**을 확인한다. 현재 목표를 향한 접근/멈춤/거리/하중/접촉 변화 중 실제 보일 단서를 고른다. 없는 감각이나 기관이 꼭 필요하면 기존 브리프의 미정으로 돌리고 임의 추가로 해결하지 않는다.
++- **새 예시:** 한 날개를 접어 둔 새가 둥지 가장자리의 알을 막는 가상 브리프. 발의 지지를 유지하며 허용된 몸통 움직임으로 알의 진행을 막고, 결과는 알과 가장자리의 남은 간격으로 보여준다. 접힌 날개의 가동 범위는 승인된 상태를 따른다. 얼굴 없는 대상은 승인된 변형/이동 범위 안의 정지·방향·물체 결과로 목표를 표현할 수도 있다.
++- **대안/득실:** 몸 전체와 보호 대상을 함께 보면 목표/지지가 읽히기 쉽고, 접촉 근경은 작은 결과를 읽히기 쉽지만 전체 몸의 소속이 사라질 수 있다. 귀·꼬리·호흡은 해당 형태/장면에 있을 때의 후보이지 감정 사전이 아니다.
++- **기존 인계:** persona `expression_bridge`의 Behavior/Expression·Keep, 캐릭터 고정 앵커/장면별 변화,04 `물리 과제`,08 `포즈/행동`·`행동선/무게`·접촉 칸. 몸 구조/수량 자체를 매번 새로 설계하지 않는다.
++- **검수/최소 수정:** 실제 스틸에서 수행 주체·사용한 지지·물체 결과가 보이는지 확인한다. ‘걱정’만 남으면 거리/접촉/끝 상태부터 구체화한다. 실제 움직임의 성립은 재생/해당 검증 전 미확인이다. 고정된 입 모양·무늬를 일시적 미소/분노로 해석하지 말고 기준 외형과 변화 부분을 비교한다.
++
++<a id="local-comic-style"></a>
++## 국소 코믹 변형: 표현의 복귀와 사건의 리셋을 분리
++
++**선택 조건:** 브리프가 한 비트의 단순화·과장·희화화를 허용하고 원래 룩과의 차이를 설계해야 할 때. 톤/기대·반응은 [17 장르·코미디](17-genre-comedy.md), 허용 모드/예외는 [20 비주얼 모드](20-visual-mode-ssot.md)가 소유한다.
++
++- 선택할 표현 속성과 그 적용/복귀 구간을 기존 룩 예외에 둔다. 정체성 앵커와 승인된 손상·소유·수량은 그 구간에서도 이어받는다. 의도된 장기 룩 전환이면 즉시 복귀를 강제하지 않고 그 전환의 승인 범위를 따른다.
++- **새 예시:** 비에 젖은 연주자가 악기 케이스의 잠금 실패에 잠깐 굳는 장면. 놀람 비트에서 내부 잔선/명암을 단순화하되 머리 외곽·연주자 식별점과 끊어진 케이스 끈·젖음은 남긴다. 원래 묘사 밀도로 돌아와도 끈은 끊어진 채이고 케이스 소유도 같다.
++- **대안/득실:** 형태를 바꾸지 않고 자세의 멈춤과 상대 반응으로 익살을 만들면 룩 연속성이 쉽다. 국소 변형은 반응을 강조할 수 있지만 얼굴을 새 인물처럼 보이게 하거나 실제 피해를 지울 위험이 있다. 어느 쪽이 더 웃기다는 보장은 없다.
++- **기존 인계:**05 `기본 룩`·`예외 이유`/보존 조건,06 `관점·감정/구도 의도`·`종료 프레임`, 필요 시 패널 `expression_pose`. 승인된 외형 변화와 정체성 불변은 같은 속성/구간에 모순되게 선언하지 않는다.
++- **검수/최소 수정:** 실제 진입/변형/복귀 스틸을 비교한다. 다른 얼굴이면 허용 범위를 넘은 비율/윤곽부터 줄이고, 손상이 사라지면 스타일 복귀와 사건 상태를 분리한다. 중간 프레임의 표류·플리커는 스틸 계획만으로 통과시키지 않는다.
++
++<a id="interrupted-action"></a>
++## 진행 중 과제: 주의가 바뀐 뒤에도 몸과 물체는 이어진다
++
++**선택 조건:** 놀람/대화/주의 이동이 이미 수행 중인 붓기·운반·지지·이동의 결과를 바꾸는 장면.
++
++- 먼저 하던 과제와 지지/그립/물체 상태를 세우고, 자극 뒤 무엇이 멈추고 무엇이 잠깐 계속되는지 선택한다. 후속 실패·회복·정착 중 브리프가 요구한 끝 상태로 잇는다. 실제 결합/상태 절차는 [26 인계 최소 슬롯](26-state-causality-continuity.md#인계-최소-슬롯)을 사용한다.
++- **새 예시:** 찻잔에 물을 따르던 인물이 문 쪽 자극에 고개를 돌린다. 주전자의 기울기가 남아 수위가 오르다가 손목을 세워 멈춘다. 넘침이 승인된 사건이면 흘린 물도 유지하고, 넘치기 직전 멈춘 안이면 젖은 테이블을 새로 만들지 않는다.
++- **대안/득실:** 손이 먼저 멈추고 고개가 돌면 신중함, 주 행동이 잠깐 남으면 주의 분산의 비용을 설계할 수 있다. 이는 상태/행동의 제안이지 보편적인 반응 순서/지연 시간이 아니다.
++- **기존 인계:**04 `듣기 자극`·`전술 전환`·`물리 과제`,08 접촉/보조 동작,06 `종료 프레임`,09의 기존 컷/상태 칸. 샷/시간 basis가 이미 있으면 그 구간에 연결하고 자료 없는 초수를 관찰값으로 쓰지 않는다.
++- **검수/최소 수정:** 자극 전부터 물체/지지를 추적한다. 놀란 컷에서 손/발/물체가 초기화되면 중단 직전 상태를 되살리고 가장 이른 끊김부터 고친다. 실제 넘어짐/균형은 재생이나 필요한 공간 검증 전 미검증이다.
++
++<a id="occluded-transformation"></a>
++## 가림 전후의 형태 변화: 같은 존재임을 잇는 단서
++
++**선택 조건:** 승인된 형상 변화가 있고, 브리프가 중간을 생략/가려 공개하는 방식을 허용할 때. 코믹한 묘사 변화와 실제 세계 안의 변형을 구별한다.
++
++- **새 예시:** 붉은 모서리와 접힌 귀퉁이를 가진 종이 인형이 가림판 뒤로 들어가 봉투 형태로 나온다는 가상 설정. 같은 붉은 모서리/접힌 귀퉁이와 들어갈 때 이어받은 이동 목적, 곁 인물이 이어서 건네는 물건으로 동일성을 연결한다. 바뀌는 몸 형태는 승인 델타이고 선택한 앵커만 유지한다.
++- 전후를 함께 보는 안은 연결을 쉽게 만들 수 있지만 놀라움을 줄인다. 타인의 반응/가림을 사이에 둔 안은 공개를 늦추지만 다른 존재로 교체된 듯 읽힐 수 있으므로 입출구/소유/특징을 필요한 만큼 다시 보여준다.
++- **인계/검수:** 캐릭터 SSOT의 허용 변형·고정 앵커,06 블로킹/공개/종료 프레임,26 변화/보존 범위를 사용한다. 실제 스틸에서 같은 존재의 연속으로 읽힐 단서를 대조한다. 형상변화 자체의 시연이 필수면 생략으로 면제하지 않고 실제 전이 구간을 별도 설계/검수한다. 가림 전후만으로 연속 morph·해부 변화·생성 성공을 증명하지 않는다.
++
++<a id="team-task-dependence"></a>
++## 협업: 여러 명의 동작보다 서로 필요한 역할
++
++**선택 조건:** 공동 목표를 위해 다른 수행·인계·지속 의존이 중요한 장면. 단순한 군중/같은 공격의 반복과 구별한다.
++
++- **새 예시:** 바람 부는 곳에서 한 인물은 큰 안내도를 펼쳐 모서리를 유지하고, 다른 인물은 드러난 영역에 표시를 붙인다. 표시하는 동안 첫 인물은 손을 놓지 않는다. 완료 후에만 함께 접어 이동하며, 표시와 종이의 손상은 남는다. 목표/장애/역할은 브리프가 허용한 범위의 제안이다.
++- 역할을 대사로만 배분하는 안과, 서로 다른 대상/접점을 보이는 안을 비교한다. 접점 근경은 전문 행동을 강조하지만 누가 누구를 돕는지 사라질 수 있어 필요한 전체 관계를 회복한다. 인물 수나 ‘모두 한 번씩 활약’이 합격 조건은 아니다.
++- **인계/검수:**18의 기존 캐스트 역할/상태 델타,04의 인물별 `목표`·`상대에게 하는 행동`·`물리 과제`,06 블로킹을 쓴다. 각자의 수행과 인계가 구별되는지, 필요한 지지가 너무 일찍 풀리지 않는지 본다. 부분 역할 성공은 공동 목표 완료나 팀 능력의 객관적 실증과 다르다.
++
++## 공통 검수와 근거 범위
++
++실제 결과가 있을 때12의 `관찰 근거`·`관객 영향`·`수정`·`재검증 기준`에 해당 문제만 기록한다. 텍스트 설계/실제 스틸/시간 재생을 구별하고, 비적용 구획은 생략한다. 이 예시들은 제한된 정지 관찰을 계기로 만든 조건부 제작 제안이며 원작 재현·보편 심리 법칙·실제 영상 검증 결과가 아니다. 원본 연구의 회차/축 ID를 제작 필드로 이식하지 않는다.
+--- before/video-production-assets/references/visual-scene-communication.md
++++ after/video-production-assets/references/visual-scene-communication.md
+@@ -11,6 +11,13 @@
+ 5. 텍스트 설계 / 실제 스틸의 순서·크기별 읽힘 / 실제 시간 재생을 따로 검사한다. 소리와 함께 본 결과도 시각층 진단과 비교하되 의도적 정보 유보를 자동 결함으로 처리하지 않는다. 실제로 안 본 항목은 미검증이다.
+ 
+ 검수 기록은 기존12 표의 `관찰 근거`·`관객 영향`(해석)·`수정`·`재검증 기준`을 쓴다. ‘최고의 연출’을 보편 점수·정해진 컷 수/초수·인체 부위 개수로 정의하지 않는다. 아래 메커니즘은 조건부 craft 제안이지 입증된 관객 효과나 모든 작품에 대한 법칙이 아니다.
++
++## 상황별 상세 선택
++
++- 비인간의 몸 구조, 국소 코믹 변형, 행동 도중 주의 전환, 가림 전후 형태 변화, 서로 의존하는 팀 수행이 장면의 핵심이면 [연기·표현 상세 예시](performance-and-style-recipes.md)의 해당 절만 읽는다.
++- 허구 능력의 규칙/예외, 이공간 경계, 효과의 발원/수신, 인물의 믿음과 사실, 지식의 한계, 기억/시간층 입출구가 핵심이면 [세계 규칙·정보 상세 예시](world-rules-and-information-recipes.md)의 해당 절만 읽는다.
++
++기존 오너/필드 안에서 선택하는 참고 예시다. 무관한 대사·정적 도표·비서사 작업에는 새 인물/사건·상세 양식을 추가하지 않는다.
+ 
+ ## 선택할 축
+ 
+--- before/video-production-assets/references/world-rules-and-information-recipes.md
++++ after/video-production-assets/references/world-rules-and-information-recipes.md
+@@ -0,0 +1,64 @@
++# 세계 규칙·정보의 조건부 상세 예시
++
++[공통 시각 연출](visual-scene-communication.md)에서 허구 규칙·공간 연결·효과·인물 지식·시간층이 핵심인 절만 선택한다. 다음은 **독립 창작한 설계 제안**이며 대사 있는 작품에도 적용한다. 각본의 사실/발화·의도된 미지를 보존하고, 일반 설명 영상에 새 마법/서사/필수 양식을 추가하지 않는다.02/03/06/11/12와18/20/21/26의 기존 역할·템플릿을 사용한다.
++
++<a id="rule-comparison"></a>
++## 허구 규칙을 조건의 차이로 읽히기
++
++**선택 조건:** 관객이 능력/장치의 적용 조건이나 예외를 알아야 다음 선택을 이해하는 장면.
++
++- 주어진 세계 규칙과 관찰된 한 사례, 인물의 설명/추측을 먼저 구별한다. 조건이 다른 시연·불발·경계 중 현재 이야기에서 필요한 비교를 고른다. 매번 세 종류를 전부 만들 필요는 없다.
++- **새 예시:** 두 사람이 각각 문양에 닿을 때만 문이 열린다는 가상 브리프. 한 사람이 두 손을 대도 닫힘→다른 사람이 참여하면 열림을 비교하고, 발광 장식만 아니라 문 틈/통과 가능 상태가 바뀜을 보인다. 다른 사람 수·다른 문양의 결과는 주어진 범위 밖이면 미정이다.
++- **대안/득실:** 한 화면의 비교는 조건 차이를 읽히기 쉽지만 설명적으로 될 수 있다. 먼저 성공을 보여주고 실패를 뒤에 주면 인물의 가설을 수정할 수 있으나, 대상/방법이 달라졌다는 단서가 없으면 규칙 모순으로 보일 수 있다.
++- **기존 인계/검수:**02 `세계관 규칙`과 `Plot`,06 `공개 정보`·`종료 프레임`에 비교 조건/보이는 결과를 연결한다. 불발이면 효과가 안 보인 이유가 가림/생략인지 실제 무반응인지 대조한다. 필요하면 같은 대상/조건을 다시 읽힐 구도로 수정한다. 정지 한 사례를 영구 면역/무한 능력의 증거로 확대하지 않는다.
++
++<a id="space-boundary"></a>
++## 이공간 경계: 어느 쪽의 무엇이 이어지는가
++
++**선택 조건:** 포털/불가능한 공간 연결이 브리프에 실제로 있으며 관객의 재정위가 필요한 장면. 절차 정본은 [20의 ‘장면 공간 앵커와 선언된 세계 변형’](20-visual-mode-ssot.md)이다.
++
++- **새 예시:** 겨울 복도와 여름 온실을 잇는 사각 창의 가상 설정. 복도의 줄무늬 바닥, 온실의 덩굴 기둥, 이동자가 든 천 가방을 기준으로 삼는다. 먼저 어느 쪽에 몸/가방이 있는지, 부분 통과 때 창 테두리가 어느 윤곽을 가리는지, 나온 뒤 어떤 앵커와 연결되는지 선택한다.
++- 양쪽을 함께 보는 안은 연결을 분명히 하지만 도착지의 놀라움을 줄일 수 있다. 한쪽을 유보하면 복귀/새 시점에서 무엇으로 방향·동일성을 회복할지 정한다. 모든 경계에 두 공간을 상시 노출하거나 빔/원형 디자인을 요구하지 않는다.
++- **기존 인계/검수:**06 `인물 블로킹`·`시선/축`·`공개 정보`,11 `초기 상태`·`끝 상태`·`유지 규칙`을 쓴다. 실제 스틸에서 경계 안팎·부분 가림·소품/몸 소속이 연결되는지 본다. 혼동되면 장식 효과보다 기준점/가림/입출구를 먼저 고친다.2D서사 설계는 실제3D 성립의 증거가 아니며, 실제 공간/경로 검증이 요구되면 기존 카메라/Blender 오너의 절차와 상태를 따른다.
++
++<a id="effect-readability"></a>
++## 효과: 발동하는 것과 영향을 받는 것을 나누기
++
++**선택 조건:** 능력/VFX의 작동 주체·범위·수신 대상·결과를 알아야 하는 장면. 효과 생애는 [21의 ‘복잡한 생물·탈것·효과의 조건부 인계’](21-generated-video-qa-retry.md), 상태는 [26 인계 최소 슬롯](26-state-causality-continuity.md#인계-최소-슬롯)이 소유한다.
++
++- **새 예시:** 가상 장치의 빛이 닿은 책 표지에서 글씨만 잠시 흐려지고 종이 색/옆 물건은 유지되는 브리프. 장치가 켜짐, 영향 구역, 선택된 글씨의 변화, 장치가 꺼진 뒤 요구된 복귀/잔류를 읽힐 상태로 나눈다. 빛이 겹친 모든 물체가 변했다고 쓰지 않는다.
++- 발원/수신을 공유 프레임에 두면 인과를 잇기 쉽고, 대상 근경은 작은 변화가 잘 보이지만 주체/범위를 잃을 수 있다. 경로가 보이지 않는 설정이면 임의 광선을 추가하는 대신 발동/수신의 순서와 주변 비교로 인과를 제안한다.
++- **기존 인계/검수:**11 `주 행동과 구간`·`끝 상태`·`유지 규칙`,motion-beat의 주 행동/접촉/후속/정착과 VFX `메모`에 필요한 내용만 넣는다. 실제 매체에서는 단순 효과광/가림과 대상의 실제 변화를 구별한다. 원인 구간을 못 봤으면 전이는 미검증이고, 실제 필요한 변화가 빠졌으면 기존21의 판정으로 돌아간다. 더 화려한 입자로 관계 오류를 덮지 않는다.
++
++<a id="knowledge-layers"></a>
++## 발화·믿음·작품 사실의 신뢰 층
++
++**선택 조건:** 인물의 설명·독백·보고와 관객이 본 증거의 차이가 장면의 선택/긴장을 만드는 경우.
++
++- 기존02 `세계관 규칙`/`Plot`,03 서브텍스트 메모 안에서 **공급된 사실·관찰 범위·누가 믿거나 말하는 것·언제 관객에게 알릴 것**을 구별한다. 별도 지식 DB/제작 필드를 만들지 않는다. 고정 발화는 기존 각본의 원문 보존 계약을 그대로 적용한다.
++- **새 예시:** 탐험가가 손잡이를 당긴 뒤 ‘문이 잠겼다’고 보고하는 가상 장면. 관객이 본 것은 손잡이가 멈췄다는 것뿐이고, 잠금 장치의 실제 상태는 미확인이다. 다음 인물은 이를 의심할 수 있지만 작가가 주지 않은 고장 원인/고의적 거짓말을 정답으로 추가하지 않는다.
++- 관객도 같은 정보만 갖게 하면 인물과 함께 탐색하게 만들 수 있다. 관객에게 더 많은 증거를 먼저 주면 다른 정보 차이를 설계할 수 있지만 조기 정답 공개로 미스터리가 줄어든다. 무엇을 선택했는지는 기존 공개 순서에 남긴다.
++- **검수/최소 수정:** 말/독백 뒤에 붙인 그림이 그 주장을 객관적 사실처럼 확증하는지 대조한다. 근거가 부족하면 추측에 맞는 유보/관찰만 남기고, 이미 확정된 사건을 임의로 ‘모를 수도’라며 약화하지 않는다. 오신념은 후속 증거가 있어야, 고의적 기만은 알면서 달리 말한 근거가 있어야 판정한다.
++
++<a id="limits-of-knowledge"></a>
++## 지식의 한계가 다음 선택을 막는 장면
++
++**선택 조건:** 세계의 일부를 알 수 없음이 전략/선택에 영향을 주는 미스터리·경이·탐색 장면.
++
++- 아는 범위, 아직 모르는 것, 확인하기 어려운 이유, 그 때문에 택할 수 없는 행동을 연결한다. 답을 공개할지 열린 채 둘지는 승인된 Plot/장르 약속에 맞춘다. 모든 이야기의 결말을 미해결로 만들지 않는다.
++- **새 예시:** 안개 때문에 측량하지 못한 골짜기 건너의 상태가 미정인 브리프. 등장인물은 이미 확인한 길을 택할지, 신호를 보내 응답을 기다릴지 선택한다. 지도에 없는 구간과 관측을 가리는 조건이 보이면 설명 대사가 전략과 연결된다. 응답/새 지형의 실제 결과는 브리프가 허용하기 전 확정하지 않는다.
++- 설명 대사로 지식 한계를 분명히 하는 안과, 관측 시도/막힌 시야로 보완하는 안을 비교한다. 시각 단서가 정확한 제도/명제를 대신할 필요는 없다. 단순 정보 누락·작품 설정 모순을 모두 ‘의도된 미지’로 면제하지 않는다.
++- **기존 인계/검수:**02 `미확인 사항`/`Plot`,06 `공개 정보`,16 열린 질문·17 장르 약속을 사용한다. 정보가 늘어도 다음 선택이 전혀 달라지지 않으면 현재 씬에서 필요한 설명만 남기는 안을 검토한다. 실제 관객의 궁금증/유지율 효과를 측정했다고 하지 않는다.
++
++<a id="time-layer-return"></a>
++## 기억/다른 시간층의 입구와 복귀
++
++**선택 조건:** 현재 사건 안에 과거/기억/다른 시간의 장면을 배열할 때. 날짜/기억 주체가 미확정이면 그 범위를 열어 둔다.
++
++- **새 예시:** 현재 인물이 금 간 머그를 정리하다 이전의 온전한 머그에 이름표를 붙이던 장면을 떠올리고, 현재의 금과 멈춘 정리 손으로 돌아오는 가상 브리프. 물체 상태·진행 행동·시선/언어적 기억 단서 중 필요한 조합을 고른다. 색/번짐 하나만으로 시간층을 인증하지 않는다.
++- 같은 물체/행동의 대응은 복귀를 읽히게 할 수 있지만 반복 모티프로만 보일 수 있다. 짧은 언어/시간 표지를 쓰는 안도 유효하며, 승인된 모호함을 날짜 자막으로 임의 해결하지 않는다.
++- **기존 인계/검수:**02 Story와Plot에서 사건 시간/관객 배열을 나누고,06 공개/종료 프레임,09 기존 컷/생략 칸,26의 **해당 서사 시간선 선행 상태**를 따른다. 과거에 온전한 물건은 현재의 수리가 아니고, 복귀하면 현재의 손상/소유가 이어진다. 실제 스틸 순서에서 어느 행동에 돌아왔는지 대조하며, 과거의 정확한 연대·실제 지속시간은 근거 없으면 미확인이다.
++
++## 인계·근거 범위
++
++선택한 예시의 행동/보이는 정보/유보·대안·실패 시 최소 수정을 기존 오너 칸에 전달한다. 실제 결과가 있으면12의 `관찰 근거`·`관객 영향`·`수정`·`재검증 기준`에 기록한다. 텍스트 계획·실제 스틸·전이 재생의 판정을 분리한다. 제한된 정지 관찰을 계기로 만든 조건부 제작 제안이며, 원작의 고유 규칙/샷 재현이나 보편 관객 효과·물리/AI 실행 보장이 아니다.

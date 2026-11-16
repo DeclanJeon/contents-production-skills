@@ -1,0 +1,271 @@
+# Contents Production Skills
+
+영상 제작과 직접 필요한 기획·참조·정체성·음향·3D·납품 기능을 모은 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`이며, 현재 패키지 버전의 정본은 [manifest.json](manifest.json)의 `version`이다.
+
+저장소: [DeclanJeon/contents-production-skills](https://github.com/DeclanJeon/contents-production-skills).
+
+`creative-production`이 유일한 총괄이다. 기존 영상 제작·텍스트 기획·카메라·Blender 전문 스킬을 유지하고, 영상 제작에 필요한 범용 절차와 memorable-video v6의 유효한 제작 기법은 필요한 때만 읽는 참조로 통합한다. 중복 총괄·상태 원장·28개 마이크로 스킬을 함께 설치하지 않는다.
+
+## 원고 크래프트 후보 — 행동 게이트 미통과
+
+Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인된 안전한 문서 상대주소·참조 읽기 개선 후, 양쪽 모두 high 추론을 쓰는 새 대조 평가 140건/170응답을 실행 오류 없이 마쳤다. 실제 집필 판정은 대조군 55 PASS·15 FAIL, 후보 69 PASS·1 FAIL이며 고정 결말 변경 1건 때문에 **전체 행동 게이트는 FAIL**이다. 이전 low 평가와 합산하지 않는다. 코드·설치 검사 통과와 행동 합격은 별개다. **검증된 개선으로 소개하거나 이 후보를 전역 설치·배포하지 않는다.** 기존 22개 오너·제작 스키마·버전은 유지하며, 검증 결과와 한계는 [원고 통합 검토](qa/matt-writing-integration-review.md)에 기록한다.
+
+## 한국어 대본 후편집
+
+영상 대사·내레이션의 번역투/불필요한 문어 표현은 기존 각본 오너의 [한국어 발화 후편집](video-production-assets/references/korean-script-postediting.md#scope)으로 국소 교정할 수 있다. 인물 말투·실제 인용·사실·서법을 보존하고 읽기 전용 코드 검사와 원문 대조를 분리한다. 현재는 명시 요청/제안 전용이며 행동 평가 전 자동 기본 적용은 보류한다. 별도 설치 스킬·프로젝트 스키마·음성 실행은 추가하지 않는다.
+
+## 스킬 라우팅과 조건부 실행 모듈
+
+| 스킬 | 책임 | 경계 |
+|---|---|---|
+| [creative-production](creative-production/SKILL.md) | 단일 총괄: 명시적인 영상·영상 콘티 요청 라우팅, QA/납품; 이미지 기반 전체 프리프로덕션은 text worker handoff 뒤 실제 still/sheet/extraction까지 조정 | 요청 범위·단일 project.json/.history writer·사전검토/사용자수락/영상실행 승인을 분리한다. |
+| [searching-social-media](searching-social-media/SKILL.md) | Flucto로 SNS 영상 게시물 후보·레퍼런스·공개 수요 근거 검색 | 검색 범위·색인/직접 조회·플랫폼 실패·지표 단위·미확인을 보존한다. 자동 다운로드·분석·주제 선정·게시 없음. |
+| [topic-demand-selection](topic-demand-selection/SKILL.md) | 주제 선택·순위·인기/검색 수요 검증 | 주제 후보를 고르기 전에 audience-demand 근거와 사실/자료 게이트를 별도로 평가한다. |
+| [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품; 영화 제작 6단계 참조; 대사·립싱크(22)의 TTS 전 다국어 대사 현지화·각색과 기존 보이스·립싱크 | 15개 선택형 모듈과 통합 전문 참조. 영화 경로는 명시적 전체/단계 간 요청에만 적용하고, 실제 렌더·권리 승인·게시와 구분한다. |
+| [orchestrating-video-preproduction](orchestrating-video-preproduction/SKILL.md) | 콘셉트→시놉시스→필요한 캐릭터→스토리보드의 텍스트 기획 | 총괄의 내부 text-only worker. 배정된 텍스트만 반환하며 이미지·영상·폴더·원장을 만들지 않는다; 총괄은 handoff 뒤 이미지 기반 전체 package를 계속할 수 있다. |
+| [developing-video-synopses](developing-video-synopses/SKILL.md) | 콘셉트·로그라인·시놉시스·비트 | 사실·서사·추상 모드에 맞춰 작성한다. |
+| [designing-video-character-sheets](designing-video-character-sheets/SKILL.md) | 캐릭터 정체성·행동·시각 앵커·연속성·범용 이미지 프롬프트와 페르소나·음성 설계 통합 | 텍스트 SSOT. 페르소나 전문 스킬을 필수 소비하며 실제 음성 생성은 하지 않는다. |
+| [designing-character-personas](designing-character-personas/SKILL.md) | 동기·조건부 행동·MBTI/에니어그램 창작 렌즈와 시각 연기·Voice Identity/Speech Style/Performance 설계 | 단독 텍스트 패킷 또는 기존 캐릭터 SSOT에 통합. 실존 인물 유형 추정·검사·음성 생성은 제외한다. |
+| [storyboarding-video](storyboarding-video/SKILL.md) | 전체 이야기·기술 슬롯을 연결한 완전한 제작 콘티; 명시적 러프 패널은 좁은 형식 | 텍스트 기획은 실제 이미지/검수/실행과 구분한다. |
+| [silent-visual-storytelling](silent-visual-storytelling/SKILL.md) | 대사 없는 시각 서사의 인과·공개/유보·감정·잔류 상태 설계 | 무성 서사 작성/수정 요청에만 적용. 일반 내레이션 원고·모든 콘티를 가로채거나 풍자 길이·결말을 강제하지 않는다. |
+| [animatic-direction](animatic-direction/SKILL.md) | 승인 이야기/보드의 국면·hold·컷 시간화와 재생 검수 계획 | 시간화 요청에만 기존 06/08/09 표를 사용. 제안 시간과 실측을 구분하며 렌더·재생 검수 완료를 주장하지 않는다. |
+| [storytelling-with-still-images](storytelling-with-still-images/SKILL.md) | 정지 이미지 전용 영상의 서사·큐 타이밍·음향·검수 계획 | 스틸만 화면 소스로 사용. 새 스틸 생성과 영상 조립을 분리한다. |
+| [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | 모든 장면별 3D 카메라/공간 작업은 Blender 구현·화면 검수까지 필수다. `camera-spatial-1.0`은 설계·사전 검사 계약이다. |
+| [blender-previsualization](blender-previsualization/SKILL.md) | 카메라·피사체 움직임, 구도·공간 배치의 실제 Blender 프록시·프리비즈·기하 검사 | 장면별 3D 카메라/공간 설계의 필수 구현·시각 검수 경로. Blender 런타임 필요; 최종 영상 품질을 보증하지 않는다. 기준 경로는 Blender CLI이며, 같은 어댑터를 호출하는 선택형 MCP 서버(`blender-previsualization/mcp/`)를 함께 배포한다. |
+| [open-3d-production](open-3d-production/SKILL.md) | Blender 모델링·조명·분해도 기법과 웹 3D·스크롤·알파·루프·포즈 그리드·브라우저 검수/녹화의 선택형 전문 모듈 | 총괄이 8개 모듈의 선택·순서·실행을 통제한다. Blender 적용 지침과 원본 실행 도구를 함께 배포하며, 공간 검증은 기존 Blender 오너가 유지한다. |
+| [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/Media_Studio 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
+| [silent-satire-animatic](silent-satire-animatic/SKILL.md) | 무성(대사·내레이션·자막 없음) 풍자 애니메틱의 제작 계약: 소재 선별, 4막 풍자 서사, 씬/컷 변주, 비트 예산, 썸네일 프레임 선택 | 명시적 무성 풍자 전용 로컬 파이프라인. 85–120초·notice→land는 이 레시피의 제약이지 일반 무성 서사의 법칙이 아니다. 실제 렌더·게시·LLM 프롬프트 생성은 제외한다. |
+
+The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills. [공통 시각 연출·장면 전달](video-production-assets/references/visual-scene-communication.md)은 대사 있는 작품과 무성 작품 모두의 스틸·앵글·구도·인물/액션·분위기를 기존 전문 오너에 연결하며, 무성 스킬의 선행 호출을 요구하지 않는다.
+
+Rofan 관찰 색인에는 저장된 관찰 ID 57개와 보조 cue 4개가 선택적 provenance/evidence로만 들어 있다. 저장 관찰이나 provenance를 사용자가 명시적으로 요청한 경우에만 참고하며, 일반 brief나 cue 일치가 조회를 유발하지 않는다. 이 색인은 제작 레시피·정책·QA 계약이 아니며 기존 범용 craft 절차가 정본이다. 자세한 내용은 [설계](docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md)와 [테스트 계획](docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md)을 참조한다. 과거 T18 casebank microtest는 10/15 full pass, 5 partial, guard failure 0으로 all-pass가 아니었다([등급](qa/rofan-craft-t18-microtest-grade.json)). 실제 미디어 검사·생성 QA·자연스러움·분산 검증은 수행되지 않았다.
+Exhaustive all-source/all-shot 또는 cross-source craft extraction에는 [archive craft crosswalk](video-production-assets/assets/archive-craft-crosswalk-template.md)이 조건부 필수다; 일반·단일 레퍼런스는 가볍게 유지한다.
+
+- **F: coverage snapshot:** 44 MP4 occurrences from 50 URLs (44 downloads, 6 HTTP 403; occurrences are not independent creators); dense extraction is 44/44 files and 335 intervals of 1.2 seconds, six frames at 5 fps, only around each source's first eight locator PTS—not exhaustive shot review. The separate full-source run is 1/44 complete, 43 failed, with full-source PTS coverage false; its 6,002 detector candidates have no boundary certification.
+- **Semantic coverage:** current master is 34/44 materialized and 10 unmaterialized; `source_occurrence_count=30` conflicts with 44 rows. The selected ledger records 468 shots, 44 scenes, 39 events, 650 dispositions and `visual_semantic_craft_closed`; its 0.2-second sampling is not full-rate playback, and machine audio was not human-listened. Five archive-global gates remain OPEN. This does not establish all-44 analysis, viewing, or archive completion. See [current design and exact gates](docs/superpowers/specs/2026-10-13-rofan-archive-craft-crosswalk-design.md).
+- **Crosswalk validation:** V4 bounded known-model output **PASS** ([result](qa/rofan-archive-crosswalk-known-model-v4-results.md)). Initial smoke and follow-up/known-model v1–v3 failures or incomplete outcomes remain preserved and linked in the [test-plan history](docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md).
+- **Unrelated brief:** [baker baseline/current-package comparison](qa/rofan-unrelated-brief-baseline-with-skill.md) has one sample per arm; it passes the brief/scope check in both, but is descriptive—not causal or statistical evidence.
+설치 스킬 목록은 [manifest.json](manifest.json)의 `skills`가 정본이다. 공급자별 세부 동작은 [조건부 라우팅](creative-production/references/production-routing-optional.md)으로 현재 단계에서만 읽는다. 이미지 전용 Higgsfield 레시피는 현 정책상 실행 불가이며 craft만 보존한다.
+
+유료 데스크톱 앱이 필요하지만 이 시스템에 없으면 [ArtCraft 폴백](creative-production/references/production-routing-optional.md#desktop-app-fallback-artcraft)으로 같은 craft를 계속한다: Photoshop→PhotoCraft, Illustrator→VectorCraft, After Effects→EffectCraft, Premiere Pro→FilmCraft 등. 설치된 앱이 우선이며, 실제로 실행된 앱과 산출 형식을 결과에 명시하고 Adobe 파일과 동일하다고 주장하지 않는다. TouchDesigner·DaVinci Resolve에는 대응 앱이 없어 미설치 상태를 그대로 보고한다.
+
+Higgsfield MCP 카탈로그(`higgsfield.ai/ko/mcp`)의 번들·프리셋은 새 스킬이 아니라 공급자 기능이다. [조건부 라우팅](creative-production/references/production-routing-optional.md#higgsfield-mcp-preset-inventory)의 표로 기존 오너(Blender·피니싱·모션 그래픽·광고 변형·faceless/UGC)에만 연결하고, 총괄·승인 원장을 새로 만들지 않는다.
+
+캐릭터 시트를 새로 작성하거나 심화하면 페르소나·표현 연결·발화 역할의 음성 설계가 기본 포함된다. 새 허구 인물의 위임된 창작에서는 MBTI/에니어그램을 제안으로 사용할 수 있으며, 공급된 유형·승인 설정·명시적 `none`을 우선한다. 무언 역할은 음성 N/A; 실제 음성 후보·생성·청취 승인은 별도다. 구체적인 요청과 수정 경계는 [사용 가이드](USAGE_GUIDE.md#캐릭터와-시리즈)를 따른다.
+
+## Open 3D와 Blender 작업
+
+Blender 활용법은 [의미 대역 프리비즈](blender-previsualization/references/semantic-proxy-handoff.md)와 [네이티브 제작법 10종](open-3d-production/references/native-blender-workflows.md)으로 확장했다. 단순 대역/색상 매핑, 소품 상태별 수정, 제품 조명, Geometry Nodes, 카메라 트래킹·프로젝션, Grease Pencil, 합성 패스·알파, 루프, 재사용 에셋·내보내기를 기존 오너가 필요한 때만 선택한다. [지정 영상 분석](docs/analysis/2026-11-03-blender-previs-video.md)과 [추가 YouTube 조사](docs/research/2026-11-03-blender-youtube-register.md)는 관찰·자막·문서·미검사를 구별한다. 새 어댑터 기능이나 생성 비용 절감률을 검증한 릴리스는 아니다.
+
+`Moh4696/open-3d-skills`의 8개 가이드와 실행 부속 파일을 MIT 라이선스 및 고정 커밋으로 [open-3d-production](open-3d-production/SKILL.md)에 통합했다. 원본은 웹/Three.js 도구이므로 [Blender 적용 지침](open-3d-production/references/blender-adaptation.md)을 별도로 제공한다. 모델링·조명·분해도·투명 렌더·루프에 원리를 적용하되 JavaScript를 Blender 코드로 오인하거나 웹 검수로 Blender 공간 검증을 대체하지 않는다.
+
+총괄이 [조건부 모듈 표](creative-production/references/production-routing.md#open-3d-module-selection)에서 필요한 것만 선택한다. 영상/콘티는 기존 `creative-production`, 단독 비영상 Blender/웹 작업은 현재 호스트·디자인 오너의 범위를 유지한다. 원본 8개 스킬은 별도 자동 호출 스킬이 아닌 참조로 배포하며, 생성·승인·저장 원장을 추가하지 않는다. [통합 규칙과 출처](open-3d-production/references/integration.md)에 실행 의존성과 원본 지침의 적용 경계를 기록했다.
+
+통합 범위는 가이드 **8개**, 실행 스크립트·브라우저 에셋 **22개**, 심화 참조 **4개**와 라이선스·의존성 선언이다. [원본 대조표](open-3d-production/references/upstream/provenance.json)의 36개 파일은 고정 커밋과 SHA-256이 일치한다. 원본 설치기·플러그인 메타데이터·홍보 이미지·저장소 전용 검사기는 제외하고 이 패키지의 설치·검증 흐름을 사용한다.
+
+2026-11-01 통합 검증에서 전체 회귀 **402 passed / 518 subtests passed**, Python·JavaScript 문법 검사, 상대 파일 링크 검사와 임시 스킬 루트 설치를 확인했다. 이는 패키지 구조·설치 검증이며, 새 제작 장면의 Blender 렌더 품질이나 모든 웹 도구의 실제 브라우저 실행을 검증했다는 뜻은 아니다. 사용 예시는 [Blender와 웹 3D](USAGE_GUIDE.md#blender와-웹-3d)를 따른다.
+
+## Flucto SNS 검색
+
+SNS에서 공개 영상 게시물 후보를 찾을 때는 [searching-social-media](searching-social-media/SKILL.md)를 사용한다. 일반 검색·레퍼런스 탐색·수요 근거 수집을 지원하되, SNS 전체 텍스트/이미지/댓글 수집이나 인기 예측은 하지 않는다. 현재 어댑터는 검토된 Flucto 1.19.0만 실행하며 다른 버전·누락 런타임·인증/접근 실패는 명시적으로 보고한다. 기본은 YouTube 1곳·최대 10개 후보·네트워크 CLI 6회·전체 120초, 자동 재시도/설치/다운로드 없음이다.
+
+```bash
+# 준비만: 외부 호출 없음
+python searching-social-media/scripts/social_search.py --query "제품 촬영" --platform youtube --mode reference --plan
+# 사용자 요청에 따른 실제 검색; stdout JSON, --output을 지정한 새 파일만 저장
+python searching-social-media/scripts/social_search.py --query "제품 촬영" --platform youtube --limit 5
+```
+
+언어·지역은 조사 의도이며 서버 필터 적용을 보장하지 않는다. 기간은 게시일 후처리만 하며 날짜 미상은 충족으로 간주하지 않는다. 색인 결과를 영상 시청으로, Reddit 점수를 조회수로, `info`의 모호한 수치를 검증된 조회수로 승격하지 않는다. [작업지시서](docs/superpowers/plans/2026-10-20-social-search-work-order.md)와 [검증 기록](qa/social-search-validation.json)에서 구현/실측 범위를 구분한다.
+
+## 제작 경험서에서 반영한 범용 공정
+
+101페이지 이미지형 제작 가이드의 노하우는 새 드라마 전용 스킬이 아니라 [참조 기반 실무 인계](video-production-assets/references/29-reference-driven-production.md)와 기존 오너/템플릿에 통합했다. 참조 속성·우선순위, 시트/입력 뷰 분리, 다국어 제출 검수, 새 생성/부분 수정/실제 확장 구분, 연기를 보존하는 발음 교정, 채택 구간·비용·재개 기록을 필요한 작업에만 적용한다. 기존 Sheet A·실행 승인·단일 원장 계약은 유지한다. [23장 추출·반영 대조표](docs/analysis/shortdrama-guide-extraction.md)에서 페이지 근거와 제외 항목을 확인할 수 있다. [후속 누락 점검](docs/analysis/shortdrama-guide-review.md)에서 추가 보완한 생물/탈것/효과·군중·과밀 입력·단독 전문 경로와 44항목의 오너/템플릿/검수 연결을 확인한다. 원문 PDF·페이지 이미지·전체 OCR은 패키지에 포함하지 않는다.
+
+이번 통합의 제한된 행동평가는 **18종·필수 기준 76개**, 지정 범위 회귀는 **283 passed / 449 subtests passed**다. 무관한 미커밋 기능을 제외한 커밋 대상의 격리 전체 회귀는 **293 passed / 13 skipped / 453 subtests passed**이며 [릴리스 검증](qa/guide-release-validation.json)에 범위를 기록한다. 사용자 승인으로 영상·음성 각 1건을 생성해 총 15.1크레딧을 사용했다. 영상은 시작 구도의 관측 공백으로 전체 통과 보류, 음성은 기술 검사 정상·사용자 청취상 정상이다. 이는 제작 품질 향상의 통제된 비교 실험이 아니다. [실제 응답/판정](qa/guide-behavior-review.json), [미디어 시험](qa/guide-media-run-01/review.md)을 구분해 확인한다.
+
+## 공유 프롬프트 시트의 전체 반영 대조
+
+공유 시트 55개 탭의 자료 3,050행(헤더 포함 3,105행)을 기존 오너와 대조했다. 요청된 루프의 끝→시작 검수, 실시간 지시 적용 시점, 공간음 관점, 마스크 정렬·극성, 프레임 출처와 입력 모드 호환을 보완하고 카메라·오디오·페이지화의 충돌 지침을 맞췄다. 예시 줄거리·고정 숫자·미검증 모델 사양과 자체 점수는 공용 정책으로 복제하지 않았다.
+
+[탭별·규칙별 반영/제외 대조표](docs/analysis/2026-10-30-prompt-sheet-integration.md)와 [행 범위·해시·검증 기록](qa/2026-10-30-prompt-sheet-integration.json)에 전체 범위를 남겼다. 셀 본문 대조이며 연결 이미지/영상·현재 endpoint·실제 생성 품질을 검사했다는 뜻은 아니다.
+
+## 제작 흐름
+
+대사 보드는 [발화 화면·중요한 청자 반응](video-production-assets/references/storyboard-contract.md#대사별-발화-얼굴과-청자-반응)을 장면 목적에 맞춰 설계한다. 발화별 별도 얼굴 컷을 강제하지 않으며 [장면 리듬·감정 가독성](video-production-assets/references/storyboard-contract.md#장면-리듬과-감정-가독성)을 씬 의도와 샷·편집 표에 연결한다. 영상 실행에서는 [스토리보드 시간→실제 요청문](creative-production/references/storyboard-timing-to-prompt.md)으로 설계된 컷·표정·대사의 타임스탬프를 전달한다. 생성 길이별 묶음과 최종 요청문 대응, 실제 결과 검수는 구분한다.
+
+1. 요청한 산출물과 제외 사항을 확정하고, 공급된 출처·제품 정보·SSOT·승인을 보존한다.
+2. 목적과 형식에 맞는 레인만 로드한다. 원고 한 편이나 프롬프트 하나를 전체 제작으로 확대하지 않는다.
+3. 실제 원고·기획·모듈 에셋을 작성한다. 사실, 계산, 해석, 창작 제안, 미확인을 구분한다.
+4. 다단계 영상만 기존 `project.json`을 정본으로 사용한다. 시리즈 바이블·SSOT·공급자 입력은 버전이 있는 종속 에셋으로 연결한다.
+5. 실제 파일 제작은 사용자 Documents/Media_Studio/<project_id> 또는 사용자가 지정한 project root에 저장하고 `recording-production-history`를 호출한다. 이미지 기반 전체 프리프로덕션은 [검토 계약](video-production-assets/references/preproduction-review.md)에 따라 실제 SSOT prompt-consumption 증거와 적용 가능한 contact/spatial feasibility gate를 먼저 닫고, 생성된 master를 검사한 뒤 의존 패널을 만든다; LOOK 바이블·기술 보드·최대 8패널 시트·씬/패널별 이미지 분할·검사·사용자 검토도 포함한다.
+6. 별도 영상 진행 요청 뒤 현재 도구·모델·입력 스키마·가격을 확인한다. 샷/산출물 수, 설정, 실행·재시도·비용 상한을 승인받은 뒤에만 실행한다. 무료/로컬 샘플도 실행 승인 범위에 포함한다.
+7. 실제 결과를 검사하고 요청한 형식으로 납품한다. 계획, 파일 생성, 기술/시청각 검사, 사용자 수락, 게시 상태를 따로 보고한다.
+
+The route documents intended behavior, not its execution proof; see the [design record](docs/superpowers/specs/2026-10-14-creative-production-end-to-end-preproduction-design.md#source-instruction-verification-scope) for the scoped source-suite result and outstanding host-behavior verification.
+
+단독 전문 스킬은 총괄의 범위 계약을 한 번 확인한다. 이미 위임받은 전문 스킬은 총괄로 재귀 호출하거나 인터뷰·승인 원장을 다시 만들지 않는다. 수정 시 영향을 받는 종속 에셋과 승인만 stale로 처리한다.
+
+### 영화 제작 라이프사이클
+
+명시적인 영화·단편·애니메이션·AI 영화의 전체 제작 또는 단계 간 인계 요청에만 적용하는 선택 경로다. 단일 로그라인·시나리오·샷·납품 요청과 비영화 작업은 해당 레인만 유지한다. 단계별 계약과 양식은 [영화 제작 라이프사이클 참조](video-production-assets/references/28-film-production-lifecycle.md)가 정본이다.
+
+| 단계 | 범위 |
+|---|---|
+| 01 Development | 아이디어·콘셉트·프레미스·테마·로그라인·스토리·플롯·시놉시스·트리트먼트 |
+| 02 Screenwriting | 캐릭터/스토리 아크·비트·시퀀스·씬·시나리오·리라이트 |
+| 03 Pre-production | 비주얼 기준·콘티·샷리스트·애니매틱/프리비즈·자원·일정·안전/권리 blocker |
+| 04 Production | 적용되는 실사 촬영/생성 기록·테이크·연속성·데일리·미디어 상태 |
+| 05 Post-production | 편집·VFX·ADR/Foley·사운드·음악·색보정·자막·마스터·QC |
+| 06 Distribution | 키아트·예고편·EPK·영화제/배급·목적지별 납품·관객 반응 |
+
+요청한 단계·산출물만 다루고, 미적용/미확인 항목은 이유와 상태를 남긴다. 기존 `project.json`·`asset_registry`·승인 계약을 재사용한다. 계획은 실제 파일·촬영·검수·출품·공개를 뜻하지 않으며 AI 영화도 모델/버전·연속성·실제 순서 QA를 구분한다.
+
+### 제작 저장소와 히스토리
+
+Windows는 실제 Documents 알려진 폴더(리디렉션/OneDrive 포함), macOS는 `~/Documents`, Linux는 XDG Documents 설정 또는 `~/Documents`를 사용한다. 사용자명을 고정하지 않는다. 처음 저장할 때 원하는 프로젝트 경로가 있는지 한 번 확인한다(환경·설정·현재 프로젝트·기존 기본 루트로 확인되면 생략). `Media_Studio/<project_id>` 아래 쓰는 작업 폴더만 만들고, 완성본은 `final/`, 감사 기록은 `.history/`에 분리한다. 기존 루트·프로젝트는 보존·재사용한다. 납품 ZIP 내부 v5.1 트리는 별도 배포 규격으로 유지한다.
+
+실제 작업 시작 전에 정확한 프롬프트와 방법을 `.history`에 기록하고, 작업 결과·실제 파일 경로·완료/실패/중단을 별도 시간순 Markdown으로 남긴다. 재개 시 끝나지 않은 작업을 확인하며, 중단을 생성 서비스 실패로 오인하거나 완료를 꾸며 기록하지 않는다. 산출물이 저장될 때마다 사용자에게 절대 경로와 히스토리 경로를 보고한다. 채팅-only 요청은 폴더/히스토리/미디어를 만들지 않는다.
+
+v5.1 설계와 구현 범위: [PRODUCTION_V5_1_UPGRADE.md](docs/PRODUCTION_V5_1_UPGRADE.md). 기존 전문 스킬은 각기 다른 책임을 유지하며 공통 자산 게이트와 저장 규칙만 정본 참조로 통합한다.
+원장은 `<선택한 사용자 제작 프로젝트>/project.json`이다. 저장소의 두 project.json은 예제이며 현재 운영 프로젝트 선택 기록은 아니다. 총괄만 [현재 단계 패킷/원장 작성 계약](video-production-assets/references/contract.md#worker-handoff-and-single-writer)을 적용한다. `project_index.py --shot/--artifact`는 읽기 전용 인덱스 조회, `update_project.py --update`는 유효한 기존 원장에 대한 버전 확인·upsert·종속 stale 전파·검사 후 원자 교체다. 초기 프로젝트 생성/자동 워커 실행/승인 인증기는 아니다.
+
+Q01~Q23 구현과 검증 결과는 [작업지시서](docs/superpowers/plans/2026-10-06-production-v5-1-qa-remediation.md)와 [검증 기록](docs/evidence/production-v51-qa-remediation.md)에 정리한다.
+
+레퍼런스 기반 작업은 후보 선택 → 관찰/해석/미확인 분리 → 제작 원리의 새 소재 적용 → 필요한 프로젝트 스타일 브리프 → 정성 QA로 연결한다. 주제·시놉시스 탐색을 요청한 영상에만 [탐색 계약](orchestrating-video-preproduction/references/video-direction.md#discovery-topic-and-synopsis)의 단계별 기본 5개를 적용하며, 명시 개수·확정 입력·단일 산출물은 보존한다. 회고는 요청된 프로젝트 기록/제안이다. 자동 스킬 개선·승격·브랜드 프로필 갱신과 숫자 유사도 기반 통과/재시도는 지원하지 않는다.
+
+광고 레퍼런스 원리를 새 브리프로 옮길 때는 `video-production-assets/references/25-reference-video-analysis.md`의 A01–A12 교차표에서 해당하는 기존 제품·상태·모션·샷·편집·근거 오너만 연다. 각 템플릿의 실제 필드와 조건부 게이트를 재사용하며, 이는 텍스트 설계이지 매체 검수·주장 입증·권리 승인이나 CTA 의무가 아니다.
+
+## Production v5.1 구현 상태
+
+**Q01~Q23 구현과 Windows CLI/API 검증을 완료했다.** 이 절은 당시 패키지 `2.4`의 검증 기록이며 현재 패키지 버전은 manifest를 따른다. 프로젝트 schema는 `1.1`을 유지한다. 독립 코드 리뷰 2건은 최종 `APPROVE`다. 구현·검토 완료는 실제 미디어 생성·과금·게시·배포 승인이 아니다.
+
+공통 검증과 저장 도구는 다음 경계를 검사한다:
+
+- **FINAL 준비와 출처:** 현재 master 계보·버전, sheet 등록·순서·해시, 원본 crop과 실제 RGBA 픽셀, panel/scene 참조, 영역 중첩과 반복 scene-band 조립
+- **파일과 패키지:** 프로젝트 외부 경로·링크, 대소문자 경로 충돌, 복사 바이트 해시, ZIP 내부 참조와 다른 루트에서의 재패키징
+- **실행 이력:** 원본 prompt 바이트·해시 보존, 기록 사본의 자격증명 마스킹, 시작 순서 기준 현재 attempt, 실제 출력 확인과 초기화 중단 시 복구
+- **종속성과 인계:** 선택한 canonical storyboard와 실제 종속 분기에만 stale 전파, artifact 중심 조회에서도 panel pin과 master/LOOK 계보 수집
+
+기술 검사를 통과해도 시각·청각 품질, 사실 진위, 권리와 사용자 수락은 별도로 확인한다. Linux/macOS native 실행과 실제 공급자 생성은 이번 Windows 검증에 포함하지 않는다. 초기 실패와 수정 후 결과는 [검증 기록](docs/evidence/production-v51-qa-remediation.md)에 보존한다.
+
+## 외부 실행 도구
+
+텍스트 원고와 텍스트 영상 기획에는 GPU, 미디어 계정, 특정 에이전트 프레임워크가 필요 없다. 실제 이미지·영상·음악·음성·편집·게시에는 선택한 도구의 설치/인증과 현재 기능 확인이 필요하다.
+
+- 콘텐츠/검토 이미지: 미지정 시 `codex-imagen`을 기본 실행자로 사용한다. 해당 정지 이미지에는 사용량·quota·가격·견적 조회나 별도 비용 승인을 요구하지 않으며, 현재 실행/인증·입력/출력·저장 위치·권리와 요청 범위는 확인한다. 사용자가 명시적으로 고른 다른 허용 실행자는 해당 제공자의 비용·승인 조건을 유지한다. 선택 경로가 준비되지 않으면 blocker로 보고하고 자동 공급자 전환을 하지 않는다. 금지 경로와 실행자 선택은 [생성 경로·비용 라우팅 §2](video-production-assets/references/24-production-execution.md#2-이미지-생성-경로-정지-에셋)를 따른다.
+- 실제 영상/오디오 생성·편집: 선택된 Higgsfield, Fal, ComfyUI, Remotion, FFmpeg 또는 해당 실행기. Higgsfield 이미지 생성은 제외한다. 고정 모델 순위·가격표를 정답으로 사용하지 않는다.
+- 전문 각본/스토리커머스, 출처 조회, 플랫폼 운영: 요청한 레인에 해당하는 외부 스킬과 도구만 사용한다.
+- 글 리라이트나 검토 수락은 생성 과금·게시·DB 수정·배포를 허가하지 않는다.
+
+선택한 단계의 의존성이 없으면 도달 가능한 준비를 끝내고 정확한 부족 항목을 보고한다. 설치된 스킬이 있다는 사실만으로 인증·실행 가능·권리 확보를 주장하지 않는다.
+
+세부 사용법: [USAGE_GUIDE.md](USAGE_GUIDE.md). 역할과 이전 기능의 통합 위치: [skill-routing.md](integrations/skill-routing.md). 출처·권리 경계: [package-provenance.md](integrations/package-provenance.md).
+
+## 설치 및 업데이트
+
+Python 3.10 이상. 저장소 루트에서 실행한다.
+
+```powershell
+$skillRoot = if ($env:CODEX_HOME) { Join-Path $env:CODEX_HOME 'skills' } else { Join-Path $HOME '.codex\skills' }
+python scripts/install_package.py --skills-root $skillRoot
+```
+
+전체 스킬·지원 파일·대상 충돌·경로 중첩을 쓰기 전에 검사한다. 기존 폴더를 자동 병합/덮어쓰기하지 않는다. 명시적 교체에는 새로운 백업 경로가 필요하다.
+
+```powershell
+$backup = Join-Path $HOME ('.codex/skill-backups/contents-production-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+python scripts/install_package.py --skills-root $skillRoot --replace --backup-dir $backup
+# 추가 검색 루트도 이전할 때만 --alias-root (Join-Path $HOME '.agents/skills') 지정
+```
+
+소스 스킬에 이전 설치의 파생 `support` 스냅샷이 있으면 기본 설치는 충돌로 중단한다. 이때만 `--exclude-derived-support`를 명시하면 예약 항목 `support/{manifest.json,examples,qa,CHANGELOG.md}`의 소스 복사를 제외하고 현재 저장소의 지원 자료로 설치한다. 원본·사용자 support 파일은 변경하지 않으며 기존 목적지의 백업/충돌 보호도 유지한다.
+
+지원 자료는 `video-production-assets/support/`에 복사된다. 무관한 스킬, 외부 실행기, 키/OAuth, 모델 가중치, 호스트 설정은 변경하지 않는다. I/O 실패는 실제 적용 경로와 남은 백업을 보고하며 여러 폴더의 원자적 설치를 보장하지 않는다. 설치 후 에이전트의 스킬 목록을 새로고침한다.
+
+이 프로젝트 업데이트 자체는 사용자 전역 스킬 설치본을 덮어쓰지 않는다. 정본은 저장소이며 설치는 위 명령으로 별도 수행한다. 아래 링크 동기화를 명시적으로 실행한 경우에는 작업 트리 변경(미커밋 변경 포함)이 설치 루트에도 바로 보인다. 커밋/배포 버전 고정이 필요하면 깨끗한 별도 체크아웃에서 복사 설치한다.
+
+### 로컬 잔여물 정리
+
+설치 도구는 교체한 파일을 `<파일>.from-backup`으로, 브랜치를 `<브랜치>.from-backup`으로 남기고 git 객체 저장소 안에도 사본을 남긴다. 이 사본들은 git 히스토리와 중복되어 검토 대상이 아니고 계속 쌓인다. 설치·동기화 후 다음 스크립트로 정리한다(기본은 dry run, 삭제하려면 `--apply`).
+
+```bash
+python scripts/clean_local_artifacts.py            # dry run
+python scripts/clean_local_artifacts.py --apply
+```
+
+커밋된 리포트·원장·연락시트는 남고, 대용량 원시 평가 캡처(`qa/skill-completeness-95/runs/`)와 추출 분석 미디어(`docs/analysis/*/evidence/`)만 추가로 제거한다. 후속으로 `git gc --prune=now`를 실행하면 객체 저장소도 정리된다.
+
+## 검증
+
+전체 회귀 검증에는 `pytest`, `Pillow`, `pydantic` v2가 필요하다. 저장소 루트에서 실행한다. Windows에서는 UTF-8 모드를 명시해 UTF-8 fixture를 시스템 기본 cp949로 읽지 않도록 한다.
+
+```powershell
+python -m pip install pytest Pillow "pydantic>=2,<3"
+python scripts/check_versions.py
+python -X utf8 -m pytest -q
+```
+
+이전 패키지 `2.8` 회귀 기록은 **254 passed, 8 skipped, 214 subtests passed**이며 현재 변경의 재검증 결과가 아니다. 당시 Windows 링크 권한과 PATH에서 발견되지 않은 Blender 때문에 건너뛴 검사, subprocess 디코딩 경고 등은 해당 시점의 환경 기록이다. 이전 격리 설치본의 FINAL 패키지·손상 입력 거부·history lifecycle 증거는 [최종 검증 원본](docs/evidence/production-v51-final-verification.json)과 [설치본·독립 검증 기록](docs/evidence/production-v51-qa-remediation.md)에 보존한다.
+
+95% 개선 작업의 현재 실행·검토는 [작업지시서](docs/superpowers/plans/2026-10-16-skill-completeness-95-work-order.md), [실행 환경](qa/skill-completeness-95/environment.md), [실제 스모크](qa/skill-completeness-95/smoke-results.md)로 구분한다. 새 평가 러너는 행동 59개와 별도 S1a/S1b의 정확한 원문 바이트를 검증하고, 실제 파일을 읽는 제한 도구 프로필에서 실행한다. 과거 Codex arm이나 문맥 주입 대체 응답과 동등하다고 주장하지 않는다. Blender 키프레임·로컬 렌더·납품 검사 증거는 최종 미감·전체 재생·권리·사용자 수락·공급자 생성 성공을 대신하지 않으며, 최종 61개 판정과 독립 점수 없이 95% 달성을 선언하지 않는다.
+
+전체 이미지 기반 프리프로덕션은 출처/시놉 MD → active LOOK 바이블 → 관련 잠금 Master/Scene State → 연결된 기술 콘티 → 읽을 수 있는 실제 시트들(시트당 최대 8패널) → 씬/패널 이미지 분할이 필수다. [정본 계약](video-production-assets/references/contract.md#전체-프리프로덕션-패키지)과 [Character SSOT 0–33](designing-video-character-sheets/references/character-ssot-master-prompt.md)를 따른다. FINAL 자산 게이트와 실제 검수는 별개다. 텍스트-only 요청에 이미지 생성·지출을 추가하지 않는다.
+
+포즈 검증의 부모-local 불변량은 기존 [creative QA](creative-production/references/creative-qa.md#blender3d-and-web)가 소유한다. [이번 source 검증·실제 continuation 상태](docs/superpowers/specs/2026-10-14-creative-production-end-to-end-preproduction-design.md#observed-post-freeze-verification--2026-10-14)는 post-freeze suite와 합성 행동 probe 결과를 실제 이미지 기반 제작 완료와 구분해 기록한다.
+
+```powershell
+python video-production-assets/scripts/render_storyboard_sheet.py project.json --base-dir production-root --output storyboards/storyboard-sheet.png --panels-per-sheet 4
+python video-production-assets/scripts/validate_project.py project.json --profile preproduction --base-dir production-root
+```
+
+생성된 모든 시트의 실제 경로를 `split_storyboard.py --sheet <path> ...`에 순서대로 전달해 씬/패널 이미지를 추출한다. `--output`은 프로젝트 내부 새 디렉터리여야 한다. 렌더러·분할 도구는 원장을 직접 변경하지 않고 실제 등록 필드를 반환하며 조정자가 이를 반영한다.
+
+### 씬 경계와 시트 페이지 수
+
+씬은 페이지 수를 맞추기 위한 단위가 아니다. 시간·장소·상황이나 극적 목적, 관객/인물의 지식 상태가 의미 있게 바뀌는 지점을 기준으로 씬 경계를 정한다. 같은 시공간에서 이어지는 행동은 기본적으로 같은 씬 안에서 beat·shot·panel로 나눈다. 대사, 리액션, 정보 공개, 카메라 변화만으로 씬을 새로 만들지는 않는다. 씬 전환이 애매하면 기존 씬 목적과 인접 씬 비교에 왜 새 씬인지 근거를 남긴다.
+
+씬→샷→패널 순서를 먼저 확정한 뒤 시트를 별도로 페이지화한다. 한 시트에 여러 씬이 들어갈 수 있고, 한 씬이 여러 시트에 걸칠 수도 있다. 씬 ID나 패널을 추가해 페이지 수를 맞추지 않는다. 시트당 최대 8패널이며, 그림과 캡션이 출력 크기에서 읽히도록 필요하면 더 적게 배치한다. 예를 들어 15컷은 8컷씩이면 2장(8+7), 4컷씩이면 4장(4+4+4+3)이 된다. 페이지화만 바꾸면 씬 구성은 바뀌지 않는다.
+
+제작용 렌더러는 기본 시트당 최대 4패널을 사용한다. 세부 판독용 1–2패널과 간결한 개요용 6–8패널을 선택할 수 있으며 전달 크기의 읽힘으로 결정한다. 3×3·9패널 고정은 채택하지 않고, 8도 현재 도구의 지원 상한으로만 유지한다. 이야기의 총 패널 수와 시트 밀도는 서로 다른 결정이다.
+
+합본 조립에는 Pillow/한글 Unicode 폰트가 필요하다. strict profile은 실제 문서·이미지 디코딩·해시·참조·현재 버전·미해결 blocker를 검사한다. `plan valid`나 생성 성공은 이 게이트 및 실제 시각 검수의 대체물이 아니다. reviewed/approved 프리프로덕션 검토 및 approved 영상 실행 계획은 완결 이미지 패키지 검사를 자동으로 요구한다.
+
+실제 실행한 패키지·설치·기획 시나리오 증거는 [qa/consolidation-validation.json](qa/consolidation-validation.json)에 둔다. 텍스트 결과 12개(현재/이전 총괄 각 6개)는 [평가 뷰어](qa/evaluation-review.html)와 [자동 분류 결과](qa/behavior-benchmark.json)에서 비교할 수 있다. 이번 표본에서 자동 분류 기준 충족 수는 양쪽 모두 15/18이며 품질 향상을 입증한 벤치마크가 아니다. 이전 릴리스 기록은 [qa/package-validation.json](qa/package-validation.json)에 보존한다. 구조 검사는 미디어 디코딩·시청·청취·사실 진위·권리·공급자의 현재 기능을 검증하지 않는다. 텍스트 평가를 실제 미디어 제작 성공으로 보고하지 않는다.
+
+## 버전 일관성과 자동 동기화 (Junction)
+
+이 저장소가 스킬 소스의 정본이다. 기본 복사 설치와 선택형 링크 동기화는 별도 방식이다. 아래 `sync_installed.py`를 실행한 설치 루트만 Junction/링크로 저장소의 변경을 읽는다. 전역 설치본이나 Git 훅이 이미 설정되어 있다고 가정하지 않는다.
+
+```powershell
+# 저장소 -> 설치 루트로 링크 (기존 실체 폴더는 백업 후 교체, 멱등)
+python scripts/sync_installed.py            # 실제 동기화
+python scripts/sync_installed.py --dry-run  # 계획만 확인
+
+# 버전 일관성 검사 / 일괄 범프 (manifest + CHANGELOG + 전 스킬 frontmatter)
+python scripts/check_versions.py
+python scripts/bump_version.py --part minor --bump-skills
+
+# git 훅 설치: 커밋 전 version check(차단), 커밋/머지/리베이스 후 자동 싱크
+python scripts/install_hooks.py
+```
+
+- 훅을 설치하면 `post-commit` / `post-merge` / `post-rewrite`가 커밋·풀·리베이스 후 설치 루트를 재싱크한다.
+- 훅을 설치하면 `pre-commit`이 버전 불일치 시 커밋을 차단한다.
+- GitHub Actions (`.github/workflows/ci.yml`): push/PR 시 `check_versions.py`와 pytest로 검증합니다.
+- 파생 산출물 `video-production-assets/support/`는 싱크 시 재생성되며 gitignore됩니다.
+- 기존 복사본은 `~/.skills-sync-backup/<타임스탬프>/`에 백업됩니다.
+- 기본 동기화 루트는 `~/.codex/skills`, `~/.claude/skills`, `~/.agents/skills`입니다. `--root <경로>`를 반복 지정하면 기본 목록을 대체합니다. 미리 `--dry-run`으로 변위를 확인하세요.
+- 현재 Pi도 공용 `~/.agents/skills`를 탐색합니다. 링크 반영 후 실행 중인 Pi에서 `/reload`를 한 번 실행하거나 새 세션을 시작하세요. 파일 배포와 실행 중 시스템 프롬프트/스킬 목록의 재로딩은 별개입니다.
+
+## 출처와 재사용
+
+이 저장소에는 재사용 라이선스가 없다. 공개 저장소, 출처 표기, AI 판단은 재배포 허가가 아니다. 기존 서적·원문·Notion 자료, 개인 서버/계정 설정, 인증 자료, 모델 가중치와 사용자 프로젝트 산출물은 새 패키지에 반입하지 않는다. 현재 스킬에서 검토한 범용 제작 절차는 패키지의 기존 계약에 맞춘 운영 지침으로 정리하며 외부 helper/코드의 라이선스를 임의로 전용하지 않는다.
+
+## 영상 전용 팩과 분리 위치
+
+현재 manifest의 25개는 영상 제작 또는 직접 소비하는 지원 기능이다. 주제 수요/SNS 검색은 영상 주제·레퍼런스 입력, 제작 이력은 공통 저장, Soul ID는 별도 동의가 필요한 영상 인물 정체성 준비, 썸네일은 영상 납품/유통에 사용하므로 유지한다. 이 번들은 일반 소셜 계정 운영·자동 게시를 하지 않는다.
+
+비영상 스킬 5개는 [../non-video-production-skills](../non-video-production-skills/README.md)로 실제 분리했다: `product-detail-page-builder`, `higgsfield-brandkit`, `higgsfield-marketplace-cards`, `higgsfield-product-photoshoot`, `higgsfield-websites`. 원본 이력은 이 저장소에 남고 이동 해시·설치 링크 대응은 [이동 기록](integrations/non-video-migration.json)에 둔다. 기존 설치 링크의 대상만 수정하며 새 설치·배포는 하지 않는다. 영상 팩의 설치/동기화는 영상 manifest만 사용하고 형제 팩을 자동 설치하거나 삭제하지 않는다.
+
+표현 선택은 [제작 참조 색인](video-production-assets/references/production-reference-index.md)을 필요할 때만 읽는다. 시각 용어/교육 자료와 원본 에셋을 구분하고 선택→기존 오너 필드→실제 제출문→QA를 연결한다. 출처 열람, 작품 사용, 원본 재배포, 생성기 업로드, AI 학습 권리는 각각 기록하며 현재 미검증 자료를 검증됨으로 승격하지 않는다. 프로젝트 schema 1.1·캐릭터 SSOT·시간·버전·사운드 큐·카메라 QA는 유지한다.

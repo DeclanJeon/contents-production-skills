@@ -1,0 +1,2 @@
+Initial QA inspector attempt: ValueError on preexisting README sibling-pack link outside checkout; no product defect or source change. Root cause: relativizing before restricting scope. Corrected scope filter follows.
+PASS: 19 new-reference links and explicit fragment anchors in owned changed Markdown

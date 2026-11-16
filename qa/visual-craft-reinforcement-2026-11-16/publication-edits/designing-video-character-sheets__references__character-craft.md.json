@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/designing-video-character-sheets/references/character-craft.md",
+  "relative": "designing-video-character-sheets/references/character-craft.md",
+  "kind": "edit",
+  "before_sha": "7b5dc47a636ec0d120a04abd24408f132e67f7f09739b5e4c203a93b9ee3c0a7",
+  "after_sha": "27b055739dc5f84d8c6ce73c3198110b0247a216fa0ca025854ac9a96ab77bfd",
+  "edits": [
+    {
+      "oldText": "## Making traits filmable\n\n",
+      "newText": "## Making traits filmable\n\nFor body-specific nonhuman cues or an explicitly permitted form change, use the applicable [performance and identity examples](../../video-production-assets/references/performance-and-style-recipes.md). Keep fixed morphology, allowed state changes and unresolved transition evidence in this sheet's existing anchor/variation content. A baseline mouth shape is not an emotion, and an approved transformation is not permission to drift other attributes or create a competing SSOT.\n\n"
+    }
+  ]
+}

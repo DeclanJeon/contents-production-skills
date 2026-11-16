@@ -1,0 +1,8 @@
+VERIFIED /home/declan/.codex/skills :25correct links +2matching reference files
+VERIFIED /home/declan/.claude/skills :25correct links +2matching reference files
+VERIFIED /home/declan/.agents/skills :25correct links +2matching reference files
+VERIFIED /home/declan/.pi/agent/skills :25correct links +2matching reference files
+PROTECTED video-production-assets/assets/09-edit-template.md bb40435f2503bd419db06a2f4be99c1675d484899a66888b37a35bd69803793e
+PROTECTED video-production-assets/references/26-state-causality-continuity.md 2e011177c38d62501510b493750feae59e7f99f4c9303c134fc5c7a5ee8053fc
+PROTECTED video-production-assets/references/storyboard-contract.md 0e68ec374fbe28b189f4a8bd8602f27e8b2cd0884d7f84eae1be23802f98dc4f
+VERIFIED derived support manifest2.45 matches source; no commits or global link displacement

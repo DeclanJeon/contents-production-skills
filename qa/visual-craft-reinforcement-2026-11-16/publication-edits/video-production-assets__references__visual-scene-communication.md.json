@@ -1,0 +1,13 @@
+{
+  "path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/video-production-assets/references/visual-scene-communication.md",
+  "relative": "video-production-assets/references/visual-scene-communication.md",
+  "kind": "edit",
+  "before_sha": "dbe63cf0b7f3093dfec2d221c24b6ae8e7ad1a397cb5d556de17ba1ff3fdb4b0",
+  "after_sha": "12c0d73a5b3a8bda225e2cdc78ad42145e1c875c424b546952c025ac8aaf8f81",
+  "edits": [
+    {
+      "oldText": "검수 기록은 기존12 표의 `관찰 근거`·`관객 영향`(해석)·`수정`·`재검증 기준`을 쓴다. ‘최고의 연출’을 보편 점수·정해진 컷 수/초수·인체 부위 개수로 정의하지 않는다. 아래 메커니즘은 조건부 craft 제안이지 입증된 관객 효과나 모든 작품에 대한 법칙이 아니다.\n\n",
+      "newText": "검수 기록은 기존12 표의 `관찰 근거`·`관객 영향`(해석)·`수정`·`재검증 기준`을 쓴다. ‘최고의 연출’을 보편 점수·정해진 컷 수/초수·인체 부위 개수로 정의하지 않는다. 아래 메커니즘은 조건부 craft 제안이지 입증된 관객 효과나 모든 작품에 대한 법칙이 아니다.\n\n## 상황별 상세 선택\n\n- 비인간의 몸 구조, 국소 코믹 변형, 행동 도중 주의 전환, 가림 전후 형태 변화, 서로 의존하는 팀 수행이 장면의 핵심이면 [연기·표현 상세 예시](performance-and-style-recipes.md)의 해당 절만 읽는다.\n- 허구 능력의 규칙/예외, 이공간 경계, 효과의 발원/수신, 인물의 믿음과 사실, 지식의 한계, 기억/시간층 입출구가 핵심이면 [세계 규칙·정보 상세 예시](world-rules-and-information-recipes.md)의 해당 절만 읽는다.\n\n기존 오너/필드 안에서 선택하는 참고 예시다. 무관한 대사·정적 도표·비서사 작업에는 새 인물/사건·상세 양식을 추가하지 않는다.\n\n"
+    }
+  ]
+}

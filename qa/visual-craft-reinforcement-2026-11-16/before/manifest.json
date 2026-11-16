@@ -1,0 +1,213 @@
+{
+  "name": "contents-production-skills",
+  "version": "2.44",
+  "entry_skill": "creative-production",
+  "support_skill": "video-production-assets",
+  "skills": [
+    "creative-production",
+    "topic-demand-selection",
+    "searching-social-media",
+    "video-production-assets",
+    "camera-spatial-design",
+    "camera-motion-reference-analysis",
+    "ai-camera-control",
+    "blender-previsualization",
+    "open-3d-production",
+    "orchestrating-video-preproduction",
+    "developing-video-synopses",
+    "designing-video-character-sheets",
+    "designing-character-personas",
+    "storyboarding-video",
+    "silent-visual-storytelling",
+    "animatic-direction",
+    "storytelling-with-still-images",
+    "recording-production-history",
+    "higgsfield-generate",
+    "higgsfield-soul-id",
+    "higgsfield-video-explainer",
+    "higgsfield-video-replicate",
+    "higgsfield-youtube-thumbnail",
+    "community-shorts-stills-pipeline",
+    "silent-satire-animatic"
+  ],
+  "source_books_included": false,
+  "blender_render_included": false,
+  "examples": 4,
+  "external_dependencies": [
+    {
+      "lane": "public SNS video-post search",
+      "skills": [
+        "searching-social-media"
+      ],
+      "required_when": "actual requested SNS candidate search via the Flucto adapter",
+      "runtime": "Python 3.10+ standard library and already installed Flucto CLI; reviewed adapter 1.19.0 only; some public-index sources need installed Chrome/Chromium",
+      "auth": "anonymous public search only; no cookie extraction or login",
+      "upstream": null,
+      "upstream_version": "1.19.0",
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "marketing and source-derived conversion",
+      "skills": [
+        "content-production-marketing",
+        "youtube-content",
+        "youtube",
+        "podcast"
+      ],
+      "required_when": "Actual source-media inspection or explicitly requested video-adaptation depth only; standalone copy and campaign planning are outside the video coordinator.",
+      "runtime": null,
+      "auth": null,
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "story-commerce and screenplay",
+      "skills": [
+        "story-pipeline",
+        "sw-workflow",
+        "synopsis-craft",
+        "script-craft",
+        "char-design",
+        "storyboard-craft",
+        "sw-premise-theme",
+        "sw-scene-craft",
+        "sw-dialogue",
+        "sw-story-structure",
+        "sw-format-adaptation",
+        "sw-character-conflict"
+      ],
+      "required_when": "the named format or specialist stage is explicitly requested",
+      "runtime": null,
+      "auth": null,
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "image review and content images",
+      "skills": [
+        "codex-imagen"
+      ],
+      "required_when": "actual content or review images are requested without another explicitly selected eligible executor; codex-imagen is the default and missing readiness blocks automatic substitution; Higgsfield image generation is excluded",
+      "runtime": "the current codex-imagen helper contract (not bundled)",
+      "auth": "codex-imagen's required authentication and applicable usage/spend approval",
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "license": "MIT on the inspected local copy; its notice must be preserved. This does not grant rights to other skills.",
+      "auto_install": false
+    },
+    {
+      "lane": "selected static-image craft",
+      "skills": [
+        "baoyu-article-illustrator",
+        "baoyu-comic",
+        "banner-design",
+        "canvas-design",
+        "pons-blog-story-image",
+        "book-longform-thumbnail"
+      ],
+      "required_when": "Only requested video stills, story panels, covers or video graphics; standalone image/brand workflows are outside this pack.",
+      "runtime": "the selected actual image executor; craft instructions alone do not generate an image",
+      "auth": "only the selected executor's required authorization",
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "execution and assembly",
+      "skills": [
+        "fal-video-production",
+        "higgsfield-generate",
+        "comfyui",
+        "remotion-render",
+        "remotion-create",
+        "remotion-docs",
+        "remotion-markup",
+        "remotion-interactivity",
+        "remotion-captions",
+        "remotion-maps",
+        "remotion-multimedia",
+        "remotion-studio",
+        "remotion-saas",
+        "manim-video",
+        "p5js",
+        "ascii-video"
+      ],
+      "required_when": "the chosen video/audio provider or actual assembly/animation surface is used; image execution follows the codex-imagen default lane and excludes Higgsfield images",
+      "runtime": "the selected provider runtime or CLI (e.g. fal/higgsfield/comfyui/remotion, FFmpeg); nothing is installed automatically",
+      "auth": "the selected provider's own API key or account authorization, when required",
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "audio",
+      "skills": [
+        "songwriting-and-ai-music",
+        "heartmula",
+        "audiocraft-audio-generation",
+        "songsee"
+      ],
+      "required_when": "specialist lyric/music design, actual audio generation or requested audio analysis is selected",
+      "runtime": "the selected audio tool or model runtime, when that branch is chosen",
+      "auth": null,
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "conditional coordination discipline",
+      "skills": [
+        "ai-delegation-loop"
+      ],
+      "required_when": "At the coordinator for recurring production, multi-stage coordination, reuse of approved resources, or repeated output corrections, as already required by creative-production. If the matching module is unreachable, report the precise missing source and leave only its dependent coordination step unresolved while continuing unaffected native-contract work; never a baseline requirement for every standalone artifact.",
+      "runtime": null,
+      "auth": null,
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "measured reference-video decomposition",
+      "skills": [
+        "video-production-assets"
+      ],
+      "required_when": "Only when a locally supplied reference video must be measured for shot cuts, made-by classification, caption/packaging timeline, stem-separated audio or a remake route, and an installed rea-video CLI is available. Optional backend for reference25; absent tool falls back to the manual reference25 procedure.",
+      "runtime": "Python 3.10+ with ffmpeg and an installed rea-video CLI (Apache-2.0, upstream script entry `rea-video`); no runtime or model weights are installed by this package",
+      "auth": null,
+      "upstream": "https://github.com/JuneYaooo/rea-video",
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false,
+      "limits": "Tool output enters package evidence as DETECTOR_CANDIDATE/ESTIMATED until the agent inspects frames; agent frame review is mandatory; the tool's HTML report is not a package deliverable; paid remake calls need separate approval; --lang supports zh/en only"
+    },
+    {
+      "lane": "host integration",
+      "skills": [
+        "deep-interview",
+        "interactive-collaboration",
+        "plan",
+        "ultragoal",
+        "team",
+        "orchestration"
+      ],
+      "required_when": "the host's matching capability is used and needed for the current work; never a baseline requirement",
+      "runtime": "the host's own dialogue/tooling runtime (e.g. OMX); no runtime is installed by this package",
+      "auth": null,
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    }
+  ],
+  "scope": "Video production and directly consumed planning, reference, identity, audio, 3D and delivery support."
+}

@@ -1,0 +1,133 @@
+{
+  "source": "/home/declan/.cache/pi-worktrees/contents-production-silent-craft",
+  "target": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "before_sha256": "ac1a1373108e3f641ba836a0bcd48fa0a7ffd6e83eda490595d99cfdc89b9624",
+      "after_sha256": "a1dcbba151b97f28a748fa447b4d29eaa29239227bba884a1deb4849424c37ed",
+      "source_sha256": "a1dcbba151b97f28a748fa447b4d29eaa29239227bba884a1deb4849424c37ed"
+    },
+    {
+      "path": "README.md",
+      "before_sha256": "11cc73a35d31a6bc6fef37094964e7941b9d4f288c7d55250a5b49dfd0f3d3e0",
+      "after_sha256": "8c9bb93049adb138026d4abc35738e1e5d1290bba2a17b135ecf6ab963b2d19e",
+      "source_sha256": "8c9bb93049adb138026d4abc35738e1e5d1290bba2a17b135ecf6ab963b2d19e"
+    },
+    {
+      "path": "USAGE_GUIDE.md",
+      "before_sha256": "6be8556d66eb15101da12c015ef87ae60bc3a021b6436a225a981559ca229a0a",
+      "after_sha256": "d645acbb56ec411f531cb69d73fd84b42b3356c0848eb61169d105aa1ae2830a",
+      "source_sha256": "d645acbb56ec411f531cb69d73fd84b42b3356c0848eb61169d105aa1ae2830a"
+    },
+    {
+      "path": "creative-production/references/production-routing.md",
+      "before_sha256": "8a588d42e5df0e7eb91d33f828eab1da6f53049fd5d68bfb42aa8dd011a72ff6",
+      "after_sha256": "0dff03659bb72f5967747c64c472826a5537224cfc3a4247ba8063fe20c26217",
+      "source_sha256": "0dff03659bb72f5967747c64c472826a5537224cfc3a4247ba8063fe20c26217"
+    },
+    {
+      "path": "manifest.json",
+      "before_sha256": "226f16f239f0702c153afec6b8b33fff19cddfcd59d082a46a2e53882bd85a1e",
+      "after_sha256": "addb878252904e44b4bfdbaadc73a51bf8c1d5761e807d1d30685b83d1c49b38",
+      "source_sha256": "addb878252904e44b4bfdbaadc73a51bf8c1d5761e807d1d30685b83d1c49b38"
+    },
+    {
+      "path": "scripts/test_video_pack_boundary.py",
+      "before_sha256": "67b14c0f532d9de0f4e7262a0e2c9e509748e85442e5757e97edae863af6c47a",
+      "after_sha256": "b025edbc12cde26ea3fd1feaf5b768670f2be70a3c0684cfd73f116d8404a80d",
+      "source_sha256": "b025edbc12cde26ea3fd1feaf5b768670f2be70a3c0684cfd73f116d8404a80d"
+    },
+    {
+      "path": "silent-satire-animatic/SKILL.md",
+      "before_sha256": "2928c7494638aaf9e984d93e3e5c60f53e19ec3772b45b5eb4c3efad20e6b550",
+      "after_sha256": "faf8eb5406c68f2db9226e6116cc7ff7743883bcc8d25936104c5337a783822c",
+      "source_sha256": "faf8eb5406c68f2db9226e6116cc7ff7743883bcc8d25936104c5337a783822c"
+    },
+    {
+      "path": "silent-satire-animatic/references/01-silent-principles.md",
+      "before_sha256": "a0c2cf520fe88ffb771955df478cf27dacb546bf131e283e59e742792e46c5de",
+      "after_sha256": "752f4ac96bc7dc103f8108027ab6215f96caac0a248aad013ca150f482dc97ca",
+      "source_sha256": "752f4ac96bc7dc103f8108027ab6215f96caac0a248aad013ca150f482dc97ca"
+    },
+    {
+      "path": "silent-satire-animatic/references/03-beat-budget.md",
+      "before_sha256": "f3c06e3956414073251ac785973747d60e603bb50c31eac7dddb202f028ffd2c",
+      "after_sha256": "3be9f3d1ea75b3b12f8f0b37fac60ff3ee4955bcccf1ef7a4be15c5d8a9457a4",
+      "source_sha256": "3be9f3d1ea75b3b12f8f0b37fac60ff3ee4955bcccf1ef7a4be15c5d8a9457a4"
+    },
+    {
+      "path": "storyboarding-video/SKILL.md",
+      "before_sha256": "4f29496f0b0f94b86c75359e406c507e15a7d620acc38eccc66d66e2a6193687",
+      "after_sha256": "0be59cb3758c9c26cad4aea5f0779a90e7739e80446556a6b08f1a81077d3796",
+      "source_sha256": "0be59cb3758c9c26cad4aea5f0779a90e7739e80446556a6b08f1a81077d3796"
+    },
+    {
+      "path": "video-production-assets/assets/06-shots-template.md",
+      "before_sha256": "28b37d677651db1cb5cb185a1796092a8cfcd189c682b026b47c0ada8f58d86a",
+      "after_sha256": "494cf24f39f8355d1d82906f7426ef76a10f496f21821a4e2f21e5578ccb35cb",
+      "source_sha256": "494cf24f39f8355d1d82906f7426ef76a10f496f21821a4e2f21e5578ccb35cb"
+    },
+    {
+      "path": "video-production-assets/references/04-performance.md",
+      "before_sha256": "1ee4dfc7ea91d84b0d1dafb95ce2de5f204b06bd01339d1edbe0952eaba0e7a8",
+      "after_sha256": "46bc33faf4b8bb606131a9489f38ef63e83e74504459d9264afd98b2191804e1",
+      "source_sha256": "46bc33faf4b8bb606131a9489f38ef63e83e74504459d9264afd98b2191804e1"
+    },
+    {
+      "path": "video-production-assets/references/06-shots.md",
+      "before_sha256": "8edee8577afbfa066154bc9cc48501bd3795c47fc21086c73dbe54af24f03543",
+      "after_sha256": "10c2dd29951e3fbdbc51ec5aa1efa3df698454234b279247da890ec93ea4486f",
+      "source_sha256": "10c2dd29951e3fbdbc51ec5aa1efa3df698454234b279247da890ec93ea4486f"
+    },
+    {
+      "path": "video-production-assets/references/08-animation.md",
+      "before_sha256": "e7464b71c7c25f2b656318041f2d830122ba44a644d4945d3b241a131f305ff6",
+      "after_sha256": "d05ffe0da4e151c61aef8a0b34ea4b760363afe671a580e66c380599d7c06437",
+      "source_sha256": "d05ffe0da4e151c61aef8a0b34ea4b760363afe671a580e66c380599d7c06437"
+    },
+    {
+      "path": "video-production-assets/references/09-edit.md",
+      "before_sha256": "c071c343bf7e110fd999dc7df51c34415e280f77c83b9e94b81196d1f881b2bb",
+      "after_sha256": "9bacf511cda8f2f3a347127b8dadbf35eeabc81b546317862aa9ff9e3ed11656",
+      "source_sha256": "9bacf511cda8f2f3a347127b8dadbf35eeabc81b546317862aa9ff9e3ed11656"
+    },
+    {
+      "path": "video-production-assets/references/storyboard-contract.md",
+      "before_sha256": "0d6e8856e76c4e5bdd6d0242d341010d118ab1d10fa4e46a1caad49dc3166999",
+      "after_sha256": "0e68ec374fbe28b189f4a8bd8602f27e8b2cd0884d7f84eae1be23802f98dc4f",
+      "source_sha256": "0e68ec374fbe28b189f4a8bd8602f27e8b2cd0884d7f84eae1be23802f98dc4f"
+    },
+    {
+      "path": "silent-visual-storytelling/SKILL.md",
+      "before_sha256": null,
+      "after_sha256": "c25f70e156381e7e4611629b48dcb5ad9e93c8efc8feade8bdcf8380ebab8149",
+      "source_sha256": "c25f70e156381e7e4611629b48dcb5ad9e93c8efc8feade8bdcf8380ebab8149"
+    },
+    {
+      "path": "silent-visual-storytelling/references/scene-direction.md",
+      "before_sha256": null,
+      "after_sha256": "ae739ece492900a071ed6a4e8a0b4c59be15f747d0509dba2a3d5ef71dedb580",
+      "source_sha256": "ae739ece492900a071ed6a4e8a0b4c59be15f747d0509dba2a3d5ef71dedb580"
+    },
+    {
+      "path": "animatic-direction/SKILL.md",
+      "before_sha256": null,
+      "after_sha256": "3a61d941fa58a81f91a92a8e99ab2f5dad33d9bc1e0955c366ca5e68fbb39ea9",
+      "source_sha256": "3a61d941fa58a81f91a92a8e99ab2f5dad33d9bc1e0955c366ca5e68fbb39ea9"
+    },
+    {
+      "path": "animatic-direction/references/timing-and-review.md",
+      "before_sha256": null,
+      "after_sha256": "784c0702be941fc9d22f54917ef7ffcd8d4f0f6e95a34766d0413d568ad6e00b",
+      "source_sha256": "784c0702be941fc9d22f54917ef7ffcd8d4f0f6e95a34766d0413d568ad6e00b"
+    }
+  ],
+  "protected_preexisting_changes": {
+    "creative-production/SKILL.md": "cf4b3d7dd5ec1996e2add1eeec40c3287907f606163d11df0da3498154eed37e",
+    "video-production-assets/assets/09-edit-template.md": "bb40435f2503bd419db06a2f4be99c1675d484899a66888b37a35bd69803793e",
+    "video-production-assets/references/26-state-causality-continuity.md": "2e011177c38d62501510b493750feae59e7f99f4c9303c134fc5c7a5ee8053fc"
+  },
+  "red_registry_probe": "Before transfer, real installer build_plan lacked both new entries and assertion failed. No installation occurred.",
+  "scope": "20 product files only; no corpus, images, runtime archives or unrelated preexisting changes copied."
+}
