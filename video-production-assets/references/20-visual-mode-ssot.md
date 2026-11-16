@@ -130,6 +130,8 @@
 
 ## 5. 장면 공간 앵커와 선언된 세계 변형
 
+구체적인 선택 비교가 필요할 때 [이공간 경계 예시](world-rules-and-information-recipes.md#space-boundary)를 사용한다. 승인된 캐릭터 형상 변화는 [가림 전후 동일성 예시](performance-and-style-recipes.md#occluded-transformation)를 참고하되, 연속 morph/물리 시연의 검수와 가림 전후의 연결 판독은 분리한다. 아래 공간/SSOT 절차가 정본이다.
+
 여러 샷이 같은 공간을 이어받거나 portal/불가능한 스케일을 사용할 때만 적용한다. 기존 location/world SSOT에 입구·문턱·landmark·방위·가구/소품 관계와 카메라 쪽 이동을 고정하고, 이동 전후 관객이 재정위할 화면 anchor를 지정한다. 컷/POV 변경·가림은 공간 이동이나 reset이 아니다. 유지되는 위치/소품은 [26 상태 인계](26-state-causality-continuity.md)에서 후속 상태로 잇는다.
 
 세계 규칙을 의도적으로 깨면 어느 shot/layer에서 바뀌고 ordinary space로 어떻게 돌아오는지 brief에 표시한다. portal 전후의 frame/eyeline, 방향, scale 단계와 복귀 view를 정한다. cut/dissolve/graphic wipe/composite를 비교하고 단순 cut이 더 명확하면 억지 morph를 하지 않는다. 경계 전 anchor→fantasy insert→회복 anchor를 storyboard/shot cue에 보이고, scale/방위 변화가 실제 평면도·서비스·장소 claim처럼 읽히지 않는지 inspect한다.

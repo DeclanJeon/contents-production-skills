@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 1.27
+version: 1.28
 description: 'Build source-grounded video production assets: briefs, story beats,
   screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans,
   animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs,
@@ -56,6 +56,8 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 | 자막·접근성·출력·납품 | [설계 절차](references/15-delivery.md) | [템플릿](assets/15-delivery-template.md) |
 
 ## 온디맨드 심화 참조
+
+대사 유무와 무관하게 중요한 스틸·샷·앵글·구도·인물 묘사·표정·액션·분위기의 전달 의도를 설계하거나 검수하면 [공통 시각 연출·장면 전달](references/visual-scene-communication.md)의 필요한 절을 현재02/03/04/05/06/07/08/09/12 오너 안에서 사용한다. 기존 템플릿과 승인된 이야기·언어 역할을 유지하며 모든 작업을 무성 서사 스킬로 보내거나 전수 원본 분석/새 필드를 요구하지 않는다.
 
 요청에 해당할 때만 연다. 각 파일은 기존 모듈의 절차를 확장하는 심화 가이드다.
 

@@ -1,6 +1,6 @@
 ---
 name: orchestrating-video-preproduction
-version: 2.25
+version: 2.27
 description: Use for text-only video preproduction that spans multiple artifacts — a complete planning package or one idea carried from concept through synopsis, characters, and storyboard. Delegated planning lane under creative-production; returns text and generic image prompts, never media.
 ---
 
@@ -19,6 +19,8 @@ If a text-only/read-only request also says “render the storyboard later,” re
 - **Package request:** follow the coordinator's assigned text stages in order, using the matching text specialists from the [canonical routing table](../creative-production/references/production-routing.md). A full text package ends with the assigned text artifacts and, only when dependencies are missing, one indexed missing-input packet; a full image-backed package returns the same bounded handoff so the coordinator can resume downstream specialists/media. If a matching text skill is not loaded, follow its `SKILL.md` in the same-named sibling directory; read only the current-stage guide, never every downstream guide.
 - **Single-artifact request:** invoke only the matching specialist and return only that artifact. Never build the full package, never ask permission to skip unrequested stages, never treat an omitted stage as an open question.
 - The canonical route owns specialist selection; this lane invokes only matching text specialists within its assignment. A character-sheet assignment retains the required `designing-character-personas` design. Preserve supplied synopsis and character/persona decisions rather than inventing unassigned upstream artifacts.
+- For assigned visual directing in dialogue-led or wordless work, use only the current owner's relevant parts of [common visual scene communication](../video-production-assets/references/visual-scene-communication.md). Preserve language/sound roles and approved facts, and return the actual shot/performance/look/edit choices with observable checks in existing fields; this is not a new specialist, research stage or silent-story prerequisite.
+- For assigned no-dialogue story work, invoke `silent-visual-storytelling`; for assigned timing/cut/hold or timed-board test planning on an approved story/board, invoke `animatic-direction`. Follow the coordinator's [silent/animatic assignment](../creative-production/references/production-routing.md#silent-and-animatic-assignment) packet and stage precedence; both are not mandatory for ordinary boards/animation. Preserve approved story, IDs, independent audio/text constraints and the existing06/08/09 handoff fields. Return text/proposed timing/unverified playback only: no source reanalysis, second interview, renderer or automatic next stage.
 - Applicability is mode-dependent: omit inapplicable characters and fictional plot elements, not explicitly requested planning artifacts. Character-free, factual and abstract briefs retain their requested concept, informational/visual synopsis, beat planning and board without fabricating a cast or conflict.
 
 When a film/short/animation/AI-film request is assigned through the lifecycle route, inherit its current preproduction stage, IDs, versions and approvals. This lane owns only the assigned preproduction text artifacts; shooting, postproduction and distribution remain downstream stages and are not inferred.
@@ -51,5 +53,5 @@ Beyond the package, the lane hands off the direction decision, interaction mode,
 
 다중 산출물 계획 응답의 `≤2,000 words` 예산 안에서 행정 메타데이터(도서 `SHA-256` 해시 반복, 중복 ID 나열, 빈 형식 표)가 정작 중요한 **장면 연출·인물 표정·동세·컷별 프롬프트**를 한 줄짜리 단답형으로 압축시키지 않도록 응답 밀도를 관리한다:
 
-- **토큰 배분 우선순위**: 전체 응답 분량의 **80% 이상**을 ① 씬별 카메라/리듬 설계, ② 패널별 **3단 상황 압축(`focal_hierarchy`)·안면 해부학 표정(`expression_pose`)·정지화 역동성(`kinetic_cues`)**, ③ **한·영 이중 이미지 프롬프트(`image_prompt`)**에 할애한다.
+- **토큰 배분 우선순위**: 전체 응답 분량의 **80% 이상**을 ① 씬별 카메라/리듬 설계, ② 패널별 적용 가능한 **상황 위계(`focal_hierarchy`)·표정/대체 연기(`expression_pose`)·물리/동세 단서(`kinetic_cues`)**, ③ 요청된 **한·영 이중 이미지 프롬프트(`image_prompt`)**에 할애한다. 정본 스토리보드 계약의 적용성을 따른다: 비인간/얼굴 유보/정적·평면 장면에는 목적에 맞는 대체 단서 또는 이유 있는 N/A를 사용하며 인체·3단 깊이·역동성을 일률 강제하지 않는다. 명시적으로 승인된 적용 가능한 strict 제약은 유지한다.
 - **기계적 메타데이터 압축**: 공통 가정·출처 지문·버전 핀은 문서 상단 스파인에 1회만 선언하고, 개별 패널 행에서는 생생한 시각·연기·구도 묘사를 절대 축약하지 않는다.

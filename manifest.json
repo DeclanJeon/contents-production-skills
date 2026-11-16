@@ -1,6 +1,6 @@
 {
   "name": "contents-production-skills",
-  "version": "2.42",
+  "version": "2.45",
   "entry_skill": "creative-production",
   "support_skill": "video-production-assets",
   "skills": [
@@ -18,6 +18,8 @@
     "designing-video-character-sheets",
     "designing-character-personas",
     "storyboarding-video",
+    "silent-visual-storytelling",
+    "animatic-direction",
     "storytelling-with-still-images",
     "recording-production-history",
     "higgsfield-generate",

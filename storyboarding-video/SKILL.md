@@ -1,6 +1,6 @@
 ---
 name: storyboarding-video
-version: 2.29
+version: 2.30
 description: Use to turn a synopsis, scene, visual sequence, or story beat into ordered storyboard panels, a storyboard sheet, or per-panel image prompts.
 ---
 
@@ -49,7 +49,9 @@ A full production board's text design is complete only when all six contract ret
 
 ## Kinetic staging, facial mechanics, and single-frame readability
 
-When composing cut-by-cut storyboard panels and per-panel image prompts, ensure every single still frame is intuitively readable and visually dynamic without relying on captions:
+For consequential still/shot/angle/composition/performance choices in either dialogue-led or wordless boards, read the applicable parts of [visual scene communication](../video-production-assets/references/visual-scene-communication.md). Tie visible cues and intended disclosure/withholding to existing scene/shot/panel fields and actual image QA; do not route ordinary dialogue boards through the silent-story skill or add a twelve-axis form. The guide supplies conditional expression choices, not a promise that every fact must be instantly obvious without sound.
+
+When the brief needs expressive action readable in still panels, select applicable recipes below and inspect the actual result; they do not guarantee instant comprehension. Three-layer depth, C/S poses, wide lenses, facial mechanics and scale jumps are optional craft choices, not universal requirements for faceless/nonhuman subjects, withheld expression, flat staging or intentional stillness. Preserve existing schema fields, optional/strict distinctions and explicitly approved applicable project constraints; use alternative cues or reasoned N/A where appropriate:
 
 - **3-Layer Causal Staging (`focal_hierarchy`)**: Stage foreground cause/threat/prop, midground subject action/expression, and background environmental consequence in one frame so the viewer understands *why* the action is happening at a glance.
 - **Kinetic Still Translation (`kinetic_cues`)**: For action, chase, impact, or urgent beats, translate motion into still-frame cues: off-balance C/S-curve line of action, wide-angle foreshortening toward the lens, and secondary inertia (trailing coat/hair, ground dust, sparks, directional background motion blur).

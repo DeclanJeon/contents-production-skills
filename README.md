@@ -27,14 +27,16 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 | [designing-video-character-sheets](designing-video-character-sheets/SKILL.md) | 캐릭터 정체성·행동·시각 앵커·연속성·범용 이미지 프롬프트와 페르소나·음성 설계 통합 | 텍스트 SSOT. 페르소나 전문 스킬을 필수 소비하며 실제 음성 생성은 하지 않는다. |
 | [designing-character-personas](designing-character-personas/SKILL.md) | 동기·조건부 행동·MBTI/에니어그램 창작 렌즈와 시각 연기·Voice Identity/Speech Style/Performance 설계 | 단독 텍스트 패킷 또는 기존 캐릭터 SSOT에 통합. 실존 인물 유형 추정·검사·음성 생성은 제외한다. |
 | [storyboarding-video](storyboarding-video/SKILL.md) | 전체 이야기·기술 슬롯을 연결한 완전한 제작 콘티; 명시적 러프 패널은 좁은 형식 | 텍스트 기획은 실제 이미지/검수/실행과 구분한다. |
+| [silent-visual-storytelling](silent-visual-storytelling/SKILL.md) | 대사 없는 시각 서사의 인과·공개/유보·감정·잔류 상태 설계 | 무성 서사 작성/수정 요청에만 적용. 일반 내레이션 원고·모든 콘티를 가로채거나 풍자 길이·결말을 강제하지 않는다. |
+| [animatic-direction](animatic-direction/SKILL.md) | 승인 이야기/보드의 국면·hold·컷 시간화와 재생 검수 계획 | 시간화 요청에만 기존 06/08/09 표를 사용. 제안 시간과 실측을 구분하며 렌더·재생 검수 완료를 주장하지 않는다. |
 | [storytelling-with-still-images](storytelling-with-still-images/SKILL.md) | 정지 이미지 전용 영상의 서사·큐 타이밍·음향·검수 계획 | 스틸만 화면 소스로 사용. 새 스틸 생성과 영상 조립을 분리한다. |
 | [camera-spatial-design](camera-spatial-design/SKILL.md) | 카메라 위치·화각·피사체 거리·블로킹·경로의 수치 설계 | 모든 장면별 3D 카메라/공간 작업은 Blender 구현·화면 검수까지 필수다. `camera-spatial-1.0`은 설계·사전 검사 계약이다. |
 | [blender-previsualization](blender-previsualization/SKILL.md) | 카메라·피사체 움직임, 구도·공간 배치의 실제 Blender 프록시·프리비즈·기하 검사 | 장면별 3D 카메라/공간 설계의 필수 구현·시각 검수 경로. Blender 런타임 필요; 최종 영상 품질을 보증하지 않는다. 기준 경로는 Blender CLI이며, 같은 어댑터를 호출하는 선택형 MCP 서버(`blender-previsualization/mcp/`)를 함께 배포한다. |
 | [open-3d-production](open-3d-production/SKILL.md) | Blender 모델링·조명·분해도 기법과 웹 3D·스크롤·알파·루프·포즈 그리드·브라우저 검수/녹화의 선택형 전문 모듈 | 총괄이 8개 모듈의 선택·순서·실행을 통제한다. Blender 적용 지침과 원본 실행 도구를 함께 배포하며, 공간 검증은 기존 Blender 오너가 유지한다. |
 | [recording-production-history](recording-production-history/SKILL.md) | 실제 사용자 Documents/Media_Studio 프로젝트 저장과 시간순 `.history` Markdown 작업 기록 | 총괄이 호출하는 저장·감사 도구. 제작 상태·승인 원장을 새로 만들지 않는다. |
-| [silent-satire-animatic](silent-satire-animatic/SKILL.md) | 무성(대사·내레이션·자막 없음) 풍자 애니메틱의 제작 계약: 소재 선별, 4막 풍자 서사, 씬/컷 변주, 비트 예산, 썸네일 프레임 선택 | "무성"을 소리의 부재가 아니라 인간 발화의 부재로 고정한다. 실제 렌더·게시·LLM 프롬프트 생성은 제외하며 기존 총괄·썸네일 오너를 대체하지 않는다. |
+| [silent-satire-animatic](silent-satire-animatic/SKILL.md) | 무성(대사·내레이션·자막 없음) 풍자 애니메틱의 제작 계약: 소재 선별, 4막 풍자 서사, 씬/컷 변주, 비트 예산, 썸네일 프레임 선택 | 명시적 무성 풍자 전용 로컬 파이프라인. 85–120초·notice→land는 이 레시피의 제약이지 일반 무성 서사의 법칙이 아니다. 실제 렌더·게시·LLM 프롬프트 생성은 제외한다. |
 
-The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills.
+The installation list's source of truth is [manifest.json](manifest.json). Sibling modules resolve by exact frontmatter name in the current host's available skill sources; installed consumers remain separate from this source checkout. Professional references are not separately installed skills. [공통 시각 연출·장면 전달](video-production-assets/references/visual-scene-communication.md)은 대사 있는 작품과 무성 작품 모두의 스틸·앵글·구도·인물/액션·분위기를 기존 전문 오너에 연결하며, 무성 스킬의 선행 호출을 요구하지 않는다. 몸 구조·국소 표현 변형·행동 중단·협업에는 [연기·표현 상세 예시](video-production-assets/references/performance-and-style-recipes.md), 허구 규칙·효과·인물 지식·시간층에는 [세계 규칙·정보 상세 예시](video-production-assets/references/world-rules-and-information-recipes.md)의 해당 절만 기존 오너 안에서 선택한다.
 
 Rofan 관찰 색인에는 저장된 관찰 ID 57개와 보조 cue 4개가 선택적 provenance/evidence로만 들어 있다. 저장 관찰이나 provenance를 사용자가 명시적으로 요청한 경우에만 참고하며, 일반 brief나 cue 일치가 조회를 유발하지 않는다. 이 색인은 제작 레시피·정책·QA 계약이 아니며 기존 범용 craft 절차가 정본이다. 자세한 내용은 [설계](docs/superpowers/specs/2026-10-12-rofan-craft-skill-transfer-design.md)와 [테스트 계획](docs/implementation/2026-10-12-rofan-craft-skill-test-plan.md)을 참조한다. 과거 T18 casebank microtest는 10/15 full pass, 5 partial, guard failure 0으로 all-pass가 아니었다([등급](qa/rofan-craft-t18-microtest-grade.json)). 실제 미디어 검사·생성 QA·자연스러움·분산 검증은 수행되지 않았다.
 Exhaustive all-source/all-shot 또는 cross-source craft extraction에는 [archive craft crosswalk](video-production-assets/assets/archive-craft-crosswalk-template.md)이 조건부 필수다; 일반·단일 레퍼런스는 가볍게 유지한다.
@@ -262,7 +264,7 @@ python scripts/install_hooks.py
 
 ## 영상 전용 팩과 분리 위치
 
-현재 manifest의 22개는 영상 제작 또는 직접 소비하는 지원 기능이다. 주제 수요/SNS 검색은 영상 주제·레퍼런스 입력, 제작 이력은 공통 저장, Soul ID는 별도 동의가 필요한 영상 인물 정체성 준비, 썸네일은 영상 납품/유통에 사용하므로 유지한다. 이 번들은 일반 소셜 계정 운영·자동 게시를 하지 않는다.
+현재 manifest의 25개는 영상 제작 또는 직접 소비하는 지원 기능이다. 주제 수요/SNS 검색은 영상 주제·레퍼런스 입력, 제작 이력은 공통 저장, Soul ID는 별도 동의가 필요한 영상 인물 정체성 준비, 썸네일은 영상 납품/유통에 사용하므로 유지한다. 이 번들은 일반 소셜 계정 운영·자동 게시를 하지 않는다.
 
 비영상 스킬 5개는 [../non-video-production-skills](../non-video-production-skills/README.md)로 실제 분리했다: `product-detail-page-builder`, `higgsfield-brandkit`, `higgsfield-marketplace-cards`, `higgsfield-product-photoshoot`, `higgsfield-websites`. 원본 이력은 이 저장소에 남고 이동 해시·설치 링크 대응은 [이동 기록](integrations/non-video-migration.json)에 둔다. 기존 설치 링크의 대상만 수정하며 새 설치·배포는 하지 않는다. 영상 팩의 설치/동기화는 영상 manifest만 사용하고 형제 팩을 자동 설치하거나 삭제하지 않는다.
 

@@ -19,6 +19,8 @@ The profile follows the mode. Fiction may use want/obstacle/choice/consequence f
 
 ## Making traits filmable
 
+For body-specific nonhuman cues or an explicitly permitted form change, use the applicable [performance and identity examples](../../video-production-assets/references/performance-and-style-recipes.md). Keep fixed morphology, allowed state changes and unresolved transition evidence in this sheet's existing anchor/variation content. A baseline mouth shape is not an emotion, and an approved transformation is not permission to drift other attributes or create a competing SSOT.
+
 Every visual cue ties to a role, action, or stated trait. Each supplied key trait or contradiction earns at least one filmable behavior or pose, carried into the image prompt's expression/pose row where useful — central traits never stay as bare labels. Draw only useful signals from:
 
 - silhouette and proportions;

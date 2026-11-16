@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 1.27
+version: 1.29
 description: Use only when the user explicitly requests video production or creation of
   a storyboard sheet for a video. Do not use for other content creation/adaptation,
   standalone writing, social posts, campaigns, audio, images, ordinary design, or
@@ -39,7 +39,9 @@ As the sole coordinator and canonical state writer, `creative-production` uses [
 - For explicit whole-film/short/animation/AI-film workflows or cross-stage handoffs, use the film lifecycle row in `production-routing.md` and its `video-production-assets` reference; load only the requested current-stage owner. A single synopsis, script, shot or delivery request stays narrow.
 - Whenever the user asks to discover, compare, rank, choose, recommend, or validate content topics, **REQUIRED SUB-SKILL: `topic-demand-selection`** runs before candidate selection (including upstream of synopsis/script work). Preserve supplied audience/channel scope and requested candidate count. A user-locked topic used only for drafting skips topic discovery; evaluating its audience prospects does not. Apply this trigger to short-form, long-form, social, campaigns, and other audience-facing formats.
 - For requested SNS/social-media video-post search or reference discovery, use **`searching-social-media`** for bounded Flucto retrieval and evidence packaging. Search alone does not select a topic, inspect media, download or publish; demand-based topic choices still require `topic-demand-selection`.
-- For a requested still-image video or still-only edit with narration, dialogue, music or sound, use **REQUIRED SUB-SKILL: `storytelling-with-still-images`**. New or existing still-image cuts stay image-only; use `codex-imagen` only if new stills are requested, never a video model for assembly.
+- For consequential still, shot, angle, composition, character-performance or action choices in **any requested video/board**, use the relevant existing story/acting/visual/shot/lighting/animation/edit/QA owner with [common visual scene communication](../video-production-assets/references/visual-scene-communication.md). Carry the intended visible information/feeling/withholding, concrete cues and minimum verification in the existing stage packet. Dialogue-led work uses this craft directly; do not reroute it to silent storytelling or add unrequested research, stages or a twelve-axis form.
+- For no-dialogue/wordless video stories or requested animatic timing/playtest planning, **REQUIRED:** apply [silent/animatic assignment](references/production-routing.md#silent-and-animatic-assignment). Assign `silent-visual-storytelling` for the requested story work and `animatic-direction` for requested approved-story/board temporalization, with the scoped input/output packet defined there. They are conditional owners, not an automatic extra pipeline or permission to render.
+- For a requested still-image video or still-only edit, including a no-dialogue/no-audio edit, use **REQUIRED SUB-SKILL: `storytelling-with-still-images`**. New or existing still-image cuts stay image-only; use `codex-imagen` only if new stills are requested, never a video model for assembly. Silent story craft is a dependency only if that story work is also requested.
 
 An ordinary **콘티/storyboard defaults to a complete production plan**, including canonical full coverage and technical slots. Explicit rough-panel/prompt-only exercises stay narrow. Text-only means no media/files/spend, not omission of technical planning. Missing applicable specialist inputs return one indexed requirement packet; integrate returned specifications before finalizing the board.
 

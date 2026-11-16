@@ -70,8 +70,8 @@ Read-rendition identity: 47562 bytes; SHA-256 `cdd4f9b82b83c2ac6cc87c3d39251a79e
 
 ### Single-frame causal readability and kinetic staging
 
-"One dominant action per panel" never means stripping away the cause, target, or environment into a blank pose:
+"One dominant action per panel" does not reduce the scene to a blank mood pose. Select only needed cues from [visual scene communication](../../video-production-assets/references/visual-scene-communication.md), preserving the supplied count and narrow exercise scope:
 
-- **Visual Cause-and-Effect Coexistence**: Anchor the immediate trigger (e.g. a dropped object mid-bounce, an approaching shadow, a hand just releasing a grip) inside the same frame as the subject's primary reaction or lunge (`focal_hierarchy`: 1st focal point → 2nd interaction target → 3rd environmental context).
-- **Anatomical Facial & Body Mechanics (`expression_pose`)**: Specify concrete facial muscle states (eye opening/sclera, brow angle, mouth/jaw tension) and spine line-of-action rather than abstract mood labels.
-- **Kinetic Cues & Eye-Trace Flow (`kinetic_cues`)**: Use perspective foreshortening, secondary cloth/hair drag, and scale contrast across adjacent panels so consecutive stills read with speed and impact. Pair `[KO 연출 요약]` with `[EN Cinematic Prompt]` in the per-panel prompt column when downstream image/video generators benefit from English cinematography terms.
+- **Cause, target and context**: Make necessary relationships readable in a shared frame or across ordered panels. A delayed/offscreen cause may remain withheld when that is the intended information sequence; three-depth simultaneous exposure is not mandatory.
+- **Visible performance (`expression_pose`)**: Use applicable face/body cues or shape, contact, orientation and environmental response for nonhuman/faceless/withheld-expression work. Do not force anatomy, posture or a cue count; reasoned N/A and intentional stillness remain valid.
+- **Action and eye trace (`kinetic_cues`)**: Choose stable-view comparison, position changes, secondary motion or scale contrast as needed. Foreshortening, blur and scale jumps are optional, not proof of speed/impact. Pair `[KO 연출 요약]` with `[EN Cinematic Prompt]` only when the requested downstream prompt benefits; this does not authorize generation.

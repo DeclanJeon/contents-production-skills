@@ -67,7 +67,7 @@ For every consequential walking/stop or camera-moving shot, return these cue row
 
 ### 패널별 시각 연출·표정·3단 위계·이중 프롬프트 상세표 (Action & Readability Extension)
 
-컷별 정지 이미지의 직관적 이해와 역동성을 보장하기 위해 각 패널의 구도 위계, 안면 해부학 표정·동세, 역동성 단서, 한·영 이중 프롬프트를 함께 설계한다.
+해당 패널의 목적에 맞는 읽힘을 위해 아래 기존 필드를 사용한다. 3단 깊이·안면 해부학·C/S자·역동성은 적용 가능한 선택 레시피이며 이해를 보장하지 않는다. 얼굴 없음·비인간·표정 유보·평면/정적 구도에는 대체 큐나 사유 있는 N/A를 기록하고, 정본 계약의 optional/strict 구분과 승인된 적용 가능한 프로젝트 제약을 유지한다.
 
 | panel_id / role | 3단 시선 위계 (`focal_hierarchy`: 1순위 전경 → 2순위 중경 → 3순위 배경) | 표정·동세 (`expression_pose`: 눈/미간/입·턱 + C/S자 동세선) | 역동성·물리 단서 (`kinetic_cues`: 포어쇼트닝·관성·블러) | 컷별 생성 프롬프트 (`image_prompt`: `[KO 요약]` + `[EN Prompt]`) |
 |---|---|---|---|---|

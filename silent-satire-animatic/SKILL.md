@@ -1,12 +1,12 @@
 ---
 name: silent-satire-animatic
 version: 1.5
-description: Design and review silent (no dialogue, no narration, no captions) satirical animatics built from popular source material, from source selection through script, scene/cut and beat-budgeted timeline. Use for 무성 애니메이션, 대사 없는 애니메이틱, 풍자 애니메이션 기획, silent satire shorts or longform under ten minutes, or judging whether an existing silent edit will hold attention. Excludes actual rendering, publishing, and paid generation.
+description: Use only for explicitly requested silent satire or 무성 풍자 애니메틱 using the local popular-source repeated-gag pipeline, including its script, scene/cut and beat budget. Not general silent drama, no-dialogue animation, ordinary storyboards or generic animatic timing. Excludes actual rendering, publishing, and paid generation.
 ---
 
 # Silent Satire Animatic
 
-무성(無聲) 풍자 애니메틱의 제작 계약. "무성"은 **인간 발화의 부재**를 뜻하며 소리의 부재가 아니다.
+명시적 무성(無聲) 풍자 요청을 위한 **로컬 반복 개그 파이프라인**의 제작 계약. 여기서 "무성"은 **인간 발화의 부재**를 뜻하며 소리의 부재가 아니다. 아래 85–120초·22–32비트·`notice`→`land`·무자막·BGM 규칙은 이 파이프라인에만 적용한다. 일반 무성 이야기에는 `silent-visual-storytelling`, 승인 보드의 시간화에는 `animatic-direction`을 사용하며, 대사·오디오·자막 허용은 각각 브리프를 따른다.
 
 ## 경계
 
@@ -20,10 +20,9 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 
 ## 언제 쓰는가
 
-- "무성 애니메이션 만들어줘" / "대사 없는 애니메틱"
-- 인기 소재를 풍자하는 콘텐츠 기획
-- 기존 무성 편집물이 시선을 붙잡을지 검토
-- 2분 이내 무성 애니메틱의 비트/컷 배분
+- "이 인기 소재를 무성 반복 개그로 풍자해줘"
+- 이 로컬 풍자 파이프라인의 기존 편집/비트 예산 검토
+- 이 레시피를 선택한 85–120초 무성 풍자 애니메틱의 비트/컷 배분
 
 ## 무성 원칙 (P1~P6)
 
@@ -36,7 +35,7 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 | P3 | 반복 강화 → 펀치라인 | 동일 동작 3회 이상 반복, 매 회차 변주 축 1개 이상 증가, 이후 펀치라인 필수 |
 | P4 | 비트는 8초를 넘지 않는다 | 단일 비트 ≤8.0초, 평균 4~6초 |
 | P5 | 썸네일은 가장 강한 프레임 | 0초 캡처 금지, 펀치라인의 가독 샷(wide/medium), 본편과 동일 종횡비, 실패 시 릴리스 중단 |
-| P6 | 2분 이내 + 완결 | 총 85~120초, 마지막 비트는 `land`(해소). 무성은 롱폼에 부적합 |
+| P6 | 로컬 숏폼 + 완결 | 총 85~120초, 마지막 비트는 `land`(해소). 이 반복 개그 레시피의 범위 |
 | P7 | 캐릭터 시트를 실제로 쓴다 | 공급된 캐릭터 팩을 로드해 팔레트·실루엣·파츠를 적용. 팩 누락 시 기본 도형 폴백 금지, 중단 |
 | P8 | 이미지 자산은 이미지 생성 스킬 | 시트·썸네일은 `codex-imagen`. SVG/도형 대체 금지. 단 프레임 관절 렌더는 코드 허용 |
 
@@ -79,10 +78,10 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 
 정본은 `references/03-beat-budget.md`.
 
-- 총 길이 **85~120초** (P6: 무성은 롱폼 부적합)
+- 총 길이 **85~120초** (P6: 이 로컬 풍자 레시피)
 - 비트 경계는 프레임에 정렬
 - 비트 수 **22~32**
-- 비트 하나는 최소 2초 — 그보다 짧으면 동작으로 인지되지 않는다
+- 이 레시피의 비트 하나는 최소 2초 — 일반 동작 인지의 보편 하한은 아니다
 
 ### 5. 렌더
 
@@ -162,7 +161,7 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 
 ## BGM
 
-무성이므로 BGM이 유일한 청각 안내다.
+이 로컬 레시피는 BGM을 지속 청각 안내로 쓴다.
 
 - 라이선스 검증된 풀에서 선택하되, 부재/부적합 시 **합성 폴백**
 - 저작자 표시 필요 곡은 쓰지 않는다 (설명란에 표기할 자리가 없다)
@@ -175,7 +174,7 @@ description: Design and review silent (no dialogue, no narration, no captions) s
 |---|---|
 | 자막으로 상황 설명 | 무성 원칙 위반. P2 |
 | 클로즈업 썸네일 | 상황이 안 읽혀 CTR 하락. P5 |
-| 롱폼(6~10분) 무성 | 대사가 없어 집중 유지 불가. 6.5분 실측으로 확인됨 |
+| 이 반복 개그를 6~10분으로 단순 확장 | 기존 6.5분 버전의 국소 검토에서 집중 유지 문제를 보고함. 일반 무성 롱폼의 불가능성·측정된 리텐션 근거가 아님 |
 | 초당 1.3컷 (120초에 90비트) | 동작이 인지되지 않음. 깜빡임으로 읽힘 |
 | 변주 없는 반복 | "고장난 영상"으로 보임. P3 |
 | 원본 영상 재촬영 | 저작권 위험. 풍자 대상은 행동이지 장면이 아니다 |

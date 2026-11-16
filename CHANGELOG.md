@@ -10,6 +10,25 @@
 
 ## Unreleased
 
+## 2.45 2026-11-16
+
+- Added two conditional, independently authored visual-craft example references: `performance-and-style-recipes.md` (nonhuman morphology, local comic style, interrupted tasks and interdependent roles) and `world-rules-and-information-recipes.md` (rule comparisons, space boundaries, effect causality, belief/fact separation, knowledge limits and time-layer return). Existing owners, templates, story constraints and optional applicability remain authoritative; no new skill or project schema.
+- Connected only relevant story/screenplay/acting/animation/QA, genre/style/effect and character-expression references. Existing detailed20/21/26 procedures are reused, not replaced; protected pending continuity/template/board-contract changes remain intact.
+- Bounded source recheck opened21original files within a24-file ceiling. Adopted memory entry/return and differentiated cooperative tasks; form-change evidence supports occlusion-before/after identity only, not a verified continuous morph or anatomical transition. This is partial-source-informed text craft, not whole-corpus research, actual generated-media/playback verification or audience-effect evidence.
+
+## 2.44 2026-11-16
+
+- Promoted conditional scene-directing craft into the general `video-production-assets/references/visual-scene-communication.md` reference, shared by dialogue-led and wordless stories, stills, boards, acting, look, lighting, action and editing. The silent reference remains a compatibility pointer, not a duplicate policy.
+- Connected the existing 02/03/04/05/06/07/08/09/12 owners and both coordinators to scene intent, visible cues, deliberate withholding, language/sound roles and target-observable QA in existing fields. Added stable-view action comparison, angle/distance trade-offs, contact ownership and consequence-based ellipsis choices; removed the categorical claim that same-distance action shots kill tension and require two-scale jumps.
+- Rechecked 12 original image files in six bounded source sequences and audited 13 candidate mechanisms against current owners. This is partial-source-informed craft integration, not full-corpus research, universal audience evidence or actual media/playback verification. No new skill, production schema, source-copying requirement or automatic media execution.
+
+## 2.43 2026-11-16
+
+- Connected `creative-production` and its delegated `orchestrating-video-preproduction` lane to explicit silent-story/animatic stage selection and scoped handoff packets. Preserved locked-story timing-only work, ordinary narrated/board routes, no-audio existing-still edits and local satire boundaries; no automatic two-skill chain, source reanalysis or media execution. Applied to the requested source checkout without overwriting its unrelated pending continuity changes.
+- Added `silent-visual-storytelling` and `animatic-direction`: small, partial-source-informed craft entry points for no-dialogue visual narrative and requested approved-story/board temporalization, using existing story/acting/06/08/09/QA owners and fields. Registered both in manifest, README, usage and coordinator routing; no new production schema, renderer or automatic execution.
+- Scoped `silent-satire-animatic` discovery and 85–120s / notice→land policy to its explicit local satire pipeline; reconciled its obsolete 600s/90–120-beat reference claims. Made generic edit duration/energy recipes optional and staging/anatomy prescriptions conditional without changing schema or measurement owners.
+- Extended manifest discovery and isolated installer/file-link regressions. Existing five-case application reviews for each skill pass within text-planning scope; this is not completed 82-episode research, measured retention, audience validation or actual animatic playback. No new source work is authorized in this phase; global installation/deployment remains separate.
+
 ## 2.42 2026-11-16
 
 - Made in-request voice and sound design the default: when a deliverable needs character voice, dialogue, SFX, BGM/ambience or VFX sound, and no reference voice/audio, no user-named external voice or audio executor, and no attached audio asset exists, the voice design and sound design belong in the **same video request** so the selected model produces the audio with the picture. Stated once as an authoritative rule in `video-generation-planning.md` (§3b) and pointed to from the handoff, dialogue-lipsync, edit, storyboard-contract, execution, QA-retry, routing, camera-contract and storyboard-timing surfaces without restating it.

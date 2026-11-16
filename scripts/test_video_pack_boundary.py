@@ -14,13 +14,23 @@ def test_video_manifest_preserves_direct_support_and_excludes_nonvideo():
     assert {'creative-production','video-production-assets','camera-spatial-design',
             'camera-motion-reference-analysis','ai-camera-control','blender-previsualization',
             'designing-video-character-sheets','designing-character-personas',
-            'recording-production-history','topic-demand-selection','searching-social-media'} <= skills
+            'recording-production-history','topic-demand-selection','searching-social-media',
+            'silent-visual-storytelling','animatic-direction'} <= skills
 
 
 def test_installed_video_pack_is_self_contained_and_does_not_install_nonvideo(tmp_path):
     target=tmp_path/'installed'
     result=install_package.install(target,repo_root=ROOT,exclude_derived_support=True)
     assert {p.name for p in result.installed}.isdisjoint(MOVED)
+    # Both entries must be discoverable from an actual isolated installation.
+    for skill_id, reference in (
+        ('silent-visual-storytelling', 'scene-direction.md'),
+        ('animatic-direction', 'timing-and-review.md'),
+    ):
+        for relative in ('SKILL.md', f'references/{reference}'):
+            installed = target / skill_id / relative
+            assert installed.is_file(), f'installer omitted {skill_id}/{relative}'
+            assert installed.read_bytes() == (ROOT / skill_id / relative).read_bytes()
     missing=[]
     for skill in result.installed:
         for p in skill.rglob('*.md'):

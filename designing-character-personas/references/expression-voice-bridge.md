@@ -15,6 +15,8 @@ Rules:
 - Derive **nothing** about eyes, jaw, body, skin, gender, nationality, pitch, or timbre from a type label. Persona expresses through expression, gesture, prop handling, and acting. Locked appearance stays locked; new appearance proposals need their own grounds and delegation.
 - Every visual cue must be filmable — a posture, a handling of an object, an eye-line choice — not an internal state label.
 
+For nonhuman/faceless performance, interrupted physical tasks or interdependent team actions, select the relevant [performance examples](../../video-production-assets/references/performance-and-style-recipes.md). Carry the feasible body/response and preserved constraints into the existing Behavior, Expression and Keep columns; keep vocal N/A scoped to non-speaking roles. This is not a new persona/appearance record.
+
 ## Voice Identity (fixed layer)
 
 The design by which this voice is recognized, stable across scenes:
