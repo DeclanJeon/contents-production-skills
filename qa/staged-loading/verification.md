@@ -2,14 +2,14 @@
 
 ## State
 
-**Isolated draft; not yet behaviorally accepted, merged or deployed.** Native implementation and local structural/regression checks are recorded below. The separate 56-probe host/model/budget gate is unapproved, so actual consumption, behavioral equivalence and end-to-end performance acceptance remain **blocked/unverified**. One authorized independent review found two P1 omissions. They and a structured-error issue regraded Important were corrected in one RED→GREEN fix pass. The reviewer was not re-run; behavioral acceptance remains blocked.
+**Behavioral acceptance remains unverified; no main merge.** The later user-authorized feature push/current-Pi installation is documented in [deployment-current-pi.md](deployment-current-pi.md). Native verification below records the pre-deployment checkpoint. Native implementation and local structural/regression checks are recorded below. The separate 56-probe host/model/budget gate is unapproved, so actual consumption, behavioral equivalence and end-to-end performance acceptance remain **blocked/unverified**. One authorized independent review found two P1 omissions. They and a structured-error issue regraded Important were corrected in one RED→GREEN fix pass. The reviewer was not re-run; behavioral acceptance remains blocked.
 
 - Baseline: `bd5fb689dced7d09d966bff8f1897c06bac6082f`.
 - Worktree: `/home/declan/.cache/pi-worktrees/contents-production-loading-20261118`.
 - Branch: `feat/staged-skill-loading-20261118`.
 - Source metrics: `before-after.json` contains the source commit and raw document fingerprints; metrics are not billing tokens.
 - Scope: manifest's 25 skills; four non-manifest installed image/website specialists are untouched.
-- No remote push, merge, installation, installed-skill sync/repoint, media-model/provider execution, upload, media production or publication was performed. Local tests create synthetic fixtures only.
+- At the native verification checkpoint, no push, merge or installation had been performed. A later explicit user request authorized the feature push/current-Pi installation linked above. No media-provider execution, upload, production media creation or publication was performed; tests use synthetic fixtures.
 
 ## Evidence
 
@@ -59,11 +59,11 @@ The two slight static regressions are explicitly reported, not hidden in an aggr
 - [Independent final review](independent-review.md): read-only source review, not an agent behavioral probe or provider test. Fix commit `dad0670ea405f870db2a009af490346525a2c4dd` preserves selected link/requirement checks and evidence, explicit native-adapter/schema records/pins, and JSON errors for malformed stored scopes. Eight new regression cases failed before the corresponding fixes and passed afterward; the full suite passed. No second review was dispatched.
 - **Deferred minor:** the copied `docs/analysis/2026-11-18-skills-weight-audit/REPORT.md` is only a partial frozen audit snapshot. Its original audit scripts and some linked results were not copied; those historical reproduction commands do not run from this branch. Current implementation evidence is this QA directory and `scripts/skill_loading_metrics.py`; do not treat the old audit report as a complete portable reproduction bundle.
 - External `ai-delegation-loop` remains a declared, scoped unresolved dependency where needed; it was not installed, removed or substituted.
-- Merge/push and installed-skill deployment/repoint remain separately unapproved.
+- The later explicit user request authorized feature-branch push and current Pi deployment only. Main merge and 56-probe model/budget approval remain absent.
 
 ## Decisions and retained limitations
 
-- Isolated existing home-cache worktree protects dirty main/installed paths; local checkpoints use the original pre-commit version check but omit its auto-sync post-commit hook. Tradeoff: installation does not follow these commits automatically.
+- The home-cache worktree protects dirty main. Local checkpoints omit the auto-sync post-commit hook; the later explicit deployment repoints Pi only. Other agents remain on the original checkout.
 - Native/static-first work follows the approved plan; behavioral probes await their own budget. Structural line preservation and explicit edit receipts do not establish semantic acceptance.
 - Private view-record closure is separated into `sequence_view_records.py`; optional deep-reference discovery uses `module-index.md`. Tradeoff: an extra private module and potentially one niche index read, whose actual overhead is unmeasured.
 - The reference encoder constructs from pinned verified local ranks/pattern, not a download registry. Tradeoff: maintaining that fixed reference definition; all eight old totals were reproduced. This is not host billing.
@@ -71,4 +71,4 @@ The two slight static regressions are explicitly reported, not hidden in an aggr
 - Reviewer declined actual behavior, live-provider validity, real media/contact/listening/PDF/approval, universal scaling/latency and deep-reference discoverability: these remain explicitly unverified, not silently accepted.
 - Reported static regressions and >1800-token entries are retained rather than deleting required content. Alternate trace-host adapters, the four non-manifest skills, original dirty routing files, pre-existing execution/index limitations and new caching/scheduling architecture remain outside scope; no claim is made for them.
 - Audit reproduction remains the one deferred minor above. Its original tool bundle is not included here.
-- The plan workspace is retained while behavioral acceptance is blocked; neither all-gates completion nor deployment is asserted.
+- The worktree is retained as Pi's active skill source; do not remove it. Deployment is explicitly recorded separately, without asserting behavioral acceptance or all-gates completion.
