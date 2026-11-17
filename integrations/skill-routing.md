@@ -1,5 +1,13 @@
 # Contents production routing and consolidation map
 
+## Where the canonical route table lives
+
+The authoritative route table is [routing.csv](../creative-production/references/routing.csv)
+(27 routes × `deliverable_kind`, `media_axis`, `authority_axis`, `owner`,
+`required_read`, `stop_boundary`). Cross-cutting rules live once in
+[policy.md](../creative-production/references/policy.md). This file is a
+consolidation/navigation map for humans; it is **not** a competing route table.
+
 ## Canonical owners
 
 - **Project coordinator:** [creative-production](../creative-production/SKILL.md). It owns scope, selected lanes, shared facts/continuity and approval handoffs.

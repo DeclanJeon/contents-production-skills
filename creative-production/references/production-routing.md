@@ -1,44 +1,71 @@
 # Current-stage routing
 
-Select the narrowest requested output. The coordinator reads this map once; workers consume their assigned packet and never reroute. No automatically running agent engine is supplied.
+**Canonical route table: [routing.csv](routing.csv).** It is machine-readable,
+covered by `scripts/routing_regression.py`, and frozen against
+`creative-production/evals/routing-cases.json`. Edit the CSV, not a copy of it.
+
+This file no longer restates the route table (that duplication was the drift
+source). It keeps only the prose that does not fit a CSV cell:
+
+- the **step sequence** for a full image-backed package under `R24`
+- the **silent/animatic assignment** precedence
+- the **Blender decision gate** trigger definition
+- the **Open 3D module selection** table
+- the **selected runtime gate**
+- **state and handoff** rules
+
+Select the narrowest requested output. The coordinator reads this file once
+after `routing.csv`; workers consume their assigned packet and never reroute.
+No automatically running agent engine is supplied.
 
 Standalone writing, social/campaign operations, brand identity, product pages, product photography and website requests stay with their non-video owner; they do not activate this coordinator. The separated pack is discovered by exact skill name only when the user requests that independent work.
 
 한국어 영상 대사·내레이션 후편집은 기존 각본 오너의 [선택 지원 참조](../../video-production-assets/references/korean-script-postediting.md#scope)를 사용한다. 일반 글쓰기까지 총괄 활성화를 확장하거나 별도 stage·worker·원장을 만들지 않는다.
 
-## Core lanes
+<a id="full-package-sequence"></a>
+## Full image-backed package sequence (R24)
 
-| Current request | Owner / required read | Stop boundary |
-|---|---|---|
-| SNS/social-media public video-post search or reference discovery | `searching-social-media` | Bounded Flucto candidate retrieval; per-source failures/metrics/unknowns retained; no automatic download, transcript, body/video analysis, topic choice or publication. Demand-based topic selection still requires `topic-demand-selection`. |
-| One synopsis/concept/beat map | `developing-video-synopses` and its stage guide | Stable beats/source locators; no automatic character/board stage |
-| One character/voice-profile sheet | `designing-video-character-sheets` and its stage guide; REQUIRED `designing-character-personas` for persona/voice design | One integrated character SSOT, preserved approved identity/voice, voice N/A for silent roles; no training/rendering |
-| One persona, fictional typology design, or persona-to-acting/voice direction | `designing-character-personas` | Text persona packet only; no forced full sheet, real-person typing, new SSOT database or actual audio |
-| Explicit multi-artifact text video planning | `orchestrating-video-preproduction`; only requested downstream workers | One inherited spine; missing owner inputs return indexed requirements to parent |
-| Scene/still/shot/angle/composition/performance/action visual communication, with or without dialogue | Current relevant `video-production-assets` 02/03/04/05/06/07/08/09/12 owner + [common craft](../../video-production-assets/references/visual-scene-communication.md); board owner where assigned | Existing scoped output and fields; explicit visible purpose/cues/withholding and scoped QA, not a new silent-story stage, corpus study or schema. Specific story/timing/edit artifact rows still select the primary owner. |
-| Create/revise a no-dialogue visual narrative (무성 서사) | `silent-visual-storytelling`; existing story/acting/board owners for depth | Visual causality, disclosure, emotion and retained state only; no ordinary narrated-script/all-board interception; no dialogue, no audio and no captions are independent constraints. |
-| Explicit animatic timing, cut/hold revision or timed-board playtest plan for an approved story/board | `animatic-direction`; existing 06/08/09 fields | Requested temporalization only, not every board or still-image edit; proposed timing is not measured playback, rendering or execution approval. |
-| Explicit silent satire using the local repeated-gag pipeline | `silent-satire-animatic` | Local 85–120s / notice→land recipe only; not generic silent drama or general animatic timing. |
-| Ordinary or complete production storyboard | `storyboarding-video` + canonical [storyboard contract](../../video-production-assets/references/storyboard-contract.md) | All story coverage and applicable technical slots integrated; text-only keeps actual media unverified |
-| Explicit rough-panel/prompt-only exercise | `storyboarding-video` narrow guide only | Requested narrative panels; no full technical package |
-| Still-image video/edit, including no-dialogue/no-audio cuts | `storytelling-with-still-images` | Stills remain the only picture sources; story/timing specialists are conditional dependencies only when that work is also requested; no video-generation model for assembly |
-| One brief/script/shot/light/edit/claim/budget/QA/delivery asset | `video-production-assets`, one requested module/reference/template | Requested asset, not a mandatory full packet |
-| Explicit film/short/AI-movie full lifecycle or current-stage handoff request | `video-production-assets` [film production lifecycle](../../video-production-assets/references/28-film-production-lifecycle.md); only the current stage's owner module per request | Optional six-phase route; single synopsis/script/shot/delivery and non-film requests keep the narrow module routing above; no parallel schema or execution approval |
-| Factual/educational plan | Relevant text owner and only applicable evidence module | No invented characters/causes/testimony/commercial goal |
-| Reference camera movement / walking analysis | `camera-motion-reference-analysis`; current source interval only | Observed vs inferred motion; no metric solve or media generation inferred |
-| Narrative camera planning: POV, shot size, composition, motivated pan/push/static choice in text or ordinary 2D storyboards | `storyboarding-video` / `video-production-assets` `06-shots` | Narrative camera fields and moves alone do not invoke Blender; simple 2D/flat graphics remain non-3D |
-| Camera timing, lens/focus or subject-relative motion design | `camera-spatial-design` timing/lens guide; apply the Blender decision gate below | Preserve camera schema, action/reveal timing and actual rig limits; numeric output alone is not 3D verification |
-| Camera-plan to AI-video control/prompt | `ai-camera-control` | Model-neutral or live verified inputs; exact path control never inferred from text |
-| Actual camera movement / lens / reveal QA | `video-production-assets` reference27 | Playback and timed evidence, minimum fix; no automatic paid retries |
-| Numeric camera design without a geometry-verification deliverable | `camera-spatial-design` | Proposed lens, coordinates or path may remain design-only; locked camera reused; numeric/schema analysis is preflight, unrendered geometry stays UNVERIFIED |
-| Scene-specific 3D spatial verification/previs, including explicit Blender/previs requests | `camera-spatial-design` owns the spec; REQUIRED `blender-previsualization` implements and visually inspects it with real Blender | Requested .blend, frames, analysis, inspection and manifest tied to IDs/versions; unavailable Blender blocks only dependent 3D completion, not independent text work; no alternate renderer or FINAL claim |
-| Video prompt/decomposition/model route/critique/pipeline recipe | [video-generation-planning.md](video-generation-planning.md); dialect JSON only for the selected dialect | Text planning/critique, not spend/submission permission |
-| Explicit image-backed full preproduction package | `creative-production` is sole coordinator; use `orchestrating-video-preproduction` only for its assigned text outputs, then resume coordinator-owned media/output workflow under [preproduction-review](../../video-production-assets/references/preproduction-review.md), [storyboard contract](../../video-production-assets/references/storyboard-contract.md), and [full-package contract](../../video-production-assets/references/contract.md#전체-프리프로덕션-패키지) | Content/causality/coverage/continuity/timing correction before images; Codex Imagen still masters/panels; v5.1 FINAL gate; actual ordered sheets (≤8 panels), all scene/panel extractions and visual QA; external project root + single canonical project.json/.history writer; review readiness is not user acceptance or video execution approval |
-| Reference selection/analysis or package audit | Production-assets reference25 and matching template | Evidence-scoped analysis; package edits only if separately requested |
-| Reference video measured decomposition (shot cuts, made-by classification, caption timeline, stem-separated audio, remake route) | Production-assets reference25 + optional [external decomposition adapter](../../video-production-assets/references/31-external-video-decomposition.md) | Detector/tool output enters as `DETECTOR_CANDIDATE`/`ESTIMATED`, never `OBSERVED`, until the agent inspects frames; no auto-install, no paid remake call, no tool HTML report as deliverable |
-| Actual content-file production, interrupted project or saved-output audit | `recording-production-history`, controlled by the coordinator | Documents/Media_Studio project storage and chronological `.history`; no rival approval ledger, duplicate generation or assumed completion |
+`creative-production` is the sole coordinator for an explicit image-backed full
+preproduction package. It sequences the existing owners in this order:
 
-Open only the selected sibling SKILL and its needed guide. Missing core files mean broken installation. Only an explicit matching provider/platform/deep-craft request reads [conditional lanes](production-routing-optional.md); migration maps in integrations are not startup context.
+1. source/brief and synopsis (`developing-video-synopses`)
+2. screenplay using `video-production-assets/references/03-screenplay.md`
+3. applicable character SSOT and active LOOK/style-world bible
+4. required locked character/location/prop/product masters and scene derivatives
+5. indexed technical storyboard (`storyboarding-video` + storyboard contract)
+6. cross-stage content/cause/coverage/continuity/timing QA and minimum
+   correction loop
+7. still-image generation and ordered storyboard sheets
+8. mandatory per-scene/per-panel extraction
+9. structural and visual QA/correction
+10. versioned handoff
+
+`orchestrating-video-preproduction` handles only the text stages assigned to it
+and returns text plus indexed gaps; the coordinator then resumes the remaining
+owners.
+
+Do not silently omit the requested screenplay. Resolve every synopsis
+event/beat through the script and board; check every fact/event, causal
+transition, continuity state, required dialogue/caption/audio, scene, shot and
+panel for omission or contradiction, and verify that allocated time sums to the
+requested total. Correct in-scope mismatches and repeat affected checks before
+proceeding; changed inputs stale only their true dependents. Structural
+validation is not meaning or visual QA.
+
+Each storyboard sheet has at most eight panels; use fewer for readable dense
+cards. Package complete eligible output with the existing versioned ZIP and
+`--require-final` contract; never package a blocked PRELIMINARY state as FINAL.
+A portrait or prompt cannot substitute for a master pack, and text or individual
+panels cannot substitute for actual sheets plus all extracted scene/panel images.
+
+**Finality gate (v5.1).** Lock the active LOOK via `look_asset_id`; register
+masters once and make scene states version-pinned derivatives through
+`master_asset_ref`. A final artifact needs `finality: final` plus
+`required_asset_versions`, valid only when every referenced asset is a `verified`
+lock at matching version (`available` files are not locks). Unlocked inputs may
+generate `finality: preliminary`, which is not a continuity-locked deliverable.
+`asset_gate.check_asset_gate` must be empty before final generation or delivery.
+Record only observed provenance; else `UNKNOWN`/`NOT_EXPOSED`.
 
 <a id="silent-and-animatic-assignment"></a>
 ## Silent and animatic assignment

@@ -16,6 +16,23 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 
 ## 스킬 라우팅과 조건부 실행 모듈
 
+라우팅은 세 계층으로 분리되어 있다. 첫 owner를 고르기 전에 읽는 **frontier**는 `creative-production/SKILL.md`(라우터+역할, 약 890단어)와 [routing.csv](creative-production/references/routing.csv)(정본 27개 라우트 × 7컬럼)뿐이다. 계층 분해 전에는 같은 판단에 약 2,900단어를 읽었고, 분해 후에는 약 1,410단어다(-51%). 측정 방법은 `python3 scripts/routing_regression.py`다.
+
+| 계층 | 위치 | 담는 것 |
+|---|---|---|
+| Router | [creative-production/SKILL.md](creative-production/SKILL.md) + [routing.csv](creative-production/references/routing.csv) | `deliverable_kind` × `media_axis` × `authority_axis` 슬롯 판정으로 owner 하나 선택 |
+| Policy | [creative-production/references/policy.md](creative-production/references/policy.md) | 권한 위계, 범위, read-only probe, 단일 기록자, 증거, 실행 게이트, 이력. **여기가 정본이며 하위 스킬은 링크만 한다** |
+| Craft | 각 `references/*.md` | 요청 시에만 로드하는 모듈·심화 참조 |
+
+`routing.csv`는 기계 판독 정본이다. 산문 설명은 [production-routing.md](creative-production/references/production-routing.md)에 남기되 표를 복제하지 않는다(복제가 드리프트 원인이었다). 검증:
+
+- `scripts/routing_regression.py` — frontier 비용 측정 + 27개 고정 케이스 일치
+- `scripts/test_routing_table_lint.py` — 종류 중복, media_axis 어휘, stop_boundary 누락, authority 없는 executed_media, required_read 경로 해석
+- `scripts/routing_eval.py` — 실제 에이전트에 고정 프롬프트를 디스패치해 오라우팅률을 측정한다. 격리 read-only 샌드박스이며, 에이전트가 실제로 연 파일을 감사해 샌드박스 밖 읽기는 `isolation_leak`으로 정답에서 제외한다. LLM 출력은 측정값일 뿐 패키지 사실이 아니다. 최신 유효 측정: [53/53](qa/routing-eval-2026-11-17-boundary/README.md) (경계 케이스 26개 포함, `dangerous` 0, 누수 0).
+- `scripts/test_routing_eval_harness.py` — 채점기 자체의 회귀(파서, 누수 판정, 등급 분류, 안정성 판정). 모델을 호출하지 않는다.
+- `scripts/test_repo_integrity.py` — 추적 중인 파일이 작업 트리에서 사라지면 실패한다. `docs/` 700여 파일이 통째로 유실된 사고를 아무 테스트도 잡지 못했기 때문에 추가했다.
+- 반복 안정성: `--repeat 3`으로 케이스별 route가 흔들리는지 측정한다. 최신 결과 [159/159, flaky 0](qa/routing-stability-2026-11-17/README.md).
+
 | 스킬 | 책임 | 경계 |
 |---|---|---|
 | [creative-production](creative-production/SKILL.md) | 단일 총괄: 명시적인 영상·영상 콘티 요청 라우팅, QA/납품; 이미지 기반 전체 프리프로덕션은 text worker handoff 뒤 실제 still/sheet/extraction까지 조정 | 요청 범위·단일 project.json/.history writer·사전검토/사용자수락/영상실행 승인을 분리한다. |

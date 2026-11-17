@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 1.29
+version: 2.0
 description: Use only when the user explicitly requests video production or creation of
   a storyboard sheet for a video. Do not use for other content creation/adaptation,
   standalone writing, social posts, campaigns, audio, images, ordinary design, or
@@ -9,85 +9,128 @@ description: Use only when the user explicitly requests video production or crea
 
 # Creative Production
 
-## Activation boundary
+Sole coordinator and sole state writer for video production. Skills here are
+instruction modules; use the host's real tools and workers, not a presumed
+scheduler.
 
-Use this coordinator only for an explicit video-production request or a request to create a storyboard sheet for a video. A video-related subject or incidental mention of content is not enough. Do not activate, initialize a project, create directories/files, or invoke production workers for standalone writing, social-media copy, campaigns, audio, image generation, product pages, ordinary UI/brand work, or any other non-video task. Route those requests to their applicable specialist or answer directly. Do not create workspace folders as a side effect of loading or considering this skill; project initialization is allowed only after confirming that the requested deliverable is within this activation boundary and actually requires persisted project output.
+## Step 1 — Route (read nothing else yet)
 
-## Workspace integration
+Read [routing.csv](references/routing.csv) and select exactly one `route_id`.
+Columns: `deliverable_kind`, `media_axis` (text_only / none_or_stills /
+executed_media / varies), `authority_axis`, `owner`, `required_read`,
+`stop_boundary`.
 
-Read [workspace integration](references/workspace-integration.md) before applying local storage, sibling paths, image execution, Higgsfield CLI or approval instructions below. These adaptations govern this installed copy.
+Judgment uses these three slots, not keyword similarity:
 
-One brief, one coordinator, one requested deliverable. Skills are instruction modules; use the host's actual tools/workers, not a presumed autonomous scheduler. Coordination does not enlarge the request.
+- **deliverable_kind** — which artifact the user asked for.
+- **media_axis** — what media the request actually permits. Default `text_only`
+  unless the user asked for generated media or an actual edit.
+- **authority_axis** — which approvals are already supplied. Empty means none;
+  paid media stays closed.
 
-For each handoff, state one current stage, one owner, the exact requested artifact, and the actual approver (or `unassigned`). The coordinator owns scope and approval interpretation; the canonical handoff contract owns persisted IDs/versions. Workers may review and recommend readiness, never impersonate user acceptance. Review, user acceptance, execution/spend authorization, and publication authorization are separate decisions; record only supplied authority, and leave missing decisions unresolved.
+Then read only the selected `owner` SKILL.md and its `required_read`. Do not
+preload future craft, provider catalogs, or full-pipeline checklists. Two matches
+on one narrow artifact: pick the narrowest and say which one you skipped.
 
-A read-only/no-generation probe remains constrained for the whole turn; a later media request does not override it. Name the conflict and ask for explicit release before any media call or side effect.
+`UNASSIGNED` means no route fits. Say so and ask for the missing slot instead of
+stretching a route.
 
-For recurring production, multi-stage coordination, reuse of approved resources, or repeated output corrections, **REQUIRED SUB-SKILL: `ai-delegation-loop`** applies once at the coordinator even without an explicit skill request. Resolve it by exact skill name in the current host's available skill sources; read the actual matching module, checking the host's available locations rather than hard-coding one platform path or inferring absence from a broken junction. Do not copy, install, or alias a substitute. If no matching module is reachable, record the precise missing source and keep only the dependent coordination step unresolved while continuing unaffected native-contract work. Use its reuse, evidence and layer-repair procedure within the existing domain gates; this does not authorize skill/profile updates, media execution, or a second project ledger.
+## Step 2 — Apply policy
 
-## Scope and inputs
+Read [policy.md](references/policy.md) for authority hierarchy, scope boundary,
+read-only probes, single writer, evidence, execution gate, and history. This
+package restates none of it elsewhere; if a skill contradicts `policy.md`, that
+skill is wrong.
 
-Read the current request and supplied or explicitly linked project material. Preserve language, exclusions, fixed facts, selected tools, continuity, source versions and actual approvals. Unreadable material stays unverified. Separate evidence, calculations, interpretation and proposals. Unrelated prior examples are not current constraints.
+## Step 3 — Scope and stage
 
-When a request asks to apply craft already integrated into this package, use the applicable packaged procedure (for reference-driven production, [R1–R8](../video-production-assets/references/29-reference-driven-production.md)) rather than asking the user to resend the original book/guide. An unavailable original blocks only fresh quotation, source inspection or source-specific verification, not use of the integrated workflow. Before declaring an input absent, inspect the relevant supplied/local source. If only the topic/audience/learning goal is consequentially missing, ask for those missing brief choices only; do not restart intake or claim the integrated guide is unavailable.
+Preserve language, exclusions, fixed facts, selected tools, continuity, source
+versions, and actual approvals. Reuse approved choices and the active interview
+flow. Ask only for consequential choices unavailable from tools or sources. A
+locked brief or a single artifact needs no project interview.
 
-Reuse supplied/approved choices and the active interview flow. Ask only for a consequential unresolved choice unavailable from tools/sources. Open creative direction needs supplied, accepted or explicitly delegated authority; silence is not approval. A locked brief or one artifact needs no project interview.
+For recurring production, multi-stage coordination, reuse of approved
+resources, or repeated output corrections, **REQUIRED SUB-SKILL:
+`ai-delegation-loop`** applies once here. Resolve it by exact name in the host's
+available skill sources. If unreachable, record the precise missing source and
+keep only the dependent coordination step unresolved while continuing
+unaffected work.
 
-## Select one current stage
+When a request asks to apply craft already integrated into this package, use the
+packaged procedure (for reference-driven production,
+[R1–R8](../video-production-assets/references/29-reference-driven-production.md))
+rather than asking for the original book. An unavailable original blocks only
+fresh quotation or source inspection.
 
-As the sole coordinator and canonical state writer, `creative-production` uses [production-routing.md](references/production-routing.md) as the canonical decision table to select the narrowest current owner and applicable dependencies for the requested output. Read that worker and its current-stage guide only. Do not preload future craft, provider catalogs or full-pipeline checklists.
-- For explicit whole-film/short/animation/AI-film workflows or cross-stage handoffs, use the film lifecycle row in `production-routing.md` and its `video-production-assets` reference; load only the requested current-stage owner. A single synopsis, script, shot or delivery request stays narrow.
-- Whenever the user asks to discover, compare, rank, choose, recommend, or validate content topics, **REQUIRED SUB-SKILL: `topic-demand-selection`** runs before candidate selection (including upstream of synopsis/script work). Preserve supplied audience/channel scope and requested candidate count. A user-locked topic used only for drafting skips topic discovery; evaluating its audience prospects does not. Apply this trigger to short-form, long-form, social, campaigns, and other audience-facing formats.
-- For requested SNS/social-media video-post search or reference discovery, use **`searching-social-media`** for bounded Flucto retrieval and evidence packaging. Search alone does not select a topic, inspect media, download or publish; demand-based topic choices still require `topic-demand-selection`.
-- For consequential still, shot, angle, composition, character-performance or action choices in **any requested video/board**, use the relevant existing story/acting/visual/shot/lighting/animation/edit/QA owner with [common visual scene communication](../video-production-assets/references/visual-scene-communication.md). Carry the intended visible information/feeling/withholding, concrete cues and minimum verification in the existing stage packet. Dialogue-led work uses this craft directly; do not reroute it to silent storytelling or add unrequested research, stages or a twelve-axis form.
-- For no-dialogue/wordless video stories or requested animatic timing/playtest planning, **REQUIRED:** apply [silent/animatic assignment](references/production-routing.md#silent-and-animatic-assignment). Assign `silent-visual-storytelling` for the requested story work and `animatic-direction` for requested approved-story/board temporalization, with the scoped input/output packet defined there. They are conditional owners, not an automatic extra pipeline or permission to render.
-- For a requested still-image video or still-only edit, including a no-dialogue/no-audio edit, use **REQUIRED SUB-SKILL: `storytelling-with-still-images`**. New or existing still-image cuts stay image-only; use `codex-imagen` only if new stills are requested, never a video model for assembly. Silent story craft is a dependency only if that story work is also requested.
+## Step 4 — Hand off
 
-An ordinary **콘티/storyboard defaults to a complete production plan**, including canonical full coverage and technical slots. Explicit rough-panel/prompt-only exercises stay narrow. Text-only means no media/files/spend, not omission of technical planning. Missing applicable specialist inputs return one indexed requirement packet; integrate returned specifications before finalizing the board.
+State one current stage, one owner, the exact requested artifact, and the actual
+approver (or `unassigned`). Canonical handoff IDs and versions live in the
+[worker handoff and single-writer contract](../video-production-assets/references/contract.md#worker-handoff-and-single-writer).
 
-For a multi-artifact text package, assign only the requested planning stages to `orchestrating-video-preproduction` and integrate its returned text artifacts and indexed gaps. For a full image-backed package, use the same bounded text handoff, then resume downstream specialists, QA and authorized media work under Planning, review and execution below. A text instruction never automatically executes a worker or grants runtime/spend authority; stop at the requested deliverable.
+Build one compact packet: assigned stage/output/focus IDs; source IDs and
+versions; locked facts, continuity, exclusions; approval references; required
+inputs and blockers. Use the contract's read-only focused index when useful; do
+not infer a stage from file presence.
 
-A standalone specialist consults this scope once. Delegated specialists continue the packet; no callback loop, second interview or rival approval ledger. Ordinary UI/brand/application work keeps its design/development owner; hybrid media consumes that owner's visual contract.
+A worker returns indexed changes, actual evidence, and checks performed. When
+dependencies are missing it also returns one indexed missing-input packet naming
+each scene/shot/beat slot, the required input, and the blocker. Select each
+missing owner from `routing.csv` once, integrate the return with inherited
+IDs and versions, and resume the blocked stage — no second intake or re-route.
 
-## Focused handoff and state
+## Step 5 — Persist and deliver
 
-For actual project output, reuse an existing approved, asset-complete project when one is available and selected; otherwise resolve the actual user's Documents folder and initialize `Media_Studio/<project_id>`. Before first saved production, ask once whether the user prefers a project directory; skip only when an explicit active path, environment/config choice or existing default studio root already resolves it. Follow the history skill's path precedence, reuse roots, and create work folders only when used; final deliverables go in `final/`. Before reusing or resuming a root, inspect its `project.json`, actual files, approvals, and `.history` in-flight operations; missing registered files or pending work are not a clean restart. If no approved brief/project exists, a repository validation fixture may be used only as an explicitly labeled smoke, not as an approved user deliverable. Use **REQUIRED SUB-SKILL: `recording-production-history`** before the first content-file write. Use exactly one canonical `project.json` and one coordinator-owned chronological `.history`; workers return proposals and do not write either. Every actual intermediate and final output is saved outside this skill repository, registered with observed paths, and reported by absolute path. Requested text saving alone does not imply image generation.
+Read [workspace-integration.md](references/workspace-integration.md) before
+applying storage, sibling paths, image execution, or provider instructions.
 
-For existing multi-stage production use the selected root's canonical `project.json` and [worker handoff/single-writer contract](../video-production-assets/references/contract.md#worker-handoff-and-single-writer). Package support manifests and derived adapters are not production ledgers. Preserve domain bibles/state as versioned linked artifacts, not rewritten schemas.
+Use **REQUIRED SUB-SKILL: `recording-production-history`** before the first
+content-file write. Reuse an existing approved, asset-complete project when one
+is selected; otherwise resolve the user's Documents folder and initialize
+`Media_Studio/<project_id>`. Ask once for a project directory before the first
+saved production unless an active path, environment/config choice, or existing
+default studio root already resolves it. Before reusing or resuming a root,
+inspect its `project.json`, actual files, approvals, and `.history` in-flight
+operations; missing files or pending work is not a clean restart.
 
-Build one compact packet: assigned stage/output/focus IDs; current source IDs/versions; locked facts/continuity/exclusions; relevant approval references; required inputs and blockers. Use the contract's read-only focused index when useful; do not infer a stage from file presence. The worker returns indexed changes, actual evidence and checks performed; only when dependencies are missing, it also returns one indexed missing-input packet naming each scene/shot/beat slot, required input and blocker. For each missing dependency, the coordinator selects its owner from the canonical route once, assigns the scoped input, integrates the returned specification with inherited IDs/versions/approvals, and resumes the blocked stage without sending the worker through intake or routing again. Only the coordinator persists authorized changes, rechecks versions, validates and starts the next assigned stage. Text-only/no-save work returns proposals without any ledger write.
+Every intermediate and final output is saved outside this skill repository,
+registered with observed paths, and reported by absolute path. Final
+deliverables go in `final/`. Requested text saving alone does not imply image
+generation.
 
-The coordinator owns the history lifecycle as well as canonical state writes. Log the operation's actual prompt and method before execution, then its observed outputs and completed/failed/interrupted outcome in chronological project-local `.history/events/*.md`. On resumption inspect pending operations, record the interruption/resume and reconcile remote jobs before retrying; interrupted orchestration is not provider failure. `recording-production-history` owns only audit/storage mechanics, not approvals, artifact versions or stage selection. Project completion is separate from operation completion and requires the requested deliverables and exercised QA.
+For a full topic-to-video or image-backed package, read
+[preproduction-review.md](../video-production-assets/references/preproduction-review.md)
+before project writes or media calls, and read
+[production-routing.md](references/production-routing.md) for the
+`R24` sequence detail, v5.1 asset gate, and finality rules.
 
-## Planning, review and execution
+Before whole-storyboard finalization, dependent generation/take adoption, or
+sequence delivery, **REQUIRED:** apply the
+[whole-storyline continuity gate](../video-production-assets/references/26-state-causality-continuity.md#storyline-continuity-gate).
+The coordinator owns predecessor/history references and continuity acceptance
+even without a separate reviewer. Required failed/unverified continuity blocks
+dependent generation, take adoption and completed-film delivery; independent
+reachable planning may continue. Planned references are not accepted take
+outpoints; file/hash/decode success is not continuity evidence.
 
-Full topic-to-video or image-backed packages read [preproduction-review.md](../video-production-assets/references/preproduction-review.md) before project writes/media calls. The history skill resolves the cross-platform Documents directory without hardcoded usernames. Reuse the actual selected/approved project root; otherwise use the actual user's Documents `Media_Studio/<project_id>` root. Resolve an unset full-production runtime/structure once: 30s/1m/2m/5m/10m/30m/up-to-1h or supplied length, chapter/single-film/series; long form decomposes whole → chapter/episode → scene → shot. Do not impose this on a narrow artifact.
-For a full package, `creative-production` sequences the existing owners: source/brief and synopsis → screenplay using `video-production-assets/references/03-screenplay.md` → applicable character SSOT and active LOOK/style-world bible → required locked character/location/prop/product masters and scene derivatives → indexed technical storyboard → cross-stage content/cause/coverage/continuity/timing QA and minimum correction loop → still-image generation and ordered storyboard sheets → mandatory per-scene/per-panel extraction → structural and visual QA/correction → versioned handoff. Use `orchestrating-video-preproduction` only for the text stages assigned to that worker; it returns text and indexed gaps, then `creative-production` resumes the remaining owners. Do not silently omit the requested screenplay. Resolve every synopsis event/beat through the script and board; check every fact/event, causal transition, continuity state, required dialogue/caption/audio, scene, shot and panel for omission or contradiction, and verify that allocated time sums to the requested total. Correct in-scope mismatches and repeat affected checks before proceeding; changed inputs stale only their true dependents. Structural validation is not meaning or visual QA.
-Before generating any still master or panel whose design depends on a required character/contact/spatial beat, close the applicable scene-specific spatial/contact gate in the storyboard contract; if its evidence is unavailable or fails, mark that claim UNVERIFIED/blocked rather than generating dependent stills on an unvalidated pose. For each generated master, the actual submitted prompt must contain the authoritative SSOT content it claims to consume (including applicable identity prefix/negative instructions); record the actual submitted prompt and actual input-reference hashes in that call's existing chronological `.history` record. A source file's existence, a matching trait, a filename/ID mention, or a hash label without submitted source content is not consumption evidence. Inspect the returned master against its SSOT after generation and before dependent panel generation; only then pass its actual registered ID/version/hash downstream. Reuse the existing history and artifact fields; do not infer or retrofit historical consumption.
-Each storyboard sheet has at most eight panels; use fewer for readable dense cards. Before declaring a storyboard `final`, check the existing v5.1 asset gate; missing/draft/stale critical inputs permit only explicitly PRELIMINARY work. Preserve coordinate provenance: source camera/lighting metrics labeled proposed/estimated remain proposals, not measurements or solved 3D validation. Apply the complete storyboard contract's spatial/Blender gate when its scene-specific 3D predicate applies; where required and available, use the existing Blender owner for a deterministic static scene/previs and inspected frames for the required shots. Static previs verifies spatial/camera/contact feasibility only; it never substitutes for Codex Imagen clean artwork, identity/master sheets, panels, or storyboard sheets. No moving animatic or video render is part of preproduction. If required Blender verification is unavailable, retain supplied values as unverified, finish reachable still/image/text/QA work, and report the blocker rather than inventing an exemption or claiming FINAL. Package complete eligible output with the existing versioned ZIP/`--require-final` contract; do not package a blocked PRELIMINARY state as FINAL. Record exact asset versions and provenance under the canonical [full-package contract](../video-production-assets/references/contract.md#전체-프리프로덕션-패키지). A portrait/prompt cannot substitute for a master pack, and text or individual panels cannot substitute for actual sheets plus all extracted scene/panel images.
+When the deliverable needs voice or sound and nothing selects another route, the
+default is to design voice and sound into the video request itself — see the
+canonical
+[voice and sound design in-request](../creative-production/references/video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default)
+rule. Before any duration grouping or final video request, read
+[storyboard timing to prompt](references/storyboard-timing-to-prompt.md) and
+reconcile all board intervals with the actual submitted VISUAL/AUDIO schedule. A
+5/10/20/30-second job changes grouping and local timestamps, not the approved
+cuts, expression beats or dialogue.
 
-Keep video-model/endpoint choice unresolved during preproduction. Current-version review acceptance/readiness is not user acceptance, execution approval, or permission to run video. Only a separate proceed request opens the live-verified bounded plan under [video-generation-planning.md](references/video-generation-planning.md); actual submission waits for explicit execution and applicable spend approval. Never run video generation, video render, or publication during this preproduction route. Free/local samples and moving animatics need the same gate; preview does not authorize final production unless both were explicitly covered.
+Keep video-model/endpoint choice unresolved during preproduction. Current-version
+review acceptance/readiness is not user acceptance, execution approval, or
+permission to run video. Only a separate proceed request opens the live-verified
+bounded plan under [video-generation-planning.md](references/video-generation-planning.md);
+actual submission waits for explicit execution and applicable spend approval.
 
-Apply [selected-runtime gate](references/production-routing.md#selected-runtime-gate) only to actual requested execution. For requested generated stills—including character sheets, SSOT/identity sheets, portraits, boards and review images—follow [image-executor selection and restrictions](../video-production-assets/references/24-production-execution.md#2-이미지-생성-경로-정지-에셋). Without an explicitly selected eligible executor, **REQUIRED SUB-SKILL: `codex-imagen`** is the default route; read its helper before a call. When the user explicitly selects another eligible executor, follow that executor's actual runtime/input/output, rights and applicable cost/approval contract; do not silently replace it with the default. Higgsfield image and AI Influencer generation remain excluded. If the selected route lacks runtime/auth/capability, report the exact blocker and continue reachable preparation without automatic provider substitution or fake output. Codex Imagen still-image calls do not require price, usage, quota, or cost-approval checks; other executors keep their applicable checks. This cost exception does not expand execution, output, rights or publication authority. Changed inputs invalidate affected dependent approvals, not unrelated work.
-
-For a production storyboard and its later video prompts, preserve per-utterance speaking-face/listener-reaction coverage under the storyboard contract. When the deliverable needs voice or sound and nothing selects another route, the default is to design voice and sound into the video request itself (voice/sound design in-request, [video generation planning §3b](references/video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default)). Before any duration grouping or final video request, REQUIRED: read [storyboard timing to prompt](references/storyboard-timing-to-prompt.md) and reconcile all board intervals with the actual submitted VISUAL/AUDIO schedule. A 5/10/20/30-second job changes grouping and local timestamps, not the approved cuts, expression beats or dialogue.
-
-## Camera motion lane
-
-For assigned Blender modeling/lighting/exploded-view craft or a requested web 3D presentation, select only the needed `open-3d-production` modules through [Open 3D module selection](references/production-routing.md#open-3d-module-selection). This specialist consumes the handoff; the coordinator retains module choice, sequencing, execution authority and state/history. Native Blender scene work and browser presentation are distinct outputs; existing `blender-previsualization` still owns required spatial verification.
-
-Use the [canonical routing table](references/production-routing.md) for the requested camera output: reference observation, numeric camera design, AI-control translation, Blender spatial verification and actual generated-camera QA are distinct stages, not an automatic chain. Narrative camera planning stays with the storyboard owner. Numeric design alone leaves unrendered geometry `UNVERIFIED`; Blender applies only to an explicit Blender/previs request or a deliverable that requires checking an actual scene-specific 3D arrangement (path, blocking, occlusion, clearance or contact). The camera-design owner supplies the spec; the Blender owner implements and inspects the triggered verification. Text-only/read-only work returns planned verification requirements, never a runtime call. Reuse existing source analysis and camera/shot versions; keep unavailable verification blocked, not FINAL. Do not install runtimes automatically, equate image motion with solved metric camera motion, or claim soft prompt intent is hard camera control. Resolve sibling modules by their exact frontmatter names in the current host's available skill sources.
-
-## Execution and delivery
-
-Check only the selected surface's runtime/auth. No automatic installation. Preserve source assets, isolated requested outputs and credential secrecy. Use deterministic camera/geometry for exact space, composition for critical text/logos/prices, and actual assembly/encoding tools. Inspect outputs before authorized scaling. Parallelize only independent work; dependency chains and uncertain async status never justify duplicate paid submission.
-
-Before whole-storyboard finalization, dependent generation/take adoption, or sequence delivery, **REQUIRED:** apply the [whole-storyline continuity gate](../video-production-assets/references/26-state-causality-continuity.md#storyline-continuity-gate). The coordinator owns predecessor/history references and continuity acceptance even without a separate reviewer. Required failed/unverified continuity blocks dependent generation, take adoption and completed-film delivery; independent reachable planning may continue. Planned references are not accepted take outpoints; file/hash/decode success is not continuity evidence.
-
-For reference-heavy generated-production handoffs, apply only the relevant parts of [reference-driven production](../video-production-assets/references/29-reference-driven-production.md): attribute-level reference roles/precedence, same-state sheet inputs, synchronized submission/review language, actual new/edit/extend mode, minimal dialogue repair, and usable-range QA. This extends the existing owners and templates, not the requested scope, image route, Sheet A contract, runtime/spend authority, or canonical ledger. Source-guide screenshots and personal model preferences are not live capability or generation evidence.
-
-Use [creative-qa.md](references/creative-qa.md) for the actual requested surface: text/source checks, audio listening, video playback/timing/continuity/encoding, Blender scene/render inspection or browser inspection. Clip critique follows generation-planning §5. Schema success is not visual quality, rights clearance or user approval.
-
-Only a requested reference comparison/retrospective loads [production QA](../video-production-assets/references/12-qa.md#레퍼런스-의도-대조-해당-작업만). Findings are evidence-scoped and qualitative; project lessons do not authorize skill/profile updates or retries. Reference analysis alone stays read-only; an explicit package-optimization request may change package code/docs without generating production media.
-
-Return actual intermediate/final file locations and `.history` record paths as soon as each output is saved, with exercised checks and current lifecycle state. Distinguish plan, generated file, inspection, user acceptance and publication. Register only actual outputs; name missing/failed outputs and unverified conditions. For complete file packages produce the traceable versioned ZIP under `final` with the canonical manifests and applicable handoffs. API success, prompts, empty directories and predictions are not completed delivery.
+Use [creative-qa.md](references/creative-qa.md) for the actual requested surface.
+Return file locations and `.history` record paths as each output is saved, with
+exercised checks and current lifecycle state. Distinguish plan, generated file,
+inspection, user acceptance, and publication. API success, prompts, empty
+directories, and predictions are not delivery.

@@ -1,0 +1,349 @@
+{
+  "note": "Frozen routing cases. expected_owner must match routing.csv owner for route_id. C-prefixed cases are the route-coverage baseline; B-prefixed cases are adversarial boundary probes that deliberately avoid the giveaway keyword.",
+  "cases": [
+    {
+      "case_id": "C01",
+      "prompt": "SNS에서 이 제품 리뷰 영상 후보 좀 찾아줘",
+      "route_id": "R01",
+      "expected_owner": "searching-social-media"
+    },
+    {
+      "case_id": "C02",
+      "prompt": "이 기획안으로 시놉시스 하나만 써줘",
+      "route_id": "R02",
+      "expected_owner": "developing-video-synopses"
+    },
+    {
+      "case_id": "C03",
+      "prompt": "주인공 캐릭터 시트 하나 만들어줘",
+      "route_id": "R03",
+      "expected_owner": "designing-video-character-sheets"
+    },
+    {
+      "case_id": "C04",
+      "prompt": "이 인물 MBTI랑 말투 프레이밍만 잡아줘",
+      "route_id": "R04",
+      "expected_owner": "designing-character-personas"
+    },
+    {
+      "case_id": "C05",
+      "prompt": "콘셉트부터 콘티까지 텍스트로 전체 패키지 짜줘",
+      "route_id": "R05",
+      "expected_owner": "orchestrating-video-preproduction"
+    },
+    {
+      "case_id": "C06",
+      "prompt": "이 장면 앵글과 표정 전달 의도만 봐줘",
+      "route_id": "R06",
+      "expected_owner": "video-production-assets"
+    },
+    {
+      "case_id": "C07",
+      "prompt": "대사 없이 무성으로 이야기 만들어줘",
+      "route_id": "R07",
+      "expected_owner": "silent-visual-storytelling"
+    },
+    {
+      "case_id": "C08",
+      "prompt": "확정된 콘티로 애니매틱 타이밍 짜줘",
+      "route_id": "R08",
+      "expected_owner": "animatic-direction"
+    },
+    {
+      "case_id": "C09",
+      "prompt": "85초 무성 풍자 애니메틱으로 만들어",
+      "route_id": "R09",
+      "expected_owner": "silent-satire-animatic"
+    },
+    {
+      "case_id": "C10",
+      "prompt": "이 30초 영상 콘티 전체 만들어줘",
+      "route_id": "R10",
+      "expected_owner": "storyboarding-video"
+    },
+    {
+      "case_id": "C11",
+      "prompt": "러프 썸네일 패널 프롬프트만 뽑아줘",
+      "route_id": "R11",
+      "expected_owner": "storyboarding-video"
+    },
+    {
+      "case_id": "C12",
+      "prompt": "이 스틸 이미지들로 영상 편집해줘",
+      "route_id": "R12",
+      "expected_owner": "storytelling-with-still-images"
+    },
+    {
+      "case_id": "C13",
+      "prompt": "조명 계획 하나만 짜줘",
+      "route_id": "R13",
+      "expected_owner": "video-production-assets"
+    },
+    {
+      "case_id": "C14",
+      "prompt": "단편영화 전체 제작 라이프사이클로 진행해줘",
+      "route_id": "R14",
+      "expected_owner": "video-production-assets"
+    },
+    {
+      "case_id": "C15",
+      "prompt": "아이 노는 모습 교육 영상 기획해줘",
+      "route_id": "R15",
+      "expected_owner": "video-production-assets"
+    },
+    {
+      "case_id": "C16",
+      "prompt": "이 레퍼런스 영상 카메라 무빙 분석해줘",
+      "route_id": "R16",
+      "expected_owner": "camera-motion-reference-analysis"
+    },
+    {
+      "case_id": "C17",
+      "prompt": "이 장면 1인칭 시점으로 카메라 구도 잡아줘",
+      "route_id": "R17",
+      "expected_owner": "storyboarding-video"
+    },
+    {
+      "case_id": "C18",
+      "prompt": "이 카메라 렌즈랑 타이밍 설계해줘",
+      "route_id": "R18",
+      "expected_owner": "camera-spatial-design"
+    },
+    {
+      "case_id": "C19",
+      "prompt": "이 카메라 플랜을 AI 비디오 프롬프트로 바꿔줘",
+      "route_id": "R19",
+      "expected_owner": "ai-camera-control"
+    },
+    {
+      "case_id": "C20",
+      "prompt": "이 영상 실제 카메라 무빙 검수해줘",
+      "route_id": "R20",
+      "expected_owner": "video-production-assets"
+    },
+    {
+      "case_id": "C21",
+      "prompt": "카메라 좌표와 렌즈 수치만 설계해줘",
+      "route_id": "R21",
+      "expected_owner": "camera-spatial-design"
+    },
+    {
+      "case_id": "C22",
+      "prompt": "이 씬 3D 공간 오클루전 검증해줘",
+      "route_id": "R22",
+      "expected_owner": "blender-previsualization"
+    },
+    {
+      "case_id": "C23",
+      "prompt": "이 영상 프롬프트 모델별로 비평해줘",
+      "route_id": "R23",
+      "expected_owner": "creative-production"
+    },
+    {
+      "case_id": "C24",
+      "prompt": "이미지까지 포함한 전체 프리프로덕션 패키지 만들어줘",
+      "route_id": "R24",
+      "expected_owner": "creative-production"
+    },
+    {
+      "case_id": "C25",
+      "prompt": "이 패키지 감사해줘",
+      "route_id": "R25",
+      "expected_owner": "video-production-assets"
+    },
+    {
+      "case_id": "C26",
+      "prompt": "이 레퍼런스 영상 컷 분해해줘",
+      "route_id": "R26",
+      "expected_owner": "video-production-assets"
+    },
+    {
+      "case_id": "C27",
+      "prompt": "이전 프로젝트 이어서 감사해줘",
+      "route_id": "R27",
+      "expected_owner": "recording-production-history"
+    },
+    {
+      "case_id": "B01",
+      "prompt": "이번 캠페인 30초 영상 촬영 들어가기 전에 제작용 콘티 뽑아줘. 샷마다 카메라랑 조명까지 정리돼야 촬영팀이 바로 쓸 수 있어.",
+      "route_id": "R10",
+      "expected_owner": "storyboarding-video",
+      "boundary_note": "production-grade board for a shoot: crew-usable camera/lighting per shot = R10, not R11 rough panels"
+    },
+    {
+      "case_id": "B02",
+      "prompt": "콘티는 아니고 아이디어 확인용으로 손그림 네 컷이면 충분해",
+      "route_id": "R11",
+      "expected_owner": "storyboarding-video",
+      "boundary_note": "explicitly non-production, clearly R11"
+    },
+    {
+      "case_id": "B03",
+      "prompt": "콘티 뽑고 그 콘티대로 실제 장면 이미지까지 만들어서 시트로 정리해줘",
+      "route_id": "R24",
+      "expected_owner": "creative-production",
+      "boundary_note": "board + actual images + sheets = image-backed package, not R10"
+    },
+    {
+      "case_id": "B04",
+      "prompt": "콘티 만들어줘. 이미지는 아직 만들지 말고",
+      "route_id": "R10",
+      "expected_owner": "storyboarding-video",
+      "boundary_note": "explicit no-images keeps it at R10 despite board+images phrasing temptation"
+    },
+    {
+      "case_id": "B05",
+      "prompt": "대사 없이 두 사람이 헤어지는 걸 보여주고 싶어. 어떻게 보여줄지 짜줘",
+      "route_id": "R07",
+      "expected_owner": "silent-visual-storytelling",
+      "boundary_note": "no dialogue, story design = R07 not R08"
+    },
+    {
+      "case_id": "B06",
+      "prompt": "확정된 스토리보드는 있으니까 컷 길이랑 홀드만 다시 잡아줘",
+      "route_id": "R08",
+      "expected_owner": "animatic-direction",
+      "boundary_note": "approved board exists, only temporalization = R08"
+    },
+    {
+      "case_id": "B07",
+      "prompt": "90초짜리 무성 풍자로 만들어줘",
+      "route_id": "R09",
+      "expected_owner": "silent-satire-animatic",
+      "boundary_note": "explicit local satire pipeline"
+    },
+    {
+      "case_id": "B08",
+      "prompt": "시놉시스부터 콘티까지 텍스트로만 정리해줘. 이미지 없이",
+      "route_id": "R05",
+      "expected_owner": "orchestrating-video-preproduction",
+      "boundary_note": "text-only multi-artifact = R05"
+    },
+    {
+      "case_id": "B09",
+      "prompt": "위 기획으로 실제 스틸까지 뽑아서 최종 패키지로 마무리해줘",
+      "route_id": "R24",
+      "expected_owner": "creative-production",
+      "boundary_note": "explicit stills + final package = R24"
+    },
+    {
+      "case_id": "B10",
+      "prompt": "렌즈랑 카메라 위치 수치만 정해줘. 3D로 검증은 아직",
+      "route_id": "R21",
+      "expected_owner": "camera-spatial-design",
+      "boundary_note": "numeric only, verification deferred = R21"
+    },
+    {
+      "case_id": "B11",
+      "prompt": "이 카메라 경로가 벽을 안 통과하는지 3D로 실제 확인해줘",
+      "route_id": "R22",
+      "expected_owner": "blender-previsualization",
+      "boundary_note": "actual 3D check required = R22"
+    },
+    {
+      "case_id": "B12",
+      "prompt": "이 카메라 설계를 영상 생성 모델에 넣을 프롬프트로 바꿔줘",
+      "route_id": "R19",
+      "expected_owner": "ai-camera-control",
+      "boundary_note": "design -> prompt = R19"
+    },
+    {
+      "case_id": "B13",
+      "prompt": "이 레퍼런스 클립 카메라가 어떻게 움직였는지 봐줘",
+      "route_id": "R16",
+      "expected_owner": "camera-motion-reference-analysis",
+      "boundary_note": "observed reference motion = R16"
+    },
+    {
+      "case_id": "B14",
+      "prompt": "이 장면 클로즈업으로 갈지 와이드로 갈지 구도만 정해줘",
+      "route_id": "R17",
+      "expected_owner": "storyboarding-video",
+      "boundary_note": "narrative framing choice = R17"
+    },
+    {
+      "case_id": "B15",
+      "prompt": "조명 계획 하나만 짜줘. 다른 모듈은 필요 없어",
+      "route_id": "R13",
+      "expected_owner": "video-production-assets",
+      "boundary_note": "single module explicitly scoped = R13, not R06 visual review"
+    },
+    {
+      "case_id": "B16",
+      "prompt": "초등학생 대상 광합성 설명 영상인데 사실 관계가 틀리면 안 되니까 근거 확인하고 교육용 기획 하나만 잡아줘",
+      "route_id": "R15",
+      "expected_owner": "video-production-assets",
+      "boundary_note": "factual/educational requirement dominates: evidence check + single educational plan = R15, not a multi-artifact R05 package"
+    },
+    {
+      "case_id": "B17",
+      "prompt": "이 샷에서 표정이 의도대로 읽히는지 봐줘",
+      "route_id": "R06",
+      "expected_owner": "video-production-assets",
+      "boundary_note": "visual communication review of one shot = R06"
+    },
+    {
+      "case_id": "B18",
+      "prompt": "이 패키지 전체 감사해줘",
+      "route_id": "R25",
+      "expected_owner": "video-production-assets",
+      "boundary_note": "package audit = R25"
+    },
+    {
+      "case_id": "B19",
+      "prompt": "이 레퍼런스 영상을 컷 단위로 쪼개서 분석해줘",
+      "route_id": "R26",
+      "expected_owner": "video-production-assets",
+      "boundary_note": "measured decomposition = R26"
+    },
+    {
+      "case_id": "B20",
+      "prompt": "지난주에 하던 프로젝트 중단됐는데 이어서 상태 확인해줘",
+      "route_id": "R27",
+      "expected_owner": "recording-production-history",
+      "boundary_note": "interrupted project audit = R27"
+    },
+    {
+      "case_id": "B21",
+      "prompt": "이 캐릭터 성격이랑 말투만 잡아줘. 시트는 아직",
+      "route_id": "R04",
+      "expected_owner": "designing-character-personas",
+      "boundary_note": "persona packet only = R04"
+    },
+    {
+      "case_id": "B22",
+      "prompt": "캐릭터 시트 하나 만들어줘",
+      "route_id": "R03",
+      "expected_owner": "designing-video-character-sheets",
+      "boundary_note": "character sheet = R03"
+    },
+    {
+      "case_id": "B23",
+      "prompt": "이 스틸 이미지들로 영상으로 이어붙여줘",
+      "route_id": "R12",
+      "expected_owner": "storytelling-with-still-images",
+      "boundary_note": "stills exist, assembly only = R12 (not R24)"
+    },
+    {
+      "case_id": "B24",
+      "prompt": "단편 하나를 기획부터 배급까지 단계별로 진행해줘",
+      "route_id": "R14",
+      "expected_owner": "video-production-assets",
+      "boundary_note": "full lifecycle = R14"
+    },
+    {
+      "case_id": "B25",
+      "prompt": "완성된 이 영상 카메라 무빙이 계획대로인지 재생해서 봐줘",
+      "route_id": "R20",
+      "expected_owner": "video-production-assets",
+      "boundary_note": "supplied media playback QA = R20"
+    },
+    {
+      "case_id": "B01b",
+      "prompt": "콘티 정식으로 말고 그냥 분위기 확인하려고 러프하게 네 컷만 그려줘",
+      "route_id": "R11",
+      "expected_owner": "storyboarding-video",
+      "boundary_note": "explicitly casual atmosphere check = R11"
+    }
+  ]
+}

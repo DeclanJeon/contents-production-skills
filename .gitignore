@@ -29,3 +29,6 @@ delta-parts.json
 # Derived frame/timeline evidence dumped by source-analysis runs (GBs); keep
 # the JSON/report outputs, not the extracted media.
 docs/analysis/*/evidence/
+
+# routing eval raw wire logs: bulky, reproducible; summary.json keeps verdicts/reads/leaks
+qa/**/*.wire.jsonl

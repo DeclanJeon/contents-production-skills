@@ -1,0 +1,287 @@
+{
+  "generated_at": "2026-11-16T21:15:13+00:00",
+  "model": "gpt-6.1-sol",
+  "package_version": "2.47",
+  "cases": 27,
+  "correct": 26,
+  "accuracy": 0.963,
+  "tally": {
+    "correct": 26,
+    "unanswered": 1
+  },
+  "dangerous": [],
+  "near_miss": [],
+  "note": "LLM output is measurement only, never package truth.",
+  "results": [
+    {
+      "case_id": "C01",
+      "prompt": "SNS에서 이 제품 리뷰 영상 후보 좀 찾아줘",
+      "expected": "searching-social-media",
+      "expected_route": "R01",
+      "chosen_route": "R01",
+      "why": "Requests SNS product review video candidates, a text-only search deliverable.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R01\nWHY: Requests SNS product review video candidates, a text-only search deliverable."
+    },
+    {
+      "case_id": "C02",
+      "prompt": "이 기획안으로 시놉시스 하나만 써줘",
+      "expected": "developing-video-synopses",
+      "expected_route": "R02",
+      "chosen_route": "R02",
+      "why": "Requests one text-only synopsis from an existing proposal.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R02\nWHY: Requests one text-only synopsis from an existing proposal."
+    },
+    {
+      "case_id": "C03",
+      "prompt": "주인공 캐릭터 시트 하나 만들어줘",
+      "expected": "designing-video-character-sheets",
+      "expected_route": "R03",
+      "chosen_route": "R03",
+      "why": "단일 주인공 캐릭터 시트 요청이며, 미디어 생성 허용이 없어 text_only에 해당한다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R03\nWHY: 단일 주인공 캐릭터 시트 요청이며, 미디어 생성 허용이 없어 text_only에 해당한다."
+    },
+    {
+      "case_id": "C04",
+      "prompt": "이 인물 MBTI랑 말투 프레이밍만 잡아줘",
+      "expected": "designing-character-personas",
+      "expected_route": "R04",
+      "chosen_route": "R04",
+      "why": "Requests only text persona typology and speech framing, without a full character sheet or media.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R04\nWHY: Requests only text persona typology and speech framing, without a full character sheet or media."
+    },
+    {
+      "case_id": "C05",
+      "prompt": "콘셉트부터 콘티까지 텍스트로 전체 패키지 짜줘",
+      "expected": "orchestrating-video-preproduction",
+      "expected_route": "R05",
+      "chosen_route": "R05",
+      "why": "콘셉트부터 콘티까지 여러 기획 산출물을 텍스트로 요청했다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R05\nWHY: 콘셉트부터 콘티까지 여러 기획 산출물을 텍스트로 요청했다."
+    },
+    {
+      "case_id": "C06",
+      "prompt": "이 장면 앵글과 표정 전달 의도만 봐줘",
+      "expected": "video-production-assets",
+      "expected_route": "R06",
+      "chosen_route": "R06",
+      "why": "Requests text-only review of scene angles and facial expressions for visual communication intent.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R06\nWHY: Requests text-only review of scene angles and facial expressions for visual communication intent."
+    },
+    {
+      "case_id": "C07",
+      "prompt": "대사 없이 무성으로 이야기 만들어줘",
+      "expected": "silent-visual-storytelling",
+      "expected_route": "R07",
+      "chosen_route": "R07",
+      "why": "Requests a dialogue-free visual narrative, with no generated media or editing authorized.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R07\nWHY: Requests a dialogue-free visual narrative, with no generated media or editing authorized."
+    },
+    {
+      "case_id": "C08",
+      "prompt": "확정된 콘티로 애니매틱 타이밍 짜줘",
+      "expected": "animatic-direction",
+      "expected_route": "R08",
+      "chosen_route": "R08",
+      "why": "확정 콘티의 애니매틱 타이밍 설계 요청이며 실제 미디어 제작은 허용하지 않았다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R08\nWHY: 확정 콘티의 애니매틱 타이밍 설계 요청이며 실제 미디어 제작은 허용하지 않았다."
+    },
+    {
+      "case_id": "C09",
+      "prompt": "85초 무성 풍자 애니메틱으로 만들어",
+      "expected": "silent-satire-animatic",
+      "expected_route": "R09",
+      "chosen_route": "R09",
+      "why": "Requests an 85-second silent satire animatic; default text-only matches the specialized local pipeline.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R09\nWHY: Requests an 85-second silent satire animatic; default text-only matches the specialized local pipeline."
+    },
+    {
+      "case_id": "C10",
+      "prompt": "이 30초 영상 콘티 전체 만들어줘",
+      "expected": "storyboarding-video",
+      "expected_route": "R10",
+      "chosen_route": "R10",
+      "why": "Requests a complete 30-second storyboard, with no generated media or editing authorized.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R10\nWHY: Requests a complete 30-second storyboard, with no generated media or editing authorized."
+    },
+    {
+      "case_id": "C11",
+      "prompt": "러프 썸네일 패널 프롬프트만 뽑아줘",
+      "expected": "storyboarding-video",
+      "expected_route": "R11",
+      "chosen_route": "R11",
+      "why": "요청은 러프 썸네일 패널 프롬프트만이며, 이미지 생성이나 전체 스토리보드 제작은 포함하지 않습니다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R11\nWHY: 요청은 러프 썸네일 패널 프롬프트만이며, 이미지 생성이나 전체 스토리보드 제작은 포함하지 않습니다."
+    },
+    {
+      "case_id": "C12",
+      "prompt": "이 스틸 이미지들로 영상 편집해줘",
+      "expected": "storytelling-with-still-images",
+      "expected_route": "R12",
+      "chosen_route": "R12",
+      "why": "제공된 스틸 이미지만 사용해 실제 영상 편집을 요청했습니다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R12\nWHY: 제공된 스틸 이미지만 사용해 실제 영상 편집을 요청했습니다."
+    },
+    {
+      "case_id": "C13",
+      "prompt": "조명 계획 하나만 짜줘",
+      "expected": "video-production-assets",
+      "expected_route": "R13",
+      "chosen_route": "R13",
+      "why": "A single lighting plan is one text-only production asset; no media execution requested.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R13\nWHY: A single lighting plan is one text-only production asset; no media execution requested."
+    },
+    {
+      "case_id": "C14",
+      "prompt": "단편영화 전체 제작 라이프사이클로 진행해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R14",
+      "chosen_route": "R14",
+      "why": "Requests the complete short-film production lifecycle; media execution remains unapproved.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R14\nWHY: Requests the complete short-film production lifecycle; media execution remains unapproved."
+    },
+    {
+      "case_id": "C15",
+      "prompt": "아이 노는 모습 교육 영상 기획해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R15",
+      "chosen_route": "R15",
+      "why": "아이의 놀이 모습을 다루는 교육 영상 기획이며, 미디어 생성 요청은 없습니다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R15\nWHY: 아이의 놀이 모습을 다루는 교육 영상 기획이며, 미디어 생성 요청은 없습니다."
+    },
+    {
+      "case_id": "C16",
+      "prompt": "이 레퍼런스 영상 카메라 무빙 분석해줘",
+      "expected": "camera-motion-reference-analysis",
+      "expected_route": "R16",
+      "chosen_route": "R16",
+      "why": "레퍼런스 영상의 카메라 움직임을 분석하는 텍스트 결과물 요청이다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R16\nWHY: 레퍼런스 영상의 카메라 움직임을 분석하는 텍스트 결과물 요청이다."
+    },
+    {
+      "case_id": "C17",
+      "prompt": "이 장면 1인칭 시점으로 카메라 구도 잡아줘",
+      "expected": "storyboarding-video",
+      "expected_route": "R17",
+      "chosen_route": "R17",
+      "why": "Requests first-person scene framing, a text-only narrative camera plan.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R17\nWHY: Requests first-person scene framing, a text-only narrative camera plan."
+    },
+    {
+      "case_id": "C18",
+      "prompt": "이 카메라 렌즈랑 타이밍 설계해줘",
+      "expected": "camera-spatial-design",
+      "expected_route": "R18",
+      "chosen_route": "R18",
+      "why": "Requests camera lens and timing design as a text-only planning deliverable.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R18\nWHY: Requests camera lens and timing design as a text-only planning deliverable."
+    },
+    {
+      "case_id": "C19",
+      "prompt": "이 카메라 플랜을 AI 비디오 프롬프트로 바꿔줘",
+      "expected": "ai-camera-control",
+      "expected_route": "R19",
+      "chosen_route": "R19",
+      "why": "Converts an existing camera plan into text-only AI video prompts.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R19\nWHY: Converts an existing camera plan into text-only AI video prompts."
+    },
+    {
+      "case_id": "C20",
+      "prompt": "이 영상 실제 카메라 무빙 검수해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R20",
+      "chosen_route": "UNASSIGNED",
+      "why": "Actual camera movement QA requests no generation or edit; R20 requires executed_media.",
+      "verdict": "unanswered",
+      "agent_text": "ROUTE: UNASSIGNED\nWHY: Actual camera movement QA requests no generation or edit; R20 requires executed_media."
+    },
+    {
+      "case_id": "C21",
+      "prompt": "카메라 좌표와 렌즈 수치만 설계해줘",
+      "expected": "camera-spatial-design",
+      "expected_route": "R21",
+      "chosen_route": "R21",
+      "why": "카메라 좌표와 렌즈 수치만 요청한 텍스트 설계이며, 미디어 실행이나 3D 검증은 요청하지 않았다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R21\nWHY: 카메라 좌표와 렌즈 수치만 요청한 텍스트 설계이며, 미디어 실행이나 3D 검증은 요청하지 않았다."
+    },
+    {
+      "case_id": "C22",
+      "prompt": "이 씬 3D 공간 오클루전 검증해줘",
+      "expected": "blender-previsualization",
+      "expected_route": "R22",
+      "chosen_route": "R22",
+      "why": "Scene-specific 3D occlusion verification explicitly authorizes spatial inspection.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R22\nWHY: Scene-specific 3D occlusion verification explicitly authorizes spatial inspection."
+    },
+    {
+      "case_id": "C23",
+      "prompt": "이 영상 프롬프트 모델별로 비평해줘",
+      "expected": "creative-production",
+      "expected_route": "R23",
+      "chosen_route": "R23",
+      "why": "모델별 영상 프롬프트 비평을 요청했으며 미디어 생성은 허용하지 않았다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R23\nWHY: 모델별 영상 프롬프트 비평을 요청했으며 미디어 생성은 허용하지 않았다."
+    },
+    {
+      "case_id": "C24",
+      "prompt": "이미지까지 포함한 전체 프리프로덕션 패키지 만들어줘",
+      "expected": "creative-production",
+      "expected_route": "R24",
+      "chosen_route": "R24",
+      "why": "Requests a complete preproduction package explicitly including images.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R24\nWHY: Requests a complete preproduction package explicitly including images."
+    },
+    {
+      "case_id": "C25",
+      "prompt": "이 패키지 감사해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R25",
+      "chosen_route": "R25",
+      "why": "Requests a package audit; text-only analysis with no media execution or saved-project recovery.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R25\nWHY: Requests a package audit; text-only analysis with no media execution or saved-project recovery."
+    },
+    {
+      "case_id": "C26",
+      "prompt": "이 레퍼런스 영상 컷 분해해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R26",
+      "chosen_route": "R26",
+      "why": "Reference video cut breakdown requests text-only decomposition, without media generation or editing.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R26\nWHY: Reference video cut breakdown requests text-only decomposition, without media generation or editing."
+    },
+    {
+      "case_id": "C27",
+      "prompt": "이전 프로젝트 이어서 감사해줘",
+      "expected": "recording-production-history",
+      "expected_route": "R27",
+      "chosen_route": "R27",
+      "why": "이전 프로젝트를 이어서 감사하는 요청으로, 저장된 결과물과 중단 이력 점검에 해당한다.",
+      "verdict": "correct",
+      "agent_text": "ROUTE: R27\nWHY: 이전 프로젝트를 이어서 감사하는 요청으로, 저장된 결과물과 중단 이력 점검에 해당한다."
+    }
+  ]
+}
