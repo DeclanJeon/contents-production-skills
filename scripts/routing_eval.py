@@ -36,6 +36,7 @@ import json
 import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import tempfile
@@ -158,6 +159,62 @@ def normalise_route(raw: str) -> str | None:
     return None
 
 
+def kill_group(process: "subprocess.Popen[str]") -> None:
+    """Kill the child and everything it spawned."""
+    try:
+        os.killpg(os.getpgid(process.pid), signal.SIGKILL)
+    except (ProcessLookupError, PermissionError):  # already gone
+        process.kill()
+
+
+def run_bounded(
+    command: list[str], stdin_text: str, timeout: int, env: dict[str, str]
+) -> tuple[str, str, int]:
+    """Run a command with a hard deadline, capturing output through files.
+
+    Two failure modes are being defended against, both observed in practice:
+
+    1. A sweep stalled indefinitely at case B06 even though ``--timeout`` was
+       set. Anything that waits for the stdout pipe to reach EOF can stall
+       forever when a descendant keeps the inherited descriptor open, and
+       ``subprocess.run(timeout=...)`` re-enters ``communicate()`` after it
+       kills the direct child, so it can stall there too.
+    2. Killing only the direct child leaves codex's own children running.
+
+    So: capture through temporary files (no EOF to wait for), put the child in
+    its own session, and kill the whole group on overrun. Raises TimeoutError so
+    the caller records ``timeout`` rather than confusing it with a crash.
+    """
+    with tempfile.TemporaryDirectory(prefix="run-") as scratch:
+        out_path = Path(scratch) / "stdout"
+        err_path = Path(scratch) / "stderr"
+        stdin_path = Path(scratch) / "stdin"
+        stdin_path.write_text(stdin_text, encoding="utf-8")
+        with out_path.open("wb") as out_file, err_path.open("wb") as err_file, \
+                stdin_path.open("rb") as stdin_file:
+            process = subprocess.Popen(
+                command,
+                stdin=stdin_file,
+                stdout=out_file,
+                stderr=err_file,
+                env=env,
+                start_new_session=True,
+            )
+            try:
+                process.wait(timeout=timeout)
+            except subprocess.TimeoutExpired:
+                kill_group(process)
+                try:
+                    process.wait(timeout=10)
+                except subprocess.TimeoutExpired:  # pragma: no cover - killpg failed
+                    pass
+                raise TimeoutError(f"codex exec exceeded {timeout}s") from None
+        # Files are closed, so this cannot block on a surviving descendant.
+        out = out_path.read_bytes().decode("utf-8", "replace")
+        err = err_path.read_bytes().decode("utf-8", "replace")
+    return out, err, process.returncode
+
+
 def dispatch(prompt: str, sandbox: Path, model: str, timeout: int) -> tuple[str, str]:
     """Return (raw_wire, agent_text). Raises on dispatch failure."""
     command = [
@@ -182,17 +239,10 @@ def dispatch(prompt: str, sandbox: Path, model: str, timeout: int) -> tuple[str,
     sealed_home = sandbox / ".codex-home"
     if sealed_home.is_dir():
         env["CODEX_HOME"] = str(sealed_home)
-    process = subprocess.run(
-        command,
-        input=prompt,
-        capture_output=True,
-        text=True,
-        timeout=timeout,
-        env=env,
-    )
-    wire = process.stdout + process.stderr
+    stdout, stderr, returncode = run_bounded(command, prompt, timeout, env)
+    wire = stdout + stderr
     texts: list[str] = []
-    for line in process.stdout.splitlines():
+    for line in stdout.splitlines():
         line = line.strip()
         if not line.startswith("{"):
             continue
@@ -203,8 +253,8 @@ def dispatch(prompt: str, sandbox: Path, model: str, timeout: int) -> tuple[str,
         item = event.get("item") or {}
         if item.get("type") == "agent_message" and item.get("text"):
             texts.append(item["text"])
-    if process.returncode != 0 and not texts:
-        raise RuntimeError(f"codex exit {process.returncode}: {wire[-800:]}")
+    if returncode != 0 and not texts:
+        raise RuntimeError(f"codex exit {returncode}: {wire[-800:]}")
     return wire, "\n".join(texts)
 
 
@@ -402,9 +452,12 @@ def main() -> int:
                           f"t{repeat_index + 1} expected={case['route_id']} "
                           f"got={chosen} ({verdict})", flush=True)
                 except Exception as error:  # noqa: BLE001 - record, do not crash the sweep
-                    trial.update(chosen_route=None, verdict="dispatch_error",
+                    timed_out = isinstance(error, TimeoutError)
+                    trial.update(chosen_route=None,
+                                 verdict="timeout" if timed_out else "dispatch_error",
                                  error=str(error)[:400])
-                    print(f"[{done}/{total}] ERR  {case['case_id']} "
+                    label = "TIME" if timed_out else "ERR "
+                    print(f"[{done}/{total}] {label} {case['case_id']} "
                           f"t{repeat_index + 1}: {error}"[:300], flush=True)
                 record_trial(case, trial)
 

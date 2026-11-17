@@ -10,6 +10,9 @@
 
 ## Unreleased
 
+- Fixed a hang in `scripts/routing_eval.py` that could silently kill a multi-hour sweep. A real run stalled indefinitely on case B06 with `--timeout 420` set. Output is now captured through temporary files rather than pipes, so nothing waits for an EOF a surviving descendant may never send, and an overrun kills the whole process group (`start_new_session` + `killpg`) instead of only the direct child. An overrun is recorded as verdict `timeout`, distinct from `dispatch_error`. Four tests pin this: the original overrun returns promptly, a detached grandchild cannot block the call, a 1 MB payload cannot deadlock on a pipe buffer, and stdin is still delivered.
+- Added `scripts/routing_flake_report.py`, which reports a repeated run as per-case flake counts plus Wilson intervals and, most importantly, the smallest per-trial error rate the sample could still have missed. With 3 trials per case that floor is 63%, so per-case "0 flakes" proves almost nothing; only the aggregate supports a bound. Six model-free tests pin the arithmetic, including that zero observed errors never produces a zero upper bound.
+
 ## 2.48 2026-11-17
 
 - Added `--repeat N` to `scripts/routing_eval.py` and made it measure **answer stability**, not just accuracy. Each case is repeated round-robin (so drift over wall-clock time is spread across cases), and each case is judged `stable_correct`, `stable_wrong`, or `flaky`. A flaky case is never counted as a success, and a per-attempt accuracy is reported alongside the per-case stable accuracy.

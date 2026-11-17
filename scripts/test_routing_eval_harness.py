@@ -175,3 +175,68 @@ def test_sandbox_auth_copy_is_owner_only(tmp_path: Path) -> None:
     assert mode & (stat.S_IRWXG | stat.S_IRWXO) == 0, (
         f"auth copy is too permissive: {oct(mode)}"
     )
+
+
+def test_run_bounded_kills_children_that_inherit_the_pipe() -> None:
+    """Regression: a grandchild holding stdout made the sweep hang forever.
+
+    `subprocess.run(timeout=)` kills only the direct child, so communicate()
+    waits for an EOF the surviving grandchild never sends. A real sweep stalled
+    indefinitely at case B06 because of this.
+    """
+    import time
+
+    started = time.monotonic()
+    command = [
+        "/usr/bin/env", "bash", "-c",
+        # The background child inherits stdout; the parent exits quickly.
+        "sleep 300 & sleep 300",
+    ]
+    try:
+        routing_eval.run_bounded(command, "", 2, dict(routing_eval.os.environ))
+    except TimeoutError as error:
+        assert "exceeded 2s" in str(error)
+    else:
+        raise AssertionError("expected a TimeoutError")
+
+    elapsed = time.monotonic() - started
+    # The kill must return promptly; a hang here would be the original bug.
+    assert elapsed < 15, f"run_bounded took {elapsed:.1f}s to give up"
+
+
+def test_run_bounded_returns_output_for_a_normal_command() -> None:
+    out, err, _rc = routing_eval.run_bounded(
+        ["/bin/sh", "-c", "printf hello; printf oops >&2"], "", 10,
+        dict(routing_eval.os.environ),
+    )
+    assert out == "hello"
+    assert err == "oops"
+
+
+def test_run_bounded_passes_stdin() -> None:
+    out, _err, _rc = routing_eval.run_bounded(
+        ["/bin/sh", "-c", "cat"], "prompt text\n", 10, dict(routing_eval.os.environ)
+    )
+    assert out == "prompt text\n"
+
+
+def test_run_bounded_survives_a_detached_grandchild() -> None:
+    """A descendant in its own session must not stop the call from returning."""
+    import time
+
+    started = time.monotonic()
+    out, _err, _rc = routing_eval.run_bounded(
+        ["/usr/bin/env", "bash", "-c", "setsid sleep 300 & echo done"],
+        "", 10, dict(routing_eval.os.environ),
+    )
+    assert out.strip() == "done"
+    assert time.monotonic() - started < 10
+
+
+def test_run_bounded_returns_large_output_without_deadlock() -> None:
+    """File capture means a big payload cannot fill a pipe buffer and stall."""
+    out, _err, _rc = routing_eval.run_bounded(
+        ["/bin/sh", "-c", "head -c 1000000 /dev/zero | tr '\\0' 'x'"],
+        "", 30, dict(routing_eval.os.environ),
+    )
+    assert len(out) == 1_000_000
