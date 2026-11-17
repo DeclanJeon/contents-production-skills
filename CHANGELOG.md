@@ -8,6 +8,14 @@
 - Upgraded `validate_storyboard.py` (`--strict-staging`, `single_i2v` support) and `render_storyboard_sheet.py` (aspect-ratio adaptive cell dimensions for `9:16`/`16:9`/`4:5` and expanded 64-line captions).
 
 
+## 2.51 2026-11-17
+
+- Added `scripts/routing_truth_audit.py`, which audits the **expected routes rather than the router**. Every number so far answers "does the router agree with the expected route"; if an expectation is wrong, that number means nothing. Six checks: coverage, no withheld deliverable mapped to a route that performs it, no executed-media route without an authorising clause, expected owner matches `routing.csv`, every declared contrast pair actually flips the dimension it claims, and a report of which media axis dominates the set. Eight tests run each check on the real data *and* on a corrupted copy, because a check that can only pass is decoration.
+- The audit immediately earned its place: the warrant lexicon missed a request phrased "3D 공간 오클루전 검증해줘" (it only matched "3D로"), so the lexicon was widened -- a false positive in the checker, not a defect in the ground truth, and it is recorded as such.
+- Acted on the audit's skew finding: execution routes were only 9% of the set, so the axis where a mistake costs money was the least tested. Added six cases (D01-D06) as three contrast pairs sharing one request and differing only in the clause that authorises or withholds execution. Skew moved to text_only 71% (from 75%), executed_media 12%, varies 14%.
+- A new case declared R24's owner as `video-production-assets`; `routing.csv` says `creative-production`. The frozen regression caught it, and an owner check was added to the audit, where ground-truth errors belong.
+- Re-measured the expanded set as one run: 59/59 correct, 0 infrastructure failures, and 53/53 agreement with the earlier runs from a third independent process. The set still skews to text_only at 71%, so the accuracy number remains dominated by text routing and the audit keeps saying so.
+
 ## 2.50 2026-11-17
 
 - Fixed a reporting inversion: a degraded run whose 14 failures were all `codex exit 101` transport errors was summarised as `stably WRONG`, listing every crashed case as "consistently wrong" when nothing had been answered at all. Judgement is now computed from valid trials only, with `no_data` for no usable attempt and `unanswered` for an agent that committed to no route, and `stable_accuracy` is measured against decided cases rather than against crashes. Two tests pin it.
