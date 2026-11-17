@@ -22,7 +22,7 @@ def setUpModule():
 
 def tearDownModule():
     # pytest invokes tearDownModule but not unittest's module-cleanup stack.
-    unittest.doModuleCleanups()
+    unittest.case.doModuleCleanups()
 
 
 class TestEnvironmentIsolationTests(unittest.TestCase):

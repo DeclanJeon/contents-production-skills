@@ -21,7 +21,7 @@ def setUpModule():
 
 def tearDownModule():
     # pytest invokes tearDownModule but not unittest's module-cleanup stack.
-    unittest.doModuleCleanups()
+    unittest.case.doModuleCleanups()
 
 
 def directory_link(link: Path, target: Path, kind: str) -> None:
@@ -64,13 +64,40 @@ class TestEnvironmentCleanupTests(unittest.TestCase):
             suite = Path(__file__).with_name('test_production_history.py')
             # When: pytest switches from the storage module to an unrelated module.
             result = subprocess.run(
-                [sys.executable, '-m', 'pytest', '-q', '-p', 'no:cacheprovider',
+                [sys.executable, '-c',
+                 'import sys, unittest, pytest; '
+                 'unittest.__dict__.pop("doModuleCleanups", None); '
+                 'sys.exit(pytest.main(sys.argv[1:]))',
+                 '-q', '-p', 'no:cacheprovider',
                  str(suite) + '::InitTests::test_init_default_layout_creates_only_needed_dirs',
                  str(probe)], env=env, capture_output=True,
                 text=True, encoding='utf-8', timeout=30)
             # Then: the unrelated module sees its original environment.
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertFalse((base / 'production').exists())
+
+
+class OutputContainmentTests(unittest.TestCase):
+    def test_aliased_root_accepts_inside_outputs_and_rejects_escapes(self):
+        # A real alias reproduces macOS /var and Windows short-name roots.
+        for kind in ('symlink', 'junction'):
+            with self.subTest(kind=kind), tempfile.TemporaryDirectory() as tmp:
+                base = Path(tmp)
+                root, alias, outside = base / 'project', base / 'alias', base / 'outside'
+                root.mkdir()
+                outside.mkdir()
+                directory_link(alias, root, kind)
+                directory_link(root / 'escape', outside, kind)
+                for raw in ('assets/x.png', str(alias / 'assets/x.png'),
+                            str(root / 'assets/x.png')):
+                    with self.subTest(raw=raw):
+                        self.assertEqual(sl.resolve_inside(alias, raw, 'output'),
+                                         (root / 'assets/x.png').resolve())
+                for raw in ('.', str(alias), str(root), '../outside/x.png',
+                            str(outside / 'x.png'), 'escape/x.png'):
+                    with self.subTest(raw=raw), self.assertRaises(sl.UsageError):
+                        sl.resolve_inside(alias, raw, 'output')
+                self.assertEqual(list(outside.iterdir()), [])
 
 
 class StudioContainmentTests(unittest.TestCase):
