@@ -12,6 +12,7 @@ possibly overlapping spans. No file is reopened to reconstruct a tool result.
 """
 from __future__ import annotations
 
+import base64
 from collections.abc import Sequence
 from dataclasses import dataclass
 import hashlib
@@ -23,6 +24,13 @@ from typing import Final, Literal, Protocol, TypeAlias, TypedDict
 Json: TypeAlias = str | int | float | bool | None | list['Json'] | dict[str, 'Json']
 CACHE_URL: Final = 'https://openaipublic.blob.core.windows.net/encodings/o200k_base.tiktoken'
 CACHE_SHA: Final = '446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d'
+# Fixed official o200k_base pattern paired with the pinned ranks above.
+O200K_PATTERN: Final = '|'.join((
+    r"[^\r\n\p{L}\p{N}]?[\p{Lu}\p{Lt}\p{Lm}\p{Lo}\p{M}]*[\p{Ll}\p{Lm}\p{Lo}\p{M}]+(?i:'s|'t|'re|'ve|'m|'ll|'d)?",
+    r"[^\r\n\p{L}\p{N}]?[\p{Lu}\p{Lt}\p{Lm}\p{Lo}\p{M}]+[\p{Ll}\p{Lm}\p{Lo}\p{M}]*(?i:'s|'t|'re|'ve|'m|'ll|'d)?",
+    r'\p{N}{1,3}', r' ?[^\s\p{L}\p{N}]+[\r\n/]*',
+    r'\s*[\r\n]+', r'\s+(?!\S)', r'\s+',
+))
 
 
 @dataclass(frozen=True, slots=True)
@@ -72,7 +80,7 @@ def _empty() -> Measurement:
 
 
 def _encoder() -> Encoder:
-    """Require the verified local cache BEFORE calling tiktoken's constructor."""
+    """Construct from one verified local snapshot; never call a fetch registry."""
     try:
         import tiktoken
     except ImportError as exc:
@@ -80,9 +88,16 @@ def _encoder() -> Encoder:
     cache_dir = os.environ.get('TIKTOKEN_CACHE_DIR', os.environ.get(
         'DATA_GYM_CACHE_DIR', str(Path(tempfile.gettempdir()) / 'data-gym-cache')))
     cache = Path(cache_dir) / hashlib.sha1(CACHE_URL.encode()).hexdigest()
-    if not cache_dir or not cache.is_file() or hashlib.sha256(cache.read_bytes()).hexdigest() != CACHE_SHA:
+    try:
+        raw = cache.read_bytes() if cache_dir else b''
+    except OSError as exc:
+        raise MeasurementError('tokenizer_unavailable', str(cache)) from exc
+    if hashlib.sha256(raw).hexdigest() != CACHE_SHA:
         raise MeasurementError('tokenizer_unavailable', 'verified local o200k_base cache required; no download')
-    return tiktoken.get_encoding('o200k_base')
+    ranks = {base64.b64decode(token, validate=True): int(rank)
+             for token, rank in (line.split() for line in raw.splitlines() if line)}
+    return tiktoken.Encoding(name='o200k_base', pat_str=O200K_PATTERN,
+        mergeable_ranks=ranks, special_tokens={'<|endoftext|>': 199999, '<|endofprompt|>': 200018})
 
 
 def _path(root: Path, value: str) -> str:
