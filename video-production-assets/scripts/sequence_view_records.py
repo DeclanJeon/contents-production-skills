@@ -14,7 +14,7 @@ GLOBAL_TYPES: Final = frozenset(('storyboard', 'storyboard_sheet', 'generation_s
 
 
 def collect_context(project: Mapping[str, Json], q: Document, included: list[Document],
-             handoff: Document, requirements: list[Document]) -> tuple[Document, Document, list[Document]]:
+             handoff: Document, requirements: list[Document], links: list[Document]) -> tuple[Document, Document, list[Document]]:
     """Close actual record consumption; compact global owners, not their maps."""
     shots, assets, artifacts = (table(project, key) for key in ('shots','asset_registry','artifacts'))
     selected_shots = {c['shot_id'] for c in included}
@@ -61,6 +61,16 @@ def collect_context(project: Mapping[str, Json], q: Document, included: list[Doc
     for binding in handoff.get('bindings', []):
         if binding.get('reference_asset_id'): wanted_assets.add(binding['reference_asset_id'])
         if binding.get('voice_artifact_id'): voices.add(binding['voice_artifact_id'])
+    adapter_id = handoff.get('adapter_artifact_id')
+    if adapter_id:
+        if not isinstance(adapter_id, str) or adapter_id not in artifacts:
+            raise SequenceError('artifact_reference', str(adapter_id), 'unknown required adapter')
+        wanted_artifacts.add(adapter_id)
+        descriptor = artifacts[adapter_id].get('reference_adapter', {})
+        if not isinstance(descriptor, dict):
+            raise SequenceError('transport_adapter', adapter_id, 'expected native descriptor object')
+        if descriptor.get('schema_asset_id'):
+            wanted_assets.add(descriptor['schema_asset_id'])
     for key, value in handoff.items():
         if key.endswith('_asset_id') and value: wanted_assets.add(value)
     def overlaps(row: Document) -> bool:
@@ -73,6 +83,8 @@ def collect_context(project: Mapping[str, Json], q: Document, included: list[Doc
         if row.get('asset_id'): wanted_assets.add(row['asset_id'])
     panel_ids = {p['id'] for p in panels}
     targets = {'cut:' + c['cut_id'] for c in included} | {'panel:' + pid for pid in panel_ids} | {'voice:' + vid for vid in voices}
+    targets.update('link:' + link['key'] for link in links)
+    targets.update('requirement:' + requirement['key'] for requirement in requirements)
     checks = [r for r in q['checks'] if r.get('target') in targets]
     for record in checks:
         wanted_assets.update(record.get('observed_asset_ids', []))
@@ -127,6 +139,11 @@ def collect_context(project: Mapping[str, Json], q: Document, included: list[Doc
             display = {k: row[k] for k in ('id','type','version','status','finality') if k in row}
             display.update(locator=f'project#/artifacts/{aid}', omitted_fields=[k for k in (
                 'asset_ids','dependencies','dependency_versions','required_asset_versions','execution_scope') if k in row])
+            if aid == adapter_id:
+                descriptor = row.get('reference_adapter', {})
+                display['reference_adapter'] = {'tool':descriptor.get('tool'),
+                    'schema_asset_id':descriptor.get('schema_asset_id'),
+                    'locator':f'project#/artifacts/{aid}/reference_adapter'}
             display['required_asset_versions'] = {asset: pin for asset, pin in row.get('required_asset_versions', {}).items() if asset in seen_assets}
             display['dependency_versions'] = {dep: pin for dep, pin in row.get('dependency_versions', {}).items() if dep in seen_artifacts}
         else: display = dict(row, locator=f'project#/artifacts/{aid}')

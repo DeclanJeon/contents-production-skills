@@ -197,6 +197,53 @@ def test_declared_large_history_is_not_cut_to_a_token_cap():
     assert all(f'SH{i:02}' in {c['shot_id'] for c in result['cuts']} for i in range(80))
 
 
+@pytest.mark.parametrize('status', ['pass', 'fail', 'unverified'])
+def test_focus_keeps_boundary_and_requirement_checks_and_their_evidence(status):
+    p = long_board(); q = build_sequence_context(p, ['SH05'])
+    requirement = next(r for r in q['requirements'] if r['shot_id'] == 'SH05')
+    targets = ['link:SH04->SH05', 'requirement:' + requirement['key']]
+    for index, target in enumerate(targets + ['link:SH00->SH01', 'requirement:unrelated']):
+        aid = f'CHECK{index}'
+        p['asset_registry'].append({'id':aid,'kind':'document','version':'1','status':'planned'})
+        q['inputs']['assets'][aid] = {'version':'1'}
+        q['checks'].append({'target':target,'kind':'boundary_motion' if target.startswith('link:') else 'selected_requirement',
+                            'status':status,'evidence_asset_id':aid,'observed_asset_ids':[]})
+    result = view(p, ['SH05'], q)
+    assert {r['target'] for r in result['checks']} == set(targets)
+    assert all(r['status'] == status for r in result['checks'])
+    assert {a['id'] for a in result['context']['asset_registry']} == {'CHECK0','CHECK1'}
+    assert set(result['inputs']['assets']) == {'CHECK0','CHECK1'}
+
+
+def test_explicit_adapter_schema_and_pins_survive_without_global_expansion():
+    p = board(); q = build_sequence_context(p, ['SH02'])
+    for aid in ('SCHEMA','UNRELATED'):
+        p['asset_registry'].append({'id':aid,'kind':'document','version':'1','status':'planned'})
+        q['inputs']['assets'][aid] = {'version':'1'}
+    p['artifacts'].append({'id':'ADAPTER','type':'generation_spec','version':'3','status':'verified',
+        'asset_ids':['SCHEMA','UNRELATED'],'required_asset_versions':{'SCHEMA':'1','UNRELATED':'1'},
+        'dependencies':[],'dependency_versions':{},
+        'reference_adapter':{'tool':'fixture-native','schema_asset_id':'SCHEMA'}})
+    q['inputs']['artifact_versions']['ADAPTER'] = '3'
+    q['generation_handoff'] = {'adapter':'explicit','tool':'fixture-native',
+                               'adapter_artifact_id':'ADAPTER','bindings':[]}
+    result = view(p, ['SH02'], q)
+    assert result['handoff_applicability'] == 'applicable'
+    assert 'ADAPTER' in {a['id'] for a in result['context']['artifacts']}
+    assert result['inputs']['artifact_versions']['ADAPTER'] == '3'
+    assert result['inputs']['assets']['SCHEMA'] == {'version':'1'}
+    assert 'SCHEMA' in {a['id'] for a in result['context']['asset_registry']}
+    assert 'UNRELATED' not in json.dumps(result)
+
+
+@pytest.mark.parametrize('stored_scope', [None, 42, ['SH02', {}]])
+def test_malformed_handoff_scope_has_a_structured_error(stored_scope):
+    p = board(); q = build_sequence_context(p, ['SH02'])
+    q['focus']['shot_ids'] = stored_scope; q['generation_handoff'] = {'bindings':[]}
+    with pytest.raises(SequenceError, match='focus/shot_ids'):
+        view(p, ['SH02'], q)
+
+
 def test_snapshot_hash_and_parse_come_from_one_raw_read(tmp_path: Path, monkeypatch):
     from sequence_contract import read_snapshot
     path = tmp_path / 'project.json'; raw = b'{"project_id":"fixture"}\r\n'

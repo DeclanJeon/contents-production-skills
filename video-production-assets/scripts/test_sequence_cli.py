@@ -90,6 +90,17 @@ def test_execution_consumers_reject_focus_view(tmp_path, script, flags):
     assert not (tmp_path / 'must-not-exist').exists()
 
 
+def test_focus_cli_malformed_stored_scope_returns_json_not_traceback(tmp_path):
+    p, q = prepared_plan(tmp_path)
+    q['focus']['shot_ids'] = None; q['generation_handoff'] = {'bindings':[]}
+    project = tmp_path / 'project.json'; project.write_text(json.dumps(p))
+    projection = tmp_path / 'sequence.json'; projection.write_text(json.dumps(q))
+    result = cli('sequence_context.py', project, '--shot', 'SH02', '--projection', projection, '--view', 'focus')
+    assert result.returncode == 2
+    assert 'focus/shot_ids' in json.loads(result.stdout)['error']
+    assert 'Traceback' not in result.stderr
+
+
 def test_shipped_shape_example_is_explicitly_unassigned():
     # Given
     example = SCRIPTS.parent / 'assets' / 'sequence-execution-example.json'

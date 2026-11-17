@@ -120,7 +120,7 @@ def build_sequence_focus_view(project: Mapping[str, Json], shot_ids: Sequence[st
         for cid in req.get('cut_ids', []):
             if cid not in {c['cut_id'] for c in ordered}: raise SequenceError('cut_reference',str(cid),'unknown required cut')
             reasons.setdefault(cid,set()).add('referenced_dependency')
-    original_focus = q.get('focus', {}).get('shot_ids', [])
+    original_focus = _ids(q.get('focus', {}).get('shot_ids', []), 'focus/shot_ids')
     raw_handoff = q.get('generation_handoff')
     applicability = 'absent'
     handoff: Document = {}
@@ -138,7 +138,7 @@ def build_sequence_focus_view(project: Mapping[str, Json], shot_ids: Sequence[st
         else:
             handoff['limits'] = 'Different submission scope; no current native handoff inferred.'
     included = [c for c in ordered if c['cut_id'] in reasons]
-    context, inputs, issues = collect_context(project,q,included,handoff if applicability == 'applicable' else {},requirements)
+    context, inputs, issues = collect_context(project,q,included,handoff if applicability == 'applicable' else {},requirements,links)
     checks = context.pop('checks')
     for i, record in enumerate(q['checks']):
         if record.get('target') == 'scope':
