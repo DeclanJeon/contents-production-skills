@@ -61,16 +61,49 @@ def assert_migration(name: str, destinations: list[str]) -> None:
     # Every original substantive line is retained verbatim in one stage owner.
     # The frozen baseline captures original multiplicity; new links aren't evidence.
     observed = Counter()
+    formatting = set()
+    edits = json.loads((QA / 'rule-edits.json').read_text()) if (QA / 'rule-edits.json').exists() else []
+    moved_lines = {edit['new_line']: edit['old_line'] for edit in edits}
+    for edit in edits:
+        assert edit['reason'] and set(edit['equivalence_case_ids']) <= cases
+        assert edit['new_line'] in (ROOT / edit['new_path']).read_text().splitlines()
     for path in destinations:
         for line in (ROOT / REF / path).read_text().splitlines():
+            line = moved_lines.get(line, line)
+            # Moved self-fragment links now name their exact stage owner.
+            line = re.sub(r'\]\(storyboard-(?:direction|media|delivery|schema|contract)\.md#', '](#', line)
+            digest = hashlib.sha256(line.encode()).hexdigest()
+            if line.startswith('```') or set(line) <= set('|-: '):
+                formatting.add(digest)
             if line.strip() and not line.startswith(('#', '<a ')):
-                observed[hashlib.sha256(line.encode()).hexdigest()] += 1
+                observed[digest] += 1
     for digest, count in baseline['body_line_counts'].items():
-        assert observed[digest] == count, (name, digest, count, observed[digest])
+        if digest not in formatting:
+            assert observed[digest] == count, (name, digest, count, observed[digest])
 
 
 def test_common_legacy_anchors_ownership_and_body_preservation():
     assert_migration('contract', [f'contract-{p}.md' for p in ('core','project','package','delivery')])
+
+
+@pytest.mark.parametrize('owner', ['direction','media','delivery','schema'])
+def test_board_owners_are_real_files(owner):
+    assert (ROOT / REF / f'storyboard-{owner}.md').is_file()
+
+
+def test_board_legacy_anchors_ownership_and_body_preservation():
+    assert_migration('storyboard-contract', ['storyboard-contract.md'] + [
+        f'storyboard-{name}.md' for name in ('direction','media','delivery','schema')])
+
+
+def test_board_core_keeps_complete_default_and_all_technical_slots():
+    core = (ROOT / REF / 'storyboard-contract.md').read_text()
+    for field in ('제작용 계획을 기본값','여섯 부분','전체 샷 명세표','전체 패널 표',
+                  'KEEP / FIX / 미검증','카메라','공간','VFX','발화','음향','start / action_peak / end / hold'):
+        assert field in core, field
+    assert 'storyboard-direction.md' in core
+    assert 'render_storyboard_sheet.py' not in core
+    assert 'schema_version=1.1' not in core
 
 
 def test_common_owner_boundaries():

@@ -1,0 +1,12 @@
+[
+  {
+    "old_line": "| 이 문서 §장면 리듬·수락 검사 | 해석 원칙 | 정본 |",
+    "new_line": "| [direction: 장면 리듬·수락 검사](storyboard-direction.md#장면-리듬과-감정-가독성) | 해석 원칙 | 정본 |",
+    "new_path": "video-production-assets/references/storyboard-schema.md",
+    "reason": "Moved interpretation owner is direction, not this schema document. No rule meaning change.",
+    "equivalence_case_ids": [
+      "board-full-text",
+      "board-save-pdf"
+    ]
+  }
+]
