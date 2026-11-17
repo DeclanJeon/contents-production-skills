@@ -8,6 +8,14 @@
 - Upgraded `validate_storyboard.py` (`--strict-staging`, `single_i2v` support) and `render_storyboard_sheet.py` (aspect-ratio adaptive cell dimensions for `9:16`/`16:9`/`4:5` and expanded 64-line captions).
 
 
+## 2.53 2026-11-17
+
+- Added `creative-production/references/routing-disambiguation.csv`: 23 confusable route pairs in canonical order, one line each stating what separates them. `routing.csv` never said how R17 differs from R18 or R12 from R24; that knowledge lived only in each skill's prose, which is how a wrong expectation (E02) slipped through. Every line is grounded in the owning skill's own scope statement, and a lint rejects duplicates, unknown routes, non-canonical order, one-line essays, and any line that copies a `stop_boundary`.
+- Found that a conditional reading rule does not work. "Read the pair table only when two routes remain plausible" was measured **never to fire in 11 confusable cases**, because one route always looks plausible immediately. It is now REQUIRED, and the cost is reported rather than hidden: 1,852 words total against the legacy frontier's 2,959 (37% smaller).
+- **Fixed a harness defect that made every previous accuracy number weaker than it looked.** The instruction told the agent which files to read (`routing.csv` and `SKILL.md`). That let the router skip the skill's own reading list and still score 100%, so the measurement was of the harness's list, not the skill's. The instruction now names only the entry point and defers to the skill. Pair-table reads went 0/11 -> 65/65, and route agreement with the old runs is 65/65, so the answers were right -- but they are now right for the stated reason.
+- Fixed two defects this work introduced: (1) the fixture's `AGENTS.md` allowlist was typed by hand and omitted the new file, so the same defect surfaced as both `unanswered` (some runs refused) and `correct` (others ignored it); it is now derived from `FRONTIER_FILES`, with two tests. (2) The R17/R18 pair line said "R17 plans camera *inside* a narrative storyboard", and the agent quoted that to exclude R17, costing C17 and B14; rewritten to the real difference (narrative framing intent vs numeric lens/timing/motion).
+- Final measurement under the faithful harness: 65/65, 0 infrastructure failures, 0 dangerous, pair table read on 65/65 cases. Two interim runs are marked SUPERSEDED with the reason each was discarded.
+
 ## 2.52 2026-11-17
 
 - Widened the least-tested axis: `none_or_stills` was 3% of cases. Six cases (E01-E06) were added as pairs targeting the hardest three-way split -- a board on paper, stills that already exist, and stills that must be generated. `none_or_stills` is now 8%, `text_only` 66% (from 71%).

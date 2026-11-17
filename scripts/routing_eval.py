@@ -54,22 +54,17 @@ ROUTER_SKILL: Final = ROOT / "creative-production/SKILL.md"
 FRONTIER_FILES: Final = (
     "creative-production/SKILL.md",
     "creative-production/references/routing.csv",
+
+    "creative-production/references/routing-disambiguation.csv",
 )
 
 INSTRUCTION: Final = """\
 You are routing one user request for a video-production skill package.
 
-Read `creative-production/references/routing.csv` and
-`creative-production/SKILL.md`. Then decide which single `route_id` applies.
-
-Rules:
-- Judge by the three slots in the CSV: deliverable_kind, media_axis
-  (text_only / none_or_stills / executed_media / varies), authority_axis.
-- Default to `text_only` unless the request actually permits generated media or
-  an actual edit.
-- Do not pick a route because keywords are similar. Pick the narrowest route
-  whose deliverable matches what was asked for.
-- Use `UNASSIGNED` only if no route fits.
+Read `creative-production/SKILL.md` and do exactly what its routing step says,
+including every file that step tells you to read. The skill decides what to
+read; this instruction deliberately names no other file, because naming them
+here would let the router skip its own reading list and still score well.
 
 Answer with ONE line in exactly this form and nothing else:
 ROUTE: <route_id>
@@ -124,6 +119,9 @@ def build_sandbox(dest: Path, owner_skills: set[str]) -> None:
     (skill_root / "references").mkdir(parents=True, exist_ok=True)
     shutil.copy2(ROUTER_SKILL, skill_root / "SKILL.md")
     shutil.copy2(ROUTING_CSV, skill_root / "references" / "routing.csv")
+    disambiguation = ROOT / "creative-production/references/routing-disambiguation.csv"
+    if disambiguation.exists():
+        shutil.copy2(disambiguation, skill_root / "references" / disambiguation.name)
 
     # Sealed CODEX_HOME: auth only, so ~/.codex/skills is invisible.
     home = dest / ".codex-home"
@@ -135,15 +133,19 @@ def build_sandbox(dest: Path, owner_skills: set[str]) -> None:
         shutil.copy2(auth, target)
         target.chmod(0o600)
 
+    # The allowlist is derived from FRONTIER_FILES, never typed out by hand.
+    # A hardcoded list silently omitted the disambiguation table, and some runs
+    # then refused to route at all ("required ... is outside the permitted
+    # reading list") while others ignored the restriction, making the failure
+    # intermittent and the score meaningless.
+    allowed = list(FRONTIER_FILES)
     (dest / "AGENTS.md").write_text(
         "# Routing fixture\n\n"
         "This directory is a self-contained, read-only routing fixture.\n\n"
         "Read ONLY these paths, and never any path outside this directory:\n"
-        "- `creative-production/SKILL.md`\n"
-        "- `creative-production/references/routing.csv`\n"
-        "- `skills/creative-production/SKILL.md` (same content)\n"
-        "- `skills/creative-production/references/routing.csv` (same content)\n\n"
-        "Do NOT read `~/.codex/skills`, `~/.agents`, or any installed copy.\n"
+        + "".join(f"- `{rel}`\n" for rel in allowed)
+        + "".join(f"- `skills/{rel}` (same content)\n" for rel in allowed)
+        + "\nDo NOT read `~/.codex/skills`, `~/.agents`, or any installed copy.\n"
         "Answer only with the ROUTE/WHY lines requested. Do not write files.\n",
         encoding="utf-8",
     )

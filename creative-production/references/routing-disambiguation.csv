@@ -1,0 +1,24 @@
+route_a,route_b,discriminator
+R01,R02,R01 retrieves public post candidates; R02 writes the concept
+R02,R05,R02 is one concept/synopsis/beatmap; R05 composes several text artifacts into one plan
+R03,R04,R03 returns a visual character design document; R04 returns a behaviour and voice text packet with no image
+R03,R24,R03 is the character sheet alone; R24 is the image-backed package that produces sheet-A images for it
+R05,R24,R05 stops at text artifacts; R24 is image-backed and therefore executed media
+R06,R13,R06 judges whether one shot reads as intended; R13 produces one assigned production asset such as a lighting plan
+R06,R17,R06 reviews visual legibility of an existing shot; R17 plans camera for narrative panels
+R07,R08,R07 designs the wordless narrative itself; R08 only times an already approved board
+R07,R09,R07 is wordless storytelling for any genre or length; R09 is the one local repeated-gag satire pipeline with its fixed duration and beat rules
+R08,R10,R08 changes cut and hold timing of an existing board; R10 produces the board
+R10,R11,R10 is a complete production board with per-shot camera and light slots; R11 is a rough panel or prompt-only exercise the user explicitly asked for
+R10,R12,R10 delivers a board document; R12 assembles stills into a finished video or edit
+R12,R24,"Both may create new stills; R12 ends at a still-image video with no preproduction package, R24 is the image-backed full package with sheets and the final gate"
+R13,R15,R13 is one assigned production asset; R15 is a factual educational plan with evidence duties
+R14,R24,R14 covers the whole short lifecycle through delivery; R24 ends at the image-backed preproduction package
+R16,R26,R16 analyses camera motion only; R26 measures the whole reference video's shot and cut decomposition
+R17,R18,"R17 decides framing, POV and blocking from the scene's narrative intent; R18 turns camera and space into numeric design with lens, timing and motion"
+R18,R19,R18 creates the camera and spatial design; R19 converts an existing design into model-ready AI video control
+R18,R21,R18 adds shot timing and lens and motion design; R21 is numeric camera and space values only
+R19,R23,R23 critiques a prompt or model route choice; R19 produces the camera control packet
+R20,R27,R20 checks camera movement against plan in supplied footage; R27 audits a saved output or an interrupted project's state
+R21,R22,R21 states numbers as text; R22 actually executes scene-specific 3D verification in Blender
+R25,R26,R25 audits reference selection or a package; R26 measures one reference video's decomposition

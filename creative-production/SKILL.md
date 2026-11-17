@@ -20,6 +20,13 @@ Columns: `deliverable_kind`, `media_axis` (text_only / none_or_stills /
 executed_media / varies), `authority_axis`, `owner`, `required_read`,
 `stop_boundary`.
 
+Read [routing-disambiguation.csv](references/routing-disambiguation.csv) in the
+same step. REQUIRED, not conditional: measured runs showed a "read it only on a
+tie" rule never fired, because one route always looks plausible immediately. It
+holds one row per confusable pair (`route_a`, `route_b`) and the one line that
+separates them. That distinction lives here and nowhere else, so do not
+re-derive it from keywords.
+
 Judgment uses these three slots, not keyword similarity:
 
 - **deliverable_kind** — which artifact the user asked for.

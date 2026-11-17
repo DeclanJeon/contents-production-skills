@@ -105,6 +105,7 @@ def test_installer_ships_the_layered_canon_and_no_archive(tmp_path: Path) -> Non
         "creative-production/SKILL.md",
         "creative-production/references/routing.csv",
         "creative-production/references/policy.md",
+        "creative-production/references/routing-disambiguation.csv",
     ):
         assert (target / rel).is_file(), f"installer omitted {rel}"
 
@@ -132,3 +133,78 @@ def test_policy_layer_names_every_cross_cutting_rule_once() -> None:
     )
     missing = [section for section in required_sections if section not in policy]
     assert not missing, f"policy.md lost sections: {missing}"
+
+
+def _disambiguation_rows() -> list[dict[str, str]]:
+    import csv
+
+    path = ROOT / "creative-production/references/routing-disambiguation.csv"
+    assert path.is_file(), "routing-disambiguation.csv is missing"
+    return list(csv.DictReader(path.open(encoding="utf-8")))
+
+
+def test_disambiguation_pairs_are_well_formed() -> None:
+    """Each row names two real, different routes and says something."""
+    routes = {
+        row["route_id"]: row
+        for row in _rows()
+    }
+    rows = _disambiguation_rows()
+    assert rows, "the pair table is empty"
+
+    problems: list[str] = []
+    seen: set[tuple[str, str]] = set()
+    for row in rows:
+        a, b = row["route_a"], row["route_b"]
+        if a not in routes or b not in routes:
+            problems.append(f"unknown route in pair {a}/{b}")
+            continue
+        if a == b:
+            problems.append(f"pair {a}/{b} compares a route with itself")
+        if (a, b) in seen:
+            problems.append(f"duplicate pair {a}/{b}")
+        seen.add((a, b))
+        if [a, b] != sorted([a, b]):
+            problems.append(f"pair {a}/{b} is not in canonical order")
+        words = row["discriminator"].split()
+        if len(words) < 6:
+            problems.append(f"pair {a}/{b} discriminator says too little: "
+                            f"{row['discriminator']!r}")
+        if len(words) > 30:
+            problems.append(f"pair {a}/{b} discriminator is a paragraph "
+                            f"({len(words)} words); this file sits in the frontier")
+    assert not problems, problems
+
+
+def test_disambiguation_never_restates_a_stop_boundary() -> None:
+    """The pair file explains a choice; it must not become a second rulebook."""
+    routes = {row["route_id"]: row for row in _rows()}
+    problems: list[str] = []
+    for row in _disambiguation_rows():
+        for side in ("route_a", "route_b"):
+            boundary = routes[row[side]]["stop_boundary"]
+            # Long verbatim overlap would duplicate the canon and drift from it.
+            fragment = boundary[:60]
+            if fragment and fragment in row["discriminator"]:
+                problems.append(
+                    f"pair {row['route_a']}/{row['route_b']} copies the "
+                    f"stop_boundary of {row[side]}")
+    assert not problems, problems
+
+
+def test_router_requires_the_pair_table_unconditionally() -> None:
+    """A conditional rule was measured never to fire, so it must be required.
+
+    With "read it only when two routes remain plausible", eleven confusable
+    cases were run and the file was read zero times: one route always looks
+    plausible immediately. A file nobody reads is worse than no file.
+    """
+    text = (ROOT / "creative-production/SKILL.md").read_text(encoding="utf-8")
+    assert "routing-disambiguation.csv" in text, (
+        "the router never mentions the pair table")
+    lowered = text.lower()
+    assert "required" in lowered, "the router does not require the pair table"
+    for phrase in ("only on a tie", "only when two routes", "if two routes remain"):
+        assert phrase not in lowered, (
+            f"the router still gates the pair table ({phrase!r}), which measured "
+            "as never firing")

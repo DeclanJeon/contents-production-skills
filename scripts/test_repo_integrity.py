@@ -63,3 +63,21 @@ def test_skill_directories_match_the_manifest() -> None:
         if not (ROOT / name / "SKILL.md").is_file()
     ]
     assert not missing, f"manifest skills without SKILL.md: {missing}"
+
+
+def test_qa_tree_has_no_symlinks_because_qa_ships() -> None:
+    """`qa/` is a required support source, so the installer rejects links in it.
+
+    A pytest run once left its numbered basetemp directories (34 symlinks) under
+    `qa/`, and every installer test then failed with "support source contains a
+    symlink". The message blamed the installer for something pytest had written,
+    so fail here first and name the real cause.
+    """
+    qa = ROOT / "qa"
+    if not qa.is_dir():
+        pytest.skip("no qa directory")
+    offenders = sorted(
+        str(path.relative_to(ROOT)) for path in qa.rglob("*") if path.is_symlink())
+    assert not offenders, (
+        "qa/ ships with the package and must contain no symlinks; "
+        f"these look like leftover pytest basetemp output: {offenders[:5]}")

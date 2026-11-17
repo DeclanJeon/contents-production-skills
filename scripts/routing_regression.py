@@ -31,6 +31,9 @@ CASES: Final = ROOT / "creative-production/evals/routing-cases.json"
 FRONTIER: Final = (
     "creative-production/SKILL.md",
     "creative-production/references/routing.csv",
+    # Required reading, not a tie-breaker. A conditional rule was measured never
+    # to fire (0 reads in 11 confusable cases), so its cost is part of the total.
+    "creative-production/references/routing-disambiguation.csv",
 )
 # Legacy frontier, measured for comparison until the layered split lands.
 LEGACY_FRONTIER: Final = (
@@ -136,7 +139,12 @@ def main() -> int:
             print(f"           missing: {', '.join(data['missing'])}")
     if legacy["words"] and layered["words"]:
         saved = 100 * (1 - layered["words"] / legacy["words"])
-        print(f"  delta    words {saved:+.0f}% vs legacy")
+        print(f"  saved    {saved:.0f}% of legacy frontier words")
+    pair_path = ROOT / "creative-production/references/routing-disambiguation.csv"
+    if pair_path.is_file():
+        pair_rows = list(csv.DictReader(pair_path.open(encoding="utf-8")))
+        print(f"           pair table: {len(pair_rows)} confusable pairs, "
+              "counted in the layered total above because it is required reading")
     print(f"\n== routes in csv: {len(load_routes())} ==")
     print(f"== route regression: {len(results)} cases, {failures} failing ==")
     for item in results:

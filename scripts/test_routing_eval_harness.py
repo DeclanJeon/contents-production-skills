@@ -331,3 +331,49 @@ def test_unanswered_is_not_stably_wrong(tmp_path: Path) -> None:
     summary = json.loads((out / "summary.json").read_text(encoding="utf-8"))
     assert summary["results"][0]["judgement"] == "unanswered"
     assert summary["stable_wrong"] == []
+
+
+def test_instruction_does_not_pre_empt_the_skill_reading_list() -> None:
+    """The harness must not tell the router which files to read.
+
+    It used to name routing.csv explicitly. That let the router skip the
+    skill's own reading list -- including the disambiguation table -- and still
+    score 100%, so the measurement was of the harness's list, not the skill's.
+    """
+    instruction = routing_eval.INSTRUCTION
+    assert "SKILL.md" in instruction, "the router entry point is not named"
+    for leaked in ("routing.csv", "routing-disambiguation.csv", "policy.md"):
+        assert leaked not in instruction, (
+            f"the instruction names {leaked}, so the router can skip the "
+            "skill's own reading list")
+
+
+def test_instruction_asks_for_the_machine_readable_answer() -> None:
+    assert "ROUTE:" in routing_eval.INSTRUCTION
+    assert "WHY:" in routing_eval.INSTRUCTION
+
+
+def test_fixture_allowlist_covers_every_frontier_file(tmp_path: Path) -> None:
+    """The allowlist must be derived, not typed.
+
+    It was once a handwritten list of two paths. When a third required file was
+    added, some runs refused to answer at all ("required ... is outside the
+    permitted reading list") and others ignored the restriction, so the same
+    defect appeared as both an unanswered case and a correct one.
+    """
+    sandbox = tmp_path / "fixture"
+    sandbox.mkdir()
+    routing_eval.build_sandbox(sandbox, {"creative-production"})
+    allowlist = (sandbox / "AGENTS.md").read_text(encoding="utf-8")
+
+    for rel in routing_eval.FRONTIER_FILES:
+        assert f"`{rel}`" in allowlist, f"allowlist omits {rel}"
+
+
+def test_every_frontier_file_is_present_in_the_fixture(tmp_path: Path) -> None:
+    sandbox = tmp_path / "fixture"
+    sandbox.mkdir()
+    routing_eval.build_sandbox(sandbox, set())
+    missing = [rel for rel in routing_eval.FRONTIER_FILES
+               if not (sandbox / rel).is_file()]
+    assert not missing, f"fixture missing frontier files: {missing}"

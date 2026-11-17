@@ -36,7 +36,8 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
   - 전체 53케이스 × 3회: [159/159, flaky 0](qa/routing-stability-2026-11-17/README.md)
   - 경계 26케이스 × 8회: [208/208, flaky 0, 집계 한계 <1.5%](qa/routing-flake-2026-11-17/README.md)
   - 세션 간 재현성: `scripts/routing_repro_check.py`로 두 런을 케이스별 비교. [독립 프로세스 3회가 53케이스 전부 일치](qa/routing-repro-2026-11-17/README.md)
-  - 확장 후 전체: [65/65, 4번째 독립 프로세스](qa/routing-eval-2026-11-17-final65/README.md)
+  - 확장 후 전체: [65/65](qa/routing-eval-2026-11-17-final65/README.md)
+  - **최종(충실한 하네스)**: [65/65, 쌍 표 65/65 열람](qa/routing-eval-2026-11-17-final/README.md) — 이전 측정은 하네스가 읽을 파일을 지정해 스킬의 열람 목록을 건너뛰어도 100%가 나왔습니다. 지시문을 스킬 위임형으로 바꾼 뒤의 숫자입니다.
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|
