@@ -20,6 +20,10 @@ ANCHOR: Final = "storyline-continuity-gate"
 
 @pytest.mark.parametrize("relative", [
     "creative-production/SKILL.md",
+    "video-production-assets/SKILL.md",
+    "higgsfield-generate/SKILL.md",
+    "higgsfield-video-replicate/SKILL.md",
+    "higgsfield-video-explainer/SKILL.md",
     "video-production-assets/assets/09-edit-template.md",
 ])
 def test_required_storyline_route_resolves_to_canonical_gate(relative: str) -> None:
@@ -58,6 +62,34 @@ def test_canonical_gate_exposes_order_plan_take_boundary_and_acceptance_slots(
     # Then: its structural evidence roles cover each stage of the handoff.
     for slot in required_slots:
         assert slot in section, f"canonical gate lost required evidence role: {slot}"
+
+
+@pytest.mark.parametrize("relative", [
+    "higgsfield-generate/SKILL.md",
+    "higgsfield-video-replicate/SKILL.md",
+    "higgsfield-video-explainer/SKILL.md",
+])
+def test_standalone_execution_exposes_fail_closed_request_handoff(relative: str) -> None:
+    # Removing this route lets direct execution bypass native reference validation.
+    source = ROOT / relative
+    paragraphs = source.read_text(encoding="utf-8").split("\n\n")
+    routes = [p for p in paragraphs if "sequence-execution.md" in p]
+    assert len(routes) == 1, f"{relative}: missing unique dependent-generation route"
+    route = routes[0]
+    assert re.search(r"REQUIRED|필수", route)
+    for role in ("accepted", "history", "selected", "block", "standalone"):
+        assert role in route, f"{relative}: missing handoff role {role}"
+    destinations = re.findall(r"\]\(([^)]+)\)", route)
+    assert any((source.parent / href.split("#")[0]).resolve().is_file()
+               for href in destinations)
+
+
+def test_optional_state_details_do_not_disable_basic_continuity_gate() -> None:
+    text = (ROOT / "video-production-assets/SKILL.md").read_text(encoding="utf-8")
+    section = text.split("## 선택적 상태·인과 인계", 1)[1].split("\n## ", 1)[0]
+    assert "상세 슬롯" in section
+    assert "기본 연속성 게이트는 필수" in section
+    assert "인계할 때만" not in section
 
 
 def test_edit_template_binds_required_evidence_to_existing_cells() -> None:

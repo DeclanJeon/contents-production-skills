@@ -10,6 +10,9 @@
 
 ## 2.54 2026-11-17
 
+- Hardened dependent-video continuity across the production-assets, standalone generation, replication and explainer entrypoints: inspect accepted predecessor ranges/frames and historical state, preserve current-angle composition, and block unsupported or missing native reference handoffs. Detailed state slots remain conditional; the basic continuity gate does not.
+- Added sequence context, frame inspection, generation validation, native AV reference preparation/call audit and bounded sequence editing tools with regression tests. These validate recorded structure/files and client request bindings, not perceptual truth, model conditioning or execution authority.
+
 - **`required_read` was prose, so the instruction to follow it was unexecutable.** 18 of 27 rows named no file ("developing-video-synopses stage guide", "relevant text owner and only applicable evidence module"), leaving the router to guess which reference authorised the work. It is now a `;`-separated list of package-relative paths (16 rows name files, 11 name none and mean "the owner SKILL.md only"), and a lint rejects non-path entries, missing files and paths outside the package. A/B on four cases: prose opened the listed reference 1/4 times, paths 10/10.
 - Added `--stage handoff`. Route accuracy cannot see the failure that matters: a coordinator can name R18 and still produce camera work from memory, never opening `camera-spatial-design/SKILL.md`. Handoff also demands the three slots and the assigned artifact, and the harness checks the owner SKILL.md and every `required_read` path in the *observed* tool reads rather than in what the model claims.
 - Measured: 65/65 route, **65/65 owner SKILL.md opened**, 65/65 slot agreement, every listed reference opened. The identical 65 route answers are now reached by opening the skill that authorises them.

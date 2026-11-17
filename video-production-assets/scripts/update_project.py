@@ -71,11 +71,13 @@ def prepare_update(current, delta):
         touched[key] = sorted(upsert(result[key], records, key))
     if 'storyboard' in delta:
         change = delta['storyboard']
-        if not isinstance(change, dict) or change.keys() - {'synopsis_artifact_id', 'beats', 'panels'}:
+        if not isinstance(change, dict) or change.keys() - {'synopsis_artifact_id', 'beats', 'panels', 'rhythm'}:
             raise ValueError('unsupported storyboard update')
         target = result.setdefault('storyboard', {})
         if 'synopsis_artifact_id' in change:
             target['synopsis_artifact_id'] = change['synopsis_artifact_id']
+        if 'rhythm' in change:
+            target['rhythm'] = copy.deepcopy(change['rhythm'])
         for key in ('beats', 'panels'):
             if key in change:
                 target.setdefault(key, [])
@@ -87,9 +89,11 @@ def prepare_update(current, delta):
         result.setdefault('preproduction', {}).update(change)
     if 'project' in delta:
         change = delta['project']
-        if not isinstance(change, dict) or change.keys() - {'look_asset_id'}:
+        if not isinstance(change, dict) or change.keys() - {'look_asset_id', 'target_duration_s'}:
             raise ValueError('unsupported project field update')
         result.update(change)
+    from sequence_timing import validate_timing_change
+    validate_timing_change(current, result, delta)
     if result == current:
         raise ValueError('update contains no record changes')
     artifacts = {row['id']: row for row in result['artifacts']}
@@ -97,7 +101,7 @@ def prepare_update(current, delta):
     def content(rows):
         return [{k: v for k, v in row.items() if k not in ('status', 'evidence', 'approval')} for row in rows]
     material_changed = any(content(current.get(key, [])) != content(result.get(key, []))
-                           for key in material_tables if key in changes) or current.get('storyboard') != result.get('storyboard') or current.get('preproduction') != result.get('preproduction') or current.get('look_asset_id') != result.get('look_asset_id')
+                           for key in material_tables if key in changes) or current.get('storyboard') != result.get('storyboard') or current.get('preproduction') != result.get('preproduction') or current.get('look_asset_id') != result.get('look_asset_id') or current.get('target_duration_s') != result.get('target_duration_s')
     owners = delta.get('owner_artifact_ids', [])
     if not isinstance(owners, list) or any(not isinstance(aid, str) or aid not in artifacts for aid in owners):
         raise ValueError('owner_artifact_ids must reference assigned artifacts')

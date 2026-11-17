@@ -45,11 +45,14 @@ Skip character-specific references; use the video reference as the selected look
 
 ## Shot chaining (motion + appearance handoff)
 
-Last frame of shot N becomes the start frame of shot N+1. **This creates a hard dependency:** shot N+1 cannot be submitted until shot N's clip has completed, its last frame extracted, and the anchor inspected — chained shots run strictly in order; only shots without a chaining anchor may submit concurrently.
+For every shot inheriting predecessor/history state, apply the entrypoint's required whole-storyline and native-reference handoff before submission. A new angle, its own storyboard start image or a return after an insert still depends on the accepted source state. Only shots with no predecessor/history-state dependencies may submit concurrently.
+
+For a same-angle continuation that explicitly uses frame chaining, the **last included frame of the accepted source range**, not the latest raw tail, becomes the next start anchor after extraction and inspection. For a new angle, keep the approved new composition as the start image and import the predecessor's state through supported reference roles; do not force the old camera onto it.
 
 ```bash
-# grab last frame of the previous generated clip
-ffmpeg -sseof -0.1 -i ./shots/shot_03.mp4 -update 1 -frames:v 1 shots/shot_03_last.png
+# Use inspect_sequence_frames.py --mode source on the accepted selection
+# (see sequence-execution.md); its out−1 PNG is the approved anchor.
+# ./shots/shot_03_last.png below denotes that inspected, registered PNG.
 
 # use it as the anchor for the next clip
 higgsfield generate create seedance_2_5 --mode omni_reference \
@@ -72,7 +75,7 @@ Also pin shot 1's `--start-image` to the approved first-beat frame when a matchi
 |---|---|
 | Face drifts between shots | Add a closer, straight-on character frame to `--image-references`; tighten the CHARACTER block; regenerate only that shot |
 | Wardrobe/color drifts | Repeat wardrobe verbatim; add one wardrobe detail frame; regenerate that shot |
-| Shot start doesn't continue the previous one | Re-anchor with `--start-image` from the previous shot's last frame |
+| Shot start doesn't continue the previous one | Reinspect the accepted out/in states and native reference selection; same-angle chaining may re-anchor to accepted out−1, while a new angle retains its approved composition |
 | Two identical failures | Change the approach: split the shot, switch angle, or reduce references — do not resubmit the same prompt |
 | Identity conflicts with the video reference | The reference video's own characters may be overriding the sheet — drop the video reference for that shot and lean on images + prompt (accepting a looser style match), or regenerate the sheet to resemble the reference's character |
 

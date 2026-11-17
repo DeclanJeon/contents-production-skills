@@ -52,6 +52,7 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 | 편집·리듬·사운드 | [설계 절차](references/09-edit.md) | [템플릿](assets/09-edit-template.md) |
 | 광고·설명·데이터 영상 근거 | [설계 절차](references/10-evidence.md) | [템플릿](assets/10-evidence-template.md) |
 | AI 영상 프롬프트·연속성 인계 | [설계 절차](references/11-ai-handoff.md) | [템플릿](assets/11-ai-handoff-template.md) |
+| 콘티→영상·후속 생성·시퀀스 편집/납품 | **필수:** [시퀀스 실행](references/sequence-execution.md) — 생성 전 실제 프레임 대조·수정, 채택 구간 인계, 편집 출력 검수 | `scripts/sequence_context.py`, `validate_sequence.py`, `inspect_sequence_frames.py`, `render_sequence.py` |
 | 제작 검수·레퍼런스 의도 대조·요청 기반 회고 | [설계 절차](references/12-qa.md) | [템플릿](assets/12-qa-template.md) |
 | 아이디어 발상·브랜드 영상 | [설계 절차](references/13-ideation-brand.md) | [템플릿](assets/13-ideation-brand-template.md) |
 | 제작 일정·예산·에셋 운영 | [설계 절차](references/14-production-ops.md) | [템플릿](assets/14-production-ops-template.md) |
@@ -116,7 +117,9 @@ v5.1 패키지 추가 에셋: `assets/style-world-bible-template.md`, `assets/ad
 장면별 카메라 이동·구도·블로킹·피사체 거리 등 3D 공간 작업에는 `$camera-spatial-design`으로 수치 명세를 만들고 `$blender-previsualization`으로 실제 Blender 장면·렌더 프레임을 반드시 생성·검수한다. `spatial_spec.py`는 입력 사전 검사이며 단독으로 3D 작업을 완료 처리하지 않는다. Blender가 없으면 설계 문서만 남기고 시각 검수는 BLOCKED/UNVERIFIED로 표시한다. 카메라 명세가 바뀌면 해당 샷·스토리보드·생성 프롬프트를 stale로 표시한다. 텍스트/2D 작업은 이 3D 실행 경로를 강제하지 않는다.
 
 ## 선택적 상태·인과 인계
-누적 변화·원인과 잔류 결과·시점 대응·시간 생략·결합 반응·정확한 레퍼런스 재현을 인계할 때만 [상태·인과 연속성](references/26-state-causality-continuity.md)을 읽고 해당 슬롯을 기존 산출물에 연결한다. 변화 영역/속성, 보존 조건, 후속 유지 범위와 검사 근거를 분리하며 [선택 템플릿](assets/state-transition-template.md)은 필요한 부분만 쓴다. 변화 없는 인터뷰나 정밀 매칭 없는 작업에 여섯 절차를 강제하지 않는다.
+**기본 연속성 게이트는 필수:** 전체 보드 확정·후속 생성/채택·시퀀스 편집/납품에서는 [전체 스토리라인 참조·연속성 게이트](references/26-state-causality-continuity.md#storyline-continuity-gate)를 적용한다. 이전 채택 씬·컷·영상 구간·프레임과 재등장 이력, 관련 승인 에셋의 실제 파일/버전을 확인한다. 계획 참조와 실제 채택 참조를 구분하고 필수 실패/unverified는 의존 작업을 차단한다.
+
+선택적인 것은 **상세 슬롯**이다. 누적 변화·원인과 잔류 결과·시점 대응·시간 생략·결합 반응·정확한 레퍼런스 재현 또는 이전 샷에서 상속한 유지 의무가 있으면 필요한 상세 슬롯을 기존 산출물에 연결한다. 변화 영역/속성, 보존 조건, 후속 유지 범위와 검사 근거를 분리하며 [선택 템플릿](assets/state-transition-template.md)은 필요한 부분만 쓴다. 변화나 상속 의무가 없는 샷에는 상세 슬롯을 강제하지 않지만 기본 참조·실제 경계 검사는 유지한다.
 
 ## 카메라 분석·제어·검수 연결
 레퍼런스의 카메라 움직임 역분석은 camera-motion-reference-analysis, 수치 경로·타이밍·렌즈 설계는 camera-spatial-design, AI 생성 입력 변환은 ai-camera-control에 연결한다. 카메라 결과 검수에는 [무빙 QA](references/27-camera-motion-qa.md)를 적용한다. 계획·프리비즈·생성 파일·실제 재생 검사를 분리하고 스틸이나 프롬프트만으로 실제 무빙 통과를 판정하지 않는다. 스킬은 frontmatter name으로 찾는다.

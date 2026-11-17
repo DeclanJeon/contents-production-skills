@@ -35,7 +35,7 @@ source/character/beat/provider ID는 artifact ID가 아니다. dependencies/depe
 
 - `python scripts/project_index.py <project-root>/project.json --shot SH06` 또는 `--artifact A01`: 정본에서 현재 샷의 scene/character/beat/panel/voice/audio/claim/asset와 provenance·artifact dependency를 읽는 **읽기 전용 조회**. 샷/산출물을 지정하지 않으면 전체 원장을 자동 로드하지 않는다. 결과는 전체 브리프나 실행 승인 대신 사용할 수 없다.
 - focused `project_index.py` 전달에는 panel pins, `required_asset_versions`, `master_asset_ref` 전체 계보, 활성 `look_asset_id`와 해당 에셋을 포함하고 무관한 샷/산출물은 제외한다.
-- `python scripts/update_project.py <project-root>/project.json --update update.json`: **총괄 전용**, 구조가 유효한 기존 원장의 upsert 도구. 입력은 `{project_id, base_version, version, input_versions, owner_artifact_ids?, changes, storyboard?, preproduction?}`. changes는 기존 테이블 이름→부분 레코드 배열이며 기존 ID의 미변경 필드는 보존한다. storyboard는 synopsis_artifact_id와 beats/panels upsert, preproduction은 아래 패키지 포인터의 부분 갱신만 지원한다. 생성/삭제·프로젝트 선택·그 밖의 헤더 설계·승인 추론은 하지 않는다.
+- `python scripts/update_project.py <project-root>/project.json --update update.json`: **총괄 전용**, 구조가 유효한 기존 원장의 upsert 도구. 입력은 `{project_id, base_version, version, input_versions, owner_artifact_ids?, changes, storyboard?, preproduction?}`. changes는 기존 테이블 이름→부분 레코드 배열이며 기존 ID의 미변경 필드는 보존한다. storyboard는 synopsis_artifact_id와 beats/panels upsert, preproduction은 아래 패키지 포인터의 부분 갱신만 지원한다. 생성/삭제·프로젝트 선택·임의 헤더 변경·승인 추론은 하지 않는다. `project.target_duration_s`는 현재 승인된 edit_plan의 timing_policy와 입력 버전을 소비하는 유연 편집에서만 갱신하며, shots·관련 패널/rhythm·cue/자막·소유 버전을 같은 후보로 검사한다.
 - 내용 레코드(씬/인물/샷/주장/에셋/오디오/자막/보드)를 바꾸면 패킷에서 배정한 `owner_artifact_ids`와 신규/증가한 소유 artifact 버전을 함께 준다. 상태·증거만 갱신할 때 내용 버전을 억지로 바꾸지 않는다. 소유 관계와 사용자 권한은 총괄이 실제 문맥에서 판단한다; 도구가 진위를 인증하지 않는다.
 - 업데이트 도구는 base/input 버전, 레코드 참조/시간, 파일 루트, 후보 전체 구조를 확인한 뒤 같은 폴더 임시 파일→원자 교체한다. 협력 작성자 lock과 교체 전 원본 재확인으로 오래된 결과·중복 작성·관찰된 외부 수정을 거부한다. 기존 lock을 자동 제거하거나 재시도하지 않는다. 비협력 편집기의 마지막 순간 경합/정전 내구성까지 보장하는 DB는 아니다.
 - 상위 버전 변경은 실제 dependency 그래프를 따라 stale을 전파한다. stale artifact는 **이전 입력 버전**을 보존할 수 있으나 현재 승인/실행에 쓰지 않는다. 현재 버전으로 다시 만든 레코드는 명시적으로 등록하고 재검수한다. 독립 승인과 정상 컷은 보존한다.
@@ -79,6 +79,12 @@ source/character/beat/provider ID는 artifact ID가 아니다. dependencies/depe
 - 모든 필수 실제 파일에는 SHA-256을 기록한다. 이미지 디코딩·현재 종속 버전·전체 커버리지·열린 blocker도 검사한다. reviewed/approved인 preproduction_review 또는 approved인 video_execution_plan에는 plan에서도 이 완결 게이트를 자동 적용하며 이미지 모드를 요구한다. 검토는 시놉·보드·합본을 dependency 그래프로 소비해야 한다.
 - 누락 상태는 draft/stale로 보존하고 strict preproduction 검사에서는 준비 미완료로 반환한다. 프롬프트·가상 path·planned 에셋·검사 기록만으로 실제 산출물이라고 표시하지 않는다. 구조 통과 뒤에도 캐릭터 7뷰 정체성, 전체 clean 컷 읽힘, 합본 누락/가독성, 장면 내 제품·빛·그림자·반사 통합을 실제 검수하고 사용자 수락을 별도로 받는다.
 
+
+## 시퀀스 실행 투영과 편집 시간 권한
+
+[시퀀스 실행](sequence-execution.md)은 기존 generation_spec/edit_plan/qa_review의 `sequence-execution/1` 파생 문맥을 사용한다. 새 root 원장이나 프로젝트 상태 enum이 아니다. owner·입력 버전/해시·원문 요구·프레임 구간·연결·실제 검사 근거를 묶고 실제 다음 입력과 편집 실행기가 소비한다. `ready`는 기록·구조 준비이지 미감 인증·실행 허가가 아니다.
+
+승인된 실행/편집 artifact의 선택 메타데이터 `execution_scope={shot_ids:[...],operations:[generation|edit|export]}`는 실제 승인 범위를 구조화한다. `edit_plan.timing_policy={duration:fixed|flexible,anchors:[{table,id,field,frame}]}`는 원래 승인된 시간 제약이며 새 delta가 자기 권한을 만들 수 없다. `update_project.py`는 target_duration_s 및 필요한 storyboard.rhythm 교체를 제한적으로 지원하고, 고정 anchor·후속 시간/참조·owner 버전·원자 저장 검사를 유지한다. 실제 사용자 승인과 검수 진위는 코디네이터 책임이다.
 
 ## 실제 파일과 부가 시간표
 - asset_registry: {id, kind, version, path, status, sha256}. 실제 path는 프로젝트 폴더 기준 상대 경로를 권장하며 `--base-dir` 검사에서 resolve한 결과가 그 폴더 밖이면 거부한다(절대 경로/..//symlink 포함). planned는 path=null을 허용한다. available/verified는 실제 경로를 갖고 base-dir가 있으면 파일 존재와 제공된 해시를 확인한다. 최종 파일에는 verified와 SHA-256이 필요하다.
