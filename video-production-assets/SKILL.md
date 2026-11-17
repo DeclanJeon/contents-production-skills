@@ -50,6 +50,7 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 | 편집·리듬·사운드 | [설계 절차](references/09-edit.md) | [템플릿](assets/09-edit-template.md) |
 | 광고·설명·데이터 영상 근거 | [설계 절차](references/10-evidence.md) | [템플릿](assets/10-evidence-template.md) |
 | AI 영상 프롬프트·연속성 인계 | [설계 절차](references/11-ai-handoff.md) | [템플릿](assets/11-ai-handoff-template.md) |
+| 콘티→영상·후속 생성·시퀀스 편집/납품 | **필수:** [시퀀스 실행](references/sequence-execution.md) — 생성 전 실제 프레임 대조·수정, 채택 구간 인계, 편집 출력 검수 | `scripts/sequence_context.py`, `validate_sequence.py`, `inspect_sequence_frames.py`, `render_sequence.py` |
 | 제작 검수·레퍼런스 의도 대조·요청 기반 회고 | [설계 절차](references/12-qa.md) | [템플릿](assets/12-qa-template.md) |
 | 아이디어 발상·브랜드 영상 | [설계 절차](references/13-ideation-brand.md) | [템플릿](assets/13-ideation-brand-template.md) |
 | 제작 일정·예산·에셋 운영 | [설계 절차](references/14-production-ops.md) | [템플릿](assets/14-production-ops-template.md) |

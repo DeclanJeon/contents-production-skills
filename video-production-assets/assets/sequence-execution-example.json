@@ -1,0 +1,80 @@
+{
+  "format": "sequence-execution/1",
+  "phase": "plan",
+  "owner": {
+    "project_id": "EXAMPLE_ONLY",
+    "project_version": "v1",
+    "artifact_id": null,
+    "artifact_version": null
+  },
+  "inputs": {
+    "artifact_versions": {},
+    "assets": {}
+  },
+  "time_basis": {
+    "fps": {
+      "num": 24,
+      "den": 1
+    },
+    "frame_origin": 0,
+    "audio_sample_rate": 48000
+  },
+  "requirements": [
+    {
+      "key": "EX_SH01:direction:EX_SH01",
+      "kind": "direction",
+      "entity_id": "EX_SH01",
+      "shot_id": "EX_SH01",
+      "source_locator": "script paragraph 1",
+      "cut_ids": [
+        "EX_C01"
+      ],
+      "panel_ids": [
+        "EX_P01",
+        "EX_P02"
+      ],
+      "final_in_frame": 0,
+      "final_out_frame": 48,
+      "direction": {
+        "purpose": "문손잡이에 오른손을 뻗는다",
+        "camera": {
+          "shot_size": "MS",
+          "movement": "static"
+        },
+        "start_state": "접근 전",
+        "end_state": "접촉 직전"
+      },
+      "evidence": "planned"
+    }
+  ],
+  "cuts": [
+    {
+      "cut_id": "EX_C01",
+      "shot_id": "EX_SH01",
+      "scene_id": "EX_S01",
+      "final_in_frame": 0,
+      "final_out_frame": 48,
+      "source_asset_id": null,
+      "source_in_frame": null,
+      "source_out_frame": null,
+      "source_fps": null,
+      "source_frame_count": null,
+      "playback_rate": 1,
+      "transition": "hard_cut",
+      "evidence": "planned",
+      "planned_panel_ids": [
+        "EX_P01",
+        "EX_P02"
+      ]
+    }
+  ],
+  "links": [],
+  "checks": [],
+  "audio_tracks": [],
+  "policy": {
+    "duration": "fixed",
+    "anchors": [],
+    "locked_one_take_shot_ids": []
+  },
+  "limits": "형식 예시만 제공한다. 실제 작품의 ID/승인/검사 증거가 아니며 이 상태로 생성·편집·납품 준비 완료가 아니다."
+}

@@ -83,6 +83,10 @@ Use the [canonical routing table](references/production-routing.md) for the requ
 Check only the selected surface's runtime/auth. No automatic installation. Preserve source assets, isolated requested outputs and credential secrecy. Use deterministic camera/geometry for exact space, composition for critical text/logos/prices, and actual assembly/encoding tools. Inspect outputs before authorized scaling. Parallelize only independent work; dependency chains and uncertain async status never justify duplicate paid submission.
 
 Before whole-storyboard finalization, dependent generation/take adoption, or sequence delivery, **REQUIRED:** apply the [whole-storyline continuity gate](../video-production-assets/references/26-state-causality-continuity.md#storyline-continuity-gate). The coordinator owns predecessor/history references and continuity acceptance even without a separate reviewer. Required failed/unverified continuity blocks dependent generation, take adoption and completed-film delivery; independent reachable planning may continue. Planned references are not accepted take outpoints; file/hash/decode success is not continuity evidence.
+For storyboard-to-video execution, dependent generation, or sequence editing,
+**REQUIRED:** use the [sequence execution tools](../video-production-assets/references/sequence-execution.md)
+to compare actual planned frames before generation, resolve blockers, carry selected
+source ranges forward, and inspect the rendered cut boundaries and whole output.
 
 For reference-heavy generated-production handoffs, apply only the relevant parts of [reference-driven production](../video-production-assets/references/29-reference-driven-production.md): attribute-level reference roles/precedence, same-state sheet inputs, synchronized submission/review language, actual new/edit/extend mode, minimal dialogue repair, and usable-range QA. This extends the existing owners and templates, not the requested scope, image route, Sheet A contract, runtime/spend authority, or canonical ledger. Source-guide screenshots and personal model preferences are not live capability or generation evidence.
 
