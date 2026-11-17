@@ -31,4 +31,13 @@ The fresh reviewer applied the new-angle/insert scenario and required the accept
 
 Review was read-only; its assertions about actual Git push and installed hashes were deliberately deferred to operator-side commands. The eight preexisting local commits, unrelated routing/analysis changes, provider conditioning, observation authenticity and perceptual quality remain outside this review; existing-commit push is explicitly user-approved, and no new media/provider execution is authorized.
 
-After all three fixes, the full working-tree suite passed: **1058 passed, 4 skipped, 533 subtests** (61.98s). The final release-only index export passed **1046 tests, 6 skips, 533 subtests** (59.77s), without unrelated dirty/untracked files. Live remote commit equality and post-release synchronization are recorded after their actual execution; do not infer those outcomes from test results.
+After all three fixes, the full working-tree suite passed: **1058 passed, 4 skipped, 533 subtests** (61.98s). The final release-only index export passed **1046 tests, 6 skips, 533 subtests** (59.77s), without unrelated dirty/untracked files.
+
+## Release and deployment receipt
+
+- Implementation commit: `506a2af6503476726a9c1207bf70426e0a143935` (`fix(video): enforce accepted predecessor and history references before generation`).
+- Non-force `git push origin main` succeeded, advancing the live remote from `657db90` to `506a2af`; a new `git ls-remote --heads origin main` exactly matched local HEAD. The eight preexisting local commits were included, as explicitly approved.
+- Explicit `sync_installed.py` invocation for Codex, Claude, shared agents and Pi succeeded: 100 existing links correct, no replacements/backups needed.
+- All 25 skill roots in each harness resolved to this repository. SHA256 for all **37 changed skill files** matched both committed bytes and installed paths in all four roots.
+- Unrelated tracked changes remain only in `scripts/routing_eval.py` and `scripts/test_routing_eval_harness.py`; unrelated analysis/plans/specs and `qa/artifact-*` remain untracked and uncommitted. They were not deleted or reverted.
+- A documentation-only follow-up records this receipt and marks plan tasks complete. Agents should refresh/restart to reload already-read skill instructions; filesystem synchronization alone cannot rewrite the active conversation context.

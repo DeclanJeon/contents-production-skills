@@ -35,14 +35,14 @@ Interfaces: validate_sequence(...), prepare_request(...), audit_call(...) and ex
 - [x] Review sequence/AV implementation dependency closure and diffs, including update_project.py and contract.md.
 - [x] Run existing positive/negative sequence and AV tests; fix only demonstrated in-scope failures test-first.
 - [x] Run full pytest suite and git diff --check; distinguish pre-existing or unrelated failures.
-- [ ] Review exact staged files and diff; commit required implementation and entrypoint changes in coherent units, including this approved spec/plan.
+- [x] Review exact staged files and diff; commit required implementation and entrypoint changes in coherent units, including this approved spec/plan.
 
 ### Task 3: Push and local agent deployment
 Files: no application changes expected; existing scripts/sync_installed.py is the deployment interface.
-- [ ] Verify current branch, remote URL, upstream and live remote relation before a non-force push; existing local commits are included in a current-branch push and must be reported.
-- [ ] Push the requested branch and compare live remote HEAD with local HEAD.
-- [ ] Dry-run synchronization for existing Codex/Claude/shared/Pi roots, inspect proposed actions, then apply with backup behavior preserved.
-- [ ] Verify installed updated skills resolve to the intended source and required helper paths exist; record tests, commit hashes, push and sync results and excluded dirty paths.
+- [x] Verify current branch, remote URL, upstream and live remote relation before a non-force push; existing local commits are included in a current-branch push and must be reported.
+- [x] Push the requested branch and compare live remote HEAD with local HEAD.
+- [x] Dry-run synchronization for existing Codex/Claude/shared/Pi roots, inspect proposed actions, then apply with backup behavior preserved.
+- [x] Verify installed updated skills resolve to the intended source and required helper paths exist; record tests, commit hashes, push and sync results and excluded dirty paths.
 
 ## Execution method
-Recommended: native execution in this session plus one independent final reviewer. Worktree isolation is optional pending user consent because the requested release includes selected existing dirty work in the installed source checkout.
+Approved native execution in this session plus one independent final reviewer, in the existing main checkout. Review found three Important issues, each reproduced RED→GREEN in one fix pass. Final release-only suite: 1046 passed, 6 skipped, 533 subtests. See qa/2026-11-17-continuity-entrypoint-release.md for scope, limits and deployment evidence.
