@@ -42,6 +42,13 @@ explicit release before any media call or side effect. The same holds for a
 text-only request that says "render later": "later" is a handoff requirement,
 not authorization to render now.
 
+`text_only` forbids new image/audio/video generation, not an explicit MD/PDF
+file request. Saving is an independent axis: `no-save` / `read-only` / `chat-only`
+forbid writes; an explicit MD/PDF request opens only that text-file stage and its
+history, never new media. Do not auto-save an unspecified text-only request.
+If a file request conflicts with an explicit no-save/read-only constraint,
+report the conflict rather than silently releasing either constraint.
+
 ## 4. Single writer
 
 Exactly one canonical state writer exists per project: the coordinator. Workers
@@ -95,6 +102,12 @@ Project completion requires the requested deliverables and exercised QA. It is
 separate from operation completion.
 
 ## 8. Honesty about the runtime
+
+Within one session, reuse only the same applicable sections actually read at
+the same version/hash. A parent saying it read a file, a path mention, or file
+existence is not consumption. New workers/sessions read their own mandatory
+owners. Recheck execution gates when current inputs, account, model, native
+roles or server revision change; no persistent capability cache is implied.
 
 This package is instruction modules plus local tools. Markdown and agent
 settings alone do not run workers, schedule stages, or persist ledgers. Actual

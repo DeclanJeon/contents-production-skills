@@ -17,16 +17,13 @@ Create a clean thumbnail concept, render each variant through the authorized eli
 
 ## Package gate and eligibility
 
-Apply `../higgsfield-generate/references/package-gate.md` before any actual render: runtime check (report missing CLI/auth — never auto-install; installation only on an explicit separate request), verified quote covering all approved variants + edits + retries, bounded approval.
+Apply the selected executor's eligibility and bounded requested count/retry scope before rendering. Codex Imagen is the default: verify its runtime/auth, supported inputs/outputs, destination and rights/consent; do not require Higgsfield auth, model lookup or quote for an unused provider, and do not check Codex Imagen price/usage/quota or block on unknown cost. `../higgsfield-generate/references/package-gate.md` supplies the canonical return join and the gates for actual eligible Higgsfield operations, not extra prerequisites for Codex Imagen stills.
 
 **In this package every render/edit below is an image job — ineligible to submit via Higgsfield.** The prompt contract, render recipes, and CLI shapes are preserved craft in `references/prompt-contract.md` and `references/text-overlay-bake.md`. Execute through the explicitly authorized eligible image executor (`codex-imagen` default) under the same truthful concept/prompt contract; the deterministic local overlay bake stays fully eligible. If no authorized executor is available, report the render as blocked — never fall back to a Higgsfield image submission.
 
 ## Runtime check
 
-Before any generation:
-
-1. `higgsfield` on `$PATH` and `higgsfield account status` clean — else report the blocker (`higgsfield auth login` is a user action). Never install automatically.
-2. When the catalog may have changed, confirm the referenced model contracts (`higgsfield model get <jst> --json`) for any preserved recipe you consult — historical "verified" claims are documentation, not current truth.
+Check only the selected eligible executor when an actual render is requested. Missing runtime/auth/capability blocks that execution; never auto-install or fall back to an ineligible Higgsfield image job. Historical recipe models/commands below are craft, not a requirement to query an unused Higgsfield account or catalog. Preserve supplied executor choices.
 
 ## UX rules
 

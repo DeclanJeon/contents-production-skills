@@ -68,7 +68,9 @@ resources, or repeated output corrections, **REQUIRED SUB-SKILL:
 `ai-delegation-loop`** applies once here. Resolve it by exact name in the host's
 available skill sources. If unreachable, record the precise missing source and
 keep only the dependent coordination step unresolved while continuing
-unaffected work.
+unaffected work. Record the exact roots checked once per session; do not repeat
+the same failed search until those installed sources/configuration change.
+Do not install, remove, or silently substitute this dependency.
 
 When a request asks to apply craft already integrated into this package, use the
 packaged procedure (for reference-driven production,
@@ -80,12 +82,15 @@ fresh quotation or source inspection.
 
 State one current stage, one owner, the exact requested artifact, and the actual
 approver (or `unassigned`). Canonical handoff IDs and versions live in the
-[worker handoff and single-writer contract](../video-production-assets/references/contract.md#worker-handoff-and-single-writer).
+[worker handoff and single-writer contract](../video-production-assets/references/contract-core.md#worker-handoff-and-single-writer).
 
 Build one compact packet: assigned stage/output/focus IDs; source IDs and
 versions; locked facts, continuity, exclusions; approval references; required
-inputs and blockers. Use the contract's read-only focused index when useful; do
-not infer a stage from file presence.
+inputs and blockers. For an existing ledger query/update, read
+[project contract](../video-production-assets/references/contract-project.md).
+Keep full execution projections on disk; display with `sequence_context.py
+--shot <ID> --projection <full.json> --view focus`, never execute that display.
+Do not infer a stage from file presence.
 
 A worker returns indexed changes, actual evidence, and checks performed. When
 dependencies are missing it also returns one indexed missing-input packet naming

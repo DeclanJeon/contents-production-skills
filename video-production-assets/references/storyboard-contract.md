@@ -9,7 +9,7 @@
 | 텍스트/이미지 PDF 저장·변환 | 해당 단계 + [delivery](storyboard-delivery.md) |
 | project.json 상세 보드/rhythm 작성·수정·구조 오류 | 해당 단계 + [schema](storyboard-schema.md) |
 
-텍스트-only는 새 이미지/음성/영상 생성 금지이며 no-save와 별개다. 채팅-only/no-save이면 저장하지 않는다. 명시적 MD/PDF 요청은 해당 파일 단계만 열며 미디어 실행을 허가하지 않는다. 필수 이미지/공간/시간 검증이 없으면 planned/unverified/blocker를 유지한다. 기존 strict-staging/strict-rhythm 제약은 해당 direction/schema 정본대로 보존한다. 이전 절 번호와 fragment는 아래 호환 포인터로 유지한다.
+텍스트-only는 새 미디어 금지이며 no-save와 별개다. 채팅-only/no-save는 저장하지 않고 명시적 MD/PDF는 그 파일 단계만 연다. 필요한 미검증 이미지/공간/시간은 planned/unverified/blocker다. strict-staging/strict-rhythm과 이전 fragment는 해당 정본/호환 포인터로 보존한다.
 
 ## 적용과 소유자
 일반적으로 **“콘티/스토리보드를 만들어 달라”는 요청도 제작용 계획을 기본값**으로 한다. 명시적으로 이야기 패널 연습·러프 비트 썸네일·이미지 프롬프트만 요청한 경우에만 좁은 패널 계약을 쓴다. 기본값은 필수 계획 항목을 채우라는 뜻이지 실제 미디어/폴더/지출을 자동 실행하라는 뜻이 아니다. 사용자가 고정한 패널 수로 필수 사건을 읽히게 할 수 없으면 누락시키지 않고 수량/스토리 충돌을 해결한다.
@@ -62,23 +62,23 @@
 
 
 <a id="대사별-발화-얼굴과-청자-반응"></a>
-**대사별 발화 얼굴과 청자 반응** — 정본: [storyboard-direction.md](storyboard-direction.md#대사별-발화-얼굴과-청자-반응).
+**대사별 발화 얼굴과 청자 반응**: [정본](storyboard-direction.md#대사별-발화-얼굴과-청자-반응).
 
 
 <a id="씬별-카메라-의도와-인접-씬-비교"></a>
-**씬별 카메라 의도와 인접 씬 비교** — 정본: [storyboard-direction.md](storyboard-direction.md#씬별-카메라-의도와-인접-씬-비교).
+**씬별 카메라 의도와 인접 씬 비교**: [정본](storyboard-direction.md#씬별-카메라-의도와-인접-씬-비교).
 
 
 <a id="장면-리듬과-감정-가독성"></a>
-**장면 리듬과 감정 가독성** — 정본: [storyboard-direction.md](storyboard-direction.md#장면-리듬과-감정-가독성).
+**장면 리듬과 감정 가독성**: [정본](storyboard-direction.md#장면-리듬과-감정-가독성).
 
 
 <a id="씬-카메라-수락-검사"></a>
-**씬 카메라 수락 검사** — 정본: [storyboard-direction.md](storyboard-direction.md#씬-카메라-수락-검사).
+**씬 카메라 수락 검사**: [정본](storyboard-direction.md#씬-카메라-수락-검사).
 
 
 <a id="카메라공간blender-분기"></a>
-**카메라·공간/Blender 분기** — 정본: [storyboard-direction.md](storyboard-direction.md#카메라공간blender-분기).
+**카메라·공간/Blender 분기**: [정본](storyboard-direction.md#카메라공간blender-분기).
 
 
 ## 3. 전체 커버리지와 이미지 수 산정
@@ -100,27 +100,27 @@
 
 
 <a id="씬-경계와-시트-페이지화는-별도-결정"></a>
-**씬 경계와 시트 페이지화는 별도 결정** — 정본: [storyboard-direction.md](storyboard-direction.md#씬-경계와-시트-페이지화는-별도-결정).
+**씬 경계와 시트 페이지화는 별도 결정**: [정본](storyboard-direction.md#씬-경계와-시트-페이지화는-별도-결정).
 
 
 <a id="단일-프레임-3단-상황-압축과-정지화-역동성-변환-kinetic-still-translation"></a>
-**단일 프레임 3단 상황 압축과 정지화 역동성 변환 (Kinetic Still Translation)** — 정본: [storyboard-direction.md](storyboard-direction.md#단일-프레임-3단-상황-압축과-정지화-역동성-변환-kinetic-still-translation).
+**단일 프레임 3단 상황 압축과 정지화 역동성 변환 (Kinetic Still Translation)**: [정본](storyboard-direction.md#단일-프레임-3단-상황-압축과-정지화-역동성-변환-kinetic-still-translation).
 
 
 <a id="동작-중심-패널의-장면-통합"></a>
-**동작 중심 패널의 장면 통합** — 정본: [storyboard-direction.md](storyboard-direction.md#동작-중심-패널의-장면-통합).
+**동작 중심 패널의 장면 통합**: [정본](storyboard-direction.md#동작-중심-패널의-장면-통합).
 
 
 <a id="4-실제-이미지-생성시트clean-컷"></a>
-**4. 실제 이미지 생성·시트·clean 컷** — 정본: [storyboard-media.md](storyboard-media.md#4-실제-이미지-생성시트clean-컷).
+**4. 실제 이미지 생성·시트·clean 컷**: [정본](storyboard-media.md#4-실제-이미지-생성시트clean-컷).
 
 
 <a id="pdf-공유본-납품"></a>
-**PDF 공유본 납품** — 정본: [storyboard-delivery.md](storyboard-delivery.md#pdf-공유본-납품).
+**PDF 공유본 납품**: [정본](storyboard-delivery.md#pdf-공유본-납품).
 
 
 <a id="5-이미지-단독-스토리텔링-게이트"></a>
-**5. 이미지 단독 스토리텔링 게이트** — 정본: [storyboard-media.md](storyboard-media.md#5-이미지-단독-스토리텔링-게이트).
+**5. 이미지 단독 스토리텔링 게이트**: [정본](storyboard-media.md#5-이미지-단독-스토리텔링-게이트).
 
 텍스트 보드도 전 비트의 시각적 인과와 점유·상태·공개·감정 가독성을 설계로 대조한다. 실제 clean 이미지가 없으면 이미지 전수 QA는 미검증이며 완료로 보고하지 않는다. 실제 픽셀 검사 절차는 위 media 정본을 이미지 단계에서 적용한다.
 
@@ -145,20 +145,20 @@
 
 
 <a id="8-선택적-projectjson-상세-보드-확장"></a>
-**8. 선택적 project.json 상세 보드 확장** — 정본: [storyboard-schema.md](storyboard-schema.md#8-선택적-projectjson-상세-보드-확장).
+**8. 선택적 project.json 상세 보드 확장**: [정본](storyboard-schema.md#8-선택적-projectjson-상세-보드-확장).
 
 
 <a id="리듬-곡선-storyboardrhythm-선택"></a>
-**리듬 곡선 `storyboard.rhythm` (선택)** — 정본: [storyboard-schema.md](storyboard-schema.md#리듬-곡선-storyboardrhythm-선택).
+**리듬 곡선 `storyboard.rhythm` (선택)**: [정본](storyboard-schema.md#리듬-곡선-storyboardrhythm-선택).
 
 
 <a id="리듬-필드의-소유-경계와-우선순위"></a>
-**리듬 필드의 소유 경계와 우선순위** — 정본: [storyboard-schema.md](storyboard-schema.md#리듬-필드의-소유-경계와-우선순위).
+**리듬 필드의 소유 경계와 우선순위**: [정본](storyboard-schema.md#리듬-필드의-소유-경계와-우선순위).
 
 
 <a id="연결-예시--실제-이미지가-아니라-계획-표"></a>
-**연결 예시 — 실제 이미지가 아니라 계획 표** — 정본: [storyboard-schema.md](storyboard-schema.md#연결-예시--실제-이미지가-아니라-계획-표).
+**연결 예시 — 실제 이미지가 아니라 계획 표**: [정본](storyboard-schema.md#연결-예시--실제-이미지가-아니라-계획-표).
 
 
 <a id="9-craft-근거와-적용-한계"></a>
-**9. Craft 근거와 적용 한계** — 정본: [storyboard-direction.md](storyboard-direction.md#9-craft-근거와-적용-한계).
+**9. Craft 근거와 적용 한계**: [정본](storyboard-direction.md#9-craft-근거와-적용-한계).

@@ -1,6 +1,6 @@
 # 스토리보드 — 연출과 상태 설계
 
-완전 제작용 텍스트·이미지 보드 설계/수정/검토의 필수 정본이다. [완전성 core](storyboard-contract.md)의 모든 반환 구획·샷/패널 슬롯을 함께 적용한다. 기존 절 번호 §n은 core의 호환 절과 해당 정본을 가리킨다. 실제 이미지 QA는 [media](storyboard-media.md), 파일 납품은 [delivery](storyboard-delivery.md), JSON 편집은 [schema](storyboard-schema.md) 단계에서만 추가한다.
+완전 보드의 텍스트/연출 설계·수정·검토에 필수다. [core](storyboard-contract.md)의 모든 슬롯/반환 구획을 유지한다. §번호는 core의 기존 절이며 이미지·PDF·JSON 실행은 그 단계에서만 해당 정본을 연다.
 
 ### 대사별 발화 얼굴과 청자 반응
 
@@ -103,6 +103,8 @@
    - 패널별 `image_prompt`는 한국어 사용자가 즉시 상황을 파악하는 `[KO 연출 직관 요약]`과 이미지/영상 생성기의 광학·물리 토큰 반영률을 높이는 `[EN 시네마틱 프롬프트]`를 함께 기록한다.
    - 기본 변화 샷은 `start`와 `end`(필요 시 `action_peak`) 패널을 모두 갖추지만, 2초 이하의 빠른 단발 액션·컷인(Cut-on-Action) 샷에서 I2V 단일 프레임 앵커링을 사용할 때는 `shot.keyframe_mode = "single_i2v"`를 선언하고 단일 `start` 또는 단일 `action_peak` 패널 1장만으로 구성할 수 있다.
 
+
+선택적 컷 크기/시선 레시피(적용 가능한 장면만): **Cut-to-Cut Scale Jump & Eye-Trace** — `WS/EWS` context → `ECU` trigger → `Low/Dutch Angle FS/MS` action peak → `MCU/CU` reaction settle을 비교하고 panel N의 출구 벡터/시선을 N+1의 주목점 진입과 연결할 수 있다. 고정 순서·크기 변화 의무가 아니며 의도된 정적/평면 구도나 사유 있는 N/A를 보존한다.
 
 ### 동작 중심 패널의 장면 통합
 

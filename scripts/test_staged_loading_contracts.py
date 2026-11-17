@@ -106,6 +106,67 @@ def test_board_core_keeps_complete_default_and_all_technical_slots():
     assert 'schema_version=1.1' not in core
 
 
+def routes():
+    with (ROOT / 'creative-production/references/routing.csv').open(newline='') as stream:
+        return {r['route_id']: r for r in csv.DictReader(stream)}
+
+
+def test_narrow_lighting_uses_core_not_full_contract_or_package():
+    entry = (ROOT / 'video-production-assets/SKILL.md').read_text()
+    assert 'references/contract-core.md' in entry
+    assert '`references/contract.md`를 읽고' not in entry
+    assert '단일 조명' in entry
+
+
+def test_character_appearance_is_conditional_not_route_prerequisite():
+    assert 'appearance-language-catalog' not in routes()['R03']['required_read']
+    assert '때만' in (ROOT / 'designing-video-character-sheets/SKILL.md').read_text()
+
+
+def test_text_board_routes_only_core_and_direction_before_media_or_schema():
+    paths = routes()['R10']['required_read'].split('; ')
+    assert REF + 'storyboard-contract.md' in paths
+    assert REF + 'storyboard-direction.md' in paths
+    assert not any(p.endswith(('storyboard-media.md','storyboard-schema.md','storyboard-delivery.md')) for p in paths)
+    entry = (ROOT / 'storyboarding-video/SKILL.md').read_text()
+    assert 'no media, files, or spend' not in entry
+    assert 'storyboard-direction.md' in entry
+
+
+def test_thumbnail_checks_selected_executor_not_unused_higgsfield_account():
+    entry = (ROOT / 'higgsfield-youtube-thumbnail/SKILL.md').read_text()
+    assert 'Codex Imagen' in entry
+    assert 'do not require Higgsfield auth' in entry
+    assert 'Before any generation:\n\n1. `higgsfield`' not in entry
+
+
+def test_text_only_and_no_save_are_independent_policy_constraints():
+    policy = (ROOT / 'creative-production/references/policy.md').read_text()
+    assert '`text_only`' in policy and '`no-save`' in policy
+    assert 'explicit MD/PDF' in policy
+    common = (ROOT / REF / 'contract-core.md').read_text()
+    assert '텍스트만/저장 금지 요청은 반환 제안에서 끝난다' not in common
+
+
+def test_sequence_docs_distinguish_saved_full_from_display_view():
+    text = (ROOT / REF / 'sequence-execution.md').read_text()
+    assert '--view focus' in text and '--view full' in text
+    assert 'sequence-focus-view/1' in text
+
+
+@pytest.mark.parametrize('skill,detail,forbidden_inline', [
+    ('recording-production-history', 'cli-contract.md', '## 이벤트 파일 규칙'),
+    ('higgsfield-video-replicate', 'clip-execution.md', '--mode omni_reference'),
+    ('higgsfield-video-explainer', 'block-execution.md', '--items @blocks.json'),
+    ('higgsfield-generate', 'model-catalog.md', 'Models that accept it'),
+])
+def test_execution_detail_is_linked_not_unconditionally_inlined(skill, detail, forbidden_inline):
+    entry = (ROOT / skill / 'SKILL.md').read_text()
+    assert (ROOT / skill / 'references' / detail).is_file()
+    assert 'references/' + detail in entry
+    assert forbidden_inline not in entry
+
+
 def test_common_owner_boundaries():
     core, project, package, delivery = [(ROOT / REF / f'contract-{name}.md').read_text()
                                       for name in ('core','project','package','delivery')]

@@ -4,7 +4,7 @@
 
 ## 전체 프리프로덕션 패키지
 
-단일 텍스트/프롬프트 요청은 이 확장을 요구하지 않는다. 전체 이미지 기반 제작은 **시놉 MD, 인물별 페르소나·SSOT MD와 실제 한 장짜리 Identity Sheet A, 통합 기술 콘티 MD, 모든 패널을 이야기 순서로 덮는 합본 스토리보드 이미지 세트(시트당 최대 8패널, 순서 있는 1장 이상)**를 인계한다. 캐릭터 없는 작품은 인물 산출물만 비적용이다. 텍스트 전용 전체 설계는 이미지 제출/파일/지출을 추가하지 않는다.
+단일 텍스트/프롬프트 요청은 이 확장을 요구하지 않는다. 전체 이미지 기반 제작은 **시놉 MD, 인물별 페르소나·SSOT MD와 실제 한 장짜리 Identity Sheet A, 통합 기술 콘티 MD, 모든 패널을 이야기 순서로 덮는 합본 스토리보드 이미지 세트(시트당 최대 8패널, 순서 있는 1장 이상)**를 인계한다. 캐릭터 없는 작품은 인물 산출물만 비적용이다. 텍스트 전용 전체 설계는 새 미디어/지출/자동 저장을 추가하지 않는다. 명시적으로 요청한 MD/PDF 저장은 그 파일·이력 단계만 허용하며 no-save/read-only를 임의 해제하지 않는다.
 
 - `preproduction={mode:text|image_backed,synopsis_artifact_id,storyboard_artifact_id,storyboard_sheet_artifact_ids,storyboard_split_asset_id}`를 기존 project.json에 둔다. 이미지 모드에는 합본 시트 artifact ID의 **정렬된 배열**이 필수다. 한 장도 배열로 기록하며 기존 단수 선언은 같은 ID의 한 항목 배열로 이전한다. 시놉 type은 synopsis, 보드 type은 storyboard이며 각각 정확히 한 실제 `.md` 에셋을 연결한다.
 - 전체 패키지의 각 `characters[]`에는 `persona={role,personality,observable_behavior,speech}`, `ssot_artifact_id`를 둔다. 네 페르소나 값은 구체적인 비지 않은 문자열이며 무대사에는 이유를 적는다. character_sheet artifact는 시놉 입력 ID/버전과 실제 SSOT MD 에셋 하나를 연결한다. 공급된 캐릭터는 원본을 보존하고 시놉 적용 범위의 인계 시트를 버전으로 연결한다.

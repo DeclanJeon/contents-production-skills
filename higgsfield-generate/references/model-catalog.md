@@ -224,3 +224,54 @@ The CLI reports two kinds of feedback:
 
 - **Adjustments** — a non-fatal coercion. E.g. you passed `aspect_ratio=99:99` and the model accepts a closed set; the CLI picks the closest match and continues. The adjustments map is included in the response.
 - **Validation error** — a fatal mismatch. E.g. an unknown declared parameter, or a media role the model doesn't accept. The CLI returns an error and does not submit.
+
+## Historical entrypoint examples and media flags
+
+Archive moved from the generation entrypoint. All named models/limits/examples below are historical; not a current inventory, ranking or authorization. Inspect the selected current contract before using any flag. `references/` paths in these preserved examples are relative to the skill root.
+
+Evidence scope (2026-10-17): directly read [official CLI README](https://github.com/higgsfield-ai/cli#examples), [MODELS.md](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md) image/video/3D/audio tables, and mounted `models_explore`, `generate_video`, `job_status`, `virality_predictor` documentation. CLI examples and named fields are documentation, not exercised generation. All cached IDs, numeric limits, role tables, defaults, private backend behavior and quality/ranking claims below and in triggered references require the selected current contract; unmatched details remain historical/unverified, not guarantees. CLI and MCP IDs/transports differ. Package defaults are routing preferences, never authority to submit an unsupported model. In particular, the read MODELS.md tables do not establish the Seedance 2.5 4–30s claim: inspect its exact live contract rather than inferring it from another Seedance model.
+
+## Media flags
+
+| Flag | Purpose | Models that accept it |
+|---|---|---|
+| `--image <path-or-id>` | reference image | most image models, `grok_video_v15`, `multi_image_to_3d`, `seedance_2_0`, `seedance_2_5`, `veo3`, `marketing_studio_video` |
+| `--start-image <path-or-id>` | first frame for image-to-video transitions | `grok_video_v15`, `kling3_0`, `kling3_0_turbo`, `kling2_6`, `veo3_1`, `seedance_2_0`, `seedance_2_5`, `marketing_studio_video` |
+| `--end-image <path-or-id>` | last frame for transitions | `kling3_0`, `seedance_2_0`, `seedance_2_5`, `marketing_studio_video` |
+| `--video <path-or-id>` | reference or analyzed video | `seedance_2_0`, `seedance_2_5`, `brain_activity` |
+| `--audio <path-or-id>` | reference audio (lipsync, soundtrack match) | `seedance_2_0`, `seedance_2_5` (reference input; distinct from generating output audio) |
+
+For reference-array models, the explicit flags are `--image-references`, `--video-references`, and `--audio-references`; `--image`, `--video`, and `--audio` are short aliases when the schema exposes those params.
+
+Each flag accepts either a local file path (auto-uploaded) or a UUID (upload id from `higgsfield upload create`, or a previous job id). Each model declares its own media roles or `*_references` params. See `references/media-inputs.md` for the full table.
+
+## Common params
+
+Flags pass through to model schema. Use `higgsfield model get <jst>` to discover.
+
+```bash
+higgsfield generate create seedance_2_5 --prompt "camera dollies in" --mode omni_reference --start-image ./first.png --duration 12 --resolution 1080p --wait
+higgsfield generate create grok_video_v15 --prompt "cinematic handheld shot, neon rainy street" --start-image ./image.png --duration 5 --resolution 720p --wait
+higgsfield generate create multi_image_to_3d --image ./front.png --image ./side.png --should_texture true --wait
+higgsfield generate create seed_audio --prompt "cinematic rain ambience with distant thunder" --wait
+higgsfield generate create sonilo_music --prompt "cinematic synthwave track" --duration 12 --wait
+higgsfield generate create mirelo_text_to_audio --prompt "glass breaking in a large hall" --duration 4 --wait
+higgsfield generate create brain_activity --video ./ad.mp4 --wait
+```
+
+For machine-readable output (chained pipelines, agent context), add `--json`. With `--wait --json` you get the final job object array. Without `--wait`, you get the job IDs. Virality Predictor stores raw analysis and render artifacts in the job params, but the default text output should stay to scores plus Open report.
+
+Stdin prompt: `echo "..." | higgsfield generate create <jst> --wait`.
+
+
+
+## Historical replication model comparison
+
+Archive from video-replicate; this is not its live model gate. Supplied choice and current schema win; the pipeline never silently swaps a model.
+
+| Model | Video ref | Image refs | Audio ref | Resolution | Choose when |
+|---|---|---|---|---|---|
+| `seedance_2_5` | yes | ≤30 (≤50 media total) | yes | 480p–1080p | Recommended default: quality + full reference features + `video_edit`/`video_extension` modes + `--draft` |
+| `seedance_2_0` | yes | yes | yes | 480p–**4k** | native 4K output is required |
+| `gemini_omni` | yes | ≤7 (≤5 with a video ref) | no | 720p only | fast, cheap reference-to-video; default duration 8s |
+| other (kling/veo/grok/…) | start_image only | — | — | — | frame-anchor fallback: extract key frames from the reference, animate each with `--start-image`; style match is looser |
