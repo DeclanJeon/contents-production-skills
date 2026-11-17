@@ -1,0 +1,1300 @@
+{
+  "baseline_commit": "bd5fb689dced7d09d966bff8f1897c06bac6082f",
+  "kind": "fixed named static file unions; NOT recursive workload, actual returned reads or model behavior",
+  "reference_encoder": "offline o200k_base; official pinned rank SHA256 and pattern; all 8 baseline profile totals reproduced exactly",
+  "profiles": [
+    {
+      "profile": "logline_via_R02",
+      "before": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 8896,
+        "unique_tokens": 8896,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "94d403ddb50b34549a44f407c5d72830478ee5bc08ad1257d7b726e5bce817cb",
+            "characters": 8534,
+            "tokens": 1801
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "454128623227d8da0696c3c6c7c86a3249fbbe26ea87c8d06dfdd7f23ecd75a1",
+            "characters": 6883,
+            "tokens": 1460
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "677872cc9db0178b7d1e1bdec9a0ad5c3d7bbd8841fd0aca7d133c6aae0a318c",
+            "characters": 4799,
+            "tokens": 980
+          },
+          {
+            "path": "developing-video-synopses/SKILL.md",
+            "sha256": "db66b9153d7010907b96a6a2a85145a7993eb0883e3697e7288721a860c3c6a3",
+            "characters": 5610,
+            "tokens": 1083
+          },
+          {
+            "path": "developing-video-synopses/references/synopsis-craft.md",
+            "sha256": "7054146b42f40f2f6a49f92f361806fda6b58d990cba95fb93791355b6329816",
+            "characters": 12121,
+            "tokens": 2964
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "after": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 9166,
+        "unique_tokens": 9166,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "b472c5da0cab400418768a33431f1a9eb8957f8c924ed58dcf71d3dd58cad6b5",
+            "characters": 8961,
+            "tokens": 1885
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "d670f05937492c4264f4da55335eeeec83ebba35732e2d30f01f2087921ef9bf",
+            "characters": 6935,
+            "tokens": 1467
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "11c664a11981542b7931a5a9b5a9a96588d74d4f03a7ce184381d2b63c489e31",
+            "characters": 5649,
+            "tokens": 1159
+          },
+          {
+            "path": "developing-video-synopses/SKILL.md",
+            "sha256": "db66b9153d7010907b96a6a2a85145a7993eb0883e3697e7288721a860c3c6a3",
+            "characters": 5610,
+            "tokens": 1083
+          },
+          {
+            "path": "developing-video-synopses/references/synopsis-craft.md",
+            "sha256": "7054146b42f40f2f6a49f92f361806fda6b58d990cba95fb93791355b6329816",
+            "characters": 12121,
+            "tokens": 2964
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "reduction_percent": -3.035,
+      "status": "static_measured; actual consumption/behavior unverified"
+    },
+    {
+      "profile": "one_lighting_plan_via_R13",
+      "before": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 22538,
+        "unique_tokens": 22538,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "94d403ddb50b34549a44f407c5d72830478ee5bc08ad1257d7b726e5bce817cb",
+            "characters": 8534,
+            "tokens": 1801
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "454128623227d8da0696c3c6c7c86a3249fbbe26ea87c8d06dfdd7f23ecd75a1",
+            "characters": 6883,
+            "tokens": 1460
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "677872cc9db0178b7d1e1bdec9a0ad5c3d7bbd8841fd0aca7d133c6aae0a318c",
+            "characters": 4799,
+            "tokens": 980
+          },
+          {
+            "path": "video-production-assets/SKILL.md",
+            "sha256": "a134e1411eb1f9547f9e5d6c84eea8ebaf71d7223a60252049c00d512c482160",
+            "characters": 15904,
+            "tokens": 7093
+          },
+          {
+            "path": "video-production-assets/references/contract.md",
+            "sha256": "aa16080455ca5a2a50e04ccef6534e8780adf63a9421aad4bbc7c6aa9e688e14",
+            "characters": 19200,
+            "tokens": 8029
+          },
+          {
+            "path": "video-production-assets/references/07-lighting.md",
+            "sha256": "ec7f36c0360d92556f361d8ec3382b0070c1340be6b28af7eabf21ec66143832",
+            "characters": 4385,
+            "tokens": 2255
+          },
+          {
+            "path": "video-production-assets/assets/07-lighting-template.md",
+            "sha256": "b4ac243ee831349c71815f9ec9902b57b20b75fb7719444635a89b972cc53ebc",
+            "characters": 601,
+            "tokens": 312
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "after": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 11598,
+        "unique_tokens": 11598,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "b472c5da0cab400418768a33431f1a9eb8957f8c924ed58dcf71d3dd58cad6b5",
+            "characters": 8961,
+            "tokens": 1885
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "d670f05937492c4264f4da55335eeeec83ebba35732e2d30f01f2087921ef9bf",
+            "characters": 6935,
+            "tokens": 1467
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "11c664a11981542b7931a5a9b5a9a96588d74d4f03a7ce184381d2b63c489e31",
+            "characters": 5649,
+            "tokens": 1159
+          },
+          {
+            "path": "video-production-assets/SKILL.md",
+            "sha256": "118bba02ed1899422236abc3d05ff3b2062c461fdcc2eb91a9ab5915fd598d14",
+            "characters": 6759,
+            "tokens": 2755
+          },
+          {
+            "path": "video-production-assets/references/contract-core.md",
+            "sha256": "7e550d6cadfd3891bbd102d5c9a90a301044814778fb207327842021e3286128",
+            "characters": 2662,
+            "tokens": 1157
+          },
+          {
+            "path": "video-production-assets/references/07-lighting.md",
+            "sha256": "ec7f36c0360d92556f361d8ec3382b0070c1340be6b28af7eabf21ec66143832",
+            "characters": 4385,
+            "tokens": 2255
+          },
+          {
+            "path": "video-production-assets/assets/07-lighting-template.md",
+            "sha256": "b4ac243ee831349c71815f9ec9902b57b20b75fb7719444635a89b972cc53ebc",
+            "characters": 601,
+            "tokens": 312
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "reduction_percent": 48.54,
+      "status": "static_measured; actual consumption/behavior unverified"
+    },
+    {
+      "profile": "ordinary_text_storyboard_via_R10",
+      "before": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 25058,
+        "unique_tokens": 25058,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "94d403ddb50b34549a44f407c5d72830478ee5bc08ad1257d7b726e5bce817cb",
+            "characters": 8534,
+            "tokens": 1801
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "454128623227d8da0696c3c6c7c86a3249fbbe26ea87c8d06dfdd7f23ecd75a1",
+            "characters": 6883,
+            "tokens": 1460
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "677872cc9db0178b7d1e1bdec9a0ad5c3d7bbd8841fd0aca7d133c6aae0a318c",
+            "characters": 4799,
+            "tokens": 980
+          },
+          {
+            "path": "storyboarding-video/SKILL.md",
+            "sha256": "00e47fc236b84467e0d2905508ceb391eaf4e6a2be5e91e634daace7f8fc67fd",
+            "characters": 15591,
+            "tokens": 3272
+          },
+          {
+            "path": "video-production-assets/references/storyboard-contract.md",
+            "sha256": "0e68ec374fbe28b189f4a8bd8602f27e8b2cd0884d7f84eae1be23802f98dc4f",
+            "characters": 32631,
+            "tokens": 16937
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "after": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 18791,
+        "unique_tokens": 18791,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "b472c5da0cab400418768a33431f1a9eb8957f8c924ed58dcf71d3dd58cad6b5",
+            "characters": 8961,
+            "tokens": 1885
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "d670f05937492c4264f4da55335eeeec83ebba35732e2d30f01f2087921ef9bf",
+            "characters": 6935,
+            "tokens": 1467
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "11c664a11981542b7931a5a9b5a9a96588d74d4f03a7ce184381d2b63c489e31",
+            "characters": 5649,
+            "tokens": 1159
+          },
+          {
+            "path": "storyboarding-video/SKILL.md",
+            "sha256": "dfd5623c5a9fbf6280feebf8a55d7cf29994a5e1684a94a139eb707924e3a5e9",
+            "characters": 6385,
+            "tokens": 1237
+          },
+          {
+            "path": "video-production-assets/references/storyboard-contract.md",
+            "sha256": "22e9933fadc678e07b46ef76883dc2ed25a43fb66a16fb72d03376b6f0b44e7f",
+            "characters": 9897,
+            "tokens": 5245
+          },
+          {
+            "path": "video-production-assets/references/storyboard-direction.md",
+            "sha256": "3145a8ed3dbe2116897ff023404ee1b853874bdfdbfed9eb30e09cefd195ea18",
+            "characters": 12796,
+            "tokens": 7190
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "reduction_percent": 25.01,
+      "status": "static_measured; actual consumption/behavior unverified"
+    },
+    {
+      "profile": "ordinary_text_storyboard_with_common_contract",
+      "before": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 33087,
+        "unique_tokens": 33087,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "94d403ddb50b34549a44f407c5d72830478ee5bc08ad1257d7b726e5bce817cb",
+            "characters": 8534,
+            "tokens": 1801
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "454128623227d8da0696c3c6c7c86a3249fbbe26ea87c8d06dfdd7f23ecd75a1",
+            "characters": 6883,
+            "tokens": 1460
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "677872cc9db0178b7d1e1bdec9a0ad5c3d7bbd8841fd0aca7d133c6aae0a318c",
+            "characters": 4799,
+            "tokens": 980
+          },
+          {
+            "path": "storyboarding-video/SKILL.md",
+            "sha256": "00e47fc236b84467e0d2905508ceb391eaf4e6a2be5e91e634daace7f8fc67fd",
+            "characters": 15591,
+            "tokens": 3272
+          },
+          {
+            "path": "video-production-assets/references/storyboard-contract.md",
+            "sha256": "0e68ec374fbe28b189f4a8bd8602f27e8b2cd0884d7f84eae1be23802f98dc4f",
+            "characters": 32631,
+            "tokens": 16937
+          },
+          {
+            "path": "video-production-assets/references/contract.md",
+            "sha256": "aa16080455ca5a2a50e04ccef6534e8780adf63a9421aad4bbc7c6aa9e688e14",
+            "characters": 19200,
+            "tokens": 8029
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "after": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 19948,
+        "unique_tokens": 19948,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "b472c5da0cab400418768a33431f1a9eb8957f8c924ed58dcf71d3dd58cad6b5",
+            "characters": 8961,
+            "tokens": 1885
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "d670f05937492c4264f4da55335eeeec83ebba35732e2d30f01f2087921ef9bf",
+            "characters": 6935,
+            "tokens": 1467
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "11c664a11981542b7931a5a9b5a9a96588d74d4f03a7ce184381d2b63c489e31",
+            "characters": 5649,
+            "tokens": 1159
+          },
+          {
+            "path": "storyboarding-video/SKILL.md",
+            "sha256": "dfd5623c5a9fbf6280feebf8a55d7cf29994a5e1684a94a139eb707924e3a5e9",
+            "characters": 6385,
+            "tokens": 1237
+          },
+          {
+            "path": "video-production-assets/references/storyboard-contract.md",
+            "sha256": "22e9933fadc678e07b46ef76883dc2ed25a43fb66a16fb72d03376b6f0b44e7f",
+            "characters": 9897,
+            "tokens": 5245
+          },
+          {
+            "path": "video-production-assets/references/contract-core.md",
+            "sha256": "7e550d6cadfd3891bbd102d5c9a90a301044814778fb207327842021e3286128",
+            "characters": 2662,
+            "tokens": 1157
+          },
+          {
+            "path": "video-production-assets/references/storyboard-direction.md",
+            "sha256": "3145a8ed3dbe2116897ff023404ee1b853874bdfdbfed9eb30e09cefd195ea18",
+            "characters": 12796,
+            "tokens": 7190
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "reduction_percent": 39.71,
+      "status": "static_measured; actual consumption/behavior unverified"
+    },
+    {
+      "profile": "compact_new_character_no_typology",
+      "before": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 17375,
+        "unique_tokens": 17375,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "94d403ddb50b34549a44f407c5d72830478ee5bc08ad1257d7b726e5bce817cb",
+            "characters": 8534,
+            "tokens": 1801
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "454128623227d8da0696c3c6c7c86a3249fbbe26ea87c8d06dfdd7f23ecd75a1",
+            "characters": 6883,
+            "tokens": 1460
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "677872cc9db0178b7d1e1bdec9a0ad5c3d7bbd8841fd0aca7d133c6aae0a318c",
+            "characters": 4799,
+            "tokens": 980
+          },
+          {
+            "path": "designing-video-character-sheets/SKILL.md",
+            "sha256": "85b7c3c343e1002407e90c754a30f867906f88024c9668541a3516d44e154115",
+            "characters": 16193,
+            "tokens": 3183
+          },
+          {
+            "path": "designing-video-character-sheets/references/character-craft.md",
+            "sha256": "27b055739dc5f84d8c6ce73c3198110b0247a216fa0ca025854ac9a96ab77bfd",
+            "characters": 19074,
+            "tokens": 3865
+          },
+          {
+            "path": "designing-video-character-sheets/references/appearance-language-catalog.md",
+            "sha256": "cfce6972bca12ed35f52e263bc0beaf29e1a15cebb334b70b0e9f24464323c76",
+            "characters": 2245,
+            "tokens": 1102
+          },
+          {
+            "path": "designing-character-personas/SKILL.md",
+            "sha256": "fead5083b108cf36e32cb3a90fc2ea242f20ce1742b6e0e5dd1fe26fcccd6cca",
+            "characters": 9011,
+            "tokens": 1857
+          },
+          {
+            "path": "designing-character-personas/references/expression-voice-bridge.md",
+            "sha256": "2cbaef081f6371652c101519eee3ae0705a72f2eec75233b276dde7352aef446",
+            "characters": 3529,
+            "tokens": 729
+          },
+          {
+            "path": "designing-character-personas/assets/persona-template.md",
+            "sha256": "07bdf75e35152ccb56d357a99baacb9fc6b541bf5314efd42627d2ef7065a6a8",
+            "characters": 8116,
+            "tokens": 1790
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "after": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 16545,
+        "unique_tokens": 16545,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "b472c5da0cab400418768a33431f1a9eb8957f8c924ed58dcf71d3dd58cad6b5",
+            "characters": 8961,
+            "tokens": 1885
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "d670f05937492c4264f4da55335eeeec83ebba35732e2d30f01f2087921ef9bf",
+            "characters": 6935,
+            "tokens": 1467
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "11c664a11981542b7931a5a9b5a9a96588d74d4f03a7ce184381d2b63c489e31",
+            "characters": 5649,
+            "tokens": 1159
+          },
+          {
+            "path": "designing-video-character-sheets/SKILL.md",
+            "sha256": "c17d551570ce64d83fa92b4268fc88ab7108718d86f7820806fa0696082ceefc",
+            "characters": 16203,
+            "tokens": 3185
+          },
+          {
+            "path": "designing-video-character-sheets/references/character-craft.md",
+            "sha256": "27b055739dc5f84d8c6ce73c3198110b0247a216fa0ca025854ac9a96ab77bfd",
+            "characters": 19074,
+            "tokens": 3865
+          },
+          {
+            "path": "designing-character-personas/SKILL.md",
+            "sha256": "fead5083b108cf36e32cb3a90fc2ea242f20ce1742b6e0e5dd1fe26fcccd6cca",
+            "characters": 9011,
+            "tokens": 1857
+          },
+          {
+            "path": "designing-character-personas/references/expression-voice-bridge.md",
+            "sha256": "2cbaef081f6371652c101519eee3ae0705a72f2eec75233b276dde7352aef446",
+            "characters": 3529,
+            "tokens": 729
+          },
+          {
+            "path": "designing-character-personas/assets/persona-template.md",
+            "sha256": "07bdf75e35152ccb56d357a99baacb9fc6b541bf5314efd42627d2ef7065a6a8",
+            "characters": 8116,
+            "tokens": 1790
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "reduction_percent": 4.777,
+      "status": "static_measured; actual consumption/behavior unverified"
+    },
+    {
+      "profile": "new_fictional_character_default_both_lenses",
+      "before": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 19022,
+        "unique_tokens": 19022,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "94d403ddb50b34549a44f407c5d72830478ee5bc08ad1257d7b726e5bce817cb",
+            "characters": 8534,
+            "tokens": 1801
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "454128623227d8da0696c3c6c7c86a3249fbbe26ea87c8d06dfdd7f23ecd75a1",
+            "characters": 6883,
+            "tokens": 1460
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "677872cc9db0178b7d1e1bdec9a0ad5c3d7bbd8841fd0aca7d133c6aae0a318c",
+            "characters": 4799,
+            "tokens": 980
+          },
+          {
+            "path": "designing-video-character-sheets/SKILL.md",
+            "sha256": "85b7c3c343e1002407e90c754a30f867906f88024c9668541a3516d44e154115",
+            "characters": 16193,
+            "tokens": 3183
+          },
+          {
+            "path": "designing-video-character-sheets/references/character-craft.md",
+            "sha256": "27b055739dc5f84d8c6ce73c3198110b0247a216fa0ca025854ac9a96ab77bfd",
+            "characters": 19074,
+            "tokens": 3865
+          },
+          {
+            "path": "designing-video-character-sheets/references/appearance-language-catalog.md",
+            "sha256": "cfce6972bca12ed35f52e263bc0beaf29e1a15cebb334b70b0e9f24464323c76",
+            "characters": 2245,
+            "tokens": 1102
+          },
+          {
+            "path": "designing-character-personas/SKILL.md",
+            "sha256": "fead5083b108cf36e32cb3a90fc2ea242f20ce1742b6e0e5dd1fe26fcccd6cca",
+            "characters": 9011,
+            "tokens": 1857
+          },
+          {
+            "path": "designing-character-personas/references/expression-voice-bridge.md",
+            "sha256": "2cbaef081f6371652c101519eee3ae0705a72f2eec75233b276dde7352aef446",
+            "characters": 3529,
+            "tokens": 729
+          },
+          {
+            "path": "designing-character-personas/references/mbti-lens.md",
+            "sha256": "8763bb1326ae260aac74664b3e8631f8d5846dae097d8b34de9d2dd19a942684",
+            "characters": 4121,
+            "tokens": 871
+          },
+          {
+            "path": "designing-character-personas/references/enneagram-lens.md",
+            "sha256": "50cf49853cfb9648afa4bad7c91fda749473c2cf12172c663b83db835ab776d6",
+            "characters": 3470,
+            "tokens": 776
+          },
+          {
+            "path": "designing-character-personas/assets/persona-template.md",
+            "sha256": "07bdf75e35152ccb56d357a99baacb9fc6b541bf5314efd42627d2ef7065a6a8",
+            "characters": 8116,
+            "tokens": 1790
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "after": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 19294,
+        "unique_tokens": 19294,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "b472c5da0cab400418768a33431f1a9eb8957f8c924ed58dcf71d3dd58cad6b5",
+            "characters": 8961,
+            "tokens": 1885
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "d670f05937492c4264f4da55335eeeec83ebba35732e2d30f01f2087921ef9bf",
+            "characters": 6935,
+            "tokens": 1467
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "11c664a11981542b7931a5a9b5a9a96588d74d4f03a7ce184381d2b63c489e31",
+            "characters": 5649,
+            "tokens": 1159
+          },
+          {
+            "path": "designing-video-character-sheets/SKILL.md",
+            "sha256": "c17d551570ce64d83fa92b4268fc88ab7108718d86f7820806fa0696082ceefc",
+            "characters": 16203,
+            "tokens": 3185
+          },
+          {
+            "path": "designing-video-character-sheets/references/character-craft.md",
+            "sha256": "27b055739dc5f84d8c6ce73c3198110b0247a216fa0ca025854ac9a96ab77bfd",
+            "characters": 19074,
+            "tokens": 3865
+          },
+          {
+            "path": "designing-character-personas/SKILL.md",
+            "sha256": "fead5083b108cf36e32cb3a90fc2ea242f20ce1742b6e0e5dd1fe26fcccd6cca",
+            "characters": 9011,
+            "tokens": 1857
+          },
+          {
+            "path": "designing-character-personas/references/expression-voice-bridge.md",
+            "sha256": "2cbaef081f6371652c101519eee3ae0705a72f2eec75233b276dde7352aef446",
+            "characters": 3529,
+            "tokens": 729
+          },
+          {
+            "path": "designing-character-personas/references/mbti-lens.md",
+            "sha256": "8763bb1326ae260aac74664b3e8631f8d5846dae097d8b34de9d2dd19a942684",
+            "characters": 4121,
+            "tokens": 871
+          },
+          {
+            "path": "designing-character-personas/references/enneagram-lens.md",
+            "sha256": "50cf49853cfb9648afa4bad7c91fda749473c2cf12172c663b83db835ab776d6",
+            "characters": 3470,
+            "tokens": 776
+          },
+          {
+            "path": "designing-character-personas/assets/persona-template.md",
+            "sha256": "07bdf75e35152ccb56d357a99baacb9fc6b541bf5314efd42627d2ef7065a6a8",
+            "characters": 8116,
+            "tokens": 1790
+          },
+          {
+            "path": "designing-video-character-sheets/references/appearance-language-catalog.md",
+            "sha256": "cfce6972bca12ed35f52e263bc0beaf29e1a15cebb334b70b0e9f24464323c76",
+            "characters": 2245,
+            "tokens": 1102
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "reduction_percent": -1.43,
+      "status": "static_measured; actual consumption/behavior unverified"
+    },
+    {
+      "profile": "full_image_package_entry_only_R24",
+      "before": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 33606,
+        "unique_tokens": 33606,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "94d403ddb50b34549a44f407c5d72830478ee5bc08ad1257d7b726e5bce817cb",
+            "characters": 8534,
+            "tokens": 1801
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "454128623227d8da0696c3c6c7c86a3249fbbe26ea87c8d06dfdd7f23ecd75a1",
+            "characters": 6883,
+            "tokens": 1460
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "677872cc9db0178b7d1e1bdec9a0ad5c3d7bbd8841fd0aca7d133c6aae0a318c",
+            "characters": 4799,
+            "tokens": 980
+          },
+          {
+            "path": "video-production-assets/references/preproduction-review.md",
+            "sha256": "9b74e8d9ac2a483cd5974317078c55a4ce1fe2c8a5fc6beac18bb74caf989973",
+            "characters": 9431,
+            "tokens": 3791
+          },
+          {
+            "path": "video-production-assets/references/storyboard-contract.md",
+            "sha256": "0e68ec374fbe28b189f4a8bd8602f27e8b2cd0884d7f84eae1be23802f98dc4f",
+            "characters": 32631,
+            "tokens": 16937
+          },
+          {
+            "path": "video-production-assets/references/contract.md",
+            "sha256": "aa16080455ca5a2a50e04ccef6534e8780adf63a9421aad4bbc7c6aa9e688e14",
+            "characters": 19200,
+            "tokens": 8029
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "after": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 25664,
+        "unique_tokens": 25664,
+        "files": [
+          {
+            "path": "creative-production/SKILL.md",
+            "sha256": "b472c5da0cab400418768a33431f1a9eb8957f8c924ed58dcf71d3dd58cad6b5",
+            "characters": 8961,
+            "tokens": 1885
+          },
+          {
+            "path": "creative-production/references/routing.csv",
+            "sha256": "d670f05937492c4264f4da55335eeeec83ebba35732e2d30f01f2087921ef9bf",
+            "characters": 6935,
+            "tokens": 1467
+          },
+          {
+            "path": "creative-production/references/routing-disambiguation.csv",
+            "sha256": "0b823c05695a2d2f311cbae52ada5c028e6bd233b147db9103cfa4f008049a90",
+            "characters": 2593,
+            "tokens": 608
+          },
+          {
+            "path": "creative-production/references/policy.md",
+            "sha256": "11c664a11981542b7931a5a9b5a9a96588d74d4f03a7ce184381d2b63c489e31",
+            "characters": 5649,
+            "tokens": 1159
+          },
+          {
+            "path": "video-production-assets/references/preproduction-review.md",
+            "sha256": "63da92fa1af5757c22d512098ce74bd49a6b2f8f607370c17e97565feb877c80",
+            "characters": 12284,
+            "tokens": 5163
+          },
+          {
+            "path": "video-production-assets/references/storyboard-contract.md",
+            "sha256": "22e9933fadc678e07b46ef76883dc2ed25a43fb66a16fb72d03376b6f0b44e7f",
+            "characters": 9897,
+            "tokens": 5245
+          },
+          {
+            "path": "video-production-assets/references/storyboard-direction.md",
+            "sha256": "3145a8ed3dbe2116897ff023404ee1b853874bdfdbfed9eb30e09cefd195ea18",
+            "characters": 12796,
+            "tokens": 7190
+          },
+          {
+            "path": "video-production-assets/references/contract-package.md",
+            "sha256": "d53fd945cd561ca6ada77bb7bae558a9a6d8cbf89e4946cb9bd0f58f081934ea",
+            "characters": 6740,
+            "tokens": 2947
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "reduction_percent": 23.633,
+      "status": "static_measured; actual consumption/behavior unverified"
+    },
+    {
+      "profile": "dependent_video_guard_plus_executor_only",
+      "before": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 15726,
+        "unique_tokens": 15726,
+        "files": [
+          {
+            "path": "higgsfield-generate/SKILL.md",
+            "sha256": "157ace6fa0bc2d7a332be1ca404eb1007eb4dd03fe0fdeab5c76828d5312379b",
+            "characters": 20189,
+            "tokens": 4540
+          },
+          {
+            "path": "video-production-assets/references/26-state-causality-continuity.md",
+            "sha256": "a53f5a07a453c1326077af76dc721d1b829eaf96ac3c2b57f2b79074f2e89ef4",
+            "characters": 7059,
+            "tokens": 4158
+          },
+          {
+            "path": "video-production-assets/references/sequence-execution.md",
+            "sha256": "4b2273183fb5020152222c4603203c6e234e858f7c091daefd1ee169997ebd16",
+            "characters": 12456,
+            "tokens": 5127
+          },
+          {
+            "path": "higgsfield-generate/references/package-gate.md",
+            "sha256": "ac8e3520a9ed0ba712d8d42ace36e8354b62fe93059dbf1bb4f64f30d334c073",
+            "characters": 8937,
+            "tokens": 1901
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "after": {
+        "status": "measured",
+        "tokenizer": "o200k_base (reference, not host billing)",
+        "total_tokens": 14415,
+        "unique_tokens": 14415,
+        "files": [
+          {
+            "path": "higgsfield-generate/SKILL.md",
+            "sha256": "f2bcb00c9d472a585acf2cb8f6e10b6762f182b64bf1a773919382753000fc8c",
+            "characters": 13837,
+            "tokens": 2946
+          },
+          {
+            "path": "video-production-assets/references/26-state-causality-continuity.md",
+            "sha256": "a53f5a07a453c1326077af76dc721d1b829eaf96ac3c2b57f2b79074f2e89ef4",
+            "characters": 7059,
+            "tokens": 4158
+          },
+          {
+            "path": "video-production-assets/references/sequence-execution.md",
+            "sha256": "c264c9f5d7bc7ed7583b78ec86dfa87a01bed77593bdf513c7c59b1d083de7cd",
+            "characters": 12873,
+            "tokens": 5289
+          },
+          {
+            "path": "higgsfield-generate/references/package-gate.md",
+            "sha256": "75a4ad27018c9c3d3c661640e3db4a7324d4d892d79b2a6cd9d4571d9f2a8712",
+            "characters": 9481,
+            "tokens": 2022
+          }
+        ],
+        "reads": [],
+        "issues": [],
+        "billing_tokens": null
+      },
+      "reduction_percent": 8.337,
+      "status": "static_measured; actual consumption/behavior unverified"
+    }
+  ],
+  "entrypoints": {
+    "before": {
+      "status": "measured",
+      "tokenizer": "o200k_base (reference, not host billing)",
+      "total_tokens": 61031,
+      "unique_tokens": 61031,
+      "files": [
+        {
+          "path": "creative-production/SKILL.md",
+          "sha256": "94d403ddb50b34549a44f407c5d72830478ee5bc08ad1257d7b726e5bce817cb",
+          "characters": 8534,
+          "tokens": 1801
+        },
+        {
+          "path": "topic-demand-selection/SKILL.md",
+          "sha256": "cfb69cd7cf51e5da1b6f8dce3a4c799bf5231d3b7bb27eb12051b4ab08551e16",
+          "characters": 8969,
+          "tokens": 1697
+        },
+        {
+          "path": "searching-social-media/SKILL.md",
+          "sha256": "0669956e4b40cd765639c7da620f0b25a849bf077e4d42fc138f3fa495712ad4",
+          "characters": 6088,
+          "tokens": 1224
+        },
+        {
+          "path": "video-production-assets/SKILL.md",
+          "sha256": "a134e1411eb1f9547f9e5d6c84eea8ebaf71d7223a60252049c00d512c482160",
+          "characters": 15904,
+          "tokens": 7093
+        },
+        {
+          "path": "camera-spatial-design/SKILL.md",
+          "sha256": "6a6030d79de896489c9ddd7f75aead9efeeb60f09ac32e7091211006c6796861",
+          "characters": 7835,
+          "tokens": 2690
+        },
+        {
+          "path": "camera-motion-reference-analysis/SKILL.md",
+          "sha256": "e98fc788e0ac171129886d0e898b9971fe6cc07dd6f8cfb926b7ef4b83ab214e",
+          "characters": 2415,
+          "tokens": 975
+        },
+        {
+          "path": "ai-camera-control/SKILL.md",
+          "sha256": "d0cdc90a5263ed9746fb8191c960d749514b0c8b52ef132c2271273680a064bb",
+          "characters": 3521,
+          "tokens": 1399
+        },
+        {
+          "path": "blender-previsualization/SKILL.md",
+          "sha256": "a699475ebf8e902b864d72c2752604c8632a4df676d08e38cd4c184884528913",
+          "characters": 9842,
+          "tokens": 3307
+        },
+        {
+          "path": "open-3d-production/SKILL.md",
+          "sha256": "d013de8c7c5b949beb848f380ba71449918c1f4a86fa8a62bc091e69b3cda53d",
+          "characters": 4566,
+          "tokens": 849
+        },
+        {
+          "path": "orchestrating-video-preproduction/SKILL.md",
+          "sha256": "daba0cad7874fe1b3a2470a5ac26b039e3165cb148977b8226bed283a7a49ba9",
+          "characters": 10783,
+          "tokens": 2277
+        },
+        {
+          "path": "developing-video-synopses/SKILL.md",
+          "sha256": "db66b9153d7010907b96a6a2a85145a7993eb0883e3697e7288721a860c3c6a3",
+          "characters": 5610,
+          "tokens": 1083
+        },
+        {
+          "path": "designing-video-character-sheets/SKILL.md",
+          "sha256": "85b7c3c343e1002407e90c754a30f867906f88024c9668541a3516d44e154115",
+          "characters": 16193,
+          "tokens": 3183
+        },
+        {
+          "path": "designing-character-personas/SKILL.md",
+          "sha256": "fead5083b108cf36e32cb3a90fc2ea242f20ce1742b6e0e5dd1fe26fcccd6cca",
+          "characters": 9011,
+          "tokens": 1857
+        },
+        {
+          "path": "storyboarding-video/SKILL.md",
+          "sha256": "00e47fc236b84467e0d2905508ceb391eaf4e6a2be5e91e634daace7f8fc67fd",
+          "characters": 15591,
+          "tokens": 3272
+        },
+        {
+          "path": "silent-visual-storytelling/SKILL.md",
+          "sha256": "8c55eaed914fe510c6a325725e888af81084c5112ea64d4688073f008a160ed8",
+          "characters": 2810,
+          "tokens": 1464
+        },
+        {
+          "path": "animatic-direction/SKILL.md",
+          "sha256": "3a61d941fa58a81f91a92a8e99ab2f5dad33d9bc1e0955c366ca5e68fbb39ea9",
+          "characters": 2542,
+          "tokens": 1240
+        },
+        {
+          "path": "storytelling-with-still-images/SKILL.md",
+          "sha256": "58058b21f7eebeb5052b3cb29598401c7978ace442516f0c3cc14e7bcfeeb9df",
+          "characters": 7058,
+          "tokens": 1549
+        },
+        {
+          "path": "recording-production-history/SKILL.md",
+          "sha256": "8c4d0a7972f468841ce082b542a58883aa9fa74118521a008afb54bb48f02e5f",
+          "characters": 7166,
+          "tokens": 2717
+        },
+        {
+          "path": "higgsfield-generate/SKILL.md",
+          "sha256": "157ace6fa0bc2d7a332be1ca404eb1007eb4dd03fe0fdeab5c76828d5312379b",
+          "characters": 20189,
+          "tokens": 4540
+        },
+        {
+          "path": "higgsfield-soul-id/SKILL.md",
+          "sha256": "13d0bcf23b0b0bb60bd63dfb0c0a847ee004fb8568d5f4825f15e261c6319cd5",
+          "characters": 8521,
+          "tokens": 1895
+        },
+        {
+          "path": "higgsfield-video-explainer/SKILL.md",
+          "sha256": "3845363e2828a39dbd75c2047cffef4754916ccfbd8319bed6325e088e41ce55",
+          "characters": 20710,
+          "tokens": 4620
+        },
+        {
+          "path": "higgsfield-video-replicate/SKILL.md",
+          "sha256": "e5f2d083089f7105ea124b33fd34ee09b0ba552f50f955c68330ab66e3206106",
+          "characters": 16531,
+          "tokens": 3716
+        },
+        {
+          "path": "higgsfield-youtube-thumbnail/SKILL.md",
+          "sha256": "f7d8d15037e21b39222c0b46cac7fb59932de8899d61e2039d23ec3ff57431e3",
+          "characters": 10185,
+          "tokens": 2127
+        },
+        {
+          "path": "community-shorts-stills-pipeline/SKILL.md",
+          "sha256": "f8717852323496b418b554648c385f9303ac49e4d8f5ebbbebe3614c898a420a",
+          "characters": 3132,
+          "tokens": 1153
+        },
+        {
+          "path": "silent-satire-animatic/SKILL.md",
+          "sha256": "faf8eb5406c68f2db9226e6116cc7ff7743883bcc8d25936104c5337a783822c",
+          "characters": 6117,
+          "tokens": 3303
+        }
+      ],
+      "reads": [],
+      "issues": [],
+      "billing_tokens": null
+    },
+    "after": {
+      "status": "measured",
+      "tokenizer": "o200k_base (reference, not host billing)",
+      "total_tokens": 47684,
+      "unique_tokens": 47684,
+      "files": [
+        {
+          "path": "creative-production/SKILL.md",
+          "sha256": "b472c5da0cab400418768a33431f1a9eb8957f8c924ed58dcf71d3dd58cad6b5",
+          "characters": 8961,
+          "tokens": 1885
+        },
+        {
+          "path": "topic-demand-selection/SKILL.md",
+          "sha256": "cfb69cd7cf51e5da1b6f8dce3a4c799bf5231d3b7bb27eb12051b4ab08551e16",
+          "characters": 8969,
+          "tokens": 1697
+        },
+        {
+          "path": "searching-social-media/SKILL.md",
+          "sha256": "0669956e4b40cd765639c7da620f0b25a849bf077e4d42fc138f3fa495712ad4",
+          "characters": 6088,
+          "tokens": 1224
+        },
+        {
+          "path": "video-production-assets/SKILL.md",
+          "sha256": "118bba02ed1899422236abc3d05ff3b2062c461fdcc2eb91a9ab5915fd598d14",
+          "characters": 6759,
+          "tokens": 2755
+        },
+        {
+          "path": "camera-spatial-design/SKILL.md",
+          "sha256": "6a6030d79de896489c9ddd7f75aead9efeeb60f09ac32e7091211006c6796861",
+          "characters": 7835,
+          "tokens": 2690
+        },
+        {
+          "path": "camera-motion-reference-analysis/SKILL.md",
+          "sha256": "e98fc788e0ac171129886d0e898b9971fe6cc07dd6f8cfb926b7ef4b83ab214e",
+          "characters": 2415,
+          "tokens": 975
+        },
+        {
+          "path": "ai-camera-control/SKILL.md",
+          "sha256": "d0cdc90a5263ed9746fb8191c960d749514b0c8b52ef132c2271273680a064bb",
+          "characters": 3521,
+          "tokens": 1399
+        },
+        {
+          "path": "blender-previsualization/SKILL.md",
+          "sha256": "e7c61e84b4c1dc87e57cef54b8ca388993a6f8279626bc34c959fa4a1fc32747",
+          "characters": 6361,
+          "tokens": 1657
+        },
+        {
+          "path": "open-3d-production/SKILL.md",
+          "sha256": "d013de8c7c5b949beb848f380ba71449918c1f4a86fa8a62bc091e69b3cda53d",
+          "characters": 4566,
+          "tokens": 849
+        },
+        {
+          "path": "orchestrating-video-preproduction/SKILL.md",
+          "sha256": "bfbe0308975e193b7c63e4f1b30f7a4881daa9c0c8e7a39a593b6cf392c8ccac",
+          "characters": 11093,
+          "tokens": 2337
+        },
+        {
+          "path": "developing-video-synopses/SKILL.md",
+          "sha256": "db66b9153d7010907b96a6a2a85145a7993eb0883e3697e7288721a860c3c6a3",
+          "characters": 5610,
+          "tokens": 1083
+        },
+        {
+          "path": "designing-video-character-sheets/SKILL.md",
+          "sha256": "c17d551570ce64d83fa92b4268fc88ab7108718d86f7820806fa0696082ceefc",
+          "characters": 16203,
+          "tokens": 3185
+        },
+        {
+          "path": "designing-character-personas/SKILL.md",
+          "sha256": "fead5083b108cf36e32cb3a90fc2ea242f20ce1742b6e0e5dd1fe26fcccd6cca",
+          "characters": 9011,
+          "tokens": 1857
+        },
+        {
+          "path": "storyboarding-video/SKILL.md",
+          "sha256": "dfd5623c5a9fbf6280feebf8a55d7cf29994a5e1684a94a139eb707924e3a5e9",
+          "characters": 6385,
+          "tokens": 1237
+        },
+        {
+          "path": "silent-visual-storytelling/SKILL.md",
+          "sha256": "8c55eaed914fe510c6a325725e888af81084c5112ea64d4688073f008a160ed8",
+          "characters": 2810,
+          "tokens": 1464
+        },
+        {
+          "path": "animatic-direction/SKILL.md",
+          "sha256": "3a61d941fa58a81f91a92a8e99ab2f5dad33d9bc1e0955c366ca5e68fbb39ea9",
+          "characters": 2542,
+          "tokens": 1240
+        },
+        {
+          "path": "storytelling-with-still-images/SKILL.md",
+          "sha256": "58058b21f7eebeb5052b3cb29598401c7978ace442516f0c3cc14e7bcfeeb9df",
+          "characters": 7058,
+          "tokens": 1549
+        },
+        {
+          "path": "recording-production-history/SKILL.md",
+          "sha256": "1a351921e9cfcb17007c0325656edac90a60010f9fdc80d6d409ed43d7d1a693",
+          "characters": 4091,
+          "tokens": 1544
+        },
+        {
+          "path": "higgsfield-generate/SKILL.md",
+          "sha256": "f2bcb00c9d472a585acf2cb8f6e10b6762f182b64bf1a773919382753000fc8c",
+          "characters": 13837,
+          "tokens": 2946
+        },
+        {
+          "path": "higgsfield-soul-id/SKILL.md",
+          "sha256": "13d0bcf23b0b0bb60bd63dfb0c0a847ee004fb8568d5f4825f15e261c6319cd5",
+          "characters": 8521,
+          "tokens": 1895
+        },
+        {
+          "path": "higgsfield-video-explainer/SKILL.md",
+          "sha256": "8a5f8948eb69ac826799d7e2045f5c1c6166d0c102db801fbbcb1b5b25e49c68",
+          "characters": 13704,
+          "tokens": 2880
+        },
+        {
+          "path": "higgsfield-video-replicate/SKILL.md",
+          "sha256": "eb5466858cc6d334e007e622c6ad7018c77b420e2a131b14373823ca136cfb60",
+          "characters": 12671,
+          "tokens": 2716
+        },
+        {
+          "path": "higgsfield-youtube-thumbnail/SKILL.md",
+          "sha256": "cb9922839fcf469785bafa10f7e2cce4b6efc94f212c2d926fe205beb201d129",
+          "characters": 10412,
+          "tokens": 2164
+        },
+        {
+          "path": "community-shorts-stills-pipeline/SKILL.md",
+          "sha256": "f8717852323496b418b554648c385f9303ac49e4d8f5ebbbebe3614c898a420a",
+          "characters": 3132,
+          "tokens": 1153
+        },
+        {
+          "path": "silent-satire-animatic/SKILL.md",
+          "sha256": "faf8eb5406c68f2db9226e6116cc7ff7743883bcc8d25936104c5337a783822c",
+          "characters": 6117,
+          "tokens": 3303
+        }
+      ],
+      "reads": [],
+      "issues": [],
+      "billing_tokens": null
+    }
+  },
+  "behavior": {
+    "status": "blocked",
+    "reason": "separate model/budget approval required",
+    "fresh_context_probes_run": 0,
+    "max_planned": 56,
+    "returned_text_tokens": null,
+    "unique_returned_chunks_tokens": null,
+    "model_usage": null,
+    "behavioral_equivalence": "unverified"
+  },
+  "notes": [
+    "Appearance selection/variation still requires its catalog: the newly designed fictional-character profile retains it; the compact fixed-appearance profile omits it.",
+    "Common handoff is conditional on inherited packets. The storyboard-with-common profile records that variant.",
+    "No media, upload, paid provider, dependency installation, push or installed-skill sync performed."
+  ],
+  "candidate_source_commit": "51a528698bf75a202fdf87182140decf59084be4",
+  "targets": {
+    "lighting_static": true,
+    "text_board_static": true,
+    "actual_read_and_semantic_acceptance": "blocked: no probes approved/run"
+  }
+}
