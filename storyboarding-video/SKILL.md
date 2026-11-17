@@ -6,7 +6,7 @@ description: Use to turn a synopsis, scene, visual sequence, or story beat into 
 
 # Storyboarding Video
 
-Turn the supplied/approved story into the requested Korean board and reusable generic image prompts. Prompts are text, never evidence that images exist. Preserve the story spine, locked dialogue, exact user panel count, language and exclusions.
+Return Korean text boards/prompts, never claimed images. Preserve supplied/approved story, exact dialogue/panel count, language and exclusions.
 
 ## Read the current stage, not every stage
 | Request/stage | Required owners |
@@ -42,4 +42,4 @@ Apply core + direction's indexed KEEP/FIX/unverified corrections, scene intent/n
 
 Full production text is complete only with all six return sections and mandatory technical slots filled or reasoned N/A. An explicitly requested concept pitch may defer execution-only slots as `deferred (승인 후)` and is never a completed shooting board. Missing required checks remain unverified/blocking. Image-backed completion additionally needs every required real artifact, strict validation and actual clean-pixel QA; none grants user acceptance or video spend. Narrow boards keep exact count and visible before/action/after changes; impossible count/story coverage returns an indexed conflict rather than omitted events.
 
-For consequential composition/performance choices, use the applicable [visual scene communication](../video-production-assets/references/visual-scene-communication.md) within the current owner. Do not add a twelve-axis form or route ordinary dialogue boards into silent-story work. Craft is not factual evidence or guaranteed audience response.
+For consequential composition/performance, apply [visual scene communication](../video-production-assets/references/visual-scene-communication.md) within this owner: no twelve-axis form or forced silent-story route. Craft is neither factual evidence nor guaranteed audience response.
