@@ -208,3 +208,50 @@ def test_router_requires_the_pair_table_unconditionally() -> None:
         assert phrase not in lowered, (
             f"the router still gates the pair table ({phrase!r}), which measured "
             "as never firing")
+
+
+def test_required_read_entries_are_existing_paths() -> None:
+    """`required_read` is an instruction, so it must be executable.
+
+    It used to hold prose like "developing-video-synopses stage guide" or
+    "relevant text owner and only applicable evidence module". Step 1 says to
+    read the owner SKILL.md and its required_read, but 18 of 27 rows named no
+    file, so the router had to guess -- which is how the right route still ends
+    up using the wrong skill. Empty now means "the owner SKILL.md only".
+    """
+    problems: list[str] = []
+    for row in _rows():
+        raw = (row["required_read"] or "").strip()
+        if not raw:
+            continue
+        for part in (x.strip() for x in raw.split(";")):
+            if not part:
+                problems.append(f"{row['route_id']} has an empty entry before ';'")
+                continue
+            if " " in part or "\t" in part:
+                problems.append(
+                    f"{row['route_id']} entry {part!r} contains whitespace, so it "
+                    "reads as prose rather than a path")
+            elif not (ROOT / part).is_file():
+                problems.append(
+                    f"{row['route_id']} points at a path that does not exist: {part}")
+    assert not problems, problems
+
+
+def test_required_read_never_points_outside_the_package() -> None:
+    problems = []
+    for row in _rows():
+        for part in (x.strip() for x in (row["required_read"] or "").split(";") if x.strip()):
+            if part.startswith("/") or part.startswith("~") or ".." in part:
+                problems.append(f"{row['route_id']} points outside: {part}")
+    assert not problems, problems
+
+
+def test_owner_skill_exists_for_every_route() -> None:
+    """A route whose owner has no SKILL.md cannot hand off anywhere."""
+    problems = []
+    for row in _rows():
+        owner = row["owner"].strip()
+        if not (ROOT / owner / "SKILL.md").is_file():
+            problems.append(f"{row['route_id']} owner has no SKILL.md: {owner}")
+    assert not problems, problems

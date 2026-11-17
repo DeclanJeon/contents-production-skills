@@ -101,12 +101,29 @@ def load_cases() -> list[dict[str, str]]:
     return json.loads(CASES.read_text(encoding="utf-8"))["cases"]
 
 
-def build_sandbox(dest: Path, owner_skills: set[str]) -> None:
-    """Copy only the router frontier and the named owner SKILL.md files."""
+def build_sandbox(dest: Path, owner_skills: set[str],
+                  full_package: bool = False) -> None:
+    """Copy the router frontier and owner skills.
+
+    With `full_package`, every skill's SKILL.md and references/ come along, so a
+    handoff run can open whichever owner it chose -- including a wrong one. If
+    only the expected owner were present, "did it read the owner skill" would be
+    unmeasurable for exactly the cases where it matters.
+    """
     for rel in FRONTIER_FILES:
         target = dest / rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / rel, target)
+    if full_package:
+        for skill_dir in sorted(ROOT.iterdir()):
+            if not (skill_dir / "SKILL.md").is_file():
+                continue
+            (dest / skill_dir.name).mkdir(parents=True, exist_ok=True)
+            shutil.copy2(skill_dir / "SKILL.md", dest / skill_dir.name / "SKILL.md")
+            refs = skill_dir / "references"
+            if refs.is_dir():
+                shutil.copytree(refs, dest / skill_dir.name / "references",
+                                dirs_exist_ok=True)
     for owner in owner_skills:
         src = ROOT / owner / "SKILL.md"
         if src.exists():
@@ -139,16 +156,105 @@ def build_sandbox(dest: Path, owner_skills: set[str]) -> None:
     # reading list") while others ignored the restriction, making the failure
     # intermittent and the score meaningless.
     allowed = list(FRONTIER_FILES)
+    extra = ""
+    if full_package:
+        extra = ("\nEvery skill in this fixture is a real copy. When the router\n"
+                 "names an owner SKILL.md or a required_read path, read that path\n"
+                 "here, under this directory.\n")
     (dest / "AGENTS.md").write_text(
         "# Routing fixture\n\n"
         "This directory is a self-contained, read-only routing fixture.\n\n"
-        "Read ONLY these paths, and never any path outside this directory:\n"
+        "Read ONLY paths inside this directory, and never any path outside it.\n"
+        "Start from:\n"
         + "".join(f"- `{rel}`\n" for rel in allowed)
         + "".join(f"- `skills/{rel}` (same content)\n" for rel in allowed)
+        + extra
         + "\nDo NOT read `~/.codex/skills`, `~/.agents`, or any installed copy.\n"
-        "Answer only with the ROUTE/WHY lines requested. Do not write files.\n",
+        "Answer only in the requested format. Do not write files.\n",
         encoding="utf-8",
     )
+
+
+HANDOFF_INSTRUCTION: Final = """\
+You are the video-production coordinator handling one user request.
+
+Read `creative-production/SKILL.md` and do exactly what its routing step says,
+including every file that step tells you to read. That step also tells you which
+owner skill to read once a route is chosen; follow it. The skill decides what to
+read; this instruction deliberately names no file, because naming them here lets
+the coordinator skip its own reading list and still look correct.
+
+Then answer in exactly this form and nothing else:
+ROUTE: <route_id>
+SLOTS: <deliverable_kind> | <media_axis> | <authority_axis>
+ARTIFACT: <the one artifact you will produce, under 20 words>
+
+User request:
+"""
+
+
+def parse_handoff(text: str) -> dict[str, str]:
+    """Pull the three declared slots and the promised artifact out of an answer."""
+    fields = {"route": "", "slots": "", "artifact": ""}
+    for line in text.splitlines():
+        stripped = line.strip().strip("*` ")
+        upper = stripped.upper()
+        for key, prefix in (("route", "ROUTE:"), ("slots", "SLOTS:"),
+                            ("artifact", "ARTIFACT:")):
+            if upper.startswith(prefix):
+                fields[key] = stripped.split(":", 1)[1].strip().strip("*` ").strip()
+    return fields
+
+
+EMPTY_AUTHORITY: Final = frozenset({"none", "n/a", "na", "-", "empty", "no"})
+CONCRETE_MEDIA: Final = frozenset({"text_only", "none_or_stills", "executed_media"})
+
+
+def handoff_checks(chosen: str | None, expected: str, routes: dict[str, dict[str, str]],
+                   parsed: dict[str, str], reads: list[str]) -> dict[str, object]:
+    """Did the route actually reach the right skill and the right requirement?
+
+    Route accuracy only says the label was right. These checks say whether the
+    coordinator opened the owner skill it just selected, opened the references
+    that row lists, and named the deliverable that row promises.
+    """
+    read_set = {path.strip().lstrip("./") for path in reads}
+    owner = routes.get(chosen, {}).get("owner", "") if chosen else ""
+    owner_skill = f"{owner}/SKILL.md"
+    required = [
+        part.strip()
+        for part in (routes.get(chosen, {}).get("required_read") or "").split(";")
+        if part.strip()
+    ]
+    missing = [part for part in required if part.lstrip("./") not in read_set]
+    declared = [part.strip() for part in parsed.get("slots", "").split("|")]
+    want = routes.get(expected, {})
+    slots_match = False
+    if len(declared) == 3:
+        # "none", "n/a", "-" all mean "no approvals supplied"; treating the word
+        # as a truthy approval made four correct answers look wrong.
+        authority = declared[2].lower()
+        declared_authority = "" if authority in EMPTY_AUTHORITY else authority
+        # A row whose media_axis is `varies` spans axes on purpose, so any single
+        # concrete axis the coordinator commits to is a reading of the row, not a
+        # contradiction of it.
+        declared_media = declared[1].lower()
+        media_ok = declared[1] == want.get("media_axis", "") or (
+            want.get("media_axis") == "varies"
+            and declared_media in CONCRETE_MEDIA
+        )
+        slots_match = (
+            declared[0] == want.get("deliverable_kind", "")
+            and media_ok
+            and bool(declared_authority) == bool(want.get("authority_axis", ""))
+        )
+    return {
+        "owner_loaded": bool(owner) and owner_skill in read_set,
+        "required_read_missing": missing,
+        "slots_match": slots_match,
+        "slots_declared": parsed.get("slots", ""),
+        "artifact": parsed.get("artifact", ""),
+    }
 
 
 def normalise_route(raw: str) -> str | None:
@@ -408,6 +514,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--limit", type=int, help="run only the first N cases")
     parser.add_argument("--case", action="append", help="run only these case_ids")
     parser.add_argument("--model", default="gpt-6.1-sol")
+    parser.add_argument(
+        "--stage", choices=("route", "handoff"), default="route",
+        help="route: stop at the route_id. handoff: also demand the three slots, "
+             "the assigned artifact, and the owner skill that route names.")
     parser.add_argument("--timeout", type=int, default=300)
     parser.add_argument(
         "--retries", type=int, default=2,
@@ -461,7 +571,7 @@ def main(argv: list[str] | None = None) -> int:
     with tempfile.TemporaryDirectory(prefix="routing-eval-", dir=scratch_root()) as tmp:
         sandbox = Path(tmp) / "fixture"
         sandbox.mkdir()
-        build_sandbox(sandbox, owners)
+        build_sandbox(sandbox, owners, full_package=args.stage == "handoff")
 
         # Round-robin the repeats so any drift over wall-clock time is spread
         # across cases instead of landing on the last case of each repetition.
@@ -470,7 +580,9 @@ def main(argv: list[str] | None = None) -> int:
         for repeat_index in range(args.repeat):
             for case in cases:
                 done += 1
-                prompt = INSTRUCTION + case["prompt"].strip() + "\n"
+                instruction = (HANDOFF_INSTRUCTION if args.stage == "handoff"
+                               else INSTRUCTION)
+                prompt = instruction + case["prompt"].strip() + "\n"
                 trial: dict[str, object] = {"trial": repeat_index + 1}
                 try:
                     wire, text = dispatch_with_retries(
@@ -486,6 +598,11 @@ def main(argv: list[str] | None = None) -> int:
                         trial["owner_answers"] = resolve_owner_answer(text, routes)
                     trial.update(chosen_route=chosen, why=why, verdict=verdict,
                                  agent_text=text, reads=reads, leaks=leaks)
+                    if args.stage == "handoff":
+                        parsed = parse_handoff(text)
+                        checks = handoff_checks(chosen, case["route_id"], routes,
+                                                parsed, reads)
+                        trial.update(handoff=checks)
                     if outdir:
                         suffix = "" if args.repeat == 1 else f".t{repeat_index + 1}"
                         (outdir / f"{case['case_id']}{suffix}.wire.jsonl").write_text(
@@ -563,8 +680,39 @@ def main(argv: list[str] | None = None) -> int:
         if trial.get("verdict") == "dangerous"
     })
 
+    handoff: dict[str, object] = {}
+    if args.stage == "handoff":
+        answered = [
+            trial
+            for entry in results
+            for trial in entry["trials"]
+            if isinstance(trial.get("handoff"), dict)
+        ]
+        owner_loaded = [t for t in answered if t["handoff"]["owner_loaded"]]
+        slots_ok = [t for t in answered if t["handoff"]["slots_match"]]
+        read_gaps = [
+            (entry["case_id"], t["handoff"]["required_read_missing"])
+            for entry in results
+            for t in entry["trials"]
+            if isinstance(t.get("handoff"), dict) and t["handoff"]["required_read_missing"]
+        ]
+        artifact_missing = [
+            entry["case_id"]
+            for entry in results
+            for t in entry["trials"]
+            if isinstance(t.get("handoff"), dict) and not t["handoff"]["artifact"].strip()
+        ]
+        handoff = {
+            "trials": len(answered),
+            "owner_loaded": len(owner_loaded),
+            "slots_match": len(slots_ok),
+            "required_read_gaps": read_gaps,
+            "artifact_missing": sorted(set(artifact_missing)),
+        }
+
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "stage": args.stage,
         "model": args.model,
         "package_version": json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))["version"],
         "repeat": args.repeat,
@@ -586,6 +734,7 @@ def main(argv: list[str] | None = None) -> int:
         "tally": tally,
         "dangerous": dangerous_cases,
         "note": "LLM output is measurement only, never package truth.",
+        "handoff": handoff,
         "results": results,
     }
     if outdir:
@@ -604,6 +753,21 @@ def main(argv: list[str] | None = None) -> int:
         print(f"no usable answer {len(no_data)}/{len(results)} cases: "
               f"{', '.join(map(str, no_data[:10]))}")
     print(f"tally           {dict(sorted(tally.items()))}")
+    if handoff:
+        print()
+        print("== handoff: did the route reach the skill and the requirement? ==")
+        print(f"  owner SKILL.md opened   {handoff['owner_loaded']}/{handoff['trials']} trials")
+        print(f"  three slots matched     {handoff['slots_match']}/{handoff['trials']} trials")
+        if handoff["required_read_gaps"]:
+            shown = handoff["required_read_gaps"][:5]
+            print(f"  required_read not opened: {len(handoff['required_read_gaps'])} "
+                  f"trials, e.g. {shown}")
+        else:
+            print("  required_read           every listed reference was opened")
+        if handoff["artifact_missing"]:
+            print(f"  no artifact named:      {', '.join(handoff['artifact_missing'][:8])}")
+        print("  route accuracy alone cannot show any of this: a right label that")
+        print("  never opens its owner skill still produces the wrong work.")
     if summary["dangerous"]:
         print(f"DANGEROUS cases: {', '.join(map(str, summary['dangerous']))}")
     if stable_wrong:

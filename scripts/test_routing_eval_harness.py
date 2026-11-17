@@ -377,3 +377,101 @@ def test_every_frontier_file_is_present_in_the_fixture(tmp_path: Path) -> None:
     missing = [rel for rel in routing_eval.FRONTIER_FILES
                if not (sandbox / rel).is_file()]
     assert not missing, f"fixture missing frontier files: {missing}"
+
+
+def test_handoff_parsing_reads_the_three_fields() -> None:
+    text = ("ROUTE: R18\n"
+            "SLOTS: camera_timing_lens_motion_design | text_only |\n"
+            "ARTIFACT: a numeric camera design for the chase\n")
+    parsed = routing_eval.parse_handoff(text)
+    assert parsed["route"] == "R18"
+    assert parsed["slots"].split("|")[0].strip() == "camera_timing_lens_motion_design"
+    assert parsed["artifact"].startswith("a numeric camera design")
+
+
+def test_handoff_flags_a_right_route_that_never_opens_its_owner() -> None:
+    """This is the defect route accuracy cannot see.
+
+    A coordinator can name R18 and still produce R18's work from memory, never
+    opening camera-spatial-design/SKILL.md or the references the row lists. The
+    label is correct and the output is unauthorised by the skill.
+    """
+    routes = {"R18": {"owner": "camera-spatial-design",
+                      "required_read": "camera-spatial-design/references/camera-design.md",
+                      "deliverable_kind": "camera_timing_lens_motion_design",
+                      "media_axis": "text_only", "authority_axis": ""}}
+    parsed = {"route": "R18", "artifact": "a camera design",
+              "slots": "camera_timing_lens_motion_design | text_only |"}
+    reads = ["creative-production/SKILL.md",
+             "creative-production/references/routing.csv"]
+
+    checks = routing_eval.handoff_checks("R18", "R18", routes, parsed, reads)
+    assert checks["owner_loaded"] is False
+    assert checks["required_read_missing"] == [
+        "camera-spatial-design/references/camera-design.md"]
+    assert checks["slots_match"] is True
+
+    good = reads + ["camera-spatial-design/SKILL.md",
+                    "camera-spatial-design/references/camera-design.md"]
+    checks = routing_eval.handoff_checks("R18", "R18", routes, parsed, good)
+    assert checks["owner_loaded"] is True
+    assert checks["required_read_missing"] == []
+
+
+def test_handoff_slots_must_match_the_expected_row_not_the_chosen_one() -> None:
+    """A wrong route with self-consistent slots is still wrong."""
+    routes = {
+        "R17": {"owner": "storyboarding-video", "required_read": "",
+                "deliverable_kind": "narrative_camera_planning",
+                "media_axis": "text_only", "authority_axis": ""},
+        "R18": {"owner": "camera-spatial-design", "required_read": "",
+                "deliverable_kind": "camera_timing_lens_motion_design",
+                "media_axis": "text_only", "authority_axis": ""},
+    }
+    parsed = {"route": "R18", "artifact": "x",
+              "slots": "camera_timing_lens_motion_design | text_only |"}
+    checks = routing_eval.handoff_checks("R18", "R17", routes, parsed, [])
+    assert checks["slots_match"] is False, (
+        "comparing against the chosen row would let any wrong route pass")
+
+
+def test_handoff_instruction_demands_slots_and_artifact() -> None:
+    text = routing_eval.HANDOFF_INSTRUCTION
+    for token in ("ROUTE:", "SLOTS:", "ARTIFACT:"):
+        assert token in text
+    for leaked in ("routing.csv", "routing-disambiguation.csv", "policy.md"):
+        assert leaked not in text, f"the handoff instruction names {leaked}"
+
+
+def test_handoff_accepts_the_word_none_for_no_authority() -> None:
+    """Four correct answers were scored wrong because "none" is a truthy string."""
+    routes = {"R10": {"owner": "storyboarding-video", "required_read": "",
+                      "deliverable_kind": "ordinary_or_complete_storyboard",
+                      "media_axis": "text_only", "authority_axis": ""}}
+    for token in ("none", "N/A", "-", ""):
+        parsed = {"route": "R10", "artifact": "a board",
+                  "slots": f"ordinary_or_complete_storyboard | text_only | {token}"}
+        checks = routing_eval.handoff_checks("R10", "R10", routes, parsed, [])
+        assert checks["slots_match"] is True, token
+
+
+def test_handoff_accepts_a_concrete_media_axis_when_the_row_says_varies() -> None:
+    """`varies` describes the route, so committing to one axis cannot contradict it."""
+    routes = {"R14": {"owner": "video-production-assets", "required_read": "",
+                      "deliverable_kind": "film_short_full_lifecycle",
+                      "media_axis": "varies", "authority_axis": ""}}
+    for axis in ("text_only", "none_or_stills", "executed_media", "varies"):
+        parsed = {"route": "R14", "artifact": "a plan",
+                  "slots": f"film_short_full_lifecycle | {axis} |"}
+        checks = routing_eval.handoff_checks("R14", "R14", routes, parsed, [])
+        assert checks["slots_match"] is True, axis
+
+
+def test_handoff_still_rejects_a_genuinely_different_media_axis() -> None:
+    routes = {"R14": {"owner": "video-production-assets", "required_read": "",
+                      "deliverable_kind": "film_short_full_lifecycle",
+                      "media_axis": "varies", "authority_axis": ""}}
+    parsed = {"route": "R14", "artifact": "a plan",
+              "slots": "film_short_full_lifecycle | nonsense_axis |"}
+    checks = routing_eval.handoff_checks("R14", "R14", routes, parsed, [])
+    assert checks["slots_match"] is False, "the varies rule must not accept anything"

@@ -27,17 +27,24 @@ holds one row per confusable pair (`route_a`, `route_b`) and the one line that
 separates them. That distinction lives here and nowhere else, so do not
 re-derive it from keywords.
 
-Judgment uses these three slots, not keyword similarity:
+Judgment uses these three slots, not keyword similarity. State all three before
+naming a route; a route chosen without them is a keyword guess:
 
 - **deliverable_kind** — which artifact the user asked for.
 - **media_axis** — what media the request actually permits. Default `text_only`
   unless the user asked for generated media or an actual edit.
-- **authority_axis** — which approvals are already supplied. Empty means none;
-  paid media stays closed.
+- **authority_axis** — which **spend or execution** approvals are already
+  supplied. Empty means none, and paid media stays closed. An approved brief,
+  storyboard or cast is an *input*, not an authority: write it empty and keep
+  the approval in the brief, otherwise the money axis reads as already open.
 
-Then read only the selected `owner` SKILL.md and its `required_read`. Do not
-preload future craft, provider catalogs, or full-pipeline checklists. Two matches
-on one narrow artifact: pick the narrowest and say which one you skipped.
+Then open the selected `owner` SKILL.md. Open every path in that row's
+`required_read` too: it is a `;`-separated list of package-relative paths, and an
+empty cell means the owner SKILL.md is the only file. These are the files that
+authorise the work; naming a route without opening them produces output the
+skill never sanctioned. Do not preload future craft, provider catalogs, or
+full-pipeline checklists. Two matches on one narrow artifact: pick the narrowest
+and say which one you skipped.
 
 `UNASSIGNED` means no route fits. Say so and ask for the missing slot instead of
 stretching a route.
@@ -119,6 +126,10 @@ even without a separate reviewer. Required failed/unverified continuity blocks
 dependent generation, take adoption and completed-film delivery; independent
 reachable planning may continue. Planned references are not accepted take
 outpoints; file/hash/decode success is not continuity evidence.
+For storyboard-to-video execution, dependent generation, or sequence editing,
+**REQUIRED:** use the [sequence execution tools](../video-production-assets/references/sequence-execution.md)
+to compare actual planned frames before generation, resolve blockers, carry selected
+source ranges forward, and inspect the rendered cut boundaries and whole output.
 
 When the deliverable needs voice or sound and nothing selects another route, the
 default is to design voice and sound into the video request itself — see the

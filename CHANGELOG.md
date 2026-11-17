@@ -8,6 +8,15 @@
 - Upgraded `validate_storyboard.py` (`--strict-staging`, `single_i2v` support) and `render_storyboard_sheet.py` (aspect-ratio adaptive cell dimensions for `9:16`/`16:9`/`4:5` and expanded 64-line captions).
 
 
+## 2.54 2026-11-17
+
+- **`required_read` was prose, so the instruction to follow it was unexecutable.** 18 of 27 rows named no file ("developing-video-synopses stage guide", "relevant text owner and only applicable evidence module"), leaving the router to guess which reference authorised the work. It is now a `;`-separated list of package-relative paths (16 rows name files, 11 name none and mean "the owner SKILL.md only"), and a lint rejects non-path entries, missing files and paths outside the package. A/B on four cases: prose opened the listed reference 1/4 times, paths 10/10.
+- Added `--stage handoff`. Route accuracy cannot see the failure that matters: a coordinator can name R18 and still produce camera work from memory, never opening `camera-spatial-design/SKILL.md`. Handoff also demands the three slots and the assigned artifact, and the harness checks the owner SKILL.md and every `required_read` path in the *observed* tool reads rather than in what the model claims.
+- Measured: 65/65 route, **65/65 owner SKILL.md opened**, 65/65 slot agreement, every listed reference opened. The identical 65 route answers are now reached by opening the skill that authorises them.
+- Fixed two checker bugs found by that run (57/65 slots at first): the word `none` was counted as a supplied approval because `bool("none")` is true, and a concrete media axis on a `varies` row was counted as a disagreement. Both made correct answers look wrong.
+- Fixed one real defect it found: C08 declared `approved_storyboard` as an authority. An approved board is an input, not a spend approval, so `authority_axis` is now defined as **spend or execution** approvals only. C08 then answered with the axis empty -- the answer changed, rather than the checker being loosened.
+- Step 1 now requires the three slots to be stated before a route is named, because an unstated slot made a keyword guess indistinguishable from an analysed request.
+
 ## 2.53 2026-11-17
 
 - Added `creative-production/references/routing-disambiguation.csv`: 23 confusable route pairs in canonical order, one line each stating what separates them. `routing.csv` never said how R17 differs from R18 or R12 from R24; that knowledge lived only in each skill's prose, which is how a wrong expectation (E02) slipped through. Every line is grounded in the owning skill's own scope statement, and a lint rejects duplicates, unknown routes, non-canonical order, one-line essays, and any line that copies a `stop_boundary`.
