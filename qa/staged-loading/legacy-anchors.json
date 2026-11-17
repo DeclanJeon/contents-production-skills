@@ -1,0 +1,185 @@
+{
+  "baseline_commit": "bd5fb689dced7d09d966bff8f1897c06bac6082f",
+  "sources": [
+    {
+      "path": "video-production-assets/references/contract.md",
+      "sha256": "aa16080455ca5a2a50e04ccef6534e8780adf63a9421aad4bbc7c6aa9e688e14",
+      "headings": [
+        {
+          "heading": "ID와 단위",
+          "fragment": "id와-단위"
+        },
+        {
+          "heading": "상태와 버전",
+          "fragment": "상태와-버전"
+        },
+        {
+          "heading": "JSON 구조",
+          "fragment": "json-구조"
+        },
+        {
+          "heading": "인계 최소값",
+          "fragment": "인계-최소값"
+        },
+        {
+          "heading": "Worker handoff and single writer",
+          "fragment": "worker-handoff-and-single-writer"
+        },
+        {
+          "heading": "v1.1 구조와 검사 프로필",
+          "fragment": "v11-구조와-검사-프로필"
+        },
+        {
+          "heading": "전체 프리프로덕션 패키지",
+          "fragment": "전체-프리프로덕션-패키지"
+        },
+        {
+          "heading": "시퀀스 실행 투영과 편집 시간 권한",
+          "fragment": "시퀀스-실행-투영과-편집-시간-권한"
+        },
+        {
+          "heading": "실제 파일과 부가 시간표",
+          "fragment": "실제-파일과-부가-시간표"
+        },
+        {
+          "heading": "버전 변경과 범위",
+          "fragment": "버전-변경과-범위"
+        },
+        {
+          "heading": "프리프로덕션 검토와 영상 실행 승인",
+          "fragment": "프리프로덕션-검토와-영상-실행-승인"
+        },
+        {
+          "heading": "선택적 상세 스토리보드 확장",
+          "fragment": "선택적-상세-스토리보드-확장"
+        },
+        {
+          "heading": "v5.1 프로덕션 무결성 (LOOK·에셋 게이트·계보·provenance·패키지)",
+          "fragment": "v51-프로덕션-무결성-look에셋-게이트계보provenance패키지"
+        },
+        {
+          "heading": "활성 LOOK과 스타일/월드 바이블",
+          "fragment": "활성-look과-스타일월드-바이블"
+        },
+        {
+          "heading": "마스터·파생 에셋 계보",
+          "fragment": "마스터파생-에셋-계보"
+        },
+        {
+          "heading": "에셋 게이트: preliminary vs final",
+          "fragment": "에셋-게이트-preliminary-vs-final"
+        },
+        {
+          "heading": "패널 자산 참조",
+          "fragment": "패널-자산-참조"
+        },
+        {
+          "heading": "provenance·프롬프트 메타데이터",
+          "fragment": "provenance프롬프트-메타데이터"
+        },
+        {
+          "heading": "패키지 출력과 이력 저장",
+          "fragment": "패키지-출력과-이력-저장"
+        }
+      ]
+    },
+    {
+      "path": "video-production-assets/references/storyboard-contract.md",
+      "sha256": "0e68ec374fbe28b189f4a8bd8602f27e8b2cd0884d7f84eae1be23802f98dc4f",
+      "headings": [
+        {
+          "heading": "적용과 소유자",
+          "fragment": "적용과-소유자"
+        },
+        {
+          "heading": "반환 형태 — 필수 출력 순서",
+          "fragment": "반환-형태--필수-출력-순서"
+        },
+        {
+          "heading": "1. 입력과 이야기 고정",
+          "fragment": "1-입력과-이야기-고정"
+        },
+        {
+          "heading": "2. 씬·샷 제작 명세 — 모두 필수 슬롯",
+          "fragment": "2-씬샷-제작-명세--모두-필수-슬롯"
+        },
+        {
+          "heading": "대사별 발화 얼굴과 청자 반응",
+          "fragment": "대사별-발화-얼굴과-청자-반응"
+        },
+        {
+          "heading": "씬별 카메라 의도와 인접 씬 비교",
+          "fragment": "씬별-카메라-의도와-인접-씬-비교"
+        },
+        {
+          "heading": "장면 리듬과 감정 가독성",
+          "fragment": "장면-리듬과-감정-가독성"
+        },
+        {
+          "heading": "씬 카메라 수락 검사",
+          "fragment": "씬-카메라-수락-검사"
+        },
+        {
+          "heading": "카메라·공간/Blender 분기",
+          "fragment": "카메라공간blender-분기"
+        },
+        {
+          "heading": "3. 전체 커버리지와 이미지 수 산정",
+          "fragment": "3-전체-커버리지와-이미지-수-산정"
+        },
+        {
+          "heading": "씬 경계와 시트 페이지화는 별도 결정",
+          "fragment": "씬-경계와-시트-페이지화는-별도-결정"
+        },
+        {
+          "heading": "단일 프레임 3단 상황 압축과 정지화 역동성 변환 (Kinetic Still Translation)",
+          "fragment": "단일-프레임-3단-상황-압축과-정지화-역동성-변환-kinetic-still-translation"
+        },
+        {
+          "heading": "동작 중심 패널의 장면 통합",
+          "fragment": "동작-중심-패널의-장면-통합"
+        },
+        {
+          "heading": "4. 실제 이미지 생성·시트·clean 컷",
+          "fragment": "4-실제-이미지-생성시트clean-컷"
+        },
+        {
+          "heading": "PDF 공유본 납품",
+          "fragment": "pdf-공유본-납품"
+        },
+        {
+          "heading": "5. 이미지 단독 스토리텔링 게이트",
+          "fragment": "5-이미지-단독-스토리텔링-게이트"
+        },
+        {
+          "heading": "6. 인덱스 기반 수정과 재검수",
+          "fragment": "6-인덱스-기반-수정과-재검수"
+        },
+        {
+          "heading": "7. 구조 검사와 영상 프롬프트 인계",
+          "fragment": "7-구조-검사와-영상-프롬프트-인계"
+        },
+        {
+          "heading": "8. 선택적 project.json 상세 보드 확장",
+          "fragment": "8-선택적-projectjson-상세-보드-확장"
+        },
+        {
+          "heading": "리듬 곡선 `storyboard.rhythm` (선택)",
+          "fragment": "리듬-곡선-storyboardrhythm-선택"
+        },
+        {
+          "heading": "리듬 필드의 소유 경계와 우선순위",
+          "fragment": "리듬-필드의-소유-경계와-우선순위"
+        },
+        {
+          "heading": "연결 예시 — 실제 이미지가 아니라 계획 표",
+          "fragment": "연결-예시--실제-이미지가-아니라-계획-표"
+        },
+        {
+          "heading": "9. Craft 근거와 적용 한계",
+          "fragment": "9-craft-근거와-적용-한계"
+        }
+      ]
+    }
+  ]
+}

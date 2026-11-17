@@ -1,0 +1,41 @@
+{
+  "scope": "Synthetic incomplete planning skeletons test context serialization only; not valid complete production boards or runtime speed measurements. Added shots intentionally have no produced panels.",
+  "results": [
+    {
+      "project_shots": 2,
+      "focus_shots": 1,
+      "context_shots": 2,
+      "top_level_cuts": 2,
+      "top_level_requirements": 7,
+      "full_projection_tokens": 3678,
+      "focused_context_tokens": 2029
+    },
+    {
+      "project_shots": 10,
+      "focus_shots": 1,
+      "context_shots": 3,
+      "top_level_cuts": 10,
+      "top_level_requirements": 15,
+      "full_projection_tokens": 6111,
+      "focused_context_tokens": 1023
+    },
+    {
+      "project_shots": 50,
+      "focus_shots": 1,
+      "context_shots": 3,
+      "top_level_cuts": 50,
+      "top_level_requirements": 55,
+      "full_projection_tokens": 23389,
+      "focused_context_tokens": 1023
+    },
+    {
+      "project_shots": 100,
+      "focus_shots": 1,
+      "context_shots": 3,
+      "top_level_cuts": 100,
+      "top_level_requirements": 105,
+      "full_projection_tokens": 45039,
+      "focused_context_tokens": 1023
+    }
+  ]
+}
