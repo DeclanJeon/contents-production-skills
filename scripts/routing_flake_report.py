@@ -22,6 +22,11 @@ from typing import Final
 
 ROOT: Final = Path(__file__).resolve().parents[1]
 
+# Infrastructure failures are not routing opinions. Counting them as wrong
+# answers would make the table look worse for reasons that have nothing to do
+# with routing, and counting them as right answers would be worse still.
+INFRA: Final = frozenset({"dispatch_error", "timeout"})
+
 
 def wilson(errors: int, trials: int, z: float = 1.96) -> tuple[float, float]:
     """Wilson score interval for a proportion. Better than normal approx at 0."""
@@ -57,35 +62,41 @@ def main(argv: list[str]) -> int:
     lines: list[str] = []
     total_errors = 0
     total_trials = 0
+    total_infra = 0
     flaky: list[str] = []
 
     print(f"model={summary['model']}  repeat={repeat}  cases={len(results)}  "
           f"package={summary['package_version']}")
     print()
-    print(f"{'case':6} {'exp':4} {'ok':>3}/{'n':<3} {'seen':14} {'verdict':14} note")
+    print(f"{'case':6} {'exp':4} {'ok':>3}/{'n':<3} {'skip':>4} {'seen':14} verdict")
     for entry in results:
         trials = entry["trials"]
         n = len(trials)
-        errors = sum(1 for t in trials if t.get("verdict") != "correct")
+        infra = sum(1 for t in trials if t.get("verdict") in INFRA)
+        valid = [t for t in trials if t.get("verdict") not in INFRA]
+        errors = sum(1 for t in valid if t.get("verdict") != "correct")
         total_errors += errors
-        total_trials += n
-        seen = sorted({str(t.get("chosen_route")) for t in trials})
+        total_trials += len(valid)
+        total_infra += infra
+        seen = sorted({str(t.get("chosen_route")) for t in valid})
+        note = ""
         if len(seen) > 1:
             flaky.append(str(entry["case_id"]))
-        note = ""
-        if errors and len(seen) > 1:
             note = "route changed between trials"
         elif errors:
             note = "consistently wrong"
+        verdict = "flaky" if len(seen) > 1 else ("wrong" if errors else "ok")
         print(f"{entry['case_id']:6} {entry['expected_route']:4} "
-              f"{n - errors:3}/{n:<3} {','.join(seen):14} "
-              f"{str(entry['verdict']):14} {note}")
+              f"{len(valid) - errors:3}/{len(valid):<3} {infra:4} "
+              f"{','.join(seen) or '-':14} {verdict}"
+              + (f"  <- {note}" if note else ""))
 
     lo, hi = wilson(total_errors, total_trials)
     floor = detection_floor(repeat)
     print()
-    print(f"trials           {total_trials}")
-    print(f"errors           {total_errors}")
+    print(f"scored trials    {total_trials}")
+    print(f"routing errors   {total_errors}")
+    print(f"infra failures   {total_infra} (excluded)")
     print(f"per-trial error   {total_errors / total_trials:.2%} "
           f"(95% Wilson {lo:.2%}..{hi:.2%})")
     print(f"flaky cases      {len(flaky)}" + (f": {', '.join(flaky)}" if flaky else ""))
@@ -97,7 +108,8 @@ def main(argv: list[str]) -> int:
     print("Per-case rates are underpowered at this sample size; quote the aggregate")
     print("bound, not 'never flaky'. Ruling out a 1% per-trial rate needs ~298")
     print("trials per case.")
-    lines.append(f"flaky={len(flaky)} errors={total_errors}/{total_trials}")
+    lines.append(f"flaky={len(flaky)} routing_errors={total_errors}/{total_trials} "
+                 f"infra_excluded={total_infra}")
 
     (target / "flake-report.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return 0

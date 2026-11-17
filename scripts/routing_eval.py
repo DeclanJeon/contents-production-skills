@@ -215,6 +215,41 @@ def run_bounded(
     return out, err, process.returncode
 
 
+INFRA_VERDICTS: Final = frozenset({"dispatch_error", "timeout"})
+
+
+def dispatch_with_retries(
+    prompt: str,
+    sandbox: Path,
+    model: str,
+    timeout: int,
+    retries: int,
+    trial: dict[str, object],
+) -> tuple[str, str]:
+    """Retry a dispatch that failed for infrastructure reasons.
+
+    A long sweep meets transient backend failures: `codex exit 101` with MCP
+    transport errors, or a run that simply overruns. Those are not routing
+    opinions and must not be scored as wrong answers, so they are retried.
+    A wrong *route* is never retried -- that would be re-rolling the dice until
+    the table looks good.
+    """
+    attempts: list[str] = []
+    for attempt in range(retries + 1):
+        try:
+            return dispatch(prompt, sandbox, model, timeout)
+        except Exception as error:  # noqa: BLE001 - classified by the caller
+            attempts.append(("timeout: " if isinstance(error, TimeoutError) else "") +
+                            str(error)[:200])
+            # A TimeoutError is infrastructure; any other exception is retried
+            # once more only because codex exits nonzero on transport faults.
+            if attempt >= retries:
+                raise
+            print(f"      retry {attempt + 1}/{retries} after: {attempts[-1][:90]}",
+                  flush=True)
+    raise RuntimeError("unreachable")  # pragma: no cover
+
+
 def dispatch(prompt: str, sandbox: Path, model: str, timeout: int) -> tuple[str, str]:
     """Return (raw_wire, agent_text). Raises on dispatch failure."""
     command = [
@@ -372,6 +407,10 @@ def main() -> int:
     parser.add_argument("--model", default="gpt-6.1-sol")
     parser.add_argument("--timeout", type=int, default=300)
     parser.add_argument(
+        "--retries", type=int, default=2,
+        help="re-dispatch infrastructure failures (exit 101, timeout) up to N times",
+    )
+    parser.add_argument(
         "--repeat", type=int, default=1,
         help="run each case N times to measure answer stability (default 1)",
     )
@@ -431,7 +470,8 @@ def main() -> int:
                 prompt = INSTRUCTION + case["prompt"].strip() + "\n"
                 trial: dict[str, object] = {"trial": repeat_index + 1}
                 try:
-                    wire, text = dispatch(prompt, sandbox, args.model, args.timeout)
+                    wire, text = dispatch_with_retries(
+                        prompt, sandbox, args.model, args.timeout, args.retries, trial)
                     chosen, why = parse_route(text)
                     verdict = classify(chosen, case["route_id"], routes)
                     reads = read_paths(wire)
@@ -491,6 +531,8 @@ def main() -> int:
         results.append(entry)
 
     attempts = sum(v for v in tally.values())
+    infra = sum(v for k, v in tally.items() if k in INFRA_VERDICTS)
+    scored = attempts - infra
     correct = tally.get("correct", 0)
     stable_correct = [r["case_id"] for r in results if r["judgement"] == "stable_correct"]
     stable_wrong = [r["case_id"] for r in results if r["judgement"] == "stable_wrong"]
@@ -509,7 +551,9 @@ def main() -> int:
         "cases": len(results),
         "attempts": attempts,
         "correct": correct,
-        "accuracy": round(correct / attempts, 3) if attempts else 0.0,
+        "scored": scored,
+        "infrastructure_failures": infra,
+        "accuracy": round(correct / scored, 3) if scored else 0.0,
         "stable_cases": len(stable_correct) + len(stable_wrong),
         "stable_correct": len(stable_correct),
         "stable_accuracy": round(len(stable_correct) / len(results), 3) if results else 0.0,
@@ -526,8 +570,11 @@ def main() -> int:
             json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print()
-    print(f"accuracy        {correct}/{attempts} attempts = {summary['accuracy']:.1%}  "
+    print(f"accuracy        {correct}/{scored} scored attempts = {summary['accuracy']:.1%}  "
           f"model={args.model}  repeat={args.repeat}")
+    if infra:
+        print(f"infrastructure  {infra}/{attempts} attempts failed after retries "
+              f"and are excluded from accuracy")
     print(f"stable accuracy {summary['stable_correct']}/{len(results)} cases = "
           f"{summary['stable_accuracy']:.1%}")
     print(f"tally           {dict(sorted(tally.items()))}")

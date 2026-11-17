@@ -8,7 +8,11 @@
 - Upgraded `validate_storyboard.py` (`--strict-staging`, `single_i2v` support) and `render_storyboard_sheet.py` (aspect-ratio adaptive cell dimensions for `9:16`/`16:9`/`4:5` and expanded 64-line captions).
 
 
-## Unreleased
+## 2.49 2026-11-17
+
+- Added `--retries N` and stopped counting infrastructure failures as routing opinions. A mid-run burst of 18 `codex exit 101` transport errors was being aggregated as wrong routes; `INFRA = {dispatch_error, timeout}` is now reported separately and excluded from accuracy. Retries apply to infrastructure faults only -- a wrong route is never re-rolled. Pinned by tests for "crash does not make a case flaky", "infra failures are not routing errors", "wrong answers are not retried", and "retries are exhausted".
+- Measured boundary-case stability: 26 boundary cases x 8 repeats = 208 scored attempts, 0 routing errors, 0 flaky, 0 infrastructure failures. The quotable number is the aggregate bound (per-trial error < 1.5%), not "never flaky": at 8 trials per case a rate up to 31% would still hide. See `qa/routing-flake-2026-11-17/README.md`.
+- Recorded why the risk-ranked case selection was abandoned: `media_axis`/`authority_axis` cannot separate semantic neighbours (every `text_only` route shares an empty authority axis, so all of them look like twins), so all 26 boundary cases were run instead of a hand-picked subset.
 
 - Fixed a hang in `scripts/routing_eval.py` that could silently kill a multi-hour sweep. A real run stalled indefinitely on case B06 with `--timeout 420` set. Output is now captured through temporary files rather than pipes, so nothing waits for an EOF a surviving descendant may never send, and an overrun kills the whole process group (`start_new_session` + `killpg`) instead of only the direct child. An overrun is recorded as verdict `timeout`, distinct from `dispatch_error`. Four tests pin this: the original overrun returns promptly, a detached grandchild cannot block the call, a 1 MB payload cannot deadlock on a pipe buffer, and stdin is still delivered.
 - Added `scripts/routing_flake_report.py`, which reports a repeated run as per-case flake counts plus Wilson intervals and, most importantly, the smallest per-trial error rate the sample could still have missed. With 3 trials per case that floor is 63%, so per-case "0 flakes" proves almost nothing; only the aggregate supports a bound. Six model-free tests pin the arithmetic, including that zero observed errors never produces a zero upper bound.
