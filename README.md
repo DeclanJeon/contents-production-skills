@@ -34,6 +34,7 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 - 반복 안정성: `--repeat N`으로 케이스별 route가 흔들리는지 측정하고, `scripts/routing_flake_report.py`가 Wilson 구간과 **이 표본이 여전히 놓칠 수 있는 오류율**을 함께 보고한다.
   - 전체 53케이스 × 3회: [159/159, flaky 0](qa/routing-stability-2026-11-17/README.md)
   - 경계 26케이스 × 8회: [208/208, flaky 0, 집계 한계 <1.5%](qa/routing-flake-2026-11-17/README.md)
+  - 세션 간 재현성: `scripts/routing_repro_check.py`로 두 런을 케이스별 비교. [독립 프로세스 3회가 53케이스 전부 일치](qa/routing-repro-2026-11-17/README.md)
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|

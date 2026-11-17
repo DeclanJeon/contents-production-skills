@@ -8,6 +8,13 @@
 - Upgraded `validate_storyboard.py` (`--strict-staging`, `single_i2v` support) and `render_storyboard_sheet.py` (aspect-ratio adaptive cell dimensions for `9:16`/`16:9`/`4:5` and expanded 64-line captions).
 
 
+## 2.50 2026-11-17
+
+- Fixed a reporting inversion: a degraded run whose 14 failures were all `codex exit 101` transport errors was summarised as `stably WRONG`, listing every crashed case as "consistently wrong" when nothing had been answered at all. Judgement is now computed from valid trials only, with `no_data` for no usable attempt and `unanswered` for an agent that committed to no route, and `stable_accuracy` is measured against decided cases rather than against crashes. Two tests pin it.
+- Added `scripts/routing_repro_check.py`: compares two runs case by case to answer "does the same prompt get the same route in a fresh process?", which accuracy alone cannot answer. It deliberately counts agreement on a *wrong* route as reproduction and prints a reminder that agreement is not correctness. Six model-free tests pin the distinction, including that an unanswered case is a gap rather than agreement.
+- Verified `dangerous` is not a vacuous grade. Every one of the 53 cases has at least one axis-crossing alternative (6 each), so the grade is reachable; and an end-to-end test now feeds a deliberately crossing answer through `main()` to confirm it is tallied, listed in `summary["dangerous"]`, and makes the run exit 1.
+- Measured cross-process reproducibility: three separate processes (53x3, 26x8, 53x1) chose the same route for all 53 cases, 100% agreement. Same day, same model; day-to-day drift remains unmeasured. See `qa/routing-repro-2026-11-17/README.md`.
+
 ## 2.49 2026-11-17
 
 - Added `--retries N` and stopped counting infrastructure failures as routing opinions. A mid-run burst of 18 `codex exit 101` transport errors was being aggregated as wrong routes; `INFRA = {dispatch_error, timeout}` is now reported separately and excluded from accuracy. Retries apply to infrastructure faults only -- a wrong route is never re-rolled. Pinned by tests for "crash does not make a case flaky", "infra failures are not routing errors", "wrong answers are not retried", and "retries are exhausted".

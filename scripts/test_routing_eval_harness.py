@@ -234,9 +234,100 @@ def test_run_bounded_survives_a_detached_grandchild() -> None:
 
 
 def test_run_bounded_returns_large_output_without_deadlock() -> None:
-    """File capture means a big payload cannot fill a pipe buffer and stall."""
+    """File capture means a big payload cannot fill a pipe buffer and stall.
+
+    256 KiB comfortably exceeds the usual 64 KiB pipe buffer, which is what
+    this is guarding against, while staying cheap enough to run under load.
+    """
+    size = 256 * 1024
     out, _err, _rc = routing_eval.run_bounded(
-        ["/bin/sh", "-c", "head -c 1000000 /dev/zero | tr '\\0' 'x'"],
-        "", 30, dict(routing_eval.os.environ),
+        ["/bin/sh", "-c", f"head -c {size} /dev/zero | tr '\\0' 'x'"],
+        "", 120, dict(routing_eval.os.environ),
     )
-    assert len(out) == 1_000_000
+    assert len(out) == size, f"expected {size} bytes, got {len(out)}"
+
+
+def test_dangerous_is_reachable_for_every_case() -> None:
+    """Guard against a vacuous "0 dangerous": every case must have a wrong
+    answer that would cross an axis, otherwise the grade could never fire."""
+    routes = _routes()
+    cases = routing_eval.load_cases()
+    assert cases
+
+    def crosses(expected: str, other: str) -> bool:
+        a, b = routes[expected], routes[other]
+        return (a["media_axis"] != b["media_axis"]
+                or bool(a["authority_axis"]) != bool(b["authority_axis"]))
+
+    for case in cases:
+        expected = case["route_id"]
+        alternatives = [r for r in routes if r != expected and crosses(expected, r)]
+        assert alternatives, (
+            f"{case['case_id']} ({expected}) has no axis-crossing alternative, "
+            "so 'dangerous' could never fire for it"
+        )
+
+
+def test_sweep_reports_dangerous_and_fails_the_run(tmp_path: Path) -> None:
+    """A model that crosses the media axis must make the run exit non-zero."""
+    original = routing_eval.dispatch
+    # C10 expects R10 (text-only storyboard); R22 is executed_media with a
+    # spatial-verification authority, so answering R22 is an axis crossing.
+    routing_eval.dispatch = lambda *a, **k: ("", "ROUTE: R22 - deliberate crossing")
+    try:
+        out = tmp_path / "dangerous-run"
+        code = routing_eval.main(["--case", "C10", "--repeat", "2", "--out", str(out),
+                                  "--timeout", "1", "--retries", "0"])
+    finally:
+        routing_eval.dispatch = original
+
+    summary = json.loads((out / "summary.json").read_text(encoding="utf-8"))
+    assert summary["tally"].get("dangerous") == 2
+    assert summary["dangerous"] == ["C10"]
+    assert summary["flaky"] == [], "a consistent wrong answer is not flaky"
+    assert code == 1, "a dangerous answer must fail the run"
+
+
+def test_crashes_are_not_reported_as_stably_wrong(tmp_path: Path) -> None:
+    """A run of exit-101s must not be summarised as 'consistently wrong'.
+
+    A real degraded run listed fourteen transport failures as stably wrong,
+    which reads as a routing problem when nothing was answered at all.
+    """
+    original = routing_eval.dispatch
+
+    def always_crashes(*_a, **_k):
+        raise RuntimeError("codex exit 101: transport channel closed")
+
+    routing_eval.dispatch = always_crashes
+    try:
+        out = tmp_path / "crashed-run"
+        routing_eval.main(["--case", "C10", "--repeat", "2", "--out", str(out),
+                           "--timeout", "1", "--retries", "0"])
+    finally:
+        routing_eval.dispatch = original
+
+    summary = json.loads((out / "summary.json").read_text(encoding="utf-8"))
+    entry = summary["results"][0]
+    assert entry["judgement"] == "no_data", entry["judgement"]
+    assert summary["stable_wrong"] == []
+    assert summary["stable_correct"] == 0
+    assert summary["decided_cases"] == 0
+    assert summary["stable_accuracy"] == 0.0, "no data must not look like 0% accuracy"
+    assert summary["infrastructure_failures"] == 2
+
+
+def test_unanswered_is_not_stably_wrong(tmp_path: Path) -> None:
+    """An agent that refuses to commit to a route answered nothing."""
+    original = routing_eval.dispatch
+    routing_eval.dispatch = lambda *a, **k: ("", "I am not sure which module to use.")
+    try:
+        out = tmp_path / "unanswered-run"
+        routing_eval.main(["--case", "C10", "--repeat", "2", "--out", str(out),
+                           "--timeout", "1", "--retries", "0"])
+    finally:
+        routing_eval.dispatch = original
+
+    summary = json.loads((out / "summary.json").read_text(encoding="utf-8"))
+    assert summary["results"][0]["judgement"] == "unanswered"
+    assert summary["stable_wrong"] == []

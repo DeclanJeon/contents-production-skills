@@ -185,7 +185,8 @@ def run_bounded(
     its own session, and kill the whole group on overrun. Raises TimeoutError so
     the caller records ``timeout`` rather than confusing it with a crash.
     """
-    with tempfile.TemporaryDirectory(prefix="run-") as scratch:
+    # Scratch goes to real disk, not a possibly-full tmpfs: capture can be large.
+    with tempfile.TemporaryDirectory(prefix="run-", dir=scratch_root()) as scratch:
         out_path = Path(scratch) / "stdout"
         err_path = Path(scratch) / "stderr"
         stdin_path = Path(scratch) / "stdin"
@@ -399,7 +400,7 @@ def classify(chosen: str | None, expected: str, routes: dict[str, dict[str, str]
     return "near_miss"
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", help="output directory for prompts and raw wire")
     parser.add_argument("--limit", type=int, help="run only the first N cases")
@@ -414,7 +415,7 @@ def main() -> int:
         "--repeat", type=int, default=1,
         help="run each case N times to measure answer stability (default 1)",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     if args.repeat < 1:
         parser.error("--repeat must be >= 1")
 
@@ -507,27 +508,40 @@ def main() -> int:
     unstable_verdict: list[str] = []
     for entry in per_case.values():
         trials = entry["trials"]  # type: ignore[index]
-        choices = [str(t.get("chosen_route")) for t in trials]
-        verdicts = [str(t["verdict"]) for t in trials]
+        # Crashes and timeouts are not opinions about routing. Judging a case
+        # on them produced a "stably WRONG" list made entirely of exit-101
+        # failures, which is exactly backwards: nothing was answered at all.
+        valid = [t for t in trials if str(t["verdict"]) not in INFRA_VERDICTS]
+        choices = [str(t.get("chosen_route")) for t in valid if t.get("chosen_route")]
+        verdicts = [str(t["verdict"]) for t in valid]
         distinct = sorted(set(choices))
         correct_votes = verdicts.count("correct")
-        # A case is stable only if every trial chose the same route.
+        # A case is stable only if every answered trial chose the same route.
         stable = len(distinct) == 1
-        if not stable:
+        if not valid:
+            judgement = "no_data"
+        elif not choices:
+            judgement = "unanswered"
+        elif not stable:
+            judgement = "flaky"
             flaky.append(str(entry["case_id"]))
+        elif correct_votes == len(valid):
+            judgement = "stable_correct"
+        else:
+            judgement = "stable_wrong"
         if len(set(verdicts)) > 1:
             unstable_verdict.append(str(entry["case_id"]))
         entry["distinct_routes"] = distinct
         entry["correct_votes"] = correct_votes
         entry["trials_run"] = len(trials)
+        entry["scored_trials"] = len(valid)
         entry["stable"] = stable
-        entry["judgement"] = (
-            "stable_correct" if stable and correct_votes == len(trials)
-            else "stable_wrong" if stable
-            else "flaky"
-        )
-        entry["chosen_route"] = distinct[0] if stable else choices[0]
-        entry["verdict"] = verdicts[0] if stable else "flaky"
+        entry["judgement"] = judgement
+        # `choices` can be empty when nothing was answered at all.
+        entry["chosen_route"] = distinct[0] if stable and distinct else (
+            choices[0] if choices else None)
+        entry["verdict"] = (
+            verdicts[0] if stable and verdicts else ("flaky" if choices else "no_data"))
         results.append(entry)
 
     attempts = sum(v for v in tally.values())
@@ -535,6 +549,10 @@ def main() -> int:
     scored = attempts - infra
     correct = tally.get("correct", 0)
     stable_correct = [r["case_id"] for r in results if r["judgement"] == "stable_correct"]
+    decided = [r for r in results
+               if r["judgement"] in {"stable_correct", "stable_wrong"}]
+    no_data = [r["case_id"] for r in results
+               if r["judgement"] in {"no_data", "unanswered"}]
     stable_wrong = [r["case_id"] for r in results if r["judgement"] == "stable_wrong"]
     dangerous_cases = sorted({
         str(entry["case_id"])
@@ -556,7 +574,10 @@ def main() -> int:
         "accuracy": round(correct / scored, 3) if scored else 0.0,
         "stable_cases": len(stable_correct) + len(stable_wrong),
         "stable_correct": len(stable_correct),
-        "stable_accuracy": round(len(stable_correct) / len(results), 3) if results else 0.0,
+        "decided_cases": len(decided),
+        "no_data": no_data,
+        "stable_accuracy": (
+            round(len(stable_correct) / len(decided), 3) if decided else 0.0),
         "stable_wrong": stable_wrong,
         "flaky": flaky,
         "unstable_verdict": unstable_verdict,
@@ -575,8 +596,11 @@ def main() -> int:
     if infra:
         print(f"infrastructure  {infra}/{attempts} attempts failed after retries "
               f"and are excluded from accuracy")
-    print(f"stable accuracy {summary['stable_correct']}/{len(results)} cases = "
+    print(f"stable accuracy {summary['stable_correct']}/{len(decided)} decided cases = "
           f"{summary['stable_accuracy']:.1%}")
+    if no_data:
+        print(f"no usable answer {len(no_data)}/{len(results)} cases: "
+              f"{', '.join(map(str, no_data[:10]))}")
     print(f"tally           {dict(sorted(tally.items()))}")
     if summary["dangerous"]:
         print(f"DANGEROUS cases: {', '.join(map(str, summary['dangerous']))}")
