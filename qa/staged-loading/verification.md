@@ -2,21 +2,22 @@
 
 ## State
 
-**Isolated draft; not yet behaviorally accepted, merged or deployed.** Native implementation and local structural/regression checks are recorded below. The separate 56-probe host/model/budget gate is unapproved, so actual consumption, behavioral equivalence and end-to-end performance acceptance remain **blocked/unverified**. One authorized independent final code review is pending.
+**Isolated draft; not yet behaviorally accepted, merged or deployed.** Native implementation and local structural/regression checks are recorded below. The separate 56-probe host/model/budget gate is unapproved, so actual consumption, behavioral equivalence and end-to-end performance acceptance remain **blocked/unverified**. One authorized independent review found two P1 omissions. They and a structured-error issue regraded Important were corrected in one RED→GREEN fix pass. The reviewer was not re-run; behavioral acceptance remains blocked.
 
 - Baseline: `bd5fb689dced7d09d966bff8f1897c06bac6082f`.
 - Worktree: `/home/declan/.cache/pi-worktrees/contents-production-loading-20261118`.
 - Branch: `feat/staged-skill-loading-20261118`.
 - Source metrics: `before-after.json` contains the source commit and raw document fingerprints; metrics are not billing tokens.
 - Scope: manifest's 25 skills; four non-manifest installed image/website specialists are untouched.
-- No remote push, merge, installation, installed-skill sync/repoint, model/provider operation, upload, media production or publication was performed. Local tests create synthetic fixtures only.
+- No remote push, merge, installation, installed-skill sync/repoint, media-model/provider execution, upload, media production or publication was performed. Local tests create synthetic fixtures only.
 
 ## Evidence
 
 | Check | Observed result |
 |---|---|
 | Baseline complete suite | 1048 passed, 4 skipped, 533 subtests |
-| Candidate complete suite, before final review | 1113 passed, 4 skipped, 533 subtests (68.64s) |
+| Candidate suite before review | 1113 passed, 4 skipped, 533 subtests (68.64s) |
+| Candidate full suite after review fixes | **1121 passed, 4 skipped, 533 subtests (64.68s)**; `PYTHONDONTWRITEBYTECODE=1`, home TMPDIR, pytest `-p no:cacheprovider` |
 | Skip reason | Four Windows junction cases in `recording-production-history/scripts/test_layout_review_regressions.py:77`; host is not Windows |
 | Version check | package 2.54, 25 consistent skills; IDs/versions unchanged |
 | Whitespace | `git diff --check` clean |
@@ -55,6 +56,19 @@ The two slight static regressions are explicitly reported, not hidden in an aggr
 ## Remaining gates
 
 - **0/56 behavioral probes run.** Need separate host/model/budget approval before the frozen cases can measure actual returned text, duplicate reads, questions, output completeness and fail-closed behavior. No filenames/answer-owner expectations may be injected into probe prompts. Single structural passes do not establish behavior.
-- Independent final review and one bounded RED→GREEN fix pass are pending; its result will be recorded here.
+- [Independent final review](independent-review.md): read-only source review, not an agent behavioral probe or provider test. Fix commit `dad0670ea405f870db2a009af490346525a2c4dd` preserves selected link/requirement checks and evidence, explicit native-adapter/schema records/pins, and JSON errors for malformed stored scopes. Eight new regression cases failed before the corresponding fixes and passed afterward; the full suite passed. No second review was dispatched.
+- **Deferred minor:** the copied `docs/analysis/2026-11-18-skills-weight-audit/REPORT.md` is only a partial frozen audit snapshot. Its original audit scripts and some linked results were not copied; those historical reproduction commands do not run from this branch. Current implementation evidence is this QA directory and `scripts/skill_loading_metrics.py`; do not treat the old audit report as a complete portable reproduction bundle.
 - External `ai-delegation-loop` remains a declared, scoped unresolved dependency where needed; it was not installed, removed or substituted.
 - Merge/push and installed-skill deployment/repoint remain separately unapproved.
+
+## Decisions and retained limitations
+
+- Isolated existing home-cache worktree protects dirty main/installed paths; local checkpoints use the original pre-commit version check but omit its auto-sync post-commit hook. Tradeoff: installation does not follow these commits automatically.
+- Native/static-first work follows the approved plan; behavioral probes await their own budget. Structural line preservation and explicit edit receipts do not establish semantic acceptance.
+- Private view-record closure is separated into `sequence_view_records.py`; optional deep-reference discovery uses `module-index.md`. Tradeoff: an extra private module and potentially one niche index read, whose actual overhead is unmeasured.
+- The reference encoder constructs from pinned verified local ranks/pattern, not a download registry. Tradeoff: maintaining that fixed reference definition; all eight old totals were reproduced. This is not host billing.
+- Stored-scope traceback was regraded Important because it breaks machine-readable errors; fixed with eight total new review regressions across the three accepted issues.
+- Reviewer declined actual behavior, live-provider validity, real media/contact/listening/PDF/approval, universal scaling/latency and deep-reference discoverability: these remain explicitly unverified, not silently accepted.
+- Reported static regressions and >1800-token entries are retained rather than deleting required content. Alternate trace-host adapters, the four non-manifest skills, original dirty routing files, pre-existing execution/index limitations and new caching/scheduling architecture remain outside scope; no claim is made for them.
+- Audit reproduction remains the one deferred minor above. Its original tool bundle is not included here.
+- The plan workspace is retained while behavioral acceptance is blocked; neither all-gates completion nor deployment is asserted.

@@ -1289,9 +1289,9 @@
   "notes": [
     "Appearance selection/variation still requires its catalog: the newly designed fictional-character profile retains it; the compact fixed-appearance profile omits it.",
     "Common handoff is conditional on inherited packets. The storyboard-with-common profile records that variant.",
-    "No media, upload, paid provider, dependency installation, push or installed-skill sync performed."
+    "No media generation, upload, media-provider execution, dependency installation, push or installed-skill sync performed. One authorized independent source review is separate from the 0 behavioral probes."
   ],
-  "candidate_source_commit": "51a528698bf75a202fdf87182140decf59084be4",
+  "candidate_source_commit": "dad0670ea405f870db2a009af490346525a2c4dd",
   "targets": {
     "lighting_static": true,
     "text_board_static": true,
