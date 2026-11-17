@@ -17,6 +17,7 @@ Checks:
                      expected where the request actually authorises it
   3b. owner          each case's expected owner matches routing.csv
   4. contrast pairs  declared pairs must differ on the declared dimension
+  4b. same-route     declared non-distinctions must really not distinguish
   5. skew            report how much of the set is text_only, because accuracy
                      is dominated by whatever the majority axis is
 
@@ -72,6 +73,22 @@ CONTRAST_PAIRS: Final = (
     ("D01", "D02", "media_axis"),        # images deferred vs images now
     ("D03", "D04", "authority_axis"),    # 3D deferred vs 3D requested
     ("D05", "D06", "authority_axis"),    # plan-only vs supplied footage
+    # E-pairs: the hardest three-way split -- a board on paper, stills that
+    # already exist, and stills that must be generated.
+    ("E03", "E04", "media_axis"),        # board on paper vs existing stills
+    ("E05", "E06", "media_axis"),        # short edit vs full short lifecycle
+)
+
+# Pairs that must NOT change the route. These encode a distinction the table
+# deliberately does not make, so a future "fix" that splits them will fail here
+# instead of quietly inventing a boundary that is not in the skills.
+SAME_ROUTE_PAIRS: Final = (
+    # storytelling-with-still-images/SKILL.md says "Use for new or existing
+    # still-image cuts ... If new stills are requested, use codex-imagen".
+    # Generating the stills is in scope, so existing vs new stills is not a
+    # routing distinction. E02 was first written expecting R24; the model
+    # answered R12 every time and was right.
+    ("E01", "E02", "new vs existing stills stays in one route"),
 )
 
 METADATA_FIELDS: Final = ("media_axis", "authority_axis", "owner", "deliverable_kind")
@@ -171,6 +188,25 @@ def check_contrast_pairs(routes, cases) -> tuple[list[str], list[str]]:
     return problems, notes
 
 
+def check_same_route(routes, cases) -> tuple[list[str], list[str]]:
+    """Declared non-distinctions must really be non-distinctions."""
+    by_id = {c["case_id"]: c for c in cases}
+    problems: list[str] = []
+    notes: list[str] = []
+    for first, second, reason in SAME_ROUTE_PAIRS:
+        if first not in by_id or second not in by_id:
+            problems.append(f"same-route pair references a missing case: "
+                            f"{first}/{second}")
+            continue
+        route_a, route_b = by_id[first]["route_id"], by_id[second]["route_id"]
+        if route_a != route_b:
+            problems.append(
+                f"{first} ({route_a}) and {second} ({route_b}) must share a route: "
+                f"{reason}")
+        notes.append(f"{first}/{second} both {route_a} -- {reason}")
+    return problems, notes
+
+
 def check_skew(routes, cases) -> tuple[list[str], list[str]]:
     counts: dict[str, int] = {}
     for case in cases:
@@ -192,6 +228,7 @@ CHECKS: Final = (
     ("warrant", check_warrant),
     ("owner", check_owner),
     ("contrast", check_contrast_pairs),
+    ("same-route", check_same_route),
     ("skew", check_skew),
 )
 

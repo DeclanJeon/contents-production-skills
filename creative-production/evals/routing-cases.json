@@ -380,6 +380,42 @@
       "route_id": "R20",
       "expected_owner": "video-production-assets",
       "prompt": "촬영 끝난 A롤 영상이 있는데 카메라 무빙이 계획대로 갔는지 검수해줘."
+    },
+    {
+      "case_id": "E01",
+      "route_id": "R12",
+      "prompt": "일러스트는 이미 다 그려져 있어. 순서대로 이어붙여서 45초짜리 영상으로 만들어줘.",
+      "expected_owner": "storytelling-with-still-images"
+    },
+    {
+      "case_id": "E02",
+      "route_id": "R12",
+      "prompt": "일러스트를 새로 여섯 장 뽑아서 그걸로 45초 영상까지 만들어줘.",
+      "expected_owner": "storytelling-with-still-images"
+    },
+    {
+      "case_id": "E03",
+      "route_id": "R10",
+      "prompt": "다음 화 콘티를 정리해줘. 그림은 내가 따로 그릴 거야.",
+      "expected_owner": "storyboarding-video"
+    },
+    {
+      "case_id": "E04",
+      "route_id": "R12",
+      "prompt": "그림은 내가 이미 다 그렸어. 이걸로 나레이션 얹은 영상으로 엮어줘.",
+      "expected_owner": "storytelling-with-still-images"
+    },
+    {
+      "case_id": "E05",
+      "route_id": "R12",
+      "prompt": "스틸 여덟 장 받았는데 이걸로 릴스 편집만 해줘.",
+      "expected_owner": "storytelling-with-still-images"
+    },
+    {
+      "case_id": "E06",
+      "route_id": "R14",
+      "prompt": "스틸은 내가 줄 테니 그걸로 단편 하나 기획부터 배급까지 진행해줘.",
+      "expected_owner": "video-production-assets"
     }
   ]
 }

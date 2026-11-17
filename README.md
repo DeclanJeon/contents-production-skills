@@ -30,13 +30,13 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 - `scripts/test_routing_table_lint.py` — 종류 중복, media_axis 어휘, stop_boundary 누락, authority 없는 executed_media, required_read 경로 해석
 - `scripts/routing_eval.py` — 실제 에이전트에 고정 프롬프트를 디스패치해 오라우팅률을 측정한다. 격리 read-only 샌드박스이며, 에이전트가 실제로 연 파일을 감사해 샌드박스 밖 읽기는 `isolation_leak`으로 정답에서 제외한다. LLM 출력은 측정값일 뿐 패키지 사실이 아니다. 최신 유효 측정: [53/53](qa/routing-eval-2026-11-17-boundary/README.md) (경계 케이스 26개 포함, `dangerous` 0, 누수 0).
 - `scripts/test_routing_eval_harness.py` — 채점기 자체의 회귀(파서, 누수 판정, 등급 분류, 안정성 판정). 모델을 호출하지 않는다.
-- `scripts/routing_truth_audit.py` — 라우팅 표가 아니라 **정답 데이터 자체**를 감사한다(커버리지, 배제 표현 모순, 실행 권한 근거, owner 일치, 대조 쌍이 주장한 축에서 실제로 갈리는지, 축 편중 보고). 모델을 호출하지 않는다. `scripts/test_routing_truth_audit.py`가 실제 데이터 통과와 **오염시켰을 때 실패**를 함께 검증한다.
+- `scripts/routing_truth_audit.py` — 라우팅 표가 아니라 **정답 데이터 자체**를 감사한다(커버리지, 배제 표현 모순, 실행 권한 근거, owner 일치, 대조 쌍이 주장한 축에서 실제로 갈리는지, **갈리면 안 되는 쌍이 실제로 안 갈리는지**, 축 편중 보고). 모델을 호출하지 않는다. `scripts/test_routing_truth_audit.py`가 실제 데이터 통과와 **오염시켰을 때 실패**를 함께 검증한다.
 - `scripts/test_repo_integrity.py` — 추적 중인 파일이 작업 트리에서 사라지면 실패한다. `docs/` 700여 파일이 통째로 유실된 사고를 아무 테스트도 잡지 못했기 때문에 추가했다.
 - 반복 안정성: `--repeat N`으로 케이스별 route가 흔들리는지 측정하고, `scripts/routing_flake_report.py`가 Wilson 구간과 **이 표본이 여전히 놓칠 수 있는 오류율**을 함께 보고한다.
   - 전체 53케이스 × 3회: [159/159, flaky 0](qa/routing-stability-2026-11-17/README.md)
   - 경계 26케이스 × 8회: [208/208, flaky 0, 집계 한계 <1.5%](qa/routing-flake-2026-11-17/README.md)
   - 세션 간 재현성: `scripts/routing_repro_check.py`로 두 런을 케이스별 비교. [독립 프로세스 3회가 53케이스 전부 일치](qa/routing-repro-2026-11-17/README.md)
-  - 확장 후 전체: [59/59, 3번째 독립 프로세스](qa/routing-eval-2026-11-17-final59/README.md)
+  - 확장 후 전체: [65/65, 4번째 독립 프로세스](qa/routing-eval-2026-11-17-final65/README.md)
 
 | 스킬 | 책임 | 경계 |
 |---|---|---|

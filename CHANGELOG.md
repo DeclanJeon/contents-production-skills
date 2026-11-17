@@ -8,6 +8,13 @@
 - Upgraded `validate_storyboard.py` (`--strict-staging`, `single_i2v` support) and `render_storyboard_sheet.py` (aspect-ratio adaptive cell dimensions for `9:16`/`16:9`/`4:5` and expanded 64-line captions).
 
 
+## 2.52 2026-11-17
+
+- Widened the least-tested axis: `none_or_stills` was 3% of cases. Six cases (E01-E06) were added as pairs targeting the hardest three-way split -- a board on paper, stills that already exist, and stills that must be generated. `none_or_stills` is now 8%, `text_only` 66% (from 71%).
+- **The measurement corrected my ground truth, not the other way round.** E02 ("generate six new illustrations, then a 45-second video") was written expecting R24. The model answered R12 on every trial. `storytelling-with-still-images/SKILL.md:15` says "Use for new or existing still-image cuts ... If new stills are requested, use `codex-imagen`", so generating the stills is inside R12 and the expected route was wrong. E02 now expects R12.
+- Added `SAME_ROUTE_PAIRS` to the audit: pairs that must *not* differ, encoding a distinction the table deliberately does not make. E01/E02 (existing vs new stills) is the first, so a future "correction" back to R24 fails immediately instead of quietly inventing a boundary the skills do not have. Contrast pairs (must differ) and same-route pairs (must not) are now both declared and both tested, including a corrupted-copy test for each.
+- Re-measured the full set in one run: 65/65 correct, 0 infrastructure failures, and 59/59 agreement with the previous 59-case run from a fourth independent process.
+
 ## 2.51 2026-11-17
 
 - Added `scripts/routing_truth_audit.py`, which audits the **expected routes rather than the router**. Every number so far answers "does the router agree with the expected route"; if an expectation is wrong, that number means nothing. Six checks: coverage, no withheld deliverable mapped to a route that performs it, no executed-media route without an authorising clause, expected owner matches `routing.csv`, every declared contrast pair actually flips the dimension it claims, and a report of which media axis dominates the set. Eight tests run each check on the real data *and* on a corrupted copy, because a check that can only pass is decoration.

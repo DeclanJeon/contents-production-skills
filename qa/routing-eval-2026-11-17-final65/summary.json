@@ -1,0 +1,1977 @@
+{
+  "generated_at": "2026-11-17T10:30:14+00:00",
+  "model": "gpt-6.1-sol",
+  "package_version": "2.51",
+  "repeat": 1,
+  "cases": 65,
+  "attempts": 65,
+  "correct": 65,
+  "scored": 65,
+  "infrastructure_failures": 0,
+  "accuracy": 1.0,
+  "stable_cases": 65,
+  "stable_correct": 65,
+  "decided_cases": 65,
+  "no_data": [],
+  "stable_accuracy": 1.0,
+  "stable_wrong": [],
+  "flaky": [],
+  "unstable_verdict": [],
+  "tally": {
+    "correct": 65
+  },
+  "dangerous": [],
+  "note": "LLM output is measurement only, never package truth.",
+  "results": [
+    {
+      "case_id": "C01",
+      "prompt": "SNS에서 이 제품 리뷰 영상 후보 좀 찾아줘",
+      "expected": "searching-social-media",
+      "expected_route": "R01",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R01",
+          "why": "SNS 제품 리뷰 영상 후보 검색이며, 생성이나 편집 요청은 없습니다.",
+          "verdict": "correct",
+          "agent_text": "지정된 라우팅 파일 두 개를 읽고 요청한 산출물 기준으로 판단하겠습니다.\n\nROUTE: R01\nWHY: SNS 제품 리뷰 영상 후보 검색이며, 생성이나 편집 요청은 없습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R01"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R01",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C02",
+      "prompt": "이 기획안으로 시놉시스 하나만 써줘",
+      "expected": "developing-video-synopses",
+      "expected_route": "R02",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R02",
+          "why": "Requests one text-only synopsis from an existing plan.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R02\nWHY: Requests one text-only synopsis from an existing plan.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R02"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R02",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C03",
+      "prompt": "주인공 캐릭터 시트 하나 만들어줘",
+      "expected": "designing-video-character-sheets",
+      "expected_route": "R03",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R03",
+          "why": "단일 주인공 캐릭터 시트 요청이며, 이미지 생성 허가가 없어 text_only 적용.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R03\nWHY: 단일 주인공 캐릭터 시트 요청이며, 이미지 생성 허가가 없어 text_only 적용.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R03"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R03",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C04",
+      "prompt": "이 인물 MBTI랑 말투 프레이밍만 잡아줘",
+      "expected": "designing-character-personas",
+      "expected_route": "R04",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R04",
+          "why": "MBTI와 말투 프레이밍만 요청한 텍스트 페르소나 방향 설정이다.",
+          "verdict": "correct",
+          "agent_text": "I’ll read the two routing files and match the requested deliverable to the CSV slots.\n\nROUTE: R04\nWHY: MBTI와 말투 프레이밍만 요청한 텍스트 페르소나 방향 설정이다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R04"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R04",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C05",
+      "prompt": "콘셉트부터 콘티까지 텍스트로 전체 패키지 짜줘",
+      "expected": "orchestrating-video-preproduction",
+      "expected_route": "R05",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R05",
+          "why": "Requests a complete text-only planning package spanning concept through storyboard.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R05\nWHY: Requests a complete text-only planning package spanning concept through storyboard.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R05"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R05",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C06",
+      "prompt": "이 장면 앵글과 표정 전달 의도만 봐줘",
+      "expected": "video-production-assets",
+      "expected_route": "R06",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R06",
+          "why": "장면 앵글과 표정의 시각적 전달 의도만 검토하는 텍스트 요청.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R06\nWHY: 장면 앵글과 표정의 시각적 전달 의도만 검토하는 텍스트 요청.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R06"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R06",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C07",
+      "prompt": "대사 없이 무성으로 이야기 만들어줘",
+      "expected": "silent-visual-storytelling",
+      "expected_route": "R07",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R07",
+          "why": "Requests a no-dialogue visual narrative; defaults to text-only without media execution permission.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 산출물과 미디어 허용 범위로 경로를 판단하겠습니다.\n\nROUTE: R07\nWHY: Requests a no-dialogue visual narrative; defaults to text-only without media execution permission.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R07"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R07",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C08",
+      "prompt": "확정된 콘티로 애니매틱 타이밍 짜줘",
+      "expected": "animatic-direction",
+      "expected_route": "R08",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R08",
+          "why": "확정된 콘티의 애니매틱 타이밍 설계만 요청했으며, 미디어 생성이나 편집은 허용하지 않았습니다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R08\nWHY: 확정된 콘티의 애니매틱 타이밍 설계만 요청했으며, 미디어 생성이나 편집은 허용하지 않았습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R08"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R08",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C09",
+      "prompt": "85초 무성 풍자 애니메틱으로 만들어",
+      "expected": "silent-satire-animatic",
+      "expected_route": "R09",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R09",
+          "why": "Explicit 85-second silent satire animatic matches the specialized text-only local pipeline.",
+          "verdict": "correct",
+          "agent_text": "I’ll read the two routing files and match the requested deliverable to their criteria.\n\nROUTE: R09\nWHY: Explicit 85-second silent satire animatic matches the specialized text-only local pipeline.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R09"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R09",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C10",
+      "prompt": "이 30초 영상 콘티 전체 만들어줘",
+      "expected": "storyboarding-video",
+      "expected_route": "R10",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R10",
+          "why": "Complete storyboard requested; media generation and editing are not authorized.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R10\nWHY: Complete storyboard requested; media generation and editing are not authorized.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R10"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R10",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C11",
+      "prompt": "러프 썸네일 패널 프롬프트만 뽑아줘",
+      "expected": "storyboarding-video",
+      "expected_route": "R11",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R11",
+          "why": "Requests only rough thumbnail panel prompts as text, without rendering or a complete storyboard.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R11\nWHY: Requests only rough thumbnail panel prompts as text, without rendering or a complete storyboard.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R11"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R11",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C12",
+      "prompt": "이 스틸 이미지들로 영상 편집해줘",
+      "expected": "storytelling-with-still-images",
+      "expected_route": "R12",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R12",
+          "why": "Requests actual video editing using supplied still images as the picture sources.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R12\nWHY: Requests actual video editing using supplied still images as the picture sources.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R12"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R12",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C13",
+      "prompt": "조명 계획 하나만 짜줘",
+      "expected": "video-production-assets",
+      "expected_route": "R13",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R13",
+          "why": "단일 조명 계획은 텍스트 제작 자산이며, 미디어 실행 요청이 없다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R13\nWHY: 단일 조명 계획은 텍스트 제작 자산이며, 미디어 실행 요청이 없다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R13"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R13",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C14",
+      "prompt": "단편영화 전체 제작 라이프사이클로 진행해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R14",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R14",
+          "why": "단편영화 전체 제작 라이프사이클 요청이며, 미디어 실행 승인은 포함하지 않습니다.",
+          "verdict": "correct",
+          "agent_text": "요청의 산출물과 실행 권한을 라우팅 표 및 스킬 지침과 대조하겠습니다.\n\nROUTE: R14\nWHY: 단편영화 전체 제작 라이프사이클 요청이며, 미디어 실행 승인은 포함하지 않습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R14"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R14",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C15",
+      "prompt": "아이 노는 모습 교육 영상 기획해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R15",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R15",
+          "why": "아이의 놀이 모습을 다루는 교육 영상 기획이며, 생성이나 편집 요청은 없습니다.",
+          "verdict": "correct",
+          "agent_text": "요청하신 두 파일을 읽고 산출물과 미디어 허용 범위에 맞춰 경로를 판단하겠습니다.\n\nROUTE: R15\nWHY: 아이의 놀이 모습을 다루는 교육 영상 기획이며, 생성이나 편집 요청은 없습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R15"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R15",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C16",
+      "prompt": "이 레퍼런스 영상 카메라 무빙 분석해줘",
+      "expected": "camera-motion-reference-analysis",
+      "expected_route": "R16",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R16",
+          "why": "레퍼런스 영상의 카메라 움직임 분석 요청이며, 미디어 생성이나 편집은 요청하지 않았습니다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R16\nWHY: 레퍼런스 영상의 카메라 움직임 분석 요청이며, 미디어 생성이나 편집은 요청하지 않았습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R16"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R16",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C17",
+      "prompt": "이 장면 1인칭 시점으로 카메라 구도 잡아줘",
+      "expected": "storyboarding-video",
+      "expected_route": "R17",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R17",
+          "why": "Requests first-person scene framing, a narrative camera plan without media execution.",
+          "verdict": "correct",
+          "agent_text": "I’ll read the two routing files and match the requested deliverable.\n\nROUTE: R17\nWHY: Requests first-person scene framing, a narrative camera plan without media execution.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R17"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R17",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C18",
+      "prompt": "이 카메라 렌즈랑 타이밍 설계해줘",
+      "expected": "camera-spatial-design",
+      "expected_route": "R18",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R18",
+          "why": "카메라 렌즈와 타이밍의 텍스트 설계를 요청했으며, 미디어 생성은 허용하지 않았습니다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R18\nWHY: 카메라 렌즈와 타이밍의 텍스트 설계를 요청했으며, 미디어 생성은 허용하지 않았습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R18"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R18",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C19",
+      "prompt": "이 카메라 플랜을 AI 비디오 프롬프트로 바꿔줘",
+      "expected": "ai-camera-control",
+      "expected_route": "R19",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R19",
+          "why": "기존 카메라 플랜을 텍스트 AI 비디오 제어 프롬프트로 변환하는 요청입니다.",
+          "verdict": "correct",
+          "agent_text": "지정된 두 파일을 읽고 산출물·미디어·권한 기준으로 경로를 확인하겠습니다.\n\nROUTE: R19\nWHY: 기존 카메라 플랜을 텍스트 AI 비디오 제어 프롬프트로 변환하는 요청입니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R19"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R19",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C20",
+      "prompt": "이 영상 실제 카메라 무빙 검수해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R20",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R20",
+          "why": "제공된 영상의 실제 카메라 무빙 검수이며, 새 생성이나 편집 요청은 아님.",
+          "verdict": "correct",
+          "agent_text": "지정된 두 파일을 읽고 결과물·미디어·권한 기준으로 경로를 확인하겠습니다.\n\nROUTE: R20\nWHY: 제공된 영상의 실제 카메라 무빙 검수이며, 새 생성이나 편집 요청은 아님.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R20"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R20",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C21",
+      "prompt": "카메라 좌표와 렌즈 수치만 설계해줘",
+      "expected": "camera-spatial-design",
+      "expected_route": "R21",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R21",
+          "why": "카메라 좌표와 렌즈 수치만 요청한 텍스트 설계이며 실제 3D 검증은 요구하지 않음.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R21\nWHY: 카메라 좌표와 렌즈 수치만 요청한 텍스트 설계이며 실제 3D 검증은 요구하지 않음.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R21"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R21",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C22",
+      "prompt": "이 씬 3D 공간 오클루전 검증해줘",
+      "expected": "blender-previsualization",
+      "expected_route": "R22",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R22",
+          "why": "씬의 실제 3D 공간 오클루전 검증을 명시적으로 요청했다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R22\nWHY: 씬의 실제 3D 공간 오클루전 검증을 명시적으로 요청했다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R22"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R22",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C23",
+      "prompt": "이 영상 프롬프트 모델별로 비평해줘",
+      "expected": "creative-production",
+      "expected_route": "R23",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R23",
+          "why": "모델별 영상 프롬프트 비평을 요청했으며, 미디어 생성 없이 텍스트 분석만 필요합니다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R23\nWHY: 모델별 영상 프롬프트 비평을 요청했으며, 미디어 생성 없이 텍스트 분석만 필요합니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R23"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R23",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C24",
+      "prompt": "이미지까지 포함한 전체 프리프로덕션 패키지 만들어줘",
+      "expected": "creative-production",
+      "expected_route": "R24",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R24",
+          "why": "Requests a full preproduction package including images, explicitly permitting image execution.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R24\nWHY: Requests a full preproduction package including images, explicitly permitting image execution.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R24"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R24",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C25",
+      "prompt": "이 패키지 감사해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R25",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R25",
+          "why": "패키지 감사를 요청했으며, 매체 생성이나 편집은 허용하지 않았습니다.",
+          "verdict": "correct",
+          "agent_text": "지정된 두 파일을 읽고 요청에 맞는 경로를 확인하겠습니다.\n\nROUTE: R25\nWHY: 패키지 감사를 요청했으며, 매체 생성이나 편집은 허용하지 않았습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R25"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R25",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C26",
+      "prompt": "이 레퍼런스 영상 컷 분해해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R26",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R26",
+          "why": "Reference video cut decomposition is text-only measured analysis.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R26\nWHY: Reference video cut decomposition is text-only measured analysis.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R26"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R26",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "C27",
+      "prompt": "이전 프로젝트 이어서 감사해줘",
+      "expected": "recording-production-history",
+      "expected_route": "R27",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R27",
+          "why": "이전 프로젝트를 이어서 감사하는 요청이며, 새 미디어 생성이나 편집 승인은 없습니다.",
+          "verdict": "correct",
+          "agent_text": "지정된 두 파일을 읽고 요청에 맞는 경로를 확인하겠습니다.\n\nROUTE: R27\nWHY: 이전 프로젝트를 이어서 감사하는 요청이며, 새 미디어 생성이나 편집 승인은 없습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R27"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R27",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B01",
+      "prompt": "이번 캠페인 30초 영상 촬영 들어가기 전에 제작용 콘티 뽑아줘. 샷마다 카메라랑 조명까지 정리돼야 촬영팀이 바로 쓸 수 있어.",
+      "expected": "storyboarding-video",
+      "expected_route": "R10",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R10",
+          "why": "촬영팀용 완성 콘티 요청으로, 샷별 카메라·조명을 포함하며 미디어 생성은 요청하지 않았다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R10\nWHY: 촬영팀용 완성 콘티 요청으로, 샷별 카메라·조명을 포함하며 미디어 생성은 요청하지 않았다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R10"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R10",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B02",
+      "prompt": "콘티는 아니고 아이디어 확인용으로 손그림 네 컷이면 충분해",
+      "expected": "storyboarding-video",
+      "expected_route": "R11",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R11",
+          "why": "아이디어 확인용 러프 네 컷이며, 실제 이미지 실행은 별도 할당이 필요하다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R11\nWHY: 아이디어 확인용 러프 네 컷이며, 실제 이미지 실행은 별도 할당이 필요하다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R11"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R11",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B03",
+      "prompt": "콘티 뽑고 그 콘티대로 실제 장면 이미지까지 만들어서 시트로 정리해줘",
+      "expected": "creative-production",
+      "expected_route": "R24",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R24",
+          "why": "콘티에 따른 실제 장면 이미지 생성과 시트 정리를 명시적으로 요청했다.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 산출물과 미디어 실행 범위에 맞춰 경로를 고르겠습니다.\n\nROUTE: R24\nWHY: 콘티에 따른 실제 장면 이미지 생성과 시트 정리를 명시적으로 요청했다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R24"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R24",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B04",
+      "prompt": "콘티 만들어줘. 이미지는 아직 만들지 말고",
+      "expected": "storyboarding-video",
+      "expected_route": "R10",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R10",
+          "why": "일반 콘티 요청이며 이미지 생성을 명시적으로 제외하여 text_only에 해당합니다.",
+          "verdict": "correct",
+          "agent_text": "지정된 두 파일을 읽고, 요청한 결과물과 이미지 생성 제한에 맞춰 경로를 판단하겠습니다.\n\nROUTE: R10\nWHY: 일반 콘티 요청이며 이미지 생성을 명시적으로 제외하여 text_only에 해당합니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R10"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R10",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B05",
+      "prompt": "대사 없이 두 사람이 헤어지는 걸 보여주고 싶어. 어떻게 보여줄지 짜줘",
+      "expected": "silent-visual-storytelling",
+      "expected_route": "R07",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R07",
+          "why": "Requests text-only planning for a wordless breakup narrative conveyed through visible actions and emotion.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R07\nWHY: Requests text-only planning for a wordless breakup narrative conveyed through visible actions and emotion.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R07"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R07",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B06",
+      "prompt": "확정된 스토리보드는 있으니까 컷 길이랑 홀드만 다시 잡아줘",
+      "expected": "animatic-direction",
+      "expected_route": "R08",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R08",
+          "why": "확정된 스토리보드의 컷 길이와 홀드만 조정하는 텍스트 타이밍 요청입니다.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 결과물과 미디어 허용 범위에 맞춰 경로를 판단하겠습니다.\n\nROUTE: R08\nWHY: 확정된 스토리보드의 컷 길이와 홀드만 조정하는 텍스트 타이밍 요청입니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R08"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R08",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B07",
+      "prompt": "90초짜리 무성 풍자로 만들어줘",
+      "expected": "silent-satire-animatic",
+      "expected_route": "R09",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R09",
+          "why": "90초 무성 풍자는 text_only 기본값의 85–120초 전용 파이프라인에 해당한다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R09\nWHY: 90초 무성 풍자는 text_only 기본값의 85–120초 전용 파이프라인에 해당한다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R09"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R09",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B08",
+      "prompt": "시놉시스부터 콘티까지 텍스트로만 정리해줘. 이미지 없이",
+      "expected": "orchestrating-video-preproduction",
+      "expected_route": "R05",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R05",
+          "why": "시놉시스부터 콘티까지 여러 기획 산출물을 이미지 없이 텍스트로만 요청했다.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 산출물과 미디어 범위에 맞는 경로를 확인하겠습니다.\n\nROUTE: R05\nWHY: 시놉시스부터 콘티까지 여러 기획 산출물을 이미지 없이 텍스트로만 요청했다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R05"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R05",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B09",
+      "prompt": "위 기획으로 실제 스틸까지 뽑아서 최종 패키지로 마무리해줘",
+      "expected": "creative-production",
+      "expected_route": "R24",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R24",
+          "why": "Requests actual still generation and completion of an image-backed final preproduction package.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R24\nWHY: Requests actual still generation and completion of an image-backed final preproduction package.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R24"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R24",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B10",
+      "prompt": "렌즈랑 카메라 위치 수치만 정해줘. 3D로 검증은 아직",
+      "expected": "camera-spatial-design",
+      "expected_route": "R21",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R21",
+          "why": "렌즈와 카메라 위치 수치만 요청했고 실제 3D 검증은 제외했다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R21\nWHY: 렌즈와 카메라 위치 수치만 요청했고 실제 3D 검증은 제외했다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R21"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R21",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B11",
+      "prompt": "이 카메라 경로가 벽을 안 통과하는지 3D로 실제 확인해줘",
+      "expected": "blender-previsualization",
+      "expected_route": "R22",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R22",
+          "why": "실제 3D 공간에서 카메라 경로의 벽 관통 여부 검증을 요청했다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R22\nWHY: 실제 3D 공간에서 카메라 경로의 벽 관통 여부 검증을 요청했다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R22"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R22",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B12",
+      "prompt": "이 카메라 설계를 영상 생성 모델에 넣을 프롬프트로 바꿔줘",
+      "expected": "ai-camera-control",
+      "expected_route": "R19",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R19",
+          "why": "Converts an existing camera design into text prompts for AI video generation.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R19\nWHY: Converts an existing camera design into text prompts for AI video generation.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R19"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R19",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B13",
+      "prompt": "이 레퍼런스 클립 카메라가 어떻게 움직였는지 봐줘",
+      "expected": "camera-motion-reference-analysis",
+      "expected_route": "R16",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R16",
+          "why": "레퍼런스 클립의 카메라 움직임 분석을 요청했으며, 생성이나 편집은 요청하지 않았습니다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R16\nWHY: 레퍼런스 클립의 카메라 움직임 분석을 요청했으며, 생성이나 편집은 요청하지 않았습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R16"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R16",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B14",
+      "prompt": "이 장면 클로즈업으로 갈지 와이드로 갈지 구도만 정해줘",
+      "expected": "storyboarding-video",
+      "expected_route": "R17",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R17",
+          "why": "Chooses shot framing only; narrative camera planning requires text, without timing or spatial verification.",
+          "verdict": "correct",
+          "agent_text": "I’ll read the two routing files and match the requested deliverable to the CSV slots.\nROUTE: R17\nWHY: Chooses shot framing only; narrative camera planning requires text, without timing or spatial verification.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R17"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R17",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B15",
+      "prompt": "조명 계획 하나만 짜줘. 다른 모듈은 필요 없어",
+      "expected": "video-production-assets",
+      "expected_route": "R13",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R13",
+          "why": "조명 계획 하나만 요청한 text_only 단일 제작 자산이며, 다른 모듈은 제외됩니다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R13\nWHY: 조명 계획 하나만 요청한 text_only 단일 제작 자산이며, 다른 모듈은 제외됩니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R13"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R13",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B16",
+      "prompt": "초등학생 대상 광합성 설명 영상인데 사실 관계가 틀리면 안 되니까 근거 확인하고 교육용 기획 하나만 잡아줘",
+      "expected": "video-production-assets",
+      "expected_route": "R15",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R15",
+          "why": "사실 검증을 포함한 초등학생 대상 교육용 기획 하나이며, 미디어 제작은 요청하지 않았다.",
+          "verdict": "correct",
+          "agent_text": "요청된 두 파일을 읽고 산출물과 미디어 허용 범위를 기준으로 판단하겠습니다.\n\nROUTE: R15\nWHY: 사실 검증을 포함한 초등학생 대상 교육용 기획 하나이며, 미디어 제작은 요청하지 않았다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R15"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R15",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B17",
+      "prompt": "이 샷에서 표정이 의도대로 읽히는지 봐줘",
+      "expected": "video-production-assets",
+      "expected_route": "R06",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R06",
+          "why": "기존 샷의 표정이 의도를 시각적으로 전달하는지 검토하는 요청이다.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 산출물과 미디어 허용 범위를 기준으로 판단하겠습니다.\n\nROUTE: R06\nWHY: 기존 샷의 표정이 의도를 시각적으로 전달하는지 검토하는 요청이다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R06"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R06",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B18",
+      "prompt": "이 패키지 전체 감사해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R25",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R25",
+          "why": "전체 패키지 감사는 텍스트 분석이며, 미디어 생성이나 편집을 요청하지 않았다.",
+          "verdict": "correct",
+          "agent_text": "I’ll read the two routing files and match the request to the narrowest applicable route.\n\nROUTE: R25\nWHY: 전체 패키지 감사는 텍스트 분석이며, 미디어 생성이나 편집을 요청하지 않았다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R25"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R25",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B19",
+      "prompt": "이 레퍼런스 영상을 컷 단위로 쪼개서 분석해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R26",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R26",
+          "why": "Reference video cut-by-cut analysis requests text-only measured decomposition.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R26\nWHY: Reference video cut-by-cut analysis requests text-only measured decomposition.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R26"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R26",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B20",
+      "prompt": "지난주에 하던 프로젝트 중단됐는데 이어서 상태 확인해줘",
+      "expected": "recording-production-history",
+      "expected_route": "R27",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R27",
+          "why": "중단된 기존 프로젝트의 상태 확인과 재개를 위한 이력 감사 요청입니다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R27\nWHY: 중단된 기존 프로젝트의 상태 확인과 재개를 위한 이력 감사 요청입니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R27"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R27",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B21",
+      "prompt": "이 캐릭터 성격이랑 말투만 잡아줘. 시트는 아직",
+      "expected": "designing-character-personas",
+      "expected_route": "R04",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R04",
+          "why": "성격과 말투만 요청했으며 캐릭터 시트 제작은 명시적으로 제외했습니다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R04\nWHY: 성격과 말투만 요청했으며 캐릭터 시트 제작은 명시적으로 제외했습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R04"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R04",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B22",
+      "prompt": "캐릭터 시트 하나 만들어줘",
+      "expected": "designing-video-character-sheets",
+      "expected_route": "R03",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R03",
+          "why": "단일 캐릭터 시트 요청이며, 미디어 생성 허용이 없어 텍스트 전용으로 판단.",
+          "verdict": "correct",
+          "agent_text": "I’ll read the two routing files and match the requested deliverable to the CSV slots.\n\nROUTE: R03\nWHY: 단일 캐릭터 시트 요청이며, 미디어 생성 허용이 없어 텍스트 전용으로 판단.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R03"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R03",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B23",
+      "prompt": "이 스틸 이미지들로 영상으로 이어붙여줘",
+      "expected": "storytelling-with-still-images",
+      "expected_route": "R12",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R12",
+          "why": "제공된 스틸 이미지만 이어붙여 실제 영상을 편집하는 요청이다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R12\nWHY: 제공된 스틸 이미지만 이어붙여 실제 영상을 편집하는 요청이다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R12"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R12",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B24",
+      "prompt": "단편 하나를 기획부터 배급까지 단계별로 진행해줘",
+      "expected": "video-production-assets",
+      "expected_route": "R14",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R14",
+          "why": "단편의 기획부터 배급까지 전체 생애주기를 단계별로 진행하는 요청이다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R14\nWHY: 단편의 기획부터 배급까지 전체 생애주기를 단계별로 진행하는 요청이다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R14"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R14",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B25",
+      "prompt": "완성된 이 영상 카메라 무빙이 계획대로인지 재생해서 봐줘",
+      "expected": "video-production-assets",
+      "expected_route": "R20",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R20",
+          "why": "완성된 영상을 재생하여 계획 대비 실제 카메라 움직임을 검증하는 요청이다.",
+          "verdict": "correct",
+          "agent_text": "요청된 두 파일을 읽고 결과물과 미디어 실행 여부를 기준으로 경로를 판단하겠습니다.\n\nROUTE: R20\nWHY: 완성된 영상을 재생하여 계획 대비 실제 카메라 움직임을 검증하는 요청이다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R20"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R20",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "B01b",
+      "prompt": "콘티 정식으로 말고 그냥 분위기 확인하려고 러프하게 네 컷만 그려줘",
+      "expected": "storyboarding-video",
+      "expected_route": "R11",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R11",
+          "why": "분위기 확인용 러프 네 컷이며, 정식 콘티나 전체 이미지 기반 프리프로덕션은 요청하지 않았다.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 결과물과 미디어 허용 범위에 맞춰 경로를 고르겠습니다.\n\nROUTE: R11\nWHY: 분위기 확인용 러프 네 컷이며, 정식 콘티나 전체 이미지 기반 프리프로덕션은 요청하지 않았다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R11"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R11",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "D01",
+      "prompt": "콘티까지 만들고 실제 장면 이미지는 다음 회차에 뽑자. 지금은 샷마다 카메라랑 조명 정리만.",
+      "expected": "storyboarding-video",
+      "expected_route": "R10",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R10",
+          "why": "콘티와 샷별 카메라·조명 설계가 산출물이며, 실제 이미지 생성은 다음 회차로 미뤘습니다.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 산출물 범위에 맞는 경로를 확인하겠습니다.\n\nROUTE: R10\nWHY: 콘티와 샷별 카메라·조명 설계가 산출물이며, 실제 이미지 생성은 다음 회차로 미뤘습니다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R10"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R10",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "D02",
+      "prompt": "콘티까지 만들고 실제 장면 이미지도 이번에 바로 뽑아서 시트까지 정리해줘.",
+      "expected": "creative-production",
+      "expected_route": "R24",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R24",
+          "why": "콘티와 실제 장면 이미지 생성, 이미지 기반 시트 정리까지 명시적으로 요청했다.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 산출물과 미디어 실행 허용 여부로 경로를 판단하겠습니다.\n\nROUTE: R24\nWHY: 콘티와 실제 장면 이미지 생성, 이미지 기반 시트 정리까지 명시적으로 요청했다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R24"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R24",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "D03",
+      "prompt": "카메라 경로 수치만 잡아줘. 블렌더 검증은 다음 단계에서 하자.",
+      "expected": "camera-spatial-design",
+      "expected_route": "R21",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R21",
+          "why": "카메라 경로 수치만 설계하며 블렌더 검증은 명시적으로 다음 단계로 미뤘다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R21\nWHY: 카메라 경로 수치만 설계하며 블렌더 검증은 명시적으로 다음 단계로 미뤘다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R21"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R21",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "D04",
+      "prompt": "이 카메라 경로가 실제로 벽을 통과하는지 블렌더로 돌려서 확인해줘.",
+      "expected": "blender-previsualization",
+      "expected_route": "R22",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R22",
+          "why": "Blender 실행으로 카메라 경로의 벽 관통 여부를 확인하는 실제 3D 공간 검증 요청.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R22\nWHY: Blender 실행으로 카메라 경로의 벽 관통 여부를 확인하는 실제 3D 공간 검증 요청.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R22"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R22",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "D05",
+      "prompt": "단편 하나 이번 분기에 끝내야 해. 기획부터 배급까지 단계별로 잡아줘.",
+      "expected": "video-production-assets",
+      "expected_route": "R14",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R14",
+          "why": "단편의 기획부터 배급까지 전체 생애주기 단계별 계획을 요청했다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R14\nWHY: 단편의 기획부터 배급까지 전체 생애주기 단계별 계획을 요청했다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R14"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R14",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "D06",
+      "prompt": "촬영 끝난 A롤 영상이 있는데 카메라 무빙이 계획대로 갔는지 검수해줘.",
+      "expected": "video-production-assets",
+      "expected_route": "R20",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R20",
+          "why": "촬영된 A롤의 실제 카메라 움직임이 계획대로 수행됐는지 검수하는 요청이다.",
+          "verdict": "correct",
+          "agent_text": "요청하신 두 파일을 읽고 결과물·미디어·권한 기준으로 경로를 판단하겠습니다.\n\nROUTE: R20\nWHY: 촬영된 A롤의 실제 카메라 움직임이 계획대로 수행됐는지 검수하는 요청이다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R20"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R20",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "E01",
+      "prompt": "일러스트는 이미 다 그려져 있어. 순서대로 이어붙여서 45초짜리 영상으로 만들어줘.",
+      "expected": "storytelling-with-still-images",
+      "expected_route": "R12",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R12",
+          "why": "이미 완성된 일러스트를 순서대로 편집해 45초 영상으로 만드는 요청이다.",
+          "verdict": "correct",
+          "agent_text": "요청한 라우팅 문서 두 개를 읽고, 결과물과 미디어 실행 범위를 기준으로 판단하겠습니다.\n\nROUTE: R12\nWHY: 이미 완성된 일러스트를 순서대로 편집해 45초 영상으로 만드는 요청이다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R12"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R12",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "E02",
+      "prompt": "일러스트를 새로 여섯 장 뽑아서 그걸로 45초 영상까지 만들어줘.",
+      "expected": "storytelling-with-still-images",
+      "expected_route": "R12",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R12",
+          "why": "새 일러스트 여섯 장을 생성하고 정지 이미지만으로 45초 영상을 제작하는 요청.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 결과물과 미디어 실행 범위에 맞는 경로를 확인하겠습니다.\n\nROUTE: R12\nWHY: 새 일러스트 여섯 장을 생성하고 정지 이미지만으로 45초 영상을 제작하는 요청.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R12"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R12",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "E03",
+      "prompt": "다음 화 콘티를 정리해줘. 그림은 내가 따로 그릴 거야.",
+      "expected": "storyboarding-video",
+      "expected_route": "R10",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R10",
+          "why": "다음 화의 일반 콘티 정리 요청이며, 그림은 사용자가 따로 제작하므로 text_only에 해당한다.",
+          "verdict": "correct",
+          "agent_text": "지정된 두 파일을 읽고 요청한 산출물 기준으로 경로를 판단하겠습니다.\n\nROUTE: R10\nWHY: 다음 화의 일반 콘티 정리 요청이며, 그림은 사용자가 따로 제작하므로 text_only에 해당한다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R10"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R10",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "E04",
+      "prompt": "그림은 내가 이미 다 그렸어. 이걸로 나레이션 얹은 영상으로 엮어줘.",
+      "expected": "storytelling-with-still-images",
+      "expected_route": "R12",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R12",
+          "why": "Assemble supplied drawings into a narrated video using still images only.",
+          "verdict": "correct",
+          "agent_text": "요청한 두 파일을 읽고 결과물과 미디어 실행 범위에 맞는 경로를 확인하겠습니다.\n\nROUTE: R12\nWHY: Assemble supplied drawings into a narrated video using still images only.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R12"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R12",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "E05",
+      "prompt": "스틸 여덟 장 받았는데 이걸로 릴스 편집만 해줘.",
+      "expected": "storytelling-with-still-images",
+      "expected_route": "R12",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R12",
+          "why": "제공된 스틸 여덟 장만으로 릴스를 실제 편집하는 요청이다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R12\nWHY: 제공된 스틸 여덟 장만으로 릴스를 실제 편집하는 요청이다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R12"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R12",
+      "verdict": "correct"
+    },
+    {
+      "case_id": "E06",
+      "prompt": "스틸은 내가 줄 테니 그걸로 단편 하나 기획부터 배급까지 진행해줘.",
+      "expected": "video-production-assets",
+      "expected_route": "R14",
+      "trials": [
+        {
+          "trial": 1,
+          "chosen_route": "R14",
+          "why": "스틸 제공 조건보다 기획부터 배급까지 단편 전체 생애주기 진행이 요청 산출물이다.",
+          "verdict": "correct",
+          "agent_text": "ROUTE: R14\nWHY: 스틸 제공 조건보다 기획부터 배급까지 단편 전체 생애주기 진행이 요청 산출물이다.",
+          "reads": [
+            "creative-production/SKILL.md",
+            "creative-production/references/routing.csv"
+          ],
+          "leaks": []
+        }
+      ],
+      "distinct_routes": [
+        "R14"
+      ],
+      "correct_votes": 1,
+      "trials_run": 1,
+      "scored_trials": 1,
+      "stable": true,
+      "judgement": "stable_correct",
+      "chosen_route": "R14",
+      "verdict": "correct"
+    }
+  ]
+}

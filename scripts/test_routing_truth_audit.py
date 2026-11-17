@@ -108,3 +108,31 @@ def test_owner_check_fails_when_the_owner_is_wrong() -> None:
 
     problems, _ = audit.check_owner(routes, corrupt(cases))
     assert any("D02" in p for p in problems), problems
+
+
+def test_same_route_check_fails_when_a_non_distinction_gets_split() -> None:
+    """If someone 'fixes' E02 back to R24, this must fail immediately.
+
+    E02 was first written expecting R24. The model answered R12 every time, and
+    the skill's own prose confirmed R12 -- new stills are in scope for
+    storytelling-with-still-images. The pair is now declared a non-distinction.
+    """
+    routes, cases = _data()
+
+    def corrupt(case_list):
+        out = copy.deepcopy(case_list)
+        for case in out:
+            if case["case_id"] == "E02":
+                case["route_id"] = "R24"
+                case["expected_owner"] = "creative-production"
+        return out
+
+    problems, _ = audit.check_same_route(routes, corrupt(cases))
+    assert any("E01" in p and "E02" in p for p in problems), problems
+
+
+def test_real_data_same_route_pairs_hold() -> None:
+    routes, cases = _data()
+    problems, notes = audit.check_same_route(routes, cases)
+    assert problems == [], problems
+    assert any("both R12" in note for note in notes), notes
