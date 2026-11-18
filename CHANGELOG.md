@@ -2,6 +2,8 @@
 
 ## 2.57 2026-11-18
 
+- Archived the source document: the identical-hash copy of `CINEMATIC_DIRECTING_BIBLE_v1.md` now lives at `docs/research/2026-11-18-cinematic-directing-bible-v1.md`, so the recorded provenance survives deletion of the original download. `sources.md` gains a ledger entry stating explicitly that this is a user-authored classification proposal, not evidence, and is never cited as a source for a craft claim.
+
 - Fixed the reachability of the craft documents added in 2.55–2.56. An audit walked routing → owner SKILL.md → reference and found two of six bundles sitting behind **two conditional pointers** (`"외부 예시를 찾거나 표현을 비교할 때만"` → index → crosswalk; `09-edit` `"…예시를 비교할 때만"` → selector), which is the same failure this package already measured in 2.53: a conditional reading rule did not fire on 11/11 confusable cases.
 - Moved each selector to an owner-level trigger: the speed/impact and sound/music/spatial tables now sit in a `video-production-assets` on-demand row ("무엇을 이름으로 고르거나 바꿈") and `09-edit` names the selection act instead of example comparison; the `08-animation` module row now matches "타격·모션 속도". The vocabulary crosswalk is reachable from `creative-production` Step 3 for any route, because term resolution is not owned by one skill.
 - Left `routing.csv` untouched: Step 1 forbids preloading future craft, and craft selection is an owner-stage decision, not a route.
