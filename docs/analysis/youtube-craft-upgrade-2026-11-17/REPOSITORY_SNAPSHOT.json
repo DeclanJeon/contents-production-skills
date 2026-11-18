@@ -1,0 +1,253 @@
+{
+  "captured_utc": "2026-11-16T21:45:04.856134+00:00",
+  "repo": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills",
+  "git_head": "657db9013c0bd90544ca6ab53ac0c8cf6763f280",
+  "working_tree_status": " M CHANGELOG.md\n M README.md\n M creative-production/SKILL.md\n M creative-production/references/production-routing.md\n M integrations/skill-routing.md\n M manifest.json\n M orchestrating-video-preproduction/SKILL.md\n M video-production-assets/SKILL.md\n?? creative-production/evals/routing-cases.json\n?? creative-production/references/policy.md\n?? creative-production/references/routing.csv\n?? docs/analysis/2026-11-17-rofan-gap-inspection.md\n?? docs/analysis/rofan-gap-inspection-2026-11-17/\n?? docs/analysis/youtube-craft-upgrade-2026-11-17/\n?? docs/archive/\n?? qa/routing-eval-2026-11-17-boundary/\n?? qa/routing-eval-2026-11-17-run1/\n?? qa/routing-eval-2026-11-17/\n?? scripts/routing_eval.py\n?? scripts/routing_regression.py\n?? scripts/test_routing_regression.py\n?? scripts/test_routing_table_lint.py\n",
+  "scope": "Current working-tree fingerprint inventory, not a clean release. Inclusion in this hash list does not claim full reading of every file. Unrelated pre-existing modifications preserved.",
+  "files": {
+    "manifest.json": {
+      "exists": true,
+      "sha256": "359ac0d8d6422d71024523a0995200c0669ae4ab4161e1a942a1b5b96b06086a"
+    },
+    "creative-production/SKILL.md": {
+      "exists": true,
+      "sha256": "e1cfdba36d781d000238d97ea4bc4ff8aff2cd333c403954fbb77d80b0ab173d"
+    },
+    "creative-production/references/policy.md": {
+      "exists": true,
+      "sha256": "677872cc9db0178b7d1e1bdec9a0ad5c3d7bbd8841fd0aca7d133c6aae0a318c"
+    },
+    "creative-production/references/routing.csv": {
+      "exists": true,
+      "sha256": "ab75fcd8f1d9955ccb3967357621307533eb31ffc8fa89ce403dfdfca524fb8b"
+    },
+    "video-production-assets/references/korean-script-postediting-patterns.md": {
+      "exists": true,
+      "sha256": "5657ae8c23a9737ad3db9e0054c19006b823ea14f61c2d835e12e60ccbec00cd"
+    },
+    "video-production-assets/references/guide-01-extraction.md": {
+      "exists": true,
+      "sha256": "9ead8f65f31bb25f6e6dcdf1c7bf1befba85b2f9ce6e6d74cfac65c8529f1188"
+    },
+    "video-production-assets/references/writing-craft.md": {
+      "exists": true,
+      "sha256": "0cf49b26849846d9b037f69247d786234c7e405a98211d8f6f21b2f2ce3fd345"
+    },
+    "video-production-assets/references/02-story.md": {
+      "exists": true,
+      "sha256": "7ef280a707adecee2b7d11d231c077686d7e606fe9894b2a88b29f09e4868b32"
+    },
+    "video-production-assets/references/performance-and-style-recipes.md": {
+      "exists": true,
+      "sha256": "2c74e5e9ee0235032d40c0ac788088445accd03bd09924beef401bbf7765fab2"
+    },
+    "video-production-assets/references/28-film-production-lifecycle.md": {
+      "exists": true,
+      "sha256": "9c7d8bcebe2c4b08e70dec06f0e85629465a93f02debe0e3fb3679886cbb4a4c"
+    },
+    "video-production-assets/references/05-visual.md": {
+      "exists": true,
+      "sha256": "37712f511021e39353ed12361dd3309cd5fd435ed0310bfe6e99d47eb90945ff"
+    },
+    "video-production-assets/references/09-edit.md": {
+      "exists": true,
+      "sha256": "124980c7ab218d3a70084f385a7d53f492057b77f186e431a7f020539b8b14a7"
+    },
+    "video-production-assets/references/25-reference-video-analysis.md": {
+      "exists": true,
+      "sha256": "0e55ec036dcb6efadff28080e3cc6a867f9eb1084ebe631f5f3a5209fcd81ef1"
+    },
+    "video-production-assets/references/01-brief.md": {
+      "exists": true,
+      "sha256": "3720e7d18c8691c83271540bf3e908e6ed4b59ee0db5b7b1ce24886a0b127f31"
+    },
+    "video-production-assets/references/edit-sound-language-catalog.md": {
+      "exists": true,
+      "sha256": "8dc80740591a177e666598631cbb476bdeb6f275245be5163223cb7f5a8c908f"
+    },
+    "video-production-assets/references/04-performance.md": {
+      "exists": true,
+      "sha256": "8a54ba946a2ab9b5d6521844f3d9b325b3e85806b38917da5fc01e0c1c1b7f3a"
+    },
+    "video-production-assets/references/10-evidence.md": {
+      "exists": true,
+      "sha256": "88cc156a0681fa49e68dfacf61bdf1e4daebb40402ef1ec91937af5180d81091"
+    },
+    "video-production-assets/references/03-screenplay.md": {
+      "exists": true,
+      "sha256": "63a99b789abb4735c499cf28608b784ebd77963fc72b159879ed7b9b5b0d3c8f"
+    },
+    "video-production-assets/references/31-external-video-decomposition.md": {
+      "exists": true,
+      "sha256": "f3de4647a79fb7b3d1c78873868fdf671130ba25064eea012f4f8e6fc998ede0"
+    },
+    "video-production-assets/references/16-concept-emotion-retention.md": {
+      "exists": true,
+      "sha256": "1fb8fea27f6fc9258da077a82df8982e8487e20b84ec34d83021320ef39797f7"
+    },
+    "video-production-assets/references/13-ideation-brand.md": {
+      "exists": true,
+      "sha256": "724214b7bdd523d30d7b2e3eb13810445f5168c809e48d50be19ceb1b7698790"
+    },
+    "video-production-assets/references/lighting-language-catalog.md": {
+      "exists": true,
+      "sha256": "e3597814f48789e0c44ff7716f7ccf1a51943bea499106a623fc395b2c0bbcde"
+    },
+    "video-production-assets/references/20-visual-mode-ssot.md": {
+      "exists": true,
+      "sha256": "4973e5a60af24e5da24201c3bbebdb2ba6bc9421c913306dd1383cd0bf56f53e"
+    },
+    "video-production-assets/references/23-finishing-platform.md": {
+      "exists": true,
+      "sha256": "c5bad9cdbc78dde4798d5bcb0e6480fdbd84270818a9fc5bfbfc8d6b129a2c8a"
+    },
+    "video-production-assets/references/11-ai-handoff.md": {
+      "exists": true,
+      "sha256": "f332c98e4b59984661dc4165cb6aa76ea25dfd3c917b6f958bb27b9bc2786714"
+    },
+    "video-production-assets/references/sources.md": {
+      "exists": true,
+      "sha256": "1f2221fa3c3bb0914d766473c1668b861ff87e751881e6dd6fb186eb73a7ef6d"
+    },
+    "video-production-assets/references/production-reference-index.md": {
+      "exists": true,
+      "sha256": "47a2207610cf182cd754792303e2df8e353caee690755105bd4ef77e13933325"
+    },
+    "video-production-assets/references/18-episodic-series.md": {
+      "exists": true,
+      "sha256": "679a59b6b9695541fee42840d5d100b90939cc92faa9f3158a8760a726099474"
+    },
+    "video-production-assets/references/21-generated-video-qa-retry.md": {
+      "exists": true,
+      "sha256": "ef129fc69634bb86ab1e7506128091fd834a49f5c96a066bc57905aca3a45569"
+    },
+    "video-production-assets/references/workspace-integration.md": {
+      "exists": true,
+      "sha256": "b9ff877567f7a503eaf104f1cd3d4ba0a4199b9e421b4a3458cd4c885d51a14f"
+    },
+    "video-production-assets/references/26-state-causality-continuity.md": {
+      "exists": true,
+      "sha256": "2e011177c38d62501510b493750feae59e7f99f4c9303c134fc5c7a5ee8053fc"
+    },
+    "video-production-assets/references/storyboard-contract.md": {
+      "exists": true,
+      "sha256": "0e68ec374fbe28b189f4a8bd8602f27e8b2cd0884d7f84eae1be23802f98dc4f"
+    },
+    "video-production-assets/references/07-lighting.md": {
+      "exists": true,
+      "sha256": "ec7f36c0360d92556f361d8ec3382b0070c1340be6b28af7eabf21ec66143832"
+    },
+    "video-production-assets/references/19-brand-product-integration.md": {
+      "exists": true,
+      "sha256": "36612c00d892848e21bcf026533b481740ca9483e5cc1702a38386be48c4a58e"
+    },
+    "video-production-assets/references/12-qa.md": {
+      "exists": true,
+      "sha256": "25e2023039246b5edc4dbf1b344531b0f68930aeb9a10796e5975e28d2fee72f"
+    },
+    "video-production-assets/references/06-shots.md": {
+      "exists": true,
+      "sha256": "21bf40bb29e67c24f1916077599e3c18a3fc09909b12ae66ae802d4f3dceed85"
+    },
+    "video-production-assets/references/contract.md": {
+      "exists": true,
+      "sha256": "d9ad4f589d1c03d6f0c835c72145b97d55fa054f7703d488ff713e8f146ae4f5"
+    },
+    "video-production-assets/references/29-reference-driven-production.md": {
+      "exists": true,
+      "sha256": "bc7873bf3dc8b0f411c443fed6ea4a883def7f6f5a48a5041481ea836d37e11b"
+    },
+    "video-production-assets/references/visual-scene-communication.md": {
+      "exists": true,
+      "sha256": "8f88b1c2aa2830c463fb2dde697d58aee4d47b541c8b8ae835112a10aba2f66d"
+    },
+    "video-production-assets/references/08-animation.md": {
+      "exists": true,
+      "sha256": "d233841c856873bf31b234a7c7948568c5eb7c752cac921941261bde1ce82239"
+    },
+    "video-production-assets/references/world-rules-and-information-recipes.md": {
+      "exists": true,
+      "sha256": "15414af75f135088788a8f1232c42e8981a2cf33947ff4f7246985b5465f78e1"
+    },
+    "video-production-assets/references/storyboard-sheet-user-guide.md": {
+      "exists": true,
+      "sha256": "62e7efd4ecd5325d8d9e4e54ba608881cb840fb8a100a02ae8586be361ff973d"
+    },
+    "video-production-assets/references/preproduction-review.md": {
+      "exists": true,
+      "sha256": "9b74e8d9ac2a483cd5974317078c55a4ce1fe2c8a5fc6beac18bb74caf989973"
+    },
+    "video-production-assets/references/22-dialogue-lipsync.md": {
+      "exists": true,
+      "sha256": "4789d62a493d4309f300cca831107256a6f1c3d2db8c6750ea837224a8a65013"
+    },
+    "video-production-assets/references/30-marketing-story-craft.md": {
+      "exists": true,
+      "sha256": "37fe222e2c5b17b31ee9cb51e88ae1c4bec0077fc885693634a421bf75318324"
+    },
+    "video-production-assets/references/rofan-craft-examples.md": {
+      "exists": true,
+      "sha256": "d31c490fd856a23d83d796b30fa5b0a074cfdbe7d6aef3cfa4593ec6c95ec568"
+    },
+    "video-production-assets/references/17-genre-comedy.md": {
+      "exists": true,
+      "sha256": "c1c3df7af363f9e98cd92a87d87e0718614a5b97c5eb3c09d3c224279584d603"
+    },
+    "video-production-assets/references/24-production-execution.md": {
+      "exists": true,
+      "sha256": "550a7cdec518d3ffe7d7fdf0eef70e82f380b3b35150bca324b9f11f7b61abb8"
+    },
+    "video-production-assets/references/27-camera-motion-qa.md": {
+      "exists": true,
+      "sha256": "94d45fa9f36e8949296690e1043dba1011ee52f5ab5ed677f0286919e8ecaaf0"
+    },
+    "video-production-assets/references/15-delivery.md": {
+      "exists": true,
+      "sha256": "06a06c02a76f4c7e5ee9719d53073b915843ff92a7ccc159bf6517cd3a9b00eb"
+    },
+    "video-production-assets/references/korean-script-postediting.md": {
+      "exists": true,
+      "sha256": "fd436ca6b67d924300ef971c654f4f85b0e64089fb7c73e82f0ad2a71be3e9f4"
+    },
+    "video-production-assets/references/14-production-ops.md": {
+      "exists": true,
+      "sha256": "4a27ce5d29d6f020b15d616cce6c2801027a12acdd7d65d4e791f8892c77f425"
+    },
+    "video-production-assets/assets/video-model-routing-template.md": {
+      "exists": true,
+      "sha256": "70bbcfee20b4bc191cb9d04478ee42bbe64fa4a0f5f9f28a20f0e5bb5dec7c22"
+    },
+    "storytelling-with-still-images/SKILL.md": {
+      "exists": true,
+      "sha256": "58058b21f7eebeb5052b3cb29598401c7978ace442516f0c3cc14e7bcfeeb9df"
+    },
+    "animatic-direction/SKILL.md": {
+      "exists": true,
+      "sha256": "3a61d941fa58a81f91a92a8e99ab2f5dad33d9bc1e0955c366ca5e68fbb39ea9"
+    },
+    "blender-previsualization/SKILL.md": {
+      "exists": true,
+      "sha256": "a699475ebf8e902b864d72c2752604c8632a4df676d08e38cd4c184884528913"
+    },
+    "higgsfield-video-explainer/SKILL.md": {
+      "exists": true,
+      "sha256": "6c8a281fd4a312767ffe9751eab5a940552849d38a0c1822855b0c1fcfc62e9d"
+    },
+    "examples/15-second-education/plan-ko.md": {
+      "exists": true,
+      "sha256": "1217d1b04dcce6327ee6519356fa4f9941444c95cf341b08b763bf28121e2ae9"
+    },
+    "storytelling-with-still-images/evals/evals.json": {
+      "exists": true,
+      "sha256": "42fa1c268b8e4f2cc0e6a02ab551742d73b779c915148d75c2cbc5eee4641151"
+    },
+    "creative-production/evals/evals.json": {
+      "exists": true,
+      "sha256": "c160b9c592aaa92b932d0cbe863e8b0e983717b3d3c70936e85749436c57f891"
+    },
+    "storyboarding-video/evals/evals.json": {
+      "exists": true,
+      "sha256": "c41b21d344ee0d428559a1356f7bb49cf2a17ac65bd0720e74319c80160506db"
+    }
+  }
+}

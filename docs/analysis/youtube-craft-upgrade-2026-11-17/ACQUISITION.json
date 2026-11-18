@@ -1,0 +1,531 @@
+{
+  "created_utc": "2026-11-16T21:20:14.621996+00:00",
+  "runtime": "Flucto1.19.0",
+  "scope": "12selectedpublicvideos; no WL playlist access",
+  "quality_preference": "720p; verify actual output",
+  "maximum_concurrency": 2,
+  "outer_retries": 0,
+  "limits_seconds": {
+    "mp4": 360,
+    "md": 180,
+    "overall_before_next_call": 1500
+  },
+  "binary_hashes_before": {
+    "/home/declan/.local/opt/flucto-cli/bin/yt-dlp": "21f87ead735de22248806d9a55202eefbff98da25ed3a054ee03ae55878920ac",
+    "/home/declan/.local/opt/flucto-cli/bin/ffmpeg": "e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99"
+  },
+  "sources": [
+    {
+      "source_id": "youtube:uMi9le1sNpQ",
+      "url": "https://www.youtube.com/watch?v=uMi9le1sNpQ",
+      "ordinal": 1,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 22.91,
+        "receipt": "evidence/uMi9le1sNpQ/mp4/stdout.json",
+        "stderr": "evidence/uMi9le1sNpQ/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/uMi9le1sNpQ/mp4/해외 쇼츠 부업, 강의 찾지 마세요. 만드는 과정 전부 공개합니다.mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/uMi9le1sNpQ/mp4/해외 쇼츠 부업, 강의 찾지 마세요. 만드는 과정 전부 공개합니다.mp4",
+            "bytes": 58809943
+          }
+        ],
+        "bytes": 58809943,
+        "sha256": "f16552f8241e0a3cf324080d906e0932dddb140c4a868181ee1e65aed913ce58",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 11.55,
+        "receipt": "evidence/uMi9le1sNpQ/md/stdout.json",
+        "stderr": "evidence/uMi9le1sNpQ/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/uMi9le1sNpQ/md/해외_쇼츠_부업,_강의_찾지_마세요._만드는_과정_전부_공개합니다_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/uMi9le1sNpQ/md/해외_쇼츠_부업,_강의_찾지_마세요._만드는_과정_전부_공개합니다_20261117.md",
+            "bytes": 25095
+          }
+        ],
+        "bytes": 25095,
+        "sha256": "4ad9e2b889e9a63cac94982ade85f934cc453f62690bfd1aeb6e36f45826d9ff",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:ljzVerRYiso",
+      "url": "https://www.youtube.com/watch?v=ljzVerRYiso",
+      "ordinal": 2,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 11.01,
+        "receipt": "evidence/ljzVerRYiso/mp4/stdout.json",
+        "stderr": "evidence/ljzVerRYiso/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/ljzVerRYiso/mp4/Create Faceless 2D Animation Videos Using AI ｜ Step by Step Workflow 🚀.mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/ljzVerRYiso/mp4/Create Faceless 2D Animation Videos Using AI ｜ Step by Step Workflow 🚀.mp4",
+            "bytes": 16558138
+          }
+        ],
+        "bytes": 16558138,
+        "sha256": "5991a671de098b96276babdae65b62f995bc92532bcbcc1688ded845c84c4930",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 10.75,
+        "receipt": "evidence/ljzVerRYiso/md/stdout.json",
+        "stderr": "evidence/ljzVerRYiso/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/ljzVerRYiso/md/Create_Faceless_2D_Animation_Videos_Using_AI_Step__20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/ljzVerRYiso/md/Create_Faceless_2D_Animation_Videos_Using_AI_Step__20261117.md",
+            "bytes": 6543
+          }
+        ],
+        "bytes": 6543,
+        "sha256": "05dde09eed98926fa74122845b623ab759db2bf800e15cfa397f05e97e9bb4a9",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:ZzDRSxx3zgY",
+      "url": "https://www.youtube.com/watch?v=ZzDRSxx3zgY",
+      "ordinal": 3,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 53.36,
+        "receipt": "evidence/ZzDRSxx3zgY/mp4/stdout.json",
+        "stderr": "evidence/ZzDRSxx3zgY/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/ZzDRSxx3zgY/mp4/I Built A Business From Scratch Only Following Claude’s Advice.mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/ZzDRSxx3zgY/mp4/I Built A Business From Scratch Only Following Claude’s Advice.mp4",
+            "bytes": 104806217
+          }
+        ],
+        "bytes": 104806217,
+        "sha256": "bc8024c33f95cd6e28e2f54f31ac4f7cc6feb342e0850886097c30152f15c00f",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 17.8,
+        "receipt": "evidence/ZzDRSxx3zgY/md/stdout.json",
+        "stderr": "evidence/ZzDRSxx3zgY/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/ZzDRSxx3zgY/md/I_Built_A_Business_From_Scratch_Only_Following_Cla_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/ZzDRSxx3zgY/md/I_Built_A_Business_From_Scratch_Only_Following_Cla_20261117.md",
+            "bytes": 37505
+          }
+        ],
+        "bytes": 37505,
+        "sha256": "6b8a5d3424f8ff4ea4d87a2aa984c46512d13a7df20e2e8d22ca46a34d46a07b",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:OO6J2w_FBnE",
+      "url": "https://www.youtube.com/watch?v=OO6J2w_FBnE",
+      "ordinal": 4,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 39.87,
+        "receipt": "evidence/OO6J2w_FBnE/mp4/stdout.json",
+        "stderr": "evidence/OO6J2w_FBnE/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/OO6J2w_FBnE/mp4/Claude + Blender Is The Best Way To Make AI Videos (Full Course).mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/OO6J2w_FBnE/mp4/Claude + Blender Is The Best Way To Make AI Videos (Full Course).mp4",
+            "bytes": 73146123
+          }
+        ],
+        "bytes": 73146123,
+        "sha256": "933ba6b34b04eee1a9442a99d9596f5036672d611596d3fc7bd1cb3f42a48f92",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 12.86,
+        "receipt": "evidence/OO6J2w_FBnE/md/stdout.json",
+        "stderr": "evidence/OO6J2w_FBnE/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/OO6J2w_FBnE/md/Claude_+_Blender_Is_The_Best_Way_To_Make_AI_Videos_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/OO6J2w_FBnE/md/Claude_+_Blender_Is_The_Best_Way_To_Make_AI_Videos_20261117.md",
+            "bytes": 22140
+          }
+        ],
+        "bytes": 22140,
+        "sha256": "c07d5d4bccfa07d98c8aa56042335bd398fed1fde36bb6245184b4e1b2bc179f",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:AROGVvDV4w0",
+      "url": "https://www.youtube.com/watch?v=AROGVvDV4w0",
+      "ordinal": 5,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 54.3,
+        "receipt": "evidence/AROGVvDV4w0/mp4/stdout.json",
+        "stderr": "evidence/AROGVvDV4w0/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/AROGVvDV4w0/mp4/How to Make YouTube Explainer Videos With AI (No Editing Required).mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/AROGVvDV4w0/mp4/How to Make YouTube Explainer Videos With AI (No Editing Required).mp4",
+            "bytes": 111598114
+          }
+        ],
+        "bytes": 111598114,
+        "sha256": "86773fe7b33be6cba318579df889611016270830a11cc644919f6cb6f5e54afc",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 11.21,
+        "receipt": "evidence/AROGVvDV4w0/md/stdout.json",
+        "stderr": "evidence/AROGVvDV4w0/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/AROGVvDV4w0/md/How_to_Make_YouTube_Explainer_Videos_With_AI_(No_E_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/AROGVvDV4w0/md/How_to_Make_YouTube_Explainer_Videos_With_AI_(No_E_20261117.md",
+            "bytes": 13203
+          }
+        ],
+        "bytes": 13203,
+        "sha256": "a6cb5f0c73cdccfa396875fc63cc183a23fdf0ff872d316f8320f6249e05e2dc",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:ObvCtB1ATnA",
+      "url": "https://www.youtube.com/watch?v=ObvCtB1ATnA",
+      "ordinal": 6,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 50.85,
+        "receipt": "evidence/ObvCtB1ATnA/mp4/stdout.json",
+        "stderr": "evidence/ObvCtB1ATnA/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/ObvCtB1ATnA/mp4/AI 건축 쇼츠 30분 만에 만드는 법 전부 공개합니다 (+프롬프트 제공) ｜ 제미나이, Veo Omni.mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/ObvCtB1ATnA/mp4/AI 건축 쇼츠 30분 만에 만드는 법 전부 공개합니다 (+프롬프트 제공) ｜ 제미나이, Veo Omni.mp4",
+            "bytes": 102971600
+          }
+        ],
+        "bytes": 102971600,
+        "sha256": "0142ae72c09fb520be04339ac6d401228dbe1cc148d0563fe0b683be49297eb5",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 11.1,
+        "receipt": "evidence/ObvCtB1ATnA/md/stdout.json",
+        "stderr": "evidence/ObvCtB1ATnA/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/ObvCtB1ATnA/md/AI_건축_쇼츠_30분_만에_만드는_법_전부_공개합니다_(+프롬프트_제공)_제미나이,_Ve_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/ObvCtB1ATnA/md/AI_건축_쇼츠_30분_만에_만드는_법_전부_공개합니다_(+프롬프트_제공)_제미나이,_Ve_20261117.md",
+            "bytes": 22143
+          }
+        ],
+        "bytes": 22143,
+        "sha256": "8b586f2241ebc18dbe5fb9c5d35a270fd920ffbd81d535423661af1b194ece04",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:_X7KQVwsn9U",
+      "url": "https://www.youtube.com/watch?v=_X7KQVwsn9U",
+      "ordinal": 7,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 71.95,
+        "receipt": "evidence/_X7KQVwsn9U/mp4/stdout.json",
+        "stderr": "evidence/_X7KQVwsn9U/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/_X7KQVwsn9U/mp4/How to Make Studio-Quality AI Animation (Full Guide).mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/_X7KQVwsn9U/mp4/How to Make Studio-Quality AI Animation (Full Guide).mp4",
+            "bytes": 187525320
+          }
+        ],
+        "bytes": 187525320,
+        "sha256": "0e8761893351f9174f369d125d6c732db7ad176851d17c658e2cfd66783110b4",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 13.11,
+        "receipt": "evidence/_X7KQVwsn9U/md/stdout.json",
+        "stderr": "evidence/_X7KQVwsn9U/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/_X7KQVwsn9U/md/How_to_Make_Studio-Quality_AI_Animation_(Full_Guid_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/_X7KQVwsn9U/md/How_to_Make_Studio-Quality_AI_Animation_(Full_Guid_20261117.md",
+            "bytes": 14039
+          }
+        ],
+        "bytes": 14039,
+        "sha256": "c808f5489a4c6f12945d7a56a31015e98142e0e5684733ff0b0c38fedc661728",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:BjZ4viBcpZU",
+      "url": "https://www.youtube.com/watch?v=BjZ4viBcpZU",
+      "ordinal": 8,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 74.99,
+        "receipt": "evidence/BjZ4viBcpZU/mp4/stdout.json",
+        "stderr": "evidence/BjZ4viBcpZU/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/BjZ4viBcpZU/mp4/Best AI Video Generator 2026 (Watch Before You Buy).mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/BjZ4viBcpZU/mp4/Best AI Video Generator 2026 (Watch Before You Buy).mp4",
+            "bytes": 202327523
+          }
+        ],
+        "bytes": 202327523,
+        "sha256": "f9f36f48b85b30bb9df6fac5d0d43e9f93887f5ac6abbb04ccbac613ffccc6bc",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 10.55,
+        "receipt": "evidence/BjZ4viBcpZU/md/stdout.json",
+        "stderr": "evidence/BjZ4viBcpZU/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/BjZ4viBcpZU/md/Best_AI_Video_Generator_2026_(Watch_Before_You_Buy_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/BjZ4viBcpZU/md/Best_AI_Video_Generator_2026_(Watch_Before_You_Buy_20261117.md",
+            "bytes": 17535
+          }
+        ],
+        "bytes": 17535,
+        "sha256": "89b8bc56d8958016962e555f254af89011c6134bdee1971c5908762f524ff248",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:74_qWsIW6LI",
+      "url": "https://www.youtube.com/watch?v=74_qWsIW6LI",
+      "ordinal": 9,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 45.56,
+        "receipt": "evidence/74_qWsIW6LI/mp4/stdout.json",
+        "stderr": "evidence/74_qWsIW6LI/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/74_qWsIW6LI/mp4/How to Start Making AI Videos Before 2027!.mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/74_qWsIW6LI/mp4/How to Start Making AI Videos Before 2027!.mp4",
+            "bytes": 171194521
+          }
+        ],
+        "bytes": 171194521,
+        "sha256": "f40df5376cc3925002c1736e583836dd4d26b97f1f2e0d42c3d289a7d81c4ccb",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 10.56,
+        "receipt": "evidence/74_qWsIW6LI/md/stdout.json",
+        "stderr": "evidence/74_qWsIW6LI/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/74_qWsIW6LI/md/How_to_Start_Making_AI_Videos_Before_2027!_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/74_qWsIW6LI/md/How_to_Start_Making_AI_Videos_Before_2027!_20261117.md",
+            "bytes": 14230
+          }
+        ],
+        "bytes": 14230,
+        "sha256": "1cbb33568ee33b94044bb998b5bd7fea288cd63d8f857fbd691d99b6e399d470",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:1BzzdY-nK9A",
+      "url": "https://www.youtube.com/watch?v=1BzzdY-nK9A",
+      "ordinal": 10,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 41.29,
+        "receipt": "evidence/1BzzdY-nK9A/mp4/stdout.json",
+        "stderr": "evidence/1BzzdY-nK9A/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/1BzzdY-nK9A/mp4/How I Get Perfect AI Realism in Every Shot (3 Steps).mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/1BzzdY-nK9A/mp4/How I Get Perfect AI Realism in Every Shot (3 Steps).mp4",
+            "bytes": 128411815
+          }
+        ],
+        "bytes": 128411815,
+        "sha256": "ff8f6d1b45a6a29b4a57baa1289c199a1cb715bade4036d34eeb9bb5f648cb05",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 12.62,
+        "receipt": "evidence/1BzzdY-nK9A/md/stdout.json",
+        "stderr": "evidence/1BzzdY-nK9A/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/1BzzdY-nK9A/md/How_I_Get_Perfect_AI_Realism_in_Every_Shot_(3_Step_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/1BzzdY-nK9A/md/How_I_Get_Perfect_AI_Realism_in_Every_Shot_(3_Step_20261117.md",
+            "bytes": 22238
+          }
+        ],
+        "bytes": 22238,
+        "sha256": "4e78a4edf035d0ee3b76b2db675614d736fc0dce2de05efa8ceaaa5ea50de7dc",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:cBxKZcalwkM",
+      "url": "https://www.youtube.com/watch?v=cBxKZcalwkM",
+      "ordinal": 11,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 26.3,
+        "receipt": "evidence/cBxKZcalwkM/mp4/stdout.json",
+        "stderr": "evidence/cBxKZcalwkM/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/cBxKZcalwkM/mp4/5-Step Workflow： How to Make Viral AI Short Dramas (60M Views).mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/cBxKZcalwkM/mp4/5-Step Workflow： How to Make Viral AI Short Dramas (60M Views).mp4",
+            "bytes": 106249877
+          }
+        ],
+        "bytes": 106249877,
+        "sha256": "0e1dea8f0b9265285193dd5c75a3caaa690c6bab01bf95f6a5bce99a28c52512",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 12.3,
+        "receipt": "evidence/cBxKZcalwkM/md/stdout.json",
+        "stderr": "evidence/cBxKZcalwkM/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/cBxKZcalwkM/md/5-Step_Workflow_How_to_Make_Viral_AI_Short_Dramas__20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/cBxKZcalwkM/md/5-Step_Workflow_How_to_Make_Viral_AI_Short_Dramas__20261117.md",
+            "bytes": 24644
+          }
+        ],
+        "bytes": 24644,
+        "sha256": "2203c984f421200794b99c3572d8ef40a7102e03414e872882660d8c66d1e3d7",
+        "file_verified": true
+      }
+    },
+    {
+      "source_id": "youtube:iJiBJAJRRkk",
+      "url": "https://www.youtube.com/watch?v=iJiBJAJRRkk",
+      "ordinal": 12,
+      "state": "finished",
+      "mp4": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 13.86,
+        "receipt": "evidence/iJiBJAJRRkk/mp4/stdout.json",
+        "stderr": "evidence/iJiBJAJRRkk/mp4/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/iJiBJAJRRkk/mp4/The $30K⧸Month Al Faceless Shorts Method Nobody's Talking About (Full Workflow).mp4",
+        "message": "Download Complete!",
+        "files": [
+          {
+            "path": "evidence/iJiBJAJRRkk/mp4/The $30K⧸Month Al Faceless Shorts Method Nobody's Talking About (Full Workflow).mp4",
+            "bytes": 40842088
+          }
+        ],
+        "bytes": 40842088,
+        "sha256": "c74f0d2875a355d0e0aa269c4432a512c3e1394f45a4190d4105cb41f6b48628",
+        "file_verified": true
+      },
+      "md": {
+        "status": "cli_success",
+        "exit_code": 0,
+        "elapsed_seconds": 13.41,
+        "receipt": "evidence/iJiBJAJRRkk/md/stdout.json",
+        "stderr": "evidence/iJiBJAJRRkk/md/stderr.log",
+        "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/iJiBJAJRRkk/md/The_$30KMonth_Al_Faceless_Shorts_Method_Nobody's_T_20261117.md",
+        "message": null,
+        "files": [
+          {
+            "path": "evidence/iJiBJAJRRkk/md/The_$30KMonth_Al_Faceless_Shorts_Method_Nobody's_T_20261117.md",
+            "bytes": 20367
+          }
+        ],
+        "bytes": 20367,
+        "sha256": "087bc3e1272913001cb86ebbc42d745923b3584038bcc3c6578754e8d35cfb10",
+        "file_verified": true
+      }
+    }
+  ],
+  "status": "finished",
+  "elapsed_seconds": 334.05,
+  "binary_hashes_after": {
+    "/home/declan/.local/opt/flucto-cli/bin/yt-dlp": "21f87ead735de22248806d9a55202eefbff98da25ed3a054ee03ae55878920ac",
+    "/home/declan/.local/opt/flucto-cli/bin/ffmpeg": "e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99"
+  },
+  "installed_binaries_unchanged": true,
+  "finished_utc": "2026-11-16T21:25:48.672582+00:00"
+}

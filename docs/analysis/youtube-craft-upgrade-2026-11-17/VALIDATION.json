@@ -1,0 +1,27 @@
+{
+  "checked_utc": "2026-11-16T21:46:06.203847+00:00",
+  "status": "PASS",
+  "mp4_count": 12,
+  "caption_md_count": 18,
+  "unique_media_and_caption_hashes_checked": 30,
+  "total_mp4_bytes": 1304441279,
+  "total_duration_s": 13201.890975,
+  "sample_frame_count": 144,
+  "local_links_checked": 54,
+  "download_index_rows": 12,
+  "installed_binaries_match_pre_acquisition": {
+    "/home/declan/.local/opt/flucto-cli/bin/yt-dlp": true,
+    "/home/declan/.local/opt/flucto-cli/bin/ffmpeg": true
+  },
+  "referenced_repository_files_changed_since_snapshot": [],
+  "errors": [],
+  "not_verified": [
+    "continuous playback",
+    "actual listening",
+    "full decode",
+    "process reproduction",
+    "revenue",
+    "legal or publication clearance"
+  ],
+  "scope": "File hashes, existence, recorded sample PTS, receipts, Markdown links/table, and referenced repository fingerprints only. Not a craft-quality test."
+}

@@ -1,0 +1,65 @@
+{
+  "reason": "Auto selected first multilingual track, including Arabic; select supplied Korean or English tracks without translation/STT; original auto outputs preserved.",
+  "selections": [
+    {
+      "source_id": "youtube:uMi9le1sNpQ",
+      "selected_language": "ko",
+      "exit_code": 0,
+      "elapsed_s": 10.05,
+      "success": true,
+      "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/uMi9le1sNpQ/md-selected-ko/해외_쇼츠_부업,_강의_찾지_마세요._만드는_과정_전부_공개합니다_20261117.md",
+      "message": null,
+      "original_auto_MD_preserved": true
+    },
+    {
+      "source_id": "youtube:ZzDRSxx3zgY",
+      "selected_language": "en-US",
+      "exit_code": 0,
+      "elapsed_s": 11.8,
+      "success": true,
+      "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/ZzDRSxx3zgY/md-selected-en-US/I_Built_A_Business_From_Scratch_Only_Following_Cla_20261117.md",
+      "message": null,
+      "original_auto_MD_preserved": true
+    },
+    {
+      "source_id": "youtube:ObvCtB1ATnA",
+      "selected_language": "ko",
+      "exit_code": 0,
+      "elapsed_s": 10.49,
+      "success": true,
+      "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/ObvCtB1ATnA/md-selected-ko/AI_건축_쇼츠_30분_만에_만드는_법_전부_공개합니다_(+프롬프트_제공)_제미나이,_Ve_20261117.md",
+      "message": null,
+      "original_auto_MD_preserved": true
+    },
+    {
+      "source_id": "youtube:1BzzdY-nK9A",
+      "selected_language": "en",
+      "exit_code": 0,
+      "elapsed_s": 10.45,
+      "success": true,
+      "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/1BzzdY-nK9A/md-selected-en/How_I_Get_Perfect_AI_Realism_in_Every_Shot_(3_Step_20261117.md",
+      "message": null,
+      "original_auto_MD_preserved": true
+    },
+    {
+      "source_id": "youtube:cBxKZcalwkM",
+      "selected_language": "en-US",
+      "exit_code": 0,
+      "elapsed_s": 10.34,
+      "success": true,
+      "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/cBxKZcalwkM/md-selected-en-US/5-Step_Workflow_How_to_Make_Viral_AI_Short_Dramas__20261117.md",
+      "message": null,
+      "original_auto_MD_preserved": true
+    },
+    {
+      "source_id": "youtube:iJiBJAJRRkk",
+      "selected_language": "en",
+      "exit_code": 0,
+      "elapsed_s": 42.63,
+      "success": true,
+      "file_path": "/home/declan/Documents/Projects/Products/04_Skills/Skills-and-Automation/contents-production-skills/docs/analysis/youtube-craft-upgrade-2026-11-17/evidence/iJiBJAJRRkk/md-selected-en/The_$30KMonth_Al_Faceless_Shorts_Method_Nobody's_T_20261117.md",
+      "message": null,
+      "original_auto_MD_preserved": true
+    }
+  ]
+}

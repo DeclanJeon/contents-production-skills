@@ -1,0 +1,1486 @@
+{
+  "sources": [
+    {
+      "ordinal": 1,
+      "source_id": "youtube:uMi9le1sNpQ",
+      "title": "해외 쇼츠 부업, 강의 찾지 마세요. 만드는 과정 전부 공개합니다",
+      "uploader": "바코드랩",
+      "url": "https://www.youtube.com/watch?v=uMi9le1sNpQ",
+      "video_path": "evidence/uMi9le1sNpQ/mp4/해외 쇼츠 부업, 강의 찾지 마세요. 만드는 과정 전부 공개합니다.mp4",
+      "video_sha256": "f16552f8241e0a3cf324080d906e0932dddb140c4a868181ee1e65aed913ce58",
+      "video_bytes": 58809943,
+      "duration_s": 1327.600907,
+      "width": 1280,
+      "height": 720,
+      "fps": "24/1",
+      "md_path": "evidence/uMi9le1sNpQ/md-selected-ko/해외_쇼츠_부업,_강의_찾지_마세요._만드는_과정_전부_공개합니다_20261117.md",
+      "md_sha256": "ce872442749667188e7ec8d40e12ea7ca41bc1e2d5d45b4356fe79f51248e02d",
+      "md_chars": 11142,
+      "md_words": 2809,
+      "selected_language": "ko",
+      "md_locator_markers": [
+        "00:00",
+        "18:04"
+      ],
+      "contact_sheet": "evidence/uMi9le1sNpQ/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_02.jpg",
+          "requested_s": 120.690992,
+          "source_pts_s": 120.708333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_03.jpg",
+          "requested_s": 241.381983,
+          "source_pts_s": 241.416667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_04.jpg",
+          "requested_s": 362.072975,
+          "source_pts_s": 362.083333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_05.jpg",
+          "requested_s": 482.763966,
+          "source_pts_s": 482.791667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_06.jpg",
+          "requested_s": 603.454958,
+          "source_pts_s": 603.458333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_07.jpg",
+          "requested_s": 724.145949,
+          "source_pts_s": 724.166667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_08.jpg",
+          "requested_s": 844.836941,
+          "source_pts_s": 844.875,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_09.jpg",
+          "requested_s": 965.527932,
+          "source_pts_s": 965.541667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_10.jpg",
+          "requested_s": 1086.218924,
+          "source_pts_s": 1086.25,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_11.jpg",
+          "requested_s": 1206.909915,
+          "source_pts_s": 1206.916667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/uMi9le1sNpQ/frames/frame_12.jpg",
+          "requested_s": 1326.600907,
+          "source_pts_s": 1326.625,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 2,
+      "source_id": "youtube:ljzVerRYiso",
+      "title": "Create Faceless 2D Animation Videos Using AI | Step by Step Workflow 🚀",
+      "uploader": "Flow Ai",
+      "url": "https://www.youtube.com/watch?v=ljzVerRYiso",
+      "video_path": "evidence/ljzVerRYiso/mp4/Create Faceless 2D Animation Videos Using AI ｜ Step by Step Workflow 🚀.mp4",
+      "video_sha256": "5991a671de098b96276babdae65b62f995bc92532bcbcc1688ded845c84c4930",
+      "video_bytes": 16558138,
+      "duration_s": 346.743583,
+      "width": 1280,
+      "height": 720,
+      "fps": "30/1",
+      "md_path": "evidence/ljzVerRYiso/md/Create_Faceless_2D_Animation_Videos_Using_AI_Step__20261117.md",
+      "md_sha256": "05dde09eed98926fa74122845b623ab759db2bf800e15cfa397f05e97e9bb4a9",
+      "md_chars": 6540,
+      "md_words": 1081,
+      "selected_language": "auto",
+      "md_locator_markers": [
+        "00:00"
+      ],
+      "contact_sheet": "evidence/ljzVerRYiso/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_02.jpg",
+          "requested_s": 31.522144,
+          "source_pts_s": 31.533333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_03.jpg",
+          "requested_s": 63.044288,
+          "source_pts_s": 63.066667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_04.jpg",
+          "requested_s": 94.566432,
+          "source_pts_s": 94.566667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_05.jpg",
+          "requested_s": 126.088576,
+          "source_pts_s": 126.1,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_06.jpg",
+          "requested_s": 157.61072,
+          "source_pts_s": 157.633333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_07.jpg",
+          "requested_s": 189.132863,
+          "source_pts_s": 189.133333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_08.jpg",
+          "requested_s": 220.655007,
+          "source_pts_s": 220.666667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_09.jpg",
+          "requested_s": 252.177151,
+          "source_pts_s": 252.2,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_10.jpg",
+          "requested_s": 283.699295,
+          "source_pts_s": 283.7,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_11.jpg",
+          "requested_s": 315.221439,
+          "source_pts_s": 315.233333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ljzVerRYiso/frames/frame_12.jpg",
+          "requested_s": 345.743583,
+          "source_pts_s": 345.766667,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 3,
+      "source_id": "youtube:ZzDRSxx3zgY",
+      "title": "I Built A Business From Scratch Only Following Claude’s Advice",
+      "uploader": "Mark Tilbury",
+      "url": "https://www.youtube.com/watch?v=ZzDRSxx3zgY",
+      "video_path": "evidence/ZzDRSxx3zgY/mp4/I Built A Business From Scratch Only Following Claude’s Advice.mp4",
+      "video_sha256": "bc8024c33f95cd6e28e2f54f31ac4f7cc6feb342e0850886097c30152f15c00f",
+      "video_bytes": 104806217,
+      "duration_s": 1674.18195,
+      "width": 1280,
+      "height": 720,
+      "fps": "25/1",
+      "md_path": "evidence/ZzDRSxx3zgY/md-selected-en-US/I_Built_A_Business_From_Scratch_Only_Following_Cla_20261117.md",
+      "md_sha256": "46a08351658918270fc8a3f9aeb5a6e4b33c613994f5c7d67f7aec1869c910d3",
+      "md_chars": 26814,
+      "md_words": 4942,
+      "selected_language": "en-US",
+      "md_locator_markers": [
+        "00:00",
+        "00:17",
+        "05:14",
+        "08:48",
+        "10:31",
+        "19:56",
+        "21:18",
+        "21:35",
+        "22:44",
+        "23:01",
+        "23:11",
+        "23:19"
+      ],
+      "contact_sheet": "evidence/ZzDRSxx3zgY/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.52,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_02.jpg",
+          "requested_s": 152.198359,
+          "source_pts_s": 152.2,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_03.jpg",
+          "requested_s": 304.396718,
+          "source_pts_s": 304.4,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_04.jpg",
+          "requested_s": 456.595077,
+          "source_pts_s": 456.6,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_05.jpg",
+          "requested_s": 608.793436,
+          "source_pts_s": 608.8,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_06.jpg",
+          "requested_s": 760.991795,
+          "source_pts_s": 761,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_07.jpg",
+          "requested_s": 913.190155,
+          "source_pts_s": 913.2,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_08.jpg",
+          "requested_s": 1065.388514,
+          "source_pts_s": 1065.4,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_09.jpg",
+          "requested_s": 1217.586873,
+          "source_pts_s": 1217.6,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_10.jpg",
+          "requested_s": 1369.785232,
+          "source_pts_s": 1369.8,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_11.jpg",
+          "requested_s": 1521.983591,
+          "source_pts_s": 1522,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ZzDRSxx3zgY/frames/frame_12.jpg",
+          "requested_s": 1673.18195,
+          "source_pts_s": 1673.2,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 4,
+      "source_id": "youtube:OO6J2w_FBnE",
+      "title": "Claude + Blender Is The Best Way To Make AI Videos (Full Course)",
+      "uploader": "Dan Kieft",
+      "url": "https://www.youtube.com/watch?v=OO6J2w_FBnE",
+      "video_path": "evidence/OO6J2w_FBnE/mp4/Claude + Blender Is The Best Way To Make AI Videos (Full Course).mp4",
+      "video_sha256": "933ba6b34b04eee1a9442a99d9596f5036672d611596d3fc7bd1cb3f42a48f92",
+      "video_bytes": 73146123,
+      "duration_s": 1349.984943,
+      "width": 1280,
+      "height": 720,
+      "fps": "30000/1001",
+      "md_path": "evidence/OO6J2w_FBnE/md/Claude_+_Blender_Is_The_Best_Way_To_Make_AI_Videos_20261117.md",
+      "md_sha256": "c07d5d4bccfa07d98c8aa56042335bd398fed1fde36bb6245184b4e1b2bc179f",
+      "md_chars": 22110,
+      "md_words": 4332,
+      "selected_language": "auto",
+      "md_locator_markers": [
+        "00:01",
+        "00:31",
+        "01:16",
+        "01:32",
+        "02:03",
+        "02:20",
+        "02:30",
+        "02:40",
+        "14:16",
+        "14:33"
+      ],
+      "contact_sheet": "evidence/OO6J2w_FBnE/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5005,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_02.jpg",
+          "requested_s": 122.725904,
+          "source_pts_s": 122.755967,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_03.jpg",
+          "requested_s": 245.451808,
+          "source_pts_s": 245.478567,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_04.jpg",
+          "requested_s": 368.177712,
+          "source_pts_s": 368.201167,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_05.jpg",
+          "requested_s": 490.903616,
+          "source_pts_s": 490.923767,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_06.jpg",
+          "requested_s": 613.62952,
+          "source_pts_s": 613.646367,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_07.jpg",
+          "requested_s": 736.355423,
+          "source_pts_s": 736.368967,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_08.jpg",
+          "requested_s": 859.081327,
+          "source_pts_s": 859.091567,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_09.jpg",
+          "requested_s": 981.807231,
+          "source_pts_s": 981.814167,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_10.jpg",
+          "requested_s": 1104.533135,
+          "source_pts_s": 1104.536767,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_11.jpg",
+          "requested_s": 1227.259039,
+          "source_pts_s": 1227.259367,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/OO6J2w_FBnE/frames/frame_12.jpg",
+          "requested_s": 1348.984943,
+          "source_pts_s": 1349.014333,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 5,
+      "source_id": "youtube:AROGVvDV4w0",
+      "title": "How to Make YouTube Explainer Videos With AI (No Editing Required)",
+      "uploader": "Youri van Hofwegen",
+      "url": "https://www.youtube.com/watch?v=AROGVvDV4w0",
+      "video_path": "evidence/AROGVvDV4w0/mp4/How to Make YouTube Explainer Videos With AI (No Editing Required).mp4",
+      "video_sha256": "86773fe7b33be6cba318579df889611016270830a11cc644919f6cb6f5e54afc",
+      "video_bytes": 111598114,
+      "duration_s": 738.603537,
+      "width": 1280,
+      "height": 720,
+      "fps": "60/1",
+      "md_path": "evidence/AROGVvDV4w0/md/How_to_Make_YouTube_Explainer_Videos_With_AI_(No_E_20261117.md",
+      "md_sha256": "a6cb5f0c73cdccfa396875fc63cc183a23fdf0ff872d316f8320f6249e05e2dc",
+      "md_chars": 13203,
+      "md_words": 2438,
+      "selected_language": "auto",
+      "md_locator_markers": [
+        "00:00"
+      ],
+      "contact_sheet": "evidence/AROGVvDV4w0/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_02.jpg",
+          "requested_s": 67.145776,
+          "source_pts_s": 67.15,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_03.jpg",
+          "requested_s": 134.291552,
+          "source_pts_s": 134.3,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_04.jpg",
+          "requested_s": 201.437328,
+          "source_pts_s": 201.45,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_05.jpg",
+          "requested_s": 268.583104,
+          "source_pts_s": 268.583333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_06.jpg",
+          "requested_s": 335.72888,
+          "source_pts_s": 335.733333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_07.jpg",
+          "requested_s": 402.874657,
+          "source_pts_s": 402.883333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_08.jpg",
+          "requested_s": 470.020433,
+          "source_pts_s": 470.033333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_09.jpg",
+          "requested_s": 537.166209,
+          "source_pts_s": 537.166667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_10.jpg",
+          "requested_s": 604.311985,
+          "source_pts_s": 604.316667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_11.jpg",
+          "requested_s": 671.457761,
+          "source_pts_s": 671.466667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/AROGVvDV4w0/frames/frame_12.jpg",
+          "requested_s": 737.603537,
+          "source_pts_s": 737.616667,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 6,
+      "source_id": "youtube:ObvCtB1ATnA",
+      "title": "AI 건축 쇼츠 30분 만에 만드는 법 전부 공개합니다 (+프롬프트 제공) | 제미나이, Veo Omni",
+      "uploader": "원카AI Wonka",
+      "url": "https://www.youtube.com/watch?v=ObvCtB1ATnA",
+      "video_path": "evidence/ObvCtB1ATnA/mp4/AI 건축 쇼츠 30분 만에 만드는 법 전부 공개합니다 (+프롬프트 제공) ｜ 제미나이, Veo Omni.mp4",
+      "video_sha256": "0142ae72c09fb520be04339ac6d401228dbe1cc148d0563fe0b683be49297eb5",
+      "video_bytes": 102971600,
+      "duration_s": 1344.505034,
+      "width": 1280,
+      "height": 720,
+      "fps": "30/1",
+      "md_path": "evidence/ObvCtB1ATnA/md-selected-ko/AI_건축_쇼츠_30분_만에_만드는_법_전부_공개합니다_(+프롬프트_제공)_제미나이,_Ve_20261117.md",
+      "md_sha256": "89fbb3d5e069b062d71b50093984b327d735029cd4ffa347b10ee3c00c35338f",
+      "md_chars": 12232,
+      "md_words": 3128,
+      "selected_language": "ko",
+      "md_locator_markers": [
+        "00:00",
+        "01:59"
+      ],
+      "contact_sheet": "evidence/ObvCtB1ATnA/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_02.jpg",
+          "requested_s": 122.22773,
+          "source_pts_s": 122.233333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_03.jpg",
+          "requested_s": 244.455461,
+          "source_pts_s": 244.466667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_04.jpg",
+          "requested_s": 366.683191,
+          "source_pts_s": 366.7,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_05.jpg",
+          "requested_s": 488.910921,
+          "source_pts_s": 488.933333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_06.jpg",
+          "requested_s": 611.138652,
+          "source_pts_s": 611.166667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_07.jpg",
+          "requested_s": 733.366382,
+          "source_pts_s": 733.366667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_08.jpg",
+          "requested_s": 855.594113,
+          "source_pts_s": 855.6,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_09.jpg",
+          "requested_s": 977.821843,
+          "source_pts_s": 977.833333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_10.jpg",
+          "requested_s": 1100.049573,
+          "source_pts_s": 1100.066667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_11.jpg",
+          "requested_s": 1222.277304,
+          "source_pts_s": 1222.3,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/ObvCtB1ATnA/frames/frame_12.jpg",
+          "requested_s": 1343.505034,
+          "source_pts_s": 1343.533333,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 7,
+      "source_id": "youtube:_X7KQVwsn9U",
+      "title": "How to Make Studio-Quality AI Animation (Full Guide)",
+      "uploader": "Jack Vs. AI",
+      "url": "https://www.youtube.com/watch?v=_X7KQVwsn9U",
+      "video_path": "evidence/_X7KQVwsn9U/mp4/How to Make Studio-Quality AI Animation (Full Guide).mp4",
+      "video_sha256": "0e8761893351f9174f369d125d6c732db7ad176851d17c658e2cfd66783110b4",
+      "video_bytes": 187525320,
+      "duration_s": 1112.189388,
+      "width": 1280,
+      "height": 720,
+      "fps": "60/1",
+      "md_path": "evidence/_X7KQVwsn9U/md/How_to_Make_Studio-Quality_AI_Animation_(Full_Guid_20261117.md",
+      "md_sha256": "c808f5489a4c6f12945d7a56a31015e98142e0e5684733ff0b0c38fedc661728",
+      "md_chars": 14039,
+      "md_words": 2614,
+      "selected_language": "auto",
+      "md_locator_markers": [
+        "00:10",
+        "00:30",
+        "00:41",
+        "00:49",
+        "00:58",
+        "01:08",
+        "01:32",
+        "01:46",
+        "08:45",
+        "09:03",
+        "10:10",
+        "10:28",
+        "15:55",
+        "16:10",
+        "16:16",
+        "16:44",
+        "17:34"
+      ],
+      "contact_sheet": "evidence/_X7KQVwsn9U/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_02.jpg",
+          "requested_s": 101.108126,
+          "source_pts_s": 101.116667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_03.jpg",
+          "requested_s": 202.216252,
+          "source_pts_s": 202.216667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_04.jpg",
+          "requested_s": 303.324379,
+          "source_pts_s": 303.333333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_05.jpg",
+          "requested_s": 404.432505,
+          "source_pts_s": 404.433333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_06.jpg",
+          "requested_s": 505.540631,
+          "source_pts_s": 505.55,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_07.jpg",
+          "requested_s": 606.648757,
+          "source_pts_s": 606.65,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_08.jpg",
+          "requested_s": 707.756883,
+          "source_pts_s": 707.766667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_09.jpg",
+          "requested_s": 808.865009,
+          "source_pts_s": 808.866667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_10.jpg",
+          "requested_s": 909.973136,
+          "source_pts_s": 909.983333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_11.jpg",
+          "requested_s": 1011.081262,
+          "source_pts_s": 1011.083333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/_X7KQVwsn9U/frames/frame_12.jpg",
+          "requested_s": 1111.189388,
+          "source_pts_s": 1111.2,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 8,
+      "source_id": "youtube:BjZ4viBcpZU",
+      "title": "Best AI Video Generator 2026 (Watch Before You Buy)",
+      "uploader": "Youri van Hofwegen",
+      "url": "https://www.youtube.com/watch?v=BjZ4viBcpZU",
+      "video_path": "evidence/BjZ4viBcpZU/mp4/Best AI Video Generator 2026 (Watch Before You Buy).mp4",
+      "video_sha256": "f9f36f48b85b30bb9df6fac5d0d43e9f93887f5ac6abbb04ccbac613ffccc6bc",
+      "video_bytes": 202327523,
+      "duration_s": 1055.788118,
+      "width": 1280,
+      "height": 720,
+      "fps": "60/1",
+      "md_path": "evidence/BjZ4viBcpZU/md/Best_AI_Video_Generator_2026_(Watch_Before_You_Buy_20261117.md",
+      "md_sha256": "89b8bc56d8958016962e555f254af89011c6134bdee1971c5908762f524ff248",
+      "md_chars": 17535,
+      "md_words": 3329,
+      "selected_language": "auto",
+      "md_locator_markers": [
+        "00:00",
+        "05:31",
+        "05:39",
+        "06:07",
+        "06:15",
+        "06:43",
+        "06:51",
+        "07:15"
+      ],
+      "contact_sheet": "evidence/BjZ4viBcpZU/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_02.jpg",
+          "requested_s": 95.980738,
+          "source_pts_s": 95.983333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_03.jpg",
+          "requested_s": 191.961476,
+          "source_pts_s": 191.966667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_04.jpg",
+          "requested_s": 287.942214,
+          "source_pts_s": 287.95,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_05.jpg",
+          "requested_s": 383.922952,
+          "source_pts_s": 383.933333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_06.jpg",
+          "requested_s": 479.90369,
+          "source_pts_s": 479.916667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_07.jpg",
+          "requested_s": 575.884428,
+          "source_pts_s": 575.9,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_08.jpg",
+          "requested_s": 671.865166,
+          "source_pts_s": 671.866667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_09.jpg",
+          "requested_s": 767.845904,
+          "source_pts_s": 767.85,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_10.jpg",
+          "requested_s": 863.826642,
+          "source_pts_s": 863.833333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_11.jpg",
+          "requested_s": 959.80738,
+          "source_pts_s": 959.816667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/BjZ4viBcpZU/frames/frame_12.jpg",
+          "requested_s": 1054.788118,
+          "source_pts_s": 1054.8,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 9,
+      "source_id": "youtube:74_qWsIW6LI",
+      "title": "How to Start Making AI Videos Before 2027!",
+      "uploader": "Youri van Hofwegen",
+      "url": "https://www.youtube.com/watch?v=74_qWsIW6LI",
+      "video_path": "evidence/74_qWsIW6LI/mp4/How to Start Making AI Videos Before 2027!.mp4",
+      "video_sha256": "f40df5376cc3925002c1736e583836dd4d26b97f1f2e0d42c3d289a7d81c4ccb",
+      "video_bytes": 171194521,
+      "duration_s": 879.641542,
+      "width": 1280,
+      "height": 720,
+      "fps": "60/1",
+      "md_path": "evidence/74_qWsIW6LI/md/How_to_Start_Making_AI_Videos_Before_2027!_20261117.md",
+      "md_sha256": "1cbb33568ee33b94044bb998b5bd7fea288cd63d8f857fbd691d99b6e399d470",
+      "md_chars": 14230,
+      "md_words": 2696,
+      "selected_language": "auto",
+      "md_locator_markers": [
+        "00:00",
+        "03:25",
+        "06:22",
+        "11:07",
+        "12:30",
+        "13:24",
+        "13:35",
+        "14:04"
+      ],
+      "contact_sheet": "evidence/74_qWsIW6LI/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_02.jpg",
+          "requested_s": 79.967413,
+          "source_pts_s": 79.983333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_03.jpg",
+          "requested_s": 159.934826,
+          "source_pts_s": 159.95,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_04.jpg",
+          "requested_s": 239.902239,
+          "source_pts_s": 239.916667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_05.jpg",
+          "requested_s": 319.869652,
+          "source_pts_s": 319.883333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_06.jpg",
+          "requested_s": 399.837065,
+          "source_pts_s": 399.85,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_07.jpg",
+          "requested_s": 479.804477,
+          "source_pts_s": 479.816667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_08.jpg",
+          "requested_s": 559.77189,
+          "source_pts_s": 559.783333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_09.jpg",
+          "requested_s": 639.739303,
+          "source_pts_s": 639.75,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_10.jpg",
+          "requested_s": 719.706716,
+          "source_pts_s": 719.716667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_11.jpg",
+          "requested_s": 799.674129,
+          "source_pts_s": 799.683333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/74_qWsIW6LI/frames/frame_12.jpg",
+          "requested_s": 878.641542,
+          "source_pts_s": 878.65,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 10,
+      "source_id": "youtube:1BzzdY-nK9A",
+      "title": "How I Get Perfect AI Realism in Every Shot (3 Steps)",
+      "uploader": "Higgsfield AI",
+      "url": "https://www.youtube.com/watch?v=1BzzdY-nK9A",
+      "video_path": "evidence/1BzzdY-nK9A/mp4/How I Get Perfect AI Realism in Every Shot (3 Steps).mp4",
+      "video_sha256": "ff8f6d1b45a6a29b4a57baa1289c199a1cb715bade4036d34eeb9bb5f648cb05",
+      "video_bytes": 128411815,
+      "duration_s": 1366.053152,
+      "width": 1280,
+      "height": 720,
+      "fps": "24/1",
+      "md_path": "evidence/1BzzdY-nK9A/md-selected-en/How_I_Get_Perfect_AI_Realism_in_Every_Shot_(3_Step_20261117.md",
+      "md_sha256": "44bd926c493cef5887db8a4c80cde42721968e26709d419a93d7778ab1e52fc8",
+      "md_chars": 17333,
+      "md_words": 3219,
+      "selected_language": "en",
+      "md_locator_markers": [
+        "00:52",
+        "02:36",
+        "06:45",
+        "07:34",
+        "08:27",
+        "10:14",
+        "11:18",
+        "12:33",
+        "14:39",
+        "15:30",
+        "16:37",
+        "17:26",
+        "17:44",
+        "18:57",
+        "19:04",
+        "19:41",
+        "20:48",
+        "21:23"
+      ],
+      "contact_sheet": "evidence/1BzzdY-nK9A/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_02.jpg",
+          "requested_s": 124.18665,
+          "source_pts_s": 124.208333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_03.jpg",
+          "requested_s": 248.3733,
+          "source_pts_s": 248.375,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_04.jpg",
+          "requested_s": 372.559951,
+          "source_pts_s": 372.583333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_05.jpg",
+          "requested_s": 496.746601,
+          "source_pts_s": 496.75,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_06.jpg",
+          "requested_s": 620.933251,
+          "source_pts_s": 620.958333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_07.jpg",
+          "requested_s": 745.119901,
+          "source_pts_s": 745.125,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_08.jpg",
+          "requested_s": 869.306551,
+          "source_pts_s": 869.333333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_09.jpg",
+          "requested_s": 993.493201,
+          "source_pts_s": 993.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_10.jpg",
+          "requested_s": 1117.679852,
+          "source_pts_s": 1117.708333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_11.jpg",
+          "requested_s": 1241.866502,
+          "source_pts_s": 1241.875,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/1BzzdY-nK9A/frames/frame_12.jpg",
+          "requested_s": 1365.053152,
+          "source_pts_s": 1365.083333,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 11,
+      "source_id": "youtube:cBxKZcalwkM",
+      "title": "5-Step Workflow: How to Make Viral AI Short Dramas (60M Views)",
+      "uploader": "Higgsfield AI",
+      "url": "https://www.youtube.com/watch?v=cBxKZcalwkM",
+      "video_path": "evidence/cBxKZcalwkM/mp4/5-Step Workflow： How to Make Viral AI Short Dramas (60M Views).mp4",
+      "video_sha256": "0e1dea8f0b9265285193dd5c75a3caaa690c6bab01bf95f6a5bce99a28c52512",
+      "video_bytes": 106249877,
+      "duration_s": 1199.333878,
+      "width": 1280,
+      "height": 720,
+      "fps": "24/1",
+      "md_path": "evidence/cBxKZcalwkM/md-selected-en-US/5-Step_Workflow_How_to_Make_Viral_AI_Short_Dramas__20261117.md",
+      "md_sha256": "43f0b94c2e7fe3acfee45c16aa58e9022272994f58da65b952c75188d9a0794f",
+      "md_chars": 17100,
+      "md_words": 3079,
+      "selected_language": "en-US",
+      "md_locator_markers": [
+        "00:00",
+        "01:03",
+        "01:48",
+        "02:01",
+        "02:13",
+        "02:17",
+        "08:23",
+        "10:12",
+        "11:09",
+        "12:15",
+        "12:24",
+        "12:36",
+        "13:14",
+        "13:36",
+        "13:54",
+        "14:43",
+        "14:55",
+        "15:54",
+        "16:46",
+        "17:32",
+        "17:44",
+        "17:56",
+        "18:01"
+      ],
+      "contact_sheet": "evidence/cBxKZcalwkM/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_02.jpg",
+          "requested_s": 109.030353,
+          "source_pts_s": 109.041667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_03.jpg",
+          "requested_s": 218.060705,
+          "source_pts_s": 218.083333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_04.jpg",
+          "requested_s": 327.091058,
+          "source_pts_s": 327.125,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_05.jpg",
+          "requested_s": 436.12141,
+          "source_pts_s": 436.125,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_06.jpg",
+          "requested_s": 545.151763,
+          "source_pts_s": 545.166667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_07.jpg",
+          "requested_s": 654.182115,
+          "source_pts_s": 654.208333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_08.jpg",
+          "requested_s": 763.212468,
+          "source_pts_s": 763.25,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_09.jpg",
+          "requested_s": 872.24282,
+          "source_pts_s": 872.25,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_10.jpg",
+          "requested_s": 981.273173,
+          "source_pts_s": 981.291667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_11.jpg",
+          "requested_s": 1090.303525,
+          "source_pts_s": 1090.333333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/cBxKZcalwkM/frames/frame_12.jpg",
+          "requested_s": 1198.333878,
+          "source_pts_s": 1198.375,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    },
+    {
+      "ordinal": 12,
+      "source_id": "youtube:iJiBJAJRRkk",
+      "title": "The $30K/Month Al Faceless Shorts Method Nobody's Talking About (Full Workflow)",
+      "uploader": "Sanji Nai-Chien",
+      "url": "https://www.youtube.com/watch?v=iJiBJAJRRkk",
+      "video_path": "evidence/iJiBJAJRRkk/mp4/The $30K⧸Month Al Faceless Shorts Method Nobody's Talking About (Full Workflow).mp4",
+      "video_sha256": "c74f0d2875a355d0e0aa269c4432a512c3e1394f45a4190d4105cb41f6b48628",
+      "video_bytes": 40842088,
+      "duration_s": 807.264943,
+      "width": 1280,
+      "height": 720,
+      "fps": "24/1",
+      "md_path": "evidence/iJiBJAJRRkk/md-selected-en/The_$30KMonth_Al_Faceless_Shorts_Method_Nobody's_T_20261117.md",
+      "md_sha256": "edfed68450edc8cbadd123a378cf84c348ee1afcc42ba7c6d48f05701af27f28",
+      "md_chars": 15122,
+      "md_words": 2736,
+      "selected_language": "en",
+      "md_locator_markers": [
+        "00:00"
+      ],
+      "contact_sheet": "evidence/iJiBJAJRRkk/frames/contact_sheet.jpg",
+      "samples": [
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_01.jpg",
+          "requested_s": 0.5,
+          "source_pts_s": 0.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_02.jpg",
+          "requested_s": 73.387722,
+          "source_pts_s": 73.416667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_03.jpg",
+          "requested_s": 146.775444,
+          "source_pts_s": 146.791667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_04.jpg",
+          "requested_s": 220.163166,
+          "source_pts_s": 220.166667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_05.jpg",
+          "requested_s": 293.550888,
+          "source_pts_s": 293.583333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_06.jpg",
+          "requested_s": 366.93861,
+          "source_pts_s": 366.958333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_07.jpg",
+          "requested_s": 440.326333,
+          "source_pts_s": 440.333333,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_08.jpg",
+          "requested_s": 513.714055,
+          "source_pts_s": 513.75,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_09.jpg",
+          "requested_s": 587.101777,
+          "source_pts_s": 587.125,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_10.jpg",
+          "requested_s": 660.489499,
+          "source_pts_s": 660.5,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_11.jpg",
+          "requested_s": 733.877221,
+          "source_pts_s": 733.916667,
+          "exit_code": 0,
+          "image_exists": true
+        },
+        {
+          "frame_file": "evidence/iJiBJAJRRkk/frames/frame_12.jpg",
+          "requested_s": 806.264943,
+          "source_pts_s": 806.291667,
+          "exit_code": 0,
+          "image_exists": true
+        }
+      ],
+      "caption_review": "SELECTED_CAPTION_TEXT_READ",
+      "frame_review": "CONTACT_SHEET_OPENED_12_SAMPLES_ONLY",
+      "continuous_playback": "UNVERIFIED",
+      "actual_listening": "UNVERIFIED",
+      "full_decode": "NOT_RUN"
+    }
+  ],
+  "sources_requested": 12,
+  "mp4_verified": 12,
+  "selected_MD_verified": 12,
+  "extra_original_auto_MD_preserved": 6,
+  "total_duration_s": 13201.890975,
+  "video_bytes": 1304441279,
+  "sampled_frames": 144,
+  "sample_method": "12time-distributedframespervideo; native source PTS from ffmpeg copyts/showinfo; not complete playback or cut validation",
+  "full_decode": "NOT_PERFORMED",
+  "actual_listening": "UNVERIFIED",
+  "analysis_scope": {
+    "selected_caption_bodies_read": 12,
+    "contact_sheets_opened": 12,
+    "frames_per_contact_sheet": 12,
+    "total_sampled_frames": 144,
+    "all_individual_frames_full_resolution_reviewed": false,
+    "continuous_playback": "NOT_RUN",
+    "actual_listening": "NOT_RUN",
+    "full_decode": "NOT_RUN",
+    "process_reproduction": "NOT_RUN",
+    "revenue_verification": "NOT_RUN",
+    "evidence_notes": "Caption markers are section locators, not exact utterance timings. Contact-sheet samples do not establish continuous motion or audio quality."
+  }
+}
