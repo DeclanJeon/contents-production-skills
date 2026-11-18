@@ -1,0 +1,34 @@
+{
+  "ordinal": 38,
+  "file": "동양 로맨스 판타지│AI드라마│아린기(記) EP_6.재회.mp4",
+  "expected_duration_s": 373.0,
+  "stream": {
+    "width": 1280,
+    "height": 720,
+    "r_frame_rate": "24/1",
+    "avg_frame_rate": "24/1",
+    "codec": "av1",
+    "pix_fmt": "yuv420p",
+    "video_bitrate": "533032",
+    "duration_s": 373.028571,
+    "audio_codec": "aac",
+    "audio_rate": "44100",
+    "audio_channels": 2,
+    "container_bitrate": "665597"
+  },
+  "detected_cuts": 66,
+  "segments": 67,
+  "cuts_per_minute": 10.62,
+  "median_shot_s": 4.084,
+  "p10_shot_s": 1.375,
+  "p90_shot_s": 10.084,
+  "min_shot_s": 0.375,
+  "max_shot_s": 46.041,
+  "share_under_1s": 0.03,
+  "share_over_10s": 0.119,
+  "loudness": {
+    "integrated_lufs": -23.3,
+    "lra_lu": 13.2,
+    "true_peak_dbfs": 0.0
+  }
+}

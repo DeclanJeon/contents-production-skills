@@ -1,0 +1,34 @@
+{
+  "ordinal": 36,
+  "file": "당신께 맹세하나니 Episode 05｜운명의 수레바퀴 1｜AI 로판 드라마.mp4",
+  "expected_duration_s": 418.7,
+  "stream": {
+    "width": 1920,
+    "height": 1080,
+    "r_frame_rate": "24/1",
+    "avg_frame_rate": "5024000/209333",
+    "codec": "vp9",
+    "pix_fmt": "yuv420p",
+    "video_bitrate": "2221027",
+    "duration_s": 418.725442,
+    "audio_codec": "aac",
+    "audio_rate": "44100",
+    "audio_channels": 2,
+    "container_bitrate": "2354403"
+  },
+  "detected_cuts": 79,
+  "segments": 80,
+  "cuts_per_minute": 11.32,
+  "median_shot_s": 2.25,
+  "p10_shot_s": 0.958,
+  "p90_shot_s": 7.375,
+  "min_shot_s": 0.25,
+  "max_shot_s": 151.666,
+  "share_under_1s": 0.125,
+  "share_over_10s": 0.075,
+  "loudness": {
+    "integrated_lufs": -26.9,
+    "lra_lu": 14.2,
+    "true_peak_dbfs": -2.5
+  }
+}

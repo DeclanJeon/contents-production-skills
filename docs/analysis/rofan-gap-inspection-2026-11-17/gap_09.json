@@ -1,0 +1,34 @@
+{
+  "ordinal": 9,
+  "file": "[몰아보기] 창작 AI 실사화 로판 『소꿉친구가 북부대공이 되었다』1- 4화 + 쿠키 영상!.mp4",
+  "expected_duration_s": 2067.0,
+  "stream": {
+    "width": 1920,
+    "height": 1080,
+    "r_frame_rate": "24/1",
+    "avg_frame_rate": "24803500/1033479",
+    "codec": "vp9",
+    "pix_fmt": "yuv420p",
+    "video_bitrate": "1697179",
+    "duration_s": 2067.017143,
+    "audio_codec": "aac",
+    "audio_rate": "44100",
+    "audio_channels": 2,
+    "container_bitrate": "1830799"
+  },
+  "detected_cuts": 251,
+  "segments": 252,
+  "cuts_per_minute": 7.29,
+  "median_shot_s": 3.333,
+  "p10_shot_s": 1.5,
+  "p90_shot_s": 18.917,
+  "min_shot_s": 0.5,
+  "max_shot_s": 144.709,
+  "share_under_1s": 0.044,
+  "share_over_10s": 0.179,
+  "loudness": {
+    "integrated_lufs": -15.9,
+    "lra_lu": 14.2,
+    "true_peak_dbfs": 0.5
+  }
+}

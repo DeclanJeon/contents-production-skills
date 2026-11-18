@@ -1,0 +1,34 @@
+{
+  "ordinal": 31,
+  "file": "【저주받은 공작의 신부】 EP.1–5 몰아보기 ｜ The Cursed Duke’s Bride ｜ AI 로판 드라마.mp4",
+  "expected_duration_s": 764.9,
+  "stream": {
+    "width": 1920,
+    "height": 1080,
+    "r_frame_rate": "60/1",
+    "avg_frame_rate": "60/1",
+    "codec": "av1",
+    "pix_fmt": "yuv420p",
+    "video_bitrate": "1313056",
+    "duration_s": 764.865306,
+    "audio_codec": "aac",
+    "audio_rate": "44100",
+    "audio_channels": 2,
+    "container_bitrate": "1450244"
+  },
+  "detected_cuts": 104,
+  "segments": 105,
+  "cuts_per_minute": 8.16,
+  "median_shot_s": 5.0,
+  "p10_shot_s": 1.7,
+  "p90_shot_s": 15.017,
+  "min_shot_s": 0.717,
+  "max_shot_s": 36.816,
+  "share_under_1s": 0.01,
+  "share_over_10s": 0.2,
+  "loudness": {
+    "integrated_lufs": -23.3,
+    "lra_lu": 12.2,
+    "true_peak_dbfs": -4.4
+  }
+}
