@@ -166,14 +166,23 @@ def test_selector_is_reachable_from_either_dispatch_file(
     tmp_path: Path, module_index: bool,
 ) -> None:
     """The owner may move its on-demand table into the module index (staged loading)."""
-    root = _stage_tree(tmp_path / "repo")
-    owner = root / "video-production-assets/SKILL.md"
-    row = ([line for line in owner.read_text(encoding="utf-8").splitlines()
-            if "edit-sound-language-catalog.md" in line][0])
-    if module_index:
-        moved = root / "video-production-assets/references/module-index.md"
-        moved.write_text(row.replace("references/", "") + "\n", encoding="utf-8")
-        owner.write_text(
-            owner.read_text(encoding="utf-8").replace(row + "\n", ""), encoding="utf-8")
+    stage = _stage_tree(tmp_path / "repo")
+    owners = ("video-production-assets/SKILL.md",
+              "video-production-assets/references/module-index.md")
+    row = next(line for owner in owners
+               for line in (ROOT / owner).read_text(encoding="utf-8").splitlines()
+               if "속도·타격" in line and "edit-sound-language-catalog.md" in line)
+    for owner in owners:
+        copy = stage / owner
+        if copy.is_file():
+            copy.write_text(copy.read_text(encoding="utf-8").replace(row + "\n", ""),
+                            encoding="utf-8")
+    destination = stage / ("video-production-assets/references/module-index.md"
+                           if module_index else "video-production-assets/SKILL.md")
+    link = "edit-sound-language-catalog.md" if module_index else "references/edit-sound-language-catalog.md"
+    row_here = re.sub(r"\]\([^)]*edit-sound-language-catalog\.md\)", f"]({link})", row)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    existing = destination.read_text(encoding="utf-8") if destination.is_file() else ""
+    destination.write_text(existing + "\n" + row_here + "\n", encoding="utf-8")
 
-    assert reachability_problems(root) == []
+    assert reachability_problems(stage) == []
