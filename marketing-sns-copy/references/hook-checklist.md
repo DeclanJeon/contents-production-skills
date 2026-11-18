@@ -35,3 +35,8 @@
 - 훅만 바꾸고 본문·CTA·비주얼은 고정한 세트를 만든다(무엇을 고정했는지 목록으로 남긴다).
 - 판정 지표: 영상은 초반 유지율·3초 시청 비율, 텍스트는 노출 대비 클릭/펼치기·참여.
 - Higgsfield Virality Predictor 같은 분석 결과는 게시 전 정성 신호일 뿐, 측정 성과가 아니다.
+
+## 관련
+
+- 한서윤 운영 카피: [han-seoyun-influencer-copy.md](han-seoyun-influencer-copy.md)
+- marketingskills 훅·각도 보강: [marketingskills-bridge.md](marketingskills-bridge.md)

@@ -30,7 +30,15 @@ Drive 커넥터의 읽기 길이 제한(파일당 약 25만 자) 때문에 긴 �
 
 ## 확인했지만 반영하지 않은 자료
 
-- *How Brands Grow Part 2* (Romaniuk · Sharp) — Drive 파일이 공백만 있어 읽을 수 없음.
+- *How Brands Grow Part 2* (Romaniuk · Sharp) — Drive 파일이 **공백(빈 파일)**이라 본문을 읽지 못했고, 원칙 반영에서도 **제외**했다. 후속 보강 시 유효한 원본이 생기면 그때 읽는다.
 - *The Mom Test*, *Traction* — 고객 검증·채널 전략 책. 카피 스킬 범위 밖이라 본문 미사용(고객 근거를 지어내지 않는 원칙은 기존 `video-production-assets` 30번 문서에 이미 있음).
 - 같은 폴더의 PDF·중복본(`(1)` 사본), Profit First, E-Myth, Retail Product Management 등 재무·운영 서적 — 범위 밖.
 - `마케팅/md`의 기타 브랜딩·영업·고객경험 서적(Aaker, 22 Immutable Laws of Branding, What Sticks, Conversion Code 등) — 목록만 확인, 이번 초안에서는 미반영. 후속 보강 후보.
+
+## 외부 오픈소스 스킬 라이브러리 (로컬)
+
+- **marketingskills** (MIT License, Copyright (c) 2025 Corey Haines) — 로컬 클론 `/workspace/marketingskills`. 파일 복사 없이 원칙 요약과 경로 참조만: [marketingskills-bridge.md](marketingskills-bridge.md).
+
+## 운영 인플루언서 브리프
+
+- 한서윤 카피 규칙: 원칙·체크리스트만 [han-seoyun-influencer-copy.md](han-seoyun-influencer-copy.md). 출처 경로 `/workspace/team/HAN_SEOYUN_BRIEF.md` (본문 미복제).
