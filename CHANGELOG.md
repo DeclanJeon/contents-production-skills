@@ -1,5 +1,31 @@
 # Changelog
 
+## 2.57 2026-11-18
+
+- Fixed the reachability of the craft documents added in 2.55–2.56. An audit walked routing → owner SKILL.md → reference and found two of six bundles sitting behind **two conditional pointers** (`"외부 예시를 찾거나 표현을 비교할 때만"` → index → crosswalk; `09-edit` `"…예시를 비교할 때만"` → selector), which is the same failure this package already measured in 2.53: a conditional reading rule did not fire on 11/11 confusable cases.
+- Moved each selector to an owner-level trigger: the speed/impact and sound/music/spatial tables now sit in a `video-production-assets` on-demand row ("무엇을 이름으로 고르거나 바꿈") and `09-edit` names the selection act instead of example comparison; the `08-animation` module row now matches "타격·모션 속도". The vocabulary crosswalk is reachable from `creative-production` Step 3 for any route, because term resolution is not owned by one skill.
+- Left `routing.csv` untouched: Step 1 forbids preloading future craft, and craft selection is an owner-stage decision, not a route.
+- Added `scripts/test_craft_selector_reachability.py`: each selector must be linked from its owner **and** the trigger block must name the phrase, fragments must resolve, and two corrupted copies must fail. Static reachability only — it does not measure whether an agent actually opens the table, which would need a `routing_eval.py --stage` style observation run.
+- Design: `docs/superpowers/specs/2026-11-18-craft-selector-reachability-design.md` (levels L0–L4, placement rules, cost/risk).
+
+## 2.56 2026-11-18
+
+- Added `video-production-assets/references/directing-vocabulary-crosswalk.md`: a pointer-only index from the external `CINEMATIC_DIRECTING_BIBLE_v1.md` (v1.0, SHA-256 `b2eceb86…`) to the owning file and anchor for all 30 of its categories, its 6 genre recipes and its 4 non-importable elements. It carries provenance and status only — no definitions, thresholds or schemas — so the same technique is not specified twice. Linked once from `production-reference-index.md`.
+- Filled the only real gaps that survived the audit:
+  - **Sound design, music and spatial audio vocabulary** in `edit-sound-language-catalog.md`: layered impact, whoosh, riser, pre-impact silence, sound bridge, transient design; leitmotif, ostinato, hit point, counterpoint, musical silence; distance attenuation, early reflection, occlusion, pan automation, subjective muffle. Each row maps to existing `sound-cues.csv` columns; mix/rights/listening procedures stay owned by 09.
+  - **Still-image motion** in `storytelling-with-still-images`: 2.5D parallax, Ken Burns and interpolation with their failure modes; timing stays with `animatic-direction`, and ramps/blur/shake remain unplanned without confirmed editor or generator support.
+  - **Foreground overlay framing** as a note beside `camera-language-catalog` A13–18 (no new ID), and a **photosensitivity/shake comfort check** in `15-delivery.md` that separates comfort risk from the flicker defect pass in 21. No threshold is invented.
+  - A **one-dimensional spacing arithmetic example** in `08-animation.md` (0.25 s × 24 fps = 6 exposed frames, end boundary excluded), labelled as arithmetic only.
+- Added the speed/impact guardrail to the new editing table: spatial, anatomical or contact defects are not covered with ramps, motion blur, impact frames or camera shake.
+- Added `scripts/test_crosswalk_navigation.py`: every crosswalk file+anchor must resolve, all 30 categories must be present, and two corrupted copies must fail — so a stale pointer is caught in CI instead of sending an agent to a dead owner.
+
+## 2.55 2026-11-18
+
+- Added a **speed and impact expression table** to `video-production-assets/references/edit-sound-language-catalog.md`: speed ramping, time remapping, rhythmic/kinetic editing, impact frames, staccato editing, motion blur, speed lines and camera shake, each with its selection condition, failure mode and existing 09 handoff fields. The table states that timeline rate control belongs to editing/post and is not assumed to exist in a generation model, and that match cut/smash cut/whip pan remain owned by the existing transition rows.
+- Added a **speed-contrast curve** (slow → tension → acceleration → freeze → burst → afterglow) as an optional recipe under the existing sequence-rhythm contract in `09-edit.md`; it points at the new table instead of restating rate fields.
+- Added **motion-level impact techniques** to `08-animation.md` (easing, anticipation/overshoot/settle, follow through, smear frames, hit stop) mapped to the existing start/end-frame, spacing and contact columns. Frame-stop and smear are marked as real frame control, not something a still can evidence.
+- Added an **action-beat speed allocation example** (1.2 s) to `animatic-direction/references/timing-and-review.md` for still-based live-action animatics: hold-length contrast, cut placement and inserted panels carry the acceleration; ramps, motion blur and camera shake stay conditional on actual editor/generator support. `animatic-direction` bumped to 1.1 and its step 4 now names action-beat speed/impact allocation.
+
 ## 2.36 (2026-11-15)
 
 - Added 3-layer single-frame causal staging (`focal_hierarchy`), still-frame kinetic translation (`kinetic_cues`), anatomical expression bridge (`expression_pose`), and KO/EN dual-layer prompting (`image_prompt`) across `storyboarding-video` and `video-production-assets`.

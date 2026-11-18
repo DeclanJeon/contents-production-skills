@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 1.28
+version: 1.31
 description: 'Build source-grounded video production assets: briefs, story beats,
   screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans,
   animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs,
@@ -48,7 +48,7 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 | 시각 구조·아트 디렉션 | [설계 절차](references/05-visual.md) | [템플릿](assets/05-visual-template.md) |
 | 블로킹·촬영·스토리보드 | [설계 절차](references/06-shots.md) | [템플릿](assets/06-shots-template.md) |
 | 조명·노출·샷 매칭 | [설계 절차](references/07-lighting.md) | [템플릿](assets/07-lighting-template.md) |
-| 애니메이션 연기·타이밍·모션 그래픽 표면 | [설계 절차](references/08-animation.md) | [템플릿](assets/08-animation-template.md) |
+| 애니메이션 연기·타이밍·타격·모션 속도·모션 그래픽 표면 | [설계 절차](references/08-animation.md) | [템플릿](assets/08-animation-template.md) |
 | 편집·리듬·사운드 | [설계 절차](references/09-edit.md) | [템플릿](assets/09-edit-template.md) |
 | 광고·설명·데이터 영상 근거 | [설계 절차](references/10-evidence.md) | [템플릿](assets/10-evidence-template.md) |
 | AI 영상 프롬프트·연속성 인계 | [설계 절차](references/11-ai-handoff.md) | [템플릿](assets/11-ai-handoff-template.md) |
@@ -76,6 +76,7 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 | 복잡 모션·합성 레이어·생성 매체 검수·재시도 | [생성 영상 QA·재시도](references/21-generated-video-qa-retry.md) | `assets/motion-beat-template.md`, `assets/vfx-layer-stack-template.md`, `assets/generated-qa-report-template.md` |
 | 대사 연기·보이스 선택/생성·립싱크·청자 디렉팅 | [대사·립싱크](references/22-dialogue-lipsync.md) | `assets/performance-cue-template.md` |
 | 피니싱 룩·그레이드 노드 구조·믹스·마스터 QC·플랫폼 적응 | [피니싱·플랫폼](references/23-finishing-platform.md) | — |
+| 속도·타격·컷 전환·효과음·음악·공간음향 중 무엇을 이름으로 고르거나 바꿈 | [편집·음향 표현 선택표](references/edit-sound-language-catalog.md) | 편집은 09 템플릿, 음향은 `assets/sound-cues.csv` |
 | 이미지/영상 생성 경로·최소 충분 프리뷰·최종 제작·비용·에셋 출처 | [생성 경로·비용 라우팅](references/24-production-execution.md) | `assets/video-model-routing-template.md` |
 | 사용자가 요청한 단일/아카이브 레퍼런스 분석·교차 영상 패턴/오너 갭 비교·기존 스킬로의 명시적 skillification | [레퍼런스 영상 분해](references/25-reference-video-analysis.md) | 단일 영상은 `assets/shot-dna-template.md`, 아카이브는 `assets/archive-audit-template.md`; 명시적 exhaustive all-source/all-shot 또는 cross-source craft extraction에서만 [`assets/archive-craft-crosswalk-template.md`](assets/archive-craft-crosswalk-template.md)를 조건부 필수 사용. 일반/단일 레퍼런스에는 강제하지 않음. 기존 오너 반영은 명시적 skillification에서만; Rofan 사례집은 선택적 출처 근거이며 필수 조회가 아님. 로컬 영상의 컷·제작방식·자막·음원 측정이 필요하고 설치된 rea-video가 있으면 조건부로 [외부 분해 백엔드 어댑터](references/31-external-video-decomposition.md)를 적용하고, 없으면 25 수작업 경로로 폴백 |
 | 한 번에 시놉시스부터 전체 스토리보드 시트까지 요청·프롬프트 작성 | [스토리보드 시트 사용자 가이드](references/storyboard-sheet-user-guide.md) | 범용 복사용 프롬프트 |

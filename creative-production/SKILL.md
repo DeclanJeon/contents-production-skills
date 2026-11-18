@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 2.0
+version: 2.1
 description: Use only when the user explicitly requests video production or creation of
   a storyboard sheet for a video. Do not use for other content creation/adaptation,
   standalone writing, social posts, campaigns, audio, images, ordinary design, or
@@ -75,6 +75,12 @@ packaged procedure (for reference-driven production,
 [R1–R8](../video-production-assets/references/29-reference-driven-production.md))
 rather than asking for the original book. An unavailable original blocks only
 fresh quotation or source inspection.
+
+When a request names a technique or an external document's term (an `ST-01`-style
+ID, "impact frame", "leitmotif", "whip pan"), resolve it through the
+[directing vocabulary crosswalk](../video-production-assets/references/directing-vocabulary-crosswalk.md)
+before drafting, so the owning file authorises the work instead of a restated
+definition.
 
 ## Step 4 — Hand off
 
