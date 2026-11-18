@@ -147,8 +147,8 @@ def checked_assets(project: Mapping[str, Json], root: Path, ids: list[str]) -> d
     return result
 
 
-def read_document(path: Path) -> Document:
-    """Parse a JSON object and reject nonstandard NaN/Infinity tokens."""
+def _parse_document(raw: bytes, path: Path) -> Document:
+    """Parse one UTF-8 snapshot with the existing finite JSON semantics."""
     def invalid_constant(token: str) -> None:
         raise SequenceError('json_number', str(path), f'invalid constant {token}')
     def finite_float(token: str) -> float:
@@ -156,15 +156,14 @@ def read_document(path: Path) -> Document:
         if not math.isfinite(value):
             raise SequenceError('json_number', str(path), 'floating-point overflow')
         return value
-    value = json.loads(path.read_text(encoding='utf-8'), parse_constant=invalid_constant, parse_float=finite_float)
+    value = json.loads(raw.decode('utf-8'), parse_constant=invalid_constant, parse_float=finite_float)
     if not isinstance(value, dict):
         raise SequenceError('json_object', str(path), 'expected JSON object')
     return value
 
 
-def read_projection(path: Path) -> Document:
-    """Recognize the derived format, not a new project ledger."""
-    value = read_document(path)
+def check_projection(value: Document, path: Path) -> Document:
+    """Recognize the derived format, including for in-memory display callers."""
     if value.get('format') != FORMAT or value.get('phase') not in PHASES:
         raise SequenceError('projection_format', str(path), f'expected {FORMAT} and known phase')
     for key in ('owner', 'inputs', 'time_basis'):
@@ -174,3 +173,22 @@ def read_projection(path: Path) -> Document:
         if not isinstance(value.get(key), list) or not all(isinstance(row, dict) for row in value[key]):
             raise SequenceError('projection_shape', key, 'expected array of objects')
     return value
+
+
+def read_snapshot(path: Path, *, projection: bool = False) -> tuple[Document, Document]:
+    """Bind the parsed document and SHA256 to exactly the same raw read."""
+    raw = path.read_bytes()
+    value = _parse_document(raw, path)
+    if projection:
+        check_projection(value, path)
+    return value, {'path': str(path.resolve()), 'sha256': hashlib.sha256(raw).hexdigest()}
+
+
+def read_document(path: Path) -> Document:
+    """Parse a JSON object and reject nonstandard NaN/Infinity tokens."""
+    return read_snapshot(path)[0]
+
+
+def read_projection(path: Path) -> Document:
+    """Read only a full execution projection, never a display view."""
+    return read_snapshot(path, projection=True)[0]

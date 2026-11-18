@@ -12,10 +12,12 @@
 
 아래 `scripts/`는 이 스킬 폴더 기준이다. `<root>`는 기존 작품 폴더이며 공유 스킬 폴더에 작품 데이터를 저장하지 않는다.
 
+최초 `--view full`은 기존 `sequence-execution/1` 전체 실행 투영을 파일로 보존한다(기본값도 full). 후속 `--view focus`는 **표시 전용 `sequence-focus-view/1`**이며 read_only=true, executable=false, validation=not_run이다. focus는 --shot이 필요하고 --all과 조합하지 않는다. source 해시는 같은 읽기 스냅샷의 식별자이지 품질·승인이 아니다. 표시 뷰를 원래 full 파일 위로 저장하거나 prepare/validate/inspect/render 입력으로 쓰지 않는다. 아래 실행/검사는 항상 원래 full 파일을 다시 읽고 현재 게이트를 통과한다.
+
 ```bash
-python scripts/sequence_context.py <root>/project.json --all > <root>/source/sequence-v01.json
+python scripts/sequence_context.py <root>/project.json --all --view full > <root>/source/sequence-v01.json
 # 후속 작업: 기존 선택/관찰을 유지하면서 필요한 앞뒤 문맥을 조회한다.
-python scripts/sequence_context.py <root>/project.json --shot SH02 --projection <root>/source/sequence-v01.json
+python scripts/sequence_context.py <root>/project.json --shot SH02 --projection <root>/source/sequence-v01.json --view focus
 python scripts/inspect_sequence_frames.py <root>/project.json <root>/source/sequence-v01.json --mode plan --output qa/plan-review-v01
 ```
 
@@ -55,7 +57,7 @@ python scripts/validate_sequence.py <root>/project.json <root>/source/sequence-v
 
 코디네이터가 다음 참조를 준비한다. 사용자에게 프레임 선택·JSON·업로드 식별자 입력을 넘기지 않는다.
 
-1. 기존 `sequence_context.py --shot <선행 shot> --projection ...`으로 **별도 검사 문맥**을 만들고 `inspect_sequence_frames.py --mode source`로 채택 구간의 실제 preview와 마지막 포함 PNG를 얻는다. 생성 요청의 focus는 이번 후행 샷으로 유지한다.
+1. 기존 `sequence_context.py --shot <선행 shot> --projection ... --view full`으로 **별도 검사 문맥**을 만들고 `inspect_sequence_frames.py --mode source`로 채택 구간의 실제 preview와 마지막 포함 PNG를 얻는다. 생성 요청의 focus는 이번 후행 샷으로 유지한다.
 2. 전체 raw에 미채택 꼬리가 있으면 그대로 첨부하지 않는다. preview/이미지/동일 구간의 실제 오디오를 버전이 있는 에셋으로 등록한다. 오디오 구간 추출은 해당 원본의 실제 시간 basis로 수행하며, 섞인 원본에서 존재하지 않는 stem을 만들었다고 하지 않는다.
 3. 파생 참조에는 `source_asset_ids`와 `sequence_slice={source_asset_id,source_asset_version,source_sha256,source_in_frame,source_out_frame,source_fps}`를 기록한다. 영상/오디오 문맥은 채택 출구에서 끝나야 하고, 이미지 대안은 out−1 프레임이다. 실제 파일·프레임 수/FPS 또는 샘플 길이도 대조한다.
 4. `generation_handoff.bindings`에 이전 `visual_state`, 해당 `audio_context`, 현재 승인 패널의 `current_composition`을 연결한다. 재등장 `voice_artifact_id`는 승인/검증된 voice profile의 실제 오디오 anchor를 `voice_identity`로 전달하고 `voice:<ID>/voice_anchor/listening` 근거를 남긴다. 승인된 음성·권리/복제 정책은 22를 유지한다. 모든 효과음을 재연하거나 이전 대사를 반복하라는 뜻이 아니다.

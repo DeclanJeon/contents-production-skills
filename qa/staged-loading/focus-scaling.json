@@ -1,0 +1,33 @@
+{
+  "kind": "Fixed incomplete synthetic skeleton, not valid production benchmark; no actual model usage measured",
+  "tokenizer": "o200k_base reference",
+  "fixture": "test_sequence_view.long_board",
+  "serialization": "json.dumps(ensure_ascii=False, indent=2)",
+  "results": [
+    {
+      "shots": 2,
+      "focus": "SH00",
+      "full_tokens": 1776,
+      "focus_tokens": 1817
+    },
+    {
+      "shots": 10,
+      "focus": "SH05",
+      "full_tokens": 5394,
+      "focus_tokens": 2288
+    },
+    {
+      "shots": 50,
+      "focus": "SH05",
+      "full_tokens": 22672,
+      "focus_tokens": 2288
+    },
+    {
+      "shots": 100,
+      "focus": "SH05",
+      "full_tokens": 44322,
+      "focus_tokens": 2288
+    }
+  ],
+  "note": "2-shot overhead is intentionally not hidden; a display packet carries additional safety/locator metadata."
+}

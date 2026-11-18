@@ -1,0 +1,11 @@
+{
+  "baseline_commit": "bd5fb689dced7d09d966bff8f1897c06bac6082f",
+  "baseline_documents": 205,
+  "candidate_documents": 217,
+  "baseline_local_links": 757,
+  "candidate_local_links": 866,
+  "baseline_issues": [],
+  "candidate_issues": [],
+  "introduced_issues": [],
+  "scope": "managed Markdown local paths/fragments; external URLs not fetched; existing unresolved targets reported, not silently fixed"
+}

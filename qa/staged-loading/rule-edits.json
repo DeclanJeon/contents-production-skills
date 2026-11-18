@@ -1,0 +1,34 @@
+[
+  {
+    "old_line": "| 이 문서 §장면 리듬·수락 검사 | 해석 원칙 | 정본 |",
+    "new_line": "| [direction: 장면 리듬·수락 검사](storyboard-direction.md#장면-리듬과-감정-가독성) | 해석 원칙 | 정본 |",
+    "new_path": "video-production-assets/references/storyboard-schema.md",
+    "reason": "Moved interpretation owner is direction, not this schema document. No rule meaning change.",
+    "equivalence_case_ids": [
+      "board-full-text",
+      "board-save-pdf"
+    ]
+  },
+  {
+    "old_line": "**총괄만 작성:** 저장·변경이 허용된 기존 프로젝트에서 현재 입력 버전을 다시 읽고 stale 결과를 거부한다. 담당 변경과 해당 소유 artifact 버전만 반영하고 종속 승인만 stale로 표시한다. 저장 후 다시 읽어 검사하고 다음 배정 단계에 넘긴다. 워커는 project.json을 동시 수정하지 않는다. 텍스트만/저장 금지 요청은 반환 제안에서 끝난다. 초기 프로젝트 선택·초안 작성은 기존 프리프로덕션 절차이며, 아래 도구는 자동 생성/자동 실행 엔진이 아니다.",
+    "new_line": "**총괄만 작성:** 저장·변경이 허용된 기존 프로젝트에서 현재 입력 버전을 다시 읽고 stale 결과를 거부한다. 담당 변경과 해당 소유 artifact 버전만 반영하고 종속 승인만 stale로 표시한다. 저장 후 다시 읽어 검사하고 다음 배정 단계에 넘긴다. 워커는 project.json을 동시 수정하지 않는다. 명시적 no-save/read-only/chat-only 요청은 반환 제안에서 끝난다. 텍스트만이라도 MD/PDF 저장 요청은 허용된 파일·이력 단계만 수행하며 새 미디어는 생성하지 않는다. 초기 프로젝트 선택·초안 작성은 기존 프리프로덕션 절차이며, 아래 도구는 자동 생성/자동 실행 엔진이 아니다.",
+    "new_path": "video-production-assets/references/contract-core.md",
+    "reason": "Approved independent media/save axes: only explicit text file saving is permitted; no-save and media prohibitions remain.",
+    "equivalence_case_ids": [
+      "board-chat-only",
+      "board-save-md",
+      "board-save-pdf"
+    ]
+  },
+  {
+    "old_line": "단일 텍스트/프롬프트 요청은 이 확장을 요구하지 않는다. 전체 이미지 기반 제작은 **시놉 MD, 인물별 페르소나·SSOT MD와 실제 한 장짜리 Identity Sheet A, 통합 기술 콘티 MD, 모든 패널을 이야기 순서로 덮는 합본 스토리보드 이미지 세트(시트당 최대 8패널, 순서 있는 1장 이상)**를 인계한다. 캐릭터 없는 작품은 인물 산출물만 비적용이다. 텍스트 전용 전체 설계는 이미지 제출/파일/지출을 추가하지 않는다.",
+    "new_line": "단일 텍스트/프롬프트 요청은 이 확장을 요구하지 않는다. 전체 이미지 기반 제작은 **시놉 MD, 인물별 페르소나·SSOT MD와 실제 한 장짜리 Identity Sheet A, 통합 기술 콘티 MD, 모든 패널을 이야기 순서로 덮는 합본 스토리보드 이미지 세트(시트당 최대 8패널, 순서 있는 1장 이상)**를 인계한다. 캐릭터 없는 작품은 인물 산출물만 비적용이다. 텍스트 전용 전체 설계는 새 미디어/지출/자동 저장을 추가하지 않는다. 명시적으로 요청한 MD/PDF 저장은 그 파일·이력 단계만 허용하며 no-save/read-only를 임의 해제하지 않는다.",
+    "new_path": "video-production-assets/references/contract-package.md",
+    "reason": "Approved independent media/save axes: only explicit text file saving is permitted; no-save and media prohibitions remain.",
+    "equivalence_case_ids": [
+      "board-chat-only",
+      "board-save-md",
+      "board-save-pdf"
+    ]
+  }
+]

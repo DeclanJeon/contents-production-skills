@@ -1,0 +1,118 @@
+[
+  {
+    "profile": "logline_via_R02",
+    "unique_paths": [
+      "creative-production/SKILL.md",
+      "creative-production/references/routing.csv",
+      "creative-production/references/routing-disambiguation.csv",
+      "creative-production/references/policy.md",
+      "developing-video-synopses/SKILL.md",
+      "developing-video-synopses/references/synopsis-craft.md"
+    ],
+    "tokens": 8896,
+    "scope": "Document union for named explicit profile; not measured model runtime and not total recursive workload."
+  },
+  {
+    "profile": "one_lighting_plan_via_R13",
+    "unique_paths": [
+      "creative-production/SKILL.md",
+      "creative-production/references/routing.csv",
+      "creative-production/references/routing-disambiguation.csv",
+      "creative-production/references/policy.md",
+      "video-production-assets/SKILL.md",
+      "video-production-assets/references/contract.md",
+      "video-production-assets/references/07-lighting.md",
+      "video-production-assets/assets/07-lighting-template.md"
+    ],
+    "tokens": 22538,
+    "scope": "Document union for named explicit profile; not measured model runtime and not total recursive workload."
+  },
+  {
+    "profile": "ordinary_text_storyboard_via_R10",
+    "unique_paths": [
+      "creative-production/SKILL.md",
+      "creative-production/references/routing.csv",
+      "creative-production/references/routing-disambiguation.csv",
+      "creative-production/references/policy.md",
+      "storyboarding-video/SKILL.md",
+      "video-production-assets/references/storyboard-contract.md"
+    ],
+    "tokens": 25058,
+    "scope": "Document union for named explicit profile; not measured model runtime and not total recursive workload."
+  },
+  {
+    "profile": "ordinary_text_storyboard_with_common_contract",
+    "unique_paths": [
+      "creative-production/SKILL.md",
+      "creative-production/references/routing.csv",
+      "creative-production/references/routing-disambiguation.csv",
+      "creative-production/references/policy.md",
+      "storyboarding-video/SKILL.md",
+      "video-production-assets/references/storyboard-contract.md",
+      "video-production-assets/references/contract.md"
+    ],
+    "tokens": 33087,
+    "scope": "Document union for named explicit profile; not measured model runtime and not total recursive workload."
+  },
+  {
+    "profile": "compact_new_character_no_typology",
+    "unique_paths": [
+      "creative-production/SKILL.md",
+      "creative-production/references/routing.csv",
+      "creative-production/references/routing-disambiguation.csv",
+      "creative-production/references/policy.md",
+      "designing-video-character-sheets/SKILL.md",
+      "designing-video-character-sheets/references/character-craft.md",
+      "designing-video-character-sheets/references/appearance-language-catalog.md",
+      "designing-character-personas/SKILL.md",
+      "designing-character-personas/references/expression-voice-bridge.md",
+      "designing-character-personas/assets/persona-template.md"
+    ],
+    "tokens": 17375,
+    "scope": "Document union for named explicit profile; not measured model runtime and not total recursive workload."
+  },
+  {
+    "profile": "new_fictional_character_default_both_lenses",
+    "unique_paths": [
+      "creative-production/SKILL.md",
+      "creative-production/references/routing.csv",
+      "creative-production/references/routing-disambiguation.csv",
+      "creative-production/references/policy.md",
+      "designing-video-character-sheets/SKILL.md",
+      "designing-video-character-sheets/references/character-craft.md",
+      "designing-video-character-sheets/references/appearance-language-catalog.md",
+      "designing-character-personas/SKILL.md",
+      "designing-character-personas/references/expression-voice-bridge.md",
+      "designing-character-personas/references/mbti-lens.md",
+      "designing-character-personas/references/enneagram-lens.md",
+      "designing-character-personas/assets/persona-template.md"
+    ],
+    "tokens": 19022,
+    "scope": "Document union for named explicit profile; not measured model runtime and not total recursive workload."
+  },
+  {
+    "profile": "full_image_package_entry_only_R24",
+    "unique_paths": [
+      "creative-production/SKILL.md",
+      "creative-production/references/routing.csv",
+      "creative-production/references/routing-disambiguation.csv",
+      "creative-production/references/policy.md",
+      "video-production-assets/references/preproduction-review.md",
+      "video-production-assets/references/storyboard-contract.md",
+      "video-production-assets/references/contract.md"
+    ],
+    "tokens": 33606,
+    "scope": "Document union for named explicit profile; not measured model runtime and not total recursive workload."
+  },
+  {
+    "profile": "dependent_video_guard_plus_executor_only",
+    "unique_paths": [
+      "higgsfield-generate/SKILL.md",
+      "video-production-assets/references/26-state-causality-continuity.md",
+      "video-production-assets/references/sequence-execution.md",
+      "higgsfield-generate/references/package-gate.md"
+    ],
+    "tokens": 15726,
+    "scope": "Document union for named explicit profile; not measured model runtime and not total recursive workload."
+  }
+]

@@ -63,12 +63,7 @@ Apply `../higgsfield-generate/references/package-gate.md` before Phase 3 and bef
 
 Before Phase 0, resolve which video model generates the shots. Reuse a supplied choice: a user-named model or an approved model in the delegated brief is validated against the live schema and recorded — no question. Ask only when unresolved; the only silent path is the user explicitly delegating the choice — then use `seedance_2_5`. Present the live candidates:
 
-| Model | Video ref | Image refs | Audio ref | Resolution | Choose when |
-|---|---|---|---|---|---|
-| `seedance_2_5` | yes | ≤30 (≤50 media total) | yes | 480p–1080p | Recommended default: quality + full reference features + `video_edit`/`video_extension` modes + `--draft` |
-| `seedance_2_0` | yes | yes | yes | 480p–**4k** | native 4K output is required |
-| `gemini_omni` | yes | ≤7 (≤5 with a video ref) | no | 720p only | fast, cheap reference-to-video; default duration 8s |
-| other (kling/veo/grok/…) | start_image only | — | — | — | frame-anchor fallback: extract key frames from the reference, animate each with `--start-image`; style match is looser |
+Historical comparison tables are archived in [model-catalog](../higgsfield-generate/references/model-catalog.md#historical-replication-model-comparison); use the current list/schema for the actual choice.
 
 Rules:
 
@@ -120,61 +115,9 @@ Write exactly N English prompts from the template in `references/prompts.md`. ST
 For a requested production/detailed storyboard, complete sheet or full preproduction package, REQUIRED: apply [the complete storyboard contract](../video-production-assets/references/storyboard-contract.md) through `creative-production` before this video-prompt phase. Carry approved synopsis beat/scene/shot/panel IDs, clean start/peak/end images, spatial/camera/VFX/speech/audio requirements and image-only review evidence into each shot. Preserve the supplied reference's inspected scope and authorized adaptation; a reference beat sheet or style match alone is not full visual-story acceptance. Keep already-approved narrow execution scoped; this pointer never authorizes images, extra clips or spend.
 
 
-## Phase 3 — generate clips
+## Phases 3–6 — execute the assigned phase
 
-Generate with the model chosen at the gate. The example shows `seedance_2_5`; for any other model run `higgsfield model get <jst> --json` first and adapt the flags.
-
-```bash
-higgsfield generate create seedance_2_5 \
-  --mode omni_reference \
-  --prompt "<Shot N prompt>" \
-  --video-references ./reference.mp4 \
-  --image-references ./char_sheet.png \
-  --start-image ./shot_N-1_lastframe.png \
-  --duration 7 \
-  --aspect_ratio 16:9 \
-  --resolution 720p \
-  --generate-audio false \
-  --wait --json
-```
-
-Mode guide (`seedance_2_5` verified — other models expose different modes; check `model get`):
-
-| Mode | Use | Rule |
-|---|---|---|
-| `omni_reference` | new shots in the reference's style — replication default | requires ≥1 reference media |
-| `video_edit` | modify the reference clip itself | exactly one `video_references` item |
-| `video_extension` | lengthen the reference | ≥1 video reference + `extension_mode` `backward`\|`forward` |
-| `t2v` | plain generation | no reference media — never used for replication |
-
-Verified limits for `seedance_2_5` (historical — re-check `model get`): total reference media ≤ 50 items; images including `start_image`/`end_image` ≤ 30; `start_image`/`end_image` only in `omni_reference`. Short aliases `--video` / `--image` / `--audio` also work. Record every job UUID in shot order. **Only continuity-independent shots may submit concurrently.** A shot inheriting predecessor/history state is dependency-ordered even with a new angle or its own storyboard start image: wait for the accepted source range, actual inspection and validated native handoff. Same-angle frame chaining additionally uses the approved extracted anchor (see `references/consistency.md`). Re-submit only failed shots, inside the approved retry bound.
-
-## Phase 4 — soundtrack
-
-Pick one route: (a) pass the reference audio as `--audio-references` when generating clips, (b) extract the reference's track and adapt it, or (c) generate fresh — `seed_audio` for ambience/SFX, `sonilo_music` for BGM. Cue timestamps come from the beat sheet.
-
-## Phase 5 — assemble
-
-Normalize clips → cut in beat order → apply one shared grade → fit and mix audio → loudness-normalize → export. Exact ffmpeg recipes: `references/assembly.md`.
-
-## Phase 6 — QC
-
-Extract a frame at every beat timestamp and compare with the reference frames for composition, grade, and character identity. Regenerate only the failing shots, each time with a changed prompt or re-anchored references (`references/consistency.md`, drift recovery) and always inside the approved retry bound. Two identical failures mean the approach must change, not the prompt. Optional finished-video score — a separate authorized operation (include it in the approved scope or skip it):
-
-```bash
-higgsfield generate create brain_activity --video ./final.mp4 --wait
-```
-
-## Checkpoints and recovery
-
-- Before Phase 3: the model was resolved (supplied or asked), plus beat sheet, style bible, N prompts, and locked assets all exist; exactly one voice-free plan for audio; and the aggregate quote was approved at the package gate.
-- Before Phase 5: N completed video jobs with exact one-to-one shot order, no missing or duplicate UUIDs.
-- `mode 'omni_reference' requires at least one reference media item` → a media flag was dropped; re-add `--video-references`.
-- `start_image and end_image are only allowed for mode 'omni_reference'` → fix the mode, do not remove the anchors.
-- `Unknown params: <flag>` → run `higgsfield model get <chosen jst> --json`; never guess flag names.
-- Character/wardrobe drift → `references/consistency.md` drift recovery section.
-- Timeout → `higgsfield generate wait <job_id> --json`; never duplicate a running job.
-- Pre-existing suite skills (`higgsfield-generate`, `higgsfield-video-explainer`) stay untouched by this pipeline's failures — their contracts are independent.
+Before generating clips, choosing/executing soundtrack or beat-level QC/repair, read [clip execution](references/clip-execution.md). It owns exact model modes/commands, per-shot UUID ordering, dependency-aware concurrency, soundtrack, assembly checkpoints and unknown-outcome recovery. Phase 5 additionally requires [assembly](references/assembly.md). No loose clips as completion, no duplicate pending submission, no retry outside approved scope.
 
 ## Deliver
 

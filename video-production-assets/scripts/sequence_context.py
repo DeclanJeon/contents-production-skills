@@ -11,7 +11,7 @@ from collections.abc import Mapping, Sequence
 
 from project_index import build_index
 from sequence_contract import (Document, FORMAT, Json, SequenceError, frame_at,
-                               parse_fps, read_document, read_projection, table)
+                               parse_fps, read_document, read_projection, read_snapshot, table)
 
 
 def _bootstrap(project: Mapping[str, Json]) -> Document:
@@ -119,12 +119,24 @@ def main() -> int:
     parser.add_argument('--shot', action='append', default=[])
     parser.add_argument('--all', action='store_true', help='explicit whole-timeline scope')
     parser.add_argument('--projection', type=Path)
+    parser.add_argument('--view', choices=('full', 'focus'), default='full')
     args = parser.parse_args()
     try:
-        project = read_document(args.project)
-        projection = read_projection(args.projection) if args.projection else None
-        ids = list(table(project, 'shots')) if args.all else args.shot
-        print(json.dumps(build_sequence_context(project, ids, projection), ensure_ascii=False, indent=2))
+        if args.view == 'focus':
+            if args.all or not args.shot:
+                raise SequenceError('focus', '--view focus', 'requires --shot; --all is not a focus view')
+            from sequence_view import build_sequence_focus_view
+            project, project_snapshot = read_snapshot(args.project)
+            projection, projection_snapshot = read_snapshot(args.projection, projection=True) if args.projection else (None, None)
+            result = build_sequence_focus_view(project, args.shot, projection)
+            result['source'].update(project_snapshot=project_snapshot, projection_snapshot=projection_snapshot)
+            result['full_projection_locator'] = projection_snapshot
+        else:
+            project = read_document(args.project)
+            projection = read_projection(args.projection) if args.projection else None
+            ids = list(table(project, 'shots')) if args.all else args.shot
+            result = build_sequence_context(project, ids, projection)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0
     except (SequenceError, OSError, json.JSONDecodeError) as exc:
         print(json.dumps({'error': str(exc)}, ensure_ascii=False))

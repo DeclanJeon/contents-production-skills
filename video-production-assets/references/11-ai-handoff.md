@@ -2,6 +2,8 @@
 
 콘티를 영상으로 만들거나 후속 생성·실제 편집/납품을 수행하면 **필수:** [시퀀스 실행](sequence-execution.md)의 현재 프레임 대조·채택 구간·검사·렌더 도구를 사용한다. 실제 매체를 관찰한 결과와 도구의 구조·기술 측정을 구분한다.
 
+문맥을 표시할 때만 `sequence_context.py <project.json> --shot <ID> --projection <full-sequence.json> --view focus`를 쓴다. full 실행 투영/핀은 원래 파일에 보존하고 prepare/validate/inspect/render에는 그 전체 파일을 다시 전달한다. 표시 뷰는 검증·준비 완료·native 요청문이 아니며 현재 binding을 바꾸지 않는다.
+
 ## 입력과 산출물
 입력: 확정 샷, 캐릭터·룩 SSOT, 생성 도구 기능
 

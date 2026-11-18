@@ -11,8 +11,16 @@ Authoritative parents (read when a conflict appears; this file summarizes, never
   `video-production-assets/references/24-production-execution.md` (cost policy §1, image
   executor §2).
 - **Worker handoff / single writer:** `video-production-assets/references/contract.md`
-  [`#worker-handoff-and-single-writer`](../../video-production-assets/references/contract.md#worker-handoff-and-single-writer),
+  [`#worker-handoff-and-single-writer`](../../video-production-assets/references/contract-core.md#worker-handoff-and-single-writer),
   schema `1.1`.
+
+The runtime and verified-quote sections below apply to **actual Higgsfield
+provider jobs**, not an unused provider. For an explicitly requested Codex Imagen
+still, check only its runtime/auth, supported inputs/outputs, destination and
+rights/consent; no Higgsfield auth/catalog/quote and no Codex Imagen
+price/usage/quota/cost blocker. Bounded output/retry scope and truthful canonical
+handoff still apply. This exception does not open Higgsfield image jobs or waive
+cost/approval gates for eligible Higgsfield video/audio/3D operations.
 
 ## Runtime check — never auto-install
 

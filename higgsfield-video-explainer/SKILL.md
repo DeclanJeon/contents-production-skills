@@ -35,32 +35,10 @@ Apply `../higgsfield-generate/references/package-gate.md` before Phase 1 and aga
 
 Never use the monolithic `video_explainer` job in this skill.
 
-## MCP-to-CLI mapping
-
-| MCP workflow operation | CLI equivalent |
-|---|---|
-| `get_explainer_presets` | `higgsfield preset list video-explainer --json` |
-| `resolve_explainer_preset` | `higgsfield preset resolve video-explainer <preset_id> --json` |
-| `generate_image` / `nano_banana_pro` | `higgsfield generate create nano_banana_2 ...` — image job: ineligible in this package, see Phase 1 |
-| `list_voices` | `higgsfield voices list --json` |
-| `generate_audio` / `seed_audio` | `higgsfield generate create seed_audio ...` |
-| `generate_video` / `gemini_omni` | `higgsfield generate create gemini_omni ...` |
-| `job_status` | `--wait --json` or `higgsfield generate wait <job_id> --json` |
-| `explainer_video` | `higgsfield generate create explainer_video ...` |
-
-`nano_banana_2` is the public CLI id for the Nano Banana Pro style-key model used by the MCP workflow.
-
 ## Bootstrap
 
 1. If `higgsfield` is unavailable or `higgsfield account status` fails, report the blocker — ask the user to run `higgsfield auth login`, then wait. Never install automatically; installation is a separate operation only on explicit user request.
-2. Inspect the live contracts before the first submission:
-
-   ```bash
-   higgsfield model get nano_banana_2
-   higgsfield model get seed_audio
-   higgsfield model get gemini_omni
-   higgsfield model get explainer_video
-   ```
+2. Before any paid precursor, verify current `seed_audio`, `gemini_omni` and `explainer_video` contracts and the selected eligible style-key route. Do not query an unused Higgsfield image recipe as an execution prerequisite. Actual command/pairing details are deferred to [block execution](references/block-execution.md).
 
 The ten-second block length is this lane's assembly contract, not a universal model limit. Before quoting or submitting, verify that the selected clip model accepts ten seconds AND that the live assembler accepts the typed ordered pairs, block timing, aspect and subtitle options below. On 2026-10-16 the read-only MCP catalog accepted `gemini_omni` (duration 4–10 seconds, 720p, 16:9/9:16), but returned `Model not found: explainer_video`; `higgsfield model get explainer_video --json` independently returned `No model with job_type "explainer_video"` (exit 4). This lane is therefore blocked at that checkpoint until a live assembler contract becomes available. Block before generating paid audio/clips. Do not silently switch to the newer `faceless-video` workflow or change block lengths.
 
@@ -132,168 +110,15 @@ For a real topic, use available web research tools and authoritative sources to 
 
 For a personal story, skip web research and use only details supplied by the user. Invent nothing factual.
 
-## Phase 1 — create or resolve the style key
+## Phases 1–6 — bounded block execution
 
-Write one reusable STYLE descriptor: medium, palette, line/fill behavior, texture/finish, then `non-photorealistic, illustrated, not a photo, no live-action, no realism`.
-
-### Selected CMS preset
-
-Resolve the hidden style image into the active workspace:
-
-```bash
-higgsfield preset resolve video-explainer "<preset UUID>" --json
-```
-
-Keep the returned `media_id` as `STYLE_KEY_ID`. Skip image generation: this imported media is the style key. Build the STYLE descriptor from the returned preset name plus the mandatory non-photoreal rules. Do not recreate a preset from its name.
-
-The preset reference controls framing. If it conflicts with the aspect requested in Phase 0, stop and let the user choose rather than silently fighting the reference.
-
-### Custom style or reference images
-
-The pipeline needs ONE key image. Generating it with `nano_banana_2` is a Higgsfield image job — **ineligible in this package** (package gate). Lawful sources, in preference order:
-
-1. An existing image the user supplied or already has in storage — a local file, an uploaded media ID, or a previously completed image job UUID used as `STYLE_KEY_ID`. (Eligible: reusing an existing image is not an image generation.)
-2. A CMS preset resolved through `preset resolve` (above) — it imports an existing CMS image, not a new generation.
-3. A style key produced by the explicitly authorized eligible image executor (`codex-imagen` default) using the abstract-swatch or mascot template in `references/prompts.md`, then registered/passed by path or ID. Disclose it came from the authorized executor, not the provider recipe.
-
-If none of those is available, the custom-style branch is blocked — report it and let the user pick a preset or supply a style image. Do not silently submit `nano_banana_2`. In contexts where image generation IS permitted, the preserved recipe is:
-
-```bash
-higgsfield generate create nano_banana_2 \
-  --prompt "<style-key prompt>" \
-  --aspect_ratio 16:9 \
-  --resolution 2k \
-  --wait \
-  --json
-```
-
-Use `9:16` for vertical. Whichever lawful source produced it, `STYLE_KEY_ID` is a provider media or completed-job UUID — a locator mapped to the canonical style-key asset in the internal return.
-
-## Phase 2 — write narration
-
-Write exactly `N` labeled narration blocks in the selected language:
-
-```text
-Block 1
-<line spoken over clip 1>
-Block 2
-<line spoken over clip 2>
-```
-
-- One line per block, usually 20–24 words and about 8–9 seconds.
-- Keep every take under roughly 9.5 seconds.
-- Word count is a drafting heuristic, not a duration measurement. Inspect each completed audio take's actual runtime before accepting it; record measured seconds and any overrun. Do not infer timing from language, word count or a successful job status.
-- Use plain spoken text only: no timecodes, emotion cues, parentheticals, or stage directions.
-- Spell numbers out.
-- Use a concrete tone and never say “in this video.”
-- For a topic, build from hook through payoff. For a personal story, preserve the user's details and protagonist.
+- At style-key resolution, actual block execution, pairing/schema writing or repair, read [block execution](references/block-execution.md); do not preload its command/JSON appendix for an intake-only request. It owns preset/custom key resolution, exact narration/prompt formats, voice selection, UUID joins, live-model flags, assembler options and recovery.
+- One STYLE key, exactly N lines/prompts and the user's selected/delegated single voice are required. Narration's 20–24-word/8–9-second sketch is only a heuristic; measure every real take, keep it roughly under 9.5 seconds, and fix overrun inside approval. Plain spoken narration has no stage directions/timecodes; spell numbers out and preserve personal facts.
+- Every video prompt retains identical STYLE/non-realism constraints; one clear action per block, English prompt, selected-language narration. Mascot starts with a closed-mouth greeting and ends with a sign-off; faceless remains stylistic. No spoken words/lip-sync/baked narration in clips.
+- Complete all N audio takes **before** clips. Only continuity-independent clips may run concurrently after the strict audio barrier and actual native handoff; pair Block N audio/video exactly once with no missing/duplicate IDs.
+- Assemble in this run via the verified server-side `explainer_video` contract; no local ffmpeg, legacy assembler or monolithic `video_explainer`. Measure N×10 expected versus actual duration and inspect narration/captions. Unknown timeout needs job reconciliation, never duplicate submission; repairs stay within approved count/cost/retry bounds.
 
 When this explainer is part of a full production package or the user requests a detailed storyboard/full sheet, REQUIRED: inherit `creative-production`'s [complete storyboard contract](../video-production-assets/references/storyboard-contract.md). Map all approved synopsis beats to the existing N blocks and their shot/panel IDs; integrate camera/spatial/VFX/narration timing/audio fields before final review. Preserve this lane's block format and closed-mouth narration approach rather than inventing lip-sync. Actual full clean-image story review precedes an approved storyboard-to-video handoff; text plans and style keys alone are not that review. An ordinary already-approved explainer execution does not acquire an unrequested new package.
-
-
-## Phase 3 — write matching video prompts
-
-Write exactly `N` labeled English prompts using the template in `references/prompts.md`:
-
-```text
-Block N
-STYLE REFERENCE: Match the attached reference image EXACTLY. <same STYLE descriptor>
-SCENE: <one scene and action matching Block N narration>
-MOTION: <camera move and animation behavior>
-AUDIO: <ambient SFX or music only; no voice, dialogue, or narration>
-NEGATIVE: <style drift and realism bans; no lip-sync, captions, text, logos, or watermark>
-```
-
-For mascot mode, Block 1 greets by gesture with mouth closed, the final block waves a sign-off, and middle blocks use consistent cameos only when useful. For faceless mode, use stylistic scenes only. Keep one clear action per block.
-
-## Phase 4 — generate every voice take first
-
-List the live voices, present the choices, and wait for the user to select one narrator — unless the request or delegated brief already supplies one (a `voice_id`/`type` pair or an explicit named voice): then validate it against the live list and use it, no re-asking:
-
-```bash
-higgsfield voices list --json
-```
-
-Keep the selected voice's exact `id` and `type` (`preset` or `element`). Never invent or auto-pick a voice unless the user explicitly delegates it. When the coordinator allocated a `voice_profile` entity for the narrator, return the selection joined to it explicitly (entity ID + provider `voice_id`/`voice_type` locator) — don't smuggle the provider ID into the canonical field.
-
-Generate one completed `seed_audio` job per narration block, always with the same voice:
-
-```bash
-higgsfield generate create seed_audio \
-  --prompt "<Block N narration only>" \
-  --voice_type "<preset|element>" \
-  --voice_id "<voice UUID>" \
-  --wait \
-  --json
-```
-
-Record every audio job UUID in block order. Regenerate only a failed or excessively long take. Shorten that block or adjust `--speech_rate` modestly when needed. Do not begin Phase 5 until all `N` audio jobs are complete.
-
-## Phase 5 — generate every clip second
-
-Generate one completed 10-second `gemini_omni` clip per block. Attach the same style key to every call:
-
-```bash
-higgsfield generate create gemini_omni \
-  --prompt "<Block N video prompt>" \
-  --image "<STYLE_KEY_ID>" \
-  --duration 10 \
-  --resolution 720p \
-  --aspect_ratio 16:9 \
-  --wait \
-  --json
-```
-
-Use `9:16` when selected. Record every video job UUID in block order. Independent jobs may run concurrently inside this phase, but the audio-phase barrier is strict. Re-submit only failed blocks. Never silently replace `gemini_omni`; inspect the live video catalog if the model is unavailable.
-
-## Phase 6 — assemble immediately
-
-Create `blocks.json` with at least two ordered block pairs. The CLI model contract requires typed references, so use the generic completed-job types:
-
-```json
-[
-  {
-    "video": {"id": "<clip 1 job UUID>", "type": "video_job"},
-    "audio": {"id": "<voice 1 job UUID>", "type": "audio_job"}
-  },
-  {
-    "video": {"id": "<clip 2 job UUID>", "type": "video_job"},
-    "audio": {"id": "<voice 2 job UUID>", "type": "audio_job"}
-  }
-]
-```
-
-Submit the server-side assembler immediately:
-
-```bash
-higgsfield generate create explainer_video \
-  --items @blocks.json \
-  --width 1280 \
-  --height 720 \
-  --wait \
-  --json
-```
-
-Use `--width 720 --height 1280` for vertical. When subtitles are enabled, add the chosen font:
-
-```bash
---subtitles '{"font":"patrick"}'
-```
-
-The preserved assembler recipe specifies ten-second blocks, centered short takes, pitch-safe handling of small overruns, ordered concatenation and optional timed captions. Treat these as required capabilities to verify in the live assembler contract, not observed output. After assembly, measure the actual duration and inspect narration alignment/captions; expected total is `N × 10` seconds. Report measured and expected duration separately.
-
-Do not use local ffmpeg, the legacy assembly scripts, or the monolithic `video_explainer` job.
-
-## Checkpoints and recovery
-
-- Before Phase 5: require one style key, exactly `N` narration lines and prompts, one selected voice, and `N` completed audio jobs.
-- Before Phase 6: require `N` completed video jobs and exact one-to-one block pairing with no missing or duplicate IDs.
-- Preset missing: refresh `preset list`; never reuse or fabricate an ID.
-- Preset resolve failure: verify workspace selection and retry once.
-- Style drift or realism: strengthen the shared STYLE and NEGATIVE text, then regenerate only that clip.
-- Timeout: rejoin with `higgsfield generate wait <job_id> --json`; never duplicate a running job.
-- Two identical failures mean the prompt or parameters must change.
-- Every regeneration/repair stays inside the bounded approval's retry and cost scope — re-check the package gate before exceeding it.
 
 ## Deliver
 

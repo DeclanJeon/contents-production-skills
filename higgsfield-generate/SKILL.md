@@ -26,7 +26,7 @@ allowed-tools: Bash
 
 Submit jobs to any Higgsfield model. Wraps the `higgsfield` CLI. Covers generic image/video/3D/audio generation, Marketing Studio (branded ads, avatars, products, hooks, settings), and, secondarily, Virality Predictor video scoring.
 
-Evidence scope (2026-10-17): directly read [official CLI README](https://github.com/higgsfield-ai/cli#examples), [MODELS.md](https://github.com/higgsfield-ai/cli/blob/main/MODELS.md) image/video/3D/audio tables, and mounted `models_explore`, `generate_video`, `job_status`, `virality_predictor` documentation. CLI examples and named fields are documentation, not exercised generation. All cached IDs, numeric limits, role tables, defaults, private backend behavior and quality/ranking claims below and in triggered references require the selected current contract; unmatched details remain historical/unverified, not guarantees. CLI and MCP IDs/transports differ. Package defaults are routing preferences, never authority to submit an unsupported model. In particular, the read MODELS.md tables do not establish the Seedance 2.5 4–30s claim: inspect its exact live contract rather than inferring it from another Seedance model.
+Evidence scope: cached IDs, limits, examples, role tables and backend/quality claims are historical/unverified until checked against the selected live contract. [Historical source/read scope](references/model-catalog.md#historical-entrypoint-examples-and-media-flags) preserves the documentation evidence; CLI/MCP transports differ and documentation is not an exercised job.
 
 ## Scope
 
@@ -42,7 +42,7 @@ Before ANY actual submission, apply the shared gate in `references/package-gate.
 
 ## Step 0 — Runtime check
 
-Before any other command:
+When actual eligible Higgsfield execution is requested, before its commands (not during text-only preparation):
 
 1. If `higgsfield` is not on `$PATH` or `higgsfield account status` fails with `Session expired` / `Not authenticated`, report the blocker and ask the user to run `higgsfield auth login` (interactive) or — only if they explicitly request installation — the official installer in `references/package-gate.md`. Never install automatically.
 2. Inspect the live contract before submission: `higgsfield model get <jst> --json` for the chosen model, `higgsfield model list --json` when routing is uncertain.
@@ -74,79 +74,12 @@ If the user says "analyze this video", "score this ad", "evaluate the hook", or 
 
 ## Workflow — generic generation
 
-1. **Pick a model from the live contract, not a cached ranking.**
-
-   - Image-model references (GPT Image, Nano Banana, etc.) → craft/reference only; see `references/image-branches.md` — ineligible in this package.
-   - For video, audio, and 3D, discover current candidates with `higgsfield model list --json`; inspect each candidate needed for the request with `higgsfield model get <id> --json`.
-   - Match only fields and limits present in the selected model's current schema. Do not infer resolution, duration, mode, media roles, quality, speed, or cost from `references/model-catalog.md`.
-   - Route narrated explainers, reference-video remakes, branded ads, and named workflows to their specialist owners or workflows below; each route still requires a current eligible contract.
-   - If the user names a model, preserve that choice, verify its current schema, and report a blocker rather than silently switching if it cannot satisfy the request.
-   - If the user does not name a model, use the current list/schema to identify eligible candidates. State any material tradeoff and ask only when the user's preference is needed to choose.
-
-   The model catalog is an archive of historical routing notes, not a current inventory, capability source, or quality/cost ranking.
-
-   **Image:** Higgsfield image generation/editing is ineligible in this package — the model selection craft lives in `references/image-branches.md` for routing and non-package contexts. Route specialized image requests to their owners (brandkit, youtube-thumbnail, product-photoshoot, marketplace-cards, soul-id); a missing generic image goes to the authorized eligible image executor (`codex-imagen` default) with truthful scope, never to a Higgsfield image fallback.
-
-   **Video:**
-   - Complete narrated explainer from a topic, story, or document → use `higgsfield-video-explainer`, not generic video generation.
-   - Replicate, remake, or restyle an existing reference video into a new multi-shot video → use `higgsfield-video-replicate`, not generic video generation.
-   - All advertising / commercial / branded ad video → Marketing Studio only when its current schema supports the requested operation (see Marketing Studio below).
-   - Edit existing video from sketch/timestamp, or reframe to another aspect ratio → workflow (`draw_to_video` or `reframe`) only when the live workflow contract supports it. See `references/workflows.md`.
-
-   **Video analysis:**
-   - Rate a finished video's hook, virality potential, attention, retention, or distraction risk → inspect the current Virality Predictor (`brain_activity`) contract. Treat its report as analysis, not generated media.
-
-   **3D:**
-   - A 3D asset within a playable game or game-wide asset system → use `higgsfield-websites` (game product type).
-   - Create an actual 3D mesh/model/GLB from supplied object/product references → select a current model only if its schema accepts the requested references and output. If the user only asks for a 3D-rendered *picture*, that's an image job — authorized eligible executor, never a Higgsfield image model.
-
-   **Audio:**
-   - Select a current audio model only after checking its live prompt, reference, duration, and output fields. Do not infer support for speech, music, sound effects, or other audio categories from this archive.
-
-
-   Map the chosen display name to its current ID with `higgsfield model list --json | jq`, then inspect that exact ID with `higgsfield model get <id> --json`. `references/model-catalog.md` is historical only; image-only rows remain ineligible here.
-
-2. **Pass media inputs straight to flags.** Media flags accept a local file path **or** a UUID. CLI auto-uploads paths and auto-detects job vs upload for UUIDs. No need to pre-upload. Each model declares accepted media roles or `*_references` params — see `references/media-inputs.md`.
-3. **Validate the exact current schema.** Run `higgsfield model get <jst> --json` for every selected model and pass only declared fields/values. Never use cached limits, schema defaults, or a simpler alternative without verifying that the exact current contract supports the request. If no current model satisfies it, report the blocker; do not silently fall back.
-4. **Submit and wait in one shot.** `higgsfield generate create <jst> [--prompt "..."] [media flags] [param flags] --wait`. Blocks until terminal status and prints the result on stdout. Tunables: `--wait-timeout 20m` (default 10m), `--wait-interval 5s` (default 3s). Virality Predictor does not need a prompt; pass `--video`.
-5. **Deliver.** For generated media and 3D assets, send the primary result URL plus a one-line summary (model, duration if video; GLB/asset URL for 3D). For Virality Predictor, deliver the scores, business interpretation, and the Open report link. Do not surface Virality Predictor `.glb`, `.bin`, or region-table internals in normal chat output.
-
-To inspect or rerun later, `higgsfield generate list --json` and `higgsfield generate get <id> --json` work for retrospection. `higgsfield generate wait <id>` is still available if you ever need to rejoin a job started without `--wait`.
-
-For workflow jobs, use `higgsfield generate workflow <workflow_name> ... --wait`. Cost syntax is `higgsfield generate cost workflow <workflow_name> ...`. See `references/workflows.md`.
-
-## Media flags
-
-| Flag | Purpose | Models that accept it |
-|---|---|---|
-| `--image <path-or-id>` | reference image | most image models, `grok_video_v15`, `multi_image_to_3d`, `seedance_2_0`, `seedance_2_5`, `veo3`, `marketing_studio_video` |
-| `--start-image <path-or-id>` | first frame for image-to-video transitions | `grok_video_v15`, `kling3_0`, `kling3_0_turbo`, `kling2_6`, `veo3_1`, `seedance_2_0`, `seedance_2_5`, `marketing_studio_video` |
-| `--end-image <path-or-id>` | last frame for transitions | `kling3_0`, `seedance_2_0`, `seedance_2_5`, `marketing_studio_video` |
-| `--video <path-or-id>` | reference or analyzed video | `seedance_2_0`, `seedance_2_5`, `brain_activity` |
-| `--audio <path-or-id>` | reference audio (lipsync, soundtrack match) | `seedance_2_0`, `seedance_2_5` (reference input; distinct from generating output audio) |
-
-For reference-array models, the explicit flags are `--image-references`, `--video-references`, and `--audio-references`; `--image`, `--video`, and `--audio` are short aliases when the schema exposes those params.
-
-Each flag accepts either a local file path (auto-uploaded) or a UUID (upload id from `higgsfield upload create`, or a previous job id). Each model declares its own media roles or `*_references` params. See `references/media-inputs.md` for the full table.
-
-## Common params
-
-Flags pass through to model schema. Use `higgsfield model get <jst>` to discover.
-
-```bash
-higgsfield generate create seedance_2_5 --prompt "camera dollies in" --mode omni_reference --start-image ./first.png --duration 12 --resolution 1080p --wait
-higgsfield generate create grok_video_v15 --prompt "cinematic handheld shot, neon rainy street" --start-image ./image.png --duration 5 --resolution 720p --wait
-higgsfield generate create multi_image_to_3d --image ./front.png --image ./side.png --should_texture true --wait
-higgsfield generate create seed_audio --prompt "cinematic rain ambience with distant thunder" --wait
-higgsfield generate create sonilo_music --prompt "cinematic synthwave track" --duration 12 --wait
-higgsfield generate create mirelo_text_to_audio --prompt "glass breaking in a large hall" --duration 4 --wait
-higgsfield generate create brain_activity --video ./ad.mp4 --wait
-```
-
-For machine-readable output (chained pipelines, agent context), add `--json`. With `--wait --json` you get the final job object array. Without `--wait`, you get the job IDs. Virality Predictor stores raw analysis and render artifacts in the job params, but the default text output should stay to scores plus Open report.
-
-Stdin prompt: `echo "..." | higgsfield generate create <jst> --wait`.
-
+1. Discover candidates with `higgsfield model list --json` and inspect the exact selected ID with `higgsfield model get <jst> --json`. User choices are preserved; unresolved choices need only decision-changing questions. Never infer capability, resolution, duration, modes, roles, quality, speed or cost from [historical model notes](references/model-catalog.md).
+2. Route complete narrated explainers to `higgsfield-video-explainer`, reference remakes to `higgsfield-video-replicate`, branded ad video to Marketing Studio only if its current contract supports it, sketch/timestamp edits and reframes to [workflows](references/workflows.md), and finished-video scoring to `brain_activity`. Playable-game assets belong to `higgsfield-websites`; actual mesh/GLB is 3D, a rendered picture is still an image job. Audio categories require their exact current schema.
+3. Image models remain ineligible here. Specialized image owners retain their craft; missing stills go to the explicitly authorized eligible executor (`codex-imagen` default). No unsupported-model or provider fallback.
+4. At actual media binding, read [media inputs](references/media-inputs.md): CLI paths may auto-upload; IDs and role/array params depend on the exact transport/schema. Upload requires authority. Pass only the selected model's declared fields.
+5. After the package gate, submit the bounded eligible job with `higgsfield generate create <jst> [--prompt "..."] [media/param flags] --wait`. Historical parameter/media examples are in [model-catalog](references/model-catalog.md), not current defaults. Use `--json` for machine-readable joins; analysis uses the declared video input, not an invented text prompt.
+6. Deliver only the terminal accessible result and canonical join, or the actually returned analysis report. Unknown timeout is not failure: reconcile the original job with `generate get/wait` before any retry; no absent URL or lost ID proves no job exists. For workflows, use the live workflow contract and [workflow guide](references/workflows.md), including its verified quote.
 
 ## Marketing Studio
 
