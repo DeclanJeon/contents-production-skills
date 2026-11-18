@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- `marketing-sns-copy` 0.1.1 (local): Han Seoyun influencer copy checklist; marketingskills MIT bridge; HBG Part 2 empty Drive file excluded. No push.
 
 - Added standalone non-video `marketing-sns-copy` skill (Korean): positioning → message → hook → body → CTA → platform variants (YouTube, X, Threads, TikTok, Instagram) → measurement, with hook/CTA checklists and per-book principle summaries paraphrased from the user's reference library (no source text copied). Not registered in the video-pack manifest; linked from `creative-production` marketing adaptation and `higgsfield-generate` Marketing Studio by name only.
 

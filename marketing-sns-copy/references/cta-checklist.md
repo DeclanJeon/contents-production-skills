@@ -27,3 +27,8 @@ StoryBrand(직접/전환형 CTA), 1-Page Marketing Plan(하나의 제안, 리드
 
 - CTA 문구만 바꾸고 나머지는 고정한다.
 - 판정 지표: 목표 행동 전환(클릭, 신청, 구매)이 1차, 저장·공유는 보조.
+
+## 관련
+
+- 한서윤: 매번 CTA로 끝내지 않음 — [han-seoyun-influencer-copy.md](han-seoyun-influencer-copy.md)
+- CTA 슬롭·각도: [marketingskills-bridge.md](marketingskills-bridge.md)
