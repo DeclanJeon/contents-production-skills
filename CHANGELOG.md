@@ -6,6 +6,8 @@
 - Moved each selector to an owner-level trigger: the speed/impact and sound/music/spatial tables now sit in a `video-production-assets` on-demand row ("무엇을 이름으로 고르거나 바꿈") and `09-edit` names the selection act instead of example comparison; the `08-animation` module row now matches "타격·모션 속도". The vocabulary crosswalk is reachable from `creative-production` Step 3 for any route, because term resolution is not owned by one skill.
 - Left `routing.csv` untouched: Step 1 forbids preloading future craft, and craft selection is an owner-stage decision, not a route.
 - Added `scripts/test_craft_selector_reachability.py`: each selector must be linked from its owner **and** the trigger block must name the phrase, fragments must resolve, and two corrupted copies must fail. Static reachability only — it does not measure whether an agent actually opens the table, which would need a `routing_eval.py --stage` style observation run.
+- The selector row may live in the owner `SKILL.md` or in `references/module-index.md` (the staged-loading layout), so the test resolves links by document path and covers the moved-row case explicitly; the on-demand table's new row was placed in the module index on that branch.
+- Also recorded the optional five-technique combination for a still-based action beat (movement-linked cuts, speed contrast, short impact frames, timing/spacing, sound design) in the animatic reference, with the sound anchor points still owned by 09.
 - Design: `docs/superpowers/specs/2026-11-18-craft-selector-reachability-design.md` (levels L0–L4, placement rules, cost/risk).
 
 ## 2.56 2026-11-18

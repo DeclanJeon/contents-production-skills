@@ -69,6 +69,7 @@
 | 진입점 존재 | 크로스워크가 `creative-production/SKILL.md`와 `production-reference-index.md`에서 링크되고 두 앵커가 해석됨 | 용어 해석 경로 단절 |
 | 선택 표 도달 | `CRAFT_SELECTORS` 표의 각 (오너 SKILL.md, 문서, 필수 토큰)에 대해: 링크 존재 + 링크된 문장/행에 토큰 존재 | 표가 L3로 되돌아감 |
 | 손상 사본 | 토큰 삭제·링크 삭제 사본은 반드시 실패 | 검사가 장식이 아님 |
+| 이동한 표 | 같은 행이 오너 SKILL.md 또는 `references/module-index.md` 중 한 곳에 있으면 통과 | staged-loading 레이아웃을 충돌이 아니라 통과 케이스로 만든다 |
 
 `CRAFT_SELECTORS`(초기값): `(video-production-assets/SKILL.md, references/edit-sound-language-catalog.md, "속도·타격")`, `(…, references/08-animation.md, "타격·모션 속도")`, `(creative-production/SKILL.md, ../video-production-assets/references/directing-vocabulary-crosswalk.md, "names a technique")`. 크로스워크 참조 색인 행은 한국어 표기 `연출 용어 크로스워크`를 토큰으로 쓴다(파일별 실제 표기와 일치해야 한다).
 
@@ -78,7 +79,7 @@
 
 1. **P0** 이 설계 문서 + 크로스워크 진입점 1문장(`creative-production/SKILL.md` Step 3).
 2. **P1** `video-production-assets/SKILL.md` 온디맨드 표 1행 + 모듈 표 행 문구, `09-edit.md` 게이트 문구.
-3. **P2** `scripts/test_craft_selector_reachability.py` (3검사 + 손상 사본 2종).
+3. **P2** `scripts/test_craft_selector_reachability.py` (도달·앵커·이동 표 검사 + 손상 사본 2종, 총 6 테스트).
 4. **P3** `manifest` 2.57, `CHANGELOG`, `creative-production` 2.0→2.1, `video-production-assets` 1.30→1.31, 전체 테스트.
 
 ## 7. 비용·위험
@@ -91,7 +92,7 @@
 ## 8. 완료 조건
 
 - 6묶음 모두 L0–L2에 있고, L3 이하로 남은 선택 표가 0개다.
-- 새 테스트 3검사 통과 + 손상 사본 2종 실패 확인.
+- 새 테스트 6개 통과(도달·앵커·이동 표 3검사, 손상 사본 2종, 이동 표 파라미터 2케이스) + 손상 사본 실패 확인.
 - 전체 pytest·`check_versions.py` 통과, 버전 2.57.
 
 ## 9. 실행 결과
