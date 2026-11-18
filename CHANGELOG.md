@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.58 2026-11-18
+
+- Added the **artifact stage** to `scripts/routing_eval.py`: after a route is chosen the harness now asks for the deliverable itself and checks it against `qa/artifact-contract.csv` with the inputs in `qa/artifact-cases.json`. Routing accuracy alone could not see a coordinator that names the right route and then produces something the owner contract forbids. Wire logs stay ignored; only the contract, the cases and the code are tracked.
+- Recorded the analysis, plans and specs that backed the sequence, AV-handoff, rofan, youtube and staged-loading work, plus the staged-loading weight audit. The 1.3 GB `docs/analysis/*/evidence/` tree stays ignored by the existing rule.
+- `.superpowers/` is now gitignored: it is per-session state, not review material, and it showed up as untracked noise in every checkout and linked worktree.
+
 ## 2.57 2026-11-18
 
 - Archived the source document: the identical-hash copy of `CINEMATIC_DIRECTING_BIBLE_v1.md` now lives at `docs/research/2026-11-18-cinematic-directing-bible-v1.md`, so the recorded provenance survives deletion of the original download. `sources.md` gains a ledger entry stating explicitly that this is a user-authored classification proposal, not evidence, and is never cited as a source for a craft claim.
