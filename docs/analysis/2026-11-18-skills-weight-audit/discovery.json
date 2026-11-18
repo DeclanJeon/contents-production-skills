@@ -1,0 +1,152 @@
+{
+  "encoding": "o200k_base",
+  "note": "Normalized raw name+description proxy, not exact harness prompt serialization or actual model token count.",
+  "total": 3080,
+  "skills": [
+    {
+      "skill": "video-production-assets",
+      "name_description_tokens_proxy": 138,
+      "manifest_listed": true
+    },
+    {
+      "skill": "higgsfield-video-explainer",
+      "name_description_tokens_proxy": 184,
+      "manifest_listed": true
+    },
+    {
+      "skill": "higgsfield-generate",
+      "name_description_tokens_proxy": 222,
+      "manifest_listed": true
+    },
+    {
+      "skill": "higgsfield-websites",
+      "name_description_tokens_proxy": 262,
+      "manifest_listed": false
+    },
+    {
+      "skill": "higgsfield-video-replicate",
+      "name_description_tokens_proxy": 173,
+      "manifest_listed": true
+    },
+    {
+      "skill": "higgsfield-brandkit",
+      "name_description_tokens_proxy": 194,
+      "manifest_listed": false
+    },
+    {
+      "skill": "blender-previsualization",
+      "name_description_tokens_proxy": 67,
+      "manifest_listed": true
+    },
+    {
+      "skill": "silent-satire-animatic",
+      "name_description_tokens_proxy": 74,
+      "manifest_listed": true
+    },
+    {
+      "skill": "storyboarding-video",
+      "name_description_tokens_proxy": 32,
+      "manifest_listed": true
+    },
+    {
+      "skill": "designing-video-character-sheets",
+      "name_description_tokens_proxy": 35,
+      "manifest_listed": true
+    },
+    {
+      "skill": "recording-production-history",
+      "name_description_tokens_proxy": 37,
+      "manifest_listed": true
+    },
+    {
+      "skill": "camera-spatial-design",
+      "name_description_tokens_proxy": 68,
+      "manifest_listed": true
+    },
+    {
+      "skill": "orchestrating-video-preproduction",
+      "name_description_tokens_proxy": 54,
+      "manifest_listed": true
+    },
+    {
+      "skill": "higgsfield-youtube-thumbnail",
+      "name_description_tokens_proxy": 157,
+      "manifest_listed": true
+    },
+    {
+      "skill": "higgsfield-product-photoshoot",
+      "name_description_tokens_proxy": 236,
+      "manifest_listed": false
+    },
+    {
+      "skill": "higgsfield-soul-id",
+      "name_description_tokens_proxy": 168,
+      "manifest_listed": true
+    },
+    {
+      "skill": "designing-character-personas",
+      "name_description_tokens_proxy": 57,
+      "manifest_listed": true
+    },
+    {
+      "skill": "creative-production",
+      "name_description_tokens_proxy": 51,
+      "manifest_listed": true
+    },
+    {
+      "skill": "topic-demand-selection",
+      "name_description_tokens_proxy": 37,
+      "manifest_listed": true
+    },
+    {
+      "skill": "higgsfield-marketplace-cards",
+      "name_description_tokens_proxy": 147,
+      "manifest_listed": false
+    },
+    {
+      "skill": "storytelling-with-still-images",
+      "name_description_tokens_proxy": 49,
+      "manifest_listed": true
+    },
+    {
+      "skill": "silent-visual-storytelling",
+      "name_description_tokens_proxy": 72,
+      "manifest_listed": true
+    },
+    {
+      "skill": "ai-camera-control",
+      "name_description_tokens_proxy": 70,
+      "manifest_listed": true
+    },
+    {
+      "skill": "animatic-direction",
+      "name_description_tokens_proxy": 57,
+      "manifest_listed": true
+    },
+    {
+      "skill": "searching-social-media",
+      "name_description_tokens_proxy": 75,
+      "manifest_listed": true
+    },
+    {
+      "skill": "community-shorts-stills-pipeline",
+      "name_description_tokens_proxy": 170,
+      "manifest_listed": true
+    },
+    {
+      "skill": "developing-video-synopses",
+      "name_description_tokens_proxy": 46,
+      "manifest_listed": true
+    },
+    {
+      "skill": "camera-motion-reference-analysis",
+      "name_description_tokens_proxy": 71,
+      "manifest_listed": true
+    },
+    {
+      "skill": "open-3d-production",
+      "name_description_tokens_proxy": 77,
+      "manifest_listed": true
+    }
+  ]
+}

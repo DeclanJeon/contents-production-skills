@@ -1,0 +1,84 @@
+{
+  "scope": "real local validation, three repeats each, synthetic 24fps clips; no provider calls",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "results": [
+    {
+      "fixture": "adjacent_predecessor",
+      "runs": [
+        {
+          "elapsed_s": 0.087203,
+          "ffprobe_calls": 5,
+          "ffprobe_distinct_paths": 3,
+          "ffprobe_distinct_commands": 5,
+          "ffprobe_duplicate_calls": 0,
+          "hash_calls": 41,
+          "hash_distinct_paths": 28,
+          "bytes_hashed": 3300622,
+          "distinct_bytes_hashed": 1640955
+        },
+        {
+          "elapsed_s": 0.083667,
+          "ffprobe_calls": 5,
+          "ffprobe_distinct_paths": 3,
+          "ffprobe_distinct_commands": 5,
+          "ffprobe_duplicate_calls": 0,
+          "hash_calls": 41,
+          "hash_distinct_paths": 28,
+          "bytes_hashed": 3300622,
+          "distinct_bytes_hashed": 1640955
+        },
+        {
+          "elapsed_s": 0.096559,
+          "ffprobe_calls": 5,
+          "ffprobe_distinct_paths": 3,
+          "ffprobe_distinct_commands": 5,
+          "ffprobe_duplicate_calls": 0,
+          "hash_calls": 41,
+          "hash_distinct_paths": 28,
+          "bytes_hashed": 3300622,
+          "distinct_bytes_hashed": 1640955
+        }
+      ],
+      "median_elapsed_s": 0.087203
+    },
+    {
+      "fixture": "return_after_insert",
+      "runs": [
+        {
+          "elapsed_s": 0.887957,
+          "ffprobe_calls": 10,
+          "ffprobe_distinct_paths": 3,
+          "ffprobe_distinct_commands": 5,
+          "ffprobe_duplicate_calls": 5,
+          "hash_calls": 55,
+          "hash_distinct_paths": 37,
+          "bytes_hashed": 5004978,
+          "distinct_bytes_hashed": 1881292
+        },
+        {
+          "elapsed_s": 0.790731,
+          "ffprobe_calls": 10,
+          "ffprobe_distinct_paths": 3,
+          "ffprobe_distinct_commands": 5,
+          "ffprobe_duplicate_calls": 5,
+          "hash_calls": 55,
+          "hash_distinct_paths": 37,
+          "bytes_hashed": 5004978,
+          "distinct_bytes_hashed": 1881292
+        },
+        {
+          "elapsed_s": 0.835188,
+          "ffprobe_calls": 10,
+          "ffprobe_distinct_paths": 3,
+          "ffprobe_distinct_commands": 5,
+          "ffprobe_duplicate_calls": 5,
+          "hash_calls": 55,
+          "hash_distinct_paths": 37,
+          "bytes_hashed": 5004978,
+          "distinct_bytes_hashed": 1881292
+        }
+      ],
+      "median_elapsed_s": 0.835188
+    }
+  ]
+}

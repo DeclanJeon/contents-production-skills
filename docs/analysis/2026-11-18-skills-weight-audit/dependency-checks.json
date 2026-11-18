@@ -1,0 +1,22 @@
+[
+  {
+    "skill": "ai-delegation-loop",
+    "path": "/home/declan/.codex/skills/ai-delegation-loop/SKILL.md",
+    "exists": false
+  },
+  {
+    "skill": "ai-delegation-loop",
+    "path": "/home/declan/.claude/skills/ai-delegation-loop/SKILL.md",
+    "exists": false
+  },
+  {
+    "skill": "ai-delegation-loop",
+    "path": "/home/declan/.agents/skills/ai-delegation-loop/SKILL.md",
+    "exists": false
+  },
+  {
+    "skill": "ai-delegation-loop",
+    "path": "/home/declan/.pi/agent/skills/ai-delegation-loop/SKILL.md",
+    "exists": false
+  }
+]
