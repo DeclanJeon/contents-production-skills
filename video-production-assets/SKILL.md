@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 1.28
+version: 1.31
 description: 'Build source-grounded video production assets: briefs, story beats,
   screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans,
   animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs,
@@ -42,7 +42,7 @@ description: 'Build source-grounded video production assets: briefs, story beats
 | 시각 구조·아트 디렉션 | [설계 절차](references/05-visual.md) | [템플릿](assets/05-visual-template.md) |
 | 블로킹·촬영·스토리보드 | [설계 절차](references/06-shots.md) | [템플릿](assets/06-shots-template.md) |
 | 조명·노출·샷 매칭 | [설계 절차](references/07-lighting.md) | [템플릿](assets/07-lighting-template.md) |
-| 애니메이션 연기·타이밍·모션 그래픽 표면 | [설계 절차](references/08-animation.md) | [템플릿](assets/08-animation-template.md) |
+| 애니메이션 연기·타이밍·타격·모션 속도·모션 그래픽 표면 | [설계 절차](references/08-animation.md) | [템플릿](assets/08-animation-template.md) |
 | 편집·리듬·사운드 | [설계 절차](references/09-edit.md) | [템플릿](assets/09-edit-template.md) |
 | 광고·설명·데이터 영상 근거 | [설계 절차](references/10-evidence.md) | [템플릿](assets/10-evidence-template.md) |
 | AI 영상 프롬프트·연속성 인계 | [설계 절차](references/11-ai-handoff.md) | [템플릿](assets/11-ai-handoff-template.md) |

@@ -1,6 +1,6 @@
 ---
 name: animatic-direction
-version: 1.0
+version: 1.1
 description: Use when an approved story or board needs an animatic timing plan, cut and hold revision, or timed-board playtest plan. Includes 애니매틱 시간화 and 재생 검수 계획; not every storyboard, still-image edit, or request for silent storytelling.
 ---
 
@@ -13,7 +13,7 @@ description: Use when an approved story or board needs an animatic timing plan, 
 1. **입력을 이어받는다.** 승인된 이야기·보드 버전과 scene/beat/shot/panel ID, 보존할 공개 순서·행동·결과, 요청 산출물을 적는다. 확정 브리프는 재인터뷰하지 않는다. runtime이 고정인지 유연한지, FPS·전환/크레딧 포함 여부를 확정 또는 미정/제안으로 표시한다. `no_dialogue`, `no_audio`, 자막/화면 글자 금지는 독립 조건이다. 내레이션·노래·비언어 발성·SFX·음악도 허용 범위를 따른다.
 2. **단위를 나눈다.** key panel은 한 시점의 상태, shot은 컷 사이의 연속 구간, phase는 그 안의 접근·접촉·전환 등 변화, hold는 읽기·기대·유보·반응을 유지하는 시간이다. 패널 수로 컷 수나 동일 길이를 계산하지 않는다. 실제 상태가 변하면 한 장의 hold 패널로 동작 전체를 대신하지 않는다.
 3. **목적별 시간을 제안한다.** 관객이 알아차릴 정보→행동/접촉→반응·선택→남는 상태 중 필요한 국면에 시간을 준다. 짧은 충격, 긴 고요, 여러 정점, 의도적 균등 템포 모두 가능하다. 길이는 기능으로 설명하며 최소/최대 컷 길이·필수 에너지 곡선·결말·해부학 큐를 강제하지 않는다. 기존 화면을 먼저 쓰고 임의의 카메라 해법을 추가하지 않는다.
-4. **기존 표에 시간화한다.** 아래 표의 소유 필드로 연결한다. 수치 시간표, action cut, 프레임 변환 또는 재생 검수 계획을 작성할 때는 [시간·검수 참조](references/timing-and-review.md)를 읽고 해당 절을 적용한다. 09 final 시간이 정본이며 06/08은 같은 시간을 shot-local로 투영한다. FPS 미정이면 초 제안을 유지하고 프레임을 발명하지 않는다.
+4. **기존 표에 시간화한다.** 아래 표의 소유 필드로 연결한다. 수치 시간표, action cut, 액션 비트의 속도·타격 배분, 프레임 변환 또는 재생 검수 계획을 작성할 때는 [시간·검수 참조](references/timing-and-review.md)를 읽고 해당 절을 적용한다. 09 final 시간이 정본이며 06/08은 같은 시간을 shot-local로 투영한다. FPS 미정이면 초 제안을 유지하고 프레임을 발명하지 않는다.
 5. **길이 충돌을 해결한다.** 고정 runtime이면 필수 인과·공개·반응을 보존하며 중복을 줄이고 국소 재배분한다. 성립하지 않으면 초과 위치와 필요한 축소/연장 승인을 반환한다. 유연하면 읽힘 우선 길이와 더 짧은 대안을 제안한다. 전체 비례 압축이나 재생속도 변경으로 필수 사건을 숨기지 않는다.
 6. **검사 범위를 반환한다.** 합계·순서·컷 연결·접촉/소유·잔류 상태·반응/정착 구간을 대조한다. 텍스트 계획 / 실제 이미지 읽힘 / 시간 재생을 구분해 대상 버전·위치·관찰·미검증을 적는다. 실제 재생이 없으면 리듬은 `UNVERIFIED`; 스틸에서 원래 초수/FPS/소리를 복원하거나 문서만으로 PASS하지 않는다.
 

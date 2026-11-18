@@ -1,6 +1,6 @@
 ---
 name: storytelling-with-still-images
-version: 1.19
+version: 1.21
 description: Use when a user wants a video assembled from still photos, illustrations, storyboard panels, or evidence images with narration, dialogue, music, or sound—especially when they specify image-only visuals or no video-generation model.
 ---
 
@@ -21,9 +21,19 @@ A planning/read-only/no-generation request permits cue text only, not new stills
 1. **Lock the contract:** asset IDs/order, aspect ratio, runtime, dialogue to preserve, narration language/voice, subtitles, audio tracks/speakers, and exclusions.
 2. **Bound the facts:** distinguish source-backed facts and speakers, interpretation, unknowns, and staged details. Keep suspicion separate from findings; do not invent why evidence differs. Keep provenance in notes unless requested on-screen. Never present reconstructed dialogue as a source quote.
 3. **Inspect and map each still.** Missing or unclear image: use a generic ID, mark mapping “proposed—not inspected,” and do not describe unseen content. Possible evidence arc: discrepancy → context → act → consequence → testimony → investigation → outcome/reflection; adapt to the material. Give every hold a purpose. Repeat an evidence image at the end only as a meaningful callback.
-4. **Write and time:** short lines, one idea each; remove source-meta wording and repetition. Preserve dialogue and approved wording. Assign recorded dialogue to a speaker only after confirming its track; otherwise narrate the fact without inventing a quote. Use one cue row per visual hold; match dialogue to the character image when possible and avoid overlap. Measure clip duration and pauses; mark estimates until audio exists. If a line exceeds its hold, extend/reallocate when runtime is flexible. If fixed, resolve the conflict instead of rushing speech or cutting preserved dialogue.
+4. **Write and time:** short lines, one idea each; remove source-meta wording and repetition. Preserve dialogue and approved wording. Assign recorded dialogue to a speaker only after confirming its track; otherwise narrate the fact without inventing a quote. Use one cue row per visual hold; match dialogue to the character image when possible and avoid overlap. Measure clip duration and pauses; mark estimates until audio exists. If a line exceeds its hold, extend/reallocate when runtime is flexible. If fixed, resolve the conflict instead of rushing speech or cutting preserved dialogue. An action beat carried by stills (hold-length contrast, an inserted impact panel, a settle hold) takes its timing from `animatic-direction`; a speed ramp or camera shake is not a still-image edit and stays unplanned unless the editor/generator support is actually confirmed.
 5. **Mix and assemble:** prioritize speech over BGM; keep narrator tone consistent, use sparse illustrative SFX, measure loudness/true peak. Assemble only approved stills and audio. Crops, pushes, cuts, and dissolves are allowed; generated footage is not. Honor the subtitle choice.
 6. **Verify and deliver:** watch/listen when possible. Check facts, image order, speaker/timing, continuity, ending, runtime, dimensions, frame rate, codecs, audio, and subtitles. Inspect actual crops and text at the intended display size; record which still/time interval was checked and any clipped subject, unreadable glyph, or subtitle overlap. Encode/probe is not story or legibility QA; mark uninspected items unverified. For actual files, use `recording-production-history` and report path/checks. For planning only, return script and cue table.
+
+## Still-image motion
+
+Stills can be moved, but the motion is a plan, not a measurement of the subject's real speed. Apply only what the current hold needs.
+
+- **2.5D parallax:** separate foreground, subject and background layers and fill the edges the separation exposes. Fails when the cut-out boundary tears, a limb is clipped by the separation, or the layered light, grain and focus do not match.
+- **Ken Burns (pan/push):** one direction and one settle per hold, chosen for what that hold must reveal. Fails when every cut repeats the same push, when the crop loses hands, captions or the subject's face, or when the zoom implies an approach the still cannot support.
+- **Interpolation:** smoothed in-betweens trade artifacts for smoothness, so inspect hands, hair and occlusion boundaries. Rendered in-betweens are not evidence that the original motion, contact or weight exists.
+
+Timing and hold allocation stay with `animatic-direction`. A speed ramp, motion blur or camera shake is not a still-image operation; keep it unplanned unless an editor or generator is confirmed to support it.
 
 ## Cue-table contract
 
