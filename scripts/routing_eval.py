@@ -738,6 +738,12 @@ def main(argv: list[str] | None = None) -> int:
                         trial["owner_answers"] = resolve_owner_answer(text, routes)
                     trial.update(chosen_route=chosen, why=why, verdict=verdict,
                                  agent_text=text, reads=reads, leaks=leaks)
+                    probes = case.get("craft_probes") or []
+                    if probes and args.stage in ("handoff", "artifact"):
+                        read_probe = {path.strip().lstrip("./") for path in reads}
+                        trial["craft_reads"] = {
+                            probe: probe.lstrip("./") in read_probe for probe in probes
+                        }
                     if args.stage in ("handoff", "artifact"):
                         parsed = parse_handoff(text)
                         checks = handoff_checks(chosen, case["route_id"], routes,
@@ -859,6 +865,23 @@ def main(argv: list[str] | None = None) -> int:
             "artifact_missing": sorted(set(artifact_missing)),
         }
 
+    craft_report: dict[str, object] = {}
+    if args.stage in ("handoff", "artifact"):
+        observed: dict[str, list[bool]] = {}
+        for entry in results:
+            for trial in entry["trials"]:
+                for probe, read in (trial.get("craft_reads") or {}).items():
+                    observed.setdefault(str(probe), []).append(bool(read))
+        if observed:
+            craft_report = {
+                "selector_reads": {
+                    probe: f"{sum(reads)}/{len(reads)}"
+                    for probe, reads in observed.items()
+                },
+                "note": "Whether the run opened the craft table its request named; "
+                        "a read is not a correct selection.",
+            }
+
     artifact_report: dict[str, object] = {}
     if args.stage == "artifact":
         checked = [
@@ -921,6 +944,7 @@ def main(argv: list[str] | None = None) -> int:
         "note": "LLM output is measurement only, never package truth.",
         "handoff": handoff,
         "artifact": artifact_report,
+        "craft": craft_report,
         "results": results,
     }
     if outdir:
@@ -939,6 +963,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"no usable answer {len(no_data)}/{len(results)} cases: "
               f"{', '.join(map(str, no_data[:10]))}")
     print(f"tally           {dict(sorted(tally.items()))}")
+    if craft_report:
+        print()
+        print("== craft: was the named selector table opened? ==")
+        for probe, ratio in craft_report["selector_reads"].items():
+            print(f"  {ratio:>6}  {probe}")
     if handoff:
         print()
         print("== handoff: did the route reach the skill and the requirement? ==")

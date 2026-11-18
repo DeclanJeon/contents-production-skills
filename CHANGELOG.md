@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.60 2026-11-18
+
+- **Measured the router end to end, not just structurally.** `--stage handoff` over all 71 cases at package 2.59: **71/71 routes correct**, owner SKILL.md opened 71/71, three slots matched 71/71, every `required_read` opened — including R28's `production-routing-optional.md`. Report and `summary.json` in `qa/routing-eval-2026-11-18-full/`; wire logs stay ignored. One repeat, one model: stability across repeats is not measured.
+- Added craft probes to the harness: a case may declare `craft_probes`, and the run reports whether the named selector table was actually opened (`selector_reads` in the summary). Two new cases (G01 impact-beat design, G02 sound design) opened `edit-sound-language-catalog.md` 2/2 and `08-animation.md` 1/1. A read is not evidence of a correct selection.
+- Fixed a bad case instead of blessing it: F01 asked for two artifacts ("콘티랑 조명 자산"), so the model's **R05** was defensible and my expected R13 was wrong. The prompt now asks for one asset; the expectation was not adjusted to the answer.
+- **Speed-ramp rule made explicit.** `project.json` accepts one scalar `playback_rate` per shot, so a ramp inside a single shot cannot be represented. A ramp is now defined as consecutive cut rows (same `shot_id`) or adjacent shots with a constant rate each; `contract-project.md`, `09-edit.md` and the selector table say so, an editor-side keyframed ramp stays an output-inspection item, and `scripts/test_speed_ramp_contract.py` proves a curve/list rate is rejected while a scalar validates.
+- Cleaned the linked worktrees: their directories were already gone, so `git worktree prune` removed the stale metadata; the four merged feature branches were deleted. `feat/sequence-to-film-execution-20261117` is unmerged and was kept.
+
 ## 2.59 2026-11-18
 
 - **Closed the coverage gap the order skill could not reach.** 19 of 25 skills had a path from `creative-production`; the provider executor lane (5 skills) had no route and `community-shorts-stills-pipeline` was named only in a citation. Added:

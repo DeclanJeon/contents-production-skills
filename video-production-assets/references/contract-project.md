@@ -36,6 +36,7 @@ artifacts: id, type, version, status, dependencies(artifact id 배열), evidence
 - target_duration_s와 shot.start_s/end_s는 fps 기준 프레임 경계에 맞춘다. 초는 실수로 허용하고 반올림 오차를 제한한다.
 - shot.source_duration_status: estimated/measured. 계획의 원본 길이는 추정이며 실제 생성/촬영 후 측정한다.
 - shot.source_in_s는 선택 테이크의 소스 시작 초, playback_rate는 소스 초/최종 초(기본 1). 배속·슬로모션에서 필요한 소스 길이는 source_in_s+(end_s-start_s)*playback_rate다.
+- `playback_rate`는 **샷당 스칼라 하나**다. 한 샷 안에서 속도를 바꾸는 램프·리매핑은 같은 동작을 인접 shot(또는 09의 연속 cut 행)으로 분해하고 각 행에 상수 rate를 적는다. 배열·곡선·키프레임 목록을 이 필드에 넣지 않으며 검증기가 거부한다. 편집기에서 실제 램프를 적용했다면 그것은 출력 검수 항목이지 계획 JSON의 값이 아니다.
 - shot.asset_ids는 asset_registry의 선택된 참조 ID 목록이다. 프롬프트의 경로·룩·의상·소품은 CSV 연속성 원장과 맞춘다.
 - artifact.dependencies는 ID 목록이고 dependency_versions는 **정확히 그 ID들**의 {artifact_id: 입력 버전} 객체다. 선언되지 않은 키는 오류다. 현재 산출물은 상위 버전과 일치해야 하고, stale 산출물만 과거 입력 버전을 보존할 수 있다.
 - approved artifact는 approval={by, at, evidence}를 기록한다. 승인자·시간·근거는 실제 기록을 사용한다. 생성/검증 산출물에는 asset_ids, verified에는 evidence가 필요하다.

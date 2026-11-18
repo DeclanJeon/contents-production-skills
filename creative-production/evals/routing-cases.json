@@ -419,7 +419,7 @@
   },
   {
    "case_id": "F01",
-   "prompt": "이 15초 제품 영상, 콘티랑 조명 자산 하나만 텍스트로 설계해줘. 생성은 아직 하지 마.",
+   "prompt": "이 15초 제품 영상의 조명 자산 하나만 텍스트로 설계해줘. 생성은 아직 하지 마.",
    "route_id": "R13",
    "expected_owner": "video-production-assets"
   },
@@ -440,6 +440,25 @@
    "prompt": "이미 그려둔 웹툰 3화를 9:16 유튜브 쇼츠로 만들어서 발행 준비까지 해줘",
    "route_id": "R29",
    "expected_owner": "community-shorts-stills-pipeline"
+  },
+  {
+   "case_id": "G01",
+   "prompt": "좀비가 달려드는 1.2초 타격 장면 연출을 설계해줘. 속도 램프랑 임팩트 프레임, 타격 정지까지 넣어서.",
+   "route_id": "R13",
+   "expected_owner": "video-production-assets",
+   "craft_probes": [
+    "video-production-assets/references/edit-sound-language-catalog.md",
+    "video-production-assets/references/08-animation.md"
+   ]
+  },
+  {
+   "case_id": "G02",
+   "prompt": "이 편집본에 라이저랑 타격 전 무음, 문 너머로 들리는 발소리까지 사운드 설계해줘.",
+   "route_id": "R13",
+   "expected_owner": "video-production-assets",
+   "craft_probes": [
+    "video-production-assets/references/edit-sound-language-catalog.md"
+   ]
   }
  ]
 }
