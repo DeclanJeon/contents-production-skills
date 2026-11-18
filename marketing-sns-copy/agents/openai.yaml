@@ -1,0 +1,12 @@
+interface:
+  display_name: 마케팅·SNS 카피
+  short_description: 포지셔닝부터 훅·CTA·플랫폼별 변형·검증까지 SNS/광고 카피 작성
+  default_prompt: Use $marketing-sns-copy for standalone marketing and social copy.
+    Follow positioning, message, hook, body, CTA, platform variants and measurement
+    plan. Never invent facts, reviews or scarcity; never post or spend.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  allow_implicit_invocation: true
