@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.59 2026-11-18
+
+- **Closed the coverage gap the order skill could not reach.** 19 of 25 skills had a path from `creative-production`; the provider executor lane (5 skills) had no route and `community-shorts-stills-pipeline` was named only in a citation. Added:
+  - `R28 selected_provider_media_execution` → `higgsfield-generate`, `executed_media`, authority `approved_execution`, required read `production-routing-optional.md` so the coordinator can pick the specialist mode (explainer/replicate/thumbnail/soul-id) from that table.
+  - `R29 existing_stills_short_pipeline` → `community-shorts-stills-pipeline`, `none_or_stills`, no generation.
+  - Four routing cases (F01–F04) and two contrast pairs: one planned asset vs an approved provider run (`media_axis`), generic stills edit vs the community pipeline (`deliverable_kind`). Three disambiguation rows (R12/R29, R13/R28, R24/R28).
+- Added `scripts/test_skill_reachability.py`: every packaged skill must be a route owner or registered in `SECONDARY_POINTERS` with the file and phrase that name it. A new skill with neither fails, and removing a pointer fails. This is the invariant that would have caught both gaps at authoring time.
+- `ai-delegation-loop` — the REQUIRED SUB-SKILL in Step 3 — was a **broken symlink** in `~/.claude/skills` (pointing at a deleted pack) and absent from the other three skill roots. Relinked/created against `Skills-and-Automation/ai-delegation-loop` in all four roots; the package's own manifest keeps it as an external, non-auto-installed dependency.
+
 ## 2.58 2026-11-18
 
 - Added the **artifact stage** to `scripts/routing_eval.py`: after a route is chosen the harness now asks for the deliverable itself and checks it against `qa/artifact-contract.csv` with the inputs in `qa/artifact-cases.json`. Routing accuracy alone could not see a coordinator that names the right route and then produces something the owner contract forbids. Wire logs stay ignored; only the contract, the cases and the code are tracked.

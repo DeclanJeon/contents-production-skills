@@ -22,3 +22,6 @@ R19,R23,R23 critiques a prompt or model route choice; R19 produces the camera co
 R20,R27,R20 checks camera movement against plan in supplied footage; R27 audits a saved output or an interrupted project's state
 R21,R22,R21 states numbers as text; R22 actually executes scene-specific 3D verification in Blender
 R25,R26,R25 audits reference selection or a package; R26 measures one reference video's decomposition
+R12,R29,R12 assembles supplied stills into any narrated video; R29 is the measured Korean community-shorts publishing pipeline with captions, loudness and ledger
+R13,R28,R13 returns one planned production asset such as a lighting plan; R28 executes one already approved provider operation
+R24,R28,R24 ends at the image-backed preproduction package; R28 runs the selected provider media operation

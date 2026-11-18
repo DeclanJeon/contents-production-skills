@@ -77,6 +77,10 @@ CONTRAST_PAIRS: Final = (
     # already exist, and stills that must be generated.
     ("E03", "E04", "media_axis"),        # board on paper vs existing stills
     ("E05", "E06", "media_axis"),        # short edit vs full short lifecycle
+    # F-pairs: the executor lane and the measured stills pipeline, which had no
+    # route at all before 2.59.
+    ("F01", "F02", "media_axis"),        # one planned asset vs an approved provider run
+    ("F03", "F04", "deliverable_kind"),  # generic stills edit vs community-shorts pipeline
 )
 
 # Pairs that must NOT change the route. These encode a distinction the table

@@ -16,7 +16,7 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 
 ## 스킬 라우팅과 조건부 실행 모듈
 
-라우팅은 세 계층으로 분리되어 있다. 첫 owner를 고르기 전에 읽는 **frontier**는 `creative-production/SKILL.md`(라우터+역할, 약 890단어)와 [routing.csv](creative-production/references/routing.csv)(정본 27개 라우트 × 7컬럼)뿐이다. 계층 분해 전에는 같은 판단에 약 2,900단어를 읽었고, 분해 후에는 약 1,410단어다(-51%). 측정 방법은 `python3 scripts/routing_regression.py`다.
+라우팅은 세 계층으로 분리되어 있다. 첫 owner를 고르기 전에 읽는 **frontier**는 `creative-production/SKILL.md`(라우터+역할, 약 890단어)와 [routing.csv](creative-production/references/routing.csv)(정본 29개 라우트 × 7컬럼)뿐이다. 계층 분해 전에는 같은 판단에 약 2,900단어를 읽었고, 분해 후에는 약 1,410단어다(-51%). 측정 방법은 `python3 scripts/routing_regression.py`다.
 
 | 계층 | 위치 | 담는 것 |
 |---|---|---|
