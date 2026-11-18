@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Added standalone non-video `marketing-sns-copy` skill (Korean): positioning → message → hook → body → CTA → platform variants (YouTube, X, Threads, TikTok, Instagram) → measurement, with hook/CTA checklists and per-book principle summaries paraphrased from the user's reference library (no source text copied). Not registered in the video-pack manifest; linked from `creative-production` marketing adaptation and `higgsfield-generate` Marketing Studio by name only.
+
 ## 2.36 (2026-11-15)
 
 - Added 3-layer single-frame causal staging (`focal_hierarchy`), still-frame kinetic translation (`kinetic_cues`), anatomical expression bridge (`expression_pose`), and KO/EN dual-layer prompting (`image_prompt`) across `storyboarding-video` and `video-production-assets`.

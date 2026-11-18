@@ -49,6 +49,7 @@ The following maps active skill roles, not a claim that every runtime or resourc
 | `searching-social-media` | Public SNS video-post candidate retrieval via bounded Flucto search; source/method/error/metric provenance retained; no universal SNS crawl, automatic download, topic-selection authority or publication. |
 | `product-detail-page-builder` | Moved to the independent non-video pack; not bundled or coordinated by video production. |
 | `content-production-marketing` | Generic campaign/copy/source-caption/framing workflow integrated; deeper platform/channel workflow optional. |
+| `marketing-sns-copy` | Repository-local standalone non-video copy skill (Korean): positioning → hook → CTA → platform variants → measurement. Not part of the video-pack manifest; video adaptation stays with `creative-production`. |
 | `video-prompt`, `video-shotlist`, `video-model-router`, `video-pipeline` | Integrated into generation planning; no additional install ID or obligatory generic external planning skill. Runtime/node/model files are not bundled. |
 | `video-critique` | Integrated into canonical actual-media QA and bounded repair routing, not a second score/attempt ledger. |
 | `video-prompt-atlas` | Optional actual corpus lookup via configured path; absent corpus does not block an ordinary prompt. Private paths, unverified counts and examples not imported. |

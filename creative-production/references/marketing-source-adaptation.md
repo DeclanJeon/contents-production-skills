@@ -1,6 +1,6 @@
 # Video source adaptation and ad variants
 
-Load only for requested video adaptation or video-ad variants. Standalone articles, social copy and campaign strategy are outside this video pack. Preserve source facts, requested voice/count, rights and the difference between a prepared file and publication.
+Load only for requested video adaptation or video-ad variants. Standalone articles, social copy and campaign strategy are outside this video pack. Standalone marketing/SNS copy (hooks, captions, CTAs, platform variants) is owned by the sibling non-video skill `marketing-sns-copy` when it is present; its positioning/message/hook outputs may enter a video brief as inputs. Preserve source facts, requested voice/count, rights and the difference between a prepared file and publication.
 
 ## 4. Source-media adaptation (shortform/vertical)
 
