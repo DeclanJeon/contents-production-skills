@@ -97,8 +97,8 @@ def load_routes() -> dict[str, dict[str, str]]:
         return {row["route_id"]: row for row in csv.DictReader(handle)}
 
 
-def load_cases() -> list[dict[str, str]]:
-    return json.loads(CASES.read_text(encoding="utf-8"))["cases"]
+def load_cases(source: Path | None = None) -> list[dict[str, str]]:
+    return json.loads((source or CASES).read_text(encoding="utf-8"))["cases"]
 
 
 def build_sandbox(dest: Path, owner_skills: set[str],
@@ -255,6 +255,142 @@ def handoff_checks(chosen: str | None, expected: str, routes: dict[str, dict[str
         "slots_declared": parsed.get("slots", ""),
         "artifact": parsed.get("artifact", ""),
     }
+
+
+ARTIFACT_INSTRUCTION: Final = """\
+You are the video-production coordinator handling one user request.
+
+Read `creative-production/SKILL.md` and do exactly what its routing step says,
+including every file that step tells you to read. Then do the work the owner
+skill you reached requires, and return the deliverable itself. The skill decides
+what to read; this instruction names no file, so a coordinator cannot skip its
+own reading list and still look correct.
+
+Answer in exactly this form:
+ROUTE: <route_id>
+SLOTS: <deliverable_kind> | <media_axis> | <authority_axis>
+ARTIFACT:
+<the deliverable, as compact as it can be while staying what the skill requires>
+
+User request:
+"""
+
+
+def parse_artifact(text: str) -> dict[str, str]:
+    """Split an artifact-stage answer into route, slots and the deliverable body."""
+    fields = {"route": "", "slots": "", "artifact": ""}
+    lines = text.splitlines()
+    body_at = None
+    for index, line in enumerate(lines):
+        stripped = line.strip().strip("*` ")
+        upper = stripped.upper()
+        if upper.startswith("ROUTE:"):
+            fields["route"] = stripped.split(":", 1)[1].strip().strip("*` ").strip()
+        elif upper.startswith("SLOTS:"):
+            fields["slots"] = stripped.split(":", 1)[1].strip().strip("*` ").strip()
+        elif upper.startswith("ARTIFACT:"):
+            body_at = index
+            rest = stripped.split(":", 1)[1].strip()
+            if rest:
+                fields["artifact"] = rest
+            break
+    if body_at is not None:
+        tail = "\n".join(lines[body_at + 1:]).strip()
+        fields["artifact"] = (fields["artifact"] + "\n" + tail).strip()
+    return fields
+
+
+def load_artifact_contract(path: Path | None = None) -> dict[str, list[dict[str, str]]]:
+    """Route id -> the objective checks its owner skill states about its output."""
+    source = path or (ROOT / "qa/artifact-contract.csv")
+    if not source.is_file():
+        return {}
+    grouped: dict[str, list[dict[str, str]]] = {}
+    for row in csv.DictReader(source.open(encoding="utf-8")):
+        grouped.setdefault(row["route_id"], []).append(row)
+    return grouped
+
+
+PANEL_ID: Final = re.compile(r"\bP(\d{2})\b")
+
+# An artifact that declares its required input missing is answering correctly.
+# The owner skills all say to report the blocker rather than invent content, so
+# content-presence checks must not be scored against it.
+MISSING_INPUT: Final = re.compile(
+    r"제공되지 않|첨부되지 않|분석 보류|입력 대기|영상이 없|원본이 없|blocked|not provided",
+    re.IGNORECASE)
+
+# Checks that stay meaningful when the input is missing: they police what the
+# artifact may not claim, and inventing is the failure they exist for.
+ALWAYS_APPLICABLE: Final = frozenset({
+    "no_bare_prose_board", "no_invented_artifacts", "no_false_blend_claim",
+    "no_pts_equality", "no_unlabelled_certainty",
+})
+PROMPT_NUMBER: Final = re.compile(r"\b(\d{1,2})\s*(?:개|장|panels?|패널)")
+
+
+def check_artifact(artifact: str, checks: list[dict[str, str]],
+                   prompt: str) -> list[dict[str, object]]:
+    """Run one route's contract checks against the delivered body.
+
+    These check the contract's surface: named slot rows, required evidence
+    labels, an exact panel count, and claims the skill forbids. They cannot
+    judge whether the work is any good, and a model can emit a label without
+    doing the work behind it. They can catch the specific way a coordinator
+    fails when it never opened the skill: pastoral prose instead of the slot
+    table, a fabricated `.blend`, the wrong number of panels.
+    """
+    results: list[dict[str, object]] = []
+    lowered = artifact.lower()
+    input_missing = bool(MISSING_INPUT.search(artifact))
+    for check in checks:
+        kind = check["kind"]
+        values = [value for value in (check["values"] or "").split("|") if value]
+        passed = False
+        detail = ""
+        if kind == "all":
+            missing = [v for v in values if v.lower() not in lowered]
+            passed = not missing
+            detail = f"missing {missing}" if missing else ""
+        elif kind == "any":
+            hits = [v for v in values if v.lower() in lowered]
+            passed = bool(hits)
+            detail = "" if hits else f"none of {values}"
+        elif kind == "none_of":
+            hits = [v for v in values if v.lower() in lowered]
+            passed = not hits
+            detail = f"found forbidden {hits}" if hits else ""
+        elif kind == "count_from_prompt":
+            wanted = PROMPT_NUMBER.search(prompt)
+            found = sorted({int(m) for m in PANEL_ID.findall(artifact)})
+            if not wanted:
+                passed = True
+                detail = "prompt states no count"
+            elif not found:
+                passed = False
+                detail = f"prompt asks {wanted.group(1)} panels, artifact labels none"
+            else:
+                highest = max(found)
+                passed = highest == int(wanted.group(1))
+                detail = f"prompt asks {wanted.group(1)}, artifact reaches P{highest:02d}"
+        else:
+            detail = f"unknown check kind {kind!r}"
+        # A check that passes passes, even when the input was missing: n/a means
+        # "cannot judge", never a place to park a satisfied requirement.
+        if (passed is False and input_missing
+                and check["check_id"] not in ALWAYS_APPLICABLE
+                and kind != "unknown"):
+            results.append({
+                "check_id": check["check_id"], "kind": kind, "passed": None,
+                "detail": "not applicable: the artifact reports its input missing",
+                "source": check["source"],
+            })
+            continue
+        results.append({
+            "check_id": check["check_id"], "kind": kind, "passed": passed,
+            "detail": detail, "source": check["source"],
+        })
+    return results
 
 
 def normalise_route(raw: str) -> str | None:
@@ -513,11 +649,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out", help="output directory for prompts and raw wire")
     parser.add_argument("--limit", type=int, help="run only the first N cases")
     parser.add_argument("--case", action="append", help="run only these case_ids")
+    parser.add_argument("--cases-file", help="alternate case file, e.g. artifact cases")
     parser.add_argument("--model", default="gpt-6.1-sol")
     parser.add_argument(
-        "--stage", choices=("route", "handoff"), default="route",
-        help="route: stop at the route_id. handoff: also demand the three slots, "
-             "the assigned artifact, and the owner skill that route names.")
+        "--stage", choices=("route", "handoff", "artifact"), default="route",
+        help="route: stop at the route_id. handoff: also demand the three slots "
+             "and the owner skill that route names. artifact: also demand the "
+             "deliverable and check it against the owner skill's own contract.")
     parser.add_argument("--timeout", type=int, default=300)
     parser.add_argument(
         "--retries", type=int, default=2,
@@ -536,7 +674,7 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     routes = load_routes()
-    cases = load_cases()
+    cases = load_cases(Path(args.cases_file) if args.cases_file else None)
     if args.case:
         wanted = set(args.case)
         cases = [c for c in cases if c["case_id"] in wanted]
@@ -551,6 +689,7 @@ def main(argv: list[str] | None = None) -> int:
         outdir.mkdir(parents=True, exist_ok=True)
 
     owners = {row["owner"] for row in routes.values() if row["owner"] != "UNASSIGNED"}
+    contract = load_artifact_contract() if args.stage == "artifact" else {}
     per_case: dict[str, dict[str, object]] = {}
     tally: dict[str, int] = {}
     trial_log: list[tuple[str, dict[str, object]]] = []
@@ -571,7 +710,7 @@ def main(argv: list[str] | None = None) -> int:
     with tempfile.TemporaryDirectory(prefix="routing-eval-", dir=scratch_root()) as tmp:
         sandbox = Path(tmp) / "fixture"
         sandbox.mkdir()
-        build_sandbox(sandbox, owners, full_package=args.stage == "handoff")
+        build_sandbox(sandbox, owners, full_package=args.stage != "route")
 
         # Round-robin the repeats so any drift over wall-clock time is spread
         # across cases instead of landing on the last case of each repetition.
@@ -580,8 +719,9 @@ def main(argv: list[str] | None = None) -> int:
         for repeat_index in range(args.repeat):
             for case in cases:
                 done += 1
-                instruction = (HANDOFF_INSTRUCTION if args.stage == "handoff"
-                               else INSTRUCTION)
+                instruction = {"handoff": HANDOFF_INSTRUCTION,
+                               "artifact": ARTIFACT_INSTRUCTION}.get(
+                                   args.stage, INSTRUCTION)
                 prompt = instruction + case["prompt"].strip() + "\n"
                 trial: dict[str, object] = {"trial": repeat_index + 1}
                 try:
@@ -598,11 +738,20 @@ def main(argv: list[str] | None = None) -> int:
                         trial["owner_answers"] = resolve_owner_answer(text, routes)
                     trial.update(chosen_route=chosen, why=why, verdict=verdict,
                                  agent_text=text, reads=reads, leaks=leaks)
-                    if args.stage == "handoff":
+                    if args.stage in ("handoff", "artifact"):
                         parsed = parse_handoff(text)
                         checks = handoff_checks(chosen, case["route_id"], routes,
                                                 parsed, reads)
                         trial.update(handoff=checks)
+                    if args.stage == "artifact":
+                        body = parse_artifact(text)["artifact"]
+                        route_checks = contract.get(case["route_id"]) or []
+                        trial.update(
+                            artifact=body[:4000],
+                            artifact_checks=check_artifact(
+                                body, route_checks, case["prompt"]),
+                            artifact_checked=bool(route_checks),
+                        )
                     if outdir:
                         suffix = "" if args.repeat == 1 else f".t{repeat_index + 1}"
                         (outdir / f"{case['case_id']}{suffix}.wire.jsonl").write_text(
@@ -710,6 +859,42 @@ def main(argv: list[str] | None = None) -> int:
             "artifact_missing": sorted(set(artifact_missing)),
         }
 
+    artifact_report: dict[str, object] = {}
+    if args.stage == "artifact":
+        checked = [
+            (entry["case_id"], result)
+            for entry in results
+            for trial in entry["trials"]
+            for result in (trial.get("artifact_checks") or [])
+        ]
+        unchecked_cases = sorted(
+            entry["case_id"] for entry in results
+            if not any(trial.get("artifact_checked") for trial in entry["trials"])
+        )
+        by_check: dict[str, list[bool | None]] = {}
+        for _, result in checked:
+            by_check.setdefault(str(result["check_id"]), []).append(result["passed"])
+        artifact_report = {
+            "cases_without_machine_checks": unchecked_cases,
+            "checks_run": sum(1 for _, r in checked if r["passed"] is not None),
+            "checks_passed": sum(1 for _, r in checked if r["passed"] is True),
+            "checks_not_applicable": sum(
+                1 for _, r in checked if r["passed"] is None),
+            "per_check": {
+                key: {
+                    "passed": sum(1 for v in values if v is True),
+                    "failed": sum(1 for v in values if v is False),
+                    "na": sum(1 for v in values if v is None),
+                }
+                for key, values in sorted(by_check.items())
+            },
+            "failures": [
+                {"case_id": case_id, "check_id": r["check_id"],
+                 "detail": r["detail"], "source": r["source"]}
+                for case_id, r in checked if r["passed"] is False
+            ],
+        }
+
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "stage": args.stage,
@@ -735,6 +920,7 @@ def main(argv: list[str] | None = None) -> int:
         "dangerous": dangerous_cases,
         "note": "LLM output is measurement only, never package truth.",
         "handoff": handoff,
+        "artifact": artifact_report,
         "results": results,
     }
     if outdir:
@@ -768,6 +954,26 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  no artifact named:      {', '.join(handoff['artifact_missing'][:8])}")
         print("  route accuracy alone cannot show any of this: a right label that")
         print("  never opens its owner skill still produces the wrong work.")
+    if artifact_report:
+        print()
+        print("== artifact: does the deliverable follow the owner skill's contract? ==")
+        print(f"  checks run {artifact_report['checks_run']}, passed "
+              f"{artifact_report['checks_passed']}, not applicable "
+              f"{artifact_report['checks_not_applicable']}")
+        for key, counts in artifact_report["per_check"].items():
+            line = f"    {key:26} pass {counts['passed']}, fail {counts['failed']}"
+            if counts["na"]:
+                line += f", n/a {counts['na']}"
+            print(line)
+        if artifact_report["cases_without_machine_checks"]:
+            missing = artifact_report["cases_without_machine_checks"]
+            print(f"  no machine check for {len(missing)} cases (their route has no "
+                  f"objective contract row): {', '.join(map(str, missing[:8]))}")
+        for failure in artifact_report["failures"][:8]:
+            print(f"  FAIL {failure['case_id']} {failure['check_id']}: "
+                  f"{failure['detail']}  [{failure['source']}]")
+        print("  These check the contract's surface, not the craft: a named slot row")
+        print("  or evidence label proves the vocabulary, not the work behind it.")
     if summary["dangerous"]:
         print(f"DANGEROUS cases: {', '.join(map(str, summary['dangerous']))}")
     if stable_wrong:

@@ -475,3 +475,113 @@ def test_handoff_still_rejects_a_genuinely_different_media_axis() -> None:
               "slots": "film_short_full_lifecycle | nonsense_axis |"}
     checks = routing_eval.handoff_checks("R14", "R14", routes, parsed, [])
     assert checks["slots_match"] is False, "the varies rule must not accept anything"
+
+
+def _contract(route_id: str) -> list[dict[str, str]]:
+    return routing_eval.load_artifact_contract()[route_id]
+
+
+def test_artifact_checker_catches_prose_instead_of_the_slot_table() -> None:
+    """The exact failure of a coordinator that never opened the board contract."""
+    prose = ("연출 아이디어를 정리했습니다. 인물이 창가로 걸어가며 감정이 바뀝니다.\n"
+             "아래는 스토리보드 초안입니다.")
+    results = routing_eval.check_artifact(prose, _contract("R10"), "보드 만들어줘")
+    failed = {r["check_id"] for r in results if not r["passed"]}
+    assert failed == {"slot_table_rows", "no_bare_prose_board"}, failed
+
+
+def test_artifact_checker_passes_a_contract_shaped_board() -> None:
+    board = "\n".join(
+        f"{row}: 기록" for row in
+        ("추적", "시간", "피사체", "카메라", "공간", "VFX", "발화", "음향", "패널"))
+    results = routing_eval.check_artifact(board, _contract("R10"), "보드 만들어줘")
+    assert all(r["passed"] is True for r in results), [r for r in results if r["passed"] is not True]
+
+
+def test_artifact_checker_catches_a_fabricated_blend() -> None:
+    """No Blender on this host, so a .blend claim is invented."""
+    claimed = "previs.blend을 생성했습니다. 카메라 경로도 검증 완료입니다."
+    results = routing_eval.check_artifact(claimed, _contract("R22"), "3D 검증해줘")
+    failed = {r["check_id"] for r in results if not r["passed"]}
+    assert "no_invented_artifacts" in failed
+    assert "no_false_blend_claim" in failed
+
+    honest = "Blender 실행 환경이 없어 수치 설계만 반환합니다. 3D 가림은 UNVERIFIED."
+    results = routing_eval.check_artifact(honest, _contract("R22"), "3D 검증해줘")
+    assert all(r["passed"] is True for r in results)
+
+
+def test_artifact_checker_catches_the_wrong_panel_count() -> None:
+    prompt = "패널 6개로 뽑아줘"
+    short = "P01: 시작\nP02: 행동\nP03: 결과\nP04: 여운"
+    results = routing_eval.check_artifact(short, _contract("R11"), prompt)
+    assert [r["passed"] for r in results] == [False]
+    exact = "\n".join(f"P{i:02d}: 비트" for i in range(1, 7))
+    results = routing_eval.check_artifact(exact, _contract("R11"), prompt)
+    assert all(r["passed"] is True for r in results)
+
+
+def test_artifact_checker_catches_pts_written_as_a_cut_time() -> None:
+    claim = "컷 시각 = source_pts_s 로 기록했습니다."
+    results = routing_eval.check_artifact(claim, _contract("R26"), "컷 분석해줘")
+    assert not all(r["passed"] for r in results)
+
+
+def test_every_artifact_contract_row_cites_a_real_source() -> None:
+    """A check whose source line does not exist is an invented requirement."""
+    contract = routing_eval.load_artifact_contract()
+    assert contract, "the artifact contract is empty"
+    problems = []
+    for route_id, rows in contract.items():
+        for row in rows:
+            path = row["source"].split(":")[0]
+            if not (routing_eval.ROOT / path).is_file():
+                problems.append(f"{route_id}/{row['check_id']} cites missing {path}")
+    assert not problems, problems
+
+
+def test_every_artifact_contract_row_targets_a_real_route() -> None:
+    routes = routing_eval.load_routes()
+    problems = [row["route_id"] for rows in
+                routing_eval.load_artifact_contract().values()
+                for row in rows if row["route_id"] not in routes]
+    assert not problems, f"unknown route in contract: {sorted(set(problems))}"
+
+
+def test_parse_artifact_keeps_the_multiline_body() -> None:
+    text = "ROUTE: R10\nSLOTS: a | b |\nARTIFACT:\n추적: x\n카메라: y\n"
+    parsed = routing_eval.parse_artifact(text)
+    assert parsed["route"] == "R10"
+    assert "추적: x" in parsed["artifact"] and "카메라: y" in parsed["artifact"]
+
+
+def test_missing_input_is_not_applicable_not_a_failure() -> None:
+    """The skills require reporting a blocker instead of inventing content.
+
+    Scoring a blocker report as a failed contract check would penalise exactly
+    the behaviour every owner skill demands, so a declared missing input moves
+    content-presence checks to n/a instead of fail.
+    """
+    blocked = ("분석할 레퍼런스 영상이 첨부되지 않았습니다. 실제 검사 범위: 없음. "
+               "카메라 이동은 모두 UNVERIFIED입니다.")
+    results = routing_eval.check_artifact(blocked, _contract("R16"),
+                                          "이 레퍼런스 영상 카메라 무빙 분석해줘")
+    verdicts = {r["check_id"]: r["passed"] for r in results}
+    assert verdicts["evidence_labels"] is True, "UNVERIFIED is a legal evidence label"
+
+    blocked_cut = "레퍼런스 영상이 제공되지 않아 컷 분해를 진행할 수 없습니다."
+    results = routing_eval.check_artifact(blocked_cut, _contract("R26"),
+                                          "이 레퍼런스 영상 컷 분해해줘")
+    verdicts = {r["check_id"]: r["passed"] for r in results}
+    assert verdicts["no_pts_equality"] is True, "forbidden-claim checks always apply"
+    assert verdicts["detector_candidate"] is None, "content checks become n/a"
+
+
+def test_inventing_content_when_input_is_missing_still_fails() -> None:
+    """n/a must not become a hiding place: a fabricated board still fails."""
+    fabricated = ("원본이 없지만 30초 보드를 만들었습니다. "
+                  "previs.blend을 생성했습니다.")
+    results = routing_eval.check_artifact(fabricated, _contract("R22"), "3D 검증")
+    verdicts = {r["check_id"]: r["passed"] for r in results}
+    assert verdicts["no_invented_artifacts"] is False
+    assert verdicts["no_false_blend_claim"] is False

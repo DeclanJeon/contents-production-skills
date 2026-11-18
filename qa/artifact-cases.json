@@ -1,0 +1,35 @@
+{
+  "note": "Artifact cases, not routing cases. Each supplies the inputs its owner skill says it needs, so a contract check is satisfiable. The routing cases deliberately do not: they are one-line requests, and running artifact checks against them measures whether the coordinator invents content when an input is absent, which every owner skill forbids. That mistake is recorded in qa/routing-artifact-2026-11-17-before-inputs/SUPERSEDED.md.",
+  "cases": [
+    {
+      "case_id": "A01",
+      "prompt": "30초 제작용 콘티 만들어줘. 확정된 원본은 이거야.\n\n시놉: 야간 세탁소에 혼자 남은 알바생이 마지막 세탁기를 돌린다. 문이 열리고, 안에서 자기 옷이 나온다.\n고정 사실: 등장인물은 알바생 '한서윤' 1명, 장소는 세탁소 1곳, 조명은 형광 1개, 대사 없음. 길이 30초.\n샷 구성은 네가 정해. 이미지는 아직 만들지 마.",
+      "route_id": "R10",
+      "expected_owner": "storyboarding-video"
+    },
+    {
+      "case_id": "A02",
+      "prompt": "이 레퍼런스 클립의 카메라 무빙을 분석해줘. 원본은 확인했고 관찰 기록은 다음이 전부야.\n\n- 0.0~2.4초: 피사체 크기가 커지고 배경 간판이 화면 오른쪽으로 흘러나감\n- 2.4~4.0초: 피사체 크기 유지, 배경 흐름 멈춤\n- 4.0~6.5초: 피사체가 화면 왼쪽으로 이동하고 배경 원근 변화는 거의 없음\n- 클립 전체에서 초점 변화는 식별하지 못함\n\n확인한 범위는 위 구간이고 나머지는 아직 안 봤어.",
+      "route_id": "R16",
+      "expected_owner": "camera-motion-reference-analysis"
+    },
+    {
+      "case_id": "A03",
+      "prompt": "이 레퍼런스 영상을 컷 단위로 분해해줘. 이미 컷 검출 도구는 돌려놨어.\n\n검출 결과(후보): 3.12초, 7.48초, 11.90초, 14.02초\n영상: 1920x1080, 29.97fps, 18.5초, ffprobe 확인함\n검출 점수는 0.71, 0.66, 0.83, 0.52였고 경계 양쪽 프레임은 아직 안 열어봤어.",
+      "route_id": "R26",
+      "expected_owner": "video-production-assets"
+    },
+    {
+      "case_id": "A04",
+      "prompt": "이 카메라 경로가 세탁기 앞 좁은 통로에서 벽을 통과하는지 3D로 실제 확인해줘.\n\n공간: 폭 1.8m, 깊이 2.4m, 세탁기 3대가 오른쪽 벽에 붙어 있음\n카메라: 문 쪽에서 시작해 세탁기 앞 1.0m 지점까지 전진, 높이 1.4m 고정\n검증이 필요한 것: 카메라 경로가 세탁기나 벽을 지나지 않는지",
+      "route_id": "R22",
+      "expected_owner": "blender-previsualization"
+    },
+    {
+      "case_id": "A05",
+      "prompt": "콘티 정식으로 말고 아이디어 확인용으로 러프 패널 여섯 컷만 만들어줘. 원본 비트는 이거야.\n\n1. 형광등이 깜빡인다\n2. 알바생이 세탁기를 연다\n3. 안에서 옷이 쏟아진다\n4. 알바생이 뒷걸음친다\n5. 옷이 젖어 있다\n6. 알바생이 문을 닫는다\n\n그림은 만들지 말고 패널 설명만.",
+      "route_id": "R11",
+      "expected_owner": "storyboarding-video"
+    }
+  ]
+}

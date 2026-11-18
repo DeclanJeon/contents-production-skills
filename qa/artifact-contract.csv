@@ -1,0 +1,11 @@
+route_id,check_id,kind,values,source,note
+R10,slot_table_rows,all,추적|시간|피사체|카메라|공간|VFX|발화|음향|패널,video-production-assets/references/storyboard-contract.md:32-42,The complete board contract names nine mandatory slot rows; a board missing any of them is not the contracted board
+R10,no_bare_prose_board,none_of,연출 아이디어를 정리했습니다|아래는 스토리보드 초안입니다,creative-production/references/routing.csv:R10,Pastoral framing instead of the slot table is what a coordinator produces when it skips the contract
+R11,exact_panel_count,count_from_prompt,,storyboarding-video/references/narrative-panels.md:10,The requested panel count is exact; more or fewer panels means the narrow guide was not read
+R16,evidence_labels,any,OBSERVED|USER_REPORTED|ESTIMATED|DESIGN_PROPOSAL|UNVERIFIED|미검증,camera-motion-reference-analysis/SKILL.md:24,Observed image motion and inferred 3D motion must be labelled separately
+R16,no_unlabelled_certainty,none_of,카메라가 확실히 이동했다|100% 확실,camera-motion-reference-analysis/SKILL.md:24,An unlabelled certainty claim is the failure this label vocabulary exists to prevent
+R18,camera_spec_or_numbers,any,camera_spec|ESTIMATED|렌즈|lens,camera-spatial-design/SKILL.md:39-40,The deliverable is a filled camera spec; estimates must be marked ESTIMATED
+R22,no_false_blend_claim,any,BLOCKED|UNVERIFIED|미검증|블로킹,blender-previsualization/SKILL.md:27-38,With no Blender runtime the skill requires reporting BLOCKED/UNVERIFIED rather than claiming a .blend
+R22,no_invented_artifacts,none_of,previs.blend을 생성했습니다|blender-inspection.json을 생성했습니다,blender-previsualization/SKILL.md:38,Only files that exist may be recorded as generated
+R26,detector_candidate,any,DETECTOR_CANDIDATE|미검증|UNVERIFIED,video-production-assets/references/31-external-video-decomposition.md:32-39,Detected cuts are candidates until both sides of the boundary are inspected
+R26,no_pts_equality,none_of,PTS와 동일|컷 시각 = source_pts_s,video-production-assets/references/31-external-video-decomposition.md:39,Measured cut times are not PTS and must not be written as such
