@@ -43,6 +43,7 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 | 스킬 | 책임 | 경계 |
 |---|---|---|
 | [creative-production](creative-production/SKILL.md) | 단일 총괄: 명시적인 영상·영상 콘티 요청 라우팅, QA/납품; 이미지 기반 전체 프리프로덕션은 text worker handoff 뒤 실제 still/sheet/extraction까지 조정 | 요청 범위·단일 project.json/.history writer·사전검토/사용자수락/영상실행 승인을 분리한다. |
+| [concept-intake-design](concept-intake-design/SKILL.md) | 새 영상 프로젝트의 단일 사전 인테이크: 9개 판단 요소 판정, 열린 콘셉트 축을 한 번에 선택, 조합·적합성 검사·연출 규칙 변환·6개 기준 평가 | 콘셉트 패킷만 반환한다. 기획안·매체·두 번째 인터뷰·실행 권한 기록 없음. 판단은 Jev 1.14(설정 시) 또는 호스트 에이전트. |
 | [searching-social-media](searching-social-media/SKILL.md) | Flucto로 SNS 영상 게시물 후보·레퍼런스·공개 수요 근거 검색 | 검색 범위·색인/직접 조회·플랫폼 실패·지표 단위·미확인을 보존한다. 자동 다운로드·분석·주제 선정·게시 없음. |
 | [topic-demand-selection](topic-demand-selection/SKILL.md) | 주제 선택·순위·인기/검색 수요 검증 | 주제 후보를 고르기 전에 audience-demand 근거와 사실/자료 게이트를 별도로 평가한다. |
 | [video-production-assets](video-production-assets/SKILL.md) | 브리프, 서사/정보 비트, 각본, 연기, 시각, 샷, 조명, 애니메이션, 편집/사운드, 근거, AI 인계, QA, 발상/브랜드, 제작 운영, 납품; 영화 제작 6단계 참조; 대사·립싱크(22)의 TTS 전 다국어 대사 현지화·각색과 기존 보이스·립싱크 | 15개 선택형 모듈과 통합 전문 참조. 영화 경로는 명시적 전체/단계 간 요청에만 적용하고, 실제 렌더·권리 승인·게시와 구분한다. |
@@ -288,7 +289,7 @@ python scripts/install_hooks.py
 
 ## 영상 전용 팩과 분리 위치
 
-현재 manifest의 25개는 영상 제작 또는 직접 소비하는 지원 기능이다. 주제 수요/SNS 검색은 영상 주제·레퍼런스 입력, 제작 이력은 공통 저장, Soul ID는 별도 동의가 필요한 영상 인물 정체성 준비, 썸네일은 영상 납품/유통에 사용하므로 유지한다. 이 번들은 일반 소셜 계정 운영·자동 게시를 하지 않는다.
+현재 manifest의 26개는 영상 제작 또는 직접 소비하는 지원 기능이다. 주제 수요/SNS 검색은 영상 주제·레퍼런스 입력, 제작 이력은 공통 저장, Soul ID는 별도 동의가 필요한 영상 인물 정체성 준비, 썸네일은 영상 납품/유통에 사용하므로 유지한다. 이 번들은 일반 소셜 계정 운영·자동 게시를 하지 않는다.
 
 비영상 스킬 5개는 [../non-video-production-skills](../non-video-production-skills/README.md)로 실제 분리했다: `product-detail-page-builder`, `higgsfield-brandkit`, `higgsfield-marketplace-cards`, `higgsfield-product-photoshoot`, `higgsfield-websites`. 원본 이력은 이 저장소에 남고 이동 해시·설치 링크 대응은 [이동 기록](integrations/non-video-migration.json)에 둔다. 기존 설치 링크의 대상만 수정하며 새 설치·배포는 하지 않는다. 영상 팩의 설치/동기화는 영상 manifest만 사용하고 형제 팩을 자동 설치하거나 삭제하지 않는다.
 

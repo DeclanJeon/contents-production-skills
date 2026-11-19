@@ -1,10 +1,11 @@
 {
   "name": "contents-production-skills",
-  "version": "2.60",
+  "version": "2.61",
   "entry_skill": "creative-production",
   "support_skill": "video-production-assets",
   "skills": [
     "creative-production",
+    "concept-intake-design",
     "topic-demand-selection",
     "searching-social-media",
     "video-production-assets",

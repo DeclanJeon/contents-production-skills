@@ -644,6 +644,11 @@ def classify(chosen: str | None, expected: str, routes: dict[str, dict[str, str]
     return "near_miss"
 
 
+# The real dispatcher, captured at import. Tests replace `dispatch` with a
+# stub; only the real one needs the codex CLI on PATH.
+_REAL_DISPATCH = dispatch
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", help="output directory for prompts and raw wire")
@@ -669,7 +674,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.repeat < 1:
         parser.error("--repeat must be >= 1")
 
-    if shutil.which("codex") is None:
+    if dispatch is _REAL_DISPATCH and shutil.which("codex") is None:
         print("BLOCKED: codex CLI not installed; routing accuracy not measured.", file=sys.stderr)
         return 2
 
