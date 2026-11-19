@@ -15,6 +15,7 @@
 | S05 캐릭터·세계관 | 캐릭터 바이블, 페르소나, 의상, 소품, 장소 | R03 / R04 | designing-video-character-sheets / designing-character-personas | 정체성 앵커 고정 |
 | S06 연출·스토리보드 | 컷별 상태, 카메라, 동작, 타이밍 | R10, R18, R08, R07 | storyboarding-video, camera-spatial-design, animatic-direction, silent-visual-storytelling | 컷 합계 = 러닝타임 |
 | S07 에셋·프롬프트 | 에셋 목록, 시작/끝 프레임, 이미지·영상 프롬프트, 사운드 큐 시트 | R13, R19 | video-production-assets, ai-camera-control | 프롬프트가 SSOT 버전을 참조 |
+| S07b 스틸 에셋 생성 | 캐릭터 7뷰·의상·장소 4뷰·배경·소품·LOOK·컷 프레임 실제 생성 | R13 | video-production-assets, codex-imagen | 참조 의존 순서·최대 5개 병렬·해시 등록; `available`은 `verified` 아님 |
 | G2 프리프로덕션 검수 | 연속성·제약·권리·비용 | — | video-production-assets (연속성 게이트) | 오류 없음 + 승인 |
 | S08 생성 | 이미지·영상·음성 생성, 테이크 선택 | R28 / R32 | higgsfield-generate 또는 fal 경로 | **실행·비용 승인 필요** |
 | S09 편집 | 조립, 사운드 믹스, 색, 자막 | R31 | video-production-assets | **편집 계획 승인 필요** |

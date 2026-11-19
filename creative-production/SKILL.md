@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 2.4
+version: 2.5
 description: Use only when the user explicitly requests video production or creation of
   a storyboard sheet for a video. Do not use for other content creation/adaptation,
   standalone writing, social posts, campaigns, audio, images, ordinary design, or
@@ -24,6 +24,15 @@ an approved concept, a single named artifact, or a resumed project. Delegated
 choices stay `inferred`; pre-accepted review gates never open spend. The
 stage-by-stage owner map and the CineForge CLI handoff contract are in
 [skill-map.md](references/skill-map.md).
+
+Still assets the story repeats — character 7-view sheets, wardrobe, location
+4-view sheets, background plates, props, LOOK and cut start/end frames — are not
+done when their prompts are written. Produce them under
+[still asset generation jobs](../video-production-assets/references/32-still-asset-generation-jobs.md):
+dependency order, at most five concurrent jobs, no automatic retry of an
+uncertain job, and SHA-256 registration. Codex Imagen stills skip the paid-quote
+gate, but reference transmission and requested output scope stay inside the
+user's authorization; `available` is not `verified`.
 
 ## Step 1 — Goal, then current-stage route
 

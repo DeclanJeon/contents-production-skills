@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 1.32
+version: 1.33
 description: 'Build source-grounded video production assets: briefs, story beats,
   screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans,
   animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs,
@@ -31,6 +31,7 @@ description: 'Build source-grounded video production assets: briefs, story beats
 | 전체 이미지 기반 패키지·해당 downstream FINAL | [package](references/contract-package.md) + [preproduction-review](references/preproduction-review.md); 실제 이미지 단계에 [media](references/storyboard-media.md) |
 | 파일 패키징/납품 | [delivery](references/contract-delivery.md); 보드 PDF에는 [storyboard delivery](references/storyboard-delivery.md) |
 | 심화 craft·추가 양식이 필요한 요청 | [조건별 모듈 색인](references/module-index.md)의 해당 행만 |
+| S07 스틸 에셋을 실제로 일괄 생성·병렬 상한·실패 복구 | [스틸 에셋 일괄 생성](references/32-still-asset-generation-jobs.md); 기본 실행자 codex-imagen |
 
 ## 모듈 선택
 | 요청 | 읽을 모듈 | 사용할 에셋 |

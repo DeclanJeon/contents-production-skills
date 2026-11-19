@@ -23,6 +23,7 @@
 | 피니싱 룩·그레이드 노드 구조·믹스·마스터 QC·플랫폼 적응 | [피니싱·플랫폼](23-finishing-platform.md) | — |
 | 속도·타격·컷 전환·효과음·음악·공간음향 중 무엇을 이름으로 고르거나 바꿈 | [편집·음향 표현 선택표](edit-sound-language-catalog.md) | 편집은 09 템플릿, 음향은 `assets/sound-cues.csv` |
 | 이미지/영상 생성 경로·최소 충분 프리뷰·최종 제작·비용·에셋 출처 | [생성 경로·비용 라우팅](24-production-execution.md) | `assets/video-model-routing-template.md` |
+| 캐릭터 시트·의상·장소·배경·소품·LOOK·컷 프레임을 실제로 빠짐없이 생성·재개 | [스틸 에셋 일괄 생성](32-still-asset-generation-jobs.md) | 기존 `asset_registry`·프롬프트 원장 |
 | 사용자가 요청한 단일/아카이브 레퍼런스 분석·교차 영상 패턴/오너 갭 비교·기존 스킬로의 명시적 skillification | [레퍼런스 영상 분해](25-reference-video-analysis.md) | 단일 영상은 `assets/shot-dna-template.md`, 아카이브는 `assets/archive-audit-template.md`; 명시적 exhaustive all-source/all-shot 또는 cross-source craft extraction에서만 [`assets/archive-craft-crosswalk-template.md`](../assets/archive-craft-crosswalk-template.md)를 조건부 필수 사용. 일반/단일 레퍼런스에는 강제하지 않음. 기존 오너 반영은 명시적 skillification에서만; Rofan 사례집은 선택적 출처 근거이며 필수 조회가 아님. 로컬 영상의 컷·제작방식·자막·음원 측정이 필요하고 설치된 rea-video가 있으면 조건부로 [외부 분해 백엔드 어댑터](31-external-video-decomposition.md)를 적용하고, 없으면 25 수작업 경로로 폴백 |
 | 한 번에 시놉시스부터 전체 스토리보드 시트까지 요청·프롬프트 작성 | [스토리보드 시트 사용자 가이드](storyboard-sheet-user-guide.md) | 범용 복사용 프롬프트 |
 | 활성 LOOK·에셋 게이트·마스터/파생 계보·패널 버전 참조·provenance·v5.1 패키지 출력 | [v5.1 프로덕션 무결성](contract.md#v51-프로덕션-무결성-look에셋-게이트계보provenance패키지) | `assets/style-world-bible-template.md`, `assets/adaptation-map-template.md`, `assets/asset-gate.csv`, `assets/asset-provenance.csv`, `assets/prompt-ledger.csv`, `assets/dependency-graph.csv`, `assets/storyboard-panel-manifest.csv` |

@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+## 2.62 2026-11-20
+
+- **S07b still-asset generation is now a contract, not a prompt-writing step.** `video-production-assets/references/32-still-asset-generation-jobs.md` fixes the inventory a finished video needs (character 7-view identity sheet, wardrobe 3 views, location 4-view sheet, background plate, props, single LOOK, cut start/end frames), the dependency order between them, a **host-wide cap of five concurrent jobs**, explicit refusal to auto-retry a rejected or uncertain job, hash registration in the existing `asset_registry`, and the rule that `available` never satisfies the `verified` delivery gate. `codex-imagen` stays the default executor; its paid-quote exemption does not widen reference transmission or output scope.
+- Linked from `video-production-assets` (module row plus module index), `creative-production` Step 0 and the S07b row in `references/skill-map.md`. `scripts/test_asset_generation_contract.py` locks the inventory, cap, no-retry rule, registry keys and reachability so prompts cannot again pass as generated assets.
+- Records the CineForge projection of the same contract (`assets/image_prompts.json`, `supplied_images.json`, `image_outputs.json`, `asset_registry.json`, `image_jobs/`) and that a CLI `--image-limit` is an execution-scope cap, not a cost approval. No provider call, upload or publication is authorized by this entry.
+
 ## 2.61 2026-11-19
 
 - **Added `concept-intake-design` (1.0), the package's single upfront intake.** For a new video whose concept is open, it judges nine intake factors (script, scenario, reference, plot/concept, lead character, voice, content concept, story development, direction), asks the open axes once in `selection_order`, then combines, runs compatibility rules (C001–C016 plus the non-overridable no-speech rule C100), converts the concept into direction-rule packs (e.g. 1990s Korean melodrama with forbidden anachronistic props) and scores six criteria into a go/revise/rework verdict. It returns a concept packet only. The taxonomy (12 format categories, 22 culture/drama styles, 24 romance and 24 fantasy/world concepts, 23 story-nature concepts, 12 narrative structures, 8 direction groups, emotions, 15/30/60/90 s, presets A/B/C) ships as `references/concept-taxonomy.yaml` with `concept-rules.yaml`; `scripts/concept_check.py` validates a selection read-only, and `scripts/test_concept_check.py` (skips without PyYAML) locks the list sizes and rule references.
