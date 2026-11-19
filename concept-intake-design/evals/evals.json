@@ -1,0 +1,47 @@
+{
+  "skill_name": "concept-intake-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "60초 분량의 코미디 숏드라마를 만들고 싶어. 연출은 시네마틱 실사, 서사 구조는 결말 선공개로. 나머지는 물어보고 정해줘.",
+      "expected_output": "A Korean concept packet that keeps the stated duration, genre, format, direction and narrative, asks only the remaining consequential axes once, and returns compatibility, direction rules and a scored verdict without writing the plan or generating media.",
+      "expectations": [
+        "Stated values (60초, 코미디, 숏드라마, 시네마틱, 실사, 결말 선공개형) are recorded as user values and are not asked again.",
+        "The nine judgement factors are each marked provided, partial or missing.",
+        "Open axes are asked in one batched turn with defaults and a recommendation.",
+        "The result includes compatibility issues, applied direction-rule packs, six scores and a go/revise/rework verdict.",
+        "No synopsis, scene table, prompt or media is produced, and no execution authority is recorded."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "1998년 서울 배경의 타임슬립 멜로 숏드라마 콘셉트를 잡아줘. 선택은 알아서 해줘.",
+      "expected_output": "A delegated selection marked inferred, with the 1990s Korean melodrama direction pack applied and smartphones and other anachronisms listed as forbidden props.",
+      "expectations": [
+        "Delegated choices are labelled inferred, not user choices.",
+        "The 1990s Korean melodrama pack contributes props, wardrobe, acting, color and music rules.",
+        "Forbidden props include 스마트폰.",
+        "The skill stops at the concept packet and names the next owner for the plan."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "대사 없이 효과음만 있는 30초 풍자 애니메이션을 만들 건데, 사운드는 내레이션 중심으로 해줘.",
+      "expected_output": "The conflict between the no-speech constraint and a narration-driven sound axis is reported as a blocking issue that cannot be overridden, with a fix offered.",
+      "expectations": [
+        "The no-speech constraint is kept.",
+        "The narration-driven sound choice is flagged as blocking (C100) and not silently changed.",
+        "Silent, music-driven or ASMR sound is offered as the fix."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "이 시놉시스는 확정이야. 이걸로 캐릭터 시트만 만들어줘.",
+      "expected_output": "The skill does not run: a locked synopsis and a single requested artifact skip the upfront intake and go to the character-sheet owner.",
+      "expectations": [
+        "No intake questions are asked.",
+        "The request is left to the character-sheet route."
+      ]
+    }
+  ]
+}
