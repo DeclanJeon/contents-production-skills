@@ -14,19 +14,31 @@ source). It keeps only the prose that does not fit a CSV cell:
 - the **selected runtime gate**
 - **state and handoff** rules
 
-Select the narrowest requested output. The coordinator reads this file once
-after `routing.csv`; workers consume their assigned packet and never reroute.
+Select the narrowest owner for the current assignment. The coordinator reads
+this file once after `routing.csv`; workers consume their packet and never reroute.
 No automatically running agent engine is supplied.
 
 Standalone writing, social/campaign operations, brand identity, product pages, product photography and website requests stay with their non-video owner; they do not activate this coordinator. The separated pack is discovered by exact skill name only when the user requests that independent work.
 
 한국어 영상 대사·내레이션 후편집은 기존 각본 오너의 [선택 지원 참조](../../video-production-assets/references/korean-script-postediting.md#scope)를 사용한다. 일반 글쓰기까지 총괄 활성화를 확장하거나 별도 stage·worker·원장을 만들지 않는다.
 
+<a id="goal-progression"></a>
+## Goal progression
+
+1. Preserve requested endpoint, media/save limits, workflow and current approvals. A supplied-material or downstream-only workflow keeps its existing owner; scope limits beat full-project defaults. For a new full-film goal, inspect existing project versions and pending jobs before reusing any completed stage.
+2. Pick one eligible next owner. Build the applicable story/characters/LOOK, script and technical board in dependency order, reusing supplied inputs. The delegated one-pass lane records reversible creative choices as proposals, not user acceptance. Read [FrameAtlas direction](frameatlas/direction.md) when setting creative direction or checking board/sequence intent. Film-wide required facts, rhythm, blocking, performance, sound and silence belong in the existing artifacts, not a new ledger.
+3. An ordinary new film includes an actual image sheet milestone. While the R24 gate is closed, continue authorized text planning and independent work; if the eligible still executor and current asset/authority gates are ready, use the R24 sequence below without an extra creative review pause. Explicit sheet-only stops after the reviewed sheet package.
+4. For an authorized film, apply the established sequence execution/continuity contract. Use current accepted predecessor ranges, then execute the authorized selected provider (R28 Higgsfield, R32 Fal), inspect and adopt each needed take; continue on verified returns. Read [take repair](../../video-production-assets/references/take-repair.md) only for a concrete take defect. Internal repair and QA never add a routine approval pause. Present progress without waiting, unless the user explicitly asked to wait, a consequential decision needs their input, or a real authority/input/QA gate blocks the affected work.
+5. Match the requested full edit to all required beats/cuts and the actual selected intervals; then assign local assembly/export to R31 (including its own edit-plan authority) and run [whole-film QA](creative-qa.md#whole-film-review). A missing mandatory cut blocks full-film review; independent work can continue. Offer user review only when the output is a verified whole-film review candidate. Do not imply publication or user acceptance.
+
 <a id="full-package-sequence"></a>
 ## Full image-backed package sequence (R24)
 
 `creative-production` is the sole coordinator for an explicit image-backed full
-preproduction package. It sequences the existing owners in this order:
+preproduction package or the authorized sheet milestone of a finished-film goal.
+Apply [FrameAtlas direction](frameatlas/direction.md) to applicable unlocked
+direction and actual board QA, without reopening signed-off decisions. Sequence
+the existing owners in this dependency order:
 
 1. source/brief and synopsis (`developing-video-synopses`)
 2. screenplay using `video-production-assets/references/03-screenplay.md`

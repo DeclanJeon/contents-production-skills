@@ -13,7 +13,7 @@ R10,R11,R10 is a complete production board with per-shot camera and light slots;
 R10,R12,R10 delivers a board document; R12 assembles stills into a finished video or edit
 R12,R24,"Both may create new stills; R12 ends at a still-image video with no preproduction package, R24 is the image-backed full package with sheets and the final gate"
 R13,R15,R13 is one assigned production asset; R15 is a factual educational plan with evidence duties
-R14,R24,R14 covers the whole short lifecycle through delivery; R24 ends at the image-backed preproduction package
+R14,R24,R14 is explicit film lifecycle or stage-handoff guidance; R24 is the authorized image-backed preproduction stage
 R16,R26,R16 analyses camera motion only; R26 measures the whole reference video's shot and cut decomposition
 R17,R18,"R17 decides framing, POV and blocking from the scene's narrative intent; R18 turns camera and space into numeric design with lens, timing and motion"
 R18,R19,R18 creates the camera and spatial design; R19 converts an existing design into model-ready AI video control
@@ -22,9 +22,15 @@ R19,R23,R23 critiques a prompt or model route choice; R19 produces the camera co
 R20,R27,R20 checks camera movement against plan in supplied footage; R27 audits a saved output or an interrupted project's state
 R21,R22,R21 states numbers as text; R22 actually executes scene-specific 3D verification in Blender
 R25,R26,R25 audits reference selection or a package; R26 measures one reference video's decomposition
-R12,R29,R12 assembles supplied stills into any narrated video; R29 is the measured Korean community-shorts publishing pipeline with captions, loudness and ledger
+R12,R29,R12 assembles supplied stills into a silent or narrated video; R29 is the measured Korean community-shorts publishing pipeline with captions, loudness and ledger
 R13,R28,R13 returns one planned production asset such as a lighting plan; R28 executes one already approved provider operation
 R24,R28,R24 ends at the image-backed preproduction package; R28 runs the selected provider media operation
 R22,R30,R22 verifies native geometry or articulated feasibility; R30 renders explicitly requested Three.js framing and blocking proxies
 R24,R30,R24 builds a full image-backed production package; R30 projects an existing board into reviewable proxy frames
 R10,R30,R10 is a written board; R30 executes browser proxy rendering only with approval
+R12,R31,R12 assembles still pictures; R31 executes scoped local edits of supplied moving footage
+R13,R31,R13 plans a text asset; R31 edits or exports supplied moving footage under an edit plan
+R24,R31,R24 makes the image-backed package; R31 starts from supplied moving footage and does not reopen preproduction
+R28,R31,R28 submits a selected Higgsfield operation; R31 edits or exports locally without a generation submission
+R28,R32,R28 is the selected Higgsfield operation; R32 is selected Fal with its optional owner
+R31,R32,R31 assembles already available moving footage; R32 executes an authorized Fal video generation operation

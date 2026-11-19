@@ -48,6 +48,8 @@ artifacts: id, type, version, status, dependencies(artifact id 배열), evidence
 
 승인된 실행/편집 artifact의 선택 메타데이터 `execution_scope={shot_ids:[...],operations:[generation|edit|export]}`는 실제 승인 범위를 구조화한다. `edit_plan.timing_policy={duration:fixed|flexible,anchors:[{table,id,field,frame}]}`는 원래 승인된 시간 제약이며 새 delta가 자기 권한을 만들 수 없다. `update_project.py`는 target_duration_s 및 필요한 storyboard.rhythm 교체를 제한적으로 지원하고, 고정 anchor·후속 시간/참조·owner 버전·원자 저장 검사를 유지한다. 실제 사용자 승인과 검수 진위는 코디네이터 책임이다.
 
+일부 샷만 별도 납품하는 현재 승인된 편집 계획은 `execution_scope.deliverable: shot_subset`으로 명시한다. 누락된 전체 영화 컷을 면제하지 않는다.
+
 
 ## 실제 파일과 부가 시간표
 - asset_registry: {id, kind, version, path, status, sha256}. 실제 path는 프로젝트 폴더 기준 상대 경로를 권장하며 `--base-dir` 검사에서 resolve한 결과가 그 폴더 밖이면 거부한다(절대 경로/..//symlink 포함). planned는 path=null을 허용한다. available/verified는 실제 경로를 갖고 base-dir가 있으면 파일 존재와 제공된 해시를 확인한다. 최종 파일에는 verified와 SHA-256이 필요하다.

@@ -56,7 +56,9 @@ def test_owner_answer_is_reported_not_scored() -> None:
     # When: the sweep inspects it
     reported = routing_eval.resolve_owner_answer(text, _routes())
     # Then: every route for that owner is surfaced for human review
-    assert reported == ["video-production-assets=['R06', 'R13', 'R14', 'R15', 'R20', 'R25', 'R26']"]
+    assert reported == [
+        "video-production-assets=['R06', 'R13', 'R14', 'R15', 'R20', 'R25', 'R26', 'R31']"
+    ]
 
 
 def test_read_paths_unwraps_the_shell_reader(tmp_path: Path) -> None:

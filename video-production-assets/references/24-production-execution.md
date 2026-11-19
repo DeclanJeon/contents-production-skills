@@ -2,7 +2,7 @@
 
 This on-demand reference covers provider routing and cost controls for media generation. Provider/model/pricing/capabilities change; verify them when a route requires it. Codex Imagen still-image generation is explicitly exempt from usage, quota, price, and quote checks; video and other providers retain their applicable gates.
 
-비용상 적격은 실행 승인이 아니다. 아래 included/free_allowance 경로도 [검토·실행 계약](preproduction-review.md)의 현재 버전 승인과 명시적 실행 범위를 따른다. 무료/로컬 샘플·애니매틱·내보내기는 게이트를 우회하지 않는다.
+비용상 적격은 실행 승인이 아니다. 아래 included/free_allowance 경로도 [검토·실행 계약](preproduction-review.md)의 현재 버전 승인과 명시적 실행 범위를 따른다. 무료/로컬 제작 프리뷰도 해당 영상 실행 게이트를 우회하지 않는다. 기존 영상의 R31 로컬 편집·출력에는 [승인된 편집 계획](sequence-execution.md)이 적용되며 영상 생성 승인을 요구하지 않는다.
 
 ## 1. 비용 정책 (FREE-FIRST / NO-PAID-BY-DEFAULT)
 
@@ -179,7 +179,7 @@ First/Last 두 이미지는 정체성·수량·공간·물성 변화와 승인�
 
 ## 5. 최소 충분 프리뷰와 최종 제작
 
-실제 영상 프리뷰도 영상 실행이다. 무료/로컬/짧은 샘플·애니매틱·내보내기도 게이트를 우회하지 않고 §1 비용 정책과 [검토·실행 계약](preproduction-review.md)의 현재 버전 승인을 따른다. 승인된 에셋/검토 패키지 버전에 연결해, 판단이 필요한 동작·접촉·구도·정체성에 최소 충분한 것만 생성한다.
+실제 영상 프리뷰도 영상 실행이다. 무료/로컬/짧은 제작 샘플과 움직이는 애니매틱도 게이트를 우회하지 않고 §1 비용 정책과 [검토·실행 계약](preproduction-review.md)의 현재 버전 승인을 따른다. 승인된 에셋/검토 패키지 버전에 연결해, 판단이 필요한 동작·접촉·구도·정체성에 최소 충분한 것만 생성한다.
 
 ### 프리뷰 계획
 

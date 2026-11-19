@@ -64,7 +64,7 @@ Before the call, verify runtime/auth and technical readiness using that tool's a
 창작 방향을 아직 수락/위임받지 않았으면 대표 **정지 이미지**로 확인한다. 위임받은 경우 요청한 세트를 생성한다. 반환된 실제 파일을 열어 의도·인물/소품·구도·연속성을 검사하고 원장에 ID·사용 샷·버전·해시·상대 경로를 기록한다. 부분 생성/미완료는 실제 받은 파일만 등록한다. 제공되지 않은 seed·가격·생성 결과를 만들지 않는다.
 For a character-backed package, the character designer first returns the synopsis-based persona, visual locks, Identity Prefix, and Sheet A prompt. Before any dependent master or panel still, close the applicable storyboard-contract spatial/contact gate for required contact poses; without feasible-pose evidence, mark the relevant claim UNVERIFIED and hold dependent image generation. When evidence is missing, return the storyboard contract's indexed packet in the existing review/request: scene_id, shot_id, beat_id, panel_id, frame_time/range, required action/contact surfaces, evidence inspected with locator/version/hash or NONE, missing evidence, required articulated asset/pose/runtime and owner, held dependent asset/generation, and reinspection acceptance criterion. Do not infer IDs or feasible contact from a prompt, BBox, visibility, or overlap. For each master call, make the authoritative SSOT content being consumed part of the actual submitted prompt and preserve that submitted prompt plus actual input-reference hashes in the existing per-call `.history` record; file existence, trait agreement, or a filename/ID/hash mention alone does not prove consumption. Inspect each actual seven-view Identity Sheet A against its SSOT and continuity anchors before panel generation, then pass its real source IDs/versions/hashes downstream. A scene portrait or prompt cannot substitute. Sheet B/C/D prompts do not authorize additional outputs; generate them only when separately requested.
 
-Review stills do not require video-generation approval. Video samples, moving animatics, test renders, and edited video exports remain outside still-image review and require the separate video-execution gate.
+Review stills do not require video-generation approval. Generated video samples, moving animatics and production test renders remain outside still-image review and require the applicable video-execution gate. Local assembly/export of existing moving footage (R31) instead requires a current approved edit plan under [sequence execution §4](sequence-execution.md#4-사용할-실제-구간을-고르고-씬-단위로-편집한다); it does not require a storyboard or generation approval.
 
 Other explicitly selected still-image or video providers retain their applicable provider-specific approval rules. Codex Imagen still-image calls do not require usage, quote, or cost approval.
 
@@ -75,7 +75,7 @@ Other explicitly selected still-image or video providers retain their applicable
 초안에는 `python <skill-dir>/scripts/validate_project.py <project-root>/project.json --profile plan --base-dir <project-root>`을 쓴다. **전체 패키지 검토 인계 전에는 `--profile preproduction`을 필수 실행**해 네 산출물 범주·실제 파일·인물 연결·합본 순서/소스 해시·필수 보드 슬롯·열린 blocker를 검사한다. 파일 누락은 검토 준비 미완료이며 draft/stale로 남긴다. 이 검사는 미디어 의미/권리/사용자 승인 진위를 보장하지 않는다.
 상세 보드는 `python <skill-dir>/scripts/validate_storyboard.py <project-root>/project.json --require-images --base-dir <project-root>`를 추가 실행한다. 그 뒤 **전체 clean 컷을 설명 라벨·음향 없이 순서대로 보아** 시놉의 사건·인과/정보·감정 변화가 실제 이미지로 읽히는지 계약 §5의 의미 검수를 수행한다. 구조 성공·패널 수 일치·대표 몇 장의 검사만으로 통과시키지 않는다. 요구된 Blender 검증이 없으면 해당 공간은 미검증이다.
 
-`review.md`에는 다음을 넣고 채팅에서도 경로와 주요 미리보기를 보고한다.
+`review.md`에는 다음을 넣는다. 프리프로덕션이 요청 종료점이거나 사용자가 진행 공유·중간 검토를 요청했거나 실제 게이트에 필요한 경우 채팅에도 경로와 관련 미리보기를 전달한다. 나머지는 내부 인계이며 사용자 답을 기다리지 않는다.
 
 - 정확한 프로젝트 폴더와 목표/형식; 실제 시놉 MD, 인물별 페르소나·SSOT MD/Identity Sheet A, 전체 기술 콘티 MD, 이야기 순서 합본 스토리보드 이미지 세트의 링크·ID·버전·해시
 - 검사한 파일/버전 목록과 검사 결과·증거
@@ -83,15 +83,15 @@ Other explicitly selected still-image or video providers retain their applicable
 - 가정, 미검증/미정 사항, 차단 조건, 사용자에게 필요한 검토 선택
 - 상세 보드: 전체 beat/scene/shot/panel 매핑과 이미지 계획/실제 수, 이미지 단독 검수 근거, KEEP/FIX/미검증, 인덱스별 최소 수정·추가 준비물·근거 있는 예상 시간·재검수 결과
 - 필수 산출물 완결 검사와 실제 캐릭터 7뷰/전체 clean 컷/합본 가독성 검수의 구분; 누락·미검증 필수 항목은 준비 완료나 승인 상태로 승격하지 않음
-- 상태: **프리프로덕션 검토 대기; 영상 미생성**
+- 상태: 실제 검토·승인·실행 상태를 각각 기록한다. 내부 인계와 사용자 대기 상태를 구분하고, 영상 작업의 완료나 미생성을 추정하지 않는다.
 
-내용이 완성돼도 사용자 수락을 추정하지 않는다. 응답이 없으면 대기한다. 모델의 긍정 판정·validator 성공·generated/verified 상태는 사용자 승인 증거가 아니다.
+내용이 완성돼도 사용자 수락을 추정하지 않는다. 시트가 요청의 종료점이거나 사용자가 중간 대기를 지정했으면 검토 상태를 전달하고 멈춘다. 완성 영상 목표에서는 이 기록을 내부 인계로 사용하고 승인된 후속 작업을 이어간다. 후속 실행에 필수인 현재 버전의 수락·실행 권한이 실제로 없을 때만 해당 작업을 대기한다. 모델의 긍정 판정·validator 성공·generated/verified 상태는 사용자 승인 증거가 아니다.
 
 ## 5. 버전별 승인과 영상 인계
 
 기존 [프로젝트 계약](contract-project.md)의 artifacts/approval/dependency_versions를 사용한다. `review.md`를 `type=preproduction_review` artifact로 등록해 검토한 입력 버전에 연결한다. 검토용 문서의 완료는 reviewed, 실제 사용자 수락은 approved와 `approval={by, at, evidence}`로 기록한다. 원장 안에 검토 자기 자신에 대한 순환 dependency를 만들지 않는다.
 
-사용자가 해당 버전을 수락한 뒤 **영상 제작으로 진행하라고 별도로 명시한 경우**에만 조정자(`creative-production`)가 모델/endpoint의 실시간 기능·스키마·가격을 확인해 실행 계획을 제안한다. 모델 미정인 검토 패키지를 유효하게 유지하며 실행자 기본 모델을 호출하지 않는다. 실행자는 조정자가 선택한 공급자의 소유자(`fal-video-production`은 Fal이 선택된 경우에만)다.
+사용자가 해당 버전을 수락하고 **그 버전의 영상 제작으로 진행하라는 명시적 의사**를 이미 제공했거나 새로 제공한 경우에만 조정자(`creative-production`)가 모델/endpoint의 실시간 기능·스키마·가격을 확인해 실행 계획을 제안한다. 모델 미정인 검토 패키지를 유효하게 유지하며 실행자 기본 모델을 호출하지 않는다. 실행자는 조정자가 선택한 공급자의 소유자(`fal-video-production`은 Fal이 선택된 경우에만)다.
 
 `type=video_execution_plan` artifact는 승인된 검토 패키지 버전에 의존하고, 샷 범위·모델/endpoint·시간/재시도/비용 상한을 명시한다. 이 범위에 대한 실제 사용자 실행/과금 승인 근거를 기록한 뒤에만 선택된 실행자에게 인계한다. 프리프로덕션 수락·이미지 승인·검사 성공·일반적인 제작 요청은 이 승인을 대신하지 않는다. 게시도 별도 사용자 요청이다. 최소 충분 영상 프리뷰와 최종 제작 승격 절차는 [생성 경로·비용 라우팅 §5](24-production-execution.md)를 따른다 — 프리뷰 승인은 최종 실행 허가가 아니다.
 
@@ -103,7 +103,7 @@ Other explicitly selected still-image or video providers retain their applicable
 3. 연기가 필요하면 04, 시각 기준은 05, 샷·블로킹은 06, 필요한 조명은 07을 작성한다. 상세 보드는 [완전한 스토리보드 계약](storyboard-contract.md)으로 카메라/수치 공간·VFX·대사/나레이션/립싱크를 먼저 통합한다. 필요한 전문가 입력이 패킷에 없으면 차단 슬롯을 씬/샷/비트 인덱스로 정리한 하나의 요구 입력 패킷을 조정자에게 반환하고, 반환된 소유자 패킷으로 보드 조립을 재개한다. 요구된 실제 공간 검증은 카메라·Blender 전문 스킬로 인계한다.
 4. 애니메이션 계획은 08, 편집·사운드·타이밍은 09, AI 인계는 11을 적용한다. 모든 비트→씬→샷→키패널을 매핑하고 필요한 이미지 슬롯/고유 이미지/시트 수를 계산한 뒤 실제 정지 이미지를 생성·등록·검사한다. 이미지 단독 전체 순서 검수를 대표 이미지나 텍스트 self-check로 대체하지 않는다.
 5. 14로 제작 일정·비용·에셋 원장을 작성하고 실제 납품 요청이면 15로 자막·출력 규격을 정한다. 12로 KEEP/FIX/미검증과 수정 사유·방식·추가 준비물·근거 있는 소요시간을 작성하고 승인 범위 안에서 수정→재검수한다. 프리뷰 영상/움직이는 렌더는 별도 승인된 실행 범위 안에서만 수행한다.
-6. 실제 산출물별 상태와 수정 의존성을 기록한다. `review.md`와 실제 파일 경로·이미지·검수 결과를 사용자에게 보고하고 검토 대기한다. 해당 버전의 프리프로덕션 수락과 별도 영상 실행 승인을 구분한다.
+6. 실제 산출물별 상태와 수정 의존성을 기록한다. `review.md`와 실제 파일 경로·이미지·검수 결과를 현재 목표의 인계에 사용한다. 요청 종료점·사용자 지정 대기·권한 차단은 위 규칙을 따른다. 해당 버전의 프리프로덕션 수락과 영상 실행 승인을 구분한다.
 7. `python scripts/validate_project.py <project.json> --profile plan`으로 ID·시간·참조를 검사한다. 실제 파일 납품은 `--profile delivery --base-dir <프로젝트폴더>`로 추가 검사한다. 이 검사는 감정·연기·미디어 디코딩·실제 영상 품질을 확인하지 않는다.
 상세 제작 보드는 `python scripts/validate_storyboard.py <project.json>`을 추가 적용하고(`--strict-rhythm`은 `storyboard.rhythm` 곡선 선언을 필수로 만든다) 실제 이미지 인계는 `--require-images --base-dir <프로젝트폴더>`로 검사한다. 최대 8패널 시트를 만든 직후 `scripts/split_storyboard.py --sheet <시트> ...`에 모든 시트를 순서대로 지정해 clean 패널·장면 overview를 분리·등록하고 전수 재열기 검수를 수행한다. 정확한 등록/완료 게이트는 [공통 패키지 계약](contract.md#전체-프리프로덕션-패키지)을 따른다. 구조/파일 통과는 실제 스토리텔링 품질을 증명하지 않는다.
 시퀀스 리듬 곡선을 선언한 프로젝트는 조립 후 `python scripts/measure_cut_rhythm.py --project <project.json> [--media <조립본> | --cuts <cuts.csv>] [--out <report.json>]`로 계획 대 실측을 대조한다. 보고서는 컷 길이·단조 구간·핸들 부족만 출력하고 `aesthetics: not_judged`를 포함한다 — 측정은 판정을 대신하지 않는다.

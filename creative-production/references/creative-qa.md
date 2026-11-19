@@ -32,6 +32,17 @@ For a requested full synopsis/script/storyboard package, the coordinator runs th
 - Check the requested delivery format and destination-specific conditions. A preview/API success is not a final encode.
 - When reference intent or project style is a requested criterion, use [production QA](../../video-production-assets/references/12-qa.md#레퍼런스-의도-대조-해당-작업만) for evidence-backed qualitative comparison and requested retrospectives.
 
+<a id="whole-film-review"></a>
+## Whole-film review
+
+For a finished-film goal, offer user review only after all three checks pass:
+
+1. Reconcile every required scene/cut in the current accepted edit plan with an inspected, adopted source interval (including approved reused footage). A missing, failed or unverified required cut is a blocker, not a placeholder or permission to drop it.
+2. Assemble those intervals with the required edit, audio/silence, captions and transitions and export the actual playable file. A list of takes or an edit plan does not qualify.
+3. Watch the export from start to finish and listen where applicable. Check cut edges, content and performance, visual/voice continuity, sync, mix and delivery format. Report exact output and actual evidence as **ready for user review**, not accepted or published.
+
+Keep first takes, completed scenes, intermediate boards and local repairs internal unless the user requests progress visibility or a checkpoint. Use [minimum take repair](../../video-production-assets/references/take-repair.md) for concrete defects. Continue independent work when a required cut is blocked; any partial output stays partial.
+
 ## Blender/3D and web
 
 - Open/render the actual Blender scene when that is the output. Check intended camera, scale, blocking and geometry against the source specification.

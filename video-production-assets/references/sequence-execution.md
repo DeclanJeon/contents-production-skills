@@ -90,6 +90,8 @@ actual tool/본문/첨부/설정이 다르면 오류다. returned는 전송 반�
 
 이것은 MCP 전역 interceptor나 서버 내부 관측기가 아니다. 실제 호출 기록/업로드 증거의 진실성도 자동 인증하지 않는다. 필요한 영상/음향 참조를 지원하지 않는 경로는 차단하고, 승인된 연속 음향 마스터/다른 확인된 경로를 별도 제안한다. 현재 이 준비기는 `native_reference`만 실행 준비하며, `editorial_reuse`를 설정하는 것으로 미지원 조건을 우회할 수 없다. 공급자·모델·새 TTS/음악·추가 비용·게시를 임의 변경하지 않는다.
 
+편집상 인접하지만 실제 생성에는 독립적인 컷은 `cross_cut` 또는 `intentional_discontinuity`이며 공유 경계 상태가 없을 때만 `generation_independence: {reason, source_locator}`로 기록한다. 이 경우 생성 단계에서 인접 컷만 요구하지 않는다. `history_shot_ids`의 실제 선행 참조와 음성 연속성, 최종 편집 단계의 인접 컷·경계 검사는 계속 필수다.
+
 ## 4. 사용할 실제 구간을 고르고 씬 단위로 편집한다
 
 원본 전체를 실제 검사한 뒤 앞/뒤 컷과 함께 선택한다. 각 컷에 `source_asset_id`, `source_in_frame/source_out_frame`, 실제 `source_fps/source_frame_count`, `final_in_frame/final_out_frame`, `playback_rate: 1`을 연결한다. 프레임은 0-based `[in,out)`다. 마지막 포함 프레임은 out−1이다. 초 단위 편집 표는 정수 프레임에서 파생한다.
@@ -98,7 +100,7 @@ actual tool/본문/첨부/설정이 다르면 오류다. returned는 전송 반�
 
 실제 양쪽 상태를 다시 관찰해 연결 행을 `evidence: observed`로 갱신한다. 전체 클립 판정·선택 구간 판정·편집 후 판정을 분리하고 과거 reject 기록을 지우지 않는다.
 
-현재 승인된 `edit_plan`에는 `execution_scope: {shot_ids: [...], operations: ["edit", "export"]}`를 둔다. `execution_artifact_id`와 현재 버전을 핀한다. `include_source_audio: true`는 실제 원본 혼합 음향을 사용한다. 별도 실제 음원이 있으면 `audio_tracks`에 `asset_id, source_in_s, source_out_s, final_start_s, gain_db, fade_in_s, fade_out_s`를 연결한다. 원본에 없는 stem을 발명하지 않는다. 무음 프로젝트는 두 경로 모두 비워 둔다.
+현재 승인된 `edit_plan`에는 `execution_scope: {shot_ids: [...], operations: ["edit", "export"]}`를 둔다. `execution_artifact_id`와 현재 버전을 핀한다. 렌더러는 출력 디렉터리를 만들기 전에 같은 계획에 `edit`과 `export`가 모두 있는지 확인한다. 후속 `--phase export`는 이미 등록된 출력의 검수이며 사전 권한 검사와 별개다. 사용자가 전체 작품이 아닌 일부 샷만 승인한 별도 편집물에 한해 현재 계획에 `execution_scope.deliverable: shot_subset`을 기록한다. 컷은 승인된 `shot_ids`와 정확히 일치해야 하며, 고정 길이는 해당 정본 샷 길이의 합이다. 이 표시는 미완성 전체 영화의 대체나 전체 영화 검수 근거가 아니다. 콘티 없이 제공 영상만 편집하는 경우에만 현재 승인된 계획의 `execution_scope.basis`를 `supplied_footage`로 표시한다. 정본에 `storyboard`가 없을 때만 요구 행의 `panel_ids: []`가 허용된다. 컷·요구·대사·실제 채택 구간과 경계 검사는 그대로 적용된다. `include_source_audio: true`는 실제 원본 혼합 음향을 사용한다. 별도 실제 음원이 있으면 `audio_tracks`에 `asset_id, source_in_s, source_out_s, final_start_s, gain_db, fade_in_s, fade_out_s`를 연결한다. 원본에 없는 stem을 발명하지 않는다. 무음 프로젝트는 두 경로 모두 비워 둔다.
 
 ```bash
 python scripts/inspect_sequence_frames.py <root>/project.json <root>/source/sequence-v01.json --mode source --output qa/source-review-v01
@@ -107,6 +109,8 @@ python scripts/render_sequence.py <root>/project.json <root>/source/sequence-v01
 ```
 
 `source` 비교 자료는 구간 검사 기록이 아직 없어도 실제 등록된 후보를 열어 검사할 수 있도록 생성한다. 검수 전 preview의 `quality`는 unverified다. 렌더는 필요한 실제 구간/경계/요구 검사 기록이 갖춰진 뒤에만 진행한다.
+
+자막 요구는 출력을 배정하기 전에 확인한다. V1 렌더러는 자막 트랙 삽입·번인을 지원하지 않으므로, 정본 `delivery_spec.caption_mode`가 `none` 이외의 자막 방식을 지정하거나, 프로젝트 자막 행 또는 `output_spec.captions` 요구가 있으면 출력 전에 차단한다. 승인된 자막 지원 편집기로 넘기거나 차단을 보고한다. 자막 없는 결과를 납품하지 않는다.
 
 V1 실행 범위는 **같은 CFR/FPS·해상도·1배속 원본의 프레임 정밀 트림, hard cut, 실제 음향 레이어 trim/offset/gain/fade/mix**다. libx264 MP4 또는 ffv1 Matroska를 지원한다. 다른 FPS/VFR/배속·디졸브·복잡 합성은 이 어댑터가 몰래 변환하지 않는다. 명시적으로 conform된 파생본과 raw 계보를 준비하거나 해당 승인된 별도 실행자로 인계한다. 지원하지 않는 연출을 삭제하지 않는다.
 

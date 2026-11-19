@@ -61,6 +61,22 @@ def test_generation_without_current_execution_plan_is_not_authorized(tmp_path):
     assert 'execution_authority' in {b['code'] for b in result['blockers']}
 
 
+def test_independent_editorial_neighbor_does_not_block_generation(tmp_path):
+    # Given: source-scoped cross-cut with no inherited state from the neighbor.
+    p, q = prepared_plan(tmp_path)
+    q['focus']['shot_ids'] = ['SH02']
+    q['links'][0].update(relation='cross_cut', state_in={}, state_out={},
+                        state_not_applicable_reason='No shared state',
+                        generation_independence={'reason': 'Separate subject and location',
+                                                 'source_locator': 'S02 in edit brief'})
+    # When
+    codes = {b['code'] for b in validate_sequence(p, q, 'generation', tmp_path)['blockers']}
+    # Then: only the generation dependency is waived, not submission authority.
+    assert 'predecessor_selection' not in codes
+    assert 'actual_state' not in codes
+    assert 'execution_authority' in codes
+
+
 def test_edit_without_actual_selected_sources_cannot_be_ready(tmp_path):
     # Given
     p, q = prepared_plan(tmp_path); q['execution_artifact_id'] = 'EDIT'

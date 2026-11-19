@@ -81,7 +81,7 @@
   },
   {
    "case_id": "C14",
-   "prompt": "단편영화 전체 제작 라이프사이클로 진행해줘",
+   "prompt": "단편영화 제작 단계와 단계별 인계 항목을 설명해줘",
    "route_id": "R14",
    "expected_owner": "video-production-assets"
   },
@@ -326,10 +326,10 @@
   },
   {
    "case_id": "B24",
-   "prompt": "단편 하나를 기획부터 배급까지 단계별로 진행해줘",
-   "route_id": "R14",
-   "expected_owner": "video-production-assets",
-   "boundary_note": "full lifecycle = R14"
+   "prompt": "단편 하나를 기획부터 완성본까지 만들어줘. 나중에 배급할 계획이야.",
+   "route_id": "R05",
+   "expected_owner": "orchestrating-video-preproduction",
+   "boundary_note": "finished-film goal starts at eligible text planning; later distribution is not publication authority"
   },
   {
    "case_id": "B25",
@@ -373,7 +373,7 @@
    "case_id": "D05",
    "route_id": "R14",
    "expected_owner": "video-production-assets",
-   "prompt": "단편 하나 이번 분기에 끝내야 해. 기획부터 배급까지 단계별로 잡아줘."
+   "prompt": "단편 하나 이번 분기에 끝내야 해. 지금은 실행 말고 단계별 인계 계획만 정리해줘."
   },
   {
    "case_id": "D06",
@@ -414,7 +414,7 @@
   {
    "case_id": "E06",
    "route_id": "R14",
-   "prompt": "스틸은 내가 줄 테니 그걸로 단편 하나 기획부터 배급까지 진행해줘.",
+   "prompt": "스틸은 내가 줄게. 영상 편집은 하지 말고 단편 제작 단계와 인계 방법만 안내해줘.",
    "expected_owner": "video-production-assets"
   },
   {
@@ -465,6 +465,30 @@
    "craft_probes": [
     "video-production-assets/references/edit-sound-language-catalog.md"
    ]
+  },
+  {
+   "case_id": "H01",
+   "prompt": "제공한 기존 영상 두 클립을 승인된 편집 계획대로 자막을 넣어 로컬에서 실제로 편집하고 출력해줘. 생성은 하지 마.",
+   "route_id": "R31",
+   "expected_owner": "video-production-assets"
+  },
+  {
+   "case_id": "H02",
+   "prompt": "기획·대본·콘티가 아직 없는 30초 영상 제작을 맡아줘. 지금은 영상·이미지 생성이나 지출 승인 없이 진행 가능한 단계부터 해줘.",
+   "route_id": "R05",
+   "expected_owner": "orchestrating-video-preproduction"
+  },
+  {
+   "case_id": "H03",
+   "prompt": "승인한 현재 실행 계획대로 Fal에서 이 샷 한 개를 실제로 생성해. 다른 공급자로 바꾸지 마.",
+   "route_id": "R32",
+   "expected_owner": "creative-production"
+  },
+  {
+   "case_id": "H04",
+   "prompt": "프로젝트 전체가 아니라 이미 검수·채택한 테이크 두 개만 승인된 편집 계획 범위대로 로컬에서 실제로 편집하고 출력해줘. 새로 생성하지 마.",
+   "route_id": "R31",
+   "expected_owner": "video-production-assets"
   }
  ]
 }

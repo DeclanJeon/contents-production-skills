@@ -97,17 +97,22 @@ def _checked_cuts(project: Mapping[str, Json], q: Mapping[str, Json], root: Path
     return paths, probes
 
 
-def _gate(project: Mapping[str, Json], q: Mapping[str, Json], phase: str, root: Path) -> None:
-    result = validate_sequence(project, q, phase, root)
+def _gate_before_encode(project: Mapping[str, Json], q: Mapping[str, Json], root: Path) -> None:
+    result = validate_sequence(project, q, 'edit', root, before_encode=True)
     if not result['ready']:
-        raise SequenceError('gate_blocked', phase, json.dumps(result['blockers'], ensure_ascii=False))
+        raise SequenceError('gate_blocked', 'edit', json.dumps(result['blockers'], ensure_ascii=False))
 
 
 def render_sequence(project: Mapping[str, Json], q: Mapping[str, Json],
                     root: Path, output: str) -> Document:
     """Render only a reviewed edit projection; retain sources and mark quality unverified."""
     root = root.resolve()
-    _gate(project, q, 'edit', root)
+    _gate_before_encode(project, q, root)
+    delivery_spec = project.get('delivery_spec', {})
+    caption_mode = delivery_spec.get('caption_mode') if isinstance(delivery_spec, Mapping) else None
+    if caption_mode not in (None, 'none') or project.get('captions') or q.get('output_spec', {}).get('captions'):
+        raise SequenceError('unsupported_captions', 'output_spec',
+                            'use an authorized caption-capable editor; V1 cannot deliver captions')
     paths, probes = _checked_cuts(project, q, root)
     fps = parse_fps(q['time_basis']['fps'])
     cuts = q['cuts']; total = cuts[-1]['final_out_frame']; duration = Fraction(total, 1) / fps

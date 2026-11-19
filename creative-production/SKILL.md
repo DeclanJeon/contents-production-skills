@@ -13,7 +13,13 @@ Sole coordinator and sole state writer for video production. Skills here are
 instruction modules; use the host's real tools and workers, not a presumed
 scheduler.
 
-## Step 1 — Route (read nothing else yet)
+## Step 1 — Goal, then current-stage route
+
+For an ordinary new video request, retain the finished video as the project goal.
+For an explicit limit, supplied-material workflow, or downstream-only request,
+retain that scope instead. The goal does not grant execution or spend authority.
+Select the current eligible stage separately; a route’s stop boundary ends the
+assignment, not an unfinished project goal.
 
 Read [routing.csv](references/routing.csv) and select exactly one `route_id`.
 Columns: `deliverable_kind`, `media_axis` (text_only / none_or_stills /
@@ -46,7 +52,16 @@ skill never sanctioned. Do not preload future craft, provider catalogs, or
 full-pipeline checklists. Two matches on one narrow artifact: pick the narrowest
 and say which one you skipped.
 
-`UNASSIGNED` means no route fits. Say so and ask for the missing slot instead of
+For an ordinary finished-video goal, keep the goal in the coordinator and route
+the next unfinished assignment, not the whole lifecycle: use R05 for needed
+multi-artifact text planning and R24 only with current image-backed execution
+authority. R14 is for explicitly requested film-lifecycle or stage-handoff
+guidance. A local edit/export of supplied footage or adopted takes uses R31
+and its own edit-plan gate. Assign selected authorized Higgsfield and Fal video
+operations to R28 and R32 respectively; R32 resolves `fal-video-production`
+from the host as a required optional owner before executing.
+
+`UNASSIGNED` means no current-stage route fits. Say so and ask for the missing slot instead of
 stretching a route.
 
 ## Step 2 — Apply policy
@@ -60,8 +75,13 @@ skill is wrong.
 
 Preserve language, exclusions, fixed facts, selected tools, continuity, source
 versions, and actual approvals. Reuse approved choices and the active interview
-flow. Ask only for consequential choices unavailable from tools or sources. A
-locked brief or a single artifact needs no project interview.
+flow. For a finished-video goal, use the [goal progression contract](references/production-routing.md#goal-progression)
+and hand off text planning in coordinator-delegated one-pass mode unless the
+user requested collaboration. A named stop changes the stopping point, not
+interaction mode: carry it in the handoff and work up to it. For “show me the
+script, then wait,” deliver the script without a routine earlier question and
+wait before downstream work. Actual blockers still apply. A locked brief or
+single artifact needs no project interview.
 
 For recurring production, multi-stage coordination, reuse of approved
 resources, or repeated output corrections, **REQUIRED SUB-SKILL:
@@ -103,6 +123,10 @@ dependencies are missing it also returns one indexed missing-input packet naming
 each scene/shot/beat slot, the required input, and the blocker. Select each
 missing owner from `routing.csv` once, integrate the return with inherited
 IDs and versions, and resume the blocked stage — no second intake or re-route.
+On a valid return, run applicable internal QA and take the next eligible stage
+until the project goal or explicit stop is reached. Progress updates never
+require an answer unless there is an actual gate. A blocked stage does not
+stop independent in-scope work.
 
 ## Step 5 — Persist and deliver
 
@@ -154,12 +178,14 @@ cuts, expression beats or dialogue.
 
 Keep video-model/endpoint choice unresolved during preproduction. Current-version
 review acceptance/readiness is not user acceptance, execution approval, or
-permission to run video. Only a separate proceed request opens the live-verified
-bounded plan under [video-generation-planning.md](references/video-generation-planning.md);
-actual submission waits for explicit execution and applicable spend approval.
+permission to run video. Open the live-verified bounded plan under
+[video-generation-planning.md](references/video-generation-planning.md) only
+on an explicit proceed request or existing explicit authority covering that
+plan. Submit only under current execution and applicable spend approval.
 
 Use [creative-qa.md](references/creative-qa.md) for the actual requested surface.
-Return file locations and `.history` record paths as each output is saved, with
-exercised checks and current lifecycle state. Distinguish plan, generated file,
+Record file and `.history` paths internally as work proceeds. Share the relevant
+paths, checks and lifecycle state at a requested checkpoint, a real blocker, or
+delivery. A progress update is not an approval pause. Distinguish plan, generated file,
 inspection, user acceptance, and publication. API success, prompts, empty
 directories, and predictions are not delivery.

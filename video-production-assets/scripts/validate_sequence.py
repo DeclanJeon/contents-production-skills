@@ -17,7 +17,7 @@ RELATIONS = frozenset(('continuous_action', 'angle_change', 'reaction', 'spatial
 
 
 def _inspect(project: Mapping[str, Json], q: Mapping[str, Json], phase: str,
-             root: Path | None) -> Document:
+             root: Path | None, *, before_encode: bool = False) -> Document:
     blockers = []
     def fail(code: str, where: str, detail: str) -> None:
         blockers.append({'code': code, 'locator': where, 'detail': detail})
@@ -87,13 +87,34 @@ def _inspect(project: Mapping[str, Json], q: Mapping[str, Json], phase: str,
     policy = q.get('policy', {})
     if not isinstance(policy, dict):
         raise SequenceError('projection_shape', 'policy', 'expected object')
-    if policy.get('duration', 'fixed') != 'flexible' and cursor != frame_at(project.get('target_duration_s'), fps):
-        fail('fixed_duration', 'timeline', 'fixed total duration changed')
+    execution_id = q.get('execution_artifact_id')
+    authority = artifacts.get(execution_id) if isinstance(execution_id, str) else None
+    scope = authority.get('execution_scope', {}) if authority else {}
+    scoped_shots = scope.get('shot_ids', []) if isinstance(scope, dict) else []
+    operations = scope.get('operations', []) if isinstance(scope, dict) else []
+    required_shots = set(shots)
+    target_frames = frame_at(project.get('target_duration_s'), fps)
+    subset_requested = phase in ('edit', 'export') and isinstance(scope, dict) and scope.get('deliverable') == 'shot_subset'
+    if subset_requested:
+        if (authority is not None and authority.get('type') == 'edit_plan'
+                and authority.get('status') == 'approved' and authority.get('approval')
+                and versions.get(execution_id) == authority.get('version')
+                and isinstance(scoped_shots, list) and scoped_shots
+                and all(isinstance(s, str) and s in shots for s in scoped_shots)
+                and len(set(scoped_shots)) == len(scoped_shots)
+                and set(scoped_shots) < required_shots):
+            required_shots = set(scoped_shots)
+            target_frames = sum(frame_at(shots[s]['end_s'], fps) - frame_at(shots[s]['start_s'], fps)
+                                for s in required_shots)
+        else:
+            fail('execution_scope', execution_id, 'shot_subset requires a current approved plan for a proper subset of canonical shots')
+    if policy.get('duration', 'fixed') != 'flexible' and cursor != target_frames:
+        fail('fixed_duration', 'timeline', 'fixed deliverable duration changed')
     if type(q.get('include_source_audio', False)) is not bool:
         raise SequenceError('projection_shape', 'include_source_audio', 'expected bool')
     covered_shots = {c.get('shot_id') for c in cuts}
-    if covered_shots != set(shots):
-        fail('shot_coverage', 'cuts', 'all canonical shots must remain covered; cannot erase requirements by dropping a shot')
+    if covered_shots != required_shots:
+        fail('shot_coverage', 'cuts', 'must cover exactly the required shots for the approved deliverable')
     focus = q.get('focus', {})
     generation_shots = focus.get('shot_ids', []) if isinstance(focus, dict) else []
     if phase == 'generation' and (not isinstance(generation_shots, list) or not generation_shots or
@@ -101,7 +122,9 @@ def _inspect(project: Mapping[str, Json], q: Mapping[str, Json], phase: str,
         raise SequenceError('generation_scope', 'focus', 'explicit current generation shot_ids required')
     panels = project.get('storyboard', {}).get('panels', [])
     panel_by_id = {p['id']: p for p in panels}
-    beats = {b['id']: b for b in project.get('storyboard', {}).get('beats', [])}
+    supplied_edit = (phase in ('edit', 'export') and 'storyboard' not in project
+                     and authority is not None and authority.get('type') == 'edit_plan'
+                     and isinstance(scope, dict) and scope.get('basis') == 'supplied_footage')
     expected = set()
     speech_by_id = {}
     for sid in covered_shots:
@@ -132,7 +155,7 @@ def _inspect(project: Mapping[str, Json], q: Mapping[str, Json], phase: str,
         if rspan.start < min(by_cut[c]['final_in_frame'] for c in ids) or rspan.end > max(by_cut[c]['final_out_frame'] for c in ids):
             fail('requirement_trimmed', key, 'required event outside selected timeline range')
         pids = req.get('panel_ids', [])
-        if not isinstance(pids, list) or not pids or any(not isinstance(pid, str) or pid not in panel_by_id or panel_by_id[pid]['shot_id'] != sid for pid in pids):
+        if not isinstance(pids, list) or (not pids and not supplied_edit) or any(not isinstance(pid, str) or pid not in panel_by_id or panel_by_id[pid]['shot_id'] != sid for pid in pids):
             fail('requirement_panel', key, 'bind actual planned evidence panels')
         if kind == 'direction' and sid in shots:
             canonical = {k: shots[sid].get(k) for k in ('purpose', 'camera', 'start_state', 'end_state')}
@@ -230,14 +253,15 @@ def _inspect(project: Mapping[str, Json], q: Mapping[str, Json], phase: str,
             fail('history_evidence', key, 'reappearance needs state history evidence, not edit neighbor alone')
         needs_predecessor = phase in ('edit', 'export') or phase == 'generation' and by_cut[b]['shot_id'] in generation_shots
         if needs_predecessor:
-            for predecessor in predecessor_cuts(q, link):
+            predecessors = predecessor_cuts(q, link, for_generation=phase == 'generation')
+            for predecessor in predecessors:
                 source_id = predecessor.get('source_asset_id')
                 if not isinstance(source_id, str) or source_id not in pins:
                     fail('predecessor_selection', predecessor['cut_id'], 'no actual registered selected predecessor/history exit')
                 elif phase == 'generation':
                     FrameSpan(predecessor.get('source_in_frame'), predecessor.get('source_out_frame'))
                     inspected('cut:' + predecessor['cut_id'], 'source_range', 'continuous_playback', [source_id], predecessor)
-            if phase == 'generation' and link.get('predecessor_state_evidence') != 'observed':
+            if phase == 'generation' and predecessors and link.get('predecessor_state_evidence') != 'observed':
                 fail('actual_state', key, 'predecessor exit must be observed before dependent generation')
         if phase in ('edit', 'export'):
             if link.get('evidence') != 'observed':
@@ -256,20 +280,15 @@ def _inspect(project: Mapping[str, Json], q: Mapping[str, Json], phase: str,
         fail('audio_policy', 'audio_tracks', 'silent deliverable cannot add source or external sound')
     authorized = False
     if phase != 'plan':
-        execution_id = q.get('execution_artifact_id')
-        authority = artifacts.get(execution_id) if isinstance(execution_id, str) else None
         required_type = 'video_execution_plan' if phase == 'generation' else 'edit_plan'
         authorized = bool(authority and authority.get('type') == required_type and authority.get('status') == 'approved'
                           and versions.get(execution_id) == authority.get('version') and authority.get('approval'))
         if not authorized:
             fail('execution_authority', 'execution_artifact_id', 'current approved, pinned execution/edit plan required')
         else:
-            scope = authority.get('execution_scope', {})
-            scoped_shots = scope.get('shot_ids', []) if isinstance(scope, dict) else []
-            operations = scope.get('operations', []) if isinstance(scope, dict) else []
-            if not isinstance(scoped_shots, list) or not all(isinstance(s, str) for s in scoped_shots) or not set(generation_shots if phase == 'generation' else covered_shots).issubset(scoped_shots) or phase not in operations:
-                fail('execution_scope', execution_id, 'approved scope must name every shot and this operation')
-        if authorized and cursor != frame_at(project.get('target_duration_s'), fps):
+            if not isinstance(scoped_shots, list) or not all(isinstance(s, str) for s in scoped_shots) or not set(generation_shots if phase == 'generation' else covered_shots).issubset(scoped_shots) or not isinstance(operations, list) or phase not in operations or (before_encode and 'export' not in operations):
+                fail('execution_scope', execution_id, 'approved scope must name every shot and operation; encoding requires edit and export')
+        if authorized and cursor != target_frames:
             if authority.get('timing_policy', {}).get('duration') != 'flexible':
                 fail('timing_authority', execution_id, 'length change lacks approved flexible timing policy')
     counts = {}
@@ -341,10 +360,10 @@ def _inspect(project: Mapping[str, Json], q: Mapping[str, Json], phase: str,
 
 
 def validate_sequence(project: Mapping[str, Json], projection: Mapping[str, Json],
-                      phase: str, base_dir: Path | None = None) -> Document:
+                      phase: str, base_dir: Path | None = None, *, before_encode: bool = False) -> Document:
     """Return actionable blockers; malformed external documents never become ready."""
     try:
-        return _inspect(project, projection, phase, base_dir)
+        return _inspect(project, projection, phase, base_dir, before_encode=before_encode)
     except SequenceError as exc:
         return {'ready': False, 'phase': phase, 'execution_authorized': False,
                 'blockers': [{'code': exc.code, 'locator': exc.locator, 'detail': exc.detail}],

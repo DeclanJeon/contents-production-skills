@@ -86,7 +86,7 @@ def validate_generation_handoff(project: Mapping[str, Json], q: Mapping[str, Jso
     related = []
     for link in incoming:
         try:
-            related.extend((link, cut) for cut in predecessor_cuts(q, link))
+            related.extend((link, cut) for cut in predecessor_cuts(q, link, for_generation=True))
         except SequenceError as exc:
             fail(exc.code, exc.locator, exc.detail)
     for link, cut in related:

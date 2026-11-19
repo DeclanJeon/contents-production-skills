@@ -91,8 +91,8 @@ def table(project: Mapping[str, Json], key: str) -> dict[str, Document]:
     return result
 
 
-def predecessor_cuts(projection: Mapping[str, Json], link: Mapping[str, Json]) -> list[Document]:
-    """Resolve edit predecessor plus every explicitly declared historical cut."""
+def predecessor_cuts(projection: Mapping[str, Json], link: Mapping[str, Json], *, for_generation: bool = False) -> list[Document]:
+    """Resolve the adjacent and historical sources, with a narrow generation exception."""
     cuts = projection['cuts']
     by_cut = {cut['cut_id']: cut for cut in cuts}
     primary = by_cut.get(link.get('from_cut_id'))
@@ -102,7 +102,18 @@ def predecessor_cuts(projection: Mapping[str, Json], link: Mapping[str, Json]) -
     history = link.get('history_shot_ids', [])
     if not isinstance(history, list) or not all(isinstance(sid, str) for sid in history):
         raise SequenceError('history_reference', str(link.get('key')), 'historical shot IDs required')
-    result = {primary['cut_id']: primary}
+    independence = link.get('generation_independence')
+    if for_generation and independence is not None:
+        if (not isinstance(independence, dict)
+                or not all(isinstance(independence.get(k), str) and independence[k].strip()
+                           for k in ('reason', 'source_locator'))
+                or link.get('relation') not in ('cross_cut', 'intentional_discontinuity')
+                or link.get('state_out') != {} or link.get('state_in') != {}):
+            raise SequenceError('generation_independence', str(link.get('key')),
+                                'requires sourced independence, a cross-cut/discontinuity and no shared boundary state')
+        result: dict[str, Document] = {}
+    else:
+        result = {primary['cut_id']: primary}
     for sid in history:
         matches = [cut for cut in cuts if cut['shot_id'] == sid]
         if not matches or sid == target['shot_id']:

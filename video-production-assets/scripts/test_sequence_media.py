@@ -77,6 +77,97 @@ def test_rendered_frames_match_exact_selected_sources(tmp_path):
     assert (tmp_path / result['manifest_path']).is_file()
 
 
+@pytest.mark.parametrize("scope", ["shot_subset", None, "extra_shot"])
+def test_render_distinguishes_approved_subset_from_incomplete_film(tmp_path, scope):
+    from test_validate_storyboard import panel, shot
+
+    p, q = prepared_edit(tmp_path)
+    p['target_duration_s'] = 6
+    p['shots'].append(shot('SH03', 4, 6, ('B04',)))
+    p['storyboard']['beats'].append({'id': 'B04', 'synopsis_locator': 'paragraph 4',
+                                    'event': 'third beat', 'emotion': 'calm'})
+    p['storyboard']['panels'].extend([
+        panel('P06', 'SH03', 4, 'start', 'IM01', ('B04',)),
+        panel('P07', 'SH03', 143 / 24, 'end', 'IM02', ('B04',)),
+    ])
+    approved = next(a for a in p['artifacts'] if a['id'] == 'EDIT')['execution_scope']
+    if scope is not None:
+        approved['deliverable'] = 'shot_subset'
+    if scope == 'extra_shot':
+        approved['shot_ids'].append('SH03')
+
+    if scope == 'shot_subset':
+        result = render_sequence(p, q, tmp_path, 'subset')
+        assert result['probe']['frame_count'] == 96
+        assert result['quality'] == 'unverified'
+    else:
+        with pytest.raises(SequenceError, match='shot_coverage'):
+            render_sequence(p, q, tmp_path, 'subset')
+        assert not (tmp_path / 'subset').exists()
+
+
+def test_render_accepts_approved_supplied_footage_without_board(tmp_path):
+    # Given: actual local footage and a current edit plan with no storyboard.
+    p, q = prepared_edit(tmp_path)
+    p.pop('storyboard')
+    for shot in p['shots']:
+        shot.pop('beat_ids', None)
+    authority = next(row for row in p['artifacts'] if row['id'] == 'EDIT')
+    authority['execution_scope']['basis'] = 'supplied_footage'
+    q['requirements'] = [req for req in q['requirements'] if req['kind'] != 'beat']
+    for req in q['requirements']:
+        req['panel_ids'] = []
+    # When: run the real local renderer.
+    result = render_sequence(p, q, tmp_path, 'boardless')
+    # Then: only actual selected ranges appear in the exported timeline.
+    expected = frame_hashes(tmp_path / 'VIDEO0.mkv')[12:60] + frame_hashes(tmp_path / 'VIDEO1.mkv')[24:72]
+    assert frame_hashes(tmp_path / result['video_path']) == expected
+
+
+def test_supplied_footage_flag_cannot_erase_existing_panel_evidence(tmp_path):
+    # Given: a board-driven edit with one missing panel link.
+    p, q = prepared_edit(tmp_path)
+    authority = next(row for row in p['artifacts'] if row['id'] == 'EDIT')
+    authority['execution_scope']['basis'] = 'supplied_footage'
+    q['requirements'][0]['panel_ids'] = []
+    # When / Then: the explicit flag cannot bypass existing storyboard QA.
+    with pytest.raises(SequenceError, match='requirement_panel'):
+        render_sequence(p, q, tmp_path, 'invalid')
+    assert not (tmp_path / 'invalid').exists()
+
+
+def test_render_requires_export_authority_before_writing(tmp_path):
+    # Given: edit authority alone.
+    p, q = prepared_edit(tmp_path)
+    authority = next(row for row in p['artifacts'] if row['id'] == 'EDIT')
+    authority['execution_scope']['operations'] = ['edit']
+    # When / Then: rendering refuses to create even an output directory.
+    with pytest.raises(SequenceError, match='execution_scope'):
+        render_sequence(p, q, tmp_path, 'not-authorized')
+    assert not (tmp_path / 'not-authorized').exists()
+
+
+def test_captioned_edit_does_not_silently_render_without_captions(tmp_path):
+    # Given
+    p, q = prepared_edit(tmp_path)
+    p['captions'] = [{'id': 'CAP01', 'start_s': 0, 'end_s': 1, 'text': 'Hello'}]
+    # When / Then
+    with pytest.raises(SequenceError, match='unsupported_captions'):
+        render_sequence(p, q, tmp_path, 'captionless')
+    assert not (tmp_path / 'captionless').exists()
+
+
+@pytest.mark.parametrize('mode', ['burned_in', 'sidecar'])
+def test_delivery_caption_mode_blocks_render_even_without_cues(tmp_path, mode):
+    # Given: only the canonical delivery specification requires captions.
+    p, q = prepared_edit(tmp_path)
+    p['delivery_spec']['caption_mode'] = mode
+    # When / Then: the unsupported delivery cannot write an output.
+    with pytest.raises(SequenceError, match='unsupported_captions'):
+        render_sequence(p, q, tmp_path, 'captionless')
+    assert not (tmp_path / 'captionless').exists()
+
+
 def test_existing_output_is_not_overwritten(tmp_path):
     # Given
     p, q = prepared_edit(tmp_path)
