@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 2.3
+version: 2.4
 description: Use only when the user explicitly requests video production or creation of
   a storyboard sheet for a video. Do not use for other content creation/adaptation,
   standalone writing, social posts, campaigns, audio, images, ordinary design, or
@@ -12,6 +12,18 @@ description: Use only when the user explicitly requests video production or crea
 Sole coordinator and sole state writer for video production. Skills here are
 instruction modules; use the host's real tools and workers, not a presumed
 scheduler.
+
+## Step 0 — Upfront intake (once per new project)
+
+For a new finished-video goal whose concept, format, narrative structure or
+direction is still open, route R33 to `concept-intake-design` first: it judges
+the nine intake factors, asks the open axes in one batched turn, and returns a
+checked, scored concept packet. That packet is the project's only intake; every
+later owner inherits it and never re-interviews. Skip Step 0 for a locked brief,
+an approved concept, a single named artifact, or a resumed project. Delegated
+choices stay `inferred`; pre-accepted review gates never open spend. The
+stage-by-stage owner map and the CineForge CLI handoff contract are in
+[skill-map.md](references/skill-map.md).
 
 ## Step 1 — Goal, then current-stage route
 

@@ -489,6 +489,25 @@
    "prompt": "프로젝트 전체가 아니라 이미 검수·채택한 테이크 두 개만 승인된 편집 계획 범위대로 로컬에서 실제로 편집하고 출력해줘. 새로 생성하지 마.",
    "route_id": "R31",
    "expected_owner": "video-production-assets"
+  },
+  {
+   "case_id": "I01",
+   "prompt": "새 숏드라마 시작하려는데 형식·장르·서사 구조·연출을 먼저 한 번에 골라서 콘셉트 조합이랑 점수까지만 내줘. 기획안은 아직 쓰지 마.",
+   "route_id": "R33",
+   "expected_owner": "concept-intake-design"
+  },
+  {
+   "case_id": "I02",
+   "prompt": "60초 영상 만들 건데 아직 아무것도 안 정했어. 필요한 선택지를 처음에 다 물어보고 어울리는지 검사해줘.",
+   "route_id": "R33",
+   "expected_owner": "concept-intake-design"
+  },
+  {
+   "case_id": "B26",
+   "prompt": "처음에 정할 것들 다 정했으면 이제 시놉시스, 캐릭터, 콘티를 텍스트로 이어서 한 패키지로 써줘.",
+   "route_id": "R05",
+   "expected_owner": "orchestrating-video-preproduction",
+   "boundary_note": "selection already finished and the ask is several written artifacts = multi-artifact plan, not the upfront selection pass"
   }
  ]
 }

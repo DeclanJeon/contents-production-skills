@@ -34,3 +34,5 @@ R24,R31,R24 makes the image-backed package; R31 starts from supplied moving foot
 R28,R31,R28 submits a selected Higgsfield operation; R31 edits or exports locally without a generation submission
 R28,R32,R28 is the selected Higgsfield operation; R32 is selected Fal with its optional owner
 R31,R32,R31 assembles already available moving footage; R32 executes an authorized Fal video generation operation
+R02,R33,R02 writes one concept or synopsis; R33 only selects and scores open concept axes before writing
+R05,R33,R33 picks and checks the concept once up front; R05 then writes the multi-artifact plan from it
