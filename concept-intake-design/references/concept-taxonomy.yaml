@@ -1,0 +1,424 @@
+# CineForge 콘셉트 라이브러리 (Concept Library) — 정본(canonical source)
+# source: user = 사용자 요구사항([t74u])에 그대로 있던 항목, proposed = 설계 시 보강한 항목
+# 이 파일은 `cineforge taxonomy export`로 스킬 저장소의
+# concept-intake-design/references/concept-taxonomy.yaml 에 그대로 복사된다(수정은 여기서만).
+version: 1.0.0
+selection_order: [format, culture_style, era, genre, subgenre, romance_concept, world, story_nature,
+  setting, relationship, narrative, direction, emotion_arc, visual_aesthetic, production_method,
+  hook, duration, aspect]
+axes:
+  # ① 콘텐츠 형식 — 12개 대분류
+  - id: format
+    ko: 콘텐츠 형식
+    final_axis: 1
+    select: one
+    required: true
+    groups:
+      - {id: drama_film, ko: 드라마·극영화, source: user, items: [
+          {id: short_drama, ko: 숏드라마}, {id: web_drama, ko: 웹드라마}, {id: micro_drama, ko: 마이크로드라마},
+          {id: short_film, ko: 단편영화}, {id: sitcom, ko: 시트콤}, {id: sketch_comedy, ko: 스케치 코미디},
+          {id: omnibus, ko: 옴니버스}, {id: miniseries, ko: 미니시리즈}, {id: interactive_drama, ko: 인터랙티브 드라마}]}
+      - {id: cinematic, ko: 영화적 영상, source: user, items: [
+          {id: cinematic_short, ko: 시네마틱 쇼트}, {id: silent_film, ko: 무성영화}, {id: experimental_film, ko: 실험영화},
+          {id: visual_poem, ko: 비주얼 포엠}, {id: concept_film, ko: 콘셉트 필름}, {id: mood_film, ko: 무드 필름},
+          {id: trailer_film, ko: 트레일러형 영화}]}
+      - {id: documentary, ko: 다큐멘터리, source: user, items: [
+          {id: short_doc, ko: 숏다큐}, {id: human_doc, ko: 휴먼다큐}, {id: observational_doc, ko: 관찰다큐},
+          {id: nature_doc, ko: 자연다큐}, {id: history_doc, ko: 역사다큐}, {id: crime_doc, ko: 범죄다큐},
+          {id: fake_doc, ko: 페이크 다큐}, {id: mockumentary, ko: 모큐멘터리}]}
+      - {id: entertainment, ko: 예능·엔터테인먼트, source: user, items: [
+          {id: reality_show, ko: 리얼리티쇼}, {id: variety, ko: 버라이어티}, {id: hidden_camera, ko: 몰래카메라},
+          {id: challenge, ko: 챌린지}, {id: situation_play, ko: 상황극}, {id: parody, ko: 패러디},
+          {id: reaction, ko: 리액션}, {id: game_show, ko: 게임쇼}]}
+      - {id: education, ko: 정보·교육, source: user, items: [
+          {id: explainer, ko: 설명형 영상}, {id: infotainment, ko: 인포테인먼트}, {id: tutorial, ko: 튜토리얼},
+          {id: lecture, ko: 강의}, {id: knowledge_short, ko: 지식 숏폼}, {id: fact_check, ko: 팩트체크},
+          {id: experiment, ko: 실험·검증}, {id: comparison, ko: 비교 분석}]}
+      - {id: advertising, ko: 광고·브랜디드, source: user, items: [
+          {id: cf, ko: CF}, {id: brand_film, ko: 브랜드 필름}, {id: product_ad, ko: 제품 광고},
+          {id: ugc_ad, ko: UGC 광고}, {id: viral_ad, ko: 바이럴 광고}, {id: fashion_film, ko: 패션 필름},
+          {id: teaser, ko: 티저}, {id: campaign_film, ko: 캠페인 필름}]}
+      - {id: music, ko: 음악·퍼포먼스, source: user, items: [
+          {id: music_video, ko: 뮤직비디오}, {id: lyric_video, ko: 리릭비디오}, {id: dance_film, ko: 댄스필름},
+          {id: performance_video, ko: 퍼포먼스 비디오}, {id: live_session, ko: 라이브 세션}, {id: visualizer, ko: 비주얼라이저}]}
+      - {id: animation, ko: 애니메이션, source: user, items: [
+          {id: anim_2d, ko: 2D 애니메이션}, {id: anim_3d, ko: 3D 애니메이션}, {id: stop_motion, ko: 스톱모션},
+          {id: stickman, ko: 스틱맨}, {id: motion_comic, ko: 모션코믹}, {id: animatic, ko: 애니매틱},
+          {id: cutout_animation, ko: 컷아웃 애니메이션}]}
+      - {id: lifestyle, ko: 일상·라이프스타일, source: user, items: [
+          {id: vlog, ko: 브이로그}, {id: cinematic_vlog, ko: 시네마틱 브이로그}, {id: travelogue, ko: 여행기},
+          {id: daily_record, ko: 일상 기록}, {id: routine, ko: 루틴}, {id: emotional_essay, ko: 감성 에세이},
+          {id: growth_record, ko: 성장 기록}]}
+      - {id: talk, ko: 인터뷰·토크, source: user, items: [
+          {id: interview, ko: 인터뷰}, {id: talk_show, ko: 토크쇼}, {id: podcast_video, ko: 팟캐스트 영상},
+          {id: street_interview, ko: 거리 인터뷰}, {id: debate, ko: 토론}, {id: counseling, ko: 상담},
+          {id: monologue, ko: 1인 독백}]}
+      - {id: immersive, ko: 실험·몰입형, source: user, items: [
+          {id: pov_video, ko: POV 영상}, {id: first_person, ko: 1인칭 체험}, {id: found_footage, ko: 파운드 푸티지},
+          {id: screenlife, ko: 스크린라이프}, {id: asmr, ko: ASMR}, {id: slow_cinema, ko: 슬로 시네마},
+          {id: surreal_video, ko: 초현실 영상}]}
+      - {id: social, ko: 소셜·참여형, source: user, items: [
+          {id: meme, ko: 밈}, {id: shortform_challenge, ko: 숏폼 챌린지}, {id: comment_based, ko: 댓글 기반 콘텐츠},
+          {id: choice_story, ko: 선택형 스토리}, {id: duet, ko: 듀엣}, {id: remix, ko: 리믹스},
+          {id: interactive_video, ko: 인터랙티브 영상}]}
+
+  # ② 국가·문화권 + 드라마 스타일
+  - id: culture_style
+    ko: 국가·문화권 / 드라마 스타일
+    final_axis: 2
+    select: one
+    required: false
+    groups:
+      - {id: korea, ko: 한국, source: user, items: [
+          {id: k_drama, ko: K-드라마, desc: "강한 감정선, 인물 관계, 로맨스, 반전"},
+          {id: kr_makjang, ko: 한국 막장 드라마, desc: "출생의 비밀, 불륜, 복수, 재벌가 갈등"},
+          {id: kr_daily, ko: 한국 일일드라마, desc: "가족 갈등, 생활 밀착형 서사"},
+          {id: kr_weekend, ko: 한국 주말드라마, desc: "가족애, 세대 갈등, 결혼"},
+          {id: kr_youth, ko: 한국 청춘드라마, desc: "첫사랑, 우정, 성장, 취업"}]}
+      - {id: japan, ko: 일본, source: user, items: [
+          {id: jp_trendy, ko: 일본 트렌디 드라마, desc: "도시 생활, 연애, 직장인 감성"},
+          {id: jp_pure_romance, ko: 일본 순정 드라마, desc: "섬세한 감정, 짝사랑, 잔잔한 로맨스"},
+          {id: jp_school, ko: 일본 학원물, desc: "동아리, 학교생활, 청춘"},
+          {id: jp_tokusatsu, ko: 일본 특촬물, desc: "변신 히어로, 괴수, 실물 특수효과"}]}
+      - {id: china_taiwan, ko: 중국·대만, source: user, items: [
+          {id: cn_costume, ko: 중국 고장극, desc: "중국 고대 배경의 궁중·시대극"},
+          {id: cn_xianxia, ko: 중국 선협극, desc: "신선, 수련, 윤회, 초월적 사랑"},
+          {id: cn_wuxia, ko: 중국 무협극, desc: "강호, 문파, 무공, 복수"},
+          {id: cn_modern_romance, ko: 중국 현대로맨스, desc: "도시, 계약연애, 재벌 로맨스"},
+          {id: tw_youth_romance, ko: 대만 청춘 로맨스, desc: "학창 시절 첫사랑, 추억, 감성"}]}
+      - {id: west, ko: 미국·유럽, source: user, items: [
+          {id: us_highteen, ko: 미국 하이틴 드라마, desc: "학교 내 계층, 파티, 연애, 정체성"},
+          {id: us_sitcom, ko: 미국 시트콤, desc: "상황 중심 코미디, 재치 있는 대사"},
+          {id: uk_crime, ko: 영국 범죄 드라마, desc: "절제된 연기, 수사, 심리전"},
+          {id: nordic_noir, ko: 북유럽 느와르, desc: "차가운 색감, 어두운 범죄 미스터리"}]}
+      - {id: world_other, ko: 기타 문화권, source: user, items: [
+          {id: bollywood, ko: 인도 볼리우드, desc: "극적 감정, 음악, 춤, 가족 서사"},
+          {id: turkish_melo, ko: 튀르키예 멜로드라마, desc: "가족, 운명적 사랑, 격정적인 감정"},
+          {id: telenovela, ko: 라틴 텔레노벨라, desc: "사랑, 배신, 가족 비밀, 극적인 반전"},
+          {id: thai_bl_gl, ko: 태국 BL·GL 드라마, desc: "관계 중심 로맨스, 성장, 감정 갈등"}]}
+
+  # ③ 시대·시대감
+  - id: era
+    ko: 시대·시대감
+    final_axis: 3
+    select: one
+    required: false
+    groups:
+      - {id: historical, ko: 역사, source: user, items: [{id: joseon, ko: 조선시대}]}
+      - {id: historical_ext, ko: 역사(보강), source: proposed, items: [
+          {id: three_kingdoms_kr, ko: 삼국·고려시대}, {id: ancient_china, ko: 고대 중국}, {id: medieval_europe, ko: 중세 유럽},
+          {id: c19, ko: 19세기·개화기}, {id: y1970s, ko: 1970년대}, {id: y1980s, ko: 1980년대}]}
+      - {id: modern, ko: 근현대, source: user, items: [
+          {id: y1990s, ko: 1990년대}, {id: y2k, ko: Y2K}, {id: present, ko: 현대}, {id: near_future, ko: 근미래}]}
+      - {id: modern_ext, ko: 근현대(보강), source: proposed, items: [{id: y2010s, ko: 2010년대}, {id: far_future, ko: 먼 미래}]}
+
+  # ④ 핵심 장르 → ⑤ 하위 장르 (그룹=핵심 장르, 항목=하위 장르)
+  - id: genre
+    ko: 핵심 장르
+    final_axis: 4
+    select: many
+    max: 2
+    required: true
+    groups:
+      - {id: romance, ko: 로맨스·감성, source: user, items: [{id: romance, ko: 로맨스}, {id: melodrama, ko: 멜로·감성}]}
+      - {id: horror_thriller, ko: 공포·스릴러, source: user, items: [{id: horror, ko: 공포}, {id: thriller, ko: 스릴러}]}
+      - {id: fantasy_sf_action, ko: 판타지·SF·액션, source: user, items: [{id: fantasy, ko: 판타지}, {id: sf, ko: SF}, {id: action, ko: 액션}]}
+      - {id: comedy_satire, ko: 코미디·풍자, source: user, items: [{id: comedy, ko: 코미디}, {id: satire, ko: 풍자}]}
+      - {id: drama_ext, ko: 드라마(보강), source: proposed, items: [{id: drama, ko: 드라마}, {id: mystery, ko: 미스터리}]}
+  - id: subgenre
+    ko: 하위 장르
+    final_axis: 5
+    select: many
+    max: 3
+    required: false
+    groups:
+      - {id: romance, ko: 로맨스·감성, parent_genre: [romance, melodrama, drama], source: user, items: [
+          {id: first_love, ko: 첫사랑}, {id: reunion, ko: 재회}, {id: crush, ko: 짝사랑}, {id: breakup, ko: 이별},
+          {id: family_love, ko: 가족애}, {id: human_drama, ko: 휴먼드라마}, {id: coming_of_age, ko: 성장물}, {id: healing, ko: 힐링}]}
+      - {id: horror_thriller, ko: 공포·스릴러, parent_genre: [horror, thriller, mystery], source: user, items: [
+          {id: zombie, ko: 좀비}, {id: psychological_horror, ko: 심리공포}, {id: mystery, ko: 미스터리}, {id: suspense, ko: 서스펜스},
+          {id: survival, ko: 생존}, {id: disaster, ko: 재난}, {id: crime, ko: 범죄}, {id: detective, ko: 추리}]}
+      - {id: fantasy_sf_action, ko: 판타지·SF·액션, parent_genre: [fantasy, sf, action], source: user, items: [
+          {id: murim, ko: 무협}, {id: xianxia, ko: 선협}, {id: superpower, ko: 초능력}, {id: time_loop, ko: 타임루프},
+          {id: parallel_world, ko: 평행세계}, {id: dystopia, ko: 디스토피아}, {id: kaiju, ko: 괴수}, {id: cyberpunk, ko: 사이버펑크}]}
+      - {id: comedy_satire, ko: 코미디·풍자, parent_genre: [comedy, satire], source: user, items: [
+          {id: black_comedy, ko: 블랙코미디}, {id: everyday_comedy, ko: 일상 코미디}, {id: romcom, ko: 로맨틱 코미디},
+          {id: absurdist, ko: 부조리극}, {id: social_satire, ko: 사회풍자}, {id: parody, ko: 패러디}, {id: slapstick, ko: 슬랩스틱}]}
+
+  # 로맨스 콘셉트 (하위 장르 확장 라이브러리)
+  - id: romance_concept
+    ko: 로맨스 콘셉트
+    final_axis: 5
+    select: one
+    required: false
+    groups:
+      - {id: romance_concepts, ko: 로맨스 콘셉트, source: user, items: [
+          {id: classic_romance, ko: 정통 로맨스, desc: "두 사람의 사랑과 관계 변화"},
+          {id: romantic_comedy, ko: 로맨틱 코미디, desc: "사랑과 유머"},
+          {id: romance_fantasy, ko: 로맨스 판타지, desc: "마법, 운명, 귀족, 이세계"},
+          {id: period_romance, ko: 시대극 로맨스, desc: "역사적 배경 속 사랑"},
+          {id: palace_romance, ko: 궁중 로맨스, desc: "왕족, 신분 차이, 궁중 정치"},
+          {id: chaebol_romance, ko: 재벌 로맨스, desc: "신분 차이, 계약연애"},
+          {id: office_romance, ko: 오피스 로맨스, desc: "직장 동료, 상사와 부하"},
+          {id: school_romance, ko: 학원 로맨스, desc: "첫사랑, 짝사랑, 우정"},
+          {id: youth_romance, ko: 청춘 로맨스, desc: "성장, 불완전한 사랑"},
+          {id: timeslip_romance, ko: 타임슬립 로맨스, desc: "과거와 현재를 넘나드는 사랑"},
+          {id: regression_romance, ko: 회귀 로맨스, desc: "과거로 돌아가 사랑을 다시 선택"},
+          {id: reincarnation_romance, ko: 환생 로맨스, desc: "전생의 인연"},
+          {id: possession_romance, ko: 빙의 로맨스, desc: "소설·게임 속 인물로 살아가기"},
+          {id: contract_marriage, ko: 계약결혼 로맨스, desc: "가짜 관계에서 진짜 사랑으로"},
+          {id: enemies_to_lovers, ko: 혐관 로맨스, desc: "서로 싫어하다 사랑하게 되는 관계"},
+          {id: salvation_romance, ko: 구원 로맨스, desc: "서로의 상처를 치유"},
+          {id: obsession_romance, ko: 집착 로맨스, desc: "강한 소유욕과 관계 갈등"},
+          {id: forbidden_love, ko: 금지된 사랑, desc: "사회적·개인적 제약"},
+          {id: love_triangle, ko: 삼각관계 로맨스, desc: "세 사람의 감정 갈등"},
+          {id: reunion_romance, ko: 재회 로맨스, desc: "헤어진 연인들의 재회"},
+          {id: amnesia_romance, ko: 기억상실 로맨스, desc: "잃어버린 기억과 사랑"},
+          {id: zombie_romance, ko: 좀비 로맨스, desc: "생존 상황 속 사랑"},
+          {id: vampire_romance, ko: 뱀파이어 로맨스, desc: "인간과 초자연적 존재의 사랑"},
+          {id: ai_romance, ko: AI 로맨스, desc: "인간과 인공지능 사이의 관계"}]}
+
+  # ⑥ 세계관 (기본 + 판타지·세계관 콘셉트)
+  - id: world
+    ko: 세계관
+    final_axis: 6
+    select: one
+    required: false
+    groups:
+      - {id: base, ko: 기본 세계관, source: user, items: [
+          {id: reality, ko: 현실}, {id: alt_history, ko: 대체역사}, {id: magic, ko: 마법}, {id: apocalypse, ko: 아포칼립스}, {id: isekai_base, ko: 이세계}]}
+      - {id: fantasy_world, ko: 판타지·세계관 콘셉트, source: user, items: [
+          {id: high_fantasy, ko: 하이 판타지, desc: "독립된 세계, 종족, 마법 체계"},
+          {id: low_fantasy, ko: 로우 판타지, desc: "현실 세계에 초자연적 요소 개입"},
+          {id: urban_fantasy, ko: 어반 판타지, desc: "현대 도시와 마법의 결합"},
+          {id: dark_fantasy, ko: 다크 판타지, desc: "잔혹하고 어두운 판타지 세계"},
+          {id: romance_fantasy_world, ko: 로맨스 판타지, desc: "사랑, 마법, 귀족, 운명"},
+          {id: oriental_fantasy, ko: 동양 판타지, desc: "신선, 요괴, 도술, 영물"},
+          {id: murim_world, ko: 무협, desc: "강호, 무공, 문파, 비급"},
+          {id: xianxia_world, ko: 선협, desc: "수련, 영생, 신선, 천계"},
+          {id: fusion_sageuk, ko: 퓨전 사극, desc: "역사와 판타지의 결합"},
+          {id: isekai, ko: 이세계물, desc: "다른 세계로 이동"},
+          {id: regression, ko: 회귀물, desc: "과거 시점으로 돌아감"},
+          {id: reincarnation, ko: 환생물, desc: "새로운 인생으로 다시 태어남"},
+          {id: possession, ko: 빙의물, desc: "다른 인물의 몸이나 역할로 들어감"},
+          {id: hunter, ko: 헌터물, desc: "던전, 몬스터, 능력자"},
+          {id: academy, ko: 아카데미물, desc: "특수 능력을 배우는 학교"},
+          {id: system, ko: 시스템물, desc: "퀘스트, 레벨업, 상태창"},
+          {id: constellation, ko: 성좌물, desc: "초월적 존재의 후원과 경쟁"},
+          {id: game_fantasy, ko: 게임 판타지, desc: "게임 규칙이 현실을 지배"},
+          {id: steampunk, ko: 스팀펑크, desc: "증기기관 기반의 가상 기술 문명"},
+          {id: cyberpunk_world, ko: 사이버펑크, desc: "고도 기술과 사회적 불평등"},
+          {id: dieselpunk, ko: 디젤펑크, desc: "산업·전쟁 시대의 복고 미래상"},
+          {id: post_apocalypse, ko: 포스트 아포칼립스, desc: "문명 붕괴 이후의 세계"},
+          {id: zombie_apocalypse, ko: 좀비 아포칼립스, desc: "감염과 생존"},
+          {id: cosmic_horror, ko: 코즈믹 호러, desc: "인간이 이해할 수 없는 우주적 공포"}]}
+
+  # 드라마의 이야기 성격별 콘셉트
+  - id: story_nature
+    ko: 이야기 성격
+    final_axis: 5
+    select: one
+    required: false
+    groups:
+      - {id: story_nature, ko: 이야기 성격별 콘셉트, source: user, items: [
+          {id: makjang, ko: 막장 드라마, desc: "극단적인 관계 갈등과 충격적 사건"},
+          {id: cider, ko: 사이다 드라마, desc: "억울함을 통쾌하게 해결"},
+          {id: revenge, ko: 복수극, desc: "배신과 응징"},
+          {id: picaresque, ko: 피카레스크, desc: "도덕적으로 결함 있는 인물이 중심"},
+          {id: antihero, ko: 안티히어로물, desc: "전형적인 영웅과 다른 주인공"},
+          {id: growth_drama, ko: 성장 드라마, desc: "인물의 내적 변화"},
+          {id: healing_drama, ko: 치유·힐링 드라마, desc: "상처 회복, 위로"},
+          {id: family_drama, ko: 가족 드라마, desc: "부모, 자녀, 형제 관계"},
+          {id: workplace_drama, ko: 직장 드라마, desc: "조직과 인간관계"},
+          {id: legal_drama, ko: 법정 드라마, desc: "재판, 정의, 갈등"},
+          {id: medical_drama, ko: 메디컬 드라마, desc: "의료 현장의 인간관계"},
+          {id: political_drama, ko: 정치 드라마, desc: "권력, 음모, 선택"},
+          {id: crime_investigation, ko: 범죄 수사물, desc: "사건 해결과 추적"},
+          {id: psychological_thriller, ko: 심리 스릴러, desc: "인간 심리와 불신"},
+          {id: death_game, ko: 데스게임, desc: "생존 경쟁과 선택"},
+          {id: disaster_drama, ko: 재난 드라마, desc: "위기 상황의 인간 군상"},
+          {id: locked_room, ko: 밀실극, desc: "제한된 공간에서 벌어지는 갈등"},
+          {id: ensemble, ko: 군상극, desc: "여러 인물의 이야기가 교차"},
+          {id: omnibus_story, ko: 옴니버스극, desc: "독립된 여러 이야기"},
+          {id: fake_documentary, ko: 페이크 다큐, desc: "실제 기록처럼 연출한 허구"},
+          {id: black_comedy_story, ko: 블랙코미디, desc: "불편한 현실을 웃음으로 풍자"},
+          {id: absurd_comedy, ko: 부조리 코미디, desc: "비논리적 상황 자체에서 웃음 유발"},
+          {id: slice_of_life, ko: 일상물, desc: "특별한 사건보다 일상의 감정과 관계 중심"}]}
+
+  # ⑦ 소재·배경
+  - id: setting
+    ko: 소재·배경
+    final_axis: 7
+    select: many
+    max: 3
+    required: false
+    groups:
+      - {id: setting, ko: 소재·배경, source: user, items: [
+          {id: school, ko: 학교}, {id: workplace, ko: 직장}, {id: chaebol_house, ko: 재벌가}, {id: palace, ko: 궁전},
+          {id: church, ko: 교회}, {id: hospital, ko: 병원}]}
+      - {id: setting_ext, ko: 소재·배경(보강), source: proposed, items: [
+          {id: interview_room, ko: 면접실}, {id: cafe, ko: 카페}, {id: convenience_store, ko: 편의점}, {id: subway, ko: 지하철},
+          {id: apartment, ko: 아파트}, {id: rooftop, ko: 옥상}, {id: alley, ko: 골목}, {id: phone_booth, ko: 공중전화 부스},
+          {id: courtroom, ko: 법정}, {id: police_station, ko: 경찰서}, {id: countryside, ko: 시골}, {id: seaside, ko: 바닷가},
+          {id: library, ko: 도서관}, {id: broadcast_station, ko: 방송국}]}
+
+  # ⑧ 인물 관계
+  - id: relationship
+    ko: 인물 관계
+    final_axis: 8
+    select: many
+    max: 2
+    required: false
+    groups:
+      - {id: relationship, ko: 인물 관계, source: user, items: [
+          {id: first_love_rel, ko: 첫사랑}, {id: enemies, ko: 혐관}, {id: contract_marriage_rel, ko: 계약결혼},
+          {id: rival, ko: 라이벌}, {id: family, ko: 가족}]}
+      - {id: relationship_ext, ko: 인물 관계(보강), source: proposed, items: [
+          {id: ex_lovers, ko: 전 연인}, {id: unrequited, ko: 짝사랑}, {id: boss_subordinate, ko: 상사-부하},
+          {id: friends, ko: 친구}, {id: senior_junior, ko: 선후배}, {id: strangers, ko: 낯선 사람}, {id: fated, ko: 운명적 인연}]}
+
+  # ⑨ 서사 구조 — 12개
+  - id: narrative
+    ko: 서사 구조
+    final_axis: 9
+    select: one
+    required: true
+    groups:
+      - {id: narrative, ko: 스토리 전개 콘셉트, source: user, items: [
+          {id: ending_first, ko: 결말 선공개형, desc: "가장 충격적인 결말부터 보여주고 과거로 돌아감", hook_weight: 0.9, complexity: 2},
+          {id: twist, ko: 반전형, desc: "마지막 장면에서 앞선 사건의 의미가 뒤집힘", hook_weight: 0.7, complexity: 2},
+          {id: mystery_payoff, ko: 미스터리 회수형, desc: "처음 제시한 의문을 마지막에 해결", hook_weight: 0.8, complexity: 2},
+          {id: time_loop_structure, ko: 타임루프형, desc: "같은 사건이 반복되지만 매번 새로운 사실이 드러남", hook_weight: 0.7, complexity: 3},
+          {id: countdown, ko: 카운트다운형, desc: "제한 시간 안에 목표를 달성해야 함", hook_weight: 0.8, complexity: 1},
+          {id: escalation, ko: 갈등 증폭형, desc: "작은 오해가 점차 커다란 사건으로 발전", hook_weight: 0.6, complexity: 1},
+          {id: emotional_reversal, ko: 감정 반전형, desc: "코미디로 시작해 감동이나 비극으로 마무리", hook_weight: 0.6, complexity: 2},
+          {id: foreshadow_payoff, ko: 복선 회수형, desc: "평범한 소품이나 행동이 결말의 핵심이 됨", hook_weight: 0.6, complexity: 2},
+          {id: parallel, ko: 평행 서사형, desc: "서로 다른 두 인물의 이야기가 교차하다 연결됨", hook_weight: 0.5, complexity: 3},
+          {id: open_ending, ko: 열린 결말형, desc: "해석을 시청자에게 맡겨 댓글과 토론 유도", hook_weight: 0.5, complexity: 1},
+          {id: reverse_causality, ko: 인과 역전형, desc: "결과를 먼저 보여주고 원인을 역추적", hook_weight: 0.8, complexity: 2},
+          {id: repetition_variation, ko: 반복 변주형, desc: "비슷한 상황을 반복하되 매번 예상과 다르게 변화", hook_weight: 0.6, complexity: 2}]}
+
+  # 연출 콘셉트 — 8개 하위 축 (각각 독립 선택)
+  - id: direction
+    ko: 연출 콘셉트
+    final_axis: 11
+    select: per_group
+    required: true
+    groups:
+      - {id: texture, ko: 영상 질감, source: user, items: [
+          {id: photoreal, ko: 포토리얼}, {id: cinematic, ko: 시네마틱}, {id: film_look, ko: 필름룩}, {id: vhs, ko: VHS},
+          {id: retro, ko: 레트로}, {id: documentary_style, ko: 다큐멘터리풍}]}
+      - {id: viewpoint, ko: 시점, source: user, items: [
+          {id: pov, ko: 1인칭 POV}, {id: third_person, ko: 3인칭 관찰}, {id: cctv, ko: CCTV}, {id: bodycam, ko: 바디캠}, {id: drone, ko: 드론 시점}]}
+      - {id: camera, ko: 카메라, source: user, items: [
+          {id: one_take, ko: 원테이크, ai_difficulty: 3}, {id: handheld, ko: 핸드헬드, ai_difficulty: 1}, {id: locked_off, ko: 고정 카메라, ai_difficulty: 0},
+          {id: long_take, ko: 롱테이크, ai_difficulty: 3}, {id: fast_camera, ko: 빠른 카메라 워크, ai_difficulty: 2}]}
+      - {id: expression, ko: 화면 표현, source: user, items: [
+          {id: live_action, ko: 실사}, {id: two_d, ko: 2D}, {id: three_d, ko: 3D}, {id: stop_motion_expr, ko: 스톱모션},
+          {id: motion_comic_expr, ko: 모션코믹}, {id: live_animatic, ko: 실사 애니매틱}]}
+      - {id: edit_rhythm, ko: 편집 리듬, source: user, items: [
+          {id: hyper_montage, ko: 초고속 몽타주, avg_cut_s: 0.8}, {id: rhythmic_cut, ko: 리드미컬 컷, avg_cut_s: 2.0},
+          {id: match_cut, ko: 매치컷, avg_cut_s: 2.5}, {id: jump_cut, ko: 점프컷, avg_cut_s: 1.5}, {id: long_take_based, ko: 롱테이크 중심, avg_cut_s: 8.0}]}
+      - {id: color_light, ko: 색채·조명, source: user, items: [
+          {id: noir, ko: 느와르}, {id: high_key, ko: 하이키}, {id: low_key, ko: 로우키}, {id: neon, ko: 네온},
+          {id: pastel, ko: 파스텔}, {id: black_white, ko: 흑백}]}
+      - {id: reality, ko: 현실성, source: user, items: [
+          {id: hyperrealism, ko: 극사실주의}, {id: surrealism, ko: 초현실주의}, {id: magical_realism, ko: 마법적 리얼리즘}, {id: dreamlike, ko: 몽환적 표현}]}
+      - {id: sound, ko: 사운드, source: user, items: [
+          {id: silent, ko: 무성}, {id: dialogue_driven, ko: 대사 중심}, {id: narration_driven, ko: 내레이션 중심},
+          {id: music_driven, ko: 음악 중심}, {id: asmr_sound, ko: ASMR}]}
+
+  # ⑩ 감정 콘셉트 — 순서 있는 감정 곡선(1~3개)
+  - id: emotion_arc
+    ko: 감정 목표(감정 곡선)
+    final_axis: 10
+    select: arc
+    max: 3
+    required: true
+    groups:
+      - {id: emotion, ko: 감정 목표, source: user, items: [
+          {id: moved, ko: 감동}, {id: tension, ko: 긴장}, {id: laughter, ko: 웃음}, {id: empathy, ko: 공감}, {id: shock, ko: 충격},
+          {id: flutter, ko: 설렘}, {id: catharsis, ko: 카타르시스}, {id: sadness, ko: 슬픔}, {id: bitterness, ko: 씁쓸함},
+          {id: lingering, ko: 먹먹한 감동}, {id: curiosity, ko: 호기심}, {id: anxiety, ko: 불안}]}
+      - {id: emotion_ext, ko: 감정 목표(보강), source: proposed, items: [
+          {id: fear, ko: 공포}, {id: nostalgia, ko: 향수}, {id: comfort, ko: 위로}, {id: thrill, ko: 짜릿함}]}
+
+  # ⑪ 시각적 미학
+  - id: visual_aesthetic
+    ko: 시각적 미학
+    final_axis: 11
+    select: one
+    required: false
+    groups:
+      - {id: aesthetic, ko: 시각적 미학, source: user, items: [
+          {id: retro_analog, ko: 레트로}, {id: cinematic_aes, ko: 시네마틱}, {id: noir_aes, ko: 느와르}, {id: dreamy, ko: 몽환적}, {id: highteen, ko: 하이틴}]}
+      - {id: aesthetic_ext, ko: 시각적 미학(보강), source: proposed, items: [
+          {id: minimal, ko: 미니멀}, {id: vintage_film, ko: 빈티지 필름}, {id: y2k_aes, ko: Y2K 감성}, {id: cyber_neon, ko: 사이버 네온}, {id: fairytale, ko: 동화풍}]}
+
+  # ⑫ 제작 표현 방식
+  - id: production_method
+    ko: 제작 표현 방식
+    final_axis: 12
+    select: one
+    required: true
+    groups:
+      - {id: method, ko: 제작 표현 방식, source: user, items: [
+          {id: live_action_ai, ko: 실사, ai_difficulty: 2}, {id: two_d_anim, ko: 2D, ai_difficulty: 1}, {id: three_d_anim, ko: 3D, ai_difficulty: 2},
+          {id: stickman_method, ko: 스틱맨, ai_difficulty: 0}, {id: live_animatic_method, ko: 실사 애니매틱, ai_difficulty: 1}]}
+      - {id: method_ext, ko: 제작 표현 방식(보강), source: proposed, items: [
+          {id: stop_motion_method, ko: 스톱모션, ai_difficulty: 2}, {id: motion_comic_method, ko: 모션코믹, ai_difficulty: 1}, {id: stills_only, ko: 스틸 이미지 기반, ai_difficulty: 0}]}
+
+  # 후킹 전략 (사용자가 요구한 독립 선택 항목, 세부 목록은 설계 보강)
+  - id: hook
+    ko: 후킹 전략
+    select: one
+    required: false
+    groups:
+      - {id: hook, ko: 후킹 전략, source: proposed, items: [
+          {id: cold_open_ending, ko: 결말 콜드 오픈, desc: "결말 장면/대사로 0~3초를 연다"},
+          {id: shock_line, ko: 충격 대사, desc: "맥락 없는 한 줄 대사로 시작"},
+          {id: question_caption, ko: 질문형 자막, desc: "시청자가 답을 궁금해할 질문 자막"},
+          {id: visual_anomaly, ko: 시각적 이상 징후, desc: "첫 프레임에 이상한 것 하나"},
+          {id: countdown_caption, ko: 카운트다운 자막, desc: "남은 시간 표시로 긴장"},
+          {id: relatable_situation, ko: 공감 상황 제시, desc: "'이런 적 있지?' 형 일상 상황"},
+          {id: twist_tease, ko: 반전 예고, desc: "'끝까지 보면…' 형 예고"}]}
+
+  - id: duration
+    ko: 영상 길이
+    select: one
+    required: true
+    groups:
+      - {id: duration, ko: 영상 길이(초), source: user, items: [
+          {id: s15, ko: 15초, seconds: 15}, {id: s30, ko: 30초, seconds: 30}, {id: s60, ko: 60초, seconds: 60}, {id: s90, ko: 90초, seconds: 90}]}
+
+  - id: aspect
+    ko: 화면비
+    select: one
+    required: true
+    groups:
+      - {id: aspect, ko: 화면비, source: proposed, items: [
+          {id: r9_16, ko: "9:16 세로"}, {id: r16_9, ko: "16:9 가로"}, {id: r1_1, ko: "1:1 정사각"}, {id: r4_5, ko: "4:5 피드"}]}
+
+# 사용자가 제시한 조합 예시 → 프리셋
+presets:
+  - id: concept_a_zombie
+    ko: "콘셉트 A — 60초 좀비 숏드라마"
+    selection: {format: short_drama, genre: [horror], subgenre: [zombie, survival], narrative: ending_first,
+      direction: {expression: live_animatic}, production_method: live_animatic_method, emotion_arc: [tension, sadness], duration: s60, aspect: r9_16}
+  - id: concept_b_stickman
+    ko: "콘셉트 B — 30초 스틱맨 블랙코미디"
+    selection: {format: sketch_comedy, genre: [comedy, satire], subgenre: [social_satire, black_comedy], narrative: escalation,
+      direction: {sound: silent, expression: two_d}, production_method: stickman_method, emotion_arc: [laughter, bitterness], duration: s30, aspect: r9_16}
+  - id: concept_c_first_love
+    ko: "콘셉트 C — 90초 첫사랑 숏시네마"
+    selection: {format: short_film, genre: [romance], subgenre: [first_love], narrative: foreshadow_payoff,
+      direction: {texture: cinematic, expression: live_action}, production_method: live_action_ai, emotion_arc: [flutter, lingering], duration: s90, aspect: r9_16}
+  - id: sample_comedy_ending_first
+    ko: "샘플 — 60초 코미디 숏드라마 · 시네마틱 실사 · 결말 선공개"
+    selection: {format: short_drama, genre: [comedy], subgenre: [romcom], narrative: ending_first,
+      direction: {texture: cinematic, expression: live_action}, production_method: live_action_ai, emotion_arc: [shock, laughter], duration: s60, aspect: r9_16}
+  - id: kdrama_1998_timeslip
+    ko: "예시 — K-드라마 × 1990년대 × 로맨스 판타지 × 타임슬립 × 레트로 × 결말 선공개"
+    selection: {format: short_drama, culture_style: k_drama, era: y1990s, genre: [romance, fantasy], romance_concept: timeslip_romance,
+      narrative: ending_first, visual_aesthetic: retro_analog, direction: {texture: vhs}, production_method: live_action_ai,
+      emotion_arc: [curiosity, flutter, lingering], duration: s60, aspect: r9_16}

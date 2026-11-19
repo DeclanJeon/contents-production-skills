@@ -1,0 +1,143 @@
+# 조합 적합성 규칙(Compatibility) + 콘셉트→연출 규칙 변환(Direction Rules)
+# when: 모든 조건이 참이면 발동. 조건 키는 "axis" 또는 "direction.<group>", 값은 id 또는 id 목록(any-of).
+# severity: error(진행 차단, override 필요) | warn(경고, 진행 가능) | info(참고)
+# override: true면 사용자가 '의도적 혼합'으로 표시해 통과시킬 수 있다(시대착오·장르 혼합 등).
+version: 1.0.0
+compatibility:
+  - {id: C001, severity: error, override: true, when: {production_method: stickman_method, direction.texture: [photoreal]},
+     msg: "스틱맨 제작 방식과 포토리얼 질감은 충돌합니다.", fix: "질감을 레트로/필름룩으로 바꾸거나 제작 방식을 실사로 바꾸세요."}
+  - {id: C002, severity: warn, override: true, when: {production_method: [two_d_anim, three_d_anim, stop_motion_method, motion_comic_method], direction.reality: [hyperrealism]},
+     msg: "애니메이션 계열 제작 방식에 극사실주의는 결과 편차가 큽니다."}
+  - {id: C003, severity: error, override: false, when: {direction.viewpoint: cctv, direction.camera: [fast_camera, handheld]},
+     msg: "CCTV 시점은 고정 화각이 전제라 빠른 카메라 워크/핸드헬드와 함께 쓸 수 없습니다.", fix: "카메라를 고정 카메라로 바꾸세요."}
+  - {id: C004, severity: warn, override: true, when: {direction.viewpoint: pov, direction.camera: locked_off},
+     msg: "1인칭 POV에 고정 카메라는 체감이 약합니다. 핸드헬드를 권장합니다."}
+  - {id: C005, severity: error, override: true, when: {direction.color_light: black_white, visual_aesthetic: [cyber_neon]},
+     msg: "흑백 조명과 사이버 네온 미학은 충돌합니다."}
+  - {id: C006, severity: error, override: false, when: {format: [interview, talk_show, podcast_video, street_interview, debate, counseling, lecture], direction.sound: silent},
+     msg: "말이 핵심인 형식에 무성 사운드는 성립하지 않습니다.", fix: "사운드를 대사/내레이션 중심으로 바꾸거나 형식을 바꾸세요."}
+  - {id: C007, severity: warn, override: true, when: {format: [short_doc, human_doc, observational_doc, nature_doc, history_doc, crime_doc], world: [magic, high_fantasy, isekai, isekai_base, xianxia_world, murim_world, system]},
+     msg: "다큐멘터리 형식에 판타지 세계관이 들어갔습니다. 페이크 다큐/모큐멘터리로 바꾸는 것을 권합니다."}
+  - {id: C008, severity: warn, override: true, when: {duration: s15, narrative: [parallel, time_loop_structure]},
+     msg: "15초에 평행 서사/타임루프는 정보량이 과합니다. 30초 이상을 권합니다."}
+  - {id: C009, severity: warn, override: true, when: {duration: [s15, s30], format: [miniseries, omnibus, short_film, web_drama]},
+     msg: "선택한 형식은 보통 30초보다 깁니다. 회차 분할(시리즈) 또는 길이 확대를 고려하세요."}
+  - {id: C010, severity: warn, override: true, when: {direction.sound: asmr_sound, direction.edit_rhythm: hyper_montage},
+     msg: "ASMR 사운드와 초고속 몽타주는 리듬이 상충합니다."}
+  - {id: C011, severity: info, override: true, when: {genre: horror, emotion_arc: laughter},
+     msg: "공포+웃음 조합(호러 코미디)은 의도적 장르 혼합으로 기록됩니다."}
+  - {id: C012, severity: warn, override: true, when: {era: [joseon, three_kingdoms_kr, ancient_china, medieval_europe], world: [cyberpunk_world, system, game_fantasy]},
+     msg: "역사 시대에 고기술/게임 세계관 — 의도적 시대착오(퓨전)라면 override로 표시하세요."}
+  - {id: C013, severity: warn, override: true, when: {direction.camera: [one_take, long_take], production_method: [live_action_ai]},
+     msg: "AI 실사 생성에서 원테이크/롱테이크는 클립 길이 제한 때문에 이어붙이기 설계가 필요합니다(비용·난이도 상승)."}
+  - {id: C014, severity: warn, override: true, when: {direction.sound: silent, format: [music_video, lyric_video, dance_film]},
+     msg: "음악 형식에 무성 사운드가 선택되었습니다."}
+  - {id: C015, severity: info, override: true, when: {culture_style: [kr_makjang, telenovela, turkish_melo], emotion_arc: [laughter]},
+     msg: "격정 멜로 스타일에 웃음 목표 — 패러디 톤으로 해석합니다."}
+  - {id: C016, severity: warn, override: true, when: {direction.edit_rhythm: long_take_based, duration: s15},
+     msg: "15초에 롱테이크 중심 편집은 컷 1~2개뿐이라 후킹이 약할 수 있습니다."}
+
+# 콘셉트를 구체적인 연출 규칙으로 변환 (사용자가 가장 중요하다고 한 기능)
+# key: 조건, rules: 소품·의상 / 대사·연기 / 색감·질감 / 음악·효과음 / 감정 강도 / 카메라·편집 / 갈등·반전 패턴
+direction_rules:
+  - id: D_kr_melo_1990s
+    when: {era: y1990s}
+    rules:
+      props_wardrobe: ["삐삐·공중전화·카세트 워크맨·필름 카메라", "통 넓은 청바지, 니트 조끼, 헤어밴드", "브라운관 TV, 다이얼 전화"]
+      forbidden_props: ["스마트폰", "무선 이어폰", "LED 간판", "QR코드"]
+      acting_dialogue: ["존댓말·반말 전환이 감정의 신호", "직설적 고백보다 머뭇거림"]
+      color_texture: ["따뜻한 황색 톤, 약한 할레이션", "필름 그레인, 가벼운 VHS 노이즈"]
+      music_sfx: ["어쿠스틱 발라드/피아노 테마", "삐삐 수신음, 동전 떨어지는 소리, 빗소리"]
+      emotion_intensity: "중상 — 눈물은 참는 쪽"
+      camera_edit: ["줌 인/아웃을 감정 강조에 사용", "디졸브 전환, 느린 컷"]
+      conflict_pattern: ["엇갈림(연락이 닿지 않음)", "말하지 못한 진심"]
+  - id: D_joseon
+    when: {era: joseon}
+    rules:
+      props_wardrobe: ["한복(신분별 색·소재 구분), 갓, 비녀", "초롱, 서책, 붓", "한옥 마루·창호지"]
+      forbidden_props: ["유리창", "전기 조명", "현대 문자 간판"]
+      acting_dialogue: ["사극 어투(하오체·하게체)", "신분 차이에 따른 시선 처리"]
+      color_texture: ["자연광·촛불 톤", "채도 낮은 흙색·쪽빛"]
+      music_sfx: ["국악기(대금·가야금) 테마", "바람·풍경 소리"]
+      emotion_intensity: "중 — 절제"
+      camera_edit: ["정적인 와이드 구도", "느린 패닝"]
+      conflict_pattern: ["신분 차이", "궁중 음모"]
+  - id: D_y2k
+    when: {era: y2k}
+    rules:
+      props_wardrobe: ["폴더폰·MP3·디카", "로우라이즈, 형광 컬러, 큐빅 액세서리"]
+      forbidden_props: ["스마트폰", "SNS 피드 UI"]
+      color_texture: ["채도 높은 블루/실버, 플래시 하이라이트", "디지털 노이즈"]
+      music_sfx: ["팝 비트, 문자 수신음(폴더폰)"]
+      camera_edit: ["점프컷, 플래시 전환"]
+  - id: D_near_future
+    when: {era: near_future}
+    rules:
+      props_wardrobe: ["투명 디스플레이, 스마트 글래스", "기능성 미니멀 의상"]
+      color_texture: ["차가운 청록·화이트 톤", "깨끗한 디지털 질감"]
+      music_sfx: ["신스 패드, 인터페이스 효과음"]
+  - id: D_k_drama
+    when: {culture_style: k_drama}
+    rules:
+      acting_dialogue: ["감정이 고조되는 순간 클로즈업 + 정적", "핵심 대사 반복(회수)"]
+      camera_edit: ["리액션 컷을 길게 유지", "슬로 푸시인으로 감정 강조"]
+      conflict_pattern: ["관계의 비밀", "엔딩 직전 반전 훅"]
+      emotion_intensity: "상"
+  - id: D_kr_makjang
+    when: {culture_style: kr_makjang}
+    rules:
+      acting_dialogue: ["과장된 리액션(물 뿌리기·뺨)", "폭로형 대사"]
+      camera_edit: ["급격한 줌 인 + 효과음", "3단 리액션 컷"]
+      music_sfx: ["긴장 현악 스팅어"]
+      conflict_pattern: ["출생의 비밀", "재벌가 갈등", "복수"]
+      emotion_intensity: "최상"
+  - id: D_jp_pure
+    when: {culture_style: jp_pure_romance}
+    rules:
+      acting_dialogue: ["말수 적고 시선·손짓으로 감정 표현"]
+      color_texture: ["파스텔, 하이키, 역광"]
+      camera_edit: ["롱테이크, 여백 많은 구도"]
+      emotion_intensity: "하~중"
+  - id: D_nordic_noir
+    when: {culture_style: nordic_noir}
+    rules:
+      color_texture: ["저채도 청회색, 로우키"]
+      music_sfx: ["앰비언트 드론, 바람"]
+      camera_edit: ["고정 와이드, 느린 컷"]
+      conflict_pattern: ["숨겨진 과거", "공동체의 침묵"]
+  - id: D_cn_xianxia
+    when: {culture_style: cn_xianxia}
+    rules:
+      props_wardrobe: ["하늘하늘한 고풍 의상, 장검, 부채", "운무 가득한 산·천계 궁전"]
+      color_texture: ["백색·청색 계열, 소프트 블룸"]
+      music_sfx: ["고쟁·피리, 공명 효과"]
+      camera_edit: ["와이어 액션 슬로모션", "공중 부감"]
+  - id: D_us_sitcom
+    when: {culture_style: us_sitcom}
+    rules:
+      acting_dialogue: ["셋업-펀치라인 리듬", "타이밍 정적"]
+      camera_edit: ["멀티캠 느낌의 정면 미디엄샷", "빠른 리액션 컷"]
+      music_sfx: ["짧은 브릿지 음악, (선택) 웃음소리"]
+  - id: D_stickman
+    when: {production_method: stickman_method}
+    rules:
+      props_wardrobe: ["소품은 실루엣으로 구분 가능한 단순 아이콘"]
+      acting_dialogue: ["몸짓·자세로 감정 전달(얼굴 없음)"]
+      camera_edit: ["정면 2D 평면 구도, 컷 대신 팝 전환"]
+      music_sfx: ["코믹 효과음 중심"]
+  - id: D_live_animatic
+    when: {production_method: live_animatic_method}
+    rules:
+      camera_edit: ["실사 스틸 + 패럴랙스/줌 무빙", "컷당 1~3초"]
+      music_sfx: ["효과음으로 움직임 보강"]
+  - id: D_comedy
+    when: {genre: comedy}
+    rules:
+      camera_edit: ["질문-답변 빠른 리버스 컷", "민망한 순간은 의도적 홀드", "코미디 폭발 시 급격한 줌"]
+      music_sfx: ["레코드 스크래치, 코믹 임팩트, BGM 정지"]
+  - id: D_horror
+    when: {genre: horror}
+    rules:
+      color_texture: ["로우키, 차가운 그린/블루"]
+      camera_edit: ["느린 푸시인, 프레임 가장자리 여백(무언가 나타날 공간)"]
+      music_sfx: ["저역 드론, 정적 후 스팅어"]
