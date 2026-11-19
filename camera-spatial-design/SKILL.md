@@ -21,7 +21,9 @@ Read [workspace integration](references/workspace-integration.md) before applyin
 
 Use the [canonical production routing and Blender gate](../creative-production/references/production-routing.md#blender-decision-gate). Narrative POV, shot size, composition and motivated moves in text/ordinary 2D storyboards, including simple 2D/flat graphics, do not invoke Blender. Numeric lens/coordinate/path proposals without a geometry-verification deliverable may remain design-only; apply numeric/schema analysis as appropriate and label unrendered geometry `UNVERIFIED`.
 
-**Blender trigger:** explicit Blender/previs request, or the requested result depends on validating an actual scene-specific 3D arrangement (camera path, geometry, blocking, occlusion, clearance, or contact), or a 3D-verified result is part of the requested deliverable. A camera field, camera move, storyboard, or scene ID alone is not a Blender trigger.
+For explicitly requested Three.js proxy storyboard framing (R30), route the render to `open-3d-production`; this does not establish native feasibility.
+
+**Blender trigger:** explicit Blender request, or the requested result depends on validating an actual scene-specific 3D arrangement (camera path, geometry, blocking, occlusion, clearance, or contact), or a 3D-verified result is part of the requested deliverable. A camera field, camera move, storyboard, or scene ID alone is not a Blender trigger.
 
 “Scene-specific 3D camera/spatial design” means actual scene-specific 3D geometry/placement/feasibility design under this trigger. This skill owns the spec; `blender-previsualization` owns mandatory implementation and visual inspection when triggered. Text-only/read-only work remains non-executing and labels unperformed checks `PLANNED`/`UNVERIFIED` or `BLOCKED`. If required Blender is absent, report the exact missing runtime/evidence, continue independent work, and block only dependent spatial completion; no alternate renderer or FINAL claim. Numeric/schema checks and smoke runs do not prove actual 3D scene feasibility or full requested visual inspection.
 

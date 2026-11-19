@@ -442,6 +442,12 @@
    "expected_owner": "community-shorts-stills-pipeline"
   },
   {
+   "case_id": "F05",
+   "prompt": "확정 콘티는 그대로 두고, 승인한 Three.js 프리비즈를 로컬에서 실제 실행해 샷별 대역 구도 PNG를 뽑아줘. Blender 파일이나 접촉 검증은 필요 없어.",
+   "route_id": "R30",
+   "expected_owner": "open-3d-production"
+  },
+  {
    "case_id": "G01",
    "prompt": "좀비가 달려드는 1.2초 타격 장면 연출을 설계해줘. 속도 램프랑 임팩트 프레임, 타격 정지까지 넣어서.",
    "route_id": "R13",

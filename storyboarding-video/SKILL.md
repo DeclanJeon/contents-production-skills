@@ -23,6 +23,8 @@ Complete boards integrate scene-camera intent, every per-shot camera/spatial/VFX
 
 `creative-production` is the sole coordinator/writer. A standalone call confirms scope/route once and returns only the requested board. Delegated work inherits the spine, IDs/versions/approvals without a callback, second intake or approval ledger. Delegated packet intake/return reads [minimal handoff/single writer](../video-production-assets/references/contract-core.md#worker-handoff-and-single-writer). Explicit film-lifecycle work adds phase placement only, not unrelated production/distribution.
 
+When Three.js previs is requested and authorized, use [R30 proxy frames](../open-3d-production/references/storyboard-previs.md) for the visual board before final stills. Carry the same shot/panel IDs; proxy renders never close the contact gate.
+
 ## Missing specialist inputs
 Return one indexed missing-input packet to the coordinator for blocked camera/spatial, VFX, voice/lipsync or audio slots; do not reroute or reopen intake. Resume assembly from the returned owner packets. Legitimate N/A has reasons, deferred execution slots remain stage-labeled, and unresolved requirements stay blocking.
 

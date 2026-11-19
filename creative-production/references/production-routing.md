@@ -86,7 +86,9 @@ Select the requested **artifact and current stage**, not the word “silent” a
 
 For requested native Blender modeling, materials/lighting, staged exploded views or rendered web assets beyond proxy previs, assign `open-3d-production` with the relevant modules below. `blender-previsualization` retains its camera/spatial verification owner and existing proxy adapter limits. A native beauty/asset request does not make that adapter a production renderer; a web-only request does not turn Three.js evidence into Blender verification.
 
-**Blender trigger:** explicit Blender/previs request, or the requested result depends on validating an actual scene-specific 3D arrangement (camera path, geometry, blocking, occlusion, clearance, or contact), or a 3D-verified result is part of the requested deliverable. A camera field, camera move, storyboard, or scene ID alone is not a Blender trigger.
+**Browser previs (R30):** explicitly requested Three.js proxy framing/blocking routes to [Open 3D storyboard previs](../../open-3d-production/references/storyboard-previs.md). This is not native spatial or articulated-contact verification.
+
+**Blender trigger:** explicit Blender request, or the requested result depends on validating an actual scene-specific 3D arrangement (camera path, geometry, blocking, occlusion, clearance, or contact), or a 3D-verified result is part of the requested deliverable. A camera field, camera move, storyboard, or scene ID alone is not a Blender trigger.
 
 “Scene-specific 3D camera/spatial design” means actual scene-specific 3D geometry/placement/feasibility design under this trigger, not narrative camera descriptions or numeric proposals alone. This is the canonical routing table; specialists use this gate without creating another route table.
 
