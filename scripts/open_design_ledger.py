@@ -10,9 +10,11 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import os
 import re
 import subprocess
 import sys
+import tempfile
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -27,6 +29,22 @@ LEDGER_COLUMNS = [
 LICENSE_FILENAMES = ("LICENSE", "LICENSE.md", "LICENSE.txt")
 SOURCE_PATTERN = re.compile(r"^https://github\.com/([^/]+/[^/]+)/blob/([^/]+)/(.+)$")
 COMMIT_PATTERN = re.compile(r"^[0-9a-f]{40}$")
+ALLOWED_LICENSES = {"MIT", "Apache-2.0"}
+MIT_HEADING = re.compile(r"^(the\s+)?mit\s+license(\s*\(mit\))?$", re.IGNORECASE)
+APACHE_HEADING = re.compile(r"^apache\s+license$", re.IGNORECASE)
+APACHE_VERSION = re.compile(r"^version\s+2\.0\b", re.IGNORECASE)
+
+
+class IndeterminateFetchError(RuntimeError):
+    """A fetch failed in a way that does not confirm absence (5xx, rate limit, network error)."""
+
+
+class AbsorbedRowMismatchError(RuntimeError):
+    """Absorbed rows whose upstream commit or sha256 changed; completed provenance must be reviewed."""
+
+    def __init__(self, slugs: list[str]):
+        super().__init__("absorbed rows changed upstream: " + ", ".join(slugs))
+        self.slugs = slugs
 
 
 @dataclass(frozen=True)
@@ -69,11 +87,13 @@ def raw_url(ref: SourceRef, commit: str) -> str:
 
 
 def detect_license(text: str) -> str | None:
-    first_line = next((line.strip() for line in text.splitlines() if line.strip()), "")
-    if "Apache License" in first_line:
-        return "Apache-2.0"
-    if "MIT" in first_line:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    if not lines:
+        return None
+    if MIT_HEADING.match(lines[0]):
         return "MIT"
+    if APACHE_HEADING.match(lines[0]) and any(APACHE_VERSION.match(line) for line in lines[1:3]):
+        return "Apache-2.0"
     return None
 
 
@@ -82,9 +102,11 @@ def decide(row: dict, fetched: FetchResult) -> dict:
     if updated.get("decision") != "absorb":
         updated["status"] = "n/a"
         return updated
-    if fetched.status != 200:
+    if fetched.status not in (200, 404):
+        raise IndeterminateFetchError(f"{updated.get('slug', '?')}: source fetch status {fetched.status}")
+    if fetched.status == 404:
         updated.update(decision="exclude", reason="source unavailable", status="n/a")
-    elif fetched.license_id is None:
+    elif fetched.license_id not in ALLOWED_LICENSES:
         updated.update(
             decision="exclude",
             reason="no upstream LICENSE (MIT or Apache-2.0) at repository root",
@@ -117,7 +139,9 @@ def _cached_download(url: str, destination: Path) -> tuple[int, bytes]:
     status, body = _download(url)
     if status == 200:
         destination.parent.mkdir(parents=True, exist_ok=True)
-        destination.write_bytes(body)
+        with tempfile.NamedTemporaryFile(dir=destination.parent, delete=False) as temporary:
+            temporary.write(body)
+        os.replace(temporary.name, destination)
     return status, body
 
 
@@ -127,13 +151,17 @@ def fetch_license(repo: str, commit: str, cache: Path) -> str | None:
         status, body = _cached_download(url, cache / repo / commit / filename)
         if status == 200:
             return detect_license(body.decode("utf-8", errors="replace"))
+        if status != 404:
+            raise IndeterminateFetchError(f"{repo}@{commit}: {filename} fetch status {status}")
     return None
 
 
 def fetch(ref: SourceRef, commit: str, cache: Path) -> FetchResult:
     status, body = _cached_download(raw_url(ref, commit), cache / ref.repo / commit / ref.path)
+    if status == 404:
+        return FetchResult(404, None, None)
     if status != 200:
-        return FetchResult(status, None, None)
+        raise IndeterminateFetchError(f"{ref.repo}@{commit}: {ref.path} fetch status {status}")
     return FetchResult(200, hashlib.sha256(body).hexdigest(), fetch_license(ref.repo, commit, cache))
 
 
@@ -153,6 +181,8 @@ def refresh(ledger: Path, cache: Path) -> list[dict]:
     rows = read_ledger(ledger)
     absorb_rows = [row for row in rows if row["decision"] == "absorb"]
     original_sources = {row["slug"]: row["source"] for row in absorb_rows}
+    previous = {row["slug"]: (row["commit"], row["sha256"]) for row in absorb_rows}
+    mismatched: list[str] = []
     refs = {row["slug"]: parse_source(row["source"]) for row in absorb_rows}
     resolved = {(ref.repo, ref.ref): None for ref in refs.values()}
     for repo, ref in resolved:
@@ -167,10 +197,21 @@ def refresh(ledger: Path, cache: Path) -> list[dict]:
         decided_row = decide(row, fetch(source_ref, commit, cache))
         if decided_row["decision"] != "absorb":
             decided_row.update(commit="", source=original_sources[row["slug"]])
+        if row["status"] == "absorbed":
+            unchanged = (
+                decided_row["decision"] == "absorb"
+                and decided_row["commit"] == previous[row["slug"]][0]
+                and decided_row["sha256"] == previous[row["slug"]][1]
+            )
+            if not unchanged:
+                mismatched.append(row["slug"])
+            return {**decided_row, "status": "absorbed"} if unchanged else row
         return decided_row
 
     with ThreadPoolExecutor(max_workers=8) as pool:
         decided = dict(zip((row["slug"] for row in absorb_rows), pool.map(work, absorb_rows)))
+    if mismatched:
+        raise AbsorbedRowMismatchError(sorted(mismatched))
     result = [decided.get(row["slug"]) or decide(row, FetchResult(0, None, None)) for row in rows]
     write_ledger(ledger, result)
     return result
@@ -183,7 +224,14 @@ def main(argv: list[str] | None = None) -> int:
     refresh_parser.add_argument("--cache", type=Path, default=Path(".cache/open-design"))
     refresh_parser.add_argument("--ledger", type=Path, default=LEDGER_PATH)
     args = parser.parse_args(argv)
-    rows = refresh(args.ledger, args.cache)
+    try:
+        rows = refresh(args.ledger, args.cache)
+    except IndeterminateFetchError as error:
+        print(f"refresh aborted, ledger not rewritten (transient fetch failure): {error}", file=sys.stderr)
+        return 2
+    except AbsorbedRowMismatchError as error:
+        print(f"refresh aborted, ledger not rewritten: {error}", file=sys.stderr)
+        return 1
     counts: dict[str, int] = {}
     for row in rows:
         counts[row["decision"]] = counts.get(row["decision"], 0) + 1
