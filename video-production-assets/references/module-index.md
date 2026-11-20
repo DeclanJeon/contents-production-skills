@@ -19,6 +19,7 @@
 | 비주얼 모드 선택·SSOT 티어·연속성·군중 | [비주얼 모드·SSOT](20-visual-mode-ssot.md) | `assets/character-ssot-template.md`, `assets/crowd-map-template.md` |
 | 복잡 모션·합성 레이어·생성 매체 검수·재시도 | [생성 영상 QA·재시도](21-generated-video-qa-retry.md) | `assets/motion-beat-template.md`, `assets/vfx-layer-stack-template.md`, `assets/generated-qa-report-template.md` |
 | 모션 원칙·키프레임·로고 모션·색 움직임·콘티→모션 | [모션 크래프트](08a-motion-craft.md) | 08 템플릿 |
+| 편집본→대본·멀티캠·릴스/쇼츠 추출·라이브 클립·비트 싱크 | [숏폼 편집 레시피](09a-short-form-edit-recipes.md) | 09 템플릿 |
 | 대사 연기·보이스 선택/생성·립싱크·청자 디렉팅 | [대사·립싱크](22-dialogue-lipsync.md) | `assets/performance-cue-template.md` |
 | 실제 테이크의 음질·연기·보이스·효과음·립싱크 결함 | [최소 테이크 보정](take-repair.md) | 기존 컷/테이크·오디오 인계와 QA 기록 |
 | 피니싱 룩·그레이드 노드 구조·믹스·마스터 QC·플랫폼 적응 | [피니싱·플랫폼](23-finishing-platform.md) | — |
