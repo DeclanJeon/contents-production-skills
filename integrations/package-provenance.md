@@ -25,6 +25,10 @@ The current source inputs are locally applied skill instructions and the user-su
 
 The conditional [Korean speech postediting module](../video-production-assets/references/korean-script-postediting.md) adapts selected im-not-ai principles at a pinned revision, with local dialogue/narration exceptions and a read-only checker. [File hashes and differences](../video-production-assets/references/upstream/im-not-ai-provenance.md) and the [upstream MIT notice](../video-production-assets/references/upstream/im-not-ai-LICENSE.txt) ship inside the installed skill. This notice applies to that upstream adaptation, not to the entire package; model/voice quality is not certified by deterministic checks.
 
+## open-design 크래프트 각색
+
+2.63은 open-design이 소개한 오픈소스 스킬 중 MIT 또는 Apache-2.0 저장소 15곳의 제작 기법을 패키지 말투의 한국어로 다시 써서 기존 모듈 심화 문서에 더한다. 저장소별 고정 커밋·확인일·SHA-256·의도적 차이는 [open-design 이전 기록](../video-production-assets/references/upstream/open-design-provenance.md)에, 저장소별 원문 LICENSE 사본은 같은 `upstream/` 폴더의 `<owner>-<repo>-LICENSE.txt`에 설치 스킬과 함께 들어간다. Apache-2.0 저장소의 고정 커밋 루트에는 NOTICE 파일이 없어 NOTICE 사본은 없다. 이 고지는 각색된 부분에만 적용되며 패키지 전체나 원본 저장소 전체의 라이선스가 아니다. 원본 예시 미디어·템플릿 코드·바이너리와 엔진 호출은 옮기지 않고, 실행은 기존 레인과 `policy.md` 게이트를 따른다. `scripts/test_open_design_absorption.py`는 출처 줄·고지 사본·엔진 문자열·링크만 확인하며 법적 검토나 원본 대비 품질 보증이 아니다.
+
 ## License status
 
 This repository has no reuse license. Public visibility, author metadata, a provenance note, or an AI rights judgment is not a grant to reuse the package or third-party works. No new LICENSE or blanket legal clearance is introduced.
