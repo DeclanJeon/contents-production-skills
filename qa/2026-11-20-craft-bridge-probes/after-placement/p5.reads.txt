@@ -1,0 +1,6 @@
+  read: creative-production/SKILL.md
+  grep: creative-production/references/routing.csv
+  grep: creative-production/references/routing.csv
+  grep: .
+  read: video-production-assets/references/23a-captions-layout.md
+  read: video-production-assets/references/15-delivery.md

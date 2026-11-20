@@ -1,0 +1,11 @@
+  read: creative-production/SKILL.md
+  read: creative-production/references/routing.csv
+  read: creative-production/references/routing-disambiguation.csv
+  read: video-production-assets/SKILL.md
+  read: creative-production/references/craft-bridge.csv
+  read: creative-production/references/policy.md
+  grep: video-production-assets/references/30-marketing-story-craft.md
+  read: video-production-assets/references/contract-core.md
+  read: video-production-assets/references/03-screenplay.md
+  read: video-production-assets/references/30-marketing-story-craft.md
+  read: video-production-assets/assets/03-screenplay-template.md

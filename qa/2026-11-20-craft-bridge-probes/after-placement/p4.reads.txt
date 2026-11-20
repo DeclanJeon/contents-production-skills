@@ -1,0 +1,2 @@
+  read: creative-production/SKILL.md
+  read: creative-production/references/routing.csv

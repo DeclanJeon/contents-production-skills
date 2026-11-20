@@ -69,3 +69,24 @@ Same method as above, driven by `scripts/agent_read_probe.py` over `creative-pro
 - No run opened `creative-production/references/craft-bridge.csv`. p1, p2, p3 and p5 reached their reference through the routing tables or module links, not through the bridge, so these results do not show that the bridge itself is read at S0x handoffs.
 - The tool's keyword hints for s1 (`기획`, `대본` missing, approval request present, no completion claim) are candidates only; the answer has a spine, synopsis and storyboard with image prompts but no section titled script. The decision stays with the controller.
 - The `opened` lists in `summary.json` include `.` for `grep` calls without a file path; these are not file reads.
+
+### Craft bridge placement fix (2026-11-21)
+
+After the first run, `creative-production/SKILL.md` moved the bridge read from Step 4 ("Hand off") to right after route selection in Step 1 (commit `d1e11e2`; Step 4 keeps a `craft_refs` pointer). Same tool, cases and model, one run per case, no reruns: `qa/2026-11-20-craft-bridge-probes/after-placement/` (earlier results kept in the parent directory). One run, one model: a read is not evidence of correct use, and the 2/9 vs 0/9 difference is not a stability measurement.
+
+| Case | `craft-bridge.csv` opened before → after | Expected ref opened before → after | Verdict before → after |
+|---|---|---|---|
+| p1 ad script | no → **yes** (read) | yes → yes (`30-marketing-story-craft.md`) | pass → pass |
+| p2 motion style | no → **yes** (grep) | yes → yes (`33-motion-style-library.md`) | pass → pass |
+| p3 podcast → shorts | no → no | yes → yes (`09a-short-form-edit-recipes.md`) | pass → pass |
+| p4 tumbler sale promo | no → no | no → no (`19a` unopened) | **fail → fail** |
+| p5 captions + lower thirds | no → no | yes → yes (`23a-captions-layout.md`) | pass → pass |
+| n1 Instagram caption | no → no | n/a (SKILL.md not opened) | pass → pass |
+| n2 logo image | no → no | n/a | pass → pass |
+| n3 video summary → blog | no → no | n/a | pass → pass |
+| s1 30 s cafe brand video | no → no | n/a | controller verdict (unchanged by this run) |
+
+- The bridge was opened in 2 of 9 runs (p1, p2), up from 0 of 9. Both are opened through the Step 1 instruction; p2 only grepped it.
+- **p4 still fails.** The agent read only `SKILL.md` and `routing.csv` (not even `routing-disambiguation.csv`), then answered from its own knowledge with an R10 text storyboard. The Step 1 instruction did not make it open the bridge. Not rerun; the follow-up is open.
+- p3 and p5 reached their reference through routing/module paths and still skipped the bridge, so those passes do not show bridge use.
+- s1 read `SKILL.md`, `routing.csv` and `concept-intake-design/SKILL.md` and stopped there in this run (earlier run read more); the tool's keyword hints are candidates only and the verdict stays with the controller.

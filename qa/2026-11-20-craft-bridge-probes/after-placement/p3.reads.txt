@@ -1,0 +1,6 @@
+  read: creative-production/SKILL.md
+  grep: creative-production/references/routing.csv
+  grep: creative-production/references/routing-disambiguation.csv
+  read: video-production-assets/references/09-edit.md
+  grep: creative-production/references/routing.csv
+  read: video-production-assets/references/09a-short-form-edit-recipes.md
