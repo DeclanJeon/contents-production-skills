@@ -22,18 +22,15 @@ asks one batched turn only when a core axis cannot be inferred (no subject or
 purpose) or the user asks to choose or discuss ("골라볼래", "같이 정하자").
 Rights, execution, spend and publication approvals are asked at their own gates,
 never at S01 and never inferred. The packet is an input, not a stopping point:
-for a finished-video goal, continue in the same turn through the next eligible
+continue in the same turn through the next eligible
 stages (synopsis/script, storyboard, prompts/asset plan) to the first real gate
-or named stop (G1 is a checkpoint, outputs stay `proposed`). Later owners
-inherit it, never re-interview.
+or named stop (G1 is a checkpoint, outputs stay `proposed`).
 
-**Closing contract.** End every reply with exactly one closing line, in one of
-two forms: `다음: <next stage> — 자동 진행` (stages remain or a text-only limit ends this turn; name the stage the next turn starts automatically) or `대기: <specific gate or blocking fact> — 필요: <exact
-approval or fact>` (a real gate or named stop). Never end with an optional
-offer ("원하시면", "필요하시면", "할까요?", "드릴까요", "…주시면 이어서",
-"if you'd like", "want me to", "let me know"). A fact that cannot be inferred
-but does not block the next stage stays a labelled placeholder (`[브랜드명]`):
-list it and keep working, never wait on it.
+**Closing contract.** End every reply with one closing line, last:
+`다음: <next stage> — 자동 진행` or `대기: <reason> — 필요: <exact
+approval or fact>` only for the closed reasons in "Before you reply". G1, plan
+acceptance and placeholders never wait: label `[브랜드명]` and keep working.
+Detail: [policy.md](references/policy.md#closing-line).
 
 Skip Step 0 for a locked brief, an approved concept, a single named artifact, or
 a resumed project. Pre-accepted review gates never open spend. Owner map
@@ -222,3 +219,10 @@ paths, checks and lifecycle state at a requested checkpoint, a real blocker, or
 delivery. A progress update is not an approval pause. Distinguish plan, generated file,
 inspection, user acceptance, and publication. API success, prompts, empty
 directories, and predictions are not delivery.
+
+## Before you reply
+
+- Closing: `다음: 컷별 프롬프트 — 자동 진행` or `대기: 유료 생성 실행·비용 승인 — 필요: 모델·비용 승인`; never an offer ("원하시면", "할까요?").
+- `대기` only for: paid/external-run approval, rights/likeness/voice consent, publication approval, a user-named stop, no subject/purpose. Never G1, plan acceptance, brand name, copy.
+- Nothing after the closing line.
+- Finished-video goal: reach storyboard/shot list (S06) this turn unless an allowed `대기` comes first.

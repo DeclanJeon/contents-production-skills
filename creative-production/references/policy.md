@@ -29,17 +29,30 @@ asked at their own gates, never at intake and never inferred.
 
 ### Closing line
 
-A reply under a finished-video goal ends with exactly one closing line in one of
-two forms: `다음: <next stage> — 자동 진행` when stages remain or a text-only
-limit ends the turn (name the stage the next turn starts automatically), or
-`대기: <specific gate or blocking fact> — 필요: <exact approval or fact>` at a
-real gate or named stop. An optional offer is never a closing line ("원하시면",
-"필요하시면", "원하면", "할까요?", "드릴까요", "…주시면 이어서", "if you'd
-like", "want me to", "let me know"): it makes the user's reply a precondition for
-work that needs none. A fact that cannot be inferred but does not block the next
-stage stays a labelled placeholder (`[브랜드명]`); it is listed and work
-continues, and it is not a reason to wait. `scripts/closing_check.py` checks
-this form.
+A reply under a finished-video goal ends with exactly one closing line, and it
+is the final line: nothing follows it (no notes, offers or summaries). Two forms:
+
+- `다음: <next stage> — 자동 진행` when stages remain or a text-only limit ends
+  the turn (name the stage the next turn starts automatically). Example:
+  `다음: 컷별 프롬프트·에셋 계획 — 자동 진행`.
+- `대기: <specific gate or blocking fact> — 필요: <exact approval or fact>`
+  only for a closed list of reasons: execution/spend approval for the next paid
+  or external run, rights/likeness/voice consent, publication approval, a stop
+  the user named, or no subject/purpose at all. Example:
+  `대기: 유료 영상 생성 실행·비용 승인 — 필요: 모델 선택과 비용 승인`.
+
+G1 and plan acceptance are never a 대기 reason; placeholders are never a 대기
+reason. Anything else (G1, plan or board acceptance, brand name, copy,
+preferences) closes with `다음: … — 자동 진행`. In a finished-video goal the turn
+produces at least through the storyboard/shot list (S06) before closing, unless
+an allowed 대기 reason occurs earlier.
+
+An optional offer is never a closing line ("원하시면", "필요하시면", "원하면",
+"할까요?", "드릴까요", "…주시면 이어서", "if you'd like", "want me to", "let me
+know"): it makes the user's reply a precondition for work that needs none. A
+fact that cannot be inferred but does not block the next stage stays a labelled
+placeholder (`[브랜드명]`); it is listed and work continues. `scripts/closing_check.py`
+checks the form, the 대기 reason (`wait_reason_allowed`) and trailing text.
 
 ## 2. Scope boundary
 

@@ -107,3 +107,19 @@ def test_judge_positive_fails_on_optional_offer() -> None:
     assert probe.judge(positive, ["a.md"], "자막 규칙입니다.\n\nIf you'd like, I can add more.")[0] is False
     assert probe.judge(positive, ["a.md"], "자막 규칙입니다.")[0] is True
     assert probe.judge({"id": "n1", "kind": "negative"}, ["x.md"], "원하시면 더 드립니다.")[0] is True
+
+
+def test_judge_nonstop_fails_on_disallowed_wait_and_text_after_closing() -> None:
+    folder = ROOT / "scripts" / "fixtures" / "closing_endings"
+    for name, expected in (
+        ("f1r2-eco-r1.txt", "disallowed 대기 reason"),
+        ("f1r2-eco-r2.txt", "disallowed 대기 reason"),
+        ("f1r2-sonnet-r1.txt", "disallowed 대기 reason"),
+        ("f1r2-sonnet-r2.txt", "text after closing line"),
+    ):
+        verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], (folder / name).read_text(encoding="utf-8"))
+        assert verdict is False and expected in reason, name
+    for name in ("f1r2-eco-r3.txt", "f1r2-sonnet-r3.txt"):
+        text = "## 스토리보드\n" + (folder / name).read_text(encoding="utf-8")
+        verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], text)
+        assert verdict is True, (name, reason)

@@ -13,7 +13,9 @@ non-negative case also fails when the answer ends with an optional offer
 (``closing_check.find_optional_offer``). Nonstop (s1) passes only when the entry
 skill was opened, there is no optional offer, the last line is a contract closing
 line (``다음: … — 자동 진행`` or ``대기: … — 필요: …``), the answer contains
-storyboard/shot-list content, and it makes no completion claim.
+storyboard/shot-list content, it makes no completion claim, nothing follows the
+closing line, and a ``대기:`` reason is on the allowed list
+(``closing_check.wait_reason_allowed``).
 """
 from __future__ import annotations
 
@@ -141,6 +143,12 @@ def judge(case: dict, opened: list[str], final: str) -> tuple[bool | None, str]:
     form = closing_check.closing_form(final)
     if form is None:
         problems.append("last line is not a 다음:/대기: closing line")
+    trailing = closing_check.text_after_closing(final)
+    if trailing:
+        problems.append(f"text after closing line: {trailing!r}")
+    bad_wait = closing_check.disallowed_wait_reason(final)
+    if bad_wait:
+        problems.append(f"disallowed 대기 reason: {bad_wait!r}")
     if not any(word in final for word in STORYBOARD_KEYWORDS):
         problems.append("no storyboard/shot-list content")
     claims = [w for w in COMPLETION_CLAIMS if w in final]

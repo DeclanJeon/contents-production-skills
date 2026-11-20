@@ -107,7 +107,10 @@ def test_closing_contract_wording_present(path: Path) -> None:
     text = flat(path)
     assert "다음: <" in text and "자동 진행" in text, path.name
     assert "대기: <" in text and "필요: <" in text, path.name
-    for phrase in ("원하시면", "필요하시면", "할까요?", "드릴까요", "if you'd like", "want me to", "let me know"):
+    phrases = ("원하시면", "할까요?") if path == SKILL else (
+        "원하시면", "필요하시면", "할까요?", "드릴까요", "if you'd like", "want me to", "let me know"
+    )
+    for phrase in phrases:
         assert phrase in text, f"{path.name}: {phrase}"
     assert "[브랜드명]" in text, path.name
 
@@ -119,3 +122,91 @@ def test_skill_closing_contract_sits_in_step_0() -> None:
 
 def test_frontier_words_stay_under_freed_cap() -> None:
     assert routing_regression.measure(routing_regression.FRONTIER)["words"] <= FRONTIER_WORD_CAP
+
+
+# Real s1 endings after F1 round 1 (2 models x 3 runs), last 6 lines each.
+F1R2_DISALLOWED_WAIT = ["f1r2-eco-r1.txt", "f1r2-eco-r2.txt", "f1r2-sonnet-r1.txt"]
+
+
+@pytest.mark.parametrize("name", F1R2_DISALLOWED_WAIT)
+def test_real_wait_endings_on_g1_or_placeholders_are_disallowed(name: str) -> None:
+    text = ending(name)
+    assert cc.closing_form(text) == "wait"
+    assert cc.disallowed_wait_reason(text) is not None
+
+
+@pytest.mark.parametrize("name", ["f1r2-eco-r3.txt", "f1r2-sonnet-r3.txt"])
+def test_real_next_endings_are_clean(name: str) -> None:
+    text = ending(name)
+    assert cc.closing_form(text) == "next"
+    assert cc.disallowed_wait_reason(text) is None
+    assert cc.text_after_closing(text) is None
+    assert cc.find_optional_offer(text) is None
+
+
+def test_real_text_after_closing_line_is_detected() -> None:
+    text = ending("f1r2-sonnet-r2.txt")
+    assert cc.closing_form(text) is None
+    assert cc.text_after_closing(text) is not None
+    assert cc.text_after_closing(text).startswith("(단,")
+
+
+def test_text_after_closing_detects_offer_after_wait_line() -> None:
+    text = "본문\n\n대기: 유료 생성 실행 승인 — 필요: 비용 승인\n원하시면 시트도 만들 수 있습니다."
+    assert cc.text_after_closing(text) == "원하시면 시트도 만들 수 있습니다."
+    assert cc.text_after_closing("본문\n\n다음: 대본 — 자동 진행") is None
+    assert cc.text_after_closing("본문 한 줄\n둘째 줄") is None
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        "대기: G2 실행·비용 승인 — 필요: 이미지 생성 모델·비용 승인",
+        "대기: 배우 초상 사용 — 필요: 출연자 초상·음성 동의",
+        "대기: 게시 승인 — 필요: 업로드 승인",
+        "대기: 사용자 지정 중단 — 필요: 컷 검토 후 재개 지시",
+        "대기: 주제 없음 — 필요: 영상의 주제와 목적",
+    ],
+)
+def test_allowed_wait_reasons(line: str) -> None:
+    assert cc.wait_reason_allowed(line)
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        "대기: G1 기획 확인 — 필요: 이 기획안 승인",
+        "대기: 보드 승인 — 필요: 보드 수용 여부",
+        "대기: 브랜드 정보 — 필요: 브랜드명과 로고",
+        "대기: 카피 확정 — 필요: 컵홀더 카피",
+        "대기: 실행·비용 승인과 G1 확정 — 필요: G1 수락과 비용 승인",
+        "대기: 확인 — 필요: 다음 진행 여부",
+    ],
+)
+def test_disallowed_wait_reasons(line: str) -> None:
+    assert not cc.wait_reason_allowed(line)
+
+
+def test_skill_ends_with_before_you_reply_checklist() -> None:
+    text = SKILL.read_text(encoding="utf-8")
+    last = text.rstrip().rsplit("\n## ", 1)[1]
+    assert last.startswith("Before you reply")
+    flat_last = " ".join(last.split())
+    for phrase in ("다음: ", "대기: ", "Nothing after the closing line", "S06", "G1"):
+        assert phrase in flat_last, phrase
+    assert len([line for line in last.splitlines() if line.startswith("- ")]) <= 4
+
+
+@pytest.mark.parametrize("path", [SKILL, POLICY, SKILL_MAP])
+def test_closed_wait_list_and_g1_rule_stated(path: Path) -> None:
+    text = flat(path)
+    assert "G1" in text and ("plan acceptance" in text or "기획 수락" in text), path.name
+    assert "S06" in text, path.name
+
+
+def test_policy_states_never_wait_rule_and_examples() -> None:
+    text = flat(POLICY)
+    assert "G1 and plan acceptance are never a 대기 reason; placeholders are never a 대기 reason" in text
+    assert "`다음: 컷별 프롬프트·에셋 계획 — 자동 진행`" in text
+    assert "`대기: 유료 영상 생성 실행·비용 승인 — 필요: 모델 선택과 비용 승인`" in text
+    assert "nothing follows it" in text

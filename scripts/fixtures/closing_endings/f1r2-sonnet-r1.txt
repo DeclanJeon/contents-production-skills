@@ -1,0 +1,6 @@
+- EN: Small cafe interior at dawn, shutter just lifting, warm amber lights switching on, blue twilight through the window, wooden counter and espresso machine, cinematic, shallow depth of field, film grain, vertical 9:16.
+컷 2~6의 프롬프트도 같은 룩과 캐릭터 앵커로 작성할 수 있습니다.
+**상태**
+- 이 기획은 모두 `proposed`입니다. 영상과 이미지는 만들지 않았고 파일도 저장하지 않았습니다.
+- 영상 모델 선택, 유료 생성, 게시는 별도 승인 단계이며, 지금은 열려 있지 않습니다.
+대기: G1 기획 확인 — 필요: 이 기획안 승인 또는 수정 요청, 그리고 `[브랜드명]`·`[슬로건]`·`[매장 특징]` 값
