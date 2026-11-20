@@ -68,6 +68,35 @@ def missing_source_lines(rows: list[dict], root: Path = ROOT) -> list[str]:
     return missing
 
 
+STYLE_TARGET = "33-motion-style-library"
+STYLE_INDEX = "33-motion-style-library.md"
+
+
+def missing_style_links(rows: list[dict], root: Path = ROOT) -> list[str]:
+    """Absorbed style rows without a `#od-<slug>` index link whose family file holds that anchor.
+
+    A style written as a section of the index itself counts through its in-file `{#od-<slug>}` anchor.
+    """
+    references = root / REFS
+    index_text = (references / STYLE_INDEX).read_text(encoding="utf-8")
+    missing = []
+    for row in rows:
+        if row["status"] != "absorbed" or row["target"] != STYLE_TARGET:
+            continue
+        anchor = f"od-{row['slug']}"
+        if f"{{#{anchor}}}" in index_text:
+            continue
+        linked = [
+            target.split("#", 1)[0]
+            for target in LINK_PATTERN.findall(index_text)
+            if target.endswith(f"#{anchor}") and target.startswith("motion-styles/")
+        ]
+        family_text = (references / linked[0]).read_text(encoding="utf-8") if linked and (references / linked[0]).is_file() else ""
+        if f"{{#{anchor}}}" not in family_text:
+            missing.append(row["slug"])
+    return missing
+
+
 def absorb_rows() -> list[dict]:
     return [row for row in read_ledger(LEDGER_PATH) if row["decision"] == "absorb"]
 
@@ -116,6 +145,10 @@ def test_absorbed_files_links_resolve():
             assert (path.parent / target.split("#", 1)[0]).is_file(), f"{path.name}: {target}"
 
 
+def test_style_index_links_every_style():
+    assert missing_style_links(read_ledger(LEDGER_PATH)) == []
+
+
 def test_detects_corruption(tmp_path):
     rows = read_ledger(LEDGER_PATH)
     row = next(item for item in rows if item["decision"] == "absorb" and item["target"] == "08-animation")
@@ -132,3 +165,22 @@ def test_detects_corruption(tmp_path):
 
     target_file.write_text(f"### 제목 {{#od-{row['slug']}}}\n- 쓰는 곳: 시험\n", encoding="utf-8")
     assert missing_source_lines(corrupted, tmp_path) == [row["slug"]]
+
+
+def test_style_index_detects_missing_link(tmp_path):
+    rows = [row for row in read_ledger(LEDGER_PATH) if row["target"] == STYLE_TARGET and row["status"] == "absorbed"]
+    row = next(item for item in rows if item["slug"] != "openmotion-design-styles")
+    anchor = f"od-{row['slug']}"
+    styles_dir = tmp_path / REFS / "motion-styles"
+    styles_dir.mkdir(parents=True)
+    (styles_dir / "kinetic-type.md").write_text(f"### 제목 {{#{anchor}}}\n", encoding="utf-8")
+    index_file = tmp_path / REFS / STYLE_INDEX
+    index_file.write_text(f"- [제목](motion-styles/kinetic-type.md#{anchor}) — 요약\n", encoding="utf-8")
+    assert missing_style_links([row], tmp_path) == []
+
+    index_file.write_text("- 제목 — 요약\n", encoding="utf-8")
+    assert missing_style_links([row], tmp_path) == [row["slug"]]
+
+    index_file.write_text(f"- [제목](motion-styles/kinetic-type.md#{anchor}) — 요약\n", encoding="utf-8")
+    (styles_dir / "kinetic-type.md").write_text("### 제목\n", encoding="utf-8")
+    assert missing_style_links([row], tmp_path) == [row["slug"]]
