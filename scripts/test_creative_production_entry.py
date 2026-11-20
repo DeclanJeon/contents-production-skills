@@ -6,6 +6,11 @@ from pathlib import Path
 
 import routing_regression
 
+try:
+    import yaml
+except ImportError:  # strict fallback check is used in the frontmatter test
+    yaml = None
+
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "creative-production" / "SKILL.md"
 MAIN_FRONTIER_WORDS = 2820
@@ -23,7 +28,7 @@ PARTIAL_VIDEO_CONCEPTS = {
     "shorts/reels editing": r"shorts.*reels|reels.*shorts",
     "re-edit or clip extraction": r"re-edit\w*.*clip|extract\w* clips",
     "captions/lower thirds": r"captions.*lower thirds",
-    "ad/promo video script": r"(ad|promo)\w*.*video scripts?",
+    "ad/promo video script": r"\b(ad|promo) (or (ad|promo) )?video scripts?\b",
     "motion-graphics style": r"motion-graphics style",
 }
 
@@ -35,10 +40,55 @@ def description() -> str:
     return " ".join(match.group(1).split()).lower()
 
 
+def exclusion_sentence() -> str:
+    match = re.search(r"do not use[^.]*\.", description())
+    assert match, "'Do not use' sentence not found"
+    return match.group(0)
+
+
 def test_description_keeps_exclusions() -> None:
-    text = description()
-    missing = [phrase for phrase in EXCLUSIONS if phrase not in text]
+    sentence = exclusion_sentence()
+    missing = [phrase for phrase in EXCLUSIONS if phrase not in sentence]
     assert not missing, missing
+
+
+def test_description_excludes_video_to_text_repurposing() -> None:
+    assert "turning a video into an article or post" in exclusion_sentence()
+
+
+def package_skill_files() -> list[Path]:
+    return sorted(ROOT.glob("*/SKILL.md"))
+
+
+def frontmatter_block(path: Path) -> str:
+    match = re.match(r"---\n(.*?)\n---\n", path.read_text(encoding="utf-8"), re.DOTALL)
+    assert match, f"{path}: frontmatter not found"
+    return match.group(1)
+
+
+def test_every_package_frontmatter_is_valid_yaml() -> None:
+    files = package_skill_files()
+    assert files
+    for path in files:
+        block = frontmatter_block(path)
+        if yaml is not None:
+            data = yaml.safe_load(block)
+            assert isinstance(data, dict), path
+            assert isinstance(data.get("description"), str), path
+            continue
+        value_lines = []
+        in_description = False
+        for line in block.splitlines():
+            if line.startswith("description:"):
+                in_description = True
+                value_lines.append(line.split(":", 1)[1])
+            elif in_description and line.startswith((" ", "\t")):
+                value_lines.append(line)
+            else:
+                in_description = False
+        value = " ".join(value_lines).strip()
+        if not value.startswith(("'", '"', ">", "|")):
+            assert ": " not in value, f"{path}: colon-space in plain scalar"
 
 
 def test_description_covers_partial_video_work() -> None:
