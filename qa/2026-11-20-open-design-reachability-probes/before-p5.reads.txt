@@ -1,0 +1,4 @@
+  read: video-production-assets/SKILL.md
+  read: video-production-assets/references/15-delivery.md
+  read: video-production-assets/references/contract-core.md
+--- final answer chars: 3696

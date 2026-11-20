@@ -1,0 +1,3 @@
+  read: video-production-assets/SKILL.md
+  read: video-production-assets/references/23a-captions-layout.md
+--- final answer chars: 2229

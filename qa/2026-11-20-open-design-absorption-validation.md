@@ -32,3 +32,19 @@ One attempt, `--limit 3` smoke (a single attempt as directed; the 65-case run an
 - No behavioral measurement of whether an agent reads the new references; routing is unchanged by construction.
 - Upstream content was read from public raw files at the pinned commits; nothing from upstream was executed.
 - Not pushed; local commit only.
+
+## Post-release QA (2026-11-20): reachability probes
+
+Real agent probes replaced the BLOCKED Codex eval: `pi --print --mode json --no-skills --skill <isolated install> --tools read,ls,find,grep --model anthropic/claude-sonnet-5-5`, one run per prompt, text only. Tool-call logs are summarized in `qa/2026-11-20-open-design-reachability-probes/` (read/grep paths only; one repeat, one model — stability is not measured).
+
+**Defect found and fixed.** Before `16edb76`, 0 of 5 probes opened any absorbed reference. The spec (section 6) required a conditional link in each host module; the plan replaced that with `module-index.md` rows only, which agents did not open. `16edb76` adds one conditional link per host module (03, 05, 08, 09, 10, 11, 15, 19, 23, 29) and in `video-production-assets/SKILL.md` (+58 words), plus `test_new_references_linked_from_host_and_skill` with a corruption check.
+
+| Probe | Before | After `16edb76` |
+|---|---|---|
+| p1 product ad script (no destination) | 03 only | grep `30#od-openmotion-ad-script`; output: 0–1.5 s hook, 3 angles offered, no CTA |
+| p2 motion style, kinetic type | 08 only | 33 index → 08a → `motion-styles/kinetic-type.md` only |
+| p3 podcast → shorts | no skill read | no skill read (same on 2.62 main: SKILL.md only) — skill discovery, not this change; p3b naming the skill: 09 → 09a |
+| p4 tumbler sale promo with photos | creative-production → storytelling-with-still-images | same; identical on 2.62 main (stills route chosen because photos exist). 19a is not reached from the stills lane — open follow-up |
+| p5 bilingual captions + lower thirds | 15 only | `23a-captions-layout.md` |
+
+Checks re-run after the fix: `pytest scripts` 507 passed / 1 skipped; `routing_regression.py` 79 cases, 0 failing; `creative-production/` diff vs main empty; isolated install 248 links / 78 `#od-` anchors, 0 broken. Probe outputs are model text, not package facts or creative-quality acceptance.
