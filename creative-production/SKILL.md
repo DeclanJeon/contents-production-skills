@@ -50,14 +50,13 @@ executed_media / varies), `authority_axis`, `owner`, `required_read`,
 `stop_boundary`.
 
 Read [routing-disambiguation.csv](references/routing-disambiguation.csv) in the
-same step. REQUIRED, not conditional: measured runs showed a "read it only on a
-tie" rule never fired, because one route always looks plausible immediately. It
-holds one row per confusable pair (`route_a`, `route_b`) and the one line that
-separates them. That distinction lives here and nowhere else, so do not
-re-derive it from keywords.
+same step. REQUIRED, not conditional: a tie-only reading rule never
+fired, because one route always looks plausible. It holds one row per confusable
+pair (`route_a`, `route_b`) and the line that separates them; do not re-derive
+it from keywords.
 
-Judgment uses these three slots, not keyword similarity. State all three before
-naming a route; a route chosen without them is a keyword guess:
+State all three slots before naming a route; one chosen without them is a
+keyword guess:
 
 - **deliverable_kind** — which artifact the user asked for.
 - **media_axis** — what media the request actually permits. Default `text_only`
@@ -67,11 +66,15 @@ naming a route; a route chosen without them is a keyword guess:
   storyboard or cast is an *input*, not an authority: write it empty and keep
   the approval in the brief, otherwise the money axis reads as already open.
 
+Once the route is chosen, open [craft-bridge.csv](references/craft-bridge.csv),
+take the rows for the current stage whose `when` fits the request, and read
+those `craft_ref` files with the owner's own procedure before producing the
+stage, whether you hand off or do it yourself. Owner rules and gates still win.
+
 Then open the selected `owner` SKILL.md. Open every path in that row's
 `required_read` too: it is a `;`-separated list of package-relative paths, and an
-empty cell means the owner SKILL.md is the only file. These are the files that
-authorise the work; naming a route without opening them produces output the
-skill never sanctioned. Do not preload future craft, provider catalogs, or
+empty cell means the owner SKILL.md is the only file. These files authorise
+the work; output from a route named without opening them is unsanctioned. Do not preload future craft, provider catalogs, or
 full-pipeline checklists. Two matches on one narrow artifact: pick the narrowest
 and say which one you skipped.
 
@@ -140,9 +143,7 @@ inputs and blockers. For an existing ledger query/update, read
 Keep full execution projections on disk; display with `sequence_context.py
 --shot <ID> --projection <full.json> --view focus`, never execute that display.
 Do not infer a stage from file presence.
-Add `craft_refs` to the packet: the `craft_ref` paths of
-[craft-bridge.csv](references/craft-bridge.csv) rows for this stage whose `when`
-fits the request, whatever the owner (omit if none fit).
+Carry the Step 1 craft paths as `craft_refs` (omit if none fit).
 
 A worker returns indexed changes, actual evidence, and checks performed. When
 dependencies are missing it also returns one indexed missing-input packet naming
@@ -150,8 +151,7 @@ each scene/shot/beat slot, the required input, and the blocker. Select each
 missing owner from `routing.csv` once, integrate the return with inherited
 IDs and versions, and resume the blocked stage — no second intake or re-route.
 On a valid return, run applicable internal QA and take the next eligible stage
-until the project goal or explicit stop is reached. Progress updates never
-require an answer unless there is an actual gate. A blocked stage does not
+until the project goal or explicit stop is reached. A blocked stage does not
 stop independent in-scope work.
 
 ## Step 5 — Persist and deliver

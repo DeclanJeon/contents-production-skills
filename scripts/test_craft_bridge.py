@@ -1,4 +1,4 @@
-"""Checks for creative-production/references/craft-bridge.csv and its Step 4 link."""
+"""Checks for creative-production/references/craft-bridge.csv and its Step 1 read and Step 4 pointer."""
 from __future__ import annotations
 
 import csv
@@ -112,11 +112,22 @@ def test_bridge_row_cap() -> None:
     assert len(read_rows()) <= ROW_CAP
 
 
-def test_step4_links_bridge() -> None:
+def test_step1_reads_bridge_right_after_route_selection() -> None:
+    text = SKILL.read_text(encoding="utf-8")
+    step1 = text.split("## Step 1", 1)[1].split("\n## ", 1)[0]
+    assert "references/craft-bridge.csv" in step1
+    assert "whether you hand off or do it yourself" in step1
+    assert "Owner rules and gates still win" in step1
+    slots = step1.index("**authority_axis**")
+    bridge = step1.index("references/craft-bridge.csv")
+    assert slots < bridge < step1.index("open the selected `owner`")
+
+
+def test_step4_keeps_craft_refs_pointer() -> None:
     text = SKILL.read_text(encoding="utf-8")
     step4 = text.split("## Step 4", 1)[1].split("\n## ", 1)[0]
-    assert "references/craft-bridge.csv" in step4
-    assert "craft_refs" in step4
+    assert "`craft_refs`" in step4
+    assert "references/craft-bridge.csv" not in step4
 
 
 def test_skill_map_links_bridge() -> None:

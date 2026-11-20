@@ -92,7 +92,7 @@ def test_every_package_frontmatter_is_valid_yaml() -> None:
 
 
 def test_description_covers_partial_video_work() -> None:
-    text = description()
+    text = description().split("Do not use", 1)[0]
     missing = [name for name, pattern in PARTIAL_VIDEO_CONCEPTS.items() if not re.search(pattern, text)]
     assert not missing, missing
 
