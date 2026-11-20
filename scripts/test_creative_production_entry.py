@@ -97,8 +97,8 @@ def test_description_covers_partial_video_work() -> None:
     assert not missing, missing
 
 
-def test_version_is_2_6() -> None:
-    assert re.search(r"^version: 2\.6$", SKILL.read_text(encoding="utf-8"), re.MULTILINE)
+def test_version_is_2_7() -> None:
+    assert re.search(r"^version: 2\.7$", SKILL.read_text(encoding="utf-8"), re.MULTILINE)
 
 
 def test_frontier_growth_bounded() -> None:

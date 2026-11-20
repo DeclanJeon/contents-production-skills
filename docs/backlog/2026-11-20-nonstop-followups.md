@@ -11,3 +11,7 @@
 | F4 | 중간 | 시험이 1모델·3회. Codex 기반 `routing_eval.py`는 설정 오류로 BLOCKED. | QA 문서 BLOCKED 기록 | 2개 이상 모델, 케이스당 5회 이상, routing_eval 복구 후 65/65 재측정. |
 | F5 | 중간 | 라우터 frontier가 상한(2,940)에 붙어 있다(2,939). 다음 규칙 추가 여지가 없다. | `routing_regression.py` | 설명·근거 문장을 참조 파일로 옮겨 여유 확보, 또는 상한 재합의. |
 | F6 | 낮음 | 스틸 경로에서 제품 영상에 still-motion 레시피가 붙지 않는다(판정 B2). | `craft-bridge.csv` | 필요 여부 사용자 확인 후 반영. |
+
+## 진행 기록
+
+- F1·F5: 닫는 줄 계약(`다음:`/`대기:`)과 자동 판정(`scripts/closing_check.py`, `agent_read_probe.py` s1)을 구현했고 frontier를 2,897 단어로 줄였다. 실제 에이전트 재시험(s1 3회 × 2모델, 선택 제안 0건)은 아직이다.

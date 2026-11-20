@@ -95,8 +95,8 @@ def test_concept_packet_is_an_input_and_the_coordinator_continues() -> None:
         "continue in the same turn",
         "synopsis/script, storyboard, prompts/asset plan",
         "first real gate or named stop",
-        "which approval or fact is needed next",
-        "never end at the packet with an optional offer",
+        "exact approval or fact",
+        "Never end with an optional offer",
     ):
         assert needle in coordinator, needle
     intake = flat(INTAKE)
@@ -123,7 +123,7 @@ def test_g1_is_a_checkpoint_that_continues_unless_named_as_a_stop() -> None:
 
 
 def test_first_real_gate_closes_with_exact_needs_not_an_optional_offer() -> None:
-    assert "which approval or fact is needed next" in step0()
+    assert "exact approval or fact" in step0()
     rules = skill_map_rules()
     assert "추론할 수 없는 사실과 필요한 승인만 정확히 말하고" in rules
     assert "선택 제안으로 끝내지 않는다" in rules

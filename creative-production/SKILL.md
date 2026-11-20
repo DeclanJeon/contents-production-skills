@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 2.6
+version: 2.7
 description: Use when the user requests video production or a storyboard sheet for
   a video, including partial video work such as shorts/reels editing, re-editing
   existing video or extracting clips, video captions and lower thirds, ad or promo
@@ -11,32 +11,36 @@ description: Use when the user requests video production or a storyboard sheet f
 
 # Creative Production
 
-Sole coordinator and sole state writer for video production. Skills here are
-instruction modules; use the host's real tools and workers, not a presumed scheduler.
+Sole coordinator and sole state writer for video production.
 
 ## Step 0 — Upfront intake (once per new project)
 
 For a new finished-video goal whose concept, format, narrative structure or
-direction is still open, route R33 to `concept-intake-design` first: it judges
-the nine intake factors, records reversible choices it can infer
-(platform/safe zone, tone, length, structure, style) as `inferred` with a
-one-line reason and continues, and returns a checked, scored concept packet. It
+direction is still open, route R33 to `concept-intake-design` first: it records reversible choices it can infer (platform/safe zone, tone, length, structure, style) as `inferred` with a
+one-line reason and continues, and returns a concept packet. It
 asks one batched turn only when a core axis cannot be inferred (no subject or
 purpose) or the user asks to choose or discuss ("골라볼래", "같이 정하자").
 Rights, execution, spend and publication approvals are asked at their own gates,
 never at S01 and never inferred. The packet is an input, not a stopping point:
 for a finished-video goal, continue in the same turn through the next eligible
 stages (synopsis/script, storyboard, prompts/asset plan) to the first real gate
-or named stop (G1 is a checkpoint, outputs stay `proposed`), then state exactly
-which approval or fact is needed next; never end at the packet with an
-optional offer. Later owners inherit it, never re-interview.
+or named stop (G1 is a checkpoint, outputs stay `proposed`). Later owners
+inherit it, never re-interview.
+
+**Closing contract.** End every reply with exactly one closing line, in one of
+two forms: `다음: <next stage> — 자동 진행` (stages remain or a text-only limit ends this turn; name the stage the next turn starts automatically) or `대기: <specific gate or blocking fact> — 필요: <exact
+approval or fact>` (a real gate or named stop). Never end with an optional
+offer ("원하시면", "필요하시면", "할까요?", "드릴까요", "…주시면 이어서",
+"if you'd like", "want me to", "let me know"). A fact that cannot be inferred
+but does not block the next stage stays a labelled placeholder (`[브랜드명]`):
+list it and keep working, never wait on it.
+
 Skip Step 0 for a locked brief, an approved concept, a single named artifact, or
 a resumed project. Pre-accepted review gates never open spend. Owner map
 and CineForge CLI handoff contract:
 [skill-map.md](references/skill-map.md).
 
-Still assets the story repeats (character 7-view sheets, wardrobe, location
-4-view sheets, background plates, props, LOOK, cut start/end frames) are not
+Still assets the story repeats (character, wardrobe, location, plates, props, LOOK, cut frames) are not
 done when their prompts are written. Produce them under
 [still asset generation jobs](../video-production-assets/references/32-still-asset-generation-jobs.md):
 dependency order, at most five concurrent jobs, no automatic retry of an
@@ -53,17 +57,14 @@ Select the current eligible stage separately; a route’s stop boundary ends the
 assignment, not an unfinished project goal.
 
 Read [routing.csv](references/routing.csv) and select exactly one `route_id`.
-Columns: `deliverable_kind`, `media_axis` (text_only / none_or_stills /
-executed_media / varies), `authority_axis`, `owner`, `required_read`,
-`stop_boundary`.
+
+
+
 
 Read [routing-disambiguation.csv](references/routing-disambiguation.csv) in the
-same step. REQUIRED, not conditional. It holds one row per confusable
-pair (`route_a`, `route_b`) and the line that separates them; do not re-derive
-it from keywords.
+same step. REQUIRED, not conditional; do not re-derive its pairs from keywords.
 
-State all three slots before naming a route; one chosen without them is a
-keyword guess:
+State all three slots before naming a route:
 
 - **deliverable_kind** — which artifact the user asked for.
 - **media_axis** — what media the request actually permits. Default `text_only`
@@ -71,7 +72,7 @@ keyword guess:
 - **authority_axis** — which **spend or execution** approvals are already
   supplied. Empty means none, and paid media stays closed. An approved brief,
   storyboard or cast is an *input*, not an authority: write it empty and keep
-  the approval in the brief, otherwise the money axis reads as already open.
+  the approval in the brief.
 
 Once the route is chosen, open [craft-bridge.csv](references/craft-bridge.csv),
 take the rows for the current stage whose `when` fits the request, and read
@@ -91,8 +92,7 @@ edit: [09a](../video-production-assets/references/09a-short-form-edit-recipes.md
 
 Then open the selected `owner` SKILL.md. Open every path in that row's
 `required_read` too: it is a `;`-separated list of package-relative paths, and an
-empty cell means the owner SKILL.md is the only file. These files authorise
-the work; output from a route named without opening them is unsanctioned. Do not preload future craft, provider catalogs, or full-pipeline checklists. Two matches on one narrow artifact: pick the narrowest
+empty cell means the owner SKILL.md is the only file. Output from a route named without opening them is unsanctioned. Do not preload future craft, provider catalogs, or full-pipeline checklists. Two matches on one narrow artifact: pick the narrowest
 and name the skipped one.
 
 For an ordinary finished-video goal, keep the goal in the coordinator and route
@@ -110,9 +110,7 @@ stretching a route.
 ## Step 2 — Apply policy
 
 Read [policy.md](references/policy.md) for authority hierarchy, scope boundary,
-read-only probes, single writer, evidence, execution gate, and history. This
-package restates none of it elsewhere; if a skill contradicts `policy.md`, that
-skill is wrong.
+read-only probes, single writer, evidence, execution gate, and history.
 
 ## Step 3 — Scope and stage
 
@@ -159,9 +157,8 @@ Keep full execution projections on disk; display with `sequence_context.py
 Do not infer a stage from file presence.
 Carry the Step 1 craft paths as `craft_refs` (omit if none fit).
 
-A worker returns indexed changes, actual evidence, and checks performed. When
-dependencies are missing it also returns one indexed missing-input packet naming
-each scene/shot/beat slot, the required input, and the blocker. Select each
+When dependencies are missing the worker returns one indexed missing-input
+packet. Select each
 missing owner from `routing.csv` once, integrate the return with inherited
 IDs and versions, and resume the blocked stage — no second intake or re-route.
 On a valid return, run applicable internal QA and take the next eligible stage
@@ -214,9 +211,7 @@ reconcile all board intervals with the actual submitted VISUAL/AUDIO schedule. A
 5/10/20/30-second job changes grouping and local timestamps, not the approved
 cuts, expression beats or dialogue.
 
-Keep video-model/endpoint choice unresolved during preproduction. Current-version
-review acceptance/readiness is not user acceptance, execution approval, or
-permission to run video. Open the live-verified bounded plan under
+Keep video-model/endpoint choice unresolved during preproduction. Open the live-verified bounded plan under
 [video-generation-planning.md](references/video-generation-planning.md) only
 on an explicit proceed request or existing explicit authority covering that
 plan. Submit only under current execution and applicable spend approval.

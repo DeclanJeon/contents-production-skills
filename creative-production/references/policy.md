@@ -27,6 +27,20 @@ proposal is never acceptance. Ask only for consequential choices unavailable
 from tools or sources. Rights, execution, spend and publication approvals are
 asked at their own gates, never at intake and never inferred.
 
+### Closing line
+
+A reply under a finished-video goal ends with exactly one closing line in one of
+two forms: `다음: <next stage> — 자동 진행` when stages remain or a text-only
+limit ends the turn (name the stage the next turn starts automatically), or
+`대기: <specific gate or blocking fact> — 필요: <exact approval or fact>` at a
+real gate or named stop. An optional offer is never a closing line ("원하시면",
+"필요하시면", "원하면", "할까요?", "드릴까요", "…주시면 이어서", "if you'd
+like", "want me to", "let me know"): it makes the user's reply a precondition for
+work that needs none. A fact that cannot be inferred but does not block the next
+stage stays a labelled placeholder (`[브랜드명]`); it is listed and work
+continues, and it is not a reason to wait. `scripts/closing_check.py` checks
+this form.
+
 ## 2. Scope boundary
 
 A coordinator activates only for an explicit request inside its own boundary.

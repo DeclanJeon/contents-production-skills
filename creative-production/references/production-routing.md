@@ -13,6 +13,7 @@ source). It keeps only the prose that does not fit a CSV cell:
 - the **Open 3D module selection** table
 - the **selected runtime gate**
 - **state and handoff** rules
+- **entry-file notes** moved out of `SKILL.md` (last section)
 
 Select the narrowest owner for the current assignment. The coordinator reads
 this file once after `routing.csv`; workers consume their packet and never reroute.
@@ -144,3 +145,18 @@ Apply this gate only before an actual requested runtime/provider operation, not 
 For an existing project, [common handoff/single writer](../../video-production-assets/references/contract-core.md#worker-handoff-and-single-writer) owns ID/version lookup, worker return and authorized persistence. Domain bibles/provider adapters are linked artifacts. No-save/read-only proposals do not write a ledger. Text-only may save explicitly requested MD/PDF and its history at the authorized file stage; it never implies new media or automatic storage. A standalone artifact does not create a ledger.
 
 Actual saved content work uses `recording-production-history` before writes and after every observed output. Topic-to-video/image-backed work also reads preproduction-review. Use the history skill's path precedence, defaulting to the actual user's Documents/Media_Studio; preserve an explicit active project destination. Before the first save, ask once for a preferred project directory unless an active path, environment/config choice or existing default studio root resolves it. Create only used work folders; collect deliverables in `final/` and keep audit in `.history/`. Report absolute saved paths and history paths. Tools and interview frameworks are checked only when selected, never universal prerequisites.
+
+## Entry-file notes
+
+Explanatory text moved out of `SKILL.md` to keep the router frontier within 2,900 words. None of it adds a rule.
+
+- `routing.csv` columns: `deliverable_kind`, `media_axis` (text_only / none_or_stills / executed_media / varies), `authority_axis`, `owner`, `required_read`, `stop_boundary`.
+- `routing-disambiguation.csv` holds one row per confusable pair (`route_a`, `route_b`) and the line that separates them; the coordinator does not re-derive it from keywords.
+- A route chosen without the three slots (deliverable_kind, media_axis, authority_axis) is a keyword guess.
+- An approved brief, storyboard or cast is written as an empty `authority_axis`, otherwise the money axis reads as already open.
+- The `required_read` files authorise the work.
+- `concept-intake-design` judges the nine intake factors and returns a checked, scored concept packet.
+- A worker returns indexed changes, actual evidence and checks performed; a missing-input packet names each scene/shot/beat slot, the required input and the blocker.
+- Still assets the story repeats are character 7-view sheets, wardrobe, location 4-view sheets, background plates, props, LOOK and cut start/end frames (see the 32 table).
+- `policy.md` is the single source for cross-cutting rules: this package restates none of it elsewhere, and a skill that contradicts `policy.md` is wrong. Review acceptance/readiness of the current version is not user acceptance, execution approval or permission to run video (`policy.md` §1).
+- The package is instruction modules plus local tools; use the host's real tools and workers, not a presumed scheduler (`policy.md` §8).
