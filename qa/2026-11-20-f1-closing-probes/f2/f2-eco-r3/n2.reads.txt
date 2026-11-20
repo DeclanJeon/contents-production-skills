@@ -1,0 +1,3 @@
+  find: /home/declan/.agents
+  ls: /tmp/agent-probe-dlxtqqa5
+  ls: /home/declan/.agents/superpowers/skills

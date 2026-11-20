@@ -1,0 +1,103 @@
+{
+  "model": "anthropic/claude-sonnet-5-5",
+  "results": [
+    {
+      "id": "p1",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "video-production-assets/references/30-marketing-story-craft.md"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/30-marketing-story-craft.md']"
+    },
+    {
+      "id": "p2",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "video-production-assets/references/33-motion-style-library.md",
+        "video-production-assets/references/motion-styles/kinetic-type.md",
+        "video-production-assets/SKILL.md",
+        "creative-production/references/policy.md",
+        "video-production-assets/references/motion-styles/product-commerce.md"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/33-motion-style-library.md']"
+    },
+    {
+      "id": "p3",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "video-production-assets/references/09a-short-form-edit-recipes.md"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/09a-short-form-edit-recipes.md']"
+    },
+    {
+      "id": "p4",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "video-production-assets/references/19a-product-promo-formulas.md",
+        "video-production-assets/SKILL.md"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/19a-product-promo-formulas.md']"
+    },
+    {
+      "id": "p5",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "video-production-assets/references/23a-captions-layout.md",
+        "creative-production/references/routing.csv"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/23a-captions-layout.md']"
+    },
+    {
+      "id": "n1",
+      "kind": "negative",
+      "opened": [],
+      "pass": true,
+      "reason": "creative-production/SKILL.md not opened"
+    },
+    {
+      "id": "n2",
+      "kind": "negative",
+      "opened": [],
+      "pass": true,
+      "reason": "creative-production/SKILL.md not opened"
+    },
+    {
+      "id": "n3",
+      "kind": "negative",
+      "opened": [],
+      "pass": true,
+      "reason": "creative-production/SKILL.md not opened"
+    },
+    {
+      "id": "s1",
+      "kind": "nonstop",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "concept-intake-design/SKILL.md",
+        "concept-intake-design/references/plan-template.md"
+      ],
+      "pass": false,
+      "reason": "last line is not a 다음:/대기: closing line — 키워드 확인 ['기획', '콘티', '실행 승인 요청'], 누락 ['대본'], 생성 완료 주장 표현 없음"
+    }
+  ]
+}

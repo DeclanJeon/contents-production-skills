@@ -1,0 +1,4 @@
+  read: creative-production/SKILL.md
+  read: creative-production/SKILL.md
+  read: concept-intake-design/SKILL.md
+  read: creative-production/references/routing.csv

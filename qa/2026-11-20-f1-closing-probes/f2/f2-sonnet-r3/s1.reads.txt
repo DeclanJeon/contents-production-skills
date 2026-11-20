@@ -1,0 +1,2 @@
+  read: creative-production/SKILL.md
+  read: concept-intake-design/SKILL.md

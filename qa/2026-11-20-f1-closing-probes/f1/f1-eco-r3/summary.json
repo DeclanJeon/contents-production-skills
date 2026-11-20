@@ -1,0 +1,135 @@
+{
+  "model": "opengateway/deepseek/deepseek-v4.1-flash-eco",
+  "results": [
+    {
+      "id": "p1",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "creative-production/references/craft-bridge.csv",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/03-screenplay.md",
+        "video-production-assets/references/30-marketing-story-craft.md",
+        "video-production-assets/references/19a-product-promo-formulas.md",
+        "video-production-assets/assets/03-screenplay-template.md",
+        "creative-production/references/policy.md",
+        "video-production-assets/references/10-evidence.md"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/30-marketing-story-craft.md']"
+    },
+    {
+      "id": "p2",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "creative-production/references/craft-bridge.csv",
+        "video-production-assets/references/33-motion-style-library.md",
+        "video-production-assets/references/motion-styles/kinetic-type.md",
+        "video-production-assets/references/08a-motion-craft.md",
+        "creative-production/references/policy.md",
+        "creative-production/references/creative-qa.md"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/33-motion-style-library.md']"
+    },
+    {
+      "id": "p3",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "/home/declan/.agents/DEVELOPMENT-WORKFLOWS.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "creative-production/references/craft-bridge.csv",
+        "creative-production/references/policy.md",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/09a-short-form-edit-recipes.md",
+        "video-production-assets/references/09-edit.md",
+        "video-production-assets/assets/09-edit-template.md",
+        "video-production-assets/references/23a-captions-layout.md"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/09a-short-form-edit-recipes.md']"
+    },
+    {
+      "id": "p4",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "creative-production/references/craft-bridge.csv",
+        "creative-production/references/policy.md",
+        "video-production-assets/SKILL.md",
+        "video-production-assets/references/19a-product-promo-formulas.md",
+        "video-production-assets/references/30-marketing-story-craft.md",
+        "video-production-assets/references/30-marketing-story-craft.md"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/19a-product-promo-formulas.md']"
+    },
+    {
+      "id": "p5",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "creative-production/references/craft-bridge.csv",
+        "video-production-assets/references/23a-captions-layout.md",
+        "creative-production/references/policy.md",
+        "video-production-assets/references/15-delivery.md"
+      ],
+      "pass": true,
+      "reason": "opened ['video-production-assets/references/23a-captions-layout.md']"
+    },
+    {
+      "id": "n1",
+      "kind": "negative",
+      "opened": [],
+      "pass": true,
+      "reason": "creative-production/SKILL.md not opened"
+    },
+    {
+      "id": "n2",
+      "kind": "negative",
+      "opened": [],
+      "pass": true,
+      "reason": "creative-production/SKILL.md not opened"
+    },
+    {
+      "id": "n3",
+      "kind": "negative",
+      "opened": [],
+      "pass": true,
+      "reason": "creative-production/SKILL.md not opened"
+    },
+    {
+      "id": "s1",
+      "kind": "nonstop",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "concept-intake-design/SKILL.md",
+        "creative-production/references/craft-bridge.csv",
+        "creative-production/references/policy.md",
+        "orchestrating-video-preproduction/SKILL.md",
+        "concept-intake-design/references/intake-questions.md",
+        "concept-intake-design/references/concept-taxonomy.yaml",
+        "orchestrating-video-preproduction/references/stage-execution.md",
+        "concept-intake-design/references/combination-rules.md",
+        "video-production-assets/references/storyboard-contract.md",
+        "video-production-assets/references/storyboard-direction.md",
+        "video-production-assets/references/30-marketing-story-craft.md"
+      ],
+      "pass": true,
+      "reason": "closing=next, storyboard content, no offer, no completion claim — 키워드 확인 ['기획', '콘티', '실행 승인 요청'], 누락 ['대본'], 생성 완료 주장 표현 없음"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+  read: creative-production/SKILL.md
+  grep: video-production-assets/references/30-marketing-story-craft.md
+  grep: creative-production/references/routing.csv

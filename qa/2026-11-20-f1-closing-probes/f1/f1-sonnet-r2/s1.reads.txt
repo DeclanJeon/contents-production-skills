@@ -1,0 +1,5 @@
+  read: creative-production/SKILL.md
+  read: creative-production/references/routing.csv
+  read: creative-production/references/routing-disambiguation.csv
+  read: concept-intake-design/SKILL.md
+  read: concept-intake-design/references/plan-template.md

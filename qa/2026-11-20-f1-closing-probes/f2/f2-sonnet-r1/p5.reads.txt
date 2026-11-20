@@ -1,0 +1,3 @@
+  read: creative-production/SKILL.md
+  read: video-production-assets/references/23a-captions-layout.md
+  read: creative-production/references/routing.csv

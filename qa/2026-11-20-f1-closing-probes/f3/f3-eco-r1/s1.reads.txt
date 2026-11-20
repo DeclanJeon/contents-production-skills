@@ -1,0 +1,12 @@
+  read: creative-production/SKILL.md
+  ls: creative-production
+  read: creative-production/references/routing.csv
+  read: creative-production/references/routing-disambiguation.csv
+  read: concept-intake-design/SKILL.md
+  read: orchestrating-video-preproduction/SKILL.md
+  read: concept-intake-design/references/plan-template.md
+  read: orchestrating-video-preproduction/references/stage-execution.md
+  grep: video-production-assets/references/30-marketing-story-craft.md
+  grep: video-production-assets/references/storyboard-contract.md
+  read: video-production-assets/references/30-marketing-story-craft.md
+  read: video-production-assets/references/storyboard-contract.md

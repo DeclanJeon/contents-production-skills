@@ -1,0 +1,8 @@
+  read: creative-production/SKILL.md
+  read: creative-production/SKILL.md
+  read: creative-production/references/routing.csv
+  read: creative-production/references/routing-disambiguation.csv
+  read: video-production-assets/references/33-motion-style-library.md
+  read: video-production-assets/references/motion-styles/kinetic-type.md
+  grep: video-production-assets/references/motion-styles/product-commerce.md
+  read: video-production-assets/SKILL.md

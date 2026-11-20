@@ -1,0 +1,7 @@
+  read: creative-production/SKILL.md
+  read: /tmp/agent-probe-rdo8kl37/video-production-assets/references/09a-short-form-edit-recipes.md
+  grep: creative-production/references/routing.csv
+  find: /tmp/agent-probe-rdo8kl37
+  grep: creative-production/references/routing.csv
+  read: video-production-assets/references/09a-short-form-edit-recipes.md
+  grep: creative-production/references/routing.csv

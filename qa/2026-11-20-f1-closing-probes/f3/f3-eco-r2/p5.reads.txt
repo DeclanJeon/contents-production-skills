@@ -1,0 +1,9 @@
+  read: creative-production/SKILL.md
+  ls: creative-production
+  read: creative-production/references/routing.csv
+  read: video-production-assets/references/23a-captions-layout.md
+  read: creative-production/references/craft-bridge.csv
+  grep: video-production-assets/references/15-delivery.md
+  ls: /tmp/agent-probe-2gxkaiwz/sandbox
+  grep: creative-production/references/policy.md
+  grep: creative-production/references/policy.md
