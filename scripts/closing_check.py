@@ -68,17 +68,24 @@ def _is_closing_start(line: str) -> bool:
     return line.strip(_MARKUP).startswith(("다음:", "대기:"))
 
 
-def _closing_region(text: str) -> list[str]:
-    """Lines where an optional offer can sit: from the last 다음:/대기: line to the end.
+def _is_prose(line: str) -> bool:
+    return not line.startswith(("|", "#"))
 
-    Without a closing line, the last two non-empty lines that are not table rows
-    (``|``), so storyboard dialogue in table cells is never read as an offer.
+
+def _closing_region(text: str) -> list[str]:
+    """Lines where an optional offer can sit.
+
+    With a closing line: up to two prose lines immediately above the last
+    다음:/대기: line, that line, and everything after it. Without one: the last
+    three prose lines. Prose excludes table rows (``|``) and headings (``#``), so
+    storyboard dialogue in table cells is never read as an offer.
     """
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     starts = [i for i, line in enumerate(lines) if _is_closing_start(line)]
     if starts:
-        return lines[starts[-1]:]
-    return [line for line in lines if not line.startswith("|")][-2:]
+        above = [line for line in lines[:starts[-1]] if _is_prose(line)][-2:]
+        return above + lines[starts[-1]:]
+    return [line for line in lines if _is_prose(line)][-3:]
 
 
 def find_optional_offer(text: str) -> str | None:
@@ -171,6 +178,8 @@ _DISALLOWED_WAIT = re.compile(
 # pre-delegation G2 folds into that single stop.
 _BOARD_ACCEPTANCE = re.compile(r"(?:G2\s*)?(?:스토리보드|보드)\s*(?:승인|수용|확인|수락)|G2\s*(?:검수\s*)?(?:승인|수락)")
 _PAID_WORDS = ("실행", "비용", "유료", "결제")
+# Board acceptance is stripped only beside a paid-execution word followed by 승인 in the same clause.
+_PAID_APPROVAL = re.compile(r"(?:실행|비용|유료|결제)[^—]*승인")
 
 
 def wait_reason_allowed(line: str) -> bool:
@@ -178,10 +187,10 @@ def wait_reason_allowed(line: str) -> bool:
 
     Heuristic: false when the line mentions G1, plan acceptance, a brand name,
     copy or similar placeholderable facts, or when it names no allowed reason keyword.
-    Board/G2 acceptance is disallowed alone but allowed alongside paid-execution approval.
+    Board/G2 acceptance is disallowed alone but allowed alongside a paid-execution 승인 clause.
     """
     text = line.strip(_MARKUP)
-    if any(word in text for word in _PAID_WORDS):
+    if _PAID_APPROVAL.search(text):
         text = _BOARD_ACCEPTANCE.sub("", text)
     if _DISALLOWED_WAIT.search(text):
         return False

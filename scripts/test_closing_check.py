@@ -23,12 +23,9 @@ SONNET_OFFER_ENDINGS = [
     "sonnet-nonstop-r1.txt",
     "sonnet-nonstop-r2.txt",
     "sonnet-triggers-r1.txt",
+    "sonnet-nonstop-r3.txt",
+    "sonnet-triggers-r2.txt",
 ]
-
-# Offer sits above the last two non-empty lines, so it is not in the closing region;
-# the ending still fails the contract because its last line is not a closing line.
-SONNET_NO_CLOSING_LINE_ENDINGS = ["sonnet-nonstop-r3.txt", "sonnet-triggers-r2.txt"]
-
 
 def ending(name: str) -> str:
     return (ENDINGS / name).read_text(encoding="utf-8")
@@ -41,11 +38,6 @@ def test_real_sonnet_endings_are_flagged(name: str) -> None:
     assert cc.closing_form(text) is None
 
 
-@pytest.mark.parametrize("name", SONNET_NO_CLOSING_LINE_ENDINGS)
-def test_real_sonnet_endings_without_closing_line_fail_the_contract(name: str) -> None:
-    assert cc.closing_form(ending(name)) is None
-
-
 def test_storyboard_table_dialogue_is_not_an_offer() -> None:
     table_end = (
         "| 컷 | 대사 |\n|---|---|\n| 3 | 바리스타: \"오늘 커피 한 잔 할까요?\" |\n"
@@ -54,6 +46,8 @@ def test_storyboard_table_dialogue_is_not_an_offer() -> None:
     assert cc.find_optional_offer(table_end) is None
     assert cc.closing_form(table_end) == "next"
     assert cc.find_optional_offer("본문\n| 3 | 바리스타: \"한 잔 할까요?\" |") is None
+    adjacent = "본문\n원하시면 캐릭터 시트도 만들어 드릴게요.\n다음: 컷별 프롬프트 — 자동 진행"
+    assert cc.find_optional_offer(adjacent) is not None
     assert cc.find_optional_offer("다음: 프롬프트 — 자동 진행\n원하시면 시트도 만들어 드립니다.") is not None
 
 
@@ -259,6 +253,8 @@ def test_allowed_wait_reasons(line: str) -> None:
         "대기: 카피 확정 — 필요: 컵홀더 카피",
         "대기: 실행·비용 승인과 G1 확정 — 필요: G1 수락과 비용 승인",
         "대기: 확인 — 필요: 다음 진행 여부",
+        "대기: 보드 승인 — 필요: 비용 없음 확인",
+        "대기: 스토리보드 승인 — 필요: 승인 후 유료 생성 진행",
     ],
 )
 def test_disallowed_wait_reasons(line: str) -> None:
@@ -271,6 +267,7 @@ def test_disallowed_wait_reasons(line: str) -> None:
         "대기: 기획안 기반 유료 영상 실행·비용 승인 — 필요: 모델 선택과 비용 승인",
         "대기: 유료 영상 생성 실행·비용 승인 — 필요: G2 보드 수락과 모델·비용 승인",
         "대기: G2 보드 수락과 실행·비용 승인 — 필요: 보드 승인과 비용 승인",
+        "대기: 보드 수락과 유료 생성 실행·비용 승인 — 필요: 모델·비용 승인",
     ],
 )
 def test_paid_wait_may_also_ask_board_acceptance(line: str) -> None:
