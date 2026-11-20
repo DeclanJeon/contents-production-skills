@@ -66,12 +66,44 @@ def test_judge() -> None:
     assert probe.judge(negative, ["x.md", SKILL], "")[0] is False
 
 
-def test_judge_nonstop_is_never_auto_passed() -> None:
-    case = {"id": "s1", "kind": "nonstop", "expect_any_read": [SKILL]}
-    final = "기획안, 대본, 콘티를 정리했습니다. 실행 승인을 해주세요."
-    verdict, reason = probe.judge(case, [SKILL], final)
-    assert verdict is None
-    assert "후보" in reason
-    verdict, reason = probe.judge(case, [], final)
+NONSTOP_CASE = {"id": "s1", "kind": "nonstop", "expect_any_read": [SKILL]}
+GOOD_S1 = (
+    "## 스토리보드\n| 1 | 0–3s | 클로즈업 |\n\n"
+    "다음: 컷별 프롬프트·에셋 계획 — 자동 진행"
+)
+
+
+def test_judge_nonstop_passes_with_contract_closing() -> None:
+    verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], GOOD_S1)
+    assert verdict is True, reason
+    wait = "샷 리스트를 정리했습니다.\n\n대기: G2 실행 승인 — 필요: 이미지 생성 모델·비용 승인"
+    assert probe.judge(NONSTOP_CASE, [SKILL], wait)[0] is True
+    verdict, reason = probe.judge(NONSTOP_CASE, [], GOOD_S1)
     assert verdict is False
     assert "SKILL.md" in reason
+
+
+def test_judge_nonstop_fails_on_optional_offer_missing_closing_or_content() -> None:
+    offer = "스토리보드 7컷.\n\n원하시면 캐릭터 시트를 이어서 만들 수 있습니다."
+    verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], offer)
+    assert verdict is False and "optional offer" in reason and "closing line" in reason
+    verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], "스토리보드 7컷을 정리했습니다.")
+    assert verdict is False and "closing line" in reason
+    verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], "기획 요약.\n\n다음: 대본 — 자동 진행")
+    assert verdict is False and "storyboard" in reason
+    claimed = GOOD_S1.replace("0–3s", "0–3s 영상을 생성했습니다")
+    verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], claimed)
+    assert verdict is False and "completion claim" in reason
+
+
+def test_judge_nonstop_fails_on_real_sonnet_s1_endings() -> None:
+    for name in ("sonnet-final-r1.txt", "sonnet-final-r2.txt", "sonnet-final-r3.txt"):
+        text = (ROOT / "scripts" / "fixtures" / "closing_endings" / name).read_text(encoding="utf-8")
+        assert probe.judge(NONSTOP_CASE, [SKILL], text)[0] is False, name
+
+
+def test_judge_positive_fails_on_optional_offer() -> None:
+    positive = {"id": "p5", "kind": "positive", "expect_any_read": ["a.md"]}
+    assert probe.judge(positive, ["a.md"], "자막 규칙입니다.\n\nIf you'd like, I can add more.")[0] is False
+    assert probe.judge(positive, ["a.md"], "자막 규칙입니다.")[0] is True
+    assert probe.judge({"id": "n1", "kind": "negative"}, ["x.md"], "원하시면 더 드립니다.")[0] is True

@@ -8,9 +8,12 @@ files the agent opened. Opened paths are install-relative. Raw JSONL stays in
 the temp dir and is not written to ``--out``.
 
 Verdicts: positive passes when any ``expect_any_read`` file was opened;
-negative passes when ``creative-production/SKILL.md`` was not opened; nonstop
-is never auto-passed (``pass`` is null) — the tool only reports keyword
-candidates and the controller reads the final answer.
+negative passes when ``creative-production/SKILL.md`` was not opened. Every
+non-negative case also fails when the answer ends with an optional offer
+(``closing_check.find_optional_offer``). Nonstop (s1) passes only when the entry
+skill was opened, there is no optional offer, the last line is a contract closing
+line (``다음: … — 자동 진행`` or ``대기: … — 필요: …``), the answer contains
+storyboard/shot-list content, and it makes no completion claim.
 """
 from __future__ import annotations
 
@@ -26,6 +29,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import closing_check
+
 DEFAULT_CASES = ROOT / "creative-production" / "evals" / "agent-read-probes.json"
 KINDS = ("positive", "negative", "nonstop")
 ENTRY_SKILL = "creative-production/SKILL.md"
@@ -38,6 +43,7 @@ NONSTOP_KEYWORDS = {
     "콘티": ("콘티", "스토리보드"),
     "실행 승인 요청": ("승인", "진행할까", "진행해도"),
 }
+STORYBOARD_KEYWORDS = ("스토리보드", "샷 리스트", "콘티")
 COMPLETION_CLAIMS = ("생성했습니다", "생성 완료", "렌더 완료", "렌더링 완료", "제작 완료", "만들었습니다")
 
 
@@ -115,18 +121,36 @@ def nonstop_hints(final: str) -> str:
 def judge(case: dict, opened: list[str], final: str) -> tuple[bool | None, str]:
     opened_set = set(opened)
     kind = case["kind"]
-    if kind == "positive":
-        hits = [p for p in case["expect_any_read"] if p in opened_set]
-        if hits:
-            return True, f"opened {hits}"
-        return False, f"none of {case['expect_any_read']} opened"
     if kind == "negative":
         if ENTRY_SKILL in opened_set:
             return False, f"{ENTRY_SKILL} opened"
         return True, f"{ENTRY_SKILL} not opened"
+    offer = closing_check.find_optional_offer(final)
+    if kind == "positive":
+        hits = [p for p in case["expect_any_read"] if p in opened_set]
+        if not hits:
+            return False, f"none of {case['expect_any_read']} opened"
+        if offer:
+            return False, f"optional offer ending: {offer!r}"
+        return True, f"opened {hits}"
     if ENTRY_SKILL not in opened_set:
         return False, f"{ENTRY_SKILL} not opened"
-    return None, f"컨트롤러 판정 후보 — {nonstop_hints(final)}"
+    problems = []
+    if offer:
+        problems.append(f"optional offer ending: {offer!r}")
+    form = closing_check.closing_form(final)
+    if form is None:
+        problems.append("last line is not a 다음:/대기: closing line")
+    if not any(word in final for word in STORYBOARD_KEYWORDS):
+        problems.append("no storyboard/shot-list content")
+    claims = [w for w in COMPLETION_CLAIMS if w in final]
+    if claims:
+        problems.append(f"completion claim {claims}")
+    if problems:
+        return False, f"{'; '.join(problems)} — {nonstop_hints(final)}"
+    note = closing_check.blocking_on_placeholderable_fact(final)
+    suffix = f" (주의: 자리표시자로 둘 수 있는 사실에서 대기 {note!r})" if note else ""
+    return True, f"closing={form}, storyboard content, no offer, no completion claim{suffix} — {nonstop_hints(final)}"
 
 
 def run_case(case: dict, suffix: str, install: Path, sandbox: Path, raw_dir: Path, model: str) -> dict:
