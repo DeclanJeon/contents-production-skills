@@ -35,3 +35,6 @@ qa/**/*.wire.jsonl
 
 # Local superpowers/SDD session state, regenerated per session.
 .superpowers/
+
+# Cached upstream open-design originals written by scripts/open_design_ledger.py refresh.
+.cache/
