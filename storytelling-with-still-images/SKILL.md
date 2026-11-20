@@ -35,6 +35,8 @@ Stills can be moved, but the motion is a plan, not a measurement of the subject'
 
 Timing and hold allocation stay with `animatic-direction`. A speed ramp, motion blur or camera shake is not a still-image operation; keep it unplanned unless an editor or generator is confirmed to support it.
 
+기사 삽화 영상·손그림 스토리 영상 형식이 필요하면 [스틸 모션 레시피](references/still-motion-recipes.md).
+
 ## Cue-table contract
 
 | Start–end | Still ID + observed content or “proposed—not inspected” | Exact speech | Sound / transition |
