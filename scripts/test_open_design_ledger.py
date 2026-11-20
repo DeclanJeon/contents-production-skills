@@ -83,6 +83,26 @@ def test_detect_license_rejects_lookalikes():
     assert detect_license("Apache License\n Version 2.0, January 2004\n") == "Apache-2.0"
 
 
+def test_detect_license_requires_complete_apache_version_line():
+    assert detect_license("                                 Apache License\n                           Version 2.0, January 2004\n") == "Apache-2.0"
+    assert detect_license("Apache License\n  Version   2.0  \n") == "Apache-2.0"
+    assert detect_license("Apache License\nVersion 2.0 (Non-Commercial)\n") is None
+    assert detect_license("Apache License\nVersion 2.0.1\n") is None
+
+
+def test_cached_download_removes_temporary_file_when_replace_fails(tmp_path, monkeypatch):
+    monkeypatch.setattr(open_design_ledger, "_download", lambda url: (200, b"body"))
+
+    def fail_replace(source, destination):
+        raise OSError("replace failed")
+
+    monkeypatch.setattr(open_design_ledger.os, "replace", fail_replace)
+    destination = tmp_path / "repo" / "LICENSE"
+    with pytest.raises(OSError):
+        open_design_ledger._cached_download("https://example.invalid/LICENSE", destination)
+    assert list(destination.parent.iterdir()) == []
+
+
 def test_decide_requires_allowlisted_license():
     out = decide(absorb_row(), FetchResult(200, "h", "GPL-3.0"))
     assert out["decision"] == "exclude"

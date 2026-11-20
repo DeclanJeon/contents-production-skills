@@ -32,7 +32,7 @@ COMMIT_PATTERN = re.compile(r"^[0-9a-f]{40}$")
 ALLOWED_LICENSES = {"MIT", "Apache-2.0"}
 MIT_HEADING = re.compile(r"^(the\s+)?mit\s+license(\s*\(mit\))?$", re.IGNORECASE)
 APACHE_HEADING = re.compile(r"^apache\s+license$", re.IGNORECASE)
-APACHE_VERSION = re.compile(r"^version\s+2\.0\b", re.IGNORECASE)
+APACHE_VERSION = re.compile(r"^version\s+2\.0(\s*,\s*january\s+2004)?$", re.IGNORECASE)
 
 
 class IndeterminateFetchError(RuntimeError):
@@ -139,9 +139,16 @@ def _cached_download(url: str, destination: Path) -> tuple[int, bytes]:
     status, body = _download(url)
     if status == 200:
         destination.parent.mkdir(parents=True, exist_ok=True)
-        with tempfile.NamedTemporaryFile(dir=destination.parent, delete=False) as temporary:
-            temporary.write(body)
-        os.replace(temporary.name, destination)
+        temporary_path = None
+        try:
+            with tempfile.NamedTemporaryFile(dir=destination.parent, delete=False) as temporary:
+                temporary_path = temporary.name
+                temporary.write(body)
+            os.replace(temporary_path, destination)
+        except BaseException:
+            if temporary_path is not None:
+                Path(temporary_path).unlink(missing_ok=True)
+            raise
     return status, body
 
 
