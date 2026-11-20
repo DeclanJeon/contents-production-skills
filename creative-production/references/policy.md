@@ -30,7 +30,8 @@ asked at their own gates, never at intake and never inferred.
 ### Closing line
 
 A reply under a finished-video goal ends with exactly one closing line, and it
-is the final line: nothing follows it (no notes, offers or summaries). Two forms:
+is the final line: nothing follows it (no notes, offers or summaries). A
+single-artifact reply is not bound by this. Two forms:
 
 - `다음: <next stage> — 자동 진행` when stages remain or a text-only limit ends
   the turn (name the stage the next turn starts automatically). Example:
@@ -42,8 +43,11 @@ is the final line: nothing follows it (no notes, offers or summaries). Two forms
   `대기: 유료 영상 생성 실행·비용 승인 — 필요: 모델 선택과 비용 승인`.
 
 G1 and plan acceptance are never a 대기 reason; placeholders are never a 대기
-reason. Anything else (G1, plan or board acceptance, brand name, copy,
-preferences) closes with `다음: … — 자동 진행`.
+reason. G2 without pre-delegation is not a separate stop: it folds into the
+single S08 paid/external-execution 대기, which asks for board (G2) acceptance and
+execution/spend approval together. Anything else (G1, plan or board acceptance
+outside that 대기, brand name, copy, preferences) closes with
+`다음: … — 자동 진행`.
 
 The line matches exactly one of `^다음: [^—(]+ — 자동 진행$` or
 `^대기: [^—]+ — 필요: .+$` and contains nothing else: no parentheses or hedges

@@ -6,7 +6,7 @@ A reply ends with exactly one closing line:
 * ``다음: <next stage> — 자동 진행``  (more stages remain; the next turn starts
   that stage automatically), or
 * ``대기: <specific gate or blocking fact> — 필요: <exact approval or fact>``,
-  allowed only for execution/spend approval, rights/likeness/voice consent,
+  allowed only for execution/spend approval (which also asks board/G2 acceptance), rights/likeness/voice consent,
   publication approval, a stop the user named, or no subject/purpose at all.
 
 The closing line is the final line: nothing (notes, offers, summaries) follows it.
@@ -64,9 +64,26 @@ def _tail(text: str) -> list[str]:
     return lines[-TAIL_LINES:]
 
 
+def _is_closing_start(line: str) -> bool:
+    return line.strip(_MARKUP).startswith(("다음:", "대기:"))
+
+
+def _closing_region(text: str) -> list[str]:
+    """Lines where an optional offer can sit: from the last 다음:/대기: line to the end.
+
+    Without a closing line, the last two non-empty lines that are not table rows
+    (``|``), so storyboard dialogue in table cells is never read as an offer.
+    """
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    starts = [i for i, line in enumerate(lines) if _is_closing_start(line)]
+    if starts:
+        return lines[starts[-1]:]
+    return [line for line in lines if not line.startswith("|")][-2:]
+
+
 def find_optional_offer(text: str) -> str | None:
-    """Return the first tail line (last ~6 non-empty lines) that is an optional offer."""
-    for line in _tail(text):
+    """Return the first line of the closing region that is an optional offer."""
+    for line in _closing_region(text):
         if _OPTIONAL_OFFER.search(line):
             return line
     return None
@@ -114,6 +131,8 @@ def closing_defect(text: str) -> str | None:
     line = _last_line(text)
     if not (line.startswith("다음") or line.startswith("대기")) or _exact_form(line):
         return None
+    if "–" in line and "—" not in line:
+        return f"wrong dash '–' (use em dash '—') in closing line: {line!r}"
     hedge = closing_hedge(line)
     if hedge:
         return f"hedge {hedge!r} in closing line: {line!r}"
@@ -142,19 +161,28 @@ ALLOWED_WAIT_KEYWORDS = (
 )
 # G1, plan/board acceptance, placeholderable facts and preferences never justify 대기.
 _DISALLOWED_WAIT = re.compile(
-    r"G1(?!\d)|기획|보드\s*(?:승인|수용|확인)|스토리보드\s*(?:승인|수용|확인)|수락|채택"
+    r"G1(?!\d)|기획(?:안)?\s*(?:승인|수락)|보드\s*(?:승인|수용|확인)|스토리보드\s*(?:승인|수용|확인)|수락|채택"
     r"|브랜드\s*(?:명|이름)|카피|로고|슬로건|취향|선호|외형|연령|태그라인",
     re.IGNORECASE,
 )
 
 
+# A paid/external-execution 대기 may also ask for board (G2) acceptance: without
+# pre-delegation G2 folds into that single stop.
+_BOARD_ACCEPTANCE = re.compile(r"(?:G2\s*)?(?:스토리보드|보드)\s*(?:승인|수용|확인|수락)|G2\s*(?:검수\s*)?(?:승인|수락)")
+_PAID_WORDS = ("실행", "비용", "유료", "결제")
+
+
 def wait_reason_allowed(line: str) -> bool:
     """True when a ``대기:`` line names only a reason from the closed allowed list.
 
-    Heuristic: false when the line mentions G1, plan/board acceptance, a brand name,
+    Heuristic: false when the line mentions G1, plan acceptance, a brand name,
     copy or similar placeholderable facts, or when it names no allowed reason keyword.
+    Board/G2 acceptance is disallowed alone but allowed alongside paid-execution approval.
     """
     text = line.strip(_MARKUP)
+    if any(word in text for word in _PAID_WORDS):
+        text = _BOARD_ACCEPTANCE.sub("", text)
     if _DISALLOWED_WAIT.search(text):
         return False
     return any(word in text for word in ALLOWED_WAIT_KEYWORDS)
@@ -171,7 +199,7 @@ def disallowed_wait_reason(text: str) -> str | None:
 def is_paid_execution_wait(text: str) -> bool:
     """True when the closing line is a 대기 for paid/external execution or its cost."""
     line = _last_line(text)
-    return _exact_form(line) == "wait" and any(word in line for word in ("실행", "비용", "유료", "결제"))
+    return _exact_form(line) == "wait" and any(word in line for word in _PAID_WORDS)
 
 
 def text_after_closing(text: str) -> str | None:

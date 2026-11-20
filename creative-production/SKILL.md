@@ -26,7 +26,7 @@ continue in the same turn through the next eligible
 stages (synopsis/script, storyboard, prompts/asset plan) to the first real gate
 or named stop (G1 is a checkpoint, outputs stay `proposed`).
 
-**Closing contract.** End every reply with one closing line, last:
+**Closing contract.** End every finished-video-goal reply with one closing line, last:
 `다음: <next stage> — 자동 진행` or `대기: <reason> — 필요: <exact
 approval or fact>`, only as in "Before you reply". Unknown
 non-blocking facts stay labelled placeholders (`[브랜드명]`). Detail:
@@ -54,9 +54,6 @@ Select the current eligible stage separately; a route’s stop boundary ends the
 assignment, not an unfinished project goal.
 
 Read [routing.csv](references/routing.csv) and select exactly one `route_id`.
-
-
-
 
 Read [routing-disambiguation.csv](references/routing-disambiguation.csv) in the
 same step. REQUIRED, not conditional; do not re-derive its pairs from keywords.
@@ -150,7 +147,7 @@ inputs and blockers. For an existing ledger query/update, read
 Keep full execution projections on disk; display with `sequence_context.py
 --shot <ID> --projection <full.json> --view focus`, never execute that display.
 Do not infer a stage from file presence.
-Carry the Step 1 craft paths as `craft_refs`.
+Carry the Step 1 craft paths as `craft_refs` (when any fit).
 
 When dependencies are missing the worker returns one indexed missing-input
 packet. Select each
@@ -220,8 +217,8 @@ directories, and predictions are not delivery.
 
 ## Before you reply
 
-- The last line is exactly one of these two, nothing after it, never both:
+- Finished-video goal: the last line is exactly one of these two, nothing after it, never both:
   `다음: 컷별 프롬프트 — 자동 진행` or `대기: 유료 생성 실행·비용 승인 — 필요: 모델·비용 승인`.
   No parentheses or hedges ("가능", "요청해 주세요", "주시면"), no offer ("원하시면", "할까요?").
-- `대기` only for: paid/external-run approval, rights/likeness/voice consent, publication approval, a user-named stop, no subject/purpose. Never G1, plan acceptance, brand name, copy.
-- Text stages S04–S07 (script, character/visual anchors, storyboard/shot list, prompts/asset plan) come first and are never skipped to reach the paid gate S08. Reach S06 this turn; a paid-run `대기` is valid only once the storyboard/shot list exists (this or an earlier turn).
+- `대기` only for: paid/external-run approval (one stop, with G2 board acceptance), rights/likeness/voice consent, publication approval, a user-named stop, no subject/purpose. Never G1, plan acceptance, brand name, copy.
+- Free text stages S04–S07 (script, anchors, storyboard, prompts) are never skipped to reach paid S08. Reach S06 this turn; a paid-run `대기` is valid only once the storyboard/shot list exists.

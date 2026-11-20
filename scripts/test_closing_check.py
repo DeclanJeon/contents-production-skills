@@ -22,10 +22,12 @@ SONNET_OFFER_ENDINGS = [
     "sonnet-final-r3.txt",
     "sonnet-nonstop-r1.txt",
     "sonnet-nonstop-r2.txt",
-    "sonnet-nonstop-r3.txt",
     "sonnet-triggers-r1.txt",
-    "sonnet-triggers-r2.txt",
 ]
+
+# Offer sits above the last two non-empty lines, so it is not in the closing region;
+# the ending still fails the contract because its last line is not a closing line.
+SONNET_NO_CLOSING_LINE_ENDINGS = ["sonnet-nonstop-r3.txt", "sonnet-triggers-r2.txt"]
 
 
 def ending(name: str) -> str:
@@ -37,6 +39,22 @@ def test_real_sonnet_endings_are_flagged(name: str) -> None:
     text = ending(name)
     assert cc.find_optional_offer(text) is not None
     assert cc.closing_form(text) is None
+
+
+@pytest.mark.parametrize("name", SONNET_NO_CLOSING_LINE_ENDINGS)
+def test_real_sonnet_endings_without_closing_line_fail_the_contract(name: str) -> None:
+    assert cc.closing_form(ending(name)) is None
+
+
+def test_storyboard_table_dialogue_is_not_an_offer() -> None:
+    table_end = (
+        "| 컷 | 대사 |\n|---|---|\n| 3 | 바리스타: \"오늘 커피 한 잔 할까요?\" |\n"
+        "| 4 | 손님: \"좋아요, 같이 마실까요?\" |\n\n다음: 컷별 프롬프트 — 자동 진행"
+    )
+    assert cc.find_optional_offer(table_end) is None
+    assert cc.closing_form(table_end) == "next"
+    assert cc.find_optional_offer("본문\n| 3 | 바리스타: \"한 잔 할까요?\" |") is None
+    assert cc.find_optional_offer("다음: 프롬프트 — 자동 진행\n원하시면 시트도 만들어 드립니다.") is not None
 
 
 @pytest.mark.parametrize(
@@ -247,6 +265,30 @@ def test_disallowed_wait_reasons(line: str) -> None:
     assert not cc.wait_reason_allowed(line)
 
 
+@pytest.mark.parametrize(
+    "line",
+    [
+        "대기: 기획안 기반 유료 영상 실행·비용 승인 — 필요: 모델 선택과 비용 승인",
+        "대기: 유료 영상 생성 실행·비용 승인 — 필요: G2 보드 수락과 모델·비용 승인",
+        "대기: G2 보드 수락과 실행·비용 승인 — 필요: 보드 승인과 비용 승인",
+    ],
+)
+def test_paid_wait_may_also_ask_board_acceptance(line: str) -> None:
+    assert cc.wait_reason_allowed(line)
+    assert cc.is_paid_execution_wait(line)
+
+
+@pytest.mark.parametrize("line", ["대기: 기획안 승인 — 필요: 기획안 수락 여부", "대기: 기획 수락 — 필요: 비용 없음 확인"])
+def test_plan_acceptance_wait_stays_disallowed(line: str) -> None:
+    assert not cc.wait_reason_allowed(line)
+
+
+def test_en_dash_closing_line_is_named_in_defect() -> None:
+    text = "본문\n\n다음: 컷별 프롬프트 – 자동 진행"
+    assert cc.closing_form(text) is None
+    assert "–" in cc.closing_defect(text) and "dash" in cc.closing_defect(text)
+
+
 def test_skill_ends_with_before_you_reply_checklist() -> None:
     text = SKILL.read_text(encoding="utf-8")
     last = text.rstrip().rsplit("\n## ", 1)[1]
@@ -272,3 +314,19 @@ def test_policy_states_never_wait_rule_and_examples() -> None:
     assert "nothing follows it" in text
     assert "`^다음: [^—(]+ — 자동 진행$`" in text and "`^대기: [^—]+ — 필요: .+$`" in text
     assert "valid only after the storyboard/shot list exists" in text
+
+
+def test_closing_contract_is_scoped_to_finished_video_goal() -> None:
+    text = SKILL.read_text(encoding="utf-8")
+    assert "End every finished-video-goal reply" in text
+    last = text.rstrip().rsplit("\n## ", 1)[1]
+    assert "Finished-video goal:" in last
+    assert "single-artifact" in POLICY.read_text(encoding="utf-8")
+
+
+def test_g2_without_pre_delegation_folds_into_s08_wait() -> None:
+    assert "with G2 board acceptance" in flat(SKILL)
+    assert "G2 without pre-delegation is not a separate stop" in flat(POLICY)
+    sm = flat(SKILL_MAP)
+    assert "G2는 별도 정지가 아니라 S08" in sm
+    assert "미리 위임 없으면 S08 실행·비용 대기에 합침" in sm

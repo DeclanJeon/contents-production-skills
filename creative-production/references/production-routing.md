@@ -148,7 +148,7 @@ Actual saved content work uses `recording-production-history` before writes and 
 
 ## Entry-file notes
 
-Explanatory text moved out of `SKILL.md` to keep the router frontier within 2,900 words. None of it adds a rule.
+Explanatory text moved out of `SKILL.md` to keep the router frontier within 2,900 words. It restates rules owned elsewhere (`policy.md`, `skill-map.md`).
 
 - `routing.csv` columns: `deliverable_kind`, `media_axis` (text_only / none_or_stills / executed_media / varies), `authority_axis`, `owner`, `required_read`, `stop_boundary`.
 - `routing-disambiguation.csv` holds one row per confusable pair (`route_a`, `route_b`) and the line that separates them; the coordinator does not re-derive it from keywords.

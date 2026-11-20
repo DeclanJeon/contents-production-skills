@@ -14,7 +14,7 @@
 
 ## 진행 기록
 
-- F1·F5: 닫는 줄 계약(`다음:`/`대기:`)과 자동 판정(`scripts/closing_check.py`, `agent_read_probe.py` s1)을 구현했고 frontier를 2,897 단어로 줄였다. 실제 에이전트 재시험(s1 3회 × 2모델, 선택 제안 0건)은 아직이다.
+- F1·F5: 닫는 줄 계약(`다음:`/`대기:`)과 자동 판정(`scripts/closing_check.py`, `agent_read_probe.py` s1)을 구현했고 frontier를 2,900 단어 이하로 유지한다. 실제 에이전트 재시험(s1 3회 × 2모델)은 아래 F1 진행 기록에 있으며 부분 해결이다.
 
 ## F1 진행 기록 (2026-11-20, 브랜치 fix/nonstop-closing)
 
