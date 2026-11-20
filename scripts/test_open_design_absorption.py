@@ -202,6 +202,62 @@ def test_style_index_detects_missing_in_file_link(tmp_path):
     assert missing_style_links([row], tmp_path) == [row["slug"]]
 
 
+VPA_SKILL = "video-production-assets/SKILL.md"
+STILL_SKILL = "storytelling-with-still-images/SKILL.md"
+AD_SCRIPT = "30-marketing-story-craft.md#od-openmotion-ad-script"
+# new reference (relative to REFS unless it contains a skill dir) -> (host files that must link it, skill entry)
+NEW_REFERENCE_LINKS: dict[str, tuple[list[str], str]] = {
+    "08a-motion-craft.md": (["08-animation.md"], VPA_SKILL),
+    "33-motion-style-library.md": (["08-animation.md", "05-visual.md"], VPA_SKILL),
+    "09a-short-form-edit-recipes.md": (["09-edit.md"], VPA_SKILL),
+    "19a-product-promo-formulas.md": (["19-brand-product-integration.md"], VPA_SKILL),
+    "23a-captions-layout.md": (["23-finishing-platform.md", "15-delivery.md"], VPA_SKILL),
+    "11a-ai-video-prompting.md": (["11-ai-handoff.md"], VPA_SKILL),
+    "29a-template-recreation.md": (["29-reference-driven-production.md"], VPA_SKILL),
+    AD_SCRIPT: (["03-screenplay.md", "10-evidence.md"], VPA_SKILL),
+    "storytelling-with-still-images/references/still-motion-recipes.md": ([], STILL_SKILL),
+}
+
+
+def links_to(source: Path, target: Path, fragment: str) -> bool:
+    for raw in LINK_PATTERN.findall(source.read_text(encoding="utf-8")):
+        path_part, _, link_fragment = raw.partition("#")
+        if not path_part or "://" in path_part:
+            continue
+        if (source.parent / path_part).resolve() == target.resolve() and (not fragment or link_fragment == fragment):
+            return True
+    return False
+
+
+def missing_reference_links(root: Path = ROOT) -> list[str]:
+    missing = []
+    for reference, (hosts, skill) in NEW_REFERENCE_LINKS.items():
+        path_part, _, fragment = reference.partition("#")
+        target = root / path_part if "/" in path_part else root / REFS / path_part
+        for host in [root / skill] + [root / REFS / name for name in hosts]:
+            if not links_to(host, target, fragment):
+                missing.append(f"{host.relative_to(root)} -> {reference}")
+    return missing
+
+
+def test_new_references_linked_from_host_and_skill():
+    assert missing_reference_links() == []
+
+
+def test_reference_link_check_detects_removed_link(tmp_path):
+    import shutil
+
+    shutil.copytree(ROOT / REFS, tmp_path / REFS, ignore=shutil.ignore_patterns("upstream"))
+    for relative in {skill for _, skill in NEW_REFERENCE_LINKS.values()} | {"storytelling-with-still-images/references/still-motion-recipes.md"}:
+        (tmp_path / relative).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(ROOT / relative, tmp_path / relative)
+    assert missing_reference_links(tmp_path) == []
+
+    host = tmp_path / REFS / "08-animation.md"
+    host.write_text(host.read_text(encoding="utf-8").replace("08a-motion-craft.md", "removed.md"), encoding="utf-8")
+    assert missing_reference_links(tmp_path) == [f"{REFS}/08-animation.md -> 08a-motion-craft.md"]
+
+
 def test_no_planned_rows_remain():
     assert [row["slug"] for row in read_ledger(LEDGER_PATH) if row["status"] == "planned"] == []
 
