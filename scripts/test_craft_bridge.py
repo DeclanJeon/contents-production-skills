@@ -10,6 +10,8 @@ BRIDGE = ROOT / "creative-production" / "references" / "craft-bridge.csv"
 SKILL = ROOT / "creative-production" / "SKILL.md"
 ROW_CAP = 40
 STAGE_TOKEN = re.compile(r"S(0\d|1[0-2])")
+HEADING_ANCHOR = re.compile(r"#{1,6}\s.*\{#[^}]+\}\s*$")
+STILLS_REFS = ("19a-product-promo-formulas", "still-motion-recipes")
 REQUIRED_REFS = (
     "08a-motion-craft",
     "09a-short-form-edit-recipes",
@@ -44,7 +46,12 @@ def unresolved_refs(rows: list[dict[str, str]]) -> list[str]:
         target = ROOT / path
         if not target.is_file():
             problems.append(f"missing file: {row['craft_ref']}")
-        elif anchor and "{#" + anchor + "}" not in target.read_text(encoding="utf-8"):
+        elif "#" in row["craft_ref"] and not anchor:
+            problems.append(f"empty anchor: {row['craft_ref']}")
+        elif anchor and not any(
+            HEADING_ANCHOR.match(line) and line.rstrip().endswith("{#" + anchor + "}")
+            for line in target.read_text(encoding="utf-8").splitlines()
+        ):
             problems.append(f"missing anchor: {row['craft_ref']}")
     return problems
 
@@ -78,6 +85,8 @@ def test_bridge_detects_broken_refs() -> None:
     assert unresolved_refs([{**row, "craft_ref": "creative-production/references/no-such-file.md"}])
     anchor_ref = "video-production-assets/references/30-marketing-story-craft.md#od-no-such-anchor"
     assert unresolved_refs([{**row, "craft_ref": anchor_ref}])
+    empty_anchor = "video-production-assets/references/30-marketing-story-craft.md#"
+    assert unresolved_refs([{**row, "craft_ref": empty_anchor}])
 
 
 def test_bridge_covers_absorbed_refs() -> None:
@@ -88,8 +97,14 @@ def test_bridge_covers_absorbed_refs() -> None:
 
 def test_bridge_stills_route_reaches_still_refs() -> None:
     rows = read_rows()
-    for needle in ("19a-product-promo-formulas", "23a-captions-layout", "still-motion-recipes"):
-        assert any(needle in row["craft_ref"] and "스틸" in row["when"] for row in rows), needle
+    stills_rows = [row for row in rows if row["when"].startswith("스틸")]
+    for needle in STILLS_REFS:
+        assert any(needle in row["craft_ref"] for row in stills_rows), needle
+    allowed = STILLS_REFS + ("23a-captions-layout",)
+    stray = [row["craft_ref"] for row in stills_rows if not any(n in row["craft_ref"] for n in allowed)]
+    assert not stray, stray
+    # Stills-only videos reach captions through the general caption row, whatever the owner.
+    assert any("23a-captions-layout" in row["craft_ref"] and row["stage"] == "S09" for row in rows)
 
 
 def test_bridge_row_cap() -> None:
@@ -105,9 +120,12 @@ def test_step4_links_bridge() -> None:
 
 def test_skill_map_links_bridge() -> None:
     text = (ROOT / "creative-production" / "references" / "skill-map.md").read_text(encoding="utf-8")
-    assert "craft-bridge.csv" in text
+    route = text.split("## 1.", 1)[1].split("\n## 2.", 1)[0]
+    assert "craft-bridge.csv" in route
 
 
 def test_contract_core_names_craft_refs() -> None:
     text = (ROOT / "video-production-assets" / "references" / "contract-core.md").read_text(encoding="utf-8")
-    assert "craft_refs" in text
+    handoff = text.split("## Worker handoff and single writer", 1)[1].split("\n## ", 1)[0]
+    assert "craft_refs" in handoff
+    assert "참조는 권한·범위를 넓히지 않는다" in handoff

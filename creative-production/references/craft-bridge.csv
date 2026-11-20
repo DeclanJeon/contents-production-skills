@@ -3,22 +3,21 @@ S01·S04,주제만 있거나 첫 아이디어가 평범하거나 감정·시청 
 S04,제품·앱 광고·프로모·크리에이터형 광고 대본,video-production-assets/references/30-marketing-story-craft.md#od-openmotion-ad-script,말해도 되는 주장이 적힌 제품 자료가 입력
 S04,제품·광고 영상의 메시지·차별점·공유 이유,video-production-assets/references/30-marketing-story-craft.md,광고·브랜드 영상 기획에만
 S04·S07,제품 프로모·세일·카운트다운·스펙·런칭·기능 데모 영상,video-production-assets/references/19a-product-promo-formulas.md,가격·할인·코드·마감은 공급된 값만
-S04·S07,스틸(사진·삽화)만으로 만드는 제품·세일 영상,video-production-assets/references/19a-product-promo-formulas.md#od-openmotion-sale-promo,제품 사진은 사용자 본인 것; 할인 계산은 사용자에게 확인
-S06·S07,"스틸 삽화·글 기반 카드·손그림 스토리 영상(기사 삽화, 손그림 페이지)",storytelling-with-still-images/references/still-motion-recipes.md,새 이미지는 codex-imagen; 스틸·정적 레이어만 움직임
+S04·S07,스틸(사진·삽화)만으로 만드는 세일·할인·코드 프로모 영상,video-production-assets/references/19a-product-promo-formulas.md#od-openmotion-sale-promo,제품 사진은 사용자 본인 것; 할인 계산은 사용자에게 확인; 스틸 담당은 구성·문구·검수만 적용
+S06·S07,"스틸 영상: 글·이야기를 그림 카드·손그림 페이지로(기사 삽화, 손그림 스토리)",storytelling-with-still-images/references/still-motion-recipes.md,새 스틸이 요청·허용된 경우만 codex-imagen; 정적 레이어만 움직임
 S06,모션 스타일 선택(키네틱 타이포·포스터·제품·설명·수공예·로고·전환·데이터),video-production-assets/references/33-motion-style-library.md,색인에서 계열 하나만 연다
 S06,모션 룩이 바쁘다·싸구려·일관성 없다 또는 모션 방향 결정,video-production-assets/references/08a-motion-craft.md#od-motion-art-direction,작품당 이징·단위·전환 계열 하나씩
 S06·S07,콘티 승인 뒤 샷별 모션·로고 모션·색의 움직임,video-production-assets/references/08a-motion-craft.md,08 애니메이션 심화; 인물 연기는 08 본문
 S06·S07,컷 단위 모션·물리가 어려운 생성 영상(접촉·무게·VFX),video-production-assets/references/21-generated-video-qa-retry.md,"계획 단계는 설계 절차만, 통과 주장 금지"
-S07,인물 대사·립싱크·인터뷰·내레이션 연기,video-production-assets/references/22-dialogue-lipsync.md,공급된 대사·승인 보이스·요청 범위만
-S07,외부 영상 생성기에 샷 요청문 작성(Veo식 5요소·대사·부정 조건),video-production-assets/references/11a-ai-video-prompting.md#od-genmedia-video-editor,지원 여부는 UNKNOWN으로 확인 뒤 사용
-S07,레퍼런스 영상을 재현용 프롬프트로 옮기거나 프롬프트 고치기,video-production-assets/references/11a-ai-video-prompting.md,11 AI 인계 규칙이 우선
+S04·S07·S10,인물 대사·립싱크·인터뷰·내레이션 연기,video-production-assets/references/22-dialogue-lipsync.md,공급된 대사·승인 보이스·요청 범위만
+S07,Veo 계열 생성기 샷 요청문(5요소·대사·부정 조건),video-production-assets/references/11a-ai-video-prompting.md#od-genmedia-video-editor,지원 여부는 UNKNOWN으로 확인 뒤 사용
+S07,"외부 영상 생성 모델 요청문 작성·수정, 레퍼런스 영상의 재현 프롬프트",video-production-assets/references/11a-ai-video-prompting.md,11 AI 인계 규칙이 우선
 S04·S06,참조 영상의 리듬·패키징을 내 영상으로 재현,video-production-assets/references/29a-template-recreation.md#od-openmotion-recreate,25 분해가 먼저; 복제 금지 목록 우선
 S06·S09,토킹헤드 참조 편집 스타일을 내 녹음에 입히기,video-production-assets/references/29a-template-recreation.md#od-openmotion-talking-head-recreation,본인 녹음과 측정 발화 타이밍만
 S09,참조 영상을 재사용 템플릿으로 바꾸기,video-production-assets/references/29a-template-recreation.md#od-openmotion-video-to-template,참조 사용 권리 확인 필요
 S09,대본 순서 러프컷·긴 녹화에서 숏츠 추출·세로 릴스·멀티캠,video-production-assets/references/09a-short-form-edit-recipes.md,샷당 playback_rate 하나; 계획 대 실측 대조
-S09,음악 비트에 컷 맞추기·스피드 램프,video-production-assets/references/09a-short-form-edit-recipes.md#od-beat-sync-editing,BPM을 프레임으로 환산
+S09,음악 비트에 컷 맞추기,video-production-assets/references/09a-short-form-edit-recipes.md#od-beat-sync-editing,BPM을 프레임으로 환산
 S09,자막 스타일·이중 언어 자막·커버·하단 자막(로어서드),video-production-assets/references/23a-captions-layout.md,룩과 배치만; 내용·타이밍·접근성은 15 납품
-S09,스틸(사진·삽화)만으로 만든 영상의 자막·하단 자막·커버,video-production-assets/references/23a-captions-layout.md,룩과 배치만; 문구는 공급된 값만
 S09,말하는 영상의 모션 그래픽 배치(숫자·단계·인용 카드),video-production-assets/references/23a-captions-layout.md#od-openmotion-motion-graphic-placement,트리거 단어 타임코드가 있는 계획표 먼저
 S08·S10,실제 생성 테이크의 결함 수리(소음·대사·립싱크·표정),video-production-assets/references/take-repair.md,원본 불변; 실행은 24 게이트
 S10,생성·합성 영상 실제 결과물의 QA와 인과 재시도,video-production-assets/references/21-generated-video-qa-retry.md,실제 매체 관찰 없이 통과 주장 금지
