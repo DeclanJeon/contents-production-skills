@@ -72,3 +72,15 @@
 ## 6. 설계자 판단
 - 표 형식 CSV, 열 이름, 40행 상한, frontier 상한 +60단어, 설명 문구, 시험 케이스 구성, 버전 2.6.
 - 패키지 버전은 2.63에 포함한다(아직 배포 전). CHANGELOG 2.63 항목을 보강한다.
+
+## Amendments (2026-11-20)
+
+The sections above describe the original design. Where they differ, the amendments below are binding and the shipped package follows them.
+
+- **B3 — bridge read moves to Step 1.** §3.2's Step 4 placement was unreachable: a single agent never performs a hand-off, and the first probe run opened `craft-bridge.csv` in 0 of 9 runs. `creative-production/SKILL.md` Step 1 now reads the bridge right after route selection; Step 4 only carries the chosen paths as `craft_refs`. Because the bridge is read in Step 1, it is part of what an agent reads while routing; the frontier measurement (§ "outside the frontier") is replaced by the +120 cap below.
+- **User decision — inline craft triggers.** Step 1 holds a compact inline trigger list ("attach only; route unchanged; bridge notes apply"). Each trigger target must be a `craft-bridge.csv` row (`scripts/test_craft_bridge.py`).
+- **User decision — frontier cap +120.** The `creative-production/SKILL.md` frontier cap rises from +60 to +120 words over main (2820 → at most 2940), superseding the +60 in §3 and §6.
+- **User decision — infer-and-propose nonstop default.** `concept-intake-design` 1.1 records reversible axes as `inferred` with a one-line reason and continues; it asks only when a core axis (subject or purpose) cannot be inferred or the user asks to choose or discuss. Rights, execution, spend and publication approvals stay at their own gates and are never inferred.
+- **B4 — "undecided" is not a request to discuss.** A user marking a reversible choice undecided leaves it to inference (`video-direction.md`).
+- **B5 — G1 is a checkpoint.** For a finished-video goal G1 is a progress checkpoint that auto-continues (outputs stay `proposed`, never accepted) unless the user named it as a stop. The turn ends at the first real gate by stating the non-inferable facts and the approval needed.
+- **Evidence.** The 3-run probe results for these amendments are in `qa/2026-11-20-open-design-absorption-validation.md` ("3-run results"); the soft optional-offer closing remains a recorded residual.

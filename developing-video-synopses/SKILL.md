@@ -1,6 +1,6 @@
 ---
 name: developing-video-synopses
-version: 2.23
+version: 2.24
 description: Use to develop a video concept, logline, synopsis, plot outline, or story beats (콘셉트, 시놉시스, 줄거리, 비트) before production.
 ---
 
@@ -20,7 +20,7 @@ Read the request as a brief and extract what is already known — never ask the 
 - format, platform, runtime, tone, constraints, and the exact deliverable requested;
 - for factual briefs, the supplied claims, their sources, and explicit unknowns.
 
-Ask one concise question only when a missing answer would change the mode or central premise; otherwise proceed, label material assumptions, and leave optional details open. When coordinated, return candidate concepts for the coordinator's concept checkpoint instead of expanding an unselected option. An unspecified runtime stays unspecified — "short" is not a duration — and no deadline, platform, demographic, or evidence source is manufactured.
+Ask one concise question only when a missing answer would change the mode or central premise; otherwise proceed, label material assumptions, and leave optional details open. When coordinated, return candidate concepts for the coordinator's concept checkpoint instead of expanding an unselected option; under a finished-video goal the coordinator picks one candidate and labels it `proposed` (a G1-type checkpoint that continues, not a stop). An unspecified runtime stays unspecified — "short" is not a duration — and no deadline, platform, demographic, or evidence source is manufactured.
 
 ## Invocation
 

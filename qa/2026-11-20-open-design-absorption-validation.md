@@ -90,3 +90,23 @@ After the first run, `creative-production/SKILL.md` moved the bridge read from S
 - **p4 still fails.** The agent read only `SKILL.md` and `routing.csv` (not even `routing-disambiguation.csv`), then answered from its own knowledge with an R10 text storyboard. The Step 1 instruction did not make it open the bridge. Not rerun; the follow-up is open.
 - p3 and p5 reached their reference through routing/module paths and still skipped the bridge, so those passes do not show bridge use.
 - s1 read `SKILL.md`, `routing.csv` and `concept-intake-design/SKILL.md` and stopped there in this run (earlier run read more); the tool's keyword hints are candidates only and the verdict stays with the controller.
+
+## 3-run results (2026-11-21)
+
+After the single-run results above (p4 still failing), three more stages were each run three times with the same tool, the same nine cases and the same model (`anthropic/claude-sonnet-5-5`). Summaries, the install-relative read lists and the final answers (no raw JSONL) are committed under `qa/2026-11-20-craft-bridge-probes/`:
+
+| Stage | Directory | Package state |
+|---|---|---|
+| before triggers | `3x-before-triggers/r1..r3` | Step 1 bridge read, infer-and-propose nonstop (`0e2bb6e`); no inline craft triggers yet |
+| after nonstop fix | `3x-after-nonstop/r1..r3` | inline craft triggers and the first review round (`1958ed1`, `e6b8e97`) |
+| final | `3x-final/r1..r3` | G1 checkpoint continues, gate-only closing (`428eb52`) |
+
+| Stage | Positives (p1–p5, 3 runs = 15) | Negatives (n1–n3, 3 runs = 9) | s1 (30 s cafe brand video) |
+|---|---|---|---|
+| before triggers | 15/15 | 9/9 | no upfront question 3/3; **stopped at the concept packet with an optional next-step offer 2/3** (r1, r2); r3 went on to storyboard |
+| after nonstop fix | 15/15 | 9/9 | continued past the concept packet to storyboard/shot list 3/3; ended with the facts that cannot be inferred (brand name etc.) and the execution approval; r1 and r2 still end with an optional "원하시면 … 이어서" offer, r3 with an option menu ("고르시면 이어서 진행합니다") |
+| final | 15/15 | 9/9 | continued past the concept packet to storyboard/shot list 3/3; ended with non-inferable facts (brand name, slogan, logo, production method) and the execution/spend approval |
+
+- **Known residual, not a pass:** in `3x-final` a soft optional continuation offer still appears 3/3 despite the gate-only closing rule (r1 and r2: "원하시면 … 이어서"; r3: "이 정보를 주시면 … 이어서 작성하겠습니다"). The rule is written but the model does not fully follow it; no further fix was made.
+- The positive passes in all three stages are auto-judged by the expected reference being opened. `craft-bridge.csv` itself was opened in 1 of 15 positive runs before triggers and 0 of 15 afterwards, so the passes reflect the inline triggers in `creative-production/SKILL.md`, not reads of the bridge table; p4, which failed in every earlier run, passed 3/3 at every stage here.
+- Limits: one model, three runs per stage, so this shows stability over three samples, not a rate. A read is not evidence of correct use. The probe prompt is text-only, so image-sheet execution was never in scope. The s1 judgement (continued, ended at gates) is by reading the final answers, not by the tool, whose keyword hints are candidates only. The codex `routing_eval` remains BLOCKED (Codex dispatch failed), so the behavioral routing eval has still not run.

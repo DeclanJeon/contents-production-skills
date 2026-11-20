@@ -126,6 +126,6 @@ def test_first_real_gate_closes_with_exact_needs_not_an_optional_offer() -> None
     assert "which approval or fact is needed next" in step0()
     rules = skill_map_rules()
     assert "추론할 수 없는 사실과 필요한 승인만 정확히 말하고" in rules
-    assert "원하시면" in rules  # named only as the forbidden closing
+    assert "선택 제안으로 끝내지 않는다" in rules
     policy = flat(ROOT / "creative-production" / "references" / "policy.md")
     assert "existence, hash, and decode success" in policy
