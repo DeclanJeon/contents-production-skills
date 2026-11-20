@@ -75,7 +75,8 @@ STYLE_INDEX = "33-motion-style-library.md"
 def missing_style_links(rows: list[dict], root: Path = ROOT) -> list[str]:
     """Absorbed style rows without a `#od-<slug>` index link whose family file holds that anchor.
 
-    A style written as a section of the index itself counts through its in-file `{#od-<slug>}` anchor.
+    A style written as a section of the index itself counts through its in-file `{#od-<slug>}` anchor,
+    and the index list must still link it as `(#od-<slug>)`.
     """
     references = root / REFS
     index_text = (references / STYLE_INDEX).read_text(encoding="utf-8")
@@ -85,6 +86,8 @@ def missing_style_links(rows: list[dict], root: Path = ROOT) -> list[str]:
             continue
         anchor = f"od-{row['slug']}"
         if f"{{#{anchor}}}" in index_text:
+            if f"#{anchor}" not in LINK_PATTERN.findall(index_text):
+                missing.append(row["slug"])
             continue
         linked = [
             target.split("#", 1)[0]
@@ -183,4 +186,17 @@ def test_style_index_detects_missing_link(tmp_path):
 
     index_file.write_text(f"- [제목](motion-styles/kinetic-type.md#{anchor}) — 요약\n", encoding="utf-8")
     (styles_dir / "kinetic-type.md").write_text("### 제목\n", encoding="utf-8")
+    assert missing_style_links([row], tmp_path) == [row["slug"]]
+
+
+def test_style_index_detects_missing_in_file_link(tmp_path):
+    row = next(item for item in read_ledger(LEDGER_PATH) if item["slug"] == "openmotion-design-styles" and item["status"] == "absorbed")
+    anchor = f"od-{row['slug']}"
+    index_dir = tmp_path / REFS
+    index_dir.mkdir(parents=True)
+    index_file = index_dir / STYLE_INDEX
+    index_file.write_text(f"- [가이드](#{anchor}) — 요약\n\n### 가이드 {{#{anchor}}}\n", encoding="utf-8")
+    assert missing_style_links([row], tmp_path) == []
+
+    index_file.write_text(f"- 가이드 — 요약\n\n### 가이드 {{#{anchor}}}\n", encoding="utf-8")
     assert missing_style_links([row], tmp_path) == [row["slug"]]

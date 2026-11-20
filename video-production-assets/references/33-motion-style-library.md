@@ -1,6 +1,6 @@
 # 모션 스타일 사전 — 08 애니메이션·05 비주얼 심화
 
-영상의 모션 스타일(키네틱 타이포·포스터·배경 등)을 고를 때만 연다. [08 애니메이션](08-animation.md)과 [05 비주얼](05-visual.md)의 심화이며, 이 파일은 색인과 선택 가이드만 담는다. 먼저 이 색인에서 스타일을 고르고, 고른 계열 파일만 연다. 승인된 브랜드 키트·브랜드 색·글꼴이 어떤 스타일 값보다 우선하고, 스타일의 수치는 절마다 ‘시작값’으로 표시한 조정 가능한 값 묶음이다. 인용·수치·사양·날짜는 공급된 값만 쓴다([10 근거](10-evidence.md)). 실행은 [policy.md](../../creative-production/references/policy.md) 게이트와 [24 제작 실행](24-production-execution.md)을 따르고, 도구는 [선택 라우팅](../../creative-production/references/production-routing-optional.md)의 기존 레인(Remotion·FFmpeg·Blender·선택된 생성기)을 쓴다. 각색 절의 출처와 라이선스는 [open-design 이전 기록](upstream/open-design-provenance.md)에 있다.
+영상의 모션 스타일(키네틱 타이포·포스터·배경 등)을 고를 때만 연다. [08 애니메이션](08-animation.md)과 [05 비주얼](05-visual.md)의 심화이며, 이 파일은 색인과 선택 가이드만 담는다. 먼저 이 색인에서 스타일을 고르고, 고른 계열 파일만 연다. 승인된 브랜드 키트·브랜드 색·글꼴이 어떤 스타일 값보다 우선하고, 조정 가능한 값 묶음은 절마다 ‘시작값’으로 따로 표시한다. 인용·수치·사양·날짜는 공급된 값만 쓴다([10 근거](10-evidence.md)). 실행은 [policy.md](../../creative-production/references/policy.md) 게이트와 [24 제작 실행](24-production-execution.md)을 따르고, 도구는 [선택 라우팅](../../creative-production/references/production-routing-optional.md)의 기존 레인(Remotion·FFmpeg·Blender·선택된 생성기)을 쓴다. 각색 절의 출처와 라이선스는 [open-design 이전 기록](upstream/open-design-provenance.md)에 있다.
 
 ## 계열
 
@@ -33,8 +33,6 @@
 - [벨로시티 라인](motion-styles/kinetic-type.md#od-openmotion-velocity-lines) — 파란 속도선·모션블러 단어·맥동 고리로 성능과 속도를 파는 빠른 프로모
 
 ### 포스터·배경
-
-- [디자인 스타일 선택 가이드](#od-openmotion-design-styles) — 바우하우스·스위스 등 이름 붙은 디자인 스타일 카드를 골라 계획·검수하는 선택 절차(메타)
 - [버블 필드](motion-styles/posters-backgrounds.md#od-openmotion-bubble-field) — 떠다니는 그라디언트 방울 장 위에 굵은 세리프 제목을 얹는 발랄한 브랜드 프로모
 - [에디토리얼 포스터](motion-styles/posters-backgrounds.md#od-openmotion-editorial-poster) — 여백·사물 하나·큰 세리프 단어의 차분한 매거진 포스터를 짧은 시리즈로 움직임
 - [쥬시 스플래시 포스터](motion-styles/posters-backgrounds.md#od-openmotion-juicy-splash-poster) — 음료·식품 팩 주위로 액체가 터지고 방울이 멈추는 플레이버 출시 포스터
@@ -110,9 +108,12 @@
 - [지도 애니메이션](motion-styles/data-maps.md#od-map-animation) — 지도 줌·경로 그리기·국가 강조·핀 드롭을 Earth Studio 카메라 등으로 만드는 방법
 - [랩드 비디오](motion-styles/data-maps.md#od-wrapped-video) — 데이터 행 하나를 개인화 공유 영상으로 바꾸는 연말 결산(Wrapped)형 생성
 
+### 선택 가이드
+- [디자인 스타일 선택 가이드](#od-openmotion-design-styles) — 바우하우스·스위스 등 이름 붙은 디자인 스타일 카드를 골라 계획·검수하는 선택 절차(메타)
+
 ## open-design 각색 절
 
-이 선택 가이드는 원본 스킬의 선택·계획·검수 절차만 옮겼다. 원본은 스타일 목록을 Guanmo(@guanmo_ai)의 공개 라이브러리 guanmo-ai/design-style에서 연구했다고 밝히며, 그 저장소는 스타일 가이드의 라이선스를 밝히지 않는다고 적는다. 카드 본문은 가져오지 않았다.
+이 선택 가이드는 원본 스킬의 선택·계획·검수 절차만 옮겼다. 원본은 스타일 목록을 Guanmo(@guanmo_ai)의 공개 라이브러리 guanmo-ai/design-style에서 연구했다고 밝히며, 그 저장소는 스타일 가이드의 라이선스를 밝히지 않는다고 적는다. 원본 설명이 꼽는 카드는 바우하우스·스위스·구성주의·멤피스·팝아트·리소그래프·네오브루탈리즘·아르데코·리퀴드 글라스·수묵·뉴웨이브 등이며(벤토 그리드·메이슨리는 레이아웃), 카드별 팔레트·글꼴·규칙·모션 데이터는 이 패키지에 포함하지 않는다.
 
 ### 디자인 스타일 선택 가이드 {#od-openmotion-design-styles}
 - 쓰는 곳: 이름 붙은 디자인 스타일로 10–20초 영상을 만들거나 “어떤 스타일이 어울리나”를 물을 때.
