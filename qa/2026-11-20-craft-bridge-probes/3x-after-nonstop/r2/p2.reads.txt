@@ -1,0 +1,4 @@
+  read: creative-production/SKILL.md
+  read: video-production-assets/references/33-motion-style-library.md
+  grep: creative-production/references/routing.csv
+  read: video-production-assets/references/motion-styles/kinetic-type.md

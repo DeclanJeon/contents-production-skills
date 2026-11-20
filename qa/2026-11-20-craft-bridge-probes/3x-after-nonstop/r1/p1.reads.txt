@@ -1,0 +1,3 @@
+  read: creative-production/SKILL.md
+  read: video-production-assets/references/30-marketing-story-craft.md
+  read: video-production-assets/references/19a-product-promo-formulas.md

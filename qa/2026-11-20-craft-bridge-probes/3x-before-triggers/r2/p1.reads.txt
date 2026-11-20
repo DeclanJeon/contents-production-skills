@@ -1,0 +1,3 @@
+  read: creative-production/SKILL.md
+  read: /tmp/agent-probe-3dp4rsfm/video-production-assets/references/30-marketing-story-craft.md
+  read: video-production-assets/references/30-marketing-story-craft.md
