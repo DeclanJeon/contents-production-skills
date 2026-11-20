@@ -104,7 +104,8 @@ def test_bridge_stills_route_reaches_still_refs() -> None:
     stray = [row["craft_ref"] for row in stills_rows if not any(n in row["craft_ref"] for n in allowed)]
     assert not stray, stray
     # Stills-only videos reach captions through the general caption row, whatever the owner.
-    assert any("23a-captions-layout" in row["craft_ref"] and row["stage"] == "S09" for row in rows)
+    caption_path = "video-production-assets/references/23a-captions-layout.md"
+    assert any(row["craft_ref"] == caption_path and row["stage"] == "S09" for row in rows)
 
 
 def test_bridge_row_cap() -> None:

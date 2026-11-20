@@ -1,10 +1,12 @@
 ---
 name: creative-production
-version: 2.5
-description: Use only when the user explicitly requests video production or creation of
-  a storyboard sheet for a video. Do not use for other content creation/adaptation,
-  standalone writing, social posts, campaigns, audio, images, ordinary design, or
-  unrelated application development.
+version: 2.6
+description: Use when the user requests video production or a storyboard sheet for
+  a video, including partial video work: shorts/reels editing, re-editing existing
+  video or extracting clips, video captions and lower thirds, ad or promo video
+  scripts, and motion-graphics style for video. Do not use for standalone writing,
+  social posts, standalone images, ordinary design, application development, or
+  audio-only work.
 ---
 
 # Creative Production
