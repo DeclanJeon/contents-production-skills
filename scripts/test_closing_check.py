@@ -70,6 +70,7 @@ def test_closing_form_tolerates_markdown_and_rejects_partial_forms() -> None:
     assert cc.closing_form("본문\n\n**다음: 스토리보드 — 자동 진행**") == "next"
     assert cc.closing_form("본문\n\n> `대기: G2 승인 — 필요: 비용 승인`") == "wait"
     assert cc.closing_form("본문\n\n다음: 스토리보드") is None
+    assert cc.closing_form("본문\n\n자동 진행") is None
     assert cc.closing_form("본문\n\n대기: G2 승인") is None
     assert cc.closing_form("다음: 스토리보드 — 자동 진행\n\n본문 한 줄 더") is None
     assert cc.closing_form("") is None
@@ -135,13 +136,72 @@ def test_real_wait_endings_on_g1_or_placeholders_are_disallowed(name: str) -> No
     assert cc.disallowed_wait_reason(text) is not None
 
 
-@pytest.mark.parametrize("name", ["f1r2-eco-r3.txt", "f1r2-sonnet-r3.txt"])
-def test_real_next_endings_are_clean(name: str) -> None:
-    text = ending(name)
+def test_real_next_ending_is_clean() -> None:
+    text = ending("f1r2-sonnet-r3.txt")
     assert cc.closing_form(text) == "next"
     assert cc.disallowed_wait_reason(text) is None
     assert cc.text_after_closing(text) is None
     assert cc.find_optional_offer(text) is None
+    assert cc.closing_defect(text) is None
+
+
+def test_real_next_line_with_parentheses_is_not_exact() -> None:
+    text = ending("f1r2-eco-r3.txt")
+    assert "(" in text.splitlines()[-1]
+    assert cc.closing_form(text) is None
+    assert cc.closing_defect(text) is not None
+
+
+def test_real_hedged_next_line_is_not_a_closing_form() -> None:
+    text = ending("f1r3-sonnet-r2-s1.txt")
+    assert cc.closing_form(text) is None
+    assert cc.closing_hedge(text.splitlines()[-1]) is not None
+    assert "hedge" in cc.closing_defect(text)
+
+
+def test_real_mixed_form_line_is_not_a_closing_form() -> None:
+    text = ending("f1r3-sonnet-r2-p5.txt")
+    assert cc.closing_form(text) is None
+    assert cc.mixed_closing(text.splitlines()[-1])
+    assert cc.closing_defect(text) is not None
+
+
+def test_real_paid_wait_is_exact_and_allowed() -> None:
+    text = ending("f1r3-eco-r2-s1.txt")
+    assert cc.closing_form(text) == "wait"
+    assert cc.disallowed_wait_reason(text) is None
+    assert cc.is_paid_execution_wait(text)
+    assert not cc.is_paid_execution_wait("본문\n\n다음: 프롬프트 — 자동 진행")
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        "다음: 컷별 프롬프트 — 자동 진행",
+        "**다음: 컷별 프롬프트·에셋 계획 — 자동 진행**",
+        "대기: 유료 생성 실행·비용 승인 — 필요: 모델·비용 승인",
+    ],
+)
+def test_exact_patterns_accepted(line: str) -> None:
+    assert cc.closing_form(f"본문\n\n{line}") in {"next", "wait"}
+    assert cc.closing_defect(f"본문\n\n{line}") is None
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        "다음: 스토리보드 — 자동 진행 가능 (원하시면 요청해 주세요)",
+        "다음: 스토리보드 — 자동 진행 가능",
+        "다음: 스토리보드 (S06) — 자동 진행",
+        "다음: 스토리보드 — 자동 진행 — 대기: 실행·비용 승인 — 필요: 비용 승인",
+        "대기: 실행·비용 승인 — 필요: 비용 승인 — 다음: 프롬프트 — 자동 진행",
+        "대기: 실행·비용 승인 — 필요: 답을 주시면 확정",
+        "다음: 스토리보드 — 자동 진행, 요청해 주세요",
+    ],
+)
+def test_hedged_or_mixed_closing_lines_are_not_closing_forms(line: str) -> None:
+    assert cc.closing_form(f"본문\n\n{line}") is None
+    assert cc.closing_defect(f"본문\n\n{line}") is not None
 
 
 def test_real_text_after_closing_line_is_detected() -> None:
@@ -192,7 +252,7 @@ def test_skill_ends_with_before_you_reply_checklist() -> None:
     last = text.rstrip().rsplit("\n## ", 1)[1]
     assert last.startswith("Before you reply")
     flat_last = " ".join(last.split())
-    for phrase in ("다음: ", "대기: ", "Nothing after the closing line", "S06", "G1"):
+    for phrase in ("다음: ", "대기: ", "nothing after it", "S04–S07", "S08", "S06", "G1", "가능", "요청해 주세요", "주시면"):
         assert phrase in flat_last, phrase
     assert len([line for line in last.splitlines() if line.startswith("- ")]) <= 4
 
@@ -210,3 +270,5 @@ def test_policy_states_never_wait_rule_and_examples() -> None:
     assert "`다음: 컷별 프롬프트·에셋 계획 — 자동 진행`" in text
     assert "`대기: 유료 영상 생성 실행·비용 승인 — 필요: 모델 선택과 비용 승인`" in text
     assert "nothing follows it" in text
+    assert "`^다음: [^—(]+ — 자동 진행$`" in text and "`^대기: [^—]+ — 필요: .+$`" in text
+    assert "valid only after the storyboard/shot list exists" in text

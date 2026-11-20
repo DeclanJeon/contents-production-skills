@@ -96,7 +96,7 @@ def test_concept_packet_is_an_input_and_the_coordinator_continues() -> None:
         "synopsis/script, storyboard, prompts/asset plan",
         "first real gate or named stop",
         "exact approval or fact",
-        "only for the closed reasons",
+        "only as in \"Before you reply\"",
     ):
         assert needle in coordinator, needle
     intake = flat(INTAKE)

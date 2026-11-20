@@ -43,16 +43,26 @@ is the final line: nothing follows it (no notes, offers or summaries). Two forms
 
 G1 and plan acceptance are never a 대기 reason; placeholders are never a 대기
 reason. Anything else (G1, plan or board acceptance, brand name, copy,
-preferences) closes with `다음: … — 자동 진행`. In a finished-video goal the turn
-produces at least through the storyboard/shot list (S06) before closing, unless
-an allowed 대기 reason occurs earlier.
+preferences) closes with `다음: … — 자동 진행`.
+
+The line matches exactly one of `^다음: [^—(]+ — 자동 진행$` or
+`^대기: [^—]+ — 필요: .+$` and contains nothing else: no parentheses or hedges
+("가능", "요청해 주세요", "주시면"), and never both forms in one line (a `대기`
+note after a `다음`, or the reverse, fails).
+
+Stage order: S04 script, S05 character/visual anchors, S06 storyboard/shot list,
+S07 prompts/asset plan, then S08 paid/external execution. S04–S07 are free text
+stages and are never skipped to reach the gate. In a finished-video goal the turn
+produces at least through S06 before closing, unless an allowed 대기 reason
+occurs earlier; a 대기 for paid execution is valid only after the storyboard/shot
+list exists in this or an earlier turn.
 
 An optional offer is never a closing line ("원하시면", "필요하시면", "원하면",
 "할까요?", "드릴까요", "…주시면 이어서", "if you'd like", "want me to", "let me
 know"): it makes the user's reply a precondition for work that needs none. A
 fact that cannot be inferred but does not block the next stage stays a labelled
 placeholder (`[브랜드명]`); it is listed and work continues. `scripts/closing_check.py`
-checks the form, the 대기 reason (`wait_reason_allowed`) and trailing text.
+checks the exact form, hedges, the 대기 reason (`wait_reason_allowed`) and trailing text.
 
 ## 2. Scope boundary
 
@@ -138,6 +148,13 @@ the same version/hash. A parent saying it read a file, a path mention, or file
 existence is not consumption. New workers/sessions read their own mandatory
 owners. Recheck execution gates when current inputs, account, model, native
 roles or server revision change; no persistent capability cache is implied.
+
+Record the roots checked for a required sub-skill once per session; do not
+repeat a failed search until sources change. Never preload future craft,
+provider catalogs or full-pipeline checklists. A technique or external term
+(`ST-01`-style ID, "impact frame", "leitmotif", "whip pan") resolves through the
+directing vocabulary crosswalk. A still asset with `status: available` is not
+`verified`. Omit `craft_refs` from a handoff when no craft path fits.
 
 This package is instruction modules plus local tools. Markdown and agent
 settings alone do not run workers, schedule stages, or persist ledgers. Actual

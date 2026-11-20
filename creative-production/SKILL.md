@@ -28,9 +28,9 @@ or named stop (G1 is a checkpoint, outputs stay `proposed`).
 
 **Closing contract.** End every reply with one closing line, last:
 `다음: <next stage> — 자동 진행` or `대기: <reason> — 필요: <exact
-approval or fact>` only for the closed reasons in "Before you reply". G1, plan
-acceptance and placeholders never wait: label `[브랜드명]` and keep working.
-Detail: [policy.md](references/policy.md#closing-line).
+approval or fact>`, only as in "Before you reply". Unknown
+non-blocking facts stay labelled placeholders (`[브랜드명]`). Detail:
+[policy.md](references/policy.md#closing-line).
 
 Skip Step 0 for a locked brief, an approved concept, a single named artifact, or
 a resumed project. Pre-accepted review gates never open spend. Owner map
@@ -43,7 +43,7 @@ done when their prompts are written. Produce them under
 dependency order, at most five concurrent jobs, no automatic retry of an
 uncertain job, and SHA-256 registration. Codex Imagen stills skip the paid-quote
 gate, but reference transmission and output scope stay inside the user's
-authorization; `available` is not `verified`.
+authorization.
 
 ## Step 1 — Goal, then current-stage route
 
@@ -89,7 +89,7 @@ edit: [09a](../video-production-assets/references/09a-short-form-edit-recipes.md
 
 Then open the selected `owner` SKILL.md. Open every path in that row's
 `required_read` too: it is a `;`-separated list of package-relative paths, and an
-empty cell means the owner SKILL.md is the only file. Output from a route named without opening them is unsanctioned. Do not preload future craft, provider catalogs, or full-pipeline checklists. Two matches on one narrow artifact: pick the narrowest
+empty cell means the owner SKILL.md is the only file. Output from a route named without opening them is unsanctioned. Do not preload future craft or provider catalogs. Two matches on one narrow artifact: pick the narrowest
 and name the skipped one.
 
 For an ordinary finished-video goal, keep the goal in the coordinator and route
@@ -124,8 +124,7 @@ For recurring production, multi-stage coordination, reuse of approved
 resources, or repeated output corrections, **REQUIRED SUB-SKILL:
 `ai-delegation-loop`** applies once here. Resolve it by exact name in the host's
 available skill sources. If unreachable, record the missing source and leave
-only the dependent coordination step unresolved. Record the roots checked once per session; do not repeat a failed
-search until sources change.
+only the dependent coordination step unresolved.
 Never install, remove, or silently substitute this dependency.
 
 When a request asks to apply craft already integrated into this package, use the
@@ -134,8 +133,7 @@ packaged procedure (for reference-driven production,
 rather than asking for the original book. An unavailable original blocks only
 fresh quotation or source inspection.
 
-When a request names a technique or an external document's term (an `ST-01`-style
-ID, "impact frame", "leitmotif", "whip pan"), resolve it through the
+When a request names a technique or an external document's term, resolve it through the
 [directing vocabulary crosswalk](../video-production-assets/references/directing-vocabulary-crosswalk.md)
 before drafting.
 
@@ -152,7 +150,7 @@ inputs and blockers. For an existing ledger query/update, read
 Keep full execution projections on disk; display with `sequence_context.py
 --shot <ID> --projection <full.json> --view focus`, never execute that display.
 Do not infer a stage from file presence.
-Carry the Step 1 craft paths as `craft_refs` (omit if none fit).
+Carry the Step 1 craft paths as `craft_refs`.
 
 When dependencies are missing the worker returns one indexed missing-input
 packet. Select each
@@ -222,7 +220,8 @@ directories, and predictions are not delivery.
 
 ## Before you reply
 
-- Closing: `다음: 컷별 프롬프트 — 자동 진행` or `대기: 유료 생성 실행·비용 승인 — 필요: 모델·비용 승인`; never an offer ("원하시면", "할까요?").
+- The last line is exactly one of these two, nothing after it, never both:
+  `다음: 컷별 프롬프트 — 자동 진행` or `대기: 유료 생성 실행·비용 승인 — 필요: 모델·비용 승인`.
+  No parentheses or hedges ("가능", "요청해 주세요", "주시면"), no offer ("원하시면", "할까요?").
 - `대기` only for: paid/external-run approval, rights/likeness/voice consent, publication approval, a user-named stop, no subject/purpose. Never G1, plan acceptance, brand name, copy.
-- Nothing after the closing line.
-- Finished-video goal: reach storyboard/shot list (S06) this turn unless an allowed `대기` comes first.
+- Text stages S04–S07 (script, character/visual anchors, storyboard/shot list, prompts/asset plan) come first and are never skipped to reach the paid gate S08. Reach S06 this turn; a paid-run `대기` is valid only once the storyboard/shot list exists (this or an earlier turn).

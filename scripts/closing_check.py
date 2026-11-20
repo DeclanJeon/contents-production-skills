@@ -10,6 +10,8 @@ A reply ends with exactly one closing line:
   publication approval, a stop the user named, or no subject/purpose at all.
 
 The closing line is the final line: nothing (notes, offers, summaries) follows it.
+It matches exactly ``^다음: [^—(]+ — 자동 진행$`` or ``^대기: [^—]+ — 필요: .+$``:
+no parentheses or hedges ("가능", "요청해 주세요", "주시면") and no mixed forms.
 G1, plan acceptance, brand names and copy are never a 대기 reason.
 
 An optional offer ("원하시면 … 이어서", "if you'd like", "want me to") is never a
@@ -45,8 +47,11 @@ OPTIONAL_OFFER_PATTERNS = (
 _OPTIONAL_OFFER = re.compile("|".join(f"(?:{p})" for p in OPTIONAL_OFFER_PATTERNS), re.IGNORECASE)
 
 _MARKUP = " \t*_`>#-"
-_NEXT_LINE = re.compile(r"^다음\s*:\s*\S.*자동\s*진행")
-_WAIT_LINE = re.compile(r"^대기\s*:\s*\S.*필요\s*:\s*(?P<need>\S.*)$")
+# The closing line is exactly one of these two patterns and nothing else.
+_NEXT_LINE = re.compile(r"다음: [^—(]+ — 자동 진행")
+_WAIT_LINE = re.compile(r"대기: [^—]+ — 필요: (?P<need>.+)")
+# Hedges inside a closing line, e.g. "자동 진행 가능 (원하시면 요청해 주세요)".
+_CLOSING_HEDGE = re.compile(r"가능\s*[(（]|요청해\s*주세요|주시면")
 
 # Facts the next stage can carry as a labelled placeholder (`[브랜드명]`), so they
 # are not a reason to stop. Approval words mean a real gate and are never flagged.
@@ -72,19 +77,55 @@ def _last_line(text: str) -> str:
     return tail[-1].strip(_MARKUP) if tail else ""
 
 
-def closing_form(text: str) -> str | None:
-    """Return 'next' or 'wait' when the last non-empty line is a contract closing line."""
-    line = _last_line(text)
-    if _NEXT_LINE.match(line):
+def closing_hedge(line: str) -> str | None:
+    """Return the hedge found inside a closing-looking line ("가능 (", "요청해 주세요", "주시면")."""
+    found = _CLOSING_HEDGE.search(line)
+    return found.group(0) if found else None
+
+
+def mixed_closing(line: str) -> bool:
+    """True when one line holds both a ``다음:`` and a ``대기:`` closing form."""
+    return "다음:" in line and "대기:" in line
+
+
+def _exact_form(line: str) -> str | None:
+    """'next' or 'wait' when the line is exactly one contract pattern, hedge-free and unmixed."""
+    if closing_hedge(line) or mixed_closing(line):
+        return None
+    if _NEXT_LINE.fullmatch(line):
         return "next"
-    if _WAIT_LINE.match(line):
+    if _WAIT_LINE.fullmatch(line):
         return "wait"
     return None
 
 
+def closing_form(text: str) -> str | None:
+    """Return 'next' or 'wait' when the last non-empty line is exactly a contract closing line.
+
+    Exact patterns: ``^다음: [^—(]+ — 자동 진행$`` and ``^대기: [^—]+ — 필요: .+$``.
+    A hedge ("자동 진행 가능 (…)", "요청해 주세요", "주시면"), parentheses in a 다음
+    line, or both forms in one line make it None.
+    """
+    return _exact_form(_last_line(text))
+
+
+def closing_defect(text: str) -> str | None:
+    """Explain why a 다음:/대기:-looking last line is not an exact closing line, else None."""
+    line = _last_line(text)
+    if not (line.startswith("다음") or line.startswith("대기")) or _exact_form(line):
+        return None
+    hedge = closing_hedge(line)
+    if hedge:
+        return f"hedge {hedge!r} in closing line: {line!r}"
+    if mixed_closing(line):
+        return f"mixed 다음:/대기: forms in one line: {line!r}"
+    return f"closing line is not an exact pattern: {line!r}"
+
+
 def blocking_on_placeholderable_fact(text: str) -> str | None:
     """Return the ``필요:`` part when a wait line asks only for facts a placeholder can carry."""
-    match = _WAIT_LINE.match(_last_line(text))
+    line = _last_line(text)
+    match = _WAIT_LINE.fullmatch(line) if _exact_form(line) == "wait" else None
     if not match:
         return None
     need = match.group("need")
@@ -122,9 +163,15 @@ def wait_reason_allowed(line: str) -> bool:
 def disallowed_wait_reason(text: str) -> str | None:
     """Return the closing 대기 line when its reason is not on the allowed list."""
     line = _last_line(text)
-    if _WAIT_LINE.match(line) and not wait_reason_allowed(line):
+    if _exact_form(line) == "wait" and not wait_reason_allowed(line):
         return line
     return None
+
+
+def is_paid_execution_wait(text: str) -> bool:
+    """True when the closing line is a 대기 for paid/external execution or its cost."""
+    line = _last_line(text)
+    return _exact_form(line) == "wait" and any(word in line for word in ("실행", "비용", "유료", "결제"))
 
 
 def text_after_closing(text: str) -> str | None:
@@ -136,6 +183,6 @@ def text_after_closing(text: str) -> str | None:
     tail = _tail(text)
     for index, raw in enumerate(tail):
         line = raw.strip(_MARKUP)
-        if (_NEXT_LINE.match(line) or _WAIT_LINE.match(line)) and index < len(tail) - 1:
+        if _exact_form(line) and index < len(tail) - 1:
             return tail[index + 1]
     return None

@@ -119,7 +119,37 @@ def test_judge_nonstop_fails_on_disallowed_wait_and_text_after_closing() -> None
     ):
         verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], (folder / name).read_text(encoding="utf-8"))
         assert verdict is False and expected in reason, name
-    for name in ("f1r2-eco-r3.txt", "f1r2-sonnet-r3.txt"):
+    text = "## 스토리보드\n" + (folder / "f1r2-sonnet-r3.txt").read_text(encoding="utf-8")
+    verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], text)
+    assert verdict is True, reason
+
+
+def test_judge_nonstop_fails_on_hedged_or_parenthesized_closing_line() -> None:
+    folder = ROOT / "scripts" / "fixtures" / "closing_endings"
+    for name, expected in (
+        ("f1r3-sonnet-r2-s1.txt", "hedge"),
+        ("f1r2-eco-r3.txt", "not an exact pattern"),
+    ):
         text = "## 스토리보드\n" + (folder / name).read_text(encoding="utf-8")
         verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], text)
-        assert verdict is True, (name, reason)
+        assert verdict is False and expected in reason, (name, reason)
+
+
+def test_judge_positive_fails_on_mixed_closing_line() -> None:
+    positive = {"id": "p5", "kind": "positive", "expect_any_read": ["a.md"]}
+    mixed = (ROOT / "scripts" / "fixtures" / "closing_endings" / "f1r3-sonnet-r2-p5.txt").read_text(encoding="utf-8")
+    verdict, reason = probe.judge(positive, ["a.md"], mixed)
+    assert verdict is False
+    verdict, reason = probe.judge(positive, ["a.md"], mixed.replace("답을 주시면", "답을 받아"))
+    assert verdict is False and "mixed" in reason
+
+
+def test_judge_nonstop_fails_on_paid_wait_without_storyboard_content() -> None:
+    folder = ROOT / "scripts" / "fixtures" / "closing_endings"
+    tail = (folder / "f1r3-eco-r2-s1.txt").read_text(encoding="utf-8")
+    verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], tail)
+    assert verdict is False and "paid-execution 대기 without storyboard/shot-list content" in reason
+    verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], "## 5. 샷 명세표 (8샷)\n" + tail)
+    assert verdict is True, reason
+    verdict, reason = probe.judge(NONSTOP_CASE, [SKILL], "## 스토리보드\n" + tail)
+    assert verdict is True, reason

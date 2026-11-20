@@ -15,7 +15,9 @@ skill was opened, there is no optional offer, the last line is a contract closin
 line (``다음: … — 자동 진행`` or ``대기: … — 필요: …``), the answer contains
 storyboard/shot-list content, it makes no completion claim, nothing follows the
 closing line, and a ``대기:`` reason is on the allowed list
-(``closing_check.wait_reason_allowed``).
+(``closing_check.wait_reason_allowed``). The closing line must match exactly one of
+the two patterns (no hedges, no mixed forms), and a paid-execution ``대기:`` without
+storyboard/shot-list content fails.
 """
 from __future__ import annotations
 
@@ -45,7 +47,7 @@ NONSTOP_KEYWORDS = {
     "콘티": ("콘티", "스토리보드"),
     "실행 승인 요청": ("승인", "진행할까", "진행해도"),
 }
-STORYBOARD_KEYWORDS = ("스토리보드", "샷 리스트", "콘티")
+STORYBOARD_KEYWORDS = ("스토리보드", "샷 리스트", "샷 명세", "샷 목록", "shot list", "콘티")
 COMPLETION_CLAIMS = ("생성했습니다", "생성 완료", "렌더 완료", "렌더링 완료", "제작 완료", "만들었습니다")
 
 
@@ -134,6 +136,9 @@ def judge(case: dict, opened: list[str], final: str) -> tuple[bool | None, str]:
             return False, f"none of {case['expect_any_read']} opened"
         if offer:
             return False, f"optional offer ending: {offer!r}"
+        defect = closing_check.closing_defect(final)
+        if defect:
+            return False, defect
         return True, f"opened {hits}"
     if ENTRY_SKILL not in opened_set:
         return False, f"{ENTRY_SKILL} not opened"
@@ -143,6 +148,9 @@ def judge(case: dict, opened: list[str], final: str) -> tuple[bool | None, str]:
     form = closing_check.closing_form(final)
     if form is None:
         problems.append("last line is not a 다음:/대기: closing line")
+        defect = closing_check.closing_defect(final)
+        if defect:
+            problems.append(defect)
     trailing = closing_check.text_after_closing(final)
     if trailing:
         problems.append(f"text after closing line: {trailing!r}")
@@ -150,7 +158,10 @@ def judge(case: dict, opened: list[str], final: str) -> tuple[bool | None, str]:
     if bad_wait:
         problems.append(f"disallowed 대기 reason: {bad_wait!r}")
     if not any(word in final for word in STORYBOARD_KEYWORDS):
-        problems.append("no storyboard/shot-list content")
+        if closing_check.is_paid_execution_wait(final):
+            problems.append("paid-execution 대기 without storyboard/shot-list content")
+        else:
+            problems.append("no storyboard/shot-list content")
     claims = [w for w in COMPLETION_CLAIMS if w in final]
     if claims:
         problems.append(f"completion claim {claims}")
