@@ -24,6 +24,8 @@
 | S11 출력·이력 | final/ 저장, 이력 기록 | R27 | recording-production-history | 경로 보고 |
 | S12 성과 피드백 | 성과 지표 → 다음 기획 가설 | — | topic-demand-selection, searching-social-media | 사용자가 요청할 때만 |
 
+단계별 크래프트 참조는 [craft-bridge.csv](craft-bridge.csv)에서 현재 단계 행 중 요청 조건에 맞는 것만 골라 인계 패킷에 싣는다.
+
 ## 2. 경로 밖 보조 스킬
 
 - 소재·주제 선정이 먼저 필요하면 `topic-demand-selection`, 공개 SNS 레퍼런스 검색은 R01 `searching-social-media`.

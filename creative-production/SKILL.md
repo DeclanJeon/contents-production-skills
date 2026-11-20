@@ -138,6 +138,8 @@ inputs and blockers. For an existing ledger query/update, read
 Keep full execution projections on disk; display with `sequence_context.py
 --shot <ID> --projection <full.json> --view focus`, never execute that display.
 Do not infer a stage from file presence.
+Add `craft_refs` to the packet: the rows of [craft-bridge.csv](references/craft-bridge.csv)
+for this stage whose `when` fits the request, whatever the owner.
 
 A worker returns indexed changes, actual evidence, and checks performed. When
 dependencies are missing it also returns one indexed missing-input packet naming

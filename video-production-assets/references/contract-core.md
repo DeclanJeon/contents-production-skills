@@ -25,6 +25,7 @@
 현재 단계에 필요한 조각만 인계한다. 이 패킷은 일시적 실행 문맥이며 새 원장/스케줄러가 아니다. 단독 채팅 산출물은 project.json·프로젝트/산출물 ID를 새로 요구하지 않는다. 기존 프로젝트라면 선택된 `<project-root>/project.json`이 정본이고, 설치된 skill/support 폴더에는 제작 데이터를 쓰지 않는다.
 
 **입력 패킷:** 실제 project_root/project_id/project version(존재할 때), 한 개의 assigned stage와 requested output, 담당 artifact/entity/scene/shot/beat/panel/cue ID와 수정 범위, 소비하는 artifact ID→version, 필요한 소스/범위, 잠근 사실·연속성·제외 조건, 관련 승인 근거, 미해결 입력. 이미 확정된 값을 재질문하지 않고 다른 단계의 상세 문서를 미리 읽지 않는다. 별도 원장 없이 필요한 필드만 조회한다.
+선택 필드 `craft_refs`: 총괄이 현재 단계에 맞춰 고른 크래프트 참조 경로 목록이며, 담당은 자기 절차와 함께 읽는다. 원장 필드가 아니다.
 source/character/beat/provider ID는 artifact ID가 아니다. dependencies/dependency_versions/input_versions에는 **정본에 등록된 artifact ID만** 넣는다. 등록 여부를 확인하지 못한 입력은 source locator 또는 등록 제안으로 반환하며 실제 dependency라고 꾸미지 않는다.
 
 **워커 반환:** 담당 output ID와 output version, dependencies/dependency_versions 제안, 바뀐 레코드 제안, 실제 파일/공급자 locator와 관찰 상태·검수 근거/한계, 가정과 blocker. ID는 배정된 값 또는 명시적 신규 등록 제안으로 구분한다. 부족한 공간/음성/참조 입력은 scene/shot/beat ID별 요구 패킷 한 개로 반환한다. 워커가 총괄을 재호출하거나 현재 범위를 넓히지 않는다.
