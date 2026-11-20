@@ -200,3 +200,24 @@ def test_style_index_detects_missing_in_file_link(tmp_path):
 
     index_file.write_text(f"- 가이드 — 요약\n\n### 가이드 {{#{anchor}}}\n", encoding="utf-8")
     assert missing_style_links([row], tmp_path) == [row["slug"]]
+
+
+def test_no_planned_rows_remain():
+    assert [row["slug"] for row in read_ledger(LEDGER_PATH) if row["status"] == "planned"] == []
+
+
+def test_installed_pack_contains_absorbed_refs(tmp_path):
+    import install_package
+
+    result = install_package.install(tmp_path / "i", repo_root=ROOT, exclude_derived_support=True)
+    vpa_refs = result.skills_root / "video-production-assets" / "references"
+    for relative in (
+        "08a-motion-craft.md",
+        "33-motion-style-library.md",
+        "upstream/open-design-provenance.md",
+    ):
+        assert (vpa_refs / relative).is_file(), relative
+    assert (result.skills_root / "storytelling-with-still-images/references/still-motion-recipes.md").is_file()
+    for row in absorb_rows():
+        license_copy = vpa_refs / "upstream" / license_copy_name(row["repo"])
+        assert license_copy.is_file(), license_copy.name
