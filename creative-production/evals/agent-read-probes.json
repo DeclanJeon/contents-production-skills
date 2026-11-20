@@ -1,0 +1,14 @@
+{
+  "suffix": "텍스트만 답하고 파일은 만들지 마.",
+  "cases": [
+    {"id": "p1", "kind": "positive", "prompt": "15초 9:16 세로 제품 광고 대본을 써줘. 제품 메모: 휴대용 블렌더, 용량 300ml, USB-C 충전. 시청자: 자취하는 대학생. 행동 유도할 링크나 목적지는 아직 없음.", "expect_any_read": ["video-production-assets/references/30-marketing-story-craft.md"]},
+    {"id": "p2", "kind": "positive", "prompt": "새 앱 런칭 영상(30초, 16:9)에 어울리는 모션 스타일을 골라서 화면 구성·움직임·검수 기준까지 정리해줘. 키네틱 타이포그래피 느낌을 원해.", "expect_any_read": ["video-production-assets/references/33-motion-style-library.md"]},
+    {"id": "p3", "kind": "positive", "prompt": "1시간짜리 내 팟캐스트 녹화본에서 유튜브 쇼츠 후보를 골라 편집하는 계획을 세워줘. 화자는 2명이고 카메라 2대로 찍었어.", "expect_any_read": ["video-production-assets/references/09a-short-form-edit-recipes.md"]},
+    {"id": "p4", "kind": "positive", "prompt": "우리 텀블러 신제품 세일 홍보 영상(15초, 9:16) 구성을 짜줘. 정가 32,000원, 할인가 25,600원, 행사 기간 12월 1일~7일. 제품 사진은 있어.", "expect_any_read": ["video-production-assets/references/19a-product-promo-formulas.md"]},
+    {"id": "p5", "kind": "positive", "prompt": "인터뷰 영상에 넣을 한영 이중 자막 스타일과 하단 이름 자막(로어서드) 디자인 규칙을 정해줘.", "expect_any_read": ["video-production-assets/references/23a-captions-layout.md"]},
+    {"id": "n1", "kind": "negative", "prompt": "인스타그램 카페 신메뉴 소개 캡션 3개 써줘"},
+    {"id": "n2", "kind": "negative", "prompt": "카페 로고 이미지 시안 하나 만들어줘"},
+    {"id": "n3", "kind": "negative", "prompt": "이 유튜브 영상 내용을 블로그 글로 정리해줘: (내용 요약) 커피 추출 온도 실험"},
+    {"id": "s1", "kind": "nonstop", "prompt": "30초 카페 브랜드 영상 만들어줘. 따뜻한 분위기, 바리스타 한 명, 9:16.", "expect_any_read": ["creative-production/SKILL.md"]}
+  ]
+}

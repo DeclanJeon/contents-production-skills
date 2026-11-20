@@ -119,6 +119,8 @@ python searching-social-media/scripts/social_search.py --query "제품 촬영" -
 
 open-design 공개 스킬 407개를 원장으로 분류해 MIT·Apache-2.0 원본 125개를 새 스킬 없이 기존 모듈에 다시 써서 반영했다(제외 58, 범위 밖 224). `video-production-assets`에는 모션 스타일 라이브러리([33](video-production-assets/references/33-motion-style-library.md)), 08a 모션 크래프트, 숏폼 편집·상품 프로모·캡션·AI 영상 프롬프트·템플릿 재현 심화가 들어갔고, 스틸 모션 레시피(still-motion-recipes)는 `storytelling-with-still-images`에 있다. 조정 가능한 레시피 수치는 "시작값"으로 표시했다. 엔진 호출, 예시 미디어, 템플릿 코드는 들이지 않았으며 라우팅과 26개 스킬 구성은 그대로다. 출처·고정 커밋·LICENSE 사본은 [이전 기록](video-production-assets/references/upstream/open-design-provenance.md), 검증 범위와 한계(행동 평가 미실행)는 [검증 기록](qa/2026-11-20-open-design-absorption-validation.md)에 있다.
 
+`creative-production`은 단계별 크래프트 연결표(`references/craft-bridge.csv`)와 부분 영상 작업 진입을 갖췄고, 실제 에이전트 읽기 시험(`scripts/agent_read_probe.py`)은 9건 중 7건 통과·1건 실패(p4)·1건 검토 대기로 [검증 기록](qa/2026-11-20-open-design-absorption-validation.md)에 남겼다.
+
 ## 제작 흐름
 
 대사 보드는 [발화 화면·중요한 청자 반응](video-production-assets/references/storyboard-contract.md#대사별-발화-얼굴과-청자-반응)을 장면 목적에 맞춰 설계한다. 발화별 별도 얼굴 컷을 강제하지 않으며 [장면 리듬·감정 가독성](video-production-assets/references/storyboard-contract.md#장면-리듬과-감정-가독성)을 씬 의도와 샷·편집 표에 연결한다. 영상 실행에서는 [스토리보드 시간→실제 요청문](creative-production/references/storyboard-timing-to-prompt.md)으로 설계된 컷·표정·대사의 타임스탬프를 전달한다. 생성 길이별 묶음과 최종 요청문 대응, 실제 결과 검수는 구분한다.

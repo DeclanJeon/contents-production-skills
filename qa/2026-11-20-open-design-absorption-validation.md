@@ -48,3 +48,24 @@ Real agent probes replaced the BLOCKED Codex eval: `pi --print --mode json --no-
 | p5 bilingual captions + lower thirds | 15 only | `23a-captions-layout.md` |
 
 Checks re-run after the fix: `pytest scripts` 507 passed / 1 skipped; `routing_regression.py` 79 cases, 0 failing; `creative-production/` diff vs main empty; isolated install 248 links / 78 `#od-` anchors, 0 broken. Probe outputs are model text, not package facts or creative-quality acceptance.
+
+## Craft bridge probes (2026-11-21)
+
+Same method as above, driven by `scripts/agent_read_probe.py` over `creative-production/evals/agent-read-probes.json` (model `anthropic/claude-sonnet-5-5`, install with `--exclude-derived-support`, read-only tools, one run per case, no reruns). Reads, final answers and `summary.json` are in `qa/2026-11-20-craft-bridge-probes/`; raw JSONL is not kept. One run, one model: stability is not measured, and a read is not evidence of correct use.
+
+| Case | Kind | Opened key files | Verdict |
+|---|---|---|---|
+| p1 ad script | positive | creative-production/SKILL.md → video-production-assets 03 → `30-marketing-story-craft.md` | pass |
+| p2 motion style | positive | SKILL.md → `33-motion-style-library.md` → `motion-styles/kinetic-type.md` | pass |
+| p3 podcast → shorts (no skill named) | positive | SKILL.md → 09-edit → `09a-short-form-edit-recipes.md` | pass |
+| p4 tumbler sale promo, photos exist | positive | SKILL.md, routing.csv, routing-disambiguation.csv only; no `19a`, no module opened | **fail** |
+| p5 bilingual captions + lower thirds | positive | SKILL.md → `23a-captions-layout.md` | pass |
+| n1 Instagram caption | negative | none | pass |
+| n2 logo image | negative | none | pass |
+| n3 video summary → blog | negative | none | pass |
+| s1 30 s cafe brand video | nonstop | SKILL.md, routing, policy, orchestrating-video-preproduction stage-execution | controller review pending |
+
+- **p4 fails and is recorded as a failure.** The agent read the entry and routing tables, then answered from its own knowledge without opening any craft reference. The earlier probe (p4 above) at least reached `storytelling-with-still-images`. The brief's widened description opened the entry, but the bridge did not make the agent open `19a`. Not rerun to obtain a pass; the follow-up is open.
+- No run opened `creative-production/references/craft-bridge.csv`. p1, p2, p3 and p5 reached their reference through the routing tables or module links, not through the bridge, so these results do not show that the bridge itself is read at S0x handoffs.
+- The tool's keyword hints for s1 (`기획`, `대본` missing, approval request present, no completion claim) are candidates only; the answer has a spine, synopsis and storyboard with image prompts but no section titled script. The decision stays with the controller.
+- The `opened` lists in `summary.json` include `.` for `grep` calls without a file path; these are not file reads.

@@ -1,0 +1,9 @@
+{"type":"session","version":3,"id":"fixture","cwd":"/tmp/probe-sandbox"}
+{"type":"agent_start"}
+{"type":"message_end","message":{"role":"user","content":[{"type":"text","text":"질문"}]}}
+{"type":"tool_execution_start","toolName":"read","args":{"path":"/tmp/probe-install/creative-production/SKILL.md"}}
+{"type":"tool_execution_start","toolName":"grep","args":{"pattern":"od-openmotion","path":"/tmp/probe-install/video-production-assets/references/30-marketing-story-craft.md"}}
+{"type":"tool_execution_start","toolName":"find","args":{"pattern":"*.md","path":"/tmp/probe-install/video-production-assets/references"}}
+{"type":"tool_execution_start","toolName":"read","args":{"path":"/tmp/probe-install/video-production-assets/references/23a-captions-layout.md"}}
+{"type":"message_end","message":{"role":"assistant","content":[{"type":"text","text":"중간 메모"}]}}
+{"type":"message_end","message":{"role":"assistant","content":[{"type":"text","text":"기획안과 대본, 콘티를 정리했습니다. 실행 승인을 해주시면 진행합니다."}]}}

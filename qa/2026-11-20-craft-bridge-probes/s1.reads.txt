@@ -1,0 +1,6 @@
+  read: creative-production/SKILL.md
+  read: creative-production/references/routing.csv
+  read: creative-production/references/routing-disambiguation.csv
+  read: creative-production/references/policy.md
+  read: orchestrating-video-preproduction/SKILL.md
+  read: orchestrating-video-preproduction/references/stage-execution.md
