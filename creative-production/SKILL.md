@@ -74,6 +74,17 @@ take the rows for the current stage whose `when` fits the request, and read
 those `craft_ref` files with the owner's own procedure before producing the
 stage, whether you hand off or do it yourself. Owner rules and gates still win.
 
+Craft triggers: ad/promo script →
+[30](../video-production-assets/references/30-marketing-story-craft.md#od-openmotion-ad-script); sale/discount/product
+promo, photo-only too → [19a](../video-production-assets/references/19a-product-promo-formulas.md); captions/lower
+thirds/cover → [23a](../video-production-assets/references/23a-captions-layout.md); shorts/reels/multicam/beat-sync
+edit → [09a](../video-production-assets/references/09a-short-form-edit-recipes.md); motion style/kinetic type →
+[33 index](../video-production-assets/references/33-motion-style-library.md); motion principles/logo motion →
+[08a](../video-production-assets/references/08a-motion-craft.md); model-specific video prompts →
+[11a](../video-production-assets/references/11a-ai-video-prompting.md); recreate/templatize →
+[29a](../video-production-assets/references/29a-template-recreation.md); illustration/hand-drawn story →
+[still-motion-recipes](../storytelling-with-still-images/references/still-motion-recipes.md).
+
 Then open the selected `owner` SKILL.md. Open every path in that row's
 `required_read` too: it is a `;`-separated list of package-relative paths, and an
 empty cell means the owner SKILL.md is the only file. These files authorise
