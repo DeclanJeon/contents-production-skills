@@ -82,17 +82,22 @@ def test_absorbed_rows_have_source_line():
 
 def test_provenance_lists_every_absorb_repo():
     provenance = PROVENANCE.read_text(encoding="utf-8")
+    table_rows = [line for line in provenance.splitlines() if line.startswith("|")]
     rows = absorb_rows()
     assert rows
     for row in rows:
-        assert f"https://github.com/{row['repo']}" in provenance, row["repo"]
-        assert row["commit"] in provenance, f"{row['repo']}@{row['commit']}"
-        assert row["slug"] in provenance and row["sha256"] in provenance, row["slug"]
+        repo_url = f"https://github.com/{row['repo']}"
+        assert any(repo_url in line and row["commit"] in line for line in table_rows), f"{row['repo']}@{row['commit']}"
+        assert any(f"`{row['slug']}`" in line and row["sha256"] in line for line in table_rows), row["slug"]
         license_copy = UPSTREAM / license_copy_name(row["repo"])
         assert license_copy.is_file(), license_copy.name
         text = license_copy.read_bytes().decode("utf-8")
         assert detect_license(text) == row["upstream_license"], license_copy.name
-        assert hashlib.sha256(license_copy.read_bytes()).hexdigest() in provenance, license_copy.name
+        license_sha256 = hashlib.sha256(license_copy.read_bytes()).hexdigest()
+        assert any(
+            repo_url in line and row["commit"] in line and license_copy.name in line and license_sha256 in line
+            for line in table_rows
+        ), license_copy.name
 
 
 def test_no_engine_calls_in_absorbed_files():
@@ -108,7 +113,7 @@ def test_absorbed_files_links_resolve():
         for target in LINK_PATTERN.findall(path.read_text(encoding="utf-8")):
             if re.match(r"^(https?:|mailto:|#)", target):
                 continue
-            assert (path.parent / target.split("#", 1)[0]).exists(), f"{path.name}: {target}"
+            assert (path.parent / target.split("#", 1)[0]).is_file(), f"{path.name}: {target}"
 
 
 def test_detects_corruption(tmp_path):
@@ -119,7 +124,7 @@ def test_detects_corruption(tmp_path):
     target_file = target_dir / "08a-motion-craft.md"
     target_file.write_text(f"### 제목 {{#od-{row['slug']}}}\n- 쓰는 곳: 시험\n{source_line(row)}\n", encoding="utf-8")
     ledger_copy = tmp_path / "ledger.csv"
-    write_ledger(ledger_copy, rows)
+    write_ledger(ledger_copy, [row])
 
     corrupted = read_ledger(ledger_copy)
     next(item for item in corrupted if item["slug"] == row["slug"])["status"] = "absorbed"
