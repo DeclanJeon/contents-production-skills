@@ -72,7 +72,7 @@ Provenance claims need the actual submitted content: a file's existence, a
 matching trait, a filename mention, or a hash label is not consumption
 evidence. Record actual submitted prompts and actual input-reference hashes.
 
-Schema success, file existence, and decode success are not visual quality,
+Schema success, file existence, hash, and decode success are not visual quality,
 continuity evidence, rights clearance, or user approval. Detector and tool
 output enters as `DETECTOR_CANDIDATE`/`ESTIMATED` until inspected.
 

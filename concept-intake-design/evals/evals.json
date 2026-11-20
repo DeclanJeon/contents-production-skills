@@ -52,7 +52,7 @@
         "Stated values (30초, 카페 브랜드, 따뜻한 분위기, 바리스타 한 명) are recorded as user values.",
         "Every inferred axis (for example narrative structure, emotion arc, sound, aspect ratio) is labelled inferred with a one-line reason.",
         "No rights, execution, spend or publication approval is asked or inferred at intake; none is recorded in authority.",
-        "The packet is returned as an input to the coordinator; the turn does not end at the packet with an optional 'next steps if you want' offer."
+        "The packet is returned as an input to the coordinator, which continues; it returns the packet without an optional offer."
       ]
     }
   ]

@@ -1,6 +1,6 @@
 ---
 name: orchestrating-video-preproduction
-version: 2.27
+version: 2.28
 description: Use for text-only video preproduction that spans multiple artifacts — a complete planning package or one idea carried from concept through synopsis, characters, and storyboard. Delegated planning lane under creative-production; returns text and generic image prompts, never media.
 ---
 

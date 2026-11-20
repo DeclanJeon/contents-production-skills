@@ -65,7 +65,8 @@ This skill is that policy's single intake, not a second one.
    finished-video goal the coordinator continues in the same turn (R05, or R02
    for a synopsis-only goal, with [plan-template.md](references/plan-template.md)
    as the required section order) through the next eligible stages to the first
-   real gate or explicit stop, and states the approval needed next. A bare packet
+   real gate or named stop (G1 is a checkpoint, outputs stay `proposed`), and states
+   exactly the facts and approval needed next. A bare packet
    with an optional "next steps" offer is not a finished turn.
 
 ## Decision provider

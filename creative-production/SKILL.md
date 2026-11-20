@@ -12,8 +12,7 @@ description: Use when the user requests video production or a storyboard sheet f
 # Creative Production
 
 Sole coordinator and sole state writer for video production. Skills here are
-instruction modules; use the host's real tools and workers, not a presumed
-scheduler.
+instruction modules; use the host's real tools and workers, not a presumed scheduler.
 
 ## Step 0 — Upfront intake (once per new project)
 
@@ -28,11 +27,12 @@ Rights, execution, spend and publication approvals are asked at their own gates,
 never at S01 and never inferred. The packet is an input, not a stopping point:
 for a finished-video goal, continue in the same turn through the next eligible
 stages (synopsis/script, storyboard, prompts/asset plan) to the first real gate
-or explicit stop, then state exactly which approval is needed next; never end at
-the packet with an optional offer. Later owners inherit it, never re-interview.
+or named stop (G1 is a checkpoint, outputs stay `proposed`), then state exactly
+which approval or fact is needed next; never end at the packet with an
+optional offer. Later owners inherit it, never re-interview.
 Skip Step 0 for a locked brief, an approved concept, a single named artifact, or
-a resumed project. Pre-accepted review gates never open spend. The stage-by-stage owner
-map and the CineForge CLI handoff contract are in
+a resumed project. Pre-accepted review gates never open spend. Owner map
+and CineForge CLI handoff contract:
 [skill-map.md](references/skill-map.md).
 
 Still assets the story repeats (character 7-view sheets, wardrobe, location
@@ -93,7 +93,7 @@ Then open the selected `owner` SKILL.md. Open every path in that row's
 `required_read` too: it is a `;`-separated list of package-relative paths, and an
 empty cell means the owner SKILL.md is the only file. These files authorise
 the work; output from a route named without opening them is unsanctioned. Do not preload future craft, provider catalogs, or full-pipeline checklists. Two matches on one narrow artifact: pick the narrowest
-and say which one you skipped.
+and name the skipped one.
 
 For an ordinary finished-video goal, keep the goal in the coordinator and route
 the next unfinished assignment, not the whole lifecycle: use R05 for needed
@@ -104,7 +104,7 @@ and its own edit-plan gate. Assign selected authorized Higgsfield and Fal video
 operations to R28 and R32 respectively; R32 resolves `fal-video-production`
 from the host as a required optional owner before executing.
 
-`UNASSIGNED` means no current-stage route fits. Say so and ask for the missing slot instead of
+`UNASSIGNED` means no current-stage route fits. Say so and ask for the missing slot, not
 stretching a route.
 
 ## Step 2 — Apply policy
@@ -130,8 +130,8 @@ resources, or repeated output corrections, **REQUIRED SUB-SKILL:
 `ai-delegation-loop`** applies once here. Resolve it by exact name in the host's
 available skill sources. If unreachable, record the missing source and leave
 only the dependent coordination step unresolved. Record the roots checked once per session; do not repeat a failed
-search until sources or configuration change.
-Do not install, remove, or silently substitute this dependency.
+search until sources change.
+Never install, remove, or silently substitute this dependency.
 
 When a request asks to apply craft already integrated into this package, use the
 packaged procedure (for reference-driven production,

@@ -94,8 +94,8 @@ def test_concept_packet_is_an_input_and_the_coordinator_continues() -> None:
         "input, not a stopping point",
         "continue in the same turn",
         "synopsis/script, storyboard, prompts/asset plan",
-        "first real gate or explicit stop",
-        "which approval is needed next",
+        "first real gate or named stop",
+        "which approval or fact is needed next",
         "never end at the packet with an optional offer",
     ):
         assert needle in coordinator, needle
@@ -105,3 +105,27 @@ def test_concept_packet_is_an_input_and_the_coordinator_continues() -> None:
     assert "optional \"next steps\" offer is not a finished turn" in intake
     assert "멈춤 지점이 아니다" in skill_map_rules()
     assert "같은 턴" in skill_map_rules()
+
+
+def test_g1_is_a_checkpoint_that_continues_unless_named_as_a_stop() -> None:
+    coordinator = step0()
+    assert "G1 is a checkpoint" in coordinator and "`proposed`" in coordinator
+    assert "named stop" in coordinator
+    intake = flat(INTAKE)
+    assert "G1 is a checkpoint, outputs stay `proposed`" in intake
+    skill_map = SKILL_MAP.read_text(encoding="utf-8")
+    g1_row = next(line for line in skill_map.splitlines() if line.startswith("| G1 "))
+    assert "진행 체크포인트" in g1_row and "`proposed`" in g1_row
+    assert "사용자 승인" not in g1_row
+    rules = skill_map_rules()
+    assert "G1은 진행 체크포인트" in rules and "정지로 지정하지 않았다면" in rules
+    assert "G2는 사용자가" in rules and "G1, G2" not in rules
+
+
+def test_first_real_gate_closes_with_exact_needs_not_an_optional_offer() -> None:
+    assert "which approval or fact is needed next" in step0()
+    rules = skill_map_rules()
+    assert "추론할 수 없는 사실과 필요한 승인만 정확히 말하고" in rules
+    assert "원하시면" in rules  # named only as the forbidden closing
+    policy = flat(ROOT / "creative-production" / "references" / "policy.md")
+    assert "existence, hash, and decode success" in policy
