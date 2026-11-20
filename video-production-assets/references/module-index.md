@@ -19,13 +19,13 @@
 | 제품 프로모·세일·카운트다운·스펙시트·런칭/기능 데모 영상 공식 | [제품 영상 공식](19a-product-promo-formulas.md) | assets/product-ssot-template.md |
 | 비주얼 모드 선택·SSOT 티어·연속성·군중 | [비주얼 모드·SSOT](20-visual-mode-ssot.md) | `assets/character-ssot-template.md`, `assets/crowd-map-template.md` |
 | 복잡 모션·합성 레이어·생성 매체 검수·재시도 | [생성 영상 QA·재시도](21-generated-video-qa-retry.md) | `assets/motion-beat-template.md`, `assets/vfx-layer-stack-template.md`, `assets/generated-qa-report-template.md` |
-| Seedance식 지시·영상→슈퍼프롬프트·샷크래프트·루프 영상 | [AI 영상 지시법](11a-ai-video-prompting.md) | 11 템플릿 |
+| Veo·Seedance식 지시·구조화 영상 프롬프트·영상→재현 프롬프트 | [AI 영상 지시법](11a-ai-video-prompting.md) | 11 템플릿 |
 | 모션 원칙·키프레임·로고 모션·색 움직임·콘티→모션 | [모션 크래프트](08a-motion-craft.md) | 08 템플릿 |
 | 편집본→대본·멀티캠·릴스/쇼츠 추출·라이브 클립·비트 싱크 | [숏폼 편집 레시피](09a-short-form-edit-recipes.md) | 09 템플릿 |
 | 대사 연기·보이스 선택/생성·립싱크·청자 디렉팅 | [대사·립싱크](22-dialogue-lipsync.md) | `assets/performance-cue-template.md` |
 | 실제 테이크의 음질·연기·보이스·효과음·립싱크 결함 | [최소 테이크 보정](take-repair.md) | 기존 컷/테이크·오디오 인계와 QA 기록 |
 | 피니싱 룩·그레이드 노드 구조·믹스·마스터 QC·플랫폼 적응 | [피니싱·플랫폼](23-finishing-platform.md) | — |
-| 자막 스타일·이중 언어 자막·비율별 레이아웃·하단 자막·커버 | [자막·레이아웃](23a-captions-layout.md) | — |
+| 발화 그래픽 배치·자막 스타일·이중 언어 자막·반응형 제품 레이아웃·로어서드·커버 | [자막·레이아웃](23a-captions-layout.md) | — |
 | 속도·타격·컷 전환·효과음·음악·공간음향 중 무엇을 이름으로 고르거나 바꿈 | [편집·음향 표현 선택표](edit-sound-language-catalog.md) | 편집은 09 템플릿, 음향은 `assets/sound-cues.csv` |
 | 이미지/영상 생성 경로·최소 충분 프리뷰·최종 제작·비용·에셋 출처 | [생성 경로·비용 라우팅](24-production-execution.md) | `assets/video-model-routing-template.md` |
 | 캐릭터 시트·의상·장소·배경·소품·LOOK·컷 프레임을 실제로 빠짐없이 생성·재개 | [스틸 에셋 일괄 생성](32-still-asset-generation-jobs.md) | 기존 `asset_registry`·프롬프트 원장 |
