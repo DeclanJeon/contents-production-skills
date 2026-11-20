@@ -19,12 +19,16 @@ scheduler.
 
 For a new finished-video goal whose concept, format, narrative structure or
 direction is still open, route R33 to `concept-intake-design` first: it judges
-the nine intake factors, asks the open axes in one batched turn, and returns a
-checked, scored concept packet. That packet is the project's only intake; every
-later owner inherits it and never re-interviews. Skip Step 0 for a locked brief,
-an approved concept, a single named artifact, or a resumed project. Delegated
-choices stay `inferred`; pre-accepted review gates never open spend. The
-stage-by-stage owner map and the CineForge CLI handoff contract are in
+the nine intake factors, records reversible choices it can infer
+(platform/safe zone, tone, length, structure, style) as `inferred` with a
+one-line reason and continues, and returns a checked, scored concept packet. It
+asks one batched turn only when a core axis cannot be inferred (no subject or
+purpose), when the user asks to choose or discuss ("골라볼래", "같이 정하자"),
+or for rights, execution, spend or publication approval. That packet is the
+only intake; later owners inherit it, never re-interview. Skip Step 0 for a
+locked brief, an approved concept, a single named artifact, or a resumed
+project. Pre-accepted review gates never open spend. The stage-by-stage owner
+map and the CineForge CLI handoff contract are in
 [skill-map.md](references/skill-map.md).
 
 Still assets the story repeats — character 7-view sheets, wardrobe, location
@@ -50,8 +54,7 @@ executed_media / varies), `authority_axis`, `owner`, `required_read`,
 `stop_boundary`.
 
 Read [routing-disambiguation.csv](references/routing-disambiguation.csv) in the
-same step. REQUIRED, not conditional: a tie-only reading rule never
-fired, because one route always looks plausible. It holds one row per confusable
+same step. REQUIRED, not conditional. It holds one row per confusable
 pair (`route_a`, `route_b`) and the line that separates them; do not re-derive
 it from keywords.
 

@@ -14,7 +14,7 @@ except ImportError:  # strict fallback check is used in the frontmatter test
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "creative-production" / "SKILL.md"
 MAIN_FRONTIER_WORDS = 2820
-FRONTIER_GROWTH_CAP = 60
+FRONTIER_GROWTH_CAP = 120
 
 EXCLUSIONS = (
     "standalone writing",

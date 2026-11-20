@@ -34,13 +34,18 @@ This skill is that policy's single intake, not a second one.
 2. **Judge the nine factors** in [intake-questions.md](references/intake-questions.md):
    script, scenario, reference, plot/concept, lead character, voice, content
    concept, story development, direction. Each is `provided`, `partial`, or
-   `missing`; a missing factor is filled by a selection, not by guessing silently.
-3. **Ask once, batched.** Present only the consequential open axes from
-   [concept-taxonomy.yaml](references/concept-taxonomy.yaml) in its
-   `selection_order`, each with numbered options, a default, and an AI
-   recommendation. The user may answer, accept defaults, or delegate the rest
-   ("나머지는 알아서"). Delegated values are recorded as `inferred`, never as
-   user choices. Korean by default.
+   `missing`; a missing factor is filled by a recorded proposal or selection, never silently.
+3. **Infer and propose; ask only what cannot be inferred.** For each open axis
+   in [concept-taxonomy.yaml](references/concept-taxonomy.yaml) (in its
+   `selection_order`) that the request lets you reasonably infer and that is
+   reversible (platform/safe zone, tone, length, structure, style), pick the
+   option, record it `inferred` with a one-line reason, and continue. Ask once,
+   batched (numbered options, a default, an AI recommendation) only when a core
+   axis cannot be inferred at all (no subject or purpose given), when the user
+   asks to choose or discuss ("골라볼래", "같이 정하자", collaboration), or for
+   rights, execution, spend or publication approval. Answers are user values;
+   delegated ("나머지는 알아서") and proposed values stay `inferred`, never user
+   choices. Korean by default.
 4. **Combine and check.** Apply the rules in
    [combination-rules.md](references/combination-rules.md) and
    [concept-rules.yaml](references/concept-rules.yaml): compatibility
