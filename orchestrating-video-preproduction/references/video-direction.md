@@ -4,7 +4,7 @@ Shared decision contract for the text-planning lane. `orchestrating-video-prepro
 
 ## Interaction modes
 
-**Script collaboration starts with the user's explicit choice state.** When the user marks an essential creative choice undecided, the first response asks that choice and waits. Reuse the supplied purpose, observations and ending. After the answer arrives, complete the requested script from those inputs. Apply the modes below only after resolving that explicit choice; a single-artifact request does not silently choose it for the user.
+**Script collaboration starts with the user's explicit choice state.** When the user marks an essential creative choice undecided and it is not reversible, or asks to choose or discuss it, the first response asks that choice and waits; "undecided" alone on a reversible choice is not a request to discuss, so infer, label it `inferred`, and continue. Reuse the supplied purpose, observations and ending. After the answer arrives, complete the requested script from those inputs. Apply the modes below only after resolving that explicit choice; a single-artifact request does not silently choose it for the user.
 
 Unwaived conflicts between hard script constraints use [the screenplay start branch — `video-production-assets/references/03-screenplay.md`](../../video-production-assets/references/03-screenplay.md#시작-분기). The code-form address is relative to the package root; the Markdown href is relative to this document.
 

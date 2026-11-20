@@ -1,8 +1,9 @@
 interface:
   display_name: 콘셉트 인테이크 설계
   short_description: 새 영상 프로젝트의 콘셉트를 한 번에 선택·조합·검사·평가하는 사전 단계
-  default_prompt: $concept-intake-design로 이 영상 요청을 분석하고, 열린 콘셉트 축만 한 번에
-    물어본 뒤 조합·적합성 검사·평가 결과를 콘셉트 패킷으로 정리해줘.
+  default_prompt: $concept-intake-design로 이 영상 요청을 분석하고, 되돌릴 수 있는 열린 콘셉트 축은
+    추론해 근거와 함께 기록하고, 추론할 수 없을 때만 한 번에 물어본 뒤 조합·적합성 검사·평가 결과를
+    콘셉트 패킷으로 정리해줘.
 policy:
   products:
   - chatgpt

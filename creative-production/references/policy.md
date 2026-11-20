@@ -21,8 +21,11 @@ impersonate user acceptance. Review readiness is not acceptance, execution
 approval, or permission to run.
 
 Creative direction that is open needs supplied, accepted, or explicitly
-delegated authority. Ask only for consequential choices unavailable from tools
-or sources.
+delegated authority, except that reversible open axes (platform/safe zone, tone,
+length, structure, style) may proceed as labelled `inferred` proposals; a
+proposal is never acceptance. Ask only for consequential choices unavailable
+from tools or sources. Rights, execution, spend and publication approvals are
+asked at their own gates, never at intake and never inferred.
 
 ## 2. Scope boundary
 

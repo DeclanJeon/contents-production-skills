@@ -23,22 +23,26 @@ the nine intake factors, records reversible choices it can infer
 (platform/safe zone, tone, length, structure, style) as `inferred` with a
 one-line reason and continues, and returns a checked, scored concept packet. It
 asks one batched turn only when a core axis cannot be inferred (no subject or
-purpose), when the user asks to choose or discuss ("골라볼래", "같이 정하자"),
-or for rights, execution, spend or publication approval. That packet is the
-only intake; later owners inherit it, never re-interview. Skip Step 0 for a
-locked brief, an approved concept, a single named artifact, or a resumed
-project. Pre-accepted review gates never open spend. The stage-by-stage owner
+purpose) or the user asks to choose or discuss ("골라볼래", "같이 정하자").
+Rights, execution, spend and publication approvals are asked at their own gates,
+never at S01 and never inferred. The packet is an input, not a stopping point:
+for a finished-video goal, continue in the same turn through the next eligible
+stages (synopsis/script, storyboard, prompts/asset plan) to the first real gate
+or explicit stop, then state exactly which approval is needed next; never end at
+the packet with an optional offer. Later owners inherit it, never re-interview.
+Skip Step 0 for a locked brief, an approved concept, a single named artifact, or
+a resumed project. Pre-accepted review gates never open spend. The stage-by-stage owner
 map and the CineForge CLI handoff contract are in
 [skill-map.md](references/skill-map.md).
 
-Still assets the story repeats — character 7-view sheets, wardrobe, location
-4-view sheets, background plates, props, LOOK and cut start/end frames — are not
+Still assets the story repeats (character 7-view sheets, wardrobe, location
+4-view sheets, background plates, props, LOOK, cut start/end frames) are not
 done when their prompts are written. Produce them under
 [still asset generation jobs](../video-production-assets/references/32-still-asset-generation-jobs.md):
 dependency order, at most five concurrent jobs, no automatic retry of an
 uncertain job, and SHA-256 registration. Codex Imagen stills skip the paid-quote
-gate, but reference transmission and requested output scope stay inside the
-user's authorization; `available` is not `verified`.
+gate, but reference transmission and output scope stay inside the user's
+authorization; `available` is not `verified`.
 
 ## Step 1 — Goal, then current-stage route
 
@@ -74,22 +78,21 @@ take the rows for the current stage whose `when` fits the request, and read
 those `craft_ref` files with the owner's own procedure before producing the
 stage, whether you hand off or do it yourself. Owner rules and gates still win.
 
-Craft triggers: ad/promo script →
+Craft triggers (attach only; route unchanged; bridge notes apply): ad/promo script:
 [30](../video-production-assets/references/30-marketing-story-craft.md#od-openmotion-ad-script); sale/discount/product
-promo, photo-only too → [19a](../video-production-assets/references/19a-product-promo-formulas.md); captions/lower
-thirds/cover → [23a](../video-production-assets/references/23a-captions-layout.md); shorts/reels/multicam/beat-sync
-edit → [09a](../video-production-assets/references/09a-short-form-edit-recipes.md); motion style/kinetic type →
-[33 index](../video-production-assets/references/33-motion-style-library.md); motion principles/logo motion →
-[08a](../video-production-assets/references/08a-motion-craft.md); model-specific video prompts →
-[11a](../video-production-assets/references/11a-ai-video-prompting.md); recreate/templatize →
-[29a](../video-production-assets/references/29a-template-recreation.md); illustration/hand-drawn story →
+promo, photo-only too: [19a](../video-production-assets/references/19a-product-promo-formulas.md); captions/lower
+thirds/cover: [23a](../video-production-assets/references/23a-captions-layout.md); shorts/reels/multicam/beat-sync
+edit: [09a](../video-production-assets/references/09a-short-form-edit-recipes.md); motion style/kinetic type:
+[33 index](../video-production-assets/references/33-motion-style-library.md); motion principles/logo motion:
+[08a](../video-production-assets/references/08a-motion-craft.md); model-specific video prompts:
+[11a](../video-production-assets/references/11a-ai-video-prompting.md); recreate/templatize:
+[29a](../video-production-assets/references/29a-template-recreation.md); illustration/hand-drawn story:
 [still-motion-recipes](../storytelling-with-still-images/references/still-motion-recipes.md).
 
 Then open the selected `owner` SKILL.md. Open every path in that row's
 `required_read` too: it is a `;`-separated list of package-relative paths, and an
 empty cell means the owner SKILL.md is the only file. These files authorise
-the work; output from a route named without opening them is unsanctioned. Do not preload future craft, provider catalogs, or
-full-pipeline checklists. Two matches on one narrow artifact: pick the narrowest
+the work; output from a route named without opening them is unsanctioned. Do not preload future craft, provider catalogs, or full-pipeline checklists. Two matches on one narrow artifact: pick the narrowest
 and say which one you skipped.
 
 For an ordinary finished-video goal, keep the goal in the coordinator and route
@@ -120,16 +123,14 @@ and hand off text planning in coordinator-delegated one-pass mode unless the
 user requested collaboration. A named stop changes the stopping point, not
 interaction mode: carry it in the handoff and work up to it. For “show me the
 script, then wait,” deliver the script without a routine earlier question and
-wait before downstream work. Actual blockers still apply. A locked brief or
-single artifact needs no project interview.
+wait before downstream work. Actual blockers still apply.
 
 For recurring production, multi-stage coordination, reuse of approved
 resources, or repeated output corrections, **REQUIRED SUB-SKILL:
 `ai-delegation-loop`** applies once here. Resolve it by exact name in the host's
-available skill sources. If unreachable, record the precise missing source and
-keep only the dependent coordination step unresolved while continuing
-unaffected work. Record the exact roots checked once per session; do not repeat
-the same failed search until those installed sources/configuration change.
+available skill sources. If unreachable, record the missing source and leave
+only the dependent coordination step unresolved. Record the roots checked once per session; do not repeat a failed
+search until sources or configuration change.
 Do not install, remove, or silently substitute this dependency.
 
 When a request asks to apply craft already integrated into this package, use the
@@ -141,8 +142,7 @@ fresh quotation or source inspection.
 When a request names a technique or an external document's term (an `ST-01`-style
 ID, "impact frame", "leitmotif", "whip pan"), resolve it through the
 [directing vocabulary crosswalk](../video-production-assets/references/directing-vocabulary-crosswalk.md)
-before drafting, so the owning file authorises the work instead of a restated
-definition.
+before drafting.
 
 ## Step 4 — Hand off
 
@@ -184,8 +184,7 @@ operations; missing files or pending work is not a clean restart.
 
 Every intermediate and final output is saved outside this skill repository,
 registered with observed paths, and reported by absolute path. Final
-deliverables go in `final/`. Requested text saving alone does not imply image
-generation.
+deliverables go in `final/`.
 
 For a full topic-to-video or image-backed package, read
 [preproduction-review.md](../video-production-assets/references/preproduction-review.md)
@@ -200,15 +199,14 @@ The coordinator owns predecessor/history references and continuity acceptance
 even without a separate reviewer. Required failed/unverified continuity blocks
 dependent generation, take adoption and completed-film delivery; independent
 reachable planning may continue. Planned references are not accepted take
-outpoints; file/hash/decode success is not continuity evidence.
+outpoints.
 For storyboard-to-video execution, dependent generation, or sequence editing,
 **REQUIRED:** use the [sequence execution tools](../video-production-assets/references/sequence-execution.md)
 to compare actual planned frames before generation, resolve blockers, carry selected
 source ranges forward, and inspect the rendered cut boundaries and whole output.
 
-When the deliverable needs voice or sound and nothing selects another route, the
-default is to design voice and sound into the video request itself — see the
-canonical
+When the deliverable needs voice or sound and nothing selects another route,
+design voice and sound into the video request itself, per the canonical
 [voice and sound design in-request](../creative-production/references/video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default)
 rule. Before any duration grouping or final video request, read
 [storyboard timing to prompt](references/storyboard-timing-to-prompt.md) and
@@ -223,7 +221,7 @@ permission to run video. Open the live-verified bounded plan under
 on an explicit proceed request or existing explicit authority covering that
 plan. Submit only under current execution and applicable spend approval.
 
-Use [creative-qa.md](references/creative-qa.md) for the actual requested surface.
+Use [creative-qa.md](references/creative-qa.md) for the requested surface.
 Record file and `.history` paths internally as work proceeds. Share the relevant
 paths, checks and lifecycle state at a requested checkpoint, a real blocker, or
 delivery. A progress update is not an approval pause. Distinguish plan, generated file,

@@ -42,6 +42,18 @@
         "No intake questions are asked.",
         "The request is left to the character-sheet route."
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "30초 카페 브랜드 영상 만들어줘. 따뜻한 분위기에 바리스타 한 명이 나오는 걸로.",
+      "expected_output": "A concept packet in which every open reversible axis (structure, emotion arc, sound, aspect) is inferred with a one-line reason and no question is asked, returned to the coordinator, which continues to the next eligible stages instead of ending with an optional offer.",
+      "expectations": [
+        "Zero questions are asked: the subject and purpose are given and the user did not ask to choose or discuss.",
+        "Stated values (30초, 카페 브랜드, 따뜻한 분위기, 바리스타 한 명) are recorded as user values.",
+        "Every inferred axis (for example narrative structure, emotion arc, sound, aspect ratio) is labelled inferred with a one-line reason.",
+        "No rights, execution, spend or publication approval is asked or inferred at intake; none is recorded in authority.",
+        "The packet is returned as an input to the coordinator; the turn does not end at the packet with an optional 'next steps if you want' offer."
+      ]
     }
   ]
 }

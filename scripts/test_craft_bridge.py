@@ -126,10 +126,10 @@ def test_step1_reads_bridge_right_after_route_selection() -> None:
 def test_inline_triggers_name_every_absorbed_ref_with_resolving_links() -> None:
     text = SKILL.read_text(encoding="utf-8")
     step1 = text.split("## Step 1", 1)[1].split("\n## ", 1)[0]
-    triggers = step1.split("Craft triggers:", 1)[1].split("\n\n", 1)[0]
+    triggers = step1.split("Craft triggers", 1)[1].split("\n\n", 1)[0]
     triggers = " ".join(triggers.split())
-    assert step1.index("Owner rules and gates still win") < step1.index("Craft triggers:")
-    assert step1.index("Craft triggers:") < step1.index("open the selected `owner`")
+    assert step1.index("Owner rules and gates still win") < step1.index("Craft triggers")
+    assert step1.index("Craft triggers") < step1.index("open the selected `owner`")
     missing = [needle for needle in REQUIRED_REFS if needle not in triggers]
     assert not missing, missing
     targets = re.findall(r"\]\(([^)]+)\)", triggers)
@@ -140,6 +140,21 @@ def test_inline_triggers_name_every_absorbed_ref_with_resolving_links() -> None:
         assert resolved.is_file(), target
         if anchor:
             assert "{#" + anchor + "}" in resolved.read_text(encoding="utf-8"), target
+
+
+def test_inline_triggers_say_attach_only_and_each_target_is_a_bridge_row() -> None:
+    text = SKILL.read_text(encoding="utf-8")
+    step1 = text.split("## Step 1", 1)[1].split("\n## ", 1)[0]
+    triggers = " ".join(step1.split("Craft triggers", 1)[1].split("\n\n", 1)[0].split())
+    assert triggers.startswith("(attach only; route unchanged; bridge notes apply)")
+    bridge_refs = {row["craft_ref"] for row in read_rows()}
+    bridge_paths = {split_ref(ref)[0] for ref in bridge_refs}
+    for target in re.findall(r"\]\(([^)]+)\)", triggers):
+        path, _, anchor = target.partition("#")
+        resolved = (SKILL.parent / path).resolve().relative_to(ROOT).as_posix()
+        assert resolved in bridge_paths, target
+        if anchor:
+            assert f"{resolved}#{anchor}" in bridge_refs, target
 
 
 def test_step4_keeps_craft_refs_pointer() -> None:

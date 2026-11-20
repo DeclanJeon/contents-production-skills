@@ -1,6 +1,6 @@
 ---
 name: concept-intake-design
-version: 1.0
+version: 1.1
 description: Use when creative-production opens a new video project whose concept, format,
   narrative structure, or direction axes are still open, to run the single upfront
   selection pass (콘셉트 선택·조합·적합성 검사·평가) before any planning. Do not use for a
@@ -40,12 +40,14 @@ This skill is that policy's single intake, not a second one.
    `selection_order`) that the request lets you reasonably infer and that is
    reversible (platform/safe zone, tone, length, structure, style), pick the
    option, record it `inferred` with a one-line reason, and continue. Ask once,
-   batched (numbered options, a default, an AI recommendation) only when a core
-   axis cannot be inferred at all (no subject or purpose given), when the user
-   asks to choose or discuss ("골라볼래", "같이 정하자", collaboration), or for
-   rights, execution, spend or publication approval. Answers are user values;
-   delegated ("나머지는 알아서") and proposed values stay `inferred`, never user
-   choices. Korean by default.
+   batched (numbered options, a default, an AI recommendation) only for two
+   creative conditions: a core axis cannot be inferred at all (no subject or
+   purpose given), or the user asks to choose or discuss ("골라볼래", "같이
+   정하자", collaboration). Rights, execution, spend and publication approvals
+   are asked at their own gates (G2, S08, S09, publication), never here and
+   never inferred. Answers are user values; delegated ("나머지는 알아서") and
+   proposed values, including agent-proposed presets, stay `inferred`, never
+   user choices. Korean by default.
 4. **Combine and check.** Apply the rules in
    [combination-rules.md](references/combination-rules.md) and
    [concept-rules.yaml](references/concept-rules.yaml): compatibility
@@ -58,9 +60,13 @@ This skill is that policy's single intake, not a second one.
    platform fit (10–90 each; weights .25/.20/.15/.15/.15/.10). Verdict `go` at
    65+ with no blocking issue, `revise` at 50+, otherwise `rework`. Offer at most
    two alternative narrative variants with their scores.
-6. **Return the concept packet** (below) and stop. The coordinator then routes
-   the plan (R05, or R02 for a synopsis-only goal) with
-   [plan-template.md](references/plan-template.md) as the required section order.
+6. **Return the concept packet** (below) to the coordinator; this skill writes
+   nothing further. The packet is an input, not a stopping point: for a
+   finished-video goal the coordinator continues in the same turn (R05, or R02
+   for a synopsis-only goal, with [plan-template.md](references/plan-template.md)
+   as the required section order) through the next eligible stages to the first
+   real gate or explicit stop, and states the approval needed next. A bare packet
+   with an optional "next steps" offer is not a finished turn.
 
 ## Decision provider
 
