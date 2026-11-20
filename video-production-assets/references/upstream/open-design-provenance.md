@@ -31,7 +31,7 @@
 
 ## 적용 파일
 
-각색분은 아래 파일에 들어간다. 파일은 작업이 끝나는 순서대로 생기며, 각색 절의 `출처:` 줄이 원장 행과 맞는지는 `scripts/test_open_design_absorption.py`가 검사한다.
+각색분은 아래 파일에 들어간다. 모든 파일이 작업을 마쳐 생겼으며, 각색 절의 `출처:` 줄이 원장 행과 맞는지는 `scripts/test_open_design_absorption.py`가 검사한다.
 
 | 원장 target | 각색 대상 파일 | 원장 행 수 |
 |---|---|---|
@@ -52,7 +52,7 @@
 
 ## 직접 확인한 원본과 raw SHA-256
 
-각 행은 고정 커밋의 `SKILL.md` 원본 bytes SHA-256이다(원장 `sha256` 열과 같다). 저장소 루트 LICENSE도 읽었다. 이 목록은 `absorb`로 정한 행이며, 각색이 끝난 행은 원장 `status`가 `absorbed`로 바뀐다. 원문을 통째로 옮기지 않고 패키지 말투의 한국어 절로 다시 썼다.
+각 행은 고정 커밋의 `SKILL.md` 원본 bytes SHA-256이다(원장 `sha256` 열과 같다). 저장소 루트 LICENSE도 읽었다. 이 목록은 `absorb`로 정한 행이며, 각색이 끝나 원장 `status`가 모두 `absorbed`로 바뀌었다. 원문을 통째로 옮기지 않고 패키지 말투의 한국어 절로 다시 썼다.
 
 ### alchaincyf/huashu-art-motion@26dba25b2b49
 

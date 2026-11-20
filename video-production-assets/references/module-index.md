@@ -16,7 +16,7 @@
 | 장르 긴장·코미디 구조·에스컬레이션 | [장르·코미디](17-genre-comedy.md) | — |
 | 시리즈 바이블·회차·콜백·상태 델타·대사 중심 연작의 제작량/연재 페이스 | [시리즈·에피소드](18-episodic-series.md) | `assets/series-bible-template.md`, `assets/continuity-ledger.csv`, 반복 작업량에는 `assets/14-production-ops-template.md` |
 | 스폰서 통합·정확한 제품 샷 | [스폰서·제품 통합](19-brand-product-integration.md) | `assets/product-ssot-template.md` |
-| 제품 프로모·세일·카운트다운·스펙시트·런칭/기능 데모 영상 공식 | [제품 영상 공식](19a-product-promo-formulas.md) | assets/product-ssot-template.md |
+| 제품 프로모·세일·카운트다운·스펙시트·런칭/기능 데모 영상 공식 | [제품 영상 공식](19a-product-promo-formulas.md) | `assets/product-ssot-template.md` |
 | 비주얼 모드 선택·SSOT 티어·연속성·군중 | [비주얼 모드·SSOT](20-visual-mode-ssot.md) | `assets/character-ssot-template.md`, `assets/crowd-map-template.md` |
 | 복잡 모션·합성 레이어·생성 매체 검수·재시도 | [생성 영상 QA·재시도](21-generated-video-qa-retry.md) | `assets/motion-beat-template.md`, `assets/vfx-layer-stack-template.md`, `assets/generated-qa-report-template.md` |
 | Veo·Seedance식 지시·구조화 영상 프롬프트·영상→재현 프롬프트 | [AI 영상 지시법](11a-ai-video-prompting.md) | 11 템플릿 |

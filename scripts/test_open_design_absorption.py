@@ -211,13 +211,10 @@ def test_installed_pack_contains_absorbed_refs(tmp_path):
 
     result = install_package.install(tmp_path / "i", repo_root=ROOT, exclude_derived_support=True)
     vpa_refs = result.skills_root / "video-production-assets" / "references"
-    for relative in (
-        "08a-motion-craft.md",
-        "33-motion-style-library.md",
-        "upstream/open-design-provenance.md",
-    ):
-        assert (vpa_refs / relative).is_file(), relative
-    assert (result.skills_root / "storytelling-with-still-images/references/still-motion-recipes.md").is_file()
+    for path in all_target_files():
+        relative = path.relative_to(ROOT)
+        assert (result.skills_root / relative).is_file(), str(relative)
+    assert (vpa_refs / "upstream/open-design-provenance.md").is_file()
     for row in absorb_rows():
         license_copy = vpa_refs / "upstream" / license_copy_name(row["repo"])
         assert license_copy.is_file(), license_copy.name

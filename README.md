@@ -117,7 +117,7 @@ python searching-social-media/scripts/social_search.py --query "제품 촬영" -
 
 ## open-design 영상 크래프트 흡수
 
-공개 영상·모션 스킬 407개를 원장으로 분류해 MIT·Apache-2.0 원본 125개를 새 스킬 없이 기존 `video-production-assets` 모듈에 다시 써서 반영했다(제외 58, 범위 밖 224). 모션 스타일 라이브러리([33](video-production-assets/references/33-motion-style-library.md)), 숏폼 편집·상품 프로모·캡션·AI 영상 프롬프트·템플릿 재현 심화와 스틸 모션 레시피가 들어갔고, 수치는 모두 "시작값"이다. 엔진 호출, 예시 미디어, 템플릿 코드는 들이지 않았으며 라우팅과 26개 스킬 구성은 그대로다. 출처·고정 커밋·LICENSE 사본은 [이전 기록](video-production-assets/references/upstream/open-design-provenance.md), 검증 범위와 한계(행동 평가 미실행)는 [검증 기록](qa/2026-11-20-open-design-absorption-validation.md)에 있다.
+open-design 공개 스킬 407개를 원장으로 분류해 MIT·Apache-2.0 원본 125개를 새 스킬 없이 기존 모듈에 다시 써서 반영했다(제외 58, 범위 밖 224). `video-production-assets`에는 모션 스타일 라이브러리([33](video-production-assets/references/33-motion-style-library.md)), 08a 모션 크래프트, 숏폼 편집·상품 프로모·캡션·AI 영상 프롬프트·템플릿 재현 심화가 들어갔고, 스틸 모션 레시피(still-motion-recipes)는 `storytelling-with-still-images`에 있다. 조정 가능한 레시피 수치는 "시작값"으로 표시했다. 엔진 호출, 예시 미디어, 템플릿 코드는 들이지 않았으며 라우팅과 26개 스킬 구성은 그대로다. 출처·고정 커밋·LICENSE 사본은 [이전 기록](video-production-assets/references/upstream/open-design-provenance.md), 검증 범위와 한계(행동 평가 미실행)는 [검증 기록](qa/2026-11-20-open-design-absorption-validation.md)에 있다.
 
 ## 제작 흐름
 
