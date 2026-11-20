@@ -8,6 +8,8 @@
 |---|---|---|
 | 키네틱 타이포 | 글자·숫자가 박자에 맞춰 움직이는 프로모와 진행자 영상 위 키워드 자막 | [kinetic-type](motion-styles/kinetic-type.md) |
 | 포스터·배경 | 제품 포스터, 그라디언트·유리·오로라 배경, 인쇄·팝아트 질감, 정지 포스터와 짧은 애니메이션 | [posters-backgrounds](motion-styles/posters-backgrounds.md) |
+| 제품·커머스 | 제품·앱·SaaS 홍보, 전후 비교, 카드·스티커·폴더 팝, 프리미엄 하드웨어 공개, 기술 도구 프로모 | [product-commerce](motion-styles/product-commerce.md) |
+| 설명 형식 | 내레이션이나 진행자 영상으로 개념·과정·사실을 푸는 화이트보드·손그림·플랫 일러스트·픽셀·노트·매거진 설명 | [explainer-formats](motion-styles/explainer-formats.md) |
 
 ## 스타일 목록
 
@@ -40,6 +42,35 @@
 - [오로라 그라디언트](motion-styles/posters-backgrounds.md#od-openmotion-aurora-gradient) — 어두운 바탕 느린 오로라 덩어리와 기울어져 들어오는 대시보드의 SaaS 히어로 영상
 - [다크 프리미엄 포스터](motion-styles/posters-backgrounds.md#od-openmotion-dark-premium-poster) — 거의 검은 무대·스포트라이트 하나·빛 스윕으로 제품을 서서히 공개하는 고급 포스터
 - [팝 스타일](motion-styles/posters-backgrounds.md#od-openmotion-pop-style) — 원색 블록·벤데이 점·굵은 외곽선·말풍선·별 폭발로 매초 컷하는 팝아트 프로모
+
+### 제품·커머스
+- [비포 애프터](motion-styles/product-commerce.md#od-openmotion-before-after) — 문제·사용·결과를 분할 와이프와 라벨로 보여 주는 전후 비교 제품 영상
+- [카드 앤 텍스트](motion-styles/product-commerce.md#od-openmotion-cards-and-text) — 짧은 굵은 문장과 듀오톤 사진 카드 더미를 번갈아 보여 주는 투톤 제품 프로모
+- [코랄 타이틀 카드](motion-styles/product-commerce.md#od-openmotion-coral-title-cards) — 산호색 전체화면 타이틀 카드와 실제 앱 폰 목업을 번갈아 쓰는 앱 출시 영상
+- [미스터리 박스 공개](motion-styles/product-commerce.md#od-openmotion-mystery-box-reveal) — 미스터리 박스를 고르고 흔들고 열어 제품을 꺼내는 발랄한 제품 공개
+- [원 비트 디더](motion-styles/product-commerce.md#od-openmotion-one-bit-dither) — 픽셀 격자 디더 패턴이 도형·UI·헤드라인 카드로 조립되는 투톤 개발자 도구 프로모
+- [프리미엄 헤일로](motion-styles/product-commerce.md#od-openmotion-premium-halo) — 혜성이 헤드라인에 후광을 그리고 제품이 떠오르는 짙은 파랑 프리미엄 하드웨어 프로모
+- [스티커 바운스](motion-styles/product-commerce.md#od-openmotion-sticker-bounce) — 흰 테두리 다이컷 스티커로 혜택이 튀며 쌓이고 흔들리는 발랄한 프로모
+- [초크 블루프린트](motion-styles/product-commerce.md#od-openmotion-chalk-blueprint) — 짙은 파랑 격자에 흰 분필선으로 제품을 스케치하고 시안 포인트 뒤 로고로 마무리
+- [코너 프레임](motion-styles/product-commerce.md#od-openmotion-corner-frames) — 네 모서리 괄호가 헤드라인·제품 카드·숫자·로고를 차례로 옮겨 다니는 기술 프로모
+- [폴더 팝](motion-styles/product-commerce.md#od-openmotion-folder-pop) — 기능 아이콘이 폴더에서 터져 나와 로고 둘레 고리로 자리잡는 SaaS 프로모
+- [잉크 리본](motion-styles/product-commerce.md#od-openmotion-ink-ribbon) — 윤기 나는 리본 하나가 외곽선 글자·단계 아이콘·제품명을 엮는 흐름형 프로모
+- [카드 캐러셀](motion-styles/product-commerce.md#od-openmotion-card-carousel) — 색·아이콘·두세 단어의 혜택 카드가 캐러셀처럼 옆으로 미끄러지는 프로모
+- [아이소메트릭 카드 플라이트](motion-styles/product-commerce.md#od-openmotion-isometric-card-flight) — 실제 제품 화면을 기울인 아이소메트릭 카드로 얕은 3D 공간에 날려 핵심 화면에 안착
+
+### 설명 형식
+- [손그림 설명](motion-styles/explainer-formats.md#od-openmotion-hand-drawn-explainer) — 흑백 선화 만화 장면·푸시인·손글씨 메모로 풀어 가는 내레이션 설명
+- [파스텔 플랫 2D](motion-styles/explainer-formats.md#od-openmotion-pastel-flat-2d) — 둥근 파스텔 평면 장면과 대문자 자막 칩으로 풀어 가는 차분한 내레이션 설명
+- [레트로 플랫 장면](motion-styles/explainer-formats.md#od-openmotion-retro-flat-scene) — 주황 바탕 투톤 플랫 일러스트로 캐릭터 이야기 뒤 제품을 터뜨려 공개
+- [픽셀 아트 설명](motion-styles/explainer-formats.md#od-openmotion-pixel-art-explainer) — 캐릭터·대화창·사실 카운터가 있는 복고 픽셀 게임 장면 설명
+- [레드펜 아카이브](motion-styles/explainer-formats.md#od-openmotion-red-pen-archive) — 기록 종이 그래픽에서 빨간 펜이 주장을 동그라미·취소선·정정하며 출처를 붙임
+- [화이트보드 낙서 설명](motion-styles/explainer-formats.md#od-openmotion-whiteboard-doodle) — 음성에 맞춰 선 그림을 그리고 긴 보드를 따라 패닝하는 화이트보드 낙서 설명
+- [에디토리얼 설명](motion-styles/explainer-formats.md#od-openmotion-editorial-explainer) — 줄 노트 안건 페이지·회색 종이 차트·노랑 포인트의 차분한 뉴스 설명 패키지
+- [플랫 카드 설명](motion-styles/explainer-formats.md#od-openmotion-flat-card-explainer) — 흩어진 UI 창을 커서가 정리하고 보드로 제품 작동을 보여 주는 SaaS 설명
+- [하이라이터 노트](motion-styles/explainer-formats.md#od-openmotion-highlighter-notes) — 오프화이트 종이 카드·숯색 글씨·핵심 줄 노랑 형광펜 한 획의 차분한 노트 그래픽
+- [모노크롬 매거진](motion-styles/explainer-formats.md#od-openmotion-monochrome-magazine) — 흑백 교차 페이지·화자를 감싸는 거대 키워드·얇은 페이지 장식의 매거진 지면 패키지
+- [화이트보드 마커](motion-styles/explainer-formats.md#od-openmotion-whiteboard-marker) — 진행자 영상 위에 파랑·코랄 마커 키워드와 말에 맞춰 잇는 화살표 그래픽
+- [화이트보드 드로온 애니메이션](motion-styles/explainer-formats.md#od-whiteboard-animation) — SVG 스트로크 드로온과 마커 손으로 그림이 그려지는 화이트보드 설명
 
 ## open-design 각색 절
 
