@@ -1,7 +1,7 @@
 ---
 name: suno-music
 version: 1.0
-description: Draft Suno prompts or generate explicitly approved Suno music: narration BGM, vocal songs and short stings or loops. Use for Suno input review or a Suno-selected separate soundtrack cue. Not the default audio route for ordinary video, speech synthesis, or voice cloning.
+description: 'Draft Suno prompts or generate explicitly approved Suno music: narration BGM, vocal songs and short stings or loops. Use for Suno input review or a Suno-selected separate soundtrack cue. Not the default audio route for ordinary video, speech synthesis, or voice cloning.'
 ---
 
 # Suno Music

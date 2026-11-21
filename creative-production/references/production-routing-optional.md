@@ -27,7 +27,7 @@ Read only after an explicit matching platform/provider/craft requirement. This i
 
 Use the [music row of the audio cue handoff](audio-production-routing.md#specialist-selection).
 Suno can be the design candidate for a scoped separate music asset even if not
-named; native sound and existing music do not trigger Suno generation.
+named; [native sound](video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default) and existing music do not trigger Suno generation.
 
 ## Higgsfield MCP preset inventory
 

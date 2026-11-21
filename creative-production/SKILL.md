@@ -117,12 +117,7 @@ interaction mode: carry it in the handoff and work up to it. For “show me the
 script, then wait,” deliver the script without a routine earlier question and
 wait before downstream work. Actual blockers still apply.
 
-For recurring production, multi-stage coordination, reuse of approved
-resources, or repeated output corrections, **REQUIRED SUB-SKILL:
-`ai-delegation-loop`** applies once here. Resolve it by exact name in the host's
-available skill sources. If unreachable, record the missing source and leave
-only the dependent coordination step unresolved.
-Never install, remove, or silently substitute this dependency.
+For recurring, coordinated, reused or corrective work, **REQUIRED SUB-SKILL: `ai-delegation-loop`**. Resolve by exact name; report missing capability and block only dependent work. Never install, remove or substitute it.
 
 When a request asks to apply craft already integrated into this package, use the
 packaged procedure (for reference-driven production,
@@ -134,20 +129,11 @@ When a request names a technique or an external document's term, resolve it thro
 [directing vocabulary crosswalk](../video-production-assets/references/directing-vocabulary-crosswalk.md)
 before drafting.
 
-For actual production, run [early audio provider preflight](references/audio-production-routing.md#early-provider-preflight)
-as soon as a scoped separate audio cue is known, before paid or cue-dependent work.
-Skip setup for ready tools and keep independent planning moving if a cue is blocked.
+Run [early audio provider preflight](references/audio-production-routing.md#early-provider-preflight) before paid or cue-dependent work.
 
 ## Step 4 — Hand off
 
-For requested narration direction, voice-timed edits/captions, or analysis-led
-subtitle styling, apply the [narration/subtitle handoff](references/narration-subtitle-handoff.md).
-Keep ordinary caption placement and existing subtitle files on their current route.
-
-For a scoped separate audio asset, voice-driven timing, explicit audio provider,
-or missing native audio required by the brief, apply the [audio cue handoff](references/audio-production-routing.md).
-Assign only the eligible cue at the current stage; this never changes the primary route
-or grants execution authority. Ordinary native audio stays on its existing path.
+Use the [narration/subtitle handoff](references/narration-subtitle-handoff.md) for narration direction, voice-timed edits or advanced captions, and the [audio cue handoff](references/audio-production-routing.md) for separate cues or explicit audio providers. Keep native audio and ordinary captions on their existing paths.
 
 State one current stage, one owner, the exact requested artifact, and the actual
 approver (or `unassigned`). Canonical handoff IDs and versions live in the
@@ -175,14 +161,7 @@ stop independent in-scope work.
 Read [workspace-integration.md](references/workspace-integration.md) before
 applying storage, sibling paths, image execution, or provider instructions.
 
-Use **REQUIRED SUB-SKILL: `recording-production-history`** before the first
-content-file write. Reuse an existing approved, asset-complete project when one
-is selected; otherwise resolve the user's Documents folder and initialize
-`Media_Studio/<project_id>`. Ask once for a project directory before the first
-saved production unless an active path, environment/config choice, or existing
-default studio root already resolves it. Before reusing or resuming a root,
-inspect its `project.json`, actual files, approvals, and `.history` in-flight
-operations; missing files or pending work is not a clean restart.
+Use **REQUIRED SUB-SKILL: `recording-production-history`** before writing files. Reuse approved project roots; resolve new `Media_Studio/<project_id>` roots per workspace integration. Before resuming, inspect `project.json`, files, approvals, and `.history`.
 
 Every intermediate and final output is saved outside this skill repository,
 registered with observed paths, and reported by absolute path. Final
