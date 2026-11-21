@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from typing import Final
+from unittest.mock import patch
 
 import routing_eval
 
@@ -270,18 +271,29 @@ def test_dangerous_is_reachable_for_every_case() -> None:
         )
 
 
+def test_sweep_blocks_without_codex_before_dispatch_or_output(tmp_path: Path, capsys) -> None:
+    """Missing CLI is a preflight blocker, never a measured routing result."""
+    out = tmp_path / "blocked-run"
+    with patch.object(routing_eval.shutil, "which", return_value=None), \
+         patch.object(routing_eval, "dispatch") as dispatch, \
+         patch.object(routing_eval, "build_sandbox") as build_sandbox:
+        code = routing_eval.main(["--case", "C10", "--out", str(out)])
+    assert code == 2
+    assert "BLOCKED: codex CLI not installed" in capsys.readouterr().err
+    dispatch.assert_not_called()
+    build_sandbox.assert_not_called()
+    assert not out.exists(), "a blocked run must not publish a summary"
+
+
 def test_sweep_reports_dangerous_and_fails_the_run(tmp_path: Path) -> None:
     """A model that crosses the media axis must make the run exit non-zero."""
-    original = routing_eval.dispatch
-    # C10 expects R10 (text-only storyboard); R22 is executed_media with a
-    # spatial-verification authority, so answering R22 is an axis crossing.
-    routing_eval.dispatch = lambda *a, **k: ("", "ROUTE: R22 - deliberate crossing")
-    try:
+    # C10 expects R10 (text-only storyboard); R22 crosses the media axis.
+    with patch.object(routing_eval.shutil, "which", return_value="/mock/codex"), \
+         patch.object(routing_eval, "dispatch",
+                      return_value=("", "ROUTE: R22 - deliberate crossing")):
         out = tmp_path / "dangerous-run"
         code = routing_eval.main(["--case", "C10", "--repeat", "2", "--out", str(out),
                                   "--timeout", "1", "--retries", "0"])
-    finally:
-        routing_eval.dispatch = original
 
     summary = json.loads((out / "summary.json").read_text(encoding="utf-8"))
     assert summary["tally"].get("dangerous") == 2
@@ -296,18 +308,12 @@ def test_crashes_are_not_reported_as_stably_wrong(tmp_path: Path) -> None:
     A real degraded run listed fourteen transport failures as stably wrong,
     which reads as a routing problem when nothing was answered at all.
     """
-    original = routing_eval.dispatch
-
-    def always_crashes(*_a, **_k):
-        raise RuntimeError("codex exit 101: transport channel closed")
-
-    routing_eval.dispatch = always_crashes
-    try:
+    with patch.object(routing_eval.shutil, "which", return_value="/mock/codex"), \
+         patch.object(routing_eval, "dispatch", side_effect=RuntimeError(
+             "codex exit 101: transport channel closed")):
         out = tmp_path / "crashed-run"
         routing_eval.main(["--case", "C10", "--repeat", "2", "--out", str(out),
                            "--timeout", "1", "--retries", "0"])
-    finally:
-        routing_eval.dispatch = original
 
     summary = json.loads((out / "summary.json").read_text(encoding="utf-8"))
     entry = summary["results"][0]
@@ -321,14 +327,12 @@ def test_crashes_are_not_reported_as_stably_wrong(tmp_path: Path) -> None:
 
 def test_unanswered_is_not_stably_wrong(tmp_path: Path) -> None:
     """An agent that refuses to commit to a route answered nothing."""
-    original = routing_eval.dispatch
-    routing_eval.dispatch = lambda *a, **k: ("", "I am not sure which module to use.")
-    try:
+    with patch.object(routing_eval.shutil, "which", return_value="/mock/codex"), \
+         patch.object(routing_eval, "dispatch",
+                      return_value=("", "I am not sure which module to use.")):
         out = tmp_path / "unanswered-run"
         routing_eval.main(["--case", "C10", "--repeat", "2", "--out", str(out),
                            "--timeout", "1", "--retries", "0"])
-    finally:
-        routing_eval.dispatch = original
 
     summary = json.loads((out / "summary.json").read_text(encoding="utf-8"))
     assert summary["results"][0]["judgement"] == "unanswered"
