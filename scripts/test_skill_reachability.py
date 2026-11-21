@@ -28,6 +28,9 @@ MANIFEST: Final = ROOT / "manifest.json"
 
 # skill -> (package-relative pointer file, phrase that has to appear in the same block)
 SECONDARY_POINTERS: Final[dict[str, tuple[str, str]]] = {
+    "suno-music": (
+        "creative-production/references/production-routing-optional.md",
+        "../../suno-music/SKILL.md"),
     "topic-demand-selection": (
         "silent-satire-animatic/SKILL.md", "topic-demand-selection"),
     "open-3d-production": (
@@ -86,6 +89,55 @@ def reachability_problems(skills: list[str], owners: set[str]) -> list[str]:
 
 def test_every_packaged_skill_is_reachable() -> None:
     assert reachability_problems(manifest_skills(), route_owners()) == []
+
+
+def test_audio_specialists_are_wired_from_coordinator_and_text_handoff() -> None:
+    lane = "audio-production-routing.md"
+    coordinator = ROOT / "creative-production/SKILL.md"
+    preproduction = ROOT / "orchestrating-video-preproduction/SKILL.md"
+    assert f"references/{lane}" in coordinator.read_text(encoding="utf-8")
+    assert f"../creative-production/references/{lane}" in preproduction.read_text(encoding="utf-8")
+
+    routing = (ROOT / "creative-production/references" / lane).read_text(encoding="utf-8")
+    for owner in ("drama-3", "Typecast", "ElevenLabs SFX", "../../suno-music/SKILL.md"):
+        assert owner in routing
+    optional = ROOT / "creative-production/references/production-routing-optional.md"
+    assert "## Suno separate music" in optional.read_text(encoding="utf-8")
+
+
+def test_audio_preflight_and_fallback_are_reachable_from_the_coordinator() -> None:
+    lane = "audio-production-routing.md"
+    coordinator = (ROOT / "creative-production/SKILL.md").read_text(encoding="utf-8")
+    routing = (ROOT / "creative-production/references" / lane).read_text(encoding="utf-8")
+    assert f"references/{lane}#early-provider-preflight" in coordinator
+    assert "## Early provider preflight" in routing
+    assert "## Fallback decision" in routing
+    dependencies = {
+        item["lane"]: item
+        for item in json.loads(MANIFEST.read_text(encoding="utf-8"))["external_dependencies"]
+    }
+    assert "ElevenLabs TTS" in dependencies["Separate narration execution"]["runtime"]
+    assert "ElevenLabs SFX" in dependencies["Separate SFX execution"]["runtime"]
+
+
+def test_narration_and_subtitle_handoff_is_reachable() -> None:
+    lane = "references/narration-subtitle-handoff.md"
+    for owner in ("creative-production", "orchestrating-video-preproduction"):
+        assert lane in (ROOT / owner / "SKILL.md").read_text(encoding="utf-8")
+    assert (ROOT / "creative-production" / lane).is_file()
+    dependencies = json.loads(MANIFEST.read_text(encoding="utf-8"))["external_dependencies"]
+    subtitle = next(item for item in dependencies if item["lane"] == "Advanced subtitle direction")
+    assert subtitle["skills"] == ["shortform-subtitle-direction"]
+    assert subtitle["auto_install"] is False
+
+
+def test_audio_executors_are_optional_and_not_auto_installed() -> None:
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    dependencies = {item["lane"]: item for item in manifest["external_dependencies"]}
+    for name in ("Separate narration execution", "Separate SFX execution"):
+        assert name in dependencies
+        assert dependencies[name]["auto_install"] is False
+        assert dependencies[name]["verified"] is False
 
 
 def test_the_gap_this_test_was_written_for_is_closed() -> None:

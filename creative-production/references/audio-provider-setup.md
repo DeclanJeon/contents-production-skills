@@ -1,0 +1,20 @@
+# Audio provider setup and non-generating diagnostics
+
+Open only when a required or pinned audio cue remains blocked after [preflight and fallback](audio-production-routing.md#early-provider-preflight). This is a diagnostic reference, not install, login, external transfer or spend authorization.
+
+## Separate the checks
+
+1. **Registration:** check the current host's server inventory. In Pi, `/mcp` shows configured servers, connection state and tool exposure. An enabled or configured server is not necessarily usable.
+2. **Tool discovery:** refresh or inspect the server's tool catalog without calling a generation tool. Check for the required operation and model separately. An empty catalog or an upstream error means the connection is unresolved; it does not prove the tool is uninstalled, OAuth is expired, or the provider lacks the feature.
+3. **Account access:** use a read-only account or usage probe when supported. A tool schema alone does not prove that the current account can execute it. Only after positive capability/account evidence can the cue be marked `READY`.
+
+## ElevenLabs
+
+- **Speech:** the official [hosted MCP](https://elevenlabs.io/docs/agents-platform/operate/hosted-mcp) uses OAuth at `https://api.elevenlabs.io/v1/mcp` and documents Text to Speech access. If connecting a new path is needed, confirm the user's host and follow its OAuth instructions; do not install a second server merely because the current path is a relay. First check the existing path's upstream account and discovery status. Check the live speech operation after reconnecting. Choose the authorized voice and model in the cue, not in the global setup.
+- **SFX:** the hosted documentation reviewed describes ElevenAgents and TTS scopes; it does not establish SFX tool exposure. Check the actual catalog. If it does not expose sound effects, the official [Sound Generation API](https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert) is a distinct candidate, documented as `POST /v1/sound-generation` using API-key authentication. Do not use this paid POST as a health check. Use an already approved secure credential path, or ask the user to connect one separately; never ask for a raw key in chat, commit one, or copy tokens from another client. If neither path is verified for SFX, hand off the web-ready SFX prompt and apply the cue's fallback.
+
+## Evidence from 2026-11-21
+
+- Pi had an ElevenLabs stdio relay registered. With only MCP `initialize` and `tools/list`, initialization succeeded but the relay returned `ElevenLabs catalog unavailable; check codex mcp login elevenlabs`. Thus the session exposed neither TTS nor SFX. A subsequent read-only status query to the relay's upstream Codex app-server identified the startup failure as `OAuth token refresh failed: Failed to parse server response`. This establishes the failed refresh stage, not why the server response could not be parsed. Classify this route as `CONNECT_REQUIRED`, not `MISSING`; reauthorize the existing upstream Codex ElevenLabs connection before considering replacement. After sign-in, reconnect the Pi relay and check speech and SFX independently via tool discovery, without generating audio.
+- After the operator reauthorized ElevenLabs, a fresh Pi relay and upstream Codex status probe both returned 245 tools. The catalog included `creative_generate_speech` (TTS) and no dedicated sound-effects tool. After the operator refreshed Pi, this session exposed `creative_generate_speech`, and a read-only Korean voice lookup returned a result. No SFX tool was found and no SFX API credential was present in the session environment. No generation or billing was tested. The package sync added only the missing `suno-music` link in Pi's skill root; the subsequent dry run found all 27 links already correct.
+- The repository's read-only agent simulation exercised six cases: equivalent official transport, TTS-ready/SFX-blocked fallback, locked model, uncertain prior submission, design-only, and verified missing setup. All decisions matched the documented expectations in that run. It did not demonstrate live requests, account entitlements, billing or playback.

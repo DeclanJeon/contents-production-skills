@@ -19,8 +19,15 @@ Read only after an explicit matching platform/provider/craft requirement. This i
 | Explicit Premiere Pro / After Effects / Illustrator / Photoshop / TouchDesigner / DaVinci Resolve desktop operation, or the same operation on an ArtCraft app | Requested video-production-assets craft reference plus the actual local application, with the ArtCraft fallback below when the named app is absent | Desktop-app edit of the user's own media/project; app availability, project files and rights are prerequisites, and the returned editable project is not the finished delivery |
 | Other illustration/static review images | Requested image craft + default codex-imagen | Package image-executor policy; actual images only within authorized scope |
 | ComfyUI/Remotion/FFmpeg | Selected installed runtime | Bundled planning first, checks only when executing |
-| Music/lyrics/voice | Requested songwriting-and-ai-music or audio executor | Dialogue-lipsync ref22 for voice listening; edit ref09 for SFX/music rights; delivery ref15 for measured captions. When a video deliverable simply needs voice/sound and no external executor, reference or audio is supplied, the default is in-request voice/sound design under [video generation planning §3b](video-generation-planning.md#3b-voice-and-sound-design-are-in-request-by-default), not this lane |
+| Scoped separate narration, SFX or music | [Audio cue handoff](audio-production-routing.md); [suno-music](../../suno-music/SKILL.md) for the Suno branch | Conditional cue assignment; no second coordinator or implicit generation |
+| Other requested music/lyrics/voice | Explicitly selected specialist or audio executor | Preserve named constraints and the ordinary in-request audio default |
 | Ordinary UI/brand/application work | Existing design/development owner | Hybrid media consumes supplied visual contract, does not take ownership |
+
+## Suno separate music
+
+Use the [music row of the audio cue handoff](audio-production-routing.md#specialist-selection).
+Suno can be the design candidate for a scoped separate music asset even if not
+named; native sound and existing music do not trigger Suno generation.
 
 ## Higgsfield MCP preset inventory
 

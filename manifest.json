@@ -29,7 +29,8 @@
     "higgsfield-video-replicate",
     "higgsfield-youtube-thumbnail",
     "community-shorts-stills-pipeline",
-    "silent-satire-animatic"
+    "silent-satire-animatic",
+    "suno-music"
   ],
   "source_books_included": false,
   "blender_render_included": false,
@@ -144,6 +145,50 @@
       "runtime": "the selected provider runtime or CLI (e.g. fal/higgsfield/comfyui/remotion, FFmpeg); nothing is installed automatically",
       "auth": "the selected provider's own API key or account authorization, when required",
       "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "Advanced subtitle direction",
+      "skills": ["shortform-subtitle-direction"],
+      "required_when": "Analysis-led caption redesign or requested specialist subtitle rendering",
+      "runtime": "Optional subtitle-direction-skill source plus its verified local caption engine, renderer and fonts",
+      "auth": "Current plan-hash approval for compile, preview or export",
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "Separate narration execution",
+      "skills": ["creative-production"],
+      "required_when": "A separate narration cue is requested for execution and approved",
+      "runtime": "Fish Audio MCP with explicit drama-3, official Typecast MCP/Cast runtime, or verified ElevenLabs TTS; confirm operation, voice and account capabilities",
+      "auth": "Authorized provider account, voice-use rights and approved spend",
+      "upstream": null,
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "Separate SFX execution",
+      "skills": ["creative-production"],
+      "required_when": "ElevenLabs SFX is selected for a separate cue and execution is approved",
+      "runtime": "Verified ElevenLabs SFX tool only; TTS readiness is not SFX readiness",
+      "auth": "Authorized provider account and approved spend",
+      "upstream": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert",
+      "upstream_version": null,
+      "verified": false,
+      "auto_install": false
+    },
+    {
+      "lane": "Suno music execution",
+      "skills": ["suno-music"],
+      "required_when": "Actual Suno song or Sounds generation is requested and approved; not needed for prompt drafting",
+      "runtime": "Official Suno MCP; validate the live tool schema and account capabilities",
+      "auth": "Suno account authorization and approved credit spend",
+      "upstream": "https://help.suno.com/en/articles/14551361",
       "upstream_version": null,
       "verified": false,
       "auto_install": false

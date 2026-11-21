@@ -46,7 +46,8 @@ Any one of these selects the other route, and it is not silently replaced:
 
 - a supplied reference voice, sound, or audio asset → use it through its documented input role;
 - an explicitly named external voice/audio executor or service → use that executor and its actual contract;
-- an attached audio file → use it as the reference/input it is.
+- an attached audio file → use it as the reference/input it is;
+- a scoped separate cue or voice-driven timing → use the [audio cue handoff](audio-production-routing.md) for that cue only; keep unrelated supported native sound.
 
 A `no_audio` / mute request stays mute: do not add voice or sound to a silent deliverable. When the selected endpoint's audio output is unsupported or unverified, do not assert in-request audio — record `UNSUPPORTED`/`UNVERIFIED` and propose a separate voice/SFX pass only inside the existing approval bounds; the proposal authorizes no new job, spend, or provider.
 

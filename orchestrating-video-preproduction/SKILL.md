@@ -39,6 +39,16 @@ When a film/short/animation/AI-film request is assigned through the lifecycle ro
 
 ## Missing technical inputs
 
+For assigned standalone audio cues, voice-driven timing or a named audio provider,
+return cue IDs, scene/shot/beat IDs, audio role, intended interval, speech overlap,
+and locked constraints via the coordinator's [audio cue handoff](../creative-production/references/audio-production-routing.md).
+Carry any named provider as an inherited constraint. Record gaps in the existing
+indexed packet; do not choose a provider, synthesize audio or mark estimated timing as measured.
+
+For assigned narration direction or advanced subtitle cues, return spoken/display
+text and indexed timing intent via the [narration/subtitle handoff](../creative-production/references/narration-subtitle-handoff.md).
+Label provisional timings and leave source inspection, tool selection and render to the coordinator.
+
 A production storyboard retains every applicable camera/spatial, VFX, speech/lipsync and audio slot from its contract; a slot alone does not activate every specialist or Blender. When the inherited packet lacks required specialist input, return **one indexed requirement packet** to `creative-production` listing each blocked slot by scene/shot/beat index, the required input and blocker. Continue independent assigned text work. The coordinator selects and assigns each missing-input owner once using the canonical route, integrates its return, and supplies the resolved input for board assembly without repeating intake or routing. This lane never selects a technical executor, calls back to reroute itself, or opens a second interview/ledger. Unresolved requirements remain explicitly blocking; the board never silently shrinks to rough panels.
 
 ## Package return

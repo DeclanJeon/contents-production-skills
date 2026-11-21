@@ -14,6 +14,14 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 
 영상 대사·내레이션의 번역투/불필요한 문어 표현은 기존 각본 오너의 [한국어 발화 후편집](video-production-assets/references/korean-script-postediting.md#scope)으로 국소 교정할 수 있다. 인물 말투·실제 인용·사실·서법을 보존하고 읽기 전용 코드 검사와 원문 대조를 분리한다. 현재는 명시 요청/제안 전용이며 행동 평가 전 자동 기본 적용은 보류한다. 별도 설치 스킬·프로젝트 스키마·음성 실행은 추가하지 않는다.
 
+## 영상 오디오
+
+영상 총괄은 [별도 오디오 큐](creative-production/references/audio-production-routing.md)를 내레이션·대사(Fish Drama 3, Typecast, ElevenLabs TTS), 효과음(ElevenLabs SFX), 음악([Suno](suno-music/SKILL.md))으로 나눠 설계한다. 일반 영상의 내장 음향과 지정 음원은 그대로 사용한다. 실제 제작에서는 필요한 도구만 초기에 점검하고 준비된 경로는 설치 안내를 생략한다. 다음 후보는 사전 승인된 변경·전송·비용 범위 안에서만 자동 실행한다.
+
+## 내레이션·자막 연출
+
+[내레이션·자막 인계](creative-production/references/narration-subtitle-handoff.md)는 발화와 표시 원고를 분리하고, 실측 음성 타이밍을 자막에 넘긴다. 기본 자막은 기존 모듈을 쓰고, 분석 기반 타이포·색·모션 연출만 선택적으로 외부 자막 스킬에 연결한다.
+
 ## 스킬 라우팅과 조건부 실행 모듈
 
 라우팅은 세 계층으로 분리되어 있다. 첫 owner를 고르기 전에 읽는 **frontier**는 `creative-production/SKILL.md`(라우터+역할, 약 890단어)와 [routing.csv](creative-production/references/routing.csv)(정본 29개 라우트 × 7컬럼)뿐이다. 계층 분해 전에는 같은 판단에 약 2,900단어를 읽었고, 분해 후에는 약 1,410단어다(-51%). 측정 방법은 `python3 scripts/routing_regression.py`다.

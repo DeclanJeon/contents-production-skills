@@ -134,7 +134,20 @@ When a request names a technique or an external document's term, resolve it thro
 [directing vocabulary crosswalk](../video-production-assets/references/directing-vocabulary-crosswalk.md)
 before drafting.
 
+For actual production, run [early audio provider preflight](references/audio-production-routing.md#early-provider-preflight)
+as soon as a scoped separate audio cue is known, before paid or cue-dependent work.
+Skip setup for ready tools and keep independent planning moving if a cue is blocked.
+
 ## Step 4 — Hand off
+
+For requested narration direction, voice-timed edits/captions, or analysis-led
+subtitle styling, apply the [narration/subtitle handoff](references/narration-subtitle-handoff.md).
+Keep ordinary caption placement and existing subtitle files on their current route.
+
+For a scoped separate audio asset, voice-driven timing, explicit audio provider,
+or missing native audio required by the brief, apply the [audio cue handoff](references/audio-production-routing.md).
+Assign only the eligible cue at the current stage; this never changes the primary route
+or grants execution authority. Ordinary native audio stays on its existing path.
 
 State one current stage, one owner, the exact requested artifact, and the actual
 approver (or `unassigned`). Canonical handoff IDs and versions live in the
