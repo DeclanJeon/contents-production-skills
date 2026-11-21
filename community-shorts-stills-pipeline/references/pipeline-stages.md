@@ -82,7 +82,7 @@
 - `publication_hold`가 `false`, 채널 ID 일치, `privacy_status`, 승인된 `release_slots_kst` 내 시각
 - 일일 발행 한도 미초과
 
-`audio_listening_verified`는 **실제 청취 전까지 false**로 둔다. 렌더 성공은 청취 검증이 아니다.
+`audio_listening_verified`는 **실제 청취 전까지 false**로 둔다. 렌더 성공은 청취 검증이 아니다. 승인된 내레이션 믹스 마감 및 BGM 마스킹 해소는 [voice mix finishing](../../creative-production/references/voice-mix-finishing.md)을 참조하되, 최종 납품 라우드니스는 본 문서의 기존 규격(-16 LUFS, -1.5 dBTP)을 그대로 따른다.
 
 이 저장소의 `verify_delivery.py`는 미디어 스트림·길이·프레임·해시·디코드 검사다. 패널 머리 여백, 자막 내용/단어 정렬, 실제 청취, 2-pass 라우드니스 결과, 메타데이터·권리·발행 승인을 대신 검증하지 않는다. 각 항목은 별도 산출물과 관찰 결과로 확인하고, 렌더러 QA sidecar만으로 전체 발행 게이트를 통과시켜서는 안 된다. `metadata.py`, 업로더, 미러/백필 스크립트는 프로젝트 운영 구현의 이름이며 이 스킬에 번들된 실행 파일이 아니다. 해당 구현/정책이 없으면 그 단계는 차단하고 렌더 결과만 반환한다.
 

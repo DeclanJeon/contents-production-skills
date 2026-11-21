@@ -137,7 +137,7 @@ Run [early audio provider preflight](references/audio-production-routing.md#earl
 
 ## Step 4 — Hand off
 
-Use the [narration/subtitle handoff](references/narration-subtitle-handoff.md) for narration direction, voice-timed edits or advanced captions, and the [audio cue handoff](references/audio-production-routing.md) for separate cues or explicit audio providers. Keep native audio and ordinary captions on their existing paths.
+Use the [narration/subtitle handoff](references/narration-subtitle-handoff.md) for narration direction, voice-timed edits or advanced captions, and the [audio cue handoff](references/audio-production-routing.md) for separate cues, explicit audio providers or [mix finishing](references/voice-mix-finishing.md). Keep native audio and ordinary captions on their existing paths.
 
 State one current stage, one owner, the exact requested artifact, and the actual
 approver (or `unassigned`). Canonical handoff IDs and versions live in the

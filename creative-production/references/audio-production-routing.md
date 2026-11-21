@@ -49,3 +49,7 @@ Select an eligible ready fallback before asking for setup of a replaceable provi
 ## Acceptance
 
 Record submitted, playable, listened and adopted separately. Verify narration words, pronunciation, pacing and intelligibility; SFX sync, tail and loop seam; music arc, edit points and speech masking. Reconcile the final mix for duplicate native/independent sound. Attach measured intervals and source version/hash to the existing project record when available. Unheard or rights-unverified audio is not final. The coordinator integrates approved results; no worker opens a second ledger.
+
+## Mix finishing
+
+For holistic tone shaping, compression, and BGM carving on an approved take, refer to [voice mix finishing](voice-mix-finishing.md). For localized defect repair on an individual take, use [take repair](../../video-production-assets/references/take-repair.md).

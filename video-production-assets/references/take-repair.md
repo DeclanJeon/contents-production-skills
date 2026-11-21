@@ -16,3 +16,6 @@ Use for an identified defect in an actual take. Keep the source immutable and us
 **Provider gate:** resolve the exact runtime, model/control and input rights (voice, image, uploads and applicable consent), license, quote, retry ceiling and current authorization before submitting. Hosted availability and public code are not evidence of execution; unknown cost or unsupported control blocks the affected operation. ElevenLabs adapters, DeepFilterNet, Runway and LatentSync require their own runtime/smoke verification before activation. Do not automatically install, clone voices, replace a provider, or retry an unresolved submission.
 
 Record original/derived versions, scene/cut and source/timeline interval, observed defect, required invariant and test. Compare repaired phrase, adjacent speech, scene mix and the affected mouth/cut edges. Update only real dependents (e.g. captions, sync, timing, mix); the coordinator alone adopts the version. If the result fails under the same conditions, stop that repair path and report the blocker rather than retrying blindly. Continue independent work and return the full edit for user review only after whole-film QA.
+
+> [!NOTE]
+> For overall tone shaping, dynamics, and BGM carving on an approved take once defect repair is complete, see [voice mix finishing](../../creative-production/references/voice-mix-finishing.md).
