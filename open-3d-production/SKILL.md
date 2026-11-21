@@ -12,6 +12,8 @@ description: "Delegated Blender craft: reference-matched native scenes, modeling
 
 For explicitly requested browser storyboard previs, use [R30 storyboard previs](references/storyboard-previs.md) for blocking, camera-frame exports and the board handoff. Keep native contact verification separate.
 
+For assigned real-time 3D, scroll motion or browser-to-linear handoffs, read [real-time motion direction](references/realtime-motion-direction.md); use the existing Blender route for spatial verification.
+
 Native Blender assignments use the selected recipe in [native Blender workflows](references/native-blender-workflows.md): product lighting, procedural repetition, timed motion graphics, tracking/projection, Grease Pencil, passes/alpha, loops, asset variants or export. Read only the assigned section and its cited source entry. These are authoring procedures, not additional executable features of the previs adapter or automatic add-on installation.
 
 For an explicitly requested reference reproduction or an actual skill-execution trial, apply [reference reproduction and evidence](references/reference-reproduction.md): lock the inspected interval and per-shot targets, distinguish reconstructed geometry from borrowed media, render and compare actual frames, then return the playable output and remaining differences.

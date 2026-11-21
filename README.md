@@ -1,10 +1,69 @@
+<div align="center">
+
 # Contents Production Skills
 
-영상 제작과 직접 필요한 기획·참조·정체성·음향·3D·납품 기능을 모은 에이전트 스킬 패키지. 프로젝트 이름은 `contents-production-skills`이며, 현재 패키지 버전의 정본은 [manifest.json](manifest.json)의 `version`이다.
+**브리프에서 최종 납품까지, 필요한 제작 스킬만 연결합니다.**
 
-저장소: [DeclanJeon/contents-production-skills](https://github.com/DeclanJeon/contents-production-skills).
+[![Package version 2.63](https://img.shields.io/badge/package-2.63-2563EB)](manifest.json)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](#설치-및-업데이트)
 
-`creative-production`이 유일한 총괄이다. 기존 영상 제작·텍스트 기획·카메라·Blender 전문 스킬을 유지하고, 영상 제작에 필요한 범용 절차와 memorable-video v6의 유효한 제작 기법은 필요한 때만 읽는 참조로 통합한다. 중복 총괄·상태 원장·28개 마이크로 스킬을 함께 설치하지 않는다.
+[작동 방식](#작동-방식) · [모션 그래픽 테스트](#모션-그래픽-테스트) · [설치](#설치-및-업데이트) · [사용 가이드](USAGE_GUIDE.md) · [변경 이력](CHANGELOG.md)
+
+</div>
+
+`contents-production-skills`는 영상 기획·레퍼런스·캐릭터·카메라·음향·3D·편집·납품을 연결하는 에이전트 스킬 패키지입니다. [`creative-production`](creative-production/SKILL.md)이 총괄하고, 대본 한 편이나 자막 검토처럼 범위가 좁은 요청에는 해당 전문 스킬만 사용합니다.
+
+**현재 패키지 버전: `2.63`** · 버전 및 설치 목록의 정본은 [`manifest.json`](manifest.json)입니다.
+
+## 작동 방식
+
+```mermaid
+flowchart TD
+    Brief["사용자 브리프 · 참고 자료 · 제약"] --> Router["creative-production · 필요한 레인 선택"]
+    Router --> Pre["01 PRE · 대본 / 콘티 / 스토리보드 / 사운드 설계"]
+    Pre --> G2["G2 · 산출물 교차 검수"]
+    G2 --> Scope{"실행 권한과 범위가 준비됐나?"}
+    Scope -->|아니요| Hold["필요한 승인 또는 입력만 요청"]
+    Hold -->|확보 후 재개| Scope
+    Scope -->|예| Refs["02 PROD · 제작 참조 확보"]
+    Refs --> Check["제출 직전 · 실제 프롬프트 / 참조 / 모델 설정 검수"]
+    Check --> Takes["영상 생성 · 원본 음성 확보 · 테이크 채택"]
+    Takes --> Post["03 POST · 편집 / 믹스 / 색 / 자막"]
+    Post --> QC["실제 출력본 재생 검수"]
+    QC --> Final["final/ 납품 · 제작 이력"]
+
+    classDef pre fill:#dbeafe,stroke:#2563eb,color:#172554
+    classDef prod fill:#ede9fe,stroke:#7c3aed,color:#2e1065
+    classDef post fill:#dcfce7,stroke:#16a34a,color:#14532d
+    class Pre,G2 pre
+    class Refs,Check,Takes prod
+    class Post,QC,Final post
+```
+
+| 단계 | 다음 작업에 넘기는 것 |
+|---|---|
+| **프리프로덕션** | 대본·콘티·보드가 서로 맞고, 연기·소품·사운드의 의도가 확인된 제작 지시 |
+| **프로덕션** | 실제 요청을 검수한 뒤 확보한 영상·음원과 편집에 쓸 테이크 구간 |
+| **포스트프로덕션** | 자막·색·음향을 반영하고 실제 재생으로 확인한 납품 파일 |
+
+> **논스톱은 무검수가 아닙니다.** 프리프로덕션과 영상 프롬프트는 각각 최대 2회 검수합니다. 첫 검수에서 문제가 없으면 바로 진행하고, 문제가 있으면 수정 사항을 모아 영향 범위만 재확인합니다. 검수 상한이 실행·과금·권리·게시 승인을 대신하지 않습니다.
+
+[단계별 스킬 지도](creative-production/references/skill-map.md) · [2회 검수 계약](creative-production/references/phase-review.md) · [2.63 상세 흐름도](docs/diagrams/2026-11-20-skill-flow-2.63.md) · [CineForge CLI](https://github.com/DeclanJeon/cineforge)
+
+## 모션 그래픽 테스트
+
+**한 가지 상황, 두 가지 연출.** 약속 시간이 바뀌었을 때의 반응을 MBTI 밈으로 표현한 창작 샘플입니다.
+
+| UI 상태 전이 · 15초 | 키네틱 타이포 · 8초 |
+| :---: | :---: |
+| ![채팅 메시지, 선택, 답장 순으로 이어지는 UI 애니메이션](docs/media/motion-graphics/mbti-ui.gif) | ![약속 변경에 대한 반응을 네 장의 카드로 보여주는 키네틱 타이포](docs/media/motion-graphics/mbti-type.gif) |
+| **위임 브리프 실험.** “MBTI로 영상 하나 만들어줘” → CineForge 호스트가 UI 상태 전이 선택 → 4컷 콘티 → 로컬 렌더. 선택 이후에만 답장이 뜨는지 프레임으로 확인했습니다. | **기법 비교 샘플.** 같은 소재를 120 BPM 기준 타이포 카드 4장으로 구성했습니다. 원본에는 오디오가 있지만 GIF는 무음입니다. |
+
+[검증 기록](docs/media/motion-graphics/validation.md) · [모션 선택 기준](creative-production/references/motion-selection.md)
+
+---
+
+## 주요 기능과 검증 기록
 
 ## 원고 크래프트 후보 — 행동 게이트 미통과
 
@@ -24,7 +83,7 @@ Matt Pocock 원리의 조건부 각색은 현재 **미출시 후보**다. 승인
 
 ## 스킬 라우팅과 조건부 실행 모듈
 
-라우팅은 세 계층으로 분리되어 있다. 첫 owner를 고르기 전에 읽는 **frontier**는 `creative-production/SKILL.md`(라우터+역할, 약 890단어)와 [routing.csv](creative-production/references/routing.csv)(정본 29개 라우트 × 7컬럼)뿐이다. 계층 분해 전에는 같은 판단에 약 2,900단어를 읽었고, 분해 후에는 약 1,410단어다(-51%). 측정 방법은 `python3 scripts/routing_regression.py`다.
+라우팅은 세 계층으로 분리됩니다. 첫 담당을 고르기 전에 [총괄 지침](creative-production/SKILL.md), [라우팅 표](creative-production/references/routing.csv), [경계 판별표](creative-production/references/routing-disambiguation.csv)를 읽습니다. 전문 제작 참조는 필요한 단계에서만 읽습니다. 초기 읽기 비용은 `python3 scripts/routing_regression.py`로 측정할 수 있습니다.
 
 | 계층 | 위치 | 담는 것 |
 |---|---|---|

@@ -11,6 +11,8 @@
 
 몸 구조/부상에 맞는 수행이나 주의 전환 뒤의 지지·물체 결과가 핵심이면 [비인간 몸](performance-and-style-recipes.md#nonhuman-performance)·[행동 중단](performance-and-style-recipes.md#interrupted-action)의 선택 예시를 기존 포즈/접촉 칸에 쓴다. 가림으로 전이를 생략하는 안과 실제 연속 변형 시연이 필요한 안은 구분한다.
 
+코드 렌더 쇼릴·제품 UI 데모·과정 설명이면 [코드 기반 모션 제작](08b-code-motion-production.md)을 연다. 타이밍만 필요한 일반 작업에 새 런타임을 요구하지 않는다.
+
 모션 원칙·키프레임·로고 모션·색 움직임·콘티→모션이 필요하면 [모션 크래프트](08a-motion-craft.md), 모션 스타일을 고르면 [모션 스타일 사전](33-motion-style-library.md) 색인부터 연다.
 
 ## 실행 절차

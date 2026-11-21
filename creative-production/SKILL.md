@@ -73,13 +73,17 @@ take the rows for the current stage whose `when` fits the request, and read
 those `craft_ref` files with the owner's own procedure before producing the
 stage, whether you hand off or do it yourself. Owner rules and gates still win.
 
+For delegated topics, use [motion selection](references/motion-selection.md) if motion serves the audience task. Pick and record a recipe before boards.
+
 Craft triggers (attach only; route unchanged; bridge notes apply): ad/promo script:
 [30](../video-production-assets/references/30-marketing-story-craft.md#od-openmotion-ad-script); sale/discount/product
 promo, photo-only too: [19a](../video-production-assets/references/19a-product-promo-formulas.md); captions/lower
 thirds/cover: [23a](../video-production-assets/references/23a-captions-layout.md); shorts/reels/multicam/beat-sync
 edit: [09a](../video-production-assets/references/09a-short-form-edit-recipes.md); motion style/kinetic type:
 [33 index](../video-production-assets/references/33-motion-style-library.md); motion principles/logo motion:
-[08a](../video-production-assets/references/08a-motion-craft.md); model-specific video prompts:
+[08a](../video-production-assets/references/08a-motion-craft.md); motion-graphics video/UI demo/showreel:
+[08b](../video-production-assets/references/08b-code-motion-production.md); concrete real-time 3D/scroll motion:
+[real-time direction](../open-3d-production/references/realtime-motion-direction.md); model-specific video prompts:
 [11a](../video-production-assets/references/11a-ai-video-prompting.md); recreate/templatize:
 [29a](../video-production-assets/references/29a-template-recreation.md); illustration/hand-drawn story:
 [still-motion-recipes](../storytelling-with-still-images/references/still-motion-recipes.md).

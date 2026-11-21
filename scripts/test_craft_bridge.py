@@ -14,6 +14,8 @@ HEADING_ANCHOR = re.compile(r"#{1,6}\s.*\{#[^}]+\}\s*$")
 STILLS_REFS = ("19a-product-promo-formulas", "still-motion-recipes")
 REQUIRED_REFS = (
     "08a-motion-craft",
+    "08b-code-motion-production",
+    "realtime-motion-direction",
     "09a-short-form-edit-recipes",
     "11a-ai-video-prompting",
     "19a-product-promo-formulas",
@@ -133,7 +135,7 @@ def test_inline_triggers_name_every_absorbed_ref_with_resolving_links() -> None:
     missing = [needle for needle in REQUIRED_REFS if needle not in triggers]
     assert not missing, missing
     targets = re.findall(r"\]\(([^)]+)\)", triggers)
-    assert len(targets) == 9, targets
+    assert len(targets) == len(REQUIRED_REFS), targets
     for target in targets:
         path, _, anchor = target.partition("#")
         resolved = (SKILL.parent / path).resolve()
