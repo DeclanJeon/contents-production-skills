@@ -1,6 +1,6 @@
 ---
 name: video-production-assets
-version: 1.33
+version: 1.34
 description: 'Build source-grounded video production assets: briefs, story beats,
   screenplays, actor direction, visual bibles, blocking, shot lists, lighting plans,
   animation timing, edit and sound plans, factual claim ledgers, AI generation handoffs,
@@ -43,7 +43,7 @@ description: 'Build source-grounded video production assets: briefs, story beats
 | 시각 구조·아트 디렉션 | [설계 절차](references/05-visual.md); 모션 스타일 선택이면 [모션 스타일 사전](references/33-motion-style-library.md) | [템플릿](assets/05-visual-template.md) |
 | 블로킹·촬영·스토리보드 | [설계 절차](references/06-shots.md) | [템플릿](assets/06-shots-template.md) |
 | 조명·노출·샷 매칭 | [설계 절차](references/07-lighting.md) | [템플릿](assets/07-lighting-template.md) |
-| 애니메이션 연기·타이밍·타격·모션 속도·모션 그래픽 표면 | [설계 절차](references/08-animation.md); 모션 원칙·키프레임·로고 모션이면 [모션 크래프트](references/08a-motion-craft.md), 스타일 선택이면 [모션 스타일 사전](references/33-motion-style-library.md) | [템플릿](assets/08-animation-template.md) |
+| 애니메이션 연기·타이밍·타격·모션 속도·모션 그래픽 표면 | [설계 절차](references/08-animation.md); 모션 원칙·키프레임·로고 모션이면 [모션 크래프트](references/08a-motion-craft.md), 스타일 선택이면 [모션 스타일 사전](references/33-motion-style-library.md); 코드 렌더 모션·제품 UI 데모·쇼릴이면 [코드 기반 모션 제작](references/08b-code-motion-production.md)과 `scripts/render_html_motion.mjs` | [템플릿](assets/08-animation-template.md), 모션 구현이면 [구현 브리프](assets/code-motion-brief-template.md) |
 | 편집·리듬·사운드 | [설계 절차](references/09-edit.md); 숏폼 추출·멀티캠·비트 싱크면 [숏폼 편집 레시피](references/09a-short-form-edit-recipes.md) | [템플릿](assets/09-edit-template.md) |
 | 광고·설명·데이터 영상 근거 | [설계 절차](references/10-evidence.md); 제품·앱 광고 대본이면 [광고 대본 절](references/30-marketing-story-craft.md#od-openmotion-ad-script) | [템플릿](assets/10-evidence-template.md) |
 | AI 영상 프롬프트·연속성 인계 | [설계 절차](references/11-ai-handoff.md); Veo·Seedance식 지시·영상→재현 프롬프트면 [AI 영상 지시법](references/11a-ai-video-prompting.md) | [템플릿](assets/11-ai-handoff-template.md) |

@@ -1,6 +1,6 @@
 ---
 name: creative-production
-version: 2.7
+version: 2.8
 description: Use when the user requests video production or a storyboard sheet for
   a video, including partial video work such as shorts/reels editing, re-editing
   existing video or extracting clips, video captions and lower thirds, ad or promo
@@ -53,6 +53,8 @@ retain that scope instead. The goal does not grant execution or spend authority.
 Select the current eligible stage separately; a route’s stop boundary ends the
 assignment, not an unfinished project goal.
 
+Before routing, check for animated cuts (price tag, chart, logo) even in live action. If present, open [motion pipeline](references/motion-pipeline.md) now.
+
 Read [routing.csv](references/routing.csv) and select exactly one `route_id`.
 
 Read [routing-disambiguation.csv](references/routing-disambiguation.csv) in the
@@ -72,8 +74,6 @@ Once the route is chosen, open [craft-bridge.csv](references/craft-bridge.csv),
 take the rows for the current stage whose `when` fits the request, and read
 those `craft_ref` files with the owner's own procedure before producing the
 stage, whether you hand off or do it yourself. Owner rules and gates still win.
-
-For delegated topics, use [motion selection](references/motion-selection.md) if motion serves the audience task. Pick and record a recipe before boards.
 
 Craft triggers (attach only; route unchanged; bridge notes apply): ad/promo script:
 [30](../video-production-assets/references/30-marketing-story-craft.md#od-openmotion-ad-script); sale/discount/product

@@ -1,0 +1,50 @@
+{
+  "model": "anthropic/claude-sonnet-5-5",
+  "results": [
+    {
+      "id": "pm1",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "creative-production/references/motion-pipeline.md",
+        "concept-intake-design/SKILL.md"
+      ],
+      "pass": false,
+      "reason": "answer lacks [['브리프']]"
+    },
+    {
+      "id": "pm2",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/motion-pipeline.md"
+      ],
+      "pass": false,
+      "reason": "optional offer ending: '다음: 스토리보드 시트(컷별 상세 패널 설명) — 자동 진행 가능, 원하시면 \"스토리보드 만들어줘\"라고 해 주세요.'"
+    },
+    {
+      "id": "pm3",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md"
+      ],
+      "pass": false,
+      "reason": "none of ['creative-production/references/motion-pipeline.md'] opened"
+    },
+    {
+      "id": "pm4",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "video-production-assets/references/09-edit.md"
+      ],
+      "pass": false,
+      "reason": "optional offer ending: '원본 영상 파일이나 타임코드가 있는 메모를 주시면, 위 구조에 맞춰 질문별 컷 표(source in/out, 최종 시간, 컷 이유, hold)로 구체화할 수 있습니다. 목표 길이와 플랫폼도 알려 주세요.'"
+    }
+  ]
+}

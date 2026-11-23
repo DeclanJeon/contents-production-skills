@@ -1,0 +1,52 @@
+{
+  "model": "anthropic/claude-sonnet-5-5",
+  "results": [
+    {
+      "id": "pm1",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "creative-production/references/motion-pipeline.md",
+        "concept-intake-design/SKILL.md"
+      ],
+      "pass": true,
+      "reason": "opened ['creative-production/references/motion-pipeline.md']"
+    },
+    {
+      "id": "pm2",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/motion-pipeline.md",
+        "video-production-assets/assets/code-motion-brief-template.md"
+      ],
+      "pass": false,
+      "reason": "closing line is not an exact pattern: '다음: 박자표 확정과 C04–C06 스파이크 — 렌더·지출·음원 승인 전까지 대기 (필요: 렌더 실행 승인, 음원/내레이션 선택)'"
+    },
+    {
+      "id": "pm3",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/motion-pipeline.md",
+        "video-production-assets/references/19a-product-promo-formulas.md"
+      ],
+      "pass": true,
+      "reason": "opened ['creative-production/references/motion-pipeline.md']"
+    },
+    {
+      "id": "pm4",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "video-production-assets/references/09a-short-form-edit-recipes.md"
+      ],
+      "pass": true,
+      "reason": "opened ['creative-production/SKILL.md']"
+    }
+  ]
+}

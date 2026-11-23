@@ -76,6 +76,117 @@ CineForge `kinetic_type`에서만 `motion.poster` 옵션을 사용한다. `edito
 
 `loop: true`는 실제 출력의 첫 프레임과 마지막 프레임이 같아야 통과한다. 비트에 맞춘 타이밍은 **승인된 음원과 큐 시트**가 있을 때만 확정하고, 음원 없이 BPM을 추정하지 않는다. 음원을 넣은 최종 합성·믹스는 이 무음 렌더 경로 뒤 별도 단계다.
 
+## 코드 렌더 경로 {#code-render-path}
+
+[모션 파이프라인](../../creative-production/references/motion-pipeline.md#m5-route)에서 `code`로 판정한 컷을 만든다. 설치된 Chrome·Node·FFmpeg만 쓰고 패키지를 설치하지 않는다.
+
+- **작품 계약:** 작품은 `index.html` 하나와 같은 폴더의 승인 자산이다. `window.__motion = { width, height, fps, duration, seek(t) }`을 노출한다. `seek(t)`는 시간 `t`(초)만으로 화면 전체를 정한다. CSS 애니메이션·타이머·프레임 간 누적 상태·시드 없는 난수를 쓰지 않는다. 외부 URL(CDN·웹폰트)은 렌더러가 차단하므로 폰트와 이미지는 로컬 파일을 쓴다. 음향은 HTML 안에서 만들지 않는다.
+- **실행:** `node video-production-assets/scripts/render_html_motion.mjs piece/index.html out/cut.mp4 --verify-frames 6 --contact-sheet 8`. 승인 음원은 `--audio approved.wav`로 합성하고, 길이가 1프레임 넘게 다르면 실패한다. 실패한 구간만 `--frames A:B`로 다시 렌더한다.
+- **산출물:** H.264 yuv420p MP4, `*.render-report.json`(입력·출력 sha256, 프레임 수, fps, 해상도, Chrome·FFmpeg 버전, 결정성 결과, 소요 시간), `*.contact.png`. `--verify-frames K`는 고정 프레임 K개를 정방향과 역방향으로 두 번 캡처해 비교한다. 다르면 `nondeterministic frame N`으로 실패한다.
+- **절차:** 브리프 → 컷 1개 스파이크(정지 프레임 3장) → 전체 `seek` 구현 → 컨택트 시트 확인 → 전체 렌더 → 아래 POST 절의 검수. CineForge 프로젝트에서는 실행 계획 레인 `{kind: video_cut, provider: code-motion}`으로 봉투를 만들고 [제출 검사](#code-motion-submit)를 거쳐 기록한다.
+
+## CineForge 코드 렌더 제출 검사 {#code-motion-submit}
+
+실행이 승인된 `S08_video` 봉투가 있는 프로젝트에서 `code-motion` 결과를 기록할 때만 사용한다. 렌더·M6 프레임 검수 후, 프로젝트 내부의 완성 파일을 가리키는 결과 JSON을 준비하고 아래 명령으로 제출한다.
+
+```sh
+python3 video-production-assets/scripts/submit_code_motion.py PROJECT --file RESULTS.json
+```
+
+검사기는 `jobs/S08_video.json`의 컷과 대조한다. `accepted` 결과는 비디오 스트림 하나, 종횡비, 길이(최대 한 프레임·50ms 중 작은 값), 명시된 해상도/FPS, 전체 비디오 디코딩을 검사한다. 하나라도 실패하면 배치 전체를 제출하지 않는다. 파일을 고쳐 다시 검사하며, 직접 `cineforge results`로 우회하지 않는다. 검사 통과가 사람 재생 검수나 최종 납품 승인을 대신하지 않는다. 단독 렌더와 타 공급자 결과는 이 명령 대상이 아니다.
+
+## Prompt Motion 기법 {#prompt-motion-techniques}
+
+공개 코퍼스에서 서로 다른 본문 묶음 3개 이상에 나온 기법만 옮겼다. 원문은 옮기지 않고 판단만 새로 썼다. 수치는 모두 시작값이다. 근거 수준은 `tested`(공식 템플릿 기본 예제), `original_example`(원작자 예제), `untested`(개선 프롬프트, 결과 예제 없음)다. `untested`뿐인 기법은 관찰된 프롬프트 패턴이며 효과를 보장하지 않는다.
+
+### 주인공 객체 변형 {#t-throughline}
+
+- **언제:** 제품 필름·로고 공개처럼 장면이 여러 개인데 하나의 이야기로 묶어야 할 때
+- **방법:** 제품 안에서 객체 하나(커서, 핵심 버튼, 로고 획, 데이터 한 점)를 고른다. 그 객체가 장면마다 다음 장면의 요소로 바뀌고, 마지막에 엔드카드 로고가 된다. 스토리보드 전에 이름을 붙인다.
+- **탈락:** 어떤 장면에서 객체가 사라지거나 끊긴다. 로고가 공개 시점보다 먼저 알아보인다.
+
+출처: Prompt Motion ajith-io-c52e09, steventey-0d20e4, tdinh-me-815acb · 근거 untested · 확인 2026-11-23. 관찰된 프롬프트 패턴.
+
+### 실제 UI를 레이어로 다시 만들기 {#t-vector-ui}
+
+- **언제:** 제품 화면이 주장의 근거일 때. 화면은 승인된 캡처나 디자인 파일이 있어야 한다.
+- **방법:** 승인된 화면을 그대로 미끄러뜨리지 않는다. 버튼·카드·텍스트를 따로 움직일 수 있는 레이어로 다시 그린다. 커서가 실제 클릭과 드래그를 하고, 결과 상태는 행동 뒤에만 나타난다.
+- **탈락:** 클릭 전에 결과가 보인다. 현재 제품에 없는 기능이나 문구가 나온다. 승인 화면과 레이아웃이 다르다.
+
+출처: Prompt Motion twoclipping-5cba86, twoclipping-221cab, samuel-yostt-891f87 · 근거 original_example·untested · 확인 2026-11-23. 원작 예제에서 확인: 레이어 UI와 커서 상태 전이(시각 확인 pass 2건).
+
+### 매치컷 좌표 측정 {#t-measured-matchcut}
+
+- **언제:** 앞 컷의 요소가 다음 컷의 같은 자리에서 이어져야 할 때
+- **방법:** 이음 위치를 숫자로 박지 않고 `seek` 안에서 실제 요소의 위치와 크기를 측정해 다음 컷의 시작값으로 쓴다.
+- **탈락:** 경계 프레임에서 앵커 위치나 크기가 튄다.
+
+출처: Prompt Motion twoclipping-6dd14e, ismailfahmi-557268, melvynx-6cde6c · 근거 original_example·untested · 확인 2026-11-23.
+
+### 화면 채우기 과스케일 {#t-overscale-wipe}
+
+- **언제:** 도형이 화면을 덮으며 장면을 넘길 때
+- **방법:** 도형이 화면 네 모서리를 모두 넘을 때까지 키운다. 원은 화면 대각선 길이를 기준으로 반지름을 잡는다.
+- **탈락:** 덮는 도중이나 끝에 모서리가 비어 보인다.
+
+출처: Prompt Motion ultimaxbt-bbebf5, ajith-io-4c248f, ajith-io-ea7f2d · 근거 original_example·untested · 확인 2026-11-23.
+
+### 글자 교체 타이밍 분리 {#t-text-handoff}
+
+- **언제:** 같은 자리에서 문구가 바뀔 때
+- **방법:** 나가는 문구가 다 빠진 뒤 들어오는 문구를 시작하거나, 둘의 영역을 겹치지 않게 나눈다. 나가기와 들어오기에 각각 시간을 준다.
+- **탈락:** 두 문구가 겹쳐 읽히는 프레임이 있다.
+
+출처: Prompt Motion ddryo-loos-300829, hqmank-7c61f1, arjunsh1607-93005d · 근거 untested · 확인 2026-11-23. 관찰된 프롬프트 패턴.
+
+### 첫 마디 훅 {#t-hook-bar}
+
+- **언제:** 짧은 프로모·출시 영상의 시작
+- **방법:** 첫 마디(시작값 2초 안)에 문제나 약속을 3~5단어의 큰 글자로 보여 준다. 주인공 객체가 그 문구에 끼어들며 본론으로 넘어간다.
+- **탈락:** 첫 2초 안에 주제를 알 수 없다. 훅 문구가 사실 확인 없는 주장이다.
+
+출처: Prompt Motion jhylee95-e1152f, reflex-cloud-72ffe5, majin-appsheet-2d3c1a · 근거 original_example·untested · 확인 2026-11-23. 원작 예제에서 확인 1건(한 단어 훅). 다른 1건은 문구 대신 이미지로 시작해 불일치했다.
+
+### 박자표 먼저 {#t-beatgrid}
+
+- **언제:** 음원이 있거나 리듬이 중요한 쇼릴·프로모
+- **방법:** 렌더 전에 박 단위 표를 만든다. 박마다 변화 하나를 두고, 가장 큰 박에 결말을 둔다. BPM과 첫 강박 위치는 승인 음원에서 잰 값만 확정값이다. 음원이 없으면 무음 박자표를 시작값으로 쓴다.
+- **탈락:** 변화가 같은 박에 몰린다. 읽을 시간이 없다. 승인 음원 없이 싱크를 확정했다고 적는다.
+
+출처: Prompt Motion template-showreel, techhalla-90b8ec, rossaxbt-94583b · 근거 tested·original_example · 확인 2026-11-23.
+
+### 박자별 컨택트 시트 {#t-contact-sheet}
+
+- **언제:** 전체 렌더 전
+- **방법:** 박이나 샷마다 한 프레임을 뽑아 한 장으로 보고, 복잡함·겹침·박 어긋남·가독성 문제를 먼저 고친다. 렌더러의 `--contact-sheet`를 쓴다.
+- **탈락:** 해당 없음(절차). 컨택트 시트 없이 전체 렌더를 반복한다면 절차 위반이다.
+
+출처: Prompt Motion alex-prompter-1ea044, ror-fly-9950f1, jacksonfall-54b2ac · 근거 untested · 확인 2026-11-23. 관찰된 프롬프트 패턴.
+
+### 시간 함수와 시드 고정 {#t-deterministic}
+
+- **언제:** 모든 `code` 경로 작품
+- **방법:** 모든 스타일 값을 시간의 함수로 계산하고, 난수는 시드를 고정한다. 위의 작품 계약과 `--verify-frames`로 확인한다.
+- **탈락:** 같은 프레임을 다시 렌더했을 때 픽셀이 다르다.
+
+출처: Prompt Motion twoclipping-d89be5, notdwd-7de38a, notdwd-c2037d · 근거 original_example · 확인 2026-11-23.
+
+### 설명 사다리 {#t-explainer-ladder}
+
+- **언제:** 개념·절차 설명형
+- **방법:** 질문 → 직관 → 쉬운 예에서 어려운 예 → 한 줄 정리 순서로 간다. 다이어그램 레이아웃은 처음에 고정하고 값이나 강조만 바꾼다. 수치와 이름은 출처와 대조한다.
+- **탈락:** 설명 중에 레이아웃이 재배치되어 비교가 끊긴다. 출처 없는 수치가 나온다.
+
+출처: Prompt Motion linearuncle-5d2bae, 0xnfrith-5be616, parkerrex-1a54fe · 근거 untested · 확인 2026-11-23. 관찰된 프롬프트 패턴.
+
+### 한 샷 한 동작 {#t-shot-per-action}
+
+- **언제:** 캐릭터가 나오는 짧은 이야기
+- **방법:** 샷 목록을 먼저 쓰고 샷마다 동작 하나와 시간을 정한다. 디딘 발과 짚은 손은 고정하고, 캐릭터 비율을 바꾸지 않는다. 개그마다 반응할 박을 남긴다.
+- **탈락:** 발이 미끄러진다. 샷 사이에 비율이 달라진다. 반응 없이 다음 동작으로 넘어간다.
+
+출처: Prompt Motion axtonliu-0b861d, nikolajankovic-ce4ff4, kamstudiolabs-c9bb28 · 근거 untested · 확인 2026-11-23. 관찰된 프롬프트 패턴.
+
 ## PROD · 프레임을 반복 재현
 
 - 편집본은 승인한 컷 편집 시간·원본 프레임 범위·FPS를 분리한다. 렌더러가 임의 프레임으로 이동해도 **장면 상태 = 같은 입력과 같은 시간의 함수**가 되게 한다. 실시간 `setTimeout`, 네트워크 대기, 무시드 난수에 프레임 내용을 맡기지 않는다.

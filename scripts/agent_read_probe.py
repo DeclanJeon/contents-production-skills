@@ -7,7 +7,9 @@ Installs the package into a temp dir, runs each case in
 files the agent opened. Opened paths are install-relative. Raw JSONL stays in
 the temp dir and is not written to ``--out``.
 
-Verdicts: positive passes when any ``expect_any_read`` file was opened;
+Verdicts: positive passes when any ``expect_any_read`` file was opened, no
+``expect_none_read`` file was opened, and every ``expect_text`` group (a list of
+alternatives) has one alternative in the final answer;
 negative passes when ``creative-production/SKILL.md`` was not opened. Every
 non-negative case also fails when the answer ends with an optional offer
 (``closing_check.find_optional_offer``). Nonstop (s1) passes only when the entry
@@ -134,6 +136,12 @@ def judge(case: dict, opened: list[str], final: str) -> tuple[bool | None, str]:
         hits = [p for p in case["expect_any_read"] if p in opened_set]
         if not hits:
             return False, f"none of {case['expect_any_read']} opened"
+        forbidden = [p for p in case.get("expect_none_read", []) if p in opened_set]
+        if forbidden:
+            return False, f"must not open {forbidden}"
+        missing = [group for group in case.get("expect_text", []) if not any(word in final for word in group)]
+        if missing:
+            return False, f"answer lacks {missing}"
         if offer:
             return False, f"optional offer ending: {offer!r}"
         defect = closing_check.closing_defect(final)

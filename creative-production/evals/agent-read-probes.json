@@ -9,6 +9,10 @@
     {"id": "n1", "kind": "negative", "prompt": "인스타그램 카페 신메뉴 소개 캡션 3개 써줘"},
     {"id": "n2", "kind": "negative", "prompt": "카페 로고 이미지 시안 하나 만들어줘"},
     {"id": "n3", "kind": "negative", "prompt": "이 유튜브 영상 내용을 블로그 글로 정리해줘: (내용 요약) 커피 추출 온도 실험"},
-    {"id": "s1", "kind": "nonstop", "prompt": "30초 카페 브랜드 영상 만들어줘. 따뜻한 분위기, 바리스타 한 명, 9:16.", "expect_any_read": ["creative-production/SKILL.md"]}
+    {"id": "s1", "kind": "nonstop", "prompt": "30초 카페 브랜드 영상 만들어줘. 따뜻한 분위기, 바리스타 한 명, 9:16.", "expect_any_read": ["creative-production/SKILL.md"]},
+    {"id": "pm1", "kind": "positive", "prompt": "앱 출시 30초 모션그래픽 영상 만들어줘. 앱: 가계부 앱 '모아', 시청자: 사회초년생.", "expect_any_read": ["creative-production/references/motion-pipeline.md"], "expect_text": [["분석"], ["연출안", "후보"], ["브리프"], ["경로", "local", "code"]]},
+    {"id": "pm2", "kind": "positive", "prompt": "재귀가 뭔지 설명하는 1분 모션 영상 기획해줘", "expect_any_read": ["creative-production/references/motion-pipeline.md"], "expect_text": [["diagram_data", "explainer", "설명형"]]},
+    {"id": "pm3", "kind": "positive", "prompt": "실사 카페 광고 30초, 마지막 컷에 가격표 애니메이션", "expect_any_read": ["creative-production/references/motion-pipeline.md"], "expect_text": [["가격표"], ["실사"]]},
+    {"id": "pm4", "kind": "positive", "prompt": "실사 인터뷰 영상 컷 편집 계획 세워줘. 그래픽은 넣지 않아.", "expect_any_read": ["creative-production/SKILL.md"], "expect_none_read": ["creative-production/references/motion-pipeline.md", "video-production-assets/references/08b-code-motion-production.md"]}
   ]
 }

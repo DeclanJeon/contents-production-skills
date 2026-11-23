@@ -1,0 +1,54 @@
+{
+  "model": "anthropic/claude-sonnet-5-5",
+  "results": [
+    {
+      "id": "pm1",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/motion-pipeline.md",
+        "concept-intake-design/SKILL.md"
+      ],
+      "pass": false,
+      "reason": "optional offer ending: '대기: 렌더 진행 여부 확인 — 필요: 실제 앱 기능 3가지 확정, `[모아 로고]`와 브랜드 컬러 제공, 렌더 실행 승인(텍스트 설계만 원하면 불필요).'"
+    },
+    {
+      "id": "pm2",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/motion-pipeline.md",
+        "concept-intake-design/SKILL.md",
+        "video-production-assets/assets/code-motion-brief-template.md"
+      ],
+      "pass": false,
+      "reason": "mixed 다음:/대기: forms in one line: '다음: 스토리보드와 TTS·BGM 선택 — 대기: 렌더·유료 생성은 승인 필요 — 필요: 영상 제작 진행 여부와 실행 승인'"
+    },
+    {
+      "id": "pm3",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/motion-pipeline.md",
+        "creative-production/references/routing.csv",
+        "video-production-assets/assets/code-motion-brief-template.md"
+      ],
+      "pass": true,
+      "reason": "opened ['creative-production/references/motion-pipeline.md']"
+    },
+    {
+      "id": "pm4",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "creative-production/references/craft-bridge.csv",
+        "video-production-assets/references/09-edit.md"
+      ],
+      "pass": true,
+      "reason": "opened ['creative-production/SKILL.md']"
+    }
+  ]
+}

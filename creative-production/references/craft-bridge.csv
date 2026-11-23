@@ -16,7 +16,8 @@ S04·S06,참조 영상의 리듬·패키징을 내 영상으로 재현,video-pro
 S06·S09,토킹헤드 참조 편집 스타일을 내 녹음에 입히기,video-production-assets/references/29a-template-recreation.md#od-openmotion-talking-head-recreation,본인 녹음과 측정 발화 타이밍만
 S09,참조 영상을 재사용 템플릿으로 바꾸기,video-production-assets/references/29a-template-recreation.md#od-openmotion-video-to-template,참조 사용 권리 확인 필요
 S09,대본 순서 러프컷·긴 녹화에서 숏츠 추출·세로 릴스·멀티캠,video-production-assets/references/09a-short-form-edit-recipes.md,샷당 playback_rate 하나; 계획 대 실측 대조
-S06·S07·S08·S09·S10,모션 그래픽 영상·코드 렌더 쇼릴·키네틱 타이포·제품 UI 데모,video-production-assets/references/08b-code-motion-production.md,video-production-assets가 컷·타임라인 계약을 인계하고 실제 출력본을 확인; 지침 연결이 실행 권한은 아님
+S01·S04·S06·S07·S08·S10,요청에 모션그래픽 요구가 있음(영상 전체 또는 그래픽 컷 하나: 키네틱 타이포·차트·UI·로고·가격표 애니메이션),creative-production/references/motion-pipeline.md,M1~M6: 분석표·연출안 비교·컷별 구현 경로(local/code/realtime_3d)·실제 출력 검수; 실사 컷은 기존 경로 유지
+S06·S07·S08·S09·S10,모션 그래픽 영상·코드 렌더 쇼릴·키네틱 타이포·제품 UI 데모,video-production-assets/references/08b-code-motion-production.md,"video-production-assets가 컷·타임라인 계약을 인계하고 실제 출력본을 확인; 지침 연결이 실행 권한은 아님; 구현 브리프는 video-production-assets/assets/code-motion-brief-template.md, code 경로 렌더는 render_html_motion.mjs"
 S06·S07·S08·S10,실시간 3D 또는 스크롤로 구동되는 모션 그래픽,open-3d-production/references/realtime-motion-direction.md,open-3d-production을 해당 구간에만 연결; 선형 영상·웹·Blender 공간 검증은 별개
 S09,음악 비트에 컷 맞추기,video-production-assets/references/09a-short-form-edit-recipes.md#od-beat-sync-editing,BPM을 프레임으로 환산
 S09,자막 스타일·이중 언어 자막·커버·하단 자막(로어서드),video-production-assets/references/23a-captions-layout.md,룩과 배치만; 내용·타이밍·접근성은 15 납품

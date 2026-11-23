@@ -16,12 +16,12 @@ SKILL = "creative-production/SKILL.md"
 def test_probe_cases_valid() -> None:
     cases = probe.load_cases(probe.DEFAULT_CASES)
     ids = [case["id"] for case in cases]
-    assert ids == ["p1", "p2", "p3", "p4", "p5", "n1", "n2", "n3", "s1"]
+    assert ids == ["p1", "p2", "p3", "p4", "p5", "n1", "n2", "n3", "s1", "pm1", "pm2", "pm3", "pm4"]
     assert len(set(ids)) == len(ids)
     for case in cases:
         assert case["kind"] in probe.KINDS
         assert case["prompt"].strip()
-        for rel in case.get("expect_any_read", []):
+        for rel in case.get("expect_any_read", []) + case.get("expect_none_read", []):
             assert (ROOT / rel).is_file(), f"{case['id']}: {rel} not in repo"
         if case["kind"] in ("positive", "nonstop"):
             assert case.get("expect_any_read"), case["id"]
@@ -64,6 +64,17 @@ def test_judge() -> None:
     assert probe.judge(positive, ["x.md"], "")[0] is False
     assert probe.judge(negative, ["x.md"], "")[0] is True
     assert probe.judge(negative, ["x.md", SKILL], "")[0] is False
+
+
+def test_judge_positive_expect_none_read_and_expect_text() -> None:
+    case = {"id": "pm4", "kind": "positive", "expect_any_read": ["a.md"],
+            "expect_none_read": ["m.md"], "expect_text": [["분석"], ["연출안", "후보"]]}
+    good = "분석표와 후보 비교\n\n다음: 커트 설계 — 자동 진행"
+    assert probe.judge(case, ["a.md"], good)[0] is True
+    verdict, reason = probe.judge(case, ["a.md", "m.md"], good)
+    assert verdict is False and "m.md" in reason
+    verdict, reason = probe.judge(case, ["a.md"], "분석만 있음\n\n다음: 커트 설계 — 자동 진행")
+    assert verdict is False and "연출안" in reason
 
 
 NONSTOP_CASE = {"id": "s1", "kind": "nonstop", "expect_any_read": [SKILL]}

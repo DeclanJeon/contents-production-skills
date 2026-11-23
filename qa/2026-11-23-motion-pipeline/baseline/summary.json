@@ -1,0 +1,48 @@
+{
+  "model": "anthropic/claude-sonnet-5-5",
+  "results": [
+    {
+      "id": "pm1",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "concept-intake-design/SKILL.md",
+        "orchestrating-video-preproduction/SKILL.md",
+        "video-production-assets/references/08b-code-motion-production.md"
+      ],
+      "pass": false,
+      "reason": "none of ['creative-production/references/motion-pipeline.md'] opened"
+    },
+    {
+      "id": "pm2",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md"
+      ],
+      "pass": false,
+      "reason": "none of ['creative-production/references/motion-pipeline.md'] opened"
+    },
+    {
+      "id": "pm3",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md"
+      ],
+      "pass": false,
+      "reason": "none of ['creative-production/references/motion-pipeline.md'] opened"
+    },
+    {
+      "id": "pm4",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "video-production-assets/references/09a-short-form-edit-recipes.md"
+      ],
+      "pass": true,
+      "reason": "opened ['creative-production/SKILL.md']"
+    }
+  ]
+}

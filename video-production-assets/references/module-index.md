@@ -21,6 +21,7 @@
 | 복잡 모션·합성 레이어·생성 매체 검수·재시도 | [생성 영상 QA·재시도](21-generated-video-qa-retry.md) | `assets/motion-beat-template.md`, `assets/vfx-layer-stack-template.md`, `assets/generated-qa-report-template.md` |
 | Veo·Seedance식 지시·구조화 영상 프롬프트·영상→재현 프롬프트 | [AI 영상 지시법](11a-ai-video-prompting.md) | 11 템플릿 |
 | 모션 원칙·키프레임·로고 모션·색 움직임·콘티→모션 | [모션 크래프트](08a-motion-craft.md) | 08 템플릿 |
+| 코드 렌더 모션·제품 UI 데모·쇼릴·설명형 모션과 Prompt Motion 기법 | [코드 기반 모션 제작](08b-code-motion-production.md), 렌더러 `scripts/render_html_motion.mjs` | [구현 브리프](../assets/code-motion-brief-template.md) |
 | 편집본→대본·멀티캠·릴스/쇼츠 추출·라이브 클립·비트 싱크 | [숏폼 편집 레시피](09a-short-form-edit-recipes.md) | 09 템플릿 |
 | 대사 연기·보이스 선택/생성·립싱크·청자 디렉팅 | [대사·립싱크](22-dialogue-lipsync.md) | `assets/performance-cue-template.md` |
 | 실제 테이크의 음질·연기·보이스·효과음·립싱크 결함 | [최소 테이크 보정](take-repair.md) | 기존 컷/테이크·오디오 인계와 QA 기록 |

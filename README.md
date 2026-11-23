@@ -59,7 +59,7 @@ flowchart TD
 | ![채팅 메시지, 선택, 답장 순으로 이어지는 UI 애니메이션](docs/media/motion-graphics/mbti-ui.gif) | ![약속 변경에 대한 반응을 네 장의 카드로 보여주는 키네틱 타이포](docs/media/motion-graphics/mbti-type.gif) |
 | **위임 브리프 실험.** “MBTI로 영상 하나 만들어줘” → CineForge 호스트가 UI 상태 전이 선택 → 4컷 콘티 → 로컬 렌더. 선택 이후에만 답장이 뜨는지 프레임으로 확인했습니다. | **기법 비교 샘플.** 같은 소재를 120 BPM 기준 타이포 카드 4장으로 구성했습니다. 원본에는 오디오가 있지만 GIF는 무음입니다. |
 
-[검증 기록](docs/media/motion-graphics/validation.md) · [모션 선택 기준](creative-production/references/motion-selection.md)
+[검증 기록](docs/media/motion-graphics/validation.md) · [모션그래픽 파이프라인](creative-production/references/motion-pipeline.md)
 
 ---
 

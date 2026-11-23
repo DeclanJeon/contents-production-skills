@@ -1,0 +1,52 @@
+{
+  "model": "anthropic/claude-sonnet-5-5",
+  "results": [
+    {
+      "id": "pm1",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/SKILL.md",
+        "creative-production/references/routing.csv",
+        "creative-production/references/routing-disambiguation.csv",
+        "creative-production/references/motion-pipeline.md",
+        "video-production-assets/assets/code-motion-brief-template.md",
+        "concept-intake-design/SKILL.md"
+      ],
+      "pass": true,
+      "reason": "opened ['creative-production/references/motion-pipeline.md']"
+    },
+    {
+      "id": "pm2",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references/motion-pipeline.md",
+        "creative-production/references/routing.csv",
+        "video-production-assets/assets/code-motion-brief-template.md"
+      ],
+      "pass": false,
+      "reason": "closing line is not an exact pattern: '다음: 박자표 확정 후 컷 1개 스파이크(정지 프레임 3장) — 자동 진행'"
+    },
+    {
+      "id": "pm3",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md"
+      ],
+      "pass": false,
+      "reason": "none of ['creative-production/references/motion-pipeline.md'] opened"
+    },
+    {
+      "id": "pm4",
+      "kind": "positive",
+      "opened": [
+        "creative-production/SKILL.md",
+        "creative-production/references",
+        "video-production-assets/references/09a-short-form-edit-recipes.md"
+      ],
+      "pass": true,
+      "reason": "opened ['creative-production/SKILL.md']"
+    }
+  ]
+}
