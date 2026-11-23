@@ -22,6 +22,15 @@
 | [ActionVFX FAQ](https://www.actionvfx.com/faq), [AI Costume Gallery](https://ai-costume-gallery.pages.dev/) | 후보; 각각 403 / 도구 접근 불가 | 향후 21 / 외형 참고 후보 | 근거 편입 보류; 접근 불가를 권리 없음/기능 없음으로 단정하지 않음 |
 | [X 편집 예시](https://x.com/tkz_aiart/status/2116841252381761759), [카메라](https://x.com/tkz_aiart/status/2115983496565121150), [조명](https://x.com/tkz_aiart/status/2116300256883417328) | 이전 대화의 본문·작성자 용어 확인 기록 | 어휘 탐색만; 실제 분석은 25 | 이번 직접 재생·청취 없음. 본문 설명을 영상 관찰·정확한 컷/시간으로 승격하지 않음 |
 
+### 편집 기법·작업 지시 참고 (2026-11-23 수집 기록)
+
+FrameAtlas 출처 원장의 공개 페이지 확인 기록에 근거한다. 아래는 **열람용 링크**다. 프롬프트 본문·예제 미디어의 재배포 권리, 현재 공급자의 기능, 실제 모델 재현성은 확인되지 않았다.
+
+| 자료 / 정확한 진입점 | 참고 용도 | 기존 오너 |
+|---|---|---|
+| [GrokCine Editing](https://grokcine.com/techniques/editing/), [CreaLens Techniques](https://crealens.ai/techniques) | 컷·촬영 용어와 예시 탐색. 선택한 기법만 현재 장면의 컷 의도와 검수 조건으로 다시 작성 | [편집 선택표](edit-sound-language-catalog.md), 06 샷·09 편집 |
+| [QuestStudio](https://queststudio.io/blog/cinematic-video-editing-prompts), [ChatCut](https://chatcut.io/blog/video-editing-prompts) | QuestStudio는 샷별 편집 브리프·페이싱 참고, ChatCut은 확보한 푸티지의 러프컷·자막·B-roll 지시 참고. 실제 편집에는 원본과 확인된 타이밍을 사용 | [09 편집](09-edit.md), [09a 숏폼 편집 레시피](09a-short-form-edit-recipes.md) |
+
 ## 선택 → 인계 → 검수
 
 1. 이번 샷이 공개/유보할 정보·행동·감정을 정한다. 이미 잠긴 외형/카메라는 다시 고르지 않는다.
