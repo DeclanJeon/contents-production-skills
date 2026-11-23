@@ -262,7 +262,9 @@ Q01~Q23 구현과 검증 결과는 [작업지시서](docs/superpowers/plans/2026
 
 ## 설치 및 업데이트
 
-Python 3.10 이상. 저장소 루트에서 실행한다.
+**릴리스 아카이브(권장):** [GitHub 릴리스](https://github.com/DeclanJeon/contents-production-skills/releases)와 [CineForge 랜딩](https://github.com/DeclanJeon/cineforge-landing)에서 `contents-production-skills-<버전>.tar.gz`와 `.sha256`을 받는다. CineForge 사용자는 `cineforge skills update`로 검증·설치하고 `cineforge skills use <버전>`으로 전환할 수 있다. 진행 중인 프로젝트는 처음 고정한 팩 버전을 계속 쓴다. 릴리스 노트 작성 규칙은 [docs/release-notes.md](docs/release-notes.md)에 있다.
+
+**저장소에서 직접 설치:** Python 3.10 이상. 저장소 루트에서 실행한다.
 
 ```powershell
 $skillRoot = if ($env:CODEX_HOME) { Join-Path $env:CODEX_HOME 'skills' } else { Join-Path $HOME '.codex\skills' }
