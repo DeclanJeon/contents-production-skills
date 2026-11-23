@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cineforge/skill_pack.schema.json",
+  "title": "Contents production pack: integrations.cineforge v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_version", "stages", "delivery_files", "inventory"],
+  "properties": {
+    "contract_version": {"const": 1, "type": "integer"},
+    "inventory": {"const": "integrations/cineforge/files.json"},
+    "delivery_files": {"$ref": "#/$defs/refs"},
+    "stages": {
+      "type": "object",
+      "required": ["S00_intake","S01_selection","S02_concept","S03_plan","G1_plan_review","S04_story","S05_character_world","S06_storyboard","S07_assets","G2_preproduction_review","S08_generation","S09_edit","S10_qa","G3_user_review","S11_delivery","S12_feedback"],
+      "propertyNames": {"enum": ["S00_intake","S01_selection","S02_concept","S03_plan","G1_plan_review","S04_story","S05_character_world","S06_storyboard","S07_assets","G2_preproduction_review","S08_generation","S09_edit","S10_qa","G3_user_review","S11_delivery","S12_feedback"]},
+      "additionalProperties": {"$ref": "#/$defs/stage"}
+    }
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "refs": {"type": "array", "items": {"$ref": "#/$defs/text"}, "uniqueItems": true},
+    "bundle": {
+      "type": "object", "required": ["refs"], "additionalProperties": false,
+      "properties": {"refs": {"$ref": "#/$defs/refs"}}
+    },
+    "stage": {
+      "type": "object", "required": ["route", "owners", "refs"], "additionalProperties": false,
+      "properties": {
+        "route": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/text"}]},
+        "owners": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"}, "minItems": 1, "uniqueItems": true},
+        "refs": {"$ref": "#/$defs/refs"},
+        "guide": {"$ref": "#/$defs/text"},
+        "when": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "cut_revision": {"$ref": "#/$defs/bundle"},
+            "code_motion": {"$ref": "#/$defs/bundle"},
+            "realtime_3d": {"$ref": "#/$defs/bundle"}
+          }
+        }
+      }
+    }
+  }
+}

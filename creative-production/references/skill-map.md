@@ -44,7 +44,9 @@
 
 ## 4. CineForge CLI 인계 계약(선택 사항)
 
-CineForge는 이 패키지 밖의 개인 프로젝트 CLI다. 설치된 경우에만 쓰며, 없으면 위 순서를 에이전트가 직접 수행한다.
+CineForge는 이 패키지 밖의 프로젝트 CLI다. 사용할 때는 프로젝트에 묶인 인계 패킷의 `owner_entrypoints`, `skill_pack.root`, `guide`, `craft_refs`(팩 상대 경로)를 우선하고, 다른 설치본의 동명 스킬로 대체하지 않는다. 팩이나 인계가 달라졌다면 확인부터 하고 유료·외부 작업을 실행하지 않는다. CineForge가 없으면 위 순서를 에이전트가 직접 수행한다.
+
+배포 시 `manifest.json`의 `integrations.cineforge`가 CLI 인계 매핑의 정본이다. 스킬 파일을 바꾼 뒤 `python scripts/build_cineforge_inventory.py`로 인벤토리를 다시 만들고 커밋한다. CI의 `python scripts/check_cineforge_contract.py`는 v1 스키마와 참조·인벤토리를 함께 검증한다. `integrations/cineforge/skill_pack.schema.json`은 CineForge가 배포한 v1 스키마의 복사본이다. 복사 설치기는 인벤토리를 지원 매니페스트와 함께 설치한다.
 
 - 프로젝트 폴더의 `progress.json`이 단계 상태(`pending`/`running`/`waiting_user`/`waiting_agent`/`blocked`/`waiting_external`/`done`/`stale`)와 진행률·작업률·검수 상태를 가진다.
 - `handoffs/<단계>.json`: `route`, `owner_skills`, `authority_required`, `authority_granted`, `inputs`(SSOT·기획안 경로), `outputs_expected`, `completion_command`. 담당 스킬은 이 패킷을 입력으로 받는다.
