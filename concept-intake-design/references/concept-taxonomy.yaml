@@ -1,7 +1,5 @@
-# CineForge 콘셉트 라이브러리 (Concept Library) — 정본(canonical source)
+# 콘셉트 라이브러리 (Concept Library)
 # source: user = 사용자 요구사항([t74u])에 그대로 있던 항목, proposed = 설계 시 보강한 항목
-# 이 파일은 `cineforge taxonomy export`로 스킬 저장소의
-# concept-intake-design/references/concept-taxonomy.yaml 에 그대로 복사된다(수정은 여기서만).
 version: 1.0.0
 selection_order: [format, culture_style, era, genre, subgenre, romance_concept, world, story_nature,
   setting, relationship, narrative, direction, emotion_arc, visual_aesthetic, production_method,

@@ -26,9 +26,9 @@ REQUIRED = [
     "sha256",
     "파일이 있다는 뜻일 뿐",
     "`verified`",
-    "assets/image_prompts.json",
-    "assets/image_outputs.json",
-    "assets/asset_registry.json",
+    "`asset_registry`",
+    "`source_asset_ids`",
+    "각 작업의 참조 ID",
 ]
 
 LINKS = [

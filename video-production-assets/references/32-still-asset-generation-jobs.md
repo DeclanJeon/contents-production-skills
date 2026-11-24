@@ -35,6 +35,7 @@ LOOK ─┐
 
 - 실행 중인 이미지 작업은 **최대 5개**다. 5개는 프로젝트별이 아니라 그 실행 호스트 전체의 상한이며, 여러 프로젝트가 동시에 요청하면 대기한다.
 - 상한은 "터미널 창을 5개 띄운다"는 뜻이 아니다. 감독 프로세스가 자식을 독립 세션으로 띄우고, 완료·실패를 회수해 다음 작업을 채운다. 감독 프로세스가 끝나면 남은 작업은 `planned`로 남고 자동 재개되지 않는다.
+- 병렬 상한이나 요청 수 제한은 비용 승인이 아니다. 실행 권한과 비용 권한은 각각 확인한다.
 - `codex-imagen` 정지 이미지는 유료 견적·비용 상한 판정 대상이 아니다. 다만 **인물 사진 등 참조 전송 범위와 요청된 출력 범위**는 사용자 승인 범위 안이어야 한다. 영상·음성·다른 공급자는 기존 비용·승인 게이트를 그대로 따른다.
 
 ## 4. 실패·불명·재개
@@ -53,17 +54,3 @@ LOOK ─┐
 - 같은 에셋을 다시 만들면 기존 항목을 덮어쓰지 말고 버전을 올려 새 항목으로 등록하고, 이전 버전은 계보로 남긴다.
 - 보고에는 계획 수·성공·실패·불명·대기 수와 각 작업의 참조 ID를 적는다. **파일 존재와 해시는 시청·품질 검수가 아니다.** 실제 프레임 검수와 최종 사용자 수락은 별도다.
 - 최종·납품 게이트는 `available`이 아니라 `verified`를 요구한다([asset_gate](contract.md#v51-프로덕션-무결성-look에셋-게이트계보provenance패키지)).
-
-## 6. CineForge 인계(선택)
-
-CineForge CLI가 단계를 감독하면 다음 파일이 이 계약의 투영이다. 스킬은 이 파일들을 정본으로 삼지 않고, 인계 패킷을 받아 실제 생성을 수행한 뒤 결과를 돌려준다.
-
-| 파일 | 내용 |
-|---|---|
-| `assets/image_prompts.json` | `prompt_id`, `kind`(character_sheet·wardrobe·location_spatial_sheet·prop_reference·start_frame·end_frame), `refs`, `view_ids`, `negative`, `params`, `ssot_versions` |
-| `assets/supplied_images.json` | 사용자가 이미 제공한 파일의 `prompt_id → 상대경로` |
-| `assets/image_outputs.json` | 성공한 `prompt_id → 상대경로` |
-| `assets/asset_registry.json` | 위 파일의 `path`·`sha256`·`status` 반영 |
-| `assets/image_jobs/` | 작업별 불명·실패 로그(있으면) |
-
-`--image-limit` 같은 CineForge 옵션은 **실행·참조 전송 범위** 상한이며 비용 승인이 아니다. 영상 생성 권한(`execution`)과 섞지 않는다. CineForge가 없으면 위 목록·순서·상한을 에이전트가 직접 지킨다.

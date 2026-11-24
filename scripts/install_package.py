@@ -63,7 +63,6 @@ DEFAULT_SUPPORT_SKILL = "video-production-assets"
 # but are never required at baseline.
 REQUIRED_SUPPORT = (MANIFEST_NAME, "examples", "qa")
 OPTIONAL_SUPPORT = ("CHANGELOG.md",)
-CINEFORGE_INVENTORY = Path("integrations/cineforge/files.json")
 
 SKILL_ID_RE = re.compile(r"^[a-z0-9]([a-z0-9-]{0,62}[a-z0-9])?$")
 COPY_IGNORE = shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo")
@@ -159,8 +158,6 @@ def _derived_names(directory, names, support_source: Path) -> set[str]:
     """Only the reserved generated payload at the selected support root."""
     if Path(directory) == support_source:
         return set(names) & set(REQUIRED_SUPPORT + OPTIONAL_SUPPORT)
-    if Path(directory) == support_source / CINEFORGE_INVENTORY.parent:
-        return set(names) & {CINEFORGE_INVENTORY.name}
     return set()
 
 
@@ -358,21 +355,6 @@ def build_plan(
         if _lexists(source) and not _is_link(source) and source.is_file():
             support_copies.append(CopyItem(source, support_root / rel, f"support:{rel}"))
 
-    integrations = manifest.get("integrations", {})
-    if isinstance(integrations, dict) and "cineforge" in integrations:
-        contract = integrations["cineforge"]
-        inventory = repo_root / CINEFORGE_INVENTORY
-        if not isinstance(contract, dict) or contract.get("inventory") != CINEFORGE_INVENTORY.as_posix():
-            problems.append(f"invalid CineForge inventory path; expected {CINEFORGE_INVENTORY}")
-        elif not inventory.is_file() or any(_is_link(p) for p in (inventory, inventory.parent, inventory.parent.parent)):
-            problems.append(f"missing or linked CineForge inventory: {inventory}")
-        else:
-            support_copies.append(CopyItem(inventory, support_root / CINEFORGE_INVENTORY, "support:cineforge-inventory"))
-        for relative in (CINEFORGE_INVENTORY.parent.parent, CINEFORGE_INVENTORY.parent):
-            parent = source_support / relative
-            if _lexists(parent) and (_is_link(parent) or not parent.is_dir()):
-                problems.append(f"invalid CineForge inventory support parent: {parent}")
-
     if _lexists(source_support) and (_is_link(source_support) or not source_support.is_dir()):
         problems.append(f"source support parent is not a plain directory: {source_support}")
     for item in support_copies:
@@ -559,9 +541,9 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--exclude-derived-support", action="store_true",
-        help="omit only the reserved manifest, examples, QA, changelog and "
-             "CineForge inventory snapshot from the source skill, then copy current "
-             "repository support; preserve other support files and never edit source",
+        help="omit only the reserved manifest, examples, QA and changelog snapshots "
+             "from the source skill, then copy current repository support; "
+             "preserve other support files and never edit source",
     )
     parser.add_argument(
         "--repo-root",

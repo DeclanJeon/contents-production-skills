@@ -64,7 +64,7 @@
 | `brand_product` | 브랜드 인지·기능 공개 | 사용자 과제 → 증거·기능 → 승인 마크 공개 | 로고·기능·효능을 지어내지 않음 |
 | `realtime_3d` | 깊이·시점·실시간 조작이 설명에 필요 | 대표 샷 → 시점·정보 변화 → 가독 상태 | 평면으로 같은 정보를 전달할 수 있으면 2D |
 
-CineForge 프로젝트에서는 분석표·후보·선택·컷별 경로를 `production_spec.motion_brief = {analysis, candidates, choice, route_by_cut}`(`route_by_cut`은 `[{cut, route}]` 목록)에, 선택한 레시피를 기존 `production_spec.motion_recipe = {recipe, reason}`에 기록한다.
+분석표·후보·선택 이유·컷별 구현 경로를 기존 제작 원장 또는 컷 표에 기록한다. 두 번째 원장은 만들지 않는다.
 
 ## M4 설계와 구현 브리프 {#m4-design}
 
@@ -78,12 +78,12 @@ CineForge 프로젝트에서는 분석표·후보·선택·컷별 경로를 `pro
 
 | 경로 | 조건 | 실행 |
 |---|---|---|
-| `local` | 아래 매트릭스에서 `local`이 `지원`이고, 720×1280(9:16)·30fps·무음으로 충분할 때 | `cineforge motion <project> --font …` → 미리보기 검수 → `cineforge motion <project> --deliver <sha256>` |
+| `local` | 사용 가능한 로컬 렌더러가 선택한 레시피와 요구 해상도·fps·음향을 지원할 때 | 렌더러 사양 확인 → 컷별 미리보기 → 실제 결과 검수 |
 | `code` | 그 밖의 2D 모션그래픽 | HTML 작품 → `node video-production-assets/scripts/render_html_motion.mjs` ([코드 렌더 경로](../../video-production-assets/references/08b-code-motion-production.md#code-render-path)) |
 | `realtime_3d` | 깊이·시점·실시간 조작이 정보 자체일 때 | [open-3d-production](../../open-3d-production/SKILL.md)과 [실시간 모션 연출](../../open-3d-production/references/realtime-motion-direction.md) |
 | `downgrade` | 위 경로로 구현할 수 없을 때 | 가장 가까운 지원 기법으로 대체하고 분석표와 최종 보고에 `downgrade: 원래 기법 → 대체 기법, 이유`를 남긴다 |
 
-경로가 섞인 작품은 컷 단위로 렌더한 뒤 `cineforge render`(FFmpeg 조립)로 합친다. 로컬 코드 렌더는 유료·외부 실행이 아니어서 지출 승인 대상이 아니다. 하지만 G2 검수와 재생 검수 해시 납품은 그대로 적용한다. CineForge 프로젝트에서는 실행 계획 레인 `{kind: video_cut, provider: code-motion}`으로 봉투를 만든다. 직접 `cineforge results`를 호출하지 말고 스킬팩의 [제출 검사](../../video-production-assets/references/08b-code-motion-production.md#code-motion-submit)로 컷 명세가 맞는 MP4만 제출한다.
+경로가 섞인 작품은 승인된 편집 도구로 컷 단위 결과를 조립한다. 로컬 코드 렌더에는 외부 지출 승인을 가정하지 않는다. 기존 G2, 실제 재생 및 해시 고정 납품 절차는 유지한다.
 
 ### 구현 가능성 매트릭스
 
@@ -108,12 +108,12 @@ CineForge 프로젝트에서는 분석표·후보·선택·컷별 경로를 `pro
 | 박자표 `T-beatgrid` | 부분(무음 프레임 큐) | 지원(승인 음원 합성) | 지원 |
 | 가로 16:9·임의 해상도 | 불가 | 지원 | 지원 |
 
-`local` 열의 `지원` 행은 CineForge `local_motion.RECIPES`와 같아야 한다. 테스트가 둘을 대조한다.
+표는 경로 선택의 참고값이다. `local`의 `지원`은 렌더러별 지원 보장이 아니므로, 실제 설치된 도구와 브리프의 조건을 먼저 확인한다.
 
 ## M6 검수 {#m6-review}
 
 - 실제 출력본에서 첫 프레임, 각 컷 경계, 박자 지점, 마지막 홀드 프레임을 뽑아 본다. `code` 경로는 렌더 리포트의 결정성 결과와 컨택트 시트를 함께 확인한다.
 - 사용한 기법의 탈락 조건을 체크리스트로 판정한다. 결과는 PASS/FAIL과 해당 프레임 번호로 남긴다.
 - 수정은 실패한 컷만 다시 렌더한다(`--frames A:B`). 실제 영상 요청 검수는 최대 2회이며 [phase-review](phase-review.md) 계약을 따른다.
-- 납품은 해시를 고정한 뒤 진행한다. `local`은 `cineforge motion --deliver <sha256>`, `code`는 영수증 기록과 사람 재생 검수(`cineforge qa-playback`)를 거친 해시로만 납품한다. 공개 업로드는 별도 승인 없이 하지 않는다.
+- 승인된 컷의 실제 재생 검수 뒤 산출물과 해시를 고정해 납품한다. 공개 업로드는 별도 승인 없이 하지 않는다.
 - 최종 보고에는 분석표 요약, 선택한 연출과 이유, 컷별 경로, `downgrade` 기록, 출력 파일 경로와 sha256, 검수 판정을 넣는다.

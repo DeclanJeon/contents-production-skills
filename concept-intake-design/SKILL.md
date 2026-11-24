@@ -71,11 +71,7 @@ This skill is that policy's single intake, not a second one.
 
 ## Decision provider
 
-Typed decisions (factor presence, recommendations, scores) may come from Jev 1.14
-via OpenRouter when the CineForge CLI is configured with a key; otherwise the
-host agent decides. See [decision-provider.md](references/decision-provider.md).
-Record which provider produced each decision. Jev is a decision model, not a
-writer: prose always comes from the host agent or the planning owner.
+The host agent makes typed decisions on factor presence, recommendations, and scores. Record who made each decision and why. If the host supplies an approved decision, keep its provenance. The planning owner writes the prose.
 
 ## Concept packet
 

@@ -4,7 +4,7 @@
 
 **브리프에서 최종 납품까지, 필요한 제작 스킬만 연결합니다.**
 
-[![Package version 2.65](https://img.shields.io/badge/package-2.65-2563EB)](manifest.json)
+[![Package version 2.66](https://img.shields.io/badge/package-2.66-2563EB)](manifest.json)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](#설치-및-업데이트)
 
 [작동 방식](#작동-방식) · [모션 그래픽 테스트](#모션-그래픽-테스트) · [설치](#설치-및-업데이트) · [사용 가이드](USAGE_GUIDE.md) · [변경 이력](CHANGELOG.md)
@@ -13,7 +13,7 @@
 
 `contents-production-skills`는 영상 기획·레퍼런스·캐릭터·카메라·음향·3D·편집·납품을 연결하는 에이전트 스킬 패키지입니다. [`creative-production`](creative-production/SKILL.md)이 총괄하고, 대본 한 편이나 자막 검토처럼 범위가 좁은 요청에는 해당 전문 스킬만 사용합니다.
 
-**현재 패키지 버전: `2.65`** · 버전 및 설치 목록의 정본은 [`manifest.json`](manifest.json)입니다.
+**현재 패키지 버전: `2.66`** · 버전 및 설치 목록의 정본은 [`manifest.json`](manifest.json)입니다.
 
 ## 작동 방식
 
@@ -48,7 +48,7 @@ flowchart TD
 
 > **논스톱은 무검수가 아닙니다.** 프리프로덕션과 영상 프롬프트는 각각 최대 2회 검수합니다. 첫 검수에서 문제가 없으면 바로 진행하고, 문제가 있으면 수정 사항을 모아 영향 범위만 재확인합니다. 검수 상한이 실행·과금·권리·게시 승인을 대신하지 않습니다.
 
-[단계별 스킬 지도](creative-production/references/skill-map.md) · [2회 검수 계약](creative-production/references/phase-review.md) · [2.63 상세 흐름도](docs/diagrams/2026-11-20-skill-flow-2.63.md) · [CineForge CLI](https://github.com/DeclanJeon/cineforge)
+[단계별 스킬 지도](creative-production/references/skill-map.md) · [2회 검수 계약](creative-production/references/phase-review.md) · [2.63 상세 흐름도](docs/diagrams/2026-11-20-skill-flow-2.63.md)
 
 ## 모션 그래픽 테스트
 
@@ -57,7 +57,7 @@ flowchart TD
 | UI 상태 전이 · 15초 | 키네틱 타이포 · 8초 |
 | :---: | :---: |
 | ![채팅 메시지, 선택, 답장 순으로 이어지는 UI 애니메이션](docs/media/motion-graphics/mbti-ui.gif) | ![약속 변경에 대한 반응을 네 장의 카드로 보여주는 키네틱 타이포](docs/media/motion-graphics/mbti-type.gif) |
-| **위임 브리프 실험.** “MBTI로 영상 하나 만들어줘” → CineForge 호스트가 UI 상태 전이 선택 → 4컷 콘티 → 로컬 렌더. 선택 이후에만 답장이 뜨는지 프레임으로 확인했습니다. | **기법 비교 샘플.** 같은 소재를 120 BPM 기준 타이포 카드 4장으로 구성했습니다. 원본에는 오디오가 있지만 GIF는 무음입니다. |
+| **위임 브리프 실험.** “MBTI로 영상 하나 만들어줘” → 제작 에이전트가 UI 상태 전이 선택 → 4컷 콘티 → 로컬 렌더. 선택 이후에만 답장이 뜨는지 프레임으로 확인했습니다. | **기법 비교 샘플.** 같은 소재를 120 BPM 기준 타이포 카드 4장으로 구성했습니다. 원본에는 오디오가 있지만 GIF는 무음입니다. |
 
 [검증 기록](docs/media/motion-graphics/validation.md) · [모션그래픽 파이프라인](creative-production/references/motion-pipeline.md)
 
@@ -262,7 +262,7 @@ Q01~Q23 구현과 검증 결과는 [작업지시서](docs/superpowers/plans/2026
 
 ## 설치 및 업데이트
 
-**릴리스 아카이브(권장):** [GitHub 릴리스](https://github.com/DeclanJeon/contents-production-skills/releases)와 [CineForge 랜딩](https://github.com/DeclanJeon/cineforge-landing)에서 `contents-production-skills-<버전>.tar.gz`와 `.sha256`을 받는다. CineForge 사용자는 `cineforge skills update`로 검증·설치하고 `cineforge skills use <버전>`으로 전환할 수 있다. 진행 중인 프로젝트는 처음 고정한 팩 버전을 계속 쓴다. 릴리스 노트 작성 규칙은 [docs/release-notes.md](docs/release-notes.md)에 있다.
+**릴리스 아카이브:** [GitHub 릴리스](https://github.com/DeclanJeon/contents-production-skills/releases)에서 `contents-production-skills-<버전>.tar.gz`와 `.sha256`을 받는다. 체크섬을 검증한 뒤 버전별로 보관하고 사용하는 에이전트의 스킬 설치 방식을 따른다. 릴리스 노트 작성 규칙은 [docs/release-notes.md](docs/release-notes.md)에 있다.
 
 **저장소에서 직접 설치:** Python 3.10 이상. 저장소 루트에서 실행한다.
 

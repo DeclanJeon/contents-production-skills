@@ -33,9 +33,8 @@ non-blocking facts stay labelled placeholders (`[브랜드명]`). Detail:
 [policy.md](references/policy.md#closing-line).
 
 Skip Step 0 for a locked brief, an approved concept, a single named artifact, or
-a resumed project. Pre-accepted review gates never open spend. Owner map
-and CineForge CLI handoff contract:
-[skill-map.md](references/skill-map.md).
+a resumed project. Pre-accepted review gates never open spend. See the
+[stage owner map](references/skill-map.md).
 
 Still assets the story repeats (character, wardrobe, location, plates, props, LOOK, cut frames) are not
 done when their prompts are written. Produce them under

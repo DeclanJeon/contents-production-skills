@@ -1,12 +1,9 @@
 """Checks for the motion pipeline (M1–M6), its matrix, brief template and pointers."""
 from __future__ import annotations
 
-import ast
 import csv
 import re
 from pathlib import Path
-
-import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 PIPELINE = ROOT / "creative-production" / "references" / "motion-pipeline.md"
@@ -17,7 +14,6 @@ BRIEF = ROOT / "video-production-assets" / "assets" / "code-motion-brief-templat
 CODE = ROOT / "video-production-assets" / "references" / "08b-code-motion-production.md"
 VPA_SKILL = ROOT / "video-production-assets" / "SKILL.md"
 MODULE_INDEX = ROOT / "video-production-assets" / "references" / "module-index.md"
-CINEFORGE_MOTION = Path.home() / "Documents/Projects/Products/01_Persnal_Work/cineforge/cineforge/local_motion.py"
 ANALYSIS_FIELDS = ("audience_task", "message_units", "format_hint", "platform", "duration", "assets",
                    "data_sources", "audio", "brand", "constraints", "delivery")
 CRITERIA = ("전달력", "자산 적합성", "구현 가능성", "길이 적합성")
@@ -70,27 +66,9 @@ def test_route_section_has_paths_and_downgrade_record() -> None:
     assert "render_html_motion.mjs" in m5
 
 
-def local_matrix_recipes() -> set[str]:
-    m5 = section(text(PIPELINE), "m5-route")
-    supported = set()
-    for line in m5.splitlines():
-        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if len(cells) >= 4 and cells[0].startswith("`") and cells[1] == "지원":
-            supported.add(cells[0].strip("`"))
-    return supported
-
-
-@pytest.mark.skipif(not CINEFORGE_MOTION.is_file(), reason="CineForge checkout not present")
-def test_local_matrix_matches_cineforge_recipes() -> None:
-    tree = ast.parse(CINEFORGE_MOTION.read_text(encoding="utf-8"))
-    recipes = next(ast.literal_eval(node.value) for node in tree.body
-                   if isinstance(node, ast.Assign) and getattr(node.targets[0], "id", "") == "RECIPES")
-    assert local_matrix_recipes() == set(recipes)
-
-
 def test_review_keeps_two_round_limit_and_hash_delivery() -> None:
     m6 = section(text(PIPELINE), "m6-review")
-    assert "2회" in m6 and "해시" in m6 and "qa-playback" in m6
+    assert "2회" in m6 and "해시" in m6 and "실제 재생" in m6
 
 
 def test_brief_template_has_six_required_slots() -> None:
@@ -128,10 +106,3 @@ def test_code_motion_reference_documents_render_path() -> None:
     assert "{#code-render-path}" in body
     for needle in ("window.__motion", "seek(t)", "render_html_motion.mjs", "--verify-frames", "--contact-sheet"):
         assert needle in body, needle
-
-
-@pytest.mark.skipif(not CINEFORGE_MOTION.is_file(), reason="CineForge checkout not present")
-def test_local_route_states_cineforge_resolution() -> None:
-    match = re.search(r"^WIDTH, HEIGHT = (\d+), (\d+)$", CINEFORGE_MOTION.read_text(encoding="utf-8"), re.MULTILINE)
-    assert match
-    assert f"{match.group(1)}×{match.group(2)}" in section(text(PIPELINE), "m5-route")

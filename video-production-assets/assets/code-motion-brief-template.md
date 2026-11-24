@@ -1,6 +1,6 @@
 # 모션 구현 브리프
 
-[모션 파이프라인](../../creative-production/references/motion-pipeline.md) M4에서 채운다. 여섯 칸 모두 필수다. 해당 없는 칸은 `N/A — 이유`로 적는다(예: `N/A — 무음 납품`). 이 브리프가 구현 담당의 직접 입력이다. `code` 경로면 HTML 작품의 사양이 되고, `local` 경로면 컷 표를 CineForge `motion_recipe` 컷 필드로 옮긴다.
+[모션 파이프라인](../../creative-production/references/motion-pipeline.md) M4에서 채운다. 여섯 칸 모두 필수다. 해당 없는 칸은 `N/A — 이유`로 적는다(예: `N/A — 무음 납품`). 이 브리프가 구현 담당의 직접 입력이다. `code` 경로면 HTML 작품의 사양이 되고, `local` 경로면 사용 가능한 렌더러의 입력과 컷 표를 대조한다.
 
 ## 1. 입력 {#t-inputs-default}
 
@@ -39,7 +39,7 @@
 
 ## 4. 빌드
 
-- 경로별 실행: `local` → `cineforge motion`, `code` → `render_html_motion.mjs`, `realtime_3d` → open-3d-production
+- 경로별 실행: `local` → 확인된 로컬 렌더러, `code` → `render_html_motion.mjs`, `realtime_3d` → open-3d-production
 - `code` 작품 계약: `window.__motion = {width, height, fps, duration, seek(t)}`, 시간 함수만 사용, 외부 요청 금지, 로컬 폰트
 - 컨택트 시트 시점(`T-contact-sheet`): 전체 렌더 전에 박자마다 한 프레임
 - 음원 합성: 승인 음원만, 길이 일치 확인

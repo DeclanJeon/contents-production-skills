@@ -1,4 +1,4 @@
-# 스킬 지도 — 단계별 담당 스킬과 CineForge 인계 계약
+# 스킬 지도 — 단계별 담당 스킬
 
 `creative-production`이 프로젝트 하나를 처음부터 끝까지 끊김 없이 진행할 때 쓰는 지도다. 단계마다 담당(owner)은 [routing.csv](routing.csv)의 한 행이며, 이 문서는 순서와 인계만 정리한다. 승인·권한 규칙은 [policy.md](policy.md)가 유일한 기준이다.
 
@@ -41,15 +41,3 @@
 - 완성 영상 목표에서 G1은 진행 체크포인트다. 사용자가 G1을 정지로 지정하지 않았다면 멈추지 않고 계속하며, 이후 산출물은 `proposed`로 남고 수락으로 기록하지 않는다. G2는 사용자가 "논스톱으로 진행"처럼 명시적으로 미리 위임했을 때만 자동 통과로 기록한다. 미리 위임이 없으면 G2는 별도 정지가 아니라 S08 유료·외부 실행 대기 하나에 합쳐, 보드(G2) 수락과 실행·비용 승인을 함께 요청한다. 위임은 실행·비용 권한을 열지 않는다.
 - S08·S09는 실행/편집 권한이 기록되어 있을 때만 진행한다. 없으면 인계 패킷을 만든 채 멈추고 필요한 승인을 정확히 말한다.
 - 막힌 단계가 있어도 그와 무관한 계획 작업은 계속한다.
-
-## 4. CineForge CLI 인계 계약(선택 사항)
-
-CineForge는 이 패키지 밖의 프로젝트 CLI다. 사용할 때는 프로젝트에 묶인 인계 패킷의 `owner_entrypoints`, `skill_pack.root`, `guide`, `craft_refs`(팩 상대 경로)를 우선하고, 다른 설치본의 동명 스킬로 대체하지 않는다. 팩이나 인계가 달라졌다면 확인부터 하고 유료·외부 작업을 실행하지 않는다. CineForge가 없으면 위 순서를 에이전트가 직접 수행한다.
-
-배포 시 `manifest.json`의 `integrations.cineforge`가 CLI 인계 매핑의 정본이다. 스킬 파일을 바꾼 뒤 `python scripts/build_cineforge_inventory.py`로 인벤토리를 다시 만들고 커밋한다. CI의 `python scripts/check_cineforge_contract.py`는 v1 스키마와 참조·인벤토리를 함께 검증한다. `integrations/cineforge/skill_pack.schema.json`은 CineForge가 배포한 v1 스키마의 복사본이다. 복사 설치기는 인벤토리를 지원 매니페스트와 함께 설치한다.
-
-- 프로젝트 폴더의 `progress.json`이 단계 상태(`pending`/`running`/`waiting_user`/`waiting_agent`/`blocked`/`waiting_external`/`done`/`stale`)와 진행률·작업률·검수 상태를 가진다.
-- `handoffs/<단계>.json`: `route`, `owner_skills`, `authority_required`, `authority_granted`, `inputs`(SSOT·기획안 경로), `outputs_expected`, `completion_command`. 담당 스킬은 이 패킷을 입력으로 받는다.
-- `agent_io/requests/<task>.json` → `agent_io/responses/<task>.json`: CLI가 판단·생성을 호스트 에이전트에게 맡길 때의 요청/응답 파일. 형식은 [decision-provider.md](../../concept-intake-design/references/decision-provider.md).
-- 외부 단계가 끝나면 실제 결과 파일을 증거로 `cineforge complete <프로젝트> <단계> --evidence <파일...>`. 증거 없는 완료는 거부된다.
-- CineForge는 유료 생성을 직접 호출하지 않는다. 생성·편집은 위 route의 스킬이 사용자 승인 아래 수행한다.
