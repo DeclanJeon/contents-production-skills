@@ -1,6 +1,6 @@
 {
   "name": "contents-production-skills",
-  "version": "2.64",
+  "version": "2.65",
   "entry_skill": "creative-production",
   "support_skill": "video-production-assets",
   "skills": [
@@ -389,7 +389,9 @@
     },
     {
       "lane": "Advanced subtitle direction",
-      "skills": ["shortform-subtitle-direction"],
+      "skills": [
+        "shortform-subtitle-direction"
+      ],
       "required_when": "Analysis-led caption redesign or requested specialist subtitle rendering",
       "runtime": "Optional subtitle-direction-skill source plus its verified local caption engine, renderer and fonts",
       "auth": "Current plan-hash approval for compile, preview or export",
@@ -400,7 +402,9 @@
     },
     {
       "lane": "Separate narration execution",
-      "skills": ["creative-production"],
+      "skills": [
+        "creative-production"
+      ],
       "required_when": "A separate narration cue is requested for execution and approved",
       "runtime": "Fish Audio MCP with explicit drama-3, official Typecast MCP/Cast runtime, or verified ElevenLabs TTS; confirm operation, voice and account capabilities",
       "auth": "Authorized provider account, voice-use rights and approved spend",
@@ -411,7 +415,9 @@
     },
     {
       "lane": "Separate SFX execution",
-      "skills": ["creative-production"],
+      "skills": [
+        "creative-production"
+      ],
       "required_when": "ElevenLabs SFX is selected for a separate cue and execution is approved",
       "runtime": "Verified ElevenLabs SFX tool only; TTS readiness is not SFX readiness",
       "auth": "Authorized provider account and approved spend",
@@ -422,7 +428,9 @@
     },
     {
       "lane": "Suno music execution",
-      "skills": ["suno-music"],
+      "skills": [
+        "suno-music"
+      ],
       "required_when": "Actual Suno song or Sounds generation is requested and approved; not needed for prompt drafting",
       "runtime": "Official Suno MCP; validate the live tool schema and account capabilities",
       "auth": "Suno account authorization and approved credit spend",

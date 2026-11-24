@@ -4,7 +4,7 @@
 
 **브리프에서 최종 납품까지, 필요한 제작 스킬만 연결합니다.**
 
-[![Package version 2.64](https://img.shields.io/badge/package-2.64-2563EB)](manifest.json)
+[![Package version 2.65](https://img.shields.io/badge/package-2.65-2563EB)](manifest.json)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](#설치-및-업데이트)
 
 [작동 방식](#작동-방식) · [모션 그래픽 테스트](#모션-그래픽-테스트) · [설치](#설치-및-업데이트) · [사용 가이드](USAGE_GUIDE.md) · [변경 이력](CHANGELOG.md)
@@ -13,7 +13,7 @@
 
 `contents-production-skills`는 영상 기획·레퍼런스·캐릭터·카메라·음향·3D·편집·납품을 연결하는 에이전트 스킬 패키지입니다. [`creative-production`](creative-production/SKILL.md)이 총괄하고, 대본 한 편이나 자막 검토처럼 범위가 좁은 요청에는 해당 전문 스킬만 사용합니다.
 
-**현재 패키지 버전: `2.64`** · 버전 및 설치 목록의 정본은 [`manifest.json`](manifest.json)입니다.
+**현재 패키지 버전: `2.65`** · 버전 및 설치 목록의 정본은 [`manifest.json`](manifest.json)입니다.
 
 ## 작동 방식
 
