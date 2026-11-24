@@ -5,6 +5,13 @@ treatment, article, brief). One row per meaningful source beat. Do not copy
 source prose verbatim into narration; prefer visual storytelling when the
 screen can carry the same information.
 
+## Source coverage (when the source is long or only partly available)
+Record the exact edition or source ID and locate each span by chapter, page,
+or section. Distinguish **directly reviewed**, **summary only**, and
+**unread or truncated** spans. Record gaps as unknown; do not invent missing
+events, label unseen events as deliberately omitted, or claim fidelity beyond
+the directly reviewed material.
+
 | source_beat_id | source location | source meaning | adaptation mode | screen function | reality/time layer | VO req | dialogue req | visual req | omission/compression reason | content treatment |
 |---|---|---|---|---|---|---|---|---|---|---|
 
