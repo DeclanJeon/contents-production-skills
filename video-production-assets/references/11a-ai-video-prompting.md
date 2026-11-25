@@ -2,6 +2,8 @@
 
 외부 영상 생성 모델용 요청문을 쓰거나 고치고, 레퍼런스 영상을 재현용 프롬프트로 옮길 때만 연다. [11 AI 인계](11-ai-handoff.md)의 순서·SSOT·`UNKNOWN` 지원 표기·검수 규칙을 확장하는 심화이며 그 규칙과 겹치면 11이 우선한다. 모델·표면별 문법과 수치는 각 절이 밝힌 고정 커밋(확인일 2026-11-20) 시점의 원본 안내일 뿐 현재 공급자·모델의 지원을 뜻하지 않으므로, 쓰기 전에 실제 선택 도구에서 확인하고 미확인은 `UNKNOWN`으로 둔다. 유료 생성은 [24 제작 실행](24-production-execution.md)의 승인이 있어야 하며 이 파일에는 API 키·엔드포인트·엔진 명령을 두지 않는다. 실행은 [policy.md](../../creative-production/references/policy.md) 게이트와 24를 따른다. 제품 프로모 샷크래프트는 [19a](19a-product-promo-formulas.md), 요청된 루프 영상의 끝→시작 검수는 [09](09-edit.md#요청된-루프의-끝시작-검수)에 있다. 각색 절의 출처와 라이선스는 [open-design 이전 기록](upstream/open-design-provenance.md)에 있다.
 
+감정 비트·시선 축·청자 반응·화면 안팎 동기 대사가 결과를 좌우하면, 모델별 문법으로 옮기기 전에 [연기 중심 프롬프트와 시간 충돌 검사](performance-first-video-prompting.md)를 적용한다.
+
 ## open-design 각색 절
 
 ### Veo식 5요소 요청문·대사·부정 조건 {#od-genmedia-video-editor}
