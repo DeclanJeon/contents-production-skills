@@ -60,6 +60,8 @@ def slugify(value: str, field: str) -> str:
 
 def resolve_inside(root: Path, raw: str, field: str) -> Path:
     """Resolve any output path; production outputs must stay under root."""
+    # Compare canonical paths on both sides (e.g. macOS /var -> /private/var).
+    root = root.resolve()
     candidate = Path(raw).expanduser()
     resolved = (candidate if candidate.is_absolute()
                 else root / candidate).resolve()
