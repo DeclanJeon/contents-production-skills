@@ -168,6 +168,8 @@ E5 직접 읽기(READ-PARTIAL): `E:/Book/06_Book/originals/콘텐츠_제작/md/C
 
 선택한 음원은 실제로 들어서 후보 비교가 실제 소리와 맞는지 확인한 뒤 `source_in_s/source_out_s`, fade, gain, `sync_anchor`/`sync_offset_s`를 측정해 기존 편집 표와 `sound-cues.csv` 필드에 맞춘다. 측정하지 않은 구간·동기는 추정으로 표시한다.
 
+무료 상업용 후보나 교차 게시가 필요한 경우에만 [무료 후반작업 자산의 선택·권리 확인](free-post-production-assets.md)을 연다. 이미 승인된 무음·네이티브 동시 대사·제공 음원 요구를 바꾸거나, 후반작업에서 쓸 수 있다는 이유로 생성 도구에 원본을 올리지 않는다.
+
 ## 후반작업 단계 추적 (영화 라이프사이클 요청 시)
 
 영화·단편 요청으로 [28](28-film-production-lifecycle.md)의 05 Post-production이 배정됐을 때, 선택된 후반 단계만 단계 표로 추적한다. `assets/film-postproduction-template.md`를 사용하고, 이 표는 `project.json` artifact/dependency/version과 `asset_registry`를 참조하는 인계 문서지 새 원장이 아니다.

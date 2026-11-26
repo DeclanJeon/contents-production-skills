@@ -46,7 +46,7 @@ description: 'Build source-grounded video production assets: briefs, story beats
 | 애니메이션 연기·타이밍·타격·모션 속도·모션 그래픽 표면 | [설계 절차](references/08-animation.md); 모션 원칙·키프레임·로고 모션이면 [모션 크래프트](references/08a-motion-craft.md), 스타일 선택이면 [모션 스타일 사전](references/33-motion-style-library.md); 코드 렌더 모션·제품 UI 데모·쇼릴이면 [코드 기반 모션 제작](references/08b-code-motion-production.md)과 `scripts/render_html_motion.mjs` | [템플릿](assets/08-animation-template.md), 모션 구현이면 [구현 브리프](assets/code-motion-brief-template.md) |
 | 편집·리듬·사운드 | [설계 절차](references/09-edit.md); 숏폼 추출·멀티캠·비트 싱크면 [숏폼 편집 레시피](references/09a-short-form-edit-recipes.md) | [템플릿](assets/09-edit-template.md) |
 | 광고·설명·데이터 영상 근거 | [설계 절차](references/10-evidence.md); 제품·앱 광고 대본이면 [광고 대본 절](references/30-marketing-story-craft.md#od-openmotion-ad-script) | [템플릿](assets/10-evidence-template.md) |
-| AI 영상 프롬프트·연속성 인계 | [설계 절차](references/11-ai-handoff.md); Veo·Seedance식 지시·영상→재현 프롬프트면 [AI 영상 지시법](references/11a-ai-video-prompting.md) | [템플릿](assets/11-ai-handoff-template.md) |
+| AI 영상 프롬프트·연속성 인계 | [설계 절차](references/11-ai-handoff.md); Veo·Seedance식 지시·영상→재현 프롬프트면 [AI 영상 지시법](references/11a-ai-video-prompting.md); 감정 비트·청자 반응·화면 밖 발화·네이티브 동기 대사가 핵심이면 [연기 중심 영상 프롬프트](references/performance-first-video-prompting.md) | [템플릿](assets/11-ai-handoff-template.md) |
 | 콘티→영상·후속 생성·시퀀스 편집/납품 | **필수:** [시퀀스 실행](references/sequence-execution.md) — 생성 전 실제 프레임 대조·수정, 채택 구간 인계, 편집 출력 검수 | `scripts/sequence_context.py`, `validate_sequence.py`, `inspect_sequence_frames.py`, `render_sequence.py` |
 | 제작 검수·레퍼런스 의도 대조·요청 기반 회고 | [설계 절차](references/12-qa.md) | [템플릿](assets/12-qa-template.md) |
 | 아이디어 발상·브랜드 영상 | [설계 절차](references/13-ideation-brand.md) | [템플릿](assets/13-ideation-brand-template.md) |

@@ -31,6 +31,10 @@ FrameAtlas 출처 원장의 공개 페이지 확인 기록에 근거한다. 아�
 | [GrokCine Editing](https://grokcine.com/techniques/editing/), [CreaLens Techniques](https://crealens.ai/techniques) | 컷·촬영 용어와 예시 탐색. 선택한 기법만 현재 장면의 컷 의도와 검수 조건으로 다시 작성 | [편집 선택표](edit-sound-language-catalog.md), 06 샷·09 편집 |
 | [QuestStudio](https://queststudio.io/blog/cinematic-video-editing-prompts), [ChatCut](https://chatcut.io/blog/video-editing-prompts) | QuestStudio는 샷별 편집 브리프·페이싱 참고, ChatCut은 확보한 푸티지의 러프컷·자막·B-roll 지시 참고. 실제 편집에는 원본과 확인된 타이밍을 사용 | [09 편집](09-edit.md), [09a 숏폼 편집 레시피](09a-short-form-edit-recipes.md) |
 
+### 무료 상업용 후반작업 후보
+
+BGM·OST 분위기의 스톡 음악, Foley/SFX, 합성용 VFX가 필요하면 [무료 후반작업 자산 가이드](free-post-production-assets.md)에서 작업·게시처에 맞는 후보와 제외 조건을 확인한다. 개별 파일의 허가는 아래 행위별 권리 계약으로 남긴다.
+
 ## 선택 → 인계 → 검수
 
 1. 이번 샷이 공개/유보할 정보·행동·감정을 정한다. 이미 잠긴 외형/카메라는 다시 고르지 않는다.
