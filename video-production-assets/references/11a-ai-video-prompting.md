@@ -4,6 +4,14 @@
 
 감정 비트·시선 축·청자 반응·화면 안팎 동기 대사가 결과를 좌우하면, 모델별 문법으로 옮기기 전에 [연기 중심 프롬프트와 시간 충돌 검사](performance-first-video-prompting.md)를 적용한다.
 
+## 접촉이 중요한 샷의 시작·동작·끝 검산
+
+제품 조작·신체 접촉처럼 중간 동작을 생략하면 결과가 성립하지 않는 샷은, 기존 shot/panel에 승인된 시작 상태 → 필요한 접근·접촉·변화 순서 → 화면에서 확인할 종료 상태를 한 줄로 적는다. 시작과 끝 이미지가 맞아도 중간 경로는 따로 설계한다. 예: 유리 덮개가 닫힌 케이스의 물건을 꺼낸다면, 닫힘 → 손이 손잡이를 들어 덮개를 엶 → 손이 내부에 닿아 물건을 들어 올림 → 빈 받침대와 손에 들린 물건. 이미 암시가 충분한 평범한 샷에 단계 수를 강제하지 않는다.
+
+같은 앵글의 연속 동작이라면 [시퀀스 실행](sequence-execution.md)에 따라 채택 구간의 실제 끝 상태를 우선하고, 선택 모델이 해당 역할을 지원할 때만 프레임을 바인딩한다. 새 앵글·리액션·시간 생략은 같은 이미지로 맞추지 않고 보존할 접촉·소품·시선 상태와 의도된 차이를 연결한다. 독립 제출분은 공통 잠금 문장을 동일하게 유지하고 그 클립이 보여 줄 동작만 싣는다. 계획 프레임이나 공급자 접수는 연속성 검수가 아니다.
+
+참고: [Muse Animated Short Film의 키프레임](https://github.com/sonlovinbot-team/Muse-animated-short-film/blob/72561de52eb8e9ee240f5f79d0485e8d584912a8/references/03-keyframes.md)과 [동작 예시](https://github.com/sonlovinbot-team/Muse-animated-short-film/blob/72561de52eb8e9ee240f5f79d0485e8d584912a8/references/04-mega-prompts.md), [Muse 분할 작성법](https://github.com/masonmosen/muse-video-prompt-skill/blob/0885b51e9b96da786939882751d929c186e9378b/references/prompt-template.md). 문서 읽기만 수행했다. 동일 파일 경계, 업로드 순서, 화면비, 길이·모델 제한은 범용 조건으로 들이지 않는다.
+
 ## open-design 각색 절
 
 ### Veo식 5요소 요청문·대사·부정 조건 {#od-genmedia-video-editor}
